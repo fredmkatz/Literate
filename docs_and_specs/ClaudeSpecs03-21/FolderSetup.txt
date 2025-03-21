@@ -1,0 +1,22 @@
+presentable/
+├── __init__.py       # Package initialization
+├── pom_config.py     # Configuration management with confuse
+├── pom_grammar_generator.py  # Grammar generation logic
+├── pom_visitor.py    # Parse tree visitor
+├── pom_parser.py     # Main parser class
+├── pom_diagnostics.py  # Diagnostic system
+├── pom_utils.py      # Shared utility functions
+├── formats/
+│   ├── __init__.py
+│   ├── default_format.yaml
+│   ├── json_format.yaml
+│   └── yaml_format.yaml
+└── tests/
+    ├── __init__.py
+    ├── test_config.py
+    ├── test_grammar_generator.py
+    ├── test_visitor.py
+    ├── test_parser.py
+    └── models/
+        ├── __init__.py
+        └── test_model.py

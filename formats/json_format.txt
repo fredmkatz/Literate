@@ -1,0 +1,67 @@
+# JSON format for Presentable Object Model
+
+# Parser configuration
+parser:
+  case_sensitive: true
+  ambiguity: resolve
+  debug: false
+
+# Terminal definitions
+terminals:
+  string_format: '"\\""[^"\\"]*"\\""'
+  number_format: /[0-9]+(\.[0-9]+)?/
+  boolean_format: '"true" | "false"'
+
+# List format
+list_format:
+  opener: '['
+  closer: ']'
+  separator: ','
+  whitespace: false
+
+# Field clause format
+field_clause_template: '"{field_name}": {field_value}'
+
+# JSON-specific templates
+class_templates:
+  LiterateDataModel:
+    presentable_template: '{{"type": "model", "name": {name}, "subjects": {subjects}}}'
+  
+  Subject:
+    presentable_template: '{{"type": "subject", "name": {name}, "classes": {classes}, "subjects": {subjects}}}'
+  
+  Class:
+    presentable_template: '{{"type": "class", "name": {name}, "attributes": {attributes}}}'
+  
+  Attribute:
+    presentable_template: '{{"type": "attribute", "name": {name}, "data_type_clause": {data_type_clause}}}'
+  
+  DataType:
+    is_abstract: true
+  
+  BaseDataType:
+    presentable_template: '{{"type": "base-data-type", "class_": {class_}, "is_value": {is_value}}}'
+  
+  ListDataType:
+    presentable_template: '{{"type": "list-data-type", "element_type": {element_type}}}'
+  
+  SetDataType:
+    presentable_template: '{{"type": "set-data-type", "element_type": {element_type}}}'
+  
+  MappingDataType:
+    presentable_template: '{{"type": "mapping-data-type", "domain_type": {domain_type}, "range_type": {range_type}}}'
+  
+  DataTypeClause:
+    presentable_template: '{{"data_type": {data_type}, "is_optional": {is_optional}}}'
+
+# Boolean values are represented as standard JSON booleans
+boolean_values:
+  is_value_type:
+    presentable_true: 'true'
+    presentable_false: 'false'
+    explicit: true
+  
+  is_optional:
+    presentable_true: 'true'
+    presentable_false: 'false'
+    explicit: true

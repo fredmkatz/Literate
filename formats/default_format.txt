@@ -1,0 +1,78 @@
+# Default format for Presentable Object Model
+
+# Parser configuration
+parser:
+  case_sensitive: false
+  ambiguity: explicit
+  debug: false
+
+# Terminal definitions
+terminals:
+  string_format: '"\\""[^"\\"]*"\\""'
+  number_format: /[0-9]+(\.[0-9]+)?/
+  boolean_format: '"true" | "false"'
+
+# Special tokens
+special_tokens:
+  '#': HASH
+  '*': ASTERISK
+  '_': UNDERSCORE
+  '-': DASH
+  '(': LPAREN
+  ')': RPAREN
+  '[': LBRACK
+  ']': RBRACK
+  '{': LBRACE
+  '}': RBRACE
+  ',': COMMA
+  ':': COLON
+  '.': DOT
+
+# List format
+list_format:
+  opener: '['
+  closer: ']'
+  separator: ','
+  whitespace: true
+
+# Field clause format
+field_clause_template: '{field_name}: {field_value}'
+
+# Default templates for common classes
+class_templates:
+  # Base class with template
+  Class:
+    presentable_header: '_ **{name}**{{#if one_liner}} - {one_liner}{{/if}}'
+  
+  Attribute:
+    presentable_header: '- **{name}**{{#if one_liner}} - {one_liner}{{/if}} {{> data_type_clause}}'
+  
+  DataType:
+    is_abstract: true
+  
+  BaseDataType:
+    presentable_template: '{{#if is_value}}value{{else}}reference{{/if}} {class_}'
+  
+  ListDataType:
+    presentable_template: 'List of {element_type}'
+  
+  SetDataType:
+    presentable_template: 'Set of {element_type}'
+  
+  MappingDataType:
+    presentable_template: 'Mapping from {domain_type} to {range_type}'
+  
+  DataTypeClause:
+    presentable_template: '({{#if is_optional}}optional{{else}}{{#if explicit}}required{{/if}}{{/if}} {data_type})'
+
+# Standard boolean representations
+boolean_values:
+  is_value_type:
+    presentable_true: 'ValueType'
+    presentable_false: 'ReferenceType'
+    explicit: true
+  
+  is_optional:
+    presentable_true: 'optional'
+    presentable_false: 'required'
+    explicit: false

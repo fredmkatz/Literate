@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "presentable"
+version = "0.1.0"
+description = "Presentable Object Model system"
+authors = ["Your Name"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+lark-parser = "^0.12.0"
+confuse = "^2.0.1"
+pyyaml = "^6.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,331 @@
+"""
+Unit tests for PomVisitor class.
+"""
+
+import unittest
+from ..pom_visitor import PomVisitor, VisitContext
+from ..pom_diagnostics import DiagnosticRegistry
+from .models.test_model import SimpleClass, ComplexClass
+
+# Mock lark classes for testing
+class MockToken:
+    def __init__(self, type_, value):
+        self.type = type_
+        self.value = value
+
+class MockTree:
+    def __init__(self, data, children=None):
+        self.data = data
+        self.children = children or []
+        self.meta = None
+
+class TestVisitContext(unittest.TestCase):
+    """Tests for the VisitContext class."""
+    
+    def test_with_object(self):
+        """Test creating a new context with an object."""
+        # Create an object and a context
+        obj = SimpleClass("test")
+        context = VisitContext()
+        
+        # Add object to context
+        new_context = context.with_object("simple_class", obj)
+        
+        # Check that the object is in the new context
+        self.assertEqual(new_context.get_object("simple_class"), obj)
+        
+        # Check that the original context doesn't have the object
+        self.assertIsNone(context.get_object("simple_class"))
+    
+    def test_restore(self):
+        """Test restoring the previous context."""
+        # Create a context chain
+        context1 = VisitContext()
+        context2 = context1.with_object("obj1", "value1")
+        context3 = context2.with_object("obj2", "value2")
+        
+        # Restore to previous context
+        restored = context3.restore()
+        
+        # Check that the restored context is context2
+        self.assertEqual(restored, context2)
+        self.assertEqual(restored.get_object("obj1"), "value1")
+        self.assertIsNone(restored.get_object("obj2"))
+
+class TestPomVisitor(unittest.TestCase):
+    """Tests for the PomVisitor class."""
+    
+    def setUp(self):
+        """Set up test fixtures."""
+        # Import test_model module for testing
+        import sys
+        from . import models
+        self.model_module = sys.modules[models.__name__ + '.test_model']
+        
+        # Create a visitor
+        self.diagnostics = DiagnosticRegistry()
+        self.visitor = PomVisitor(self.model_module, self.diagnostics)
+    
+    def test_build_class_registry(self):
+        """Test building the class registry."""
+        # Check that the registry contains our test classes
+        self.assertIn("simple_class", self.visitor.class_registry)
+        self.assertIn("complex_class", self.visitor.class_registry)
+        
+        # Check that the registry maps to the correct classes
+        self.assertEqual(self.visitor.class_registry["simple_class"], SimpleClass)
+        self.assertEqual(self.visitor.class_registry["complex_class"], ComplexClass)
+    
+    def test_is_class_node(self):
+        """Test identifying class nodes."""
+        # Class nodes should return True
+        self.assertTrue(self.visitor._is_class_node("simple_class"))
+        self.assertTrue(self.visitor._is_class_node("complex_class"))
+        
+        # Non-class nodes should return False
+        self.assertFalse(self.visitor._is_class_node("simple_class_value"))
+        self.assertFalse(self.visitor._is_class_node("simple_class_field_clause"))
+    
+    def test_is_value_node(self):
+        """Test identifying value nodes."""
+        # Value nodes should return True
+        self.assertTrue(self.visitor._is_value_node("simple_class_name_value"))
+        self.assertTrue(self.visitor._is_value_node("complex_class_items_value"))
+        
+        # Non-value nodes should return False
+        self.assertFalse(self.visitor._is_value_node("simple_class"))
+        self.assertFalse(self.visitor._is_value_node("simple_class_field_clause"))
+    
+    def test_parse_value_node_name(self):
+        """Test parsing value node names."""
+        # Parse a value node name
+        class_name, field_name = self.visitor._parse_value_node_name(
+            "simple_class_name_value"
+        )
+        
+        # Check that the parsing is correct
+        self.assertEqual(class_name, "simple_class")
+        self.assertEqual(field_name, "name")
+        
+        # Parse a more complex value node name
+        class_name, field_name = self.visitor._parse_value_node_name(
+            "complex_class_nested_items_value"
+        )
+        
+        # Check that the parsing is correct
+        self.assertEqual(class_name, "complex_class_nested")
+        self.assertEqual(field_name, "items")
+    
+    def test_get_class_type(self):
+        """Test getting class types."""
+        # Get the class type for a known class
+        class_type = self.visitor._get_class_type("simple_class")
+        
+        # Check that the correct class type was returned
+        self.assertEqual(class_type, SimpleClass)
+        
+        # Try to get a class type for an unknown class
+        class_type = self.visitor._get_class_type("unknown_class")
+        
+        # Check that None was returned
+        self.assertIsNone(class_type)
+    
+    def test_create_object(self):
+        """Test creating objects."""
+        # Create a simple class object
+        obj = self.visitor._create_object(SimpleClass)
+        
+        # Check that the object was created correctly
+        self.assertIsInstance(obj, SimpleClass)
+        
+        # Create a complex class object
+        obj = self.visitor._create_object(ComplexClass)
+        
+        # Check that the object was created correctly
+        self.assertIsInstance(obj, ComplexClass)
+    
+    def test_handle_class_node(self):
+        """Test handling class nodes."""
+        # Create a mock tree for a simple class
+        tree = MockTree("simple_class", [
+            MockTree("simple_class_name_value", [
+                MockToken("STRING", '"TestClass"')
+            ]),
+            MockTree("simple_class_value_value", [
+                MockToken("NUMBER", "42")
+            ])
+        ])
+        
+        # Handle the class node
+        obj = self.visitor._handle_class_node(tree, "simple_class")
+        
+        # Check that the object was created correctly
+        self.assertIsInstance(obj, SimpleClass)
+        
+        # Check that the field values were set correctly
+        # Note: The values would normally be set by visiting the child nodes,
+        # but we're mocking the tree so the values won't be set.
+        # We'll test that separately.
+    
+    def test_handle_value_node(self):
+        """Test handling value nodes."""
+        # Create a simple class object and add it to the context
+        obj = SimpleClass("Test")
+        self.visitor.context = self.visitor.context.with_object("simple_class", obj)
+        
+        # Create a mock tree for a value node
+        tree = MockTree("simple_class_name_value", [
+            MockToken("STRING", '"NewName"')
+        ])
+        
+        # Handle the value node
+        value = self.visitor._handle_value_node(tree, "simple_class_name_value")
+        
+        # Check that the value was set correctly
+        self.assertEqual(obj.name, "NewName")
+    
+    def test_visit_camel_case_value(self):
+        """Test processing camel case values."""
+        # Create a mock tree for a camel case value
+        tree = MockTree("camel_case_value", [
+            MockToken("IDENTIFIER", "hello"),
+            MockToken("IDENTIFIER", "world")
+        ])
+        
+        # Process the camel case value
+        value = self.visitor.visit_camel_case_value(tree)
+        
+        # Check that the value was processed correctly
+        self.assertEqual(value, "helloWorld")
+    
+    def test_visit_upper_camel_value(self):
+        """Test processing upper camel case values."""
+        # Create a mock tree for an upper camel case value
+        tree = MockTree("upper_camel_value", [
+            MockToken("IDENTIFIER", "hello"),
+            MockToken("IDENTIFIER", "world")
+        ])
+        
+        # Process the upper camel case value
+        value = self.visitor.visit_upper_camel_value(tree)
+        
+        # Check that the value was processed correctly
+        self.assertEqual(value, "HelloWorld")
+    
+    def test_process_boolean_value(self):
+        """Test processing boolean values."""
+        # Create a mock tree for a boolean value
+        tree = MockTree("boolean_value", [
+            MockToken("BOOLEAN", "true")
+        ])
+        
+        # Process the boolean value
+        value = self.visitor._process_boolean_value(
+            tree, "is_optional", None
+        )
+        
+        # Check that the value was processed correctly
+        self.assertTrue(value)
+        
+        # Create a mock tree for a boolean value with metadata
+        tree = MockTree("boolean_value", [
+            MockToken("IDENTIFIER", "optional")
+        ])
+        
+        # Create a mock target object with field metadata
+        class MockObj:
+            pass
+        
+        obj = MockObj()
+        
+        # Mock the _get_field_metadata method
+        self.visitor._get_field_metadata = lambda obj, field_name: {
+            "presentable_true": "optional",
+            "presentable_false": "required"
+        }
+        
+        # Process the boolean value
+        value = self.visitor._process_boolean_value(
+            tree, "is_optional", obj
+        )
+        
+        # Check that the value was processed correctly
+        self.assertTrue(value)
+    
+    def test_process_list_value(self):
+        """Test processing list values."""
+        # Create a mock tree for a list value
+        tree = MockTree("list_value", [
+            MockToken("LBRACK", "["),
+            MockToken("STRING", '"item1"'),
+            MockToken("COMMA", ","),
+            MockToken("STRING", '"item2"'),
+            MockToken("RBRACK", "]")
+        ])
+        
+        # Process the list value
+        value = self.visitor._process_list_value(tree, list)
+        
+        # Check that the value was processed correctly
+        self.assertEqual(len(value), 2)
+        self.assertEqual(value[0], '"item1"')
+        self.assertEqual(value[1], '"item2"')
+    
+    def test_is_bool_type(self):
+        """Test checking for boolean types."""
+        # Check that bool is recognized as a boolean type
+        self.assertTrue(self.visitor._is_bool_type(bool))
+        
+        # Check that other types are not recognized as boolean types
+        self.assertFalse(self.visitor._is_bool_type(str))
+        self.assertFalse(self.visitor._is_bool_type(int))
+        self.assertFalse(self.visitor._is_bool_type(list))
+    
+    def test_is_string_type(self):
+        """Test checking for string types."""
+        # Check that str is recognized as a string type
+        self.assertTrue(self.visitor._is_string_type(str))
+        
+        # Check that other types are not recognized as string types
+        self.assertFalse(self.visitor._is_string_type(bool))
+        self.assertFalse(self.visitor._is_string_type(int))
+        self.assertFalse(self.visitor._is_string_type(list))
+    
+    def test_is_list_type(self):
+        """Test checking for list types."""
+        # Check that list is recognized as a list type
+        self.assertTrue(self.visitor._is_list_type(list[str]))
+        
+        # Check that other types are not recognized as list types
+        self.assertFalse(self.visitor._is_list_type(str))
+        self.assertFalse(self.visitor._is_list_type(bool))
+        self.assertFalse(self.visitor._is_list_type(int))
+    
+    def test_combine_to_camel_case(self):
+        """Test combining identifiers into camel case."""
+        # Combine identifiers into lower camel case
+        value = self.visitor._combine_to_camel_case(
+            ["hello", "world"], False
+        )
+        
+        # Check that the value was combined correctly
+        self.assertEqual(value, "helloWorld")
+        
+        # Combine identifiers into upper camel case
+        value = self.visitor._combine_to_camel_case(
+            ["hello", "world"], True
+        )
+        
+        # Check that the value was combined correctly
+        self.assertEqual(value, "HelloWorld")
+        
+        # Test with empty list
+        value = self.visitor._combine_to_camel_case([], False)
+        
+        # Check that the value was combined correctly
+        self.assertEqual(value, "")
+
+if __name__ == '__main__':
+    unittest.main()
+
+        
