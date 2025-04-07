@@ -6,3 +6,6 @@ git push -u origin main
 
 git pull origin main --allow-unrelated-histories
 
+git add .
+git commit -m "Merge remote changes with local project"
+git push -u origin main
