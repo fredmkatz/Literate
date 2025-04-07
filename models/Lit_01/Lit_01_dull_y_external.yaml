@@ -1,0 +1,36 @@
+## PomDict - External: 
+# From YAML files:
+##	Using built-in format: dull
+## 	Using: settings/dull_format.yaml
+## 	Using: models/Lit_01/Lit_01_dull_format.yaml
+_defaults:
+  is_abstract: false
+  field_value: '{field_name}: {field_value}'
+  str: dull_str
+  int: dull_int
+  float: dull_float
+  bool:
+    'true': 'true'
+    'false': 'false'
+    is_explicit: true
+  list: '{element} (, {element})+'
+  dict: dull dict
+  set: '{{element} (, {element})+}'
+  tuple: '[{element} (, {element})+]'
+  field_clause: '{field_name} ":"  {field_value}'
+Component:
+  header: '_ {_type}: {name}{? - {one_liner}} NEWLINE'
+Class:
+  header: '_ Class: {name}{? - {one_liner}} NEWLINE'
+Attribute:
+  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE'
+BaseDataType:
+  template: '{class_name} {? - {is_value}}'
+ListDataType:
+  template: list of {element_type}
+SetDataType:
+  template: Set of {element_type}
+MappingDataType:
+  template: Mapping from {domain_type} to {range_type}
+DataTypeClause:
+  template: '{is_optional} {data_type}{? {cardinality}}'

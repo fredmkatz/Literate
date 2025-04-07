@@ -1,10 +1,11 @@
+from pom_config import PomConfig
 class PomRenderer:
     """Renderer for Presentable Model objects."""
     
-    def __init__(self, model_module, config, format_name=None):
+    def __init__(self, model_module, pom_config: PomConfig, format_name=None):
         """Initialize the renderer."""
         self.model_module = model_module
-        self.config = config
+        self.pom_config = pom_config
         self.format_name = format_name
         
         # Load templates

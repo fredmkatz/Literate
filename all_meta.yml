@@ -1,0 +1,29 @@
+_defaults:
+  header: 'Header:  '
+  field_value_clause: '{name}: {value}'
+Paragraph: {}
+OneLiner: {}
+Component:
+  is_abstract: true
+  header: '_ {_type}: {name}{? - {one_liner}} NEWLINE'
+Class:
+  header: '_ Class: {name}{? - {one_liner}} NEWLINE'
+Attribute:
+  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE'
+DataType:
+  is_abstract: true
+BaseDataType:
+  template: '{class_name} {? - {is_value}}'
+ListDataType:
+  template: LIST_OF {element_type}
+SetDataType:
+  template: SET_OF {element_type}
+MappingDataType:
+  template: Mapping fromff {domain_type} TO {range_type}
+DataTypeClause:
+  template: '{is_optional} {data_type}{? {cardinality}}'
+FormulaClause: {}
+Formula: {}
+Constraint: {}
+Derivation: {}
+Default: {}

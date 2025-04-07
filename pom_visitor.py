@@ -52,8 +52,8 @@ except ImportError:
             """Visit a leaf node."""
             return token.value
 
-from .pom_diagnostics import DiagnosticRegistry, Diagnostic, DiagnosticSeverity, SourceLocation
-from .pom_utils import to_snake_case, to_upper_camel, to_lower_camel
+from pom_diagnostics import DiagnosticRegistry, Diagnostic, DiagnosticSeverity, SourceLocation
+from pom_utils import to_snake_case, to_upper_camel, to_lower_camel
 
 class VisitContext:
     """
@@ -611,3 +611,4 @@ class PomVisitor(Interpreter):
     def _is_bool_type(self, field_type):
         """
         Check if a field type is boolean
+        """

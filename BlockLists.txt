@@ -1,0 +1,122 @@
+ Here's the effect Im trying to achieve:
+// 1. A block list is a list of elements, separated by newlines.
+So, unlike a list of class names, eg, where the input and output shoult look line:
+Classes: ClassA, ClassB, ClassC
+
+for Constraints or Annotations, where each element is a self introducing block, the input and output should look like:
+Constraint: ConstraintA
+Constraint: ConstraintB 
+...
+
+ 
+ //          ========== Attribute ==========
+Attribute:	DASH Attribute_name_value [ DASH Attribute_oneLiner_value ] [ LPAREN Attribute_dataTypeClause_value RPAREN ] NEWLINE (
+		NAME: LowerCamel}	-> Attribute_name_simple
+	|	ONE_LINER: OneLiner}	-> Attribute_oneLiner_simple
+	|	ABBREVIATION: UpperCamel}	-> Attribute_abbreviation_simple
+	|	ELABORATION: Paragraph+}	-> Attribute_elaboration_list
+	|	Annotation+	-> Attribute_annotations_list
+	|	DATA_TYPE_CLAUSE: DataTypeClause}	-> Attribute_dataTypeClause_simple
+	|	DERIVATION: Derivation}	-> Attribute_derivation_simple
+	|	DEFAULT: Default}	-> Attribute_default_simple
+	|	Constraint+	-> Attribute_constraints_list
+	) *
+
+
+This can be done by using block_list_template, and field_value, as for constraints.
+ block_list_template = "{element}+"
+
+    constraints: Optional[List[Constraint]] = field(default_factory=list, metadata={
+        "list": block_list_template, "field_value": "{field_value}"
+    })
+
+Or, ny using the block_list() function, which is a bit more flexible and combines the work.
+    annotations: Optional[List[Annotation]] = field(default_factory=list, metadata=block_list())
+
+
+def block_list(separator: str = None, leader: str = "") -> List[Any]:
+    """
+    creates metadata for a block_list:
+    - a list of one or more elements.
+    - separated by nothing. (on the assumption that each element is a block(ends with a newline)
+    - OR, by _separator_: (might be a an extra newline)
+    - with leader (usually the field name of the list as a whole)
+    - or without leader. (When each element is a block and has its own header)
+    """
+    
+    template = "{element}+"
+    if separator:
+        element = "{element}"
+        template = f"{element} ({separator} {element})*"
+    
+    fv_clause = "{field_value}"
+    if leader:
+        fv_clause = f"{leader}  NEWLINE {fv_clause}E"
+    return {
+        "list": template,
+        "field_value": fv_clause,
+    }
+
+ 
+ 
+ Here's the question:
+ Could I do this by Defining a BlockList class, (or type?) and using it in the declaration of the list.
+ So.
+
+ constraints: Optional[BlockList[Constraint]] where:
+   class functions of BlockList would provide the list template and field_value template?
+
+Also, could that be parameterized by the separator and leader?
+And, finally, how would that affect youp parsing of type expressions in FieldType, attached.
+
+## Claude soltution:
+def block_list_field(*, separator=None, leader=None, **kwargs):
+    """
+    Create a field with appropriate metadata for block-style lists.
+    
+    Args:
+        separator: Optional separator between blocks (default: None)
+        leader: Optional leader text for the list (default: None)
+        **kwargs: Additional field parameters and metadata
+    
+    Returns:
+        A field with the block list metadata and any additional metadata
+    """
+    # Create the block list metadata
+    block_list_metadata = {
+        "list": "{element}+" if not separator else f"{{element}} ({separator} {{element}})*",
+        "field_value": "{field_value}" if not leader else f"{leader} NEWLINE {{field_value}}"
+    }
+    
+    # Get any existing metadata from kwargs
+    metadata = kwargs.pop("metadata", {})
+    
+    # Merge the block list metadata with any provided metadata
+    # Block list metadata takes precedence if there are conflicts
+    merged_metadata = {**metadata, **block_list_metadata}
+    
+    # Create the field with the merged metadata and any other kwargs
+    return field(default_factory=list, metadata=merged_metadata, **kwargs)
+
+    USAGE:
+    class Attribute(Component):
+    # A simple block list
+    constraints: Optional[List[Constraint]] = block_list_field()
+    
+    # A block list with additional metadata
+    annotations: Optional[List[Annotation]] = block_list_field(
+        leader="ANNOTATIONS",
+        metadata={
+            "description": "List of annotations for this attribute",
+            "example": "Example annotation",
+            "min_items": 0,
+            "max_items": 10
+        }
+    )
+    
+    # A block list with other field parameters
+    examples: Optional[List[Example]] = block_list_field(
+        separator="NEWLINE",
+        init=False,  # Additional field parameter
+        repr=False   # Additional field parameter
+    )

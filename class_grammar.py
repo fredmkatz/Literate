@@ -1,5 +1,8 @@
 from lark import ParseTree
-from lark import Lark, ParseError
+from lark import  ParseError
+from typing import List, Any
+from pathlib import Path
+
 
 
 class ParseResult:
@@ -12,7 +15,8 @@ class Grammar():
     # rules
     # visitor
     # renderer / templates
-    pass
+    def __init__(self, model_name):
+        self.model_name = model_name
 
 def save_rules():
     # stores syntax rules in a text file (lark), rules_file

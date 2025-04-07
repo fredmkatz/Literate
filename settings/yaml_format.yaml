@@ -1,0 +1,13 @@
+# YAML format for Presentable Object Model
+
+# List format - YAML style with indentation
+list_format:
+  opener: ''  # No bracket
+  closer: ''  # No bracket
+  separator: '-'  # Dash for list items
+  whitespace: true
+  indent: true  # Use indentation for lists
+
+# Field clause format
+field_clause: '{field_name}: {field_value}'
+

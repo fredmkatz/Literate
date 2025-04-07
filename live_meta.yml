@@ -1,0 +1,18 @@
+_defaults:
+  header: 'Header:  '
+  field_value: '{name}: {value}'
+Paragraph: {}
+OneLiner: {}
+Component: {}
+Class: {}
+Attribute: {}
+BaseDataType: {}
+ListDataType: {}
+SetDataType: {}
+MappingDataType: {}
+DataTypeClause: {}
+FormulaClause: {}
+Formula: {}
+Constraint: {}
+Derivation: {}
+Default: {}

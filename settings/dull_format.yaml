@@ -1,0 +1,12 @@
+# Dull DSL format for Presentable Object Model
+
+
+_defaults:
+  field_clause: '{field_name}: {field_value}'
+  
+
+
+  # List format
+  list: "{element} (, {element})+"
+
+

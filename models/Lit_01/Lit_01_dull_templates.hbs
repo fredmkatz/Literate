@@ -1,0 +1,64 @@
+Annotation_template: {?{emoji}}  {label}: {content} NEWLINE
+Annotation_template_hb: {{field_emoji}}  {{field_label}}: {{field_content}} NEWLINE
+Annotation_template_z: 
+Component_header: _ {_type}: {name}{? - {one_liner}} NEWLINE
+Component_header_hb: _ {{field__type}}: {{field_name}}- {{field_one_liner}} NEWLINE
+Component_header_rule: _ Component__type_value: Component_name_value[- Component_one_liner_value] NEWLINE
+Component_header_z: 
+SubjectE_header: #####  {{name}{? - {one_liner}} NEWLINE
+SubjectE_header_hb: #####  {{{field_name}}- {{field_one_liner}} NEWLINE
+SubjectE_header_rule: #####  {SubjectE_name_value[- SubjectE_one_liner_value] NEWLINE
+SubjectE_header_z: 
+SubjectD_header: ####  {{name}{? - {one_liner}} NEWLINE
+SubjectD_header_hb: ####  {{{field_name}}- {{field_one_liner}} NEWLINE
+SubjectD_header_rule: ####  {SubjectD_name_value[- SubjectD_one_liner_value] NEWLINE
+SubjectD_header_z: 
+SubjectC_header: ###  {{name}{? - {one_liner}} NEWLINE
+SubjectC_header_hb: ###  {{{field_name}}- {{field_one_liner}} NEWLINE
+SubjectC_header_rule: ###  {SubjectC_name_value[- SubjectC_one_liner_value] NEWLINE
+SubjectC_header_z: 
+SubjectB_header: ##  {{name}{? - {one_liner}} NEWLINE
+SubjectB_header_hb: ##  {{{field_name}}- {{field_one_liner}} NEWLINE
+SubjectB_header_rule: ##  {SubjectB_name_value[- SubjectB_one_liner_value] NEWLINE
+SubjectB_header_z: 
+LDM_header: #  {{name}{? - {one_liner}} NEWLINE
+LDM_header_hb: #  {{{field_name}}- {{field_one_liner}} NEWLINE
+LDM_header_rule: #  {LDM_name_value[- LDM_one_liner_value] NEWLINE
+LDM_header_z: 
+BaseDataType_template: {class_name} {? - {is_value}}
+BaseDataType_template_hb: {{field_class_name}} - {{field_is_value}}
+BaseDataType_template_z: 
+ListDataType_template: list of {element_type}
+ListDataType_template_hb: list of {{field_element_type}}
+ListDataType_template_z: 
+SetDataType_template: Set of {element_type}
+SetDataType_template_hb: Set of {{field_element_type}}
+SetDataType_template_z: 
+MappingDataType_template: Mapping from {domain_type} to {range_type}
+MappingDataType_template_hb: Mapping from {{field_domain_type}} to {{field_range_type}}
+MappingDataType_template_z: 
+DataTypeClause_template: {is_optional} {data_type}{? {cardinality}}
+DataTypeClause_template_hb: {{field_is_optional}} {{field_data_type}}{{field_cardinality}}
+DataTypeClause_template_z: 
+Class_header: _ Class: {name}{? - {one_liner}} NEWLINE
+Class_header_hb: _ Class: {{field_name}}- {{field_one_liner}} NEWLINE
+Class_header_rule: _ Class: Class_name_value[- Class_one_liner_value] NEWLINE
+Class_header_z: 
+ValueType_header: _ {name}{? - {one_liner}} NEWLINE
+ValueType_header_hb: _ {{field_name}}- {{field_one_liner}} NEWLINE
+ValueType_header_rule: _ ValueType_name_value[- ValueType_one_liner_value] NEWLINE
+ValueType_header_z: 
+ReferenceType_header: _ {name}{? - {one_liner}} NEWLINE
+ReferenceType_header_hb: _ {{field_name}}- {{field_one_liner}} NEWLINE
+ReferenceType_header_rule: _ ReferenceType_name_value[- ReferenceType_one_liner_value] NEWLINE
+ReferenceType_header_z: 
+AttributeSection_header: -  {name}{? - {one_liner}}{? ({is_required})} NEWLINE
+AttributeSection_header_hb: -  {{field_name}}- {{field_one_liner}}({{field_is_required})} NEWLINE
+AttributeSection_header_rule: -  AttributeSection_name_value[- AttributeSection_one_liner_value][(AttributeSection_is_required_value)] NEWLINE
+AttributeSection_header_z: 
+Attribute_header: -  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE
+Attribute_header_hb: -  {{field_name}}- {{field_one_liner}}({{field_data_type_clause})} NEWLINE
+Attribute_header_rule: -  Attribute_name_value[- Attribute_one_liner_value][(Attribute_data_type_clause_value)] NEWLINE
+Attribute_header_z: 
+default_header: {{name}}{{#if one_liner}} - {{one_liner}}{{/if}}
+default_field: {{name}}: {{value}}
