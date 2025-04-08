@@ -24,6 +24,7 @@ def try_file(g, path):
     print("Text is: ", text)
     result = g.parse(text)
     print("parse tree = ", result.parse_tree)
+    print("parse tree = ", result.parse_tree.pretty())
     print("Text is: ", text)
 
     

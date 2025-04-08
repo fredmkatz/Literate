@@ -27,7 +27,7 @@ from typing import (
 )
 from utils_pom.util_flogging import flogger, trace_decorator, trace_method
 from utils_pom.util_json_pom import as_json, clean_dict
-from class_casing import UpperCamel, LowerCamel
+from class_casing import UpperCamel, LowerCamel, NTCase, UpperSnake
 from class_field_type import FieldType
 from class_rules import Rule, DisjunctiveRule, RuleComment
 from class_field_type import field_terminals, to_terminal_name
@@ -38,6 +38,7 @@ from utils_pom.util_fmk_pom import write_yaml
 
 from pom_config import primitive_terminals, pmark_named
 
+TerminalCase = UpperSnake
 Clause = str
 Phrase = str
 
@@ -59,6 +60,15 @@ except ImportError:
 def print_meta_info(x):
     print(x.__module__, x.__args__, x.__origin__)
 
+def terminal_name(class_name :str) ->str:
+    snake_name = UpperSnake(f"{class_name}_Q")
+    return str(snake_name)
+
+
+def literal_field_name(field_name: str) -> str:    
+    snake_name = UpperSnake(f"{field_name}_QF")
+    return str(snake_name)
+    
 
 class PomGrammarGenerator(grammar_base):
     """
@@ -84,6 +94,7 @@ class PomGrammarGenerator(grammar_base):
         self.class_hierarchy = {}
         self.rules = List[Union[str, Rule]]
         self.terminals = set()
+        self.field_name_literals = set()
         self.templates: Dict[str, Union[PomTemplate, str]] = {}
 
         self.templates2 = {}
@@ -229,6 +240,7 @@ class PomGrammarGenerator(grammar_base):
             name for name, info in self.class_hierarchy.items() if not info["bases"]
         ]
         if root_classes:
+            root_classes = [str(NTCase(name)) for name in root_classes]
             starter_rule = DisjunctiveRule("start", root_classes)
             grammar_parts.append(str(starter_rule))
 
@@ -243,15 +255,19 @@ class PomGrammarGenerator(grammar_base):
 
         # Add all terminals
         grammar_parts.append("// ===== Terminal definitions =====")
+        grammar_parts.append("// ===== Field name literals =====")
+        for qf_name in sorted(self.field_name_literals):
+            literal_name = qf_name.replace("_QF", "").lower()
+            grammar_parts.append(f"{qf_name}: \"{literal_name}\"")
 
         grammar_parts.append("")
         grammar_parts.append("// ===== Named Punctuation =====")
         for name, value in pmark_named.items():
             # flogger.infof(f"Pmark named: {name} = {value}")
-            if name in self.terminals or name in field_terminals:
-                # flogger.infof(f"Pmark named: {name} = {value} is in terminals")
+            # if name in self.terminals or name in field_terminals or name == "NEWLINE":
+            #     # flogger.infof(f"Pmark named: {name} = {value} is in terminals")
 
-                grammar_parts.append(f"{name}: '{value}'")
+                grammar_parts.append(f"{name}: \"{value}\"")
 
         grammar_parts.append("")
         grammar_parts.append("// ===== Tokens =====")
@@ -270,7 +286,10 @@ class PomGrammarGenerator(grammar_base):
             }:
                 # Allow for case insensitive keywords
                 # Also replace '_" with optional space pattern
-                terminal_pattern = terminal.replace("_", "\\s?").lower()
+                terminal1 = re.sub("_Q$", "", terminal)
+
+                terminal_pattern = terminal1.replace("_", "\\s?").lower()
+                
                 grammar_parts.append(
                     f'{terminal}: "{terminal_pattern}"{case_insensitive}'
                 )
@@ -283,6 +302,7 @@ class PomGrammarGenerator(grammar_base):
         grammar_parts.append("")
 
         # Add whitespace handling
+
         grammar_parts.append("// Whitespace handling")
         grammar_parts.append("WHITESPACE: /[ \\t\\n\\r]+/")
         grammar_parts.append('COMMENT: "//" /[^\\n]*/ "\\n"')
@@ -321,69 +341,99 @@ class PomGrammarGenerator(grammar_base):
             # This is a token class, generate a simple rule
 
             # Generate a simple token rule
-            rule_name = UpperCamel(class_name)
+            rule_name = str(NTCase(class_name))
             token_pattern = cls.token_pattern()  # gets message? shown
             # token_pattern = cls.token_pattern_str # Works. gets the pattern from the class
             flogger.infof(f"Token pattern: {token_pattern}")
             self.rules.append(Rule(rule_name, token_pattern))
             return
 
+        full_template_clause = None
+        header_clause = None
+        hierarchy_clause = None
+        field_clauses_name = None
+        clause_rule = None
+        fields_needing_rules = set()
+
         # Generate the type hierarchy rule
-        self._generate_type_hierarchy_rule(class_name)
+        hierarchy_clause = self._generate_type_hierarchy_clause(class_name)
 
         # Check if this is an abstract class that shouldn't generate direct rules
         if _is_abstract_class(cls, class_name):
             flogger.infof(f"Class {class_name} is abstract, skipping rule generation")
             # Only generate type hierarchy rule
-            return
-        flogger.infof(
-            f"Class {class_name} is not abstract, generating own rule with clauses"
-        )
-
-        fields_needing_rules = set()
-
-
-        # if the class has a template, just use that
-        full_template = class_meta.get("template")
-        if full_template:
-            pom_full_template = PomTemplate(full_template)
-            flogger.infof(f"Full template is {full_template}")
-            full_rule = self._gen_full_class_by_template(class_name, pom_full_template)
-            fields_needing_rules = pom_full_template.find_fields()
-            self.rules.append(full_rule)
-
         else:
-
-            # Generate the header rule if template exists
-            header_clause = ""
-            header_template = class_meta.get("header")
-            if header_template:
-                # flogger.infof(f"Header template is {header_template}")
-                header_clause = self._gen_class_header(
-                    class_name, PomTemplate(header_template)
-                )
-                # flogger.infof(f"Header clause is {header_clause}")
-
-                # Fields in the header have non terminal ClassName.FieldName_value
-                # and need corresponding rules.  So get a list of those fields to
-                # pass to gen_field_clauses()
-                fields_needing_rules = PomTemplate(header_template).find_fields()
-                # flogger.infof("header fields are: {haeder_fields}")
-
-            # Generate field clause rules
-            (field_clauses, field_value_rules) = self._gen_field_clauses(
-                class_name, cls, fields_needing_rules
+            
+            flogger.infof(
+                f"Class {class_name} is not abstract, generating own rule with clauses"
             )
-            body_clauses = "\n\t|\t".join(field_clauses)
-            body_part = f"(\n\t\t{body_clauses}\n\t) *"
-            if header_clause:
-                body_part = f"{header_clause} {body_part}"
-            full_class_rule = Rule(class_name, body_part)
-            self.rules.append(full_class_rule)
+
+            fields_needing_rules = set()
+
+
+            # if the class has a template, just use that
+            full_template = class_meta.get("template")
+            if full_template:
+                pom_full_template = PomTemplate(full_template)
+                flogger.infof(f"Full template is {full_template}")
+                full_template_clause = self._gen_full_class_by_template(class_name, pom_full_template)
+                fields_needing_rules = pom_full_template.find_fields()
+
+            else:
+
+                # Generate the header rule if template exists
+                header_clause = ""
+                header_template = class_meta.get("header")
+                if header_template:
+                    # flogger.infof(f"Header template is {header_template}")
+                    header_clause = self._gen_class_header(
+                        class_name, PomTemplate(header_template)
+                    )
+                    # flogger.infof(f"Header clause is {header_clause}")
+
+                    # Fields in the header have non terminal ClassName.FieldName_value
+                    # and need corresponding rules.  So get a list of those fields to
+                    # pass to gen_field_clauses()
+                    fields_needing_rules = PomTemplate(header_template).find_fields()
+                    # flogger.infof("header fields are: {haeder_fields}")
+
+                # Generate field clause rules
+                (field_clauses, field_value_rules) = self._gen_field_clauses(
+                    class_name, cls, fields_needing_rules
+                )
+                body_clauses = "\n\t|\t".join(field_clauses)
+                field_clauses_name = str(NTCase(class_name)) + "_clause"
+                clause_rule = Rule(field_clauses_name, body_clauses)
+                self.rules.append(clause_rule)
+        
+        # So. might have:
+        # - a header_clause
+        # - hierarchy_clause
+        # - full_template_clause
+        # - field_clauses_name for needed clauses
+        
+        disjuncts = []
+        if hierarchy_clause:
+            disjuncts.append(hierarchy_clause)
+        if full_template_clause:
+            disjuncts.append(full_template_clause)
+        
+        if header_clause and field_clauses_name:
+            disjuncts.append(header_clause + "  " + "(" + field_clauses_name + ")+" )    
+        elif header_clause:
+            disjuncts.append(header_clause)
+        elif field_clauses_name:
+            disjuncts.append("( " + field_clauses_name + " )+")
+        
+            
+        rule_body = "\n\t|\t".join(disjuncts)
+              
+        full_class_rule = Rule(str(NTCase(class_name)), rule_body)
+        self.rules.append(full_class_rule)
 
         if fields_needing_rules:
             self.rules.append("")
-            self.rules.append(f"//  ... value rules for {UpperCamel(class_name)}  ...")
+            self.rules.append(f"//  ... value rules for {NTCase(class_name)}  ...")
             ## add the value rules
             (field_clauses, field_value_rules) = self._gen_field_clauses(
                 class_name, cls, fields_needing_rules
@@ -427,7 +477,7 @@ class PomGrammarGenerator(grammar_base):
         flogger.infof(f"rule parts are: {rule_parts}")
         # Create the header clause
         full_rhs = " ".join(rule_parts)
-        return Rule(class_name, full_rhs)
+        return full_rhs
 
     @trace_method
     def _gen_field_clauses(
@@ -542,7 +592,7 @@ class PomGrammarGenerator(grammar_base):
         )
         return (field_clause_rule, field_value_rule)
 
-    # @trace_method
+    @trace_method
     def _generate_field_clause(
         self, class_name, field_name, field_obj, fieldType
     ) -> str:
@@ -559,27 +609,27 @@ class PomGrammarGenerator(grammar_base):
         # Get the field clause template
         
         field_meta = self.pom_meta.resolved.get_field_metadata_with_defaults(class_name, field_name, fieldType.suffix())
-        # flogger.infof(f"Field meta  for {class_name}.{field_name} is: {field_meta}")  
+        flogger.infof(f"Field meta  for {class_name}.{field_name} is: {field_meta}")  
         field_clause_template = field_meta.get("field_value", "{field_name}: {field_value}")
 
         # flogger.infof(f"fs template found is: {field_clause_template}")
 
         # Get field metadata
 
-
+        field_name_literal = literal_field_name(field_name)
         # Replace placeholders with actual values
         suffix = fieldType.suffix()
-        rule_text = field_clause_template.replace("{field_name}", field_name.upper())
+        rule_text = field_clause_template.replace("{field_name}", field_name_literal)
 
         # Note: for field level templates, they will still have just one field value, so aliasing can be used
         # for headers and other full spelling templates, we will need to create Rules like: CLASS_FIELD_VALUE : Datatype
         value_phrase = fieldType.value_phrase(field_meta)  #  Might be List[ClassName]
-        node_name = f"{class_name}_{LowerCamel(field_name)}_{suffix}"
+        node_name = f"{NTCase(class_name)}__{NTCase(field_name)}__{suffix}"
         rule_text = rule_text.replace("{field_value}", value_phrase)
         rule_text += f"\t-> {node_name}"  # alias the field value to the node name
 
         # Add the field name to terminals
-        self.terminals.add(field_name.upper())
+        self.field_name_literals.add(field_name_literal)
 
         return rule_text
 
@@ -599,8 +649,8 @@ class PomGrammarGenerator(grammar_base):
         metadata = self.pom_meta.resolved.get_field_metadata_with_defaults(class_name, field_name, fieldType.suffix())
         # Rule name
         # flogger.infof(f"Field name: {field_name}, type(FieldType): {type(fieldType)}")
-        rule_name = f"{class_name}_{LowerCamel(field_name)}_{fieldType.suffix()}"
-        rule_name = f"{class_name}_{LowerCamel(field_name)}_value"
+        rule_name = f"{class_name}__{LowerCamel(field_name)}__{fieldType.suffix()}"
+        rule_name = f"{NTCase(class_name)}__{NTCase(field_name)}__value"
 
         value_phrase = fieldType.value_phrase(metadata)
         # flogger.infof(
@@ -609,7 +659,7 @@ class PomGrammarGenerator(grammar_base):
         return Rule(rule_name, value_phrase)
 
     @trace_method
-    def _generate_type_hierarchy_rule(self, class_name):
+    def _generate_type_hierarchy_clause(self, class_name):
         """
         Generate a rule for type hierarchy (parent class with subtypes).
 
@@ -621,18 +671,16 @@ class PomGrammarGenerator(grammar_base):
         flogger.infof(f"subtypes of {class_name} are {subtypes}")
         if not subtypes:
             # No subtypes, just return
-            return
+            return None
 
         # Convert class name to upper camel for rule naming
-        rule_name = str(UpperCamel(class_name))
+        rule_name = str(NTCase(class_name))
 
         # Create a rule that maps to any subtype (joined with |)
-        subtype_rules = " | ".join(str(UpperCamel(st)) for st in subtypes)
+        subtypes_clause = " | ".join(str(NTCase(st)) for st in subtypes)
+        return subtypes_clause
 
-        # Add to collection of rules
-        rule = f"{rule_name}: {subtype_rules}"
 
-        self.rules.append(rule)
 
     def get_templates(self):
         """

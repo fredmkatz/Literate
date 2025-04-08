@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any, Type, Union, ClassVar, Set
 from abc import ABC, abstractmethod
 
+
 from utils_pom.util_flogging import flogger
 from utils_pom.util_flogging import trace_decorator
 
@@ -14,6 +15,7 @@ class FieldType(ABC):
     """
     # Class registry for factory method
     _type_registry: ClassVar[Dict[str, Type[FieldType]]] = {}
+    
     
     def __init__(self, raw_string: str, is_optional: bool = False):
         """
@@ -245,9 +247,13 @@ class SimpleType(FieldType):
         return "simple"
     
     def value_phrase(self, metadata: dict) -> str:
+        from class_casing import NTCase
+
         if self.is_primitive_type():
             return self._primitive_phrase(metadata)
-        return self.raw_string  # Class name for non-primitives
+        # if self.raw_string.lower() == "camelcase":
+        #     return "CAMEL_CASE"
+        return str(NTCase(self.raw_string))  # Class name for non-primitives
     
     def _primitive_phrase(self, metadata: dict) -> str:
         """Generate a phrase for primitive types."""

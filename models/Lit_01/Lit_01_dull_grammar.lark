@@ -3,392 +3,387 @@
 // Model: Lit_01
 // Format: dull
 
-start:	CamelCase
-		|	IsOptional
-		|	ReferenceOrValue
-		|	IsRequired
-		|	Paragraph
-		|	Annotation
-		|	Component
-		|	DataType
-		|	DataTypeClause
-		|	FormulaClause
-		|	Formula
+start:	camel_case
+		|	is_optional
+		|	reference_or_value
+		|	is_really_required
+		|	paragraph
+		|	annotation
+		|	component
+		|	data_type
+		|	data_type_clause
+		|	formula_coding
+		|	formula
 starter0:	start+	// For any number of any NT
 
 
 //          ========== UpperCamel ==========
-UpperCamel:	(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*)(?:\s+(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*))*
+upper_camel:	/[A-Za-z][A-Za-z0-9]*/
 
 //          ========== LowerCamel ==========
-LowerCamel:	(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*)(?:\s+(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*))*
+lower_camel:	/[A-Za-z][A-Za-z0-9]*/
 
 //          ========== CamelCase ==========
-CamelCase:	(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*)(?:\s+(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*))*
+camel_case:	/[A-Za-z][A-Za-z0-9]*/
 
 //          ========== IsOptional ==========
-IsOptional:	"optional"i | "true"i | "sure"i | "yes"i | "required"i | "false"i | "no way"i
+is_optional:	"optional"i | "true"i | "sure"i | "yes"i | "required"i | "false"i | "no way"i
 
 //          ========== ReferenceOrValue ==========
-ReferenceOrValue:	"reference"i | "value"i
+reference_or_value:	"reference"i | "value"i
 
-//          ========== IsRequired ==========
-IsRequired:	"required"i | "true"i | "sure"i | "yes"i | "optional"i | "false"i | "no way"i
+//          ========== IsReallyRequired ==========
+is_really_required:	"required"i | "true"i | "sure"i | "yes"i | "optional"i | "false"i | "no way"i
 
 //          ========== Paragraph ==========
-Paragraph: OneLiner
-Paragraph:	(
-		CONTENT: STRING	-> Paragraph_content_str
-	) *
+paragraph:	one_liner
+	|	paragraph__content__value
+
+//  ... value rules for paragraph  ...
+paragraph__content__value:	STRING
+
 
 //          ========== OneLiner ==========
-OneLiner:	(
-		CONTENT: STRING	-> OneLiner_content_str
-	) *
+one_liner:	one_liner__content__value
+
+//  ... value rules for one_liner  ...
+one_liner__content__value:	STRING
+
+
+//          ========== ClassName ==========
+class_name:	/[A-Za-z][A-Za-z0-9]*/
 
 //          ========== Label ==========
-Label:	(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*)(?:\s+(?:[A-Za-z][A-Za-z0-9]*(?:[-_.][A-Za-z][A-Za-z0-9]*)*))*
+label:	/[A-Za-z][A-Za-z0-9]*/
 
 //          ========== Annotation ==========
-Annotation:	[ Annotation_emoji_value ] Annotation_label_value COLON Annotation_content_value NEWLINE
+annotation:	[ annotation__emoji__value ] annotation__label__value COLON annotation__content__value NEWLINE
 
-//  ... value rules for Annotation  ...
-Annotation_label_value:	Label
-Annotation_content_value:	OneLiner
-Annotation_emoji_value:	STRING
+//  ... value rules for annotation  ...
+annotation__label__value:	label
+annotation__content__value:	one_liner
+annotation__emoji__value:	STRING
 
 
 //          ========== Component ==========
-Component: SubjectE | Class | AttributeSection | Attribute
+component:	subject_e | class | attribute_section | attribute
 
 //          ========== SubjectE ==========
-SubjectE: SubjectD
-SubjectE:	HASH HASH HASH HASH HASH LBRACE SubjectE_name_value [ DASH SubjectE_oneLiner_value ] NEWLINE (
-		NAME: CamelCase	-> SubjectE_name_simple
-	|	ONE_LINER: OneLiner	-> SubjectE_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> SubjectE_abbreviation_simple
-	|	Paragraph+	-> SubjectE_elaboration_list
-	|	Annotation+	-> SubjectE_annotations_list
-	|	Class+	-> SubjectE_classes_list
-	) *
+subject_e_clause:	NAME_QF COLON camel_case NEWLINE	-> subject_e__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> subject_e__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> subject_e__abbreviation__simple
+	|	paragraph+	-> subject_e__elaboration__list
+	|	annotation+	-> subject_e__annotations__list
+	|	class+	-> subject_e__classes__list
+subject_e:	subject_d
+	|	HASH HASH HASH HASH HASH LBRACE subject_e__name__value [ DASH subject_e__one_liner__value ] NEWLINE  (subject_e_clause)+
 
-//  ... value rules for SubjectE  ...
-SubjectE_name_value:	CamelCase
-SubjectE_oneLiner_value:	OneLiner
+//  ... value rules for subject_e  ...
+subject_e__name__value:	camel_case
+subject_e__one_liner__value:	one_liner
 
 
 //          ========== SubjectD ==========
-SubjectD: SubjectC
-SubjectD:	HASH HASH HASH HASH LBRACE SubjectD_name_value [ DASH SubjectD_oneLiner_value ] NEWLINE (
-		NAME: CamelCase	-> SubjectD_name_simple
-	|	ONE_LINER: OneLiner	-> SubjectD_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> SubjectD_abbreviation_simple
-	|	Paragraph+	-> SubjectD_elaboration_list
-	|	Annotation+	-> SubjectD_annotations_list
-	|	Class+	-> SubjectD_classes_list
-	|	SubjectE+	-> SubjectD_subjects_list
-	) *
+subject_d_clause:	NAME_QF COLON camel_case NEWLINE	-> subject_d__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> subject_d__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> subject_d__abbreviation__simple
+	|	paragraph+	-> subject_d__elaboration__list
+	|	annotation+	-> subject_d__annotations__list
+	|	class+	-> subject_d__classes__list
+	|	subject_e+	-> subject_d__subjects__list
+subject_d:	subject_c
+	|	HASH HASH HASH HASH LBRACE subject_d__name__value [ DASH subject_d__one_liner__value ] NEWLINE  (subject_d_clause)+
 
-//  ... value rules for SubjectD  ...
-SubjectD_name_value:	CamelCase
-SubjectD_oneLiner_value:	OneLiner
+//  ... value rules for subject_d  ...
+subject_d__name__value:	camel_case
+subject_d__one_liner__value:	one_liner
 
 
 //          ========== SubjectC ==========
-SubjectC: SubjectB
-SubjectC:	HASH HASH HASH LBRACE SubjectC_name_value [ DASH SubjectC_oneLiner_value ] NEWLINE (
-		NAME: CamelCase	-> SubjectC_name_simple
-	|	ONE_LINER: OneLiner	-> SubjectC_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> SubjectC_abbreviation_simple
-	|	Paragraph+	-> SubjectC_elaboration_list
-	|	Annotation+	-> SubjectC_annotations_list
-	|	Class+	-> SubjectC_classes_list
-	|	SubjectD+	-> SubjectC_subjects_list
-	) *
+subject_c_clause:	NAME_QF COLON camel_case NEWLINE	-> subject_c__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> subject_c__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> subject_c__abbreviation__simple
+	|	paragraph+	-> subject_c__elaboration__list
+	|	annotation+	-> subject_c__annotations__list
+	|	class+	-> subject_c__classes__list
+	|	subject_d+	-> subject_c__subjects__list
+subject_c:	subject_b
+	|	HASH HASH HASH LBRACE subject_c__name__value [ DASH subject_c__one_liner__value ] NEWLINE  (subject_c_clause)+
 
-//  ... value rules for SubjectC  ...
-SubjectC_name_value:	CamelCase
-SubjectC_oneLiner_value:	OneLiner
+//  ... value rules for subject_c  ...
+subject_c__name__value:	camel_case
+subject_c__one_liner__value:	one_liner
 
 
 //          ========== SubjectB ==========
-SubjectB: Ldm
-SubjectB:	HASH HASH LBRACE SubjectB_name_value [ DASH SubjectB_oneLiner_value ] NEWLINE (
-		NAME: CamelCase	-> SubjectB_name_simple
-	|	ONE_LINER: OneLiner	-> SubjectB_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> SubjectB_abbreviation_simple
-	|	Paragraph+	-> SubjectB_elaboration_list
-	|	Annotation+	-> SubjectB_annotations_list
-	|	Class+	-> SubjectB_classes_list
-	|	SubjectC+	-> SubjectB_subjects_list
-	) *
+subject_b_clause:	NAME_QF COLON camel_case NEWLINE	-> subject_b__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> subject_b__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> subject_b__abbreviation__simple
+	|	paragraph+	-> subject_b__elaboration__list
+	|	annotation+	-> subject_b__annotations__list
+	|	class+	-> subject_b__classes__list
+	|	subject_c+	-> subject_b__subjects__list
+subject_b:	ldm
+	|	HASH HASH LBRACE subject_b__name__value [ DASH subject_b__one_liner__value ] NEWLINE  (subject_b_clause)+
 
-//  ... value rules for SubjectB  ...
-SubjectB_name_value:	CamelCase
-SubjectB_oneLiner_value:	OneLiner
+//  ... value rules for subject_b  ...
+subject_b__name__value:	camel_case
+subject_b__one_liner__value:	one_liner
 
 
 //          ========== Ldm ==========
-LDM:	HASH LBRACE LDM_name_value [ DASH LDM_oneLiner_value ] NEWLINE (
-		NAME: CamelCase	-> LDM_name_simple
-	|	ONE_LINER: OneLiner	-> LDM_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> LDM_abbreviation_simple
-	|	Paragraph+	-> LDM_elaboration_list
-	|	Annotation+	-> LDM_annotations_list
-	|	Class+	-> LDM_classes_list
-	|	SubjectB+	-> LDM_subjects_list
-	) *
+ldm_clause:	NAME_QF COLON camel_case NEWLINE	-> ldm__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> ldm__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> ldm__abbreviation__simple
+	|	paragraph+	-> ldm__elaboration__list
+	|	annotation+	-> ldm__annotations__list
+	|	class+	-> ldm__classes__list
+	|	subject_b+	-> ldm__subjects__list
+ldm:	HASH LBRACE ldm__name__value [ DASH ldm__one_liner__value ] NEWLINE  (ldm_clause)+
 
-//  ... value rules for Ldm  ...
-LDM_name_value:	CamelCase
-LDM_oneLiner_value:	OneLiner
+//  ... value rules for ldm  ...
+ldm__name__value:	camel_case
+ldm__one_liner__value:	one_liner
 
 
 //          ========== DataType ==========
-DataType: BaseDataType | ListDataType | SetDataType | MappingDataType
+data_type:	base_data_type | list_data_type | set_data_type | mapping_data_type
 
 //          ========== BaseDataType ==========
-BaseDataType:	BaseDataType_className_value [ DASH BaseDataType_isValue_value ]
+base_data_type:	base_data_type__class_name__value [ DASH base_data_type__is_value__value ]
 
-//  ... value rules for BaseDataType  ...
-BaseDataType_className_value:	STRING
-BaseDataType_isValue_value:	ReferenceOrValue
+//  ... value rules for base_data_type  ...
+base_data_type__class_name__value:	STRING
+base_data_type__is_value__value:	reference_or_value
 
 
 //          ========== ListDataType ==========
-ListDataType:	LIST OF ListDataType_elementType_value
+list_data_type:	LIST_Q OF_Q list_data_type__element_type__value
 
-//  ... value rules for ListDataType  ...
-ListDataType_elementType_value:	DataType
+//  ... value rules for list_data_type  ...
+list_data_type__element_type__value:	data_type
 
 
 //          ========== SetDataType ==========
-SetDataType:	SET OF SetDataType_elementType_value
+set_data_type:	SET_Q OF_Q set_data_type__element_type__value
 
-//  ... value rules for SetDataType  ...
-SetDataType_elementType_value:	DataType
+//  ... value rules for set_data_type  ...
+set_data_type__element_type__value:	data_type
 
 
 //          ========== MappingDataType ==========
-MappingDataType:	MAPPING FROM MappingDataType_domainType_value TO MappingDataType_rangeType_value
+mapping_data_type:	MAPPING_Q FROM_Q mapping_data_type__domain_type__value TO_Q mapping_data_type__range_type__value
 
-//  ... value rules for MappingDataType  ...
-MappingDataType_domainType_value:	DataType
-MappingDataType_rangeType_value:	DataType
+//  ... value rules for mapping_data_type  ...
+mapping_data_type__domain_type__value:	data_type
+mapping_data_type__range_type__value:	data_type
 
 
 //          ========== DataTypeClause ==========
-DataTypeClause:	DataTypeClause_isOptional_value DataTypeClause_dataType_value [ DataTypeClause_cardinality_value ]
+data_type_clause:	data_type_clause__is_optional__value data_type_clause__data_type__value [ data_type_clause__cardinality__value ]
 
-//  ... value rules for DataTypeClause  ...
-DataTypeClause_dataType_value:	DataType
-DataTypeClause_isOptional_value:	BOOLEAN
-DataTypeClause_cardinality_value:	STRING
+//  ... value rules for data_type_clause  ...
+data_type_clause__data_type__value:	data_type
+data_type_clause__is_optional__value:	BOOLEAN
+data_type_clause__cardinality__value:	STRING
 
 
-//          ========== FormulaClause ==========
-FormulaClause:	(
-		CONTENT: STRING	-> FormulaClause_content_str
-	) *
+//          ========== FormulaCoding ==========
+formula_coding_clause:	CONTENT_QF COLON STRING NEWLINE	-> formula_coding__content__str
+formula_coding:	( formula_coding_clause )+
 
 //          ========== Formula ==========
-Formula: Constraint | Derivation | Default
-Formula:	(
-		ENGLISH: STRING	-> Formula_english_str
-	|	CODE: FormulaClause	-> Formula_code_simple
-	) *
+formula_clause:	ENGLISH_QF COLON STRING NEWLINE	-> formula__english__str
+	|	CODE_QF COLON formula_coding NEWLINE	-> formula__code__simple
+formula:	constraint | derivation | default
+	|	( formula_clause )+
 
 //          ========== Constraint ==========
-Constraint:	(
-		ENGLISH: STRING	-> Constraint_english_str
-	|	CODE: FormulaClause	-> Constraint_code_simple
-	|	MESSAGE: STRING	-> Constraint_message_str
-	|	SEVERITY: STRING	-> Constraint_severity_str
-	) *
+constraint_clause:	ENGLISH_QF COLON STRING NEWLINE	-> constraint__english__str
+	|	CODE_QF COLON formula_coding NEWLINE	-> constraint__code__simple
+	|	MESSAGE_QF COLON STRING NEWLINE	-> constraint__message__str
+	|	SEVERITY_QF COLON STRING NEWLINE	-> constraint__severity__str
+constraint:	( constraint_clause )+
 
 //          ========== Derivation ==========
-Derivation:	(
-		ENGLISH: STRING	-> Derivation_english_str
-	|	CODE: FormulaClause	-> Derivation_code_simple
-	) *
+derivation_clause:	ENGLISH_QF COLON STRING NEWLINE	-> derivation__english__str
+	|	CODE_QF COLON formula_coding NEWLINE	-> derivation__code__simple
+derivation:	( derivation_clause )+
 
 //          ========== Default ==========
-Default:	(
-		ENGLISH: STRING	-> Default_english_str
-	|	CODE: FormulaClause	-> Default_code_simple
-	) *
+default_clause:	ENGLISH_QF COLON STRING NEWLINE	-> default__english__str
+	|	CODE_QF COLON formula_coding NEWLINE	-> default__code__simple
+default:	( default_clause )+
 
 //          ========== Class ==========
-Class: ValueType | ReferenceType
-Class:	UNDERSCORE CLASS COLON Class_name_value [ DASH Class_oneLiner_value ] NEWLINE (
-		NAME: UpperCamel	-> Class_name_simple
-	|	ONE_LINER: OneLiner	-> Class_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> Class_abbreviation_simple
-	|	Paragraph+	-> Class_elaboration_list
-	|	Annotation+	-> Class_annotations_list
-	|	PLURAL: UpperCamel	-> Class_plural_simple
-	|	SUBTYPE_OF: ClassName (, ClassName)+	-> Class_subtypeOf_list
-	|	SUBTYPES: ClassName (, ClassName)+	-> Class_subtypes_list
-	|	BASED_ON: ClassName (, ClassName)+	-> Class_basedOn_list
-	|	DEPENDENTS: ClassName (, ClassName)+	-> Class_dependents_list
-	|	SAMPLERA: '(' NUMBER, STRING, DataType ')'	-> Class_samplerA_tuple
-	|	IS_VALUE_TYPE: BOOLEAN	-> Class_isValueType_bool
-	|	WHERE: STRING	-> Class_where_str
-	|	Attribute+	-> Class_attributes_list
-	|	AttributeSection+	-> Class_attributeSections_list
-	) *
+class_clause:	NAME_QF COLON upper_camel NEWLINE	-> class__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> class__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> class__abbreviation__simple
+	|	paragraph+	-> class__elaboration__list
+	|	annotation+	-> class__annotations__list
+	|	PLURAL_QF COLON upper_camel NEWLINE	-> class__plural__simple
+	|	SUBTYPE_OF_QF COLON class_name (COMMA class_name)+ NEWLINE	-> class__subtype_of__list
+	|	SUBTYPES_QF COLON class_name (COMMA class_name)+ NEWLINE	-> class__subtypes__list
+	|	BASED_ON_QF COLON class_name (COMMA class_name)+ NEWLINE	-> class__based_on__list
+	|	DEPENDENTS_QF COLON class_name (COMMA class_name)+ NEWLINE	-> class__dependents__list
+	|	IS_VALUE_TYPE_QF COLON BOOLEAN NEWLINE	-> class__is_value_type__bool
+	|	WHERE_QF COLON STRING NEWLINE	-> class__where__str
+	|	attribute+	-> class__attributes__list
+	|	attribute_section+	-> class__attribute_sections__list
+class:	value_type | reference_type
+	|	UNDERSCORE CLASS_Q COLON class__name__value [ DASH class__one_liner__value ] N  (class_clause)+
 
-//  ... value rules for Class  ...
-Class_name_value:	UpperCamel
-Class_oneLiner_value:	OneLiner
+//  ... value rules for class  ...
+class__name__value:	upper_camel
+class__one_liner__value:	one_liner
 
 
 //          ========== ValueType ==========
-ValueType:	UNDERSCORE ValueType_name_value [ DASH ValueType_oneLiner_value ] NEWLINE (
-		NAME: UpperCamel	-> ValueType_name_simple
-	|	ONE_LINER: OneLiner	-> ValueType_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> ValueType_abbreviation_simple
-	|	Paragraph+	-> ValueType_elaboration_list
-	|	Annotation+	-> ValueType_annotations_list
-	|	PLURAL: UpperCamel	-> ValueType_plural_simple
-	|	SUBTYPE_OF: ClassName (, ClassName)+	-> ValueType_subtypeOf_list
-	|	SUBTYPES: ClassName (, ClassName)+	-> ValueType_subtypes_list
-	|	BASED_ON: ClassName (, ClassName)+	-> ValueType_basedOn_list
-	|	DEPENDENTS: ClassName (, ClassName)+	-> ValueType_dependents_list
-	|	SAMPLERA: '(' NUMBER, STRING, DataType ')'	-> ValueType_samplerA_tuple
-	|	IS_VALUE_TYPE: BOOLEAN	-> ValueType_isValueType_bool
-	|	WHERE: STRING	-> ValueType_where_str
-	|	Attribute+	-> ValueType_attributes_list
-	|	AttributeSection+	-> ValueType_attributeSections_list
-	) *
+value_type_clause:	NAME_QF COLON upper_camel NEWLINE	-> value_type__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> value_type__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> value_type__abbreviation__simple
+	|	paragraph+	-> value_type__elaboration__list
+	|	annotation+	-> value_type__annotations__list
+	|	PLURAL_QF COLON upper_camel NEWLINE	-> value_type__plural__simple
+	|	SUBTYPE_OF_QF COLON class_name (COMMA class_name)+ NEWLINE	-> value_type__subtype_of__list
+	|	SUBTYPES_QF COLON class_name (COMMA class_name)+ NEWLINE	-> value_type__subtypes__list
+	|	BASED_ON_QF COLON class_name (COMMA class_name)+ NEWLINE	-> value_type__based_on__list
+	|	DEPENDENTS_QF COLON class_name (COMMA class_name)+ NEWLINE	-> value_type__dependents__list
+	|	IS_VALUE_TYPE_QF COLON BOOLEAN NEWLINE	-> value_type__is_value_type__bool
+	|	WHERE_QF COLON STRING NEWLINE	-> value_type__where__str
+	|	attribute+	-> value_type__attributes__list
+	|	attribute_section+	-> value_type__attribute_sections__list
+value_type:	UNDERSCORE value_type__name__value [ DASH value_type__one_liner__value ] NEWLINE  (value_type_clause)+
 
-//  ... value rules for ValueType  ...
-ValueType_name_value:	UpperCamel
-ValueType_oneLiner_value:	OneLiner
+//  ... value rules for value_type  ...
+value_type__name__value:	upper_camel
+value_type__one_liner__value:	one_liner
 
 
 //          ========== ReferenceType ==========
-ReferenceType:	UNDERSCORE ReferenceType_name_value [ DASH ReferenceType_oneLiner_value ] NEWLINE (
-		NAME: UpperCamel	-> ReferenceType_name_simple
-	|	ONE_LINER: OneLiner	-> ReferenceType_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> ReferenceType_abbreviation_simple
-	|	Paragraph+	-> ReferenceType_elaboration_list
-	|	Annotation+	-> ReferenceType_annotations_list
-	|	PLURAL: UpperCamel	-> ReferenceType_plural_simple
-	|	SUBTYPE_OF: ClassName (, ClassName)+	-> ReferenceType_subtypeOf_list
-	|	SUBTYPES: ClassName (, ClassName)+	-> ReferenceType_subtypes_list
-	|	BASED_ON: ClassName (, ClassName)+	-> ReferenceType_basedOn_list
-	|	DEPENDENTS: ClassName (, ClassName)+	-> ReferenceType_dependents_list
-	|	SAMPLERA: '(' NUMBER, STRING, DataType ')'	-> ReferenceType_samplerA_tuple
-	|	IS_VALUE_TYPE: BOOLEAN	-> ReferenceType_isValueType_bool
-	|	WHERE: STRING	-> ReferenceType_where_str
-	|	Attribute+	-> ReferenceType_attributes_list
-	|	AttributeSection+	-> ReferenceType_attributeSections_list
-	) *
+reference_type_clause:	NAME_QF COLON upper_camel NEWLINE	-> reference_type__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> reference_type__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> reference_type__abbreviation__simple
+	|	paragraph+	-> reference_type__elaboration__list
+	|	annotation+	-> reference_type__annotations__list
+	|	PLURAL_QF COLON upper_camel NEWLINE	-> reference_type__plural__simple
+	|	SUBTYPE_OF_QF COLON class_name (COMMA class_name)+ NEWLINE	-> reference_type__subtype_of__list
+	|	SUBTYPES_QF COLON class_name (COMMA class_name)+ NEWLINE	-> reference_type__subtypes__list
+	|	BASED_ON_QF COLON class_name (COMMA class_name)+ NEWLINE	-> reference_type__based_on__list
+	|	DEPENDENTS_QF COLON class_name (COMMA class_name)+ NEWLINE	-> reference_type__dependents__list
+	|	IS_VALUE_TYPE_QF COLON BOOLEAN NEWLINE	-> reference_type__is_value_type__bool
+	|	WHERE_QF COLON STRING NEWLINE	-> reference_type__where__str
+	|	attribute+	-> reference_type__attributes__list
+	|	attribute_section+	-> reference_type__attribute_sections__list
+reference_type:	UNDERSCORE reference_type__name__value [ DASH reference_type__one_liner__value ] NEWLINE  (reference_type_clause)+
 
-//  ... value rules for ReferenceType  ...
-ReferenceType_name_value:	UpperCamel
-ReferenceType_oneLiner_value:	OneLiner
+//  ... value rules for reference_type  ...
+reference_type__name__value:	upper_camel
+reference_type__one_liner__value:	one_liner
 
 
 //          ========== AttributeSection ==========
-AttributeSection:	DASH AttributeSection_name_value [ DASH AttributeSection_oneLiner_value ] [ LPAREN AttributeSection_isRequired_value RPAREN ] NEWLINE (
-		NAME: CamelCase	-> AttributeSection_name_simple
-	|	ONE_LINER: OneLiner	-> AttributeSection_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> AttributeSection_abbreviation_simple
-	|	Paragraph+	-> AttributeSection_elaboration_list
-	|	Annotation+	-> AttributeSection_annotations_list
-	|	IS_REQUIRED: IsRequired	-> AttributeSection_isRequired_simple
-	|	Attribute+	-> AttributeSection_attributes_list
-	) *
+attribute_section_clause:	NAME_QF COLON camel_case NEWLINE	-> attribute_section__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> attribute_section__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> attribute_section__abbreviation__simple
+	|	paragraph+	-> attribute_section__elaboration__list
+	|	annotation+	-> attribute_section__annotations__list
+	|	IS_REQUIRED_QF COLON is_really_required NEWLINE	-> attribute_section__is_required__simple
+	|	attribute+	-> attribute_section__attributes__list
+attribute_section:	DASH attribute_section__name__value [ DASH attribute_section__one_liner__value ] [ LPAREN attribute_section__is_required__value RPAREN ] NEWLINE  (attribute_section_clause)+
 
-//  ... value rules for AttributeSection  ...
-AttributeSection_name_value:	CamelCase
-AttributeSection_oneLiner_value:	OneLiner
-AttributeSection_isRequired_value:	IsRequired
+//  ... value rules for attribute_section  ...
+attribute_section__name__value:	camel_case
+attribute_section__one_liner__value:	one_liner
+attribute_section__is_required__value:	is_really_required
 
 
 //          ========== Attribute ==========
-Attribute:	DASH Attribute_name_value [ DASH Attribute_oneLiner_value ] [ LPAREN Attribute_dataTypeClause_value RPAREN ] NEWLINE (
-		NAME: LowerCamel	-> Attribute_name_simple
-	|	ONE_LINER: OneLiner	-> Attribute_oneLiner_simple
-	|	ABBREVIATION: UpperCamel	-> Attribute_abbreviation_simple
-	|	Paragraph+	-> Attribute_elaboration_list
-	|	Annotation+	-> Attribute_annotations_list
-	|	DATA_TYPE_CLAUSE: DataTypeClause	-> Attribute_dataTypeClause_simple
-	|	DERIVATION: Derivation	-> Attribute_derivation_simple
-	|	DEFAULT: Default	-> Attribute_default_simple
-	|	Constraint+	-> Attribute_constraints_list
-	) *
+attribute_clause:	NAME_QF COLON lower_camel NEWLINE	-> attribute__name__simple
+	|	ONE_LINER_QF COLON one_liner NEWLINE	-> attribute__one_liner__simple
+	|	ABBREVIATION_QF COLON upper_camel NEWLINE	-> attribute__abbreviation__simple
+	|	paragraph+	-> attribute__elaboration__list
+	|	annotation+	-> attribute__annotations__list
+	|	DATA_TYPE_CLAUSE_QF COLON data_type_clause NEWLINE	-> attribute__data_type_clause__simple
+	|	DERIVATION_QF COLON derivation NEWLINE	-> attribute__derivation__simple
+	|	DEFAULT_QF COLON default NEWLINE	-> attribute__default__simple
+	|	constraint+	-> attribute__constraints__list
+attribute:	DASH attribute__name__value [ DASH attribute__one_liner__value ] [ LPAREN attribute__data_type_clause__value RPAREN ] N  (attribute_clause)+
 
-//  ... value rules for Attribute  ...
-Attribute_name_value:	LowerCamel
-Attribute_oneLiner_value:	OneLiner
-Attribute_dataTypeClause_value:	DataTypeClause
+//  ... value rules for attribute  ...
+attribute__name__value:	lower_camel
+attribute__one_liner__value:	one_liner
+attribute__data_type_clause__value:	data_type_clause
 
 
 // ===== Terminal definitions =====
+// ===== Field name literals =====
+ABBREVIATION_QF: "abbreviation"
+ANNOTATIONS_QF: "annotations"
+ATTRIBUTES_QF: "attributes"
+ATTRIBUTE_SECTIONS_QF: "attribute_sections"
+BASED_ON_QF: "based_on"
+CARDINALITY_QF: "cardinality"
+CLASSES_QF: "classes"
+CLASS_NAME_QF: "class_name"
+CODE_QF: "code"
+CONSTRAINTS_QF: "constraints"
+CONTENT_QF: "content"
+DATA_TYPE_CLAUSE_QF: "data_type_clause"
+DATA_TYPE_QF: "data_type"
+DEFAULT_QF: "default"
+DEPENDENTS_QF: "dependents"
+DERIVATION_QF: "derivation"
+DOMAIN_TYPE_QF: "domain_type"
+ELABORATION_QF: "elaboration"
+ELEMENT_TYPE_QF: "element_type"
+EMOJI_QF: "emoji"
+ENGLISH_QF: "english"
+IS_ALSO_OPTIONAL_QF: "is_also_optional"
+IS_OPTIONAL_QF: "is_optional"
+IS_REQUIRED_QF: "is_required"
+IS_VALUE_QF: "is_value"
+IS_VALUE_TYPE_QF: "is_value_type"
+LABEL_QF: "label"
+MESSAGE_QF: "message"
+NAME_QF: "name"
+ONE_LINER_QF: "one_liner"
+PLURAL_QF: "plural"
+RANGE_TYPE_QF: "range_type"
+SEVERITY_QF: "severity"
+SUBJECTS_QF: "subjects"
+SUBTYPES_QF: "subtypes"
+SUBTYPE_OF_QF: "subtype_of"
+WHERE_QF: "where"
 
 // ===== Named Punctuation =====
-HASH: '#'
-UNDERSCORE: '_'
-DASH: '-'
-LPAREN: '('
-RPAREN: ')'
-LBRACE: '{'
-COLON: ':'
-NEWLINE: '
-'
+HASH: "#"
+ASTERISK: "*"
+UNDERSCORE: "_"
+DASH: "-"
+LPAREN: "("
+RPAREN: ")"
+LBRACK: "["
+RBRACK: "]"
+LBRACE: "{"
+RBRACE: "}"
+COMMA: ","
+COLON: ":"
+DOT: "."
+NEWLINE: "\n"
 
 // ===== Tokens =====
-ABBREVIATION: "abbreviation"
-ANNOTATIONS: "annotations"
-ATTRIBUTES: "attributes"
-ATTRIBUTE_SECTIONS: "attribute\s?sections"
-BASED_ON: "based\s?on"
-CARDINALITY: "cardinality"
-CLASS: "class"
-CLASSES: "classes"
-CLASS_NAME: "class\s?name"
-CODE: "code"
-CONSTRAINTS: "constraints"
-CONTENT: "content"
-DATA_TYPE: "data\s?type"
-DATA_TYPE_CLAUSE: "data\s?type\s?clause"
-DEFAULT: "default"
-DEPENDENTS: "dependents"
-DERIVATION: "derivation"
-DOMAIN_TYPE: "domain\s?type"
-ELABORATION: "elaboration"
-ELEMENT_TYPE: "element\s?type"
-EMOJI: "emoji"
-ENGLISH: "english"
-FROM: "from"
-IS_ALSO_OPTIONAL: "is\s?also\s?optional"
-IS_OPTIONAL: "is\s?optional"
-IS_REQUIRED: "is\s?required"
-IS_VALUE: "is\s?value"
-IS_VALUE_TYPE: "is\s?value\s?type"
-LABEL: "label"
-LIST: "list"
-MAPPING: "mapping"
-MESSAGE: "message"
-NAME: "name"
-OF: "of"
-ONE_LINER: "one\s?liner"
-PLURAL: "plural"
-RANGE_TYPE: "range\s?type"
-SAMPLERA: "samplera"
-SET: "set"
-SEVERITY: "severity"
-SUBJECTS: "subjects"
-SUBTYPES: "subtypes"
-SUBTYPE_OF: "subtype\s?of"
-TO: "to"
-WHERE: "where"
+CLASS_Q: "class"
+FROM_Q: "from"
+LIST_Q: "list"
+MAPPING_Q: "mapping"
+N: "n"
+OF_Q: "of"
+SET_Q: "set"
+TO_Q: "to"
 
 // ===== Value types =====
-STRING: "\""[^"\"]*"\""
+STRING: /"\""[^"\"]*"\""/
 NUMBER: /[0-9]+(\.[0-9]+)?/
 BOOLEAN: "true" | "false"
 IDENTIFIER: /[a-zA-Z][a-zA-Z0-9_]*/

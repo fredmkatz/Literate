@@ -3,11 +3,11 @@ _defaults:
   field_clause: '{field_name} ":"  {field_value}'
 
 Component:
-  header: '_ {_type}: {name}{? - {one_liner}} NEWLINE'
+  header: '_ {_type}: {name}{? - {one_liner}} "\n"'
 Class:
-  header: '_ Class: {name}{? - {one_liner}} NEWLINE'
+  header: '_ Class: {name}{? - {one_liner}} "\n"'
 Attribute:
-  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE'
+  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} "\n"'
 BaseDataType:
   template: '{class_name} {? - {is_value}}'
 ListDataType:

@@ -18,7 +18,7 @@ from class_pom_meta import PomMeta
 from utils_pom.util_fmk_pom import read_yaml_file
 
 primitive_terminals = {
-    "STRING": '"\\""[^"\\"]*"\\""',
+    "STRING": '/"\\""[^"\\"]*"\\""/',
     "NUMBER": "/[0-9]+(\\.[0-9]+)?/",
     "BOOLEAN": '"true" | "false"',
     "IDENTIFIER": "/[a-zA-Z][a-zA-Z0-9_]*/",
@@ -39,7 +39,7 @@ pmark_named = {
     "COMMA": ",",
     "COLON": ":",
     "DOT": ".",
-    "NEWLINE": "\n",
+    "NEWLINE": "\\n",
 }
 
 named_pmarks = {v: k for k, v in pmark_named.items()}

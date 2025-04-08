@@ -7,6 +7,6 @@ _defaults:
 
 
   # List format
-  list: "{element} (, {element})+"
+  list: "{element} (COMMA {element})+"
 
 

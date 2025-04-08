@@ -5,7 +5,7 @@
 ## 	Using: models/Lit_01/Lit_01_dull_format.yaml
 _defaults:
   is_abstract: false
-  field_value: '{field_name}: {field_value}'
+  field_value: '{field_name} COLON {field_value} NEWLINE'
   str: dull_str
   int: dull_int
   float: dull_float
@@ -13,17 +13,17 @@ _defaults:
     'true': 'true'
     'false': 'false'
     is_explicit: true
-  list: '{element} (, {element})+'
+  list: '{element} (COMMA {element})+'
   dict: dull dict
-  set: '{{element} (, {element})+}'
-  tuple: '[{element} (, {element})+]'
+  set: '''{''{element} ('','''' {element})+''}'''
+  tuple: ' ''['' {element} ('','''' {element})+ '']'''
   field_clause: '{field_name} ":"  {field_value}'
 Component:
-  header: '_ {_type}: {name}{? - {one_liner}} NEWLINE'
+  header: '_ {_type}: {name}{? - {one_liner}} "\n"'
 Class:
-  header: '_ Class: {name}{? - {one_liner}} NEWLINE'
+  header: '_ Class: {name}{? - {one_liner}} "\n"'
 Attribute:
-  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE'
+  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} "\n"'
 BaseDataType:
   template: '{class_name} {? - {is_value}}'
 ListDataType:

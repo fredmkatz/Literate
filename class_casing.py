@@ -51,9 +51,14 @@ class Casing(PresentableToken):
     # Partial patterns
     SYLLABLE = r"[A-Za-z][A-Za-z0-9]*"
     IDENTIFIER = rf"{SYLLABLE}(?:[-_.]{SYLLABLE})*"
+    IDENTIFIER = rf"{SYLLABLE}(?:[ ]{SYLLABLE})*"
+    IDENTIFIER = rf"{SYLLABLE}"
+    
 
     # Full pattern for one or more IDENTIFIERS separated by spaces
-    token_pattern_str = rf"(?:{IDENTIFIER})(?:\s+(?:{IDENTIFIER}))*"
+    # token_pattern_str = rf"(?:{IDENTIFIER})(?:\s+(?:{IDENTIFIER}))*"
+    token_pattern_str = f"/{IDENTIFIER}/"
+    
 
     def __init__(self, input_string):
         if isinstance(input_string, list):
@@ -163,6 +168,7 @@ class SnakeCase(Casing):
     def convert(self):
         return "_".join(word.lower() for word in self.words)
 
+NTCase = SnakeCase
 
 class UpperSnake(Casing):
     """

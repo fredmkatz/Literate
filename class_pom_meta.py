@@ -55,7 +55,7 @@ dull_dict = {
         "is_abstract": False,
 
         # Common field formats
-        "field_value": "{field_name}: {field_value}",
+        "field_value": "{field_name} COLON {field_value} NEWLINE",
         
         # suffixes for field types
         "str": "dull_str",
@@ -67,10 +67,10 @@ dull_dict = {
             "is_explicit": True,
         },
         
-        "list": "[{element} (, {element})+]",
+        "list": "{element} (COMMA {element})+",
         "dict": "dull dict",
-        "set": "{{element} (, {element})+}",
-        "tuple": "[{element} (, {element})+]"
+        "set": "'{'{element} (','' {element})+'}'",
+        "tuple": " '[' {element} (','' {element})+ ']'"
     }
 }
 DullFormat = PomFormat("dull", dull_dict)

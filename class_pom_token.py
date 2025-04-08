@@ -23,8 +23,7 @@ class PresentableToken(ABC):
         output (str): The words translated to the proper casing.
     """
 
-    input: str = None   # The original input string, as recognized by the parser.
-
+    input: str = None  # The original input string, as recognized by the parser.
 
     def __init_subclass__(cls):
         return super().__init_subclass__()
@@ -55,12 +54,12 @@ class PresentableToken(ABC):
         """
         Returns the template format for this token type, in Handlebars format
         """
-    
-            # The Handlebars template for this token type.
-            # This is a simplified version of the rendering template.
-            # It can be used to render the value in a more complex way, if needed.
-            # For example, it can include conditionals or loops.
-            # The rendering template is used for the final output, while the Handlebars template is used for intermediate steps.    
+
+        # The Handlebars template for this token type.
+        # This is a simplified version of the rendering template.
+        # It can be used to render the value in a more complex way, if needed.
+        # For example, it can include conditionals or loops.
+        # The rendering template is used for the final output, while the Handlebars template is used for intermediate steps.
         return
 
 
@@ -69,6 +68,7 @@ class PresentableBoolean(PresentableToken, ABC):
     """
     Abstract base class representing a boolean token with customizable true/false representations.
     """
+
     true_word = None  # To be defined by subclasses
     false_word = None  # To be defined by subclasses
     default_value = False  # Can be overridden by subclasses
@@ -79,30 +79,31 @@ class PresentableBoolean(PresentableToken, ABC):
     input_value = None  # The original input value
 
     token_pattern_str = None  # Placeholder for the token pattern string
+
     def __init__(self, value: bool):
         self.input_value = value
-        
+
         # Make sure subclass has defined required properties
         if self.true_word is None or self.false_word is None:
             raise NotImplementedError("Subclasses must define true_word and false_word")
-            
+
         # Initialize words lists if not already set
         if self.true_words is None:
             self.true_words = [self.true_word.lower(), "true", "yes"]
         if self.false_words is None:
             self.false_words = [self.false_word.lower(), "false", "no"]
-        
+
         all_words = [f'"{word}"i' for word in self.true_words + self.false_words]
-        self.token_pattern_str =  " | ".join(all_words)
+        self.token_pattern_str = " | ".join(all_words)
 
     def __str__(self):
         """String representation based on the value and settings."""
         val = self.value()
-        
+
         # If not explicit and value matches default, return empty string
         if not self.is_explicit and val == self.default_value:
             return ""
-        
+
         # Otherwise return appropriate word
         return self.true_word if val else self.false_word
 
@@ -112,7 +113,7 @@ class PresentableBoolean(PresentableToken, ABC):
         # Join all possible values with OR operator
         all_words = [f'"{word}"i' for word in cls.true_words + cls.false_words]
         return " | ".join(all_words)
-    
+
     def handlebars_template(self) -> str:
         """Return the Handlebars template for rendering."""
         # Full Handlebars template with conditionals
@@ -120,7 +121,7 @@ class PresentableBoolean(PresentableToken, ABC):
             return "{{#if value}}{{true_word}}{{else}}{{false_word}}{{/if}}"
         else:
             return "{{#if (eq value default_value)}}{{else}}{{#if value}}{{true_word}}{{else}}{{false_word}}{{/if}}{{/if}}"
-    
+
     def rendering_template(self) -> PomTemplate:
         """Return simplified template for basic rendering."""
         # Simplified template that can't handle conditionals
@@ -144,30 +145,39 @@ class PresentableBoolean(PresentableToken, ABC):
         else:
             raise TypeError(f"Expected string or boolean, got {type(self.input_value)}")
 
-    
-    
-def create_boolean_type(name, true_word, false_word, 
-                        true_words=None, false_words=None,
-                        default_value=False, is_explicit=True):
+
+def create_boolean_type(
+    name,
+    true_word,
+    false_word,
+    true_words=None,
+    false_words=None,
+    default_value=False,
+    is_explicit=True,
+):
     """Factory function to create custom boolean token types."""
     # Default word lists if not provided
     if true_words is None:
         true_words = [true_word.lower(), "true", "yes"]
     if false_words is None:
         false_words = [false_word.lower(), "false", "no"]
-    
-    # Create a new class dynamically
-    return type(name, (PresentableBoolean,), {
-        'true_word': true_word,
-        'false_word': false_word, 
-        'true_words': true_words,
-        'false_words': false_words,
-        'default_value': default_value,
-        'is_explicit': is_explicit
-    })
 
-    
-class IsRequired(PresentableBoolean):
+    # Create a new class dynamically
+    return type(
+        name,
+        (PresentableBoolean,),
+        {
+            "true_word": true_word,
+            "false_word": false_word,
+            "true_words": true_words,
+            "false_words": false_words,
+            "default_value": default_value,
+            "is_explicit": is_explicit,
+        },
+    )
+
+
+class IsReallyRequired(PresentableBoolean):
     """
     Class representing a boolean token for "is required".
 
@@ -178,11 +188,12 @@ class IsRequired(PresentableBoolean):
 
     true_word = "required"
     true_words = ["required", "true", "sure", "yes"]
-    
+
     false_word = "optional"
-    false_words = ["optional", "false", "no way"] 
+    false_words = ["optional", "false", "no way"]
     default_value = True
     is_explicit = True
+
 
 class IsOptional(PresentableBoolean):
     """
@@ -195,11 +206,12 @@ class IsOptional(PresentableBoolean):
 
     true_word = "optional"
     true_words = ["optional", "true", "sure", "yes"]
-    
+
     false_word = "required"
-    false_words = ["required", "false", "no way"] 
+    false_words = ["required", "false", "no way"]
     default_value = False
     is_explicit = True
+
 
 class ReferenceOrValue(PresentableBoolean):
     """
@@ -217,4 +229,3 @@ class ReferenceOrValue(PresentableBoolean):
     false_words = ["value"]
     default_value = True
     is_explicit = False
-

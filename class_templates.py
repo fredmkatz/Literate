@@ -3,6 +3,21 @@ from dataclasses import dataclass
 from typing import Set
 from class_field_type import to_terminal_name, field_terminals
 from utils_pom.util_flogging import flogger, trace_method
+
+def literal_name(word: str)->str:
+    """
+    Convert a word to a literal name for use in grammar rules.
+    
+    Args:
+        word: The word to convert.
+        
+    Returns:
+        A string representing the literal name.
+    """
+    qword = word + "_Q"
+    
+    return qword.upper()
+
 @dataclass
 class PomTemplate:
     
@@ -32,7 +47,7 @@ class PomTemplate:
         Returns:
             List of grammar rule parts
         """
-        from class_casing import LowerCamel  # To avoid circular import
+        from class_casing import LowerCamel, NTCase  # To avoid circular import
         from pom_config import named_pmarks  # Import named punctuation marks
 
         # First, capture all field references
@@ -88,7 +103,7 @@ class PomTemplate:
             field_pos = next((p for p in field_positions if p[0] == i), None)
             if field_pos:
                 field_name = field_pos[2]
-                field_rule = f"{class_name}_{LowerCamel(field_name)}_value"
+                field_rule = f"{NTCase(class_name)}__{NTCase(field_name)}__value"
                 grammar_parts.append(field_rule)
                 i = field_pos[1]
                 continue
@@ -117,6 +132,8 @@ class PomTemplate:
                 if template[i] == '\n':
                     grammar_parts.append("NEWLINE")
                     field_terminals.add("NEWLINE")
+                    flogger.infof("Adding NEWLINE to field terminals")
+                    flogger.infof(f"NEWLINE found in template: {template}")
                 i += 1
                 continue
             
@@ -130,7 +147,7 @@ class PomTemplate:
                 
                 # Add as a token if it's a word
                 if len(word) > 1:
-                    term_name = word.upper() 
+                    term_name = literal_name(word)
                     grammar_parts.append(term_name)
                     field_terminals.add(term_name)
                     i = j
@@ -172,7 +189,7 @@ class PomTemplate:
         Convert simple template to grammar rule format for rendering
         """
         
-        # Convert field references: {field_name} → {class_name}_{field_name}_value
+        # Convert field references: {field_name} → {class_name}__{field_name}__value
         rule_template = re.sub(r'\{([^?{}]+)\}', rf'{class_name}_\1_value', self.template)
         
         # Convert conditionals: {? content} → [content]

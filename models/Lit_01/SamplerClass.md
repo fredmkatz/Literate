@@ -1,4 +1,2 @@
-_ Class: SampleClassB - something to test Class clauses
+_ SampleClassB
 abbreviation: CSample
-where: A = B
-dependents: Abc, Def
