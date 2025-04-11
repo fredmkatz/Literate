@@ -9,6 +9,7 @@ from abc import ABC, abstractmethod
 from class_casing import UpperCamel, LowerCamel, CamelCase
 from class_pom_token import (
     PresentableBoolean,
+    PresentableToken,
     IsOptional,
     ReferenceOrValue,
     IsReallyRequired,
@@ -58,13 +59,25 @@ def block_list_field(*args, **kwargs):
 
 
 @dataclass
-class Paragraph:
+class Paragraph(PresentableToken):
     content: str
     _type: str = field(default=None, init=False)
 
     def __post_init__(self):
         if self._type is None:
             self._type = "paragraph"
+
+    @classmethod
+    def token_pattern(cls) -> str:
+        """
+        Returns the regex pattern, or other rule for this token type.
+        So: PomToken: token_pattern - will appear in the grammar rule.
+
+        """
+        return "AAA+?ZZZ"
+
+    def value(self) -> str:
+        return self.content
 
     class Meta:
         presentable_template = "{content}"

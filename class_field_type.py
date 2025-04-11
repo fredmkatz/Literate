@@ -530,6 +530,8 @@ class UnionType(FieldType):
 
 # Global field terminals set
 field_terminals = set()
+field_name_literals = set()
+punctuation_terminals = set()
 
 def add_field_terminal(terminal: str):
     """Add a terminal to the global field terminals set."""
@@ -553,19 +555,21 @@ def get_field_terminals() -> Set[str]:
 
 def to_terminal_name(text: str) -> str:
     """Convert a string to a terminal name."""
-    from pom_config import named_pmarks
+    from pom_config import named_pmarks, pmark_named
     
     if text.isalnum():
         return text.upper()
     
     # Check if it's a named punctuation mark
     token_name = None
-    if text in named_pmarks:
+    if text in named_pmarks or text in pmark_named:
         token_name = named_pmarks[text]
+        punctuation_terminals.add(token_name)
     elif f"'{text}'" in named_pmarks:   
         token_name = named_pmarks[f"'{text}'"]
         
     if token_name:
+        flogger.infof(f"Adding {token_name} to field_terminals")
         # Add to terminals set
         add_field_terminal(token_name)
         return token_name

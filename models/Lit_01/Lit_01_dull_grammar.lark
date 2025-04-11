@@ -36,19 +36,10 @@ reference_or_value:	"reference"i | "value"i
 is_really_required:	"required"i | "true"i | "sure"i | "yes"i | "optional"i | "false"i | "no way"i
 
 //          ========== Paragraph ==========
-paragraph:	one_liner
-	|	paragraph__content__value
-
-//  ... value rules for paragraph  ...
-paragraph__content__value:	STRING
-
+paragraph:	AAA+?ZZZ
 
 //          ========== OneLiner ==========
-one_liner:	one_liner__content__value
-
-//  ... value rules for one_liner  ...
-one_liner__content__value:	STRING
-
+one_liner:	AAA+?ZZZ
 
 //          ========== ClassName ==========
 class_name:	/[A-Za-z][A-Za-z0-9]*/
@@ -317,63 +308,48 @@ attribute__data_type_clause__value:	data_type_clause
 
 
 // ===== Terminal definitions =====
+
 // ===== Field name literals =====
 ABBREVIATION_QF: "abbreviation"
-ANNOTATIONS_QF: "annotations"
-ATTRIBUTES_QF: "attributes"
-ATTRIBUTE_SECTIONS_QF: "attribute_sections"
 BASED_ON_QF: "based_on"
-CARDINALITY_QF: "cardinality"
-CLASSES_QF: "classes"
-CLASS_NAME_QF: "class_name"
 CODE_QF: "code"
-CONSTRAINTS_QF: "constraints"
 CONTENT_QF: "content"
 DATA_TYPE_CLAUSE_QF: "data_type_clause"
-DATA_TYPE_QF: "data_type"
 DEFAULT_QF: "default"
 DEPENDENTS_QF: "dependents"
 DERIVATION_QF: "derivation"
-DOMAIN_TYPE_QF: "domain_type"
-ELABORATION_QF: "elaboration"
-ELEMENT_TYPE_QF: "element_type"
-EMOJI_QF: "emoji"
 ENGLISH_QF: "english"
-IS_ALSO_OPTIONAL_QF: "is_also_optional"
-IS_OPTIONAL_QF: "is_optional"
 IS_REQUIRED_QF: "is_required"
-IS_VALUE_QF: "is_value"
 IS_VALUE_TYPE_QF: "is_value_type"
-LABEL_QF: "label"
 MESSAGE_QF: "message"
 NAME_QF: "name"
 ONE_LINER_QF: "one_liner"
 PLURAL_QF: "plural"
-RANGE_TYPE_QF: "range_type"
 SEVERITY_QF: "severity"
-SUBJECTS_QF: "subjects"
 SUBTYPES_QF: "subtypes"
 SUBTYPE_OF_QF: "subtype_of"
 WHERE_QF: "where"
 
-// ===== Named Punctuation =====
-HASH: "#"
+// ===== Unused Named Punctuation =====
 ASTERISK: "*"
-UNDERSCORE: "_"
-DASH: "-"
-LPAREN: "("
-RPAREN: ")"
 LBRACK: "["
 RBRACK: "]"
-LBRACE: "{"
 RBRACE: "}"
 COMMA: ","
-COLON: ":"
 DOT: "."
+// ===== Named Punctuation In Use =====
+DASH: "-"
+HASH: "#"
+COLON: ":"
+LPAREN: "("
+UNDERSCORE: "_"
+RPAREN: ")"
+LBRACE: "{"
 NEWLINE: "\n"
 
 // ===== Tokens =====
 CLASS_Q: "class"
+FIELDVALUE_Q: "fieldvalue"
 FROM_Q: "from"
 LIST_Q: "list"
 MAPPING_Q: "mapping"

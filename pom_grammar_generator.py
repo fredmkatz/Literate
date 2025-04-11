@@ -30,7 +30,7 @@ from utils_pom.util_json_pom import as_json, clean_dict
 from class_casing import UpperCamel, LowerCamel, NTCase, UpperSnake
 from class_field_type import FieldType
 from class_rules import Rule, DisjunctiveRule, RuleComment
-from class_field_type import field_terminals, to_terminal_name
+from class_field_type import field_terminals, punctuation_terminals, field_name_literals
 from class_templates import PomTemplate
 from class_pom_token import PresentableToken
 from pom_config import PomConfig
@@ -93,8 +93,6 @@ class PomGrammarGenerator(grammar_base):
         self.class_list = []
         self.class_hierarchy = {}
         self.rules = List[Union[str, Rule]]
-        self.terminals = set()
-        self.field_name_literals = set()
         self.templates: Dict[str, Union[PomTemplate, str]] = {}
 
         self.templates2 = {}
@@ -115,7 +113,6 @@ class PomGrammarGenerator(grammar_base):
         self.class_hierarchy.clear()
         # self.rules.clear()
         self.rules = []
-        self.terminals.clear()
 
         # Analyze the model
         classes = self._find_model_classes(model_module)
@@ -253,21 +250,28 @@ class PomGrammarGenerator(grammar_base):
         grammar_parts.extend(rule_strings)
         grammar_parts.append("")
 
+        # ToDo.  Not catching all punctuation and terminals used
+        # missing neste val
+        # ue phrase templates, such as list: element (COMMA element)
         # Add all terminals
         grammar_parts.append("// ===== Terminal definitions =====")
+        grammar_parts.append("")
         grammar_parts.append("// ===== Field name literals =====")
-        for qf_name in sorted(self.field_name_literals):
+        for qf_name in sorted(field_name_literals):
             literal_name = qf_name.replace("_QF", "").lower()
             grammar_parts.append(f"{qf_name}: \"{literal_name}\"")
 
         grammar_parts.append("")
-        grammar_parts.append("// ===== Named Punctuation =====")
+        grammar_parts.append("// ===== Unused Named Punctuation =====")
         for name, value in pmark_named.items():
-            # flogger.infof(f"Pmark named: {name} = {value}")
-            # if name in self.terminals or name in field_terminals or name == "NEWLINE":
-            #     # flogger.infof(f"Pmark named: {name} = {value} is in terminals")
+                if not name in punctuation_terminals:
+                    # grammar_parts.append(f"{name}_UNUSED: \"{value}\"")
+                    grammar_parts.append(f"{name}: \"{value}\"")
 
-                grammar_parts.append(f"{name}: \"{value}\"")
+        grammar_parts.append("// ===== Named Punctuation In Use =====")
+        for name in  punctuation_terminals:
+            value = pmark_named[name]
+            grammar_parts.append(f"{name}: \"{value}\"")
 
         grammar_parts.append("")
         grammar_parts.append("// ===== Tokens =====")
@@ -275,12 +279,11 @@ class PomGrammarGenerator(grammar_base):
         case_insensitive = (
             "i" if not self.pom_config.get("case_sensitive", False) else ""
         )
-        for terminal in sorted(self.terminals.union(field_terminals)):
+        for terminal in sorted(field_terminals):
             if terminal not in pmark_named and terminal not in {
                 "STRING",
                 "NUMBER",
                 "BOOLEAN",
-                "NEWLINE",
                 "INDENT",
                 "DEDENT",
             }:
@@ -310,7 +313,7 @@ class PomGrammarGenerator(grammar_base):
         grammar_parts.append("%ignore COMMENT")
 
         print("Field terminals: ", field_terminals)
-        print("Self terminals: ", self.terminals)
+        print("Punctiuation used: ", punctuation_terminals)
         return "\n".join(grammar_parts)
 
     @trace_method
@@ -398,9 +401,7 @@ class PomGrammarGenerator(grammar_base):
                     # flogger.infof("header fields are: {haeder_fields}")
 
                 # Generate field clause rules
-                (field_clauses, field_value_rules) = self._gen_field_clauses(
-                    class_name, cls, fields_needing_rules
-                )
+                field_clauses = self._gen_field_clauses(class_name, cls)
                 body_clauses = "\n\t|\t".join(field_clauses)
                 field_clauses_name = str(NTCase(class_name)) + "_clause"
                 clause_rule = Rule(field_clauses_name, body_clauses)
@@ -435,7 +436,7 @@ class PomGrammarGenerator(grammar_base):
             self.rules.append("")
             self.rules.append(f"//  ... value rules for {NTCase(class_name)}  ...")
             ## add the value rules
-            (field_clauses, field_value_rules) = self._gen_field_clauses(
+            field_value_rules = self._gen_field_value_rules(
                 class_name, cls, fields_needing_rules
             )
 
@@ -457,10 +458,12 @@ class PomGrammarGenerator(grammar_base):
             template: Header template
         """
         # Convert template to grammar rule
-        rule_parts = template.to_grammar_parts(class_name)
-        flogger.infof(f"rule parts are: {rule_parts}")
-        # Create the header clause
-        header_clause = " ".join(rule_parts)
+        # rule_parts = template.to_grammar_parts(class_name)
+        # flogger.infof(f"rule parts are: {rule_parts}")
+        # # Create the header clause
+        # header_clause = " ".join(rule_parts)
+        
+        header_clause = template.to_fragment(class_name)
         return header_clause
 
     @trace_method
@@ -473,16 +476,13 @@ class PomGrammarGenerator(grammar_base):
             template: full template for class
         """
         # Convert template to grammar rule
-        rule_parts = template.to_grammar_parts(class_name)
-        flogger.infof(f"rule parts are: {rule_parts}")
-        # Create the header clause
-        full_rhs = " ".join(rule_parts)
+        
+        full_rhs = template.to_fragment(class_name)
         return full_rhs
 
     @trace_method
     def _gen_field_clauses(
-        self, class_name, cls, header_fields: Set[str]
-    ) -> tuple[List[str], List[Rule]]:
+        self, class_name, cls) -> List[str]:
         """
         Generate field clause rules for a class, handling inheritance and specialization.
 
@@ -499,7 +499,6 @@ class PomGrammarGenerator(grammar_base):
         # Track processed fields to avoid duplicates
         processed_fields = set()
         field_clauses = []
-        value_rules = []
 
         # Process fields defined for this class.
         # note: this will include inherited fields, whether they are redefined for the class or not
@@ -515,15 +514,59 @@ class PomGrammarGenerator(grammar_base):
             #     f"... direct field of {class_name} - {field_obj.name},  {field_obj.type}"
             # )
             # flogger.infof(f"...   Field object: {field_obj}")
-            (field_clause, value_rule) = self._generate_field_rules(
+            field_clause = self._generate_field_clause(
                 class_name, field_obj.name, field_obj
             )
             field_clauses.append(field_clause)
-            if field_obj.name in header_fields:
-                value_rules.append(value_rule)
+            
             processed_fields.add(field_obj.name)
 
-        return (field_clauses, value_rules)
+        return field_clauses
+    @trace_method
+    def _gen_field_value_rules(
+        self, class_name, cls, header_fields: Set[str]) -> List[Rule]:
+        """
+        Generate field clause rules for a class, handling inheritance and specialization.
+
+        Args:
+            class_name: Name of the class
+            cls: Class object
+        """
+        # Get redefined fields (fields redefined in this class)
+
+        # Note: even though these are all found in fields(cls), this might be useful
+        # for cheching Metadata for presentable attributes. So saving the call
+        # redefined_fields = self._get_redefined_fields(cls)
+
+        # Track processed fields to avoid duplicates
+        processed_fields = set()
+        value_rules = []
+
+        # Process fields defined for this class.
+        # note: this will include inherited fields, whether they are redefined for the class or not
+        # If a field is redefined, it will appear in fields() with the redefined type
+
+        for field_obj in fields(cls):
+            # Skip private fields
+            if field_obj.name.startswith("_"):
+                continue
+            
+            if not field_obj.name in header_fields:
+                continue
+
+            # Generate field  value rule
+            # flogger.infof(
+            #     f"... direct field of {class_name} - {field_obj.name},  {field_obj.type}"
+            # )
+            # flogger.infof(f"...   Field object: {field_obj}")
+
+            value_rule = self._generate_field_value_rule(
+                class_name, field_obj.name, field_obj
+            )
+            value_rules.append(value_rule)
+            processed_fields.add(field_obj.name)
+
+        return value_rules
 
     @trace_method
     def _get_redefined_fields(self, cls):
@@ -561,7 +604,61 @@ class PomGrammarGenerator(grammar_base):
         return redefined
 
     # @trace_method
-    def _generate_field_rules(
+    def _generate_field_clause(
+        self, class_name, field_name, field_obj) -> str:
+        """
+        Generate rules for a field clause and value.
+
+        Args:
+            class_name: Name of the class
+            field_name: Name of the field
+            field_obj: Field object
+        """
+
+        # Get field type and metadata
+        field_type = field_obj.type
+
+        fieldType = FieldType.create(field_type)
+        # flogger.infof(
+        #     f"Field name: {field_name}, type(FieldType): {type(fieldType)}, field type: {fieldType}"
+        # )
+
+
+        # flogger.infof(f"Field name: {field_name}")
+        # Get the field clause template
+        
+        field_meta = self.pom_meta.resolved.get_field_metadata_with_defaults(class_name, field_name, fieldType.suffix())
+        flogger.infof(f"Field meta  for {class_name}.{field_name} is: {field_meta}")  
+        field_clause_template = field_meta.get("field_value", "{field_name}: {field_value}")
+
+        # flogger.infof(f"fs template found is: {field_clause_template}")
+
+        # Get field metadata
+
+        field_name_literal = literal_field_name(field_name)
+        # Replace placeholders with actual values
+        suffix = fieldType.suffix()
+        # rule_text = field_clause_template.replace("{field_name}", field_name_literal)
+
+        # Note: for field level templates, they will still have just one field value, so aliasing can be used
+        # for headers and other full spelling templates, we will need to create Rules like: CLASS_FIELD_VALUE : Datatype
+        value_phrase = fieldType.value_phrase(field_meta)  #  Might be List[ClassName]
+        node_name = f"{NTCase(class_name)}__{NTCase(field_name)}__{suffix}"
+        rule_text2 = field_clause_template.replace("{field_name}",  field_name_literal )
+        rule_text2 = rule_text2.replace("{field_value}", "FIELDVALUE") 
+       
+        # value_fragment = PomTemplate(value_phrase).to_fragment(None)
+        # flogger.infof(f"vphrase is {value_phrase}; vfragment is {value_fragment}")
+        rule_fragment = PomTemplate(rule_text2).to_fragment(class_name)
+        repaired_fragment = rule_fragment.replace("FIELDVALUE_Q", value_phrase)
+        flogger.infof(f"repaired fragment = {repaired_fragment}")
+        repaired_fragment += f"\t-> {node_name}"  # alias the field value to the node name
+
+
+        return repaired_fragment
+
+
+    def _generate_field_value_rule(
         self, class_name, field_name, field_obj
     ) -> tuple[str, str]:
         """
@@ -581,70 +678,8 @@ class PomGrammarGenerator(grammar_base):
         #     f"Field name: {field_name}, type(FieldType): {type(fieldType)}, field type: {fieldType}"
         # )
 
-        # Generate field clause rule
-        field_clause_rule = self._generate_field_clause(
-            class_name, field_name, field_obj, fieldType
-        )
 
         # Generate field value rule based on type
-        field_value_rule = self._generate_field_value_rule(
-            class_name, field_name, field_obj, fieldType
-        )
-        return (field_clause_rule, field_value_rule)
-
-    @trace_method
-    def _generate_field_clause(
-        self, class_name, field_name, field_obj, fieldType
-    ) -> str:
-        """
-        Generate a rule for a field clause.
-
-        Args:
-            class_name: Name of the class
-            field_name: Name of the field
-            field_obj: Field object
-        """
-
-        # flogger.infof(f"Field name: {field_name}")
-        # Get the field clause template
-        
-        field_meta = self.pom_meta.resolved.get_field_metadata_with_defaults(class_name, field_name, fieldType.suffix())
-        flogger.infof(f"Field meta  for {class_name}.{field_name} is: {field_meta}")  
-        field_clause_template = field_meta.get("field_value", "{field_name}: {field_value}")
-
-        # flogger.infof(f"fs template found is: {field_clause_template}")
-
-        # Get field metadata
-
-        field_name_literal = literal_field_name(field_name)
-        # Replace placeholders with actual values
-        suffix = fieldType.suffix()
-        rule_text = field_clause_template.replace("{field_name}", field_name_literal)
-
-        # Note: for field level templates, they will still have just one field value, so aliasing can be used
-        # for headers and other full spelling templates, we will need to create Rules like: CLASS_FIELD_VALUE : Datatype
-        value_phrase = fieldType.value_phrase(field_meta)  #  Might be List[ClassName]
-        node_name = f"{NTCase(class_name)}__{NTCase(field_name)}__{suffix}"
-        rule_text = rule_text.replace("{field_value}", value_phrase)
-        rule_text += f"\t-> {node_name}"  # alias the field value to the node name
-
-        # Add the field name to terminals
-        self.field_name_literals.add(field_name_literal)
-
-        return rule_text
-
-    # @trace_method
-    def _generate_field_value_rule(
-        self, class_name, field_name, field_obj, fieldType
-    ) -> Rule:
-        """
-        Generate a rule for a field value based on its type.
-
-        Args:
-            class_name: Name of the class
-            field_name: Name of the field
-            field_obj: Field object
-        """
 
         metadata = self.pom_meta.resolved.get_field_metadata_with_defaults(class_name, field_name, fieldType.suffix())
         # Rule name
@@ -657,6 +692,10 @@ class PomGrammarGenerator(grammar_base):
         #     f"Field name: {field_name}, rule name: {rule_name}, value phrase: {value_phrase}"
         # )
         return Rule(rule_name, value_phrase)
+
+
+
+
 
     @trace_method
     def _generate_type_hierarchy_clause(self, class_name):

@@ -1,8 +1,8 @@
 import re
 from dataclasses import dataclass
-from typing import Set
-from class_field_type import to_terminal_name, field_terminals
-from utils_pom.util_flogging import flogger, trace_method
+from typing import Set, List
+from class_field_type import to_terminal_name, field_terminals, field_name_literals
+from utils_pom.util_flogging import flogger, trace_method, trace_decorator
 
 def literal_name(word: str)->str:
     """
@@ -37,7 +37,14 @@ class PomTemplate:
     
     def __repr__(self):
         return f"PomTemplate({self.template})"
-    def to_grammar_parts(self, class_name):
+    
+    @trace_decorator
+    def to_fragment(self, class_name) -> str:
+        parts = self.to_grammar_parts(class_name)
+        return " ".join(parts)
+    
+    @trace_decorator
+    def to_grammar_parts(self, class_name) -> List[str]:
         """
         Convert a template string to grammar rule parts.
         
@@ -48,7 +55,8 @@ class PomTemplate:
             List of grammar rule parts
         """
         from class_casing import LowerCamel, NTCase  # To avoid circular import
-        from pom_config import named_pmarks  # Import named punctuation marks
+        from pom_config import named_pmarks , pmark_named # Import named punctuation marks
+        from class_field_type import punctuation_terminals
 
         # First, capture all field references
         all_field_refs = {}
@@ -131,25 +139,41 @@ class PomTemplate:
             if template[i].isspace():
                 if template[i] == '\n':
                     grammar_parts.append("NEWLINE")
-                    field_terminals.add("NEWLINE")
-                    flogger.infof("Adding NEWLINE to field terminals")
+                    punctuation_terminals.add("NEWLINE")
+                    flogger.infof("Adding NEWLINE to punctuation_terminals")
                     flogger.infof(f"NEWLINE found in template: {template}")
                 i += 1
                 continue
             
-            # Handle word tokens (consecutive letters)
-            if template[i].isalpha():
+            # Handle word tokens (consecutive letters or UNDERSCORE)
+            if template[i].isalpha() or template[i] == '_':
                 word = ""
                 j = i
-                while j < len(template) and template[j].isalpha():
+                while j < len(template) and (template[j].isalpha() or template[j] == '_'):
                     word += template[j]
                     j += 1
                 
                 # Add as a token if it's a word
                 if len(word) > 1:
-                    term_name = literal_name(word)
+                    flogger.infof(f"Found a WORD {word} ")
+
+                    if word in pmark_named:
+                        mark = pmark_named[word]
+                        punctuation_terminals.add(word)
+                        grammar_parts.append(word)
+                        i = j
+                        flogger.infof(f"Punctuation name {word} added for {mark}")
+                        continue
+                    
+                    if word.endswith("_QF"):
+                        term_name = word
+                        field_name_literals.add(word)
+
+                    else:
+                        term_name = literal_name(word)
+                        field_terminals.add(term_name)
+
                     grammar_parts.append(term_name)
-                    field_terminals.add(term_name)
                     i = j
                     continue
             
@@ -160,7 +184,7 @@ class PomTemplate:
             if char in named_pmarks:
                 term_name = named_pmarks[char]
                 grammar_parts.append(term_name)
-                field_terminals.add(term_name)
+                punctuation_terminals.add(term_name)
             elif char.isalnum():
                 # Single character
                 term_name = char.upper()
@@ -181,7 +205,7 @@ class PomTemplate:
         for match in re.finditer(r'\{([^?{}]+)\}', self.template):
             field_positions.append((match.start(), match.end(), match.group(1)))
             fields.add(match.group(1))
-            flogger.info(f"Field posiitons: {field_positions}")
+            flogger.infof(f"Field posiitons: {field_positions}")
         return fields
     
     def as_rule(self, class_name):
