@@ -56,8 +56,8 @@ class Casing(PresentableToken):
     
 
     # Full pattern for one or more IDENTIFIERS separated by spaces
-    # token_pattern_str = rf"(?:{IDENTIFIER})(?:\s+(?:{IDENTIFIER}))*"
-    token_pattern_str = f"/{IDENTIFIER}/"
+    token_pattern_str = rf"/(?:{IDENTIFIER})(?:\s+(?:{IDENTIFIER}))*/"
+    # token_pattern_str = f"/{IDENTIFIER}/"
     
 
     def __init__(self, input_string):
@@ -168,7 +168,6 @@ class SnakeCase(Casing):
     def convert(self):
         return "_".join(word.lower() for word in self.words)
 
-NTCase = SnakeCase
 
 class UpperSnake(Casing):
     """
@@ -178,6 +177,8 @@ class UpperSnake(Casing):
     def convert(self):
         return "_".join(word.upper() for word in self.words)
 
+NTCase = SnakeCase
+TokenCase = UpperSnake
 
 class Kebab(Casing):
     """
@@ -224,6 +225,9 @@ kebab_case = Kebab
 pascalCase = PascalCase
 dot_case = DotCase
 train_case = TrainCase
+
+
+
 
 if __name__ == "__main__":
     print("UpperCamel", UpperCamel("this is a test"))

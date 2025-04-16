@@ -15,22 +15,18 @@ _defaults:
     'true': 'true'
     'false': 'false'
     is_explicit: true
-  list: '{element} (COMMA {element})+'
+  list: '{element} (COMMA {element})*'
   dict: dull dict
-  set: '''{''{element} ('','''' {element})+''}'''
-  tuple: ' ''['' {element} ('','''' {element})+ '']'''
+  set: '''{''{element} ('','''' {element})*''}'''
+  tuple: ' ''['' {element} ('','''' {element})* '']'''
   field_clause: '{field_name} ":"  {field_value}'
 Paragraph:
-  template: '{content}'
-OneLiner:
-  template: '{content}'
+  template: '{output}'
 Annotation:
-  template: '{?{emoji}}  {label}: {content} ''
-
-    '''
+  template: '{?{emoji}}  {label}: {content} NEWLINE'
 Component:
   is_abstract: true
-  header: '_ {_type}: {name}{? - {one_liner}} "\n"'
+  header: 'COMPONENT: {name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -39,9 +35,7 @@ Component:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectE:
-  header: '#####  {{name}{? - {one_liner}} ''
-
-    '''
+  header: '#####  {{name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -53,9 +47,7 @@ SubjectE:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectD:
-  header: '####  {{name}{? - {one_liner}} ''
-
-    '''
+  header: '####  {{name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -70,9 +62,7 @@ SubjectD:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectC:
-  header: '###  {{name}{? - {one_liner}} ''
-
-    '''
+  header: '###  {{name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -87,9 +77,7 @@ SubjectC:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectB:
-  header: '##  {{name}{? - {one_liner}} ''
-
-    '''
+  header: '##  {{name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -104,9 +92,7 @@ SubjectB:
       list: '{element}+'
       field_value: '{field_value}'
 LDM:
-  header: '#  {{name}{? - {one_liner}} ''
-
-    '''
+  header: '#  {{name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -139,7 +125,7 @@ DataTypeClause:
         'false': required
         is_explicit: false
 Class:
-  header: '_ Class: {name}{? - {one_liner}} "\n"'
+  header: _ {name}{? - {one_liner}} NEWLINE
   _fields:
     elaboration:
       list: '{element}+'
@@ -154,9 +140,7 @@ Class:
       list: '{element}+'
       field_value: '{field_value}'
 ValueType:
-  header: '_ {name}{? - {one_liner}} ''
-
-    '''
+  header: '_  ValueType : {name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -171,9 +155,7 @@ ValueType:
       list: '{element}+'
       field_value: '{field_value}'
 ReferenceType:
-  header: '_ {name}{? - {one_liner}} ''
-
-    '''
+  header: _ {name}{? - {one_liner}} NEWLINE
   _fields:
     elaboration:
       list: '{element}+'
@@ -188,9 +170,7 @@ ReferenceType:
       list: '{element}+'
       field_value: '{field_value}'
 AttributeSection:
-  header: '-  {name}{? - {one_liner}}{? ({is_required})} ''
-
-    '''
+  header: '-  {name}{? - {one_liner}}{? ({is_required})} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -202,7 +182,7 @@ AttributeSection:
       list: '{element}+'
       field_value: '{field_value}'
 Attribute:
-  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} "\n"'
+  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'

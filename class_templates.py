@@ -38,12 +38,12 @@ class PomTemplate:
     def __repr__(self):
         return f"PomTemplate({self.template})"
     
-    @trace_decorator
+    # @trace_decorator
     def to_fragment(self, class_name) -> str:
         parts = self.to_grammar_parts(class_name)
         return " ".join(parts)
     
-    @trace_decorator
+    # @trace_decorator
     def to_grammar_parts(self, class_name) -> List[str]:
         """
         Convert a template string to grammar rule parts.
@@ -77,7 +77,7 @@ class PomTemplate:
             template = template.replace(placeholder, f"{{{field_name}}}")
         
         # Log the template after preprocessing
-        flogger.infof(f"Preprocessed template: {template}")
+        # flogger.infof(f"Preprocessed template: {template}")
         
         # Find all field references and mark their positions
         field_positions = []
@@ -155,14 +155,14 @@ class PomTemplate:
                 
                 # Add as a token if it's a word
                 if len(word) > 1:
-                    flogger.infof(f"Found a WORD {word} ")
+                    # flogger.infof(f"Found a WORD {word} ")
 
                     if word in pmark_named:
                         mark = pmark_named[word]
                         punctuation_terminals.add(word)
                         grammar_parts.append(word)
                         i = j
-                        flogger.infof(f"Punctuation name {word} added for {mark}")
+                        # flogger.infof(f"Punctuation name {word} added for {mark}")
                         continue
                     
                     if word.endswith("_QF"):
@@ -194,7 +194,7 @@ class PomTemplate:
             i += 1
         
         # Log the final grammar parts
-        flogger.infof(f"Final grammar parts: {grammar_parts}")
+        # flogger.infof(f"Final grammar parts: {grammar_parts}")
         return grammar_parts
     
     @trace_method
@@ -205,7 +205,7 @@ class PomTemplate:
         for match in re.finditer(r'\{([^?{}]+)\}', self.template):
             field_positions.append((match.start(), match.end(), match.group(1)))
             fields.add(match.group(1))
-            flogger.infof(f"Field posiitons: {field_positions}")
+            # flogger.infof(f"Field posiitons: {field_positions}")
         return fields
     
     def as_rule(self, class_name):

@@ -1,16 +1,18 @@
 import logging
 import sys
+import os
 import functools
 import inspect
 from typing import Optional, Callable, Any, Union, Dict
 from contextlib import contextmanager
 
 # Default format for log messages
-DEFAULT_FORMAT = "[%(filename)s:%(lineno)s - %(funcName)20s()] %(message)s"
+DEFAULT_FORMAT = "[%(filename)s:%(lineno)s - %(funcName)35s()] %(message)s"
 
 # Configure basic logging
 logging.basicConfig(stream=sys.stdout, format=DEFAULT_FORMAT, level=logging.INFO)
 
+trace_depth = 0
 class EnhancedLogger(logging.Logger):
     """
     Enhanced logger with improved f-string support, stack level management,
@@ -97,6 +99,12 @@ class EnhancedLogger(logging.Logger):
             return level
         return self.level
     
+    def indented(self, msg: str) -> str:
+        """Indent the message for better readability."""
+        insert = f"(td={trace_depth})"
+        insert = ""
+        return ". " * trace_depth + insert + msg
+
     def debug(self, msg: str, *args, **kwargs):
         """
         Log a message with severity 'DEBUG'.
@@ -110,31 +118,31 @@ class EnhancedLogger(logging.Logger):
         """
         stacklevel = kwargs.pop('stacklevel', 1) + 1 + self._transparent_depth
         if self.isEnabledFor(logging.DEBUG):
-            self._log(logging.DEBUG, indented(msg), args, stacklevel=stacklevel, **kwargs)
+            self._log(logging.DEBUG, self.indented(msg), args, stacklevel=stacklevel, **kwargs)
     
     def info(self, msg: str, *args, **kwargs):
         """Log a message with severity 'INFO'."""
         stacklevel = kwargs.pop('stacklevel', 1) + 1 + self._transparent_depth
         if self.isEnabledFor(logging.INFO):
-            self._log(logging.INFO, indented(msg), args, stacklevel=stacklevel, **kwargs)
+            self._log(logging.INFO, self.indented(msg), args, stacklevel=stacklevel, **kwargs)
     
     def warning(self, msg: str, *args, **kwargs):
         """Log a message with severity 'WARNING'."""
         stacklevel = kwargs.pop('stacklevel', 1) + 1 + self._transparent_depth
         if self.isEnabledFor(logging.WARNING):
-            self._log(logging.WARNING, indented(msg), args, stacklevel=stacklevel, **kwargs)
+            self._log(logging.WARNING, self.indented(msg), args, stacklevel=stacklevel, **kwargs)
     
     def error(self, msg: str, *args, **kwargs):
         """Log a message with severity 'ERROR'."""
         stacklevel = kwargs.pop('stacklevel', 1) + 1 + self._transparent_depth
         if self.isEnabledFor(logging.ERROR):
-            self._log(logging.ERROR, indented(msg), args, stacklevel=stacklevel, **kwargs)
+            self._log(logging.ERROR, self.indented(msg), args, stacklevel=stacklevel, **kwargs)
     
     def critical(self, msg: str, *args, **kwargs):
         """Log a message with severity 'CRITICAL'."""
         stacklevel = kwargs.pop('stacklevel', 1) + 1 + self._transparent_depth
         if self.isEnabledFor(logging.CRITICAL):
-            self._log(logging.CRITICAL, indented(msg), args, stacklevel=stacklevel, **kwargs)
+            self._log(logging.CRITICAL, self.indented(msg), args, stacklevel=stacklevel, **kwargs)
     
     # Convenience methods for f-string use
     def debugf(self, msg: str, stacklevel: int = 1, **kwargs):
@@ -157,12 +165,6 @@ class EnhancedLogger(logging.Logger):
         """Critical log with f-string support."""
         self.critical(msg, stacklevel=stacklevel+1, **kwargs)
 
-def indented(msg: str) -> str:
-    """Indent the message for better readability."""
-    initial_depth =10
-    
-    return ". " * (get_stack_depth() - initial_depth) + msg
-    # return ". " * (get_stack_depth() ) + msg
 
 def get_stack_depth():
   """Returns the current depth of the call stack."""
@@ -219,65 +221,115 @@ flogger.setLevel(logging.INFO)
 import functools
     
 def trace_decorator(func):
-    @transparent(depth=1)
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        # Log the function call with its arguments
-        flogger.infof(f"< {func.__name__} of {args} {kwargs}")
+        # Get information about the caller
+        caller_frame = inspect.currentframe().f_back
+        caller_file = os.path.basename(caller_frame.f_code.co_filename)
+        caller_line = caller_frame.f_lineno
+        
+        global trace_depth
+
+        insert = f"(td = {trace_depth})"
+        insert = ""
+        indent = ". " * trace_depth
+        # Format with the exact same style as your logger
+        entry_msg = f"[{caller_file}:{caller_line} - {func.__name__:>35s}()] {indent}< {insert} Called by {caller_frame.f_code.co_name} with args {args} {kwargs}"
+        print(entry_msg)
+        
+        trace_depth += 1
+        # Call the function
         result = func(*args, **kwargs)
-        flogger.infof(f"> {func.__name__} returned {result}")
+        trace_depth -= 1
+        
+        # Format exit message with the same style
+        exit_msg = f"[{caller_file}:{caller_line} - {func.__name__:>35s}()] {indent}> {insert} Returned {result}"
+        print(exit_msg)
+        
         return result
     return wrapper
 
 def trace_method(func):
-    @transparent(depth=1)
     @functools.wraps(func)
-    @transparent  # Skip the wrapper and the method itself
-    def wrapper(*args, **kwargs):
-        # Log the function call with its arguments
-        flogger.infof(f"< {func.__name__} of {args[1:]} {kwargs}")
-        result = func(*args, **kwargs)
-        flogger.infof(f"> {result} - from {func.__name__}")
+    def wrapper(self, *args, **kwargs):
+        # Get information about the caller
+        caller_frame = inspect.currentframe().f_back
+        caller_file = os.path.basename(caller_frame.f_code.co_filename)
+        caller_line = caller_frame.f_lineno
+        class_name = self.__class__.__name__
+        
+        global trace_depth
+        
+        insert = f"(td = {trace_depth})"
+        insert = ""
+        
+        indent = ". " * trace_depth
+
+        # Format entry message
+        # entry_msg = f"[{caller_file}:{caller_line} - {class_name}.{func.__name__:>35s}()] < Called by {caller_frame.f_code.co_name} with args {args} {kwargs}"
+        entry_msg = f"[{caller_file}:{caller_line} - {func.__name__:>35s}()] {indent}< {insert} Called by {caller_frame.f_code.co_name} with args {args} {kwargs}"
+        print(entry_msg)
+        
+        trace_depth += 1
+
+        # Call the method
+        result = func(self, *args, **kwargs)
+        trace_depth -= 1
+        
+        # Format exit message
+        # exit_msg = f"[{caller_file}:{caller_line} - {class_name}.{func.__name__:>35s}()] > Returned {result}"
+        exit_msg = f"[{caller_file}:{caller_line} - {func.__name__:>35s}()] {indent}> {insert} Returned {result}"
+        print(exit_msg)
+        
         return result
     return wrapper
-    
-    # @trace_decorator
-    # def add(x, y):
-    #     return x + y
-    
-    # add(2, 3)
-# # Example usage
-# if __name__ == "__main__":
-#     def test_function():
-#         value = 42
-#         flogger.debugf(f"Debug message with value: {value}")
-#         flogger.infof(f"Info message with value: {value}")
-        
-#         # Testing level management
-#         with flogger.temp_level(logging.DEBUG):
-#             flogger.debug("This debug message will be shown")
-        
-#         flogger.debug("This debug message won't be shown")
-        
-#         # Stack manipulation
-#         flogger.push_level(logging.DEBUG)
-#         flogger.debug("Debug after push")
-#         flogger.pop_level()
-#         flogger.debug("Debug after pop")
-    
-#     @transparent
-#     def helper_function():
-#         # This will show the caller of helper_function in the log
-#         flogger.info("Inside helper but log shows caller")
-#         nested_helper()
 
-#     @transparent
-#     def nested_helper():
-#         flogger.info("Inside nested_helper but should show caller")
+@trace_decorator
+def add_caller(x, y):
+    return add(x,y)
 
-#     def caller_function():
-#         helper_function()
-#         flogger.info("Inside caller, but outside helper")
+@trace_decorator
+def add(x, y):
+    flogger.info("inside decorated function add")
+    return x + y
+    
+# Example usage
+if __name__ == "__main__":
+    def test_function():
+        value = 42
+        flogger.debugf(f"Debug message with value: {value}")
+        flogger.infof(f"Info message with value: {value}")
+        
+        # Testing level management
+        with flogger.temp_level(logging.DEBUG):
+            flogger.debug("This debug message will be shown")
+        
+        flogger.debug("This debug message won't be shown")
+        
+        # Stack manipulation
+        flogger.push_level(logging.DEBUG)
+        flogger.debug("Debug after push")
+        flogger.pop_level()
+        flogger.debug("Debug after pop")
+    
+    @transparent
+    def helper_function():
+        # This will show the caller of helper_function in the log
+        flogger.info("Inside helper but log shows caller")
+        nested_helper()
+
+    @transparent
+    def nested_helper():
+        flogger.info("Inside nested_helper but should show caller")
+
+    def caller_function():
+        helper_function()
+        flogger.info("Inside caller, but outside helper")
             
-#     test_function()
-#     caller_function()
+    test_function()
+    caller_function()
+    print("\n calling add() directly")
+    add(5, 7)
+    
+    print("\n calling add() via add_caller()")
+    add_caller(4,5)

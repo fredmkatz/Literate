@@ -229,3 +229,40 @@ class ReferenceOrValue(PresentableBoolean):
     false_words = ["value"]
     default_value = True
     is_explicit = False
+
+
+class MarkedText(PresentableToken):
+    token_pattern_str = "/<<<.*>>>/"
+    
+
+    def __init__(self, input_string):
+        self.input = input_string
+        self.output = input.string.replace("<<<", "").replace(">>>", "")
+
+    def value(self) -> str:
+        return self.output
+
+    @classmethod
+    def token_pattern(cls) -> str:
+        return cls.token_pattern_str
+
+    def rendering_template(self) -> PomTemplate:
+        return PomTemplate("{value}")
+    def handlebars_template(self) -> str:
+        return ("{{value}}")
+
+@dataclass 
+class Emoji(PresentableToken):
+
+    token_pattern_str = r'/\d+(.*?)[\u263a-\U0001f645]/'
+    # regex = re.compile(r'\d+(.*?)[\u263a-\U0001f645]')
+
+    @classmethod
+    def token_pattern(cls) -> str:
+        return cls.token_pattern_str
+    
+    def rendering_template(self) -> PomTemplate:
+        return PomTemplate("{value}")
+    def handlebars_template(self) -> str:
+        return ("{{value}}")
+

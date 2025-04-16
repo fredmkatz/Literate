@@ -101,7 +101,7 @@ class PomParser:
             parser_settings = {
                 "start": start_rule  or lark_config.get("start", "start"),
                 "parser": lark_config.get("parser", "earley"),  # Most flexible parser
-                "debug": lark_config.get("debug", False),
+                "debug": True, # lark_config.get("debug", False),
                 "ambiguity": (
                     "explicit"
                     if lark_config.get("ambiguity", "resolve") == "explicit"

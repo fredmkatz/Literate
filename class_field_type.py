@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 
 
 from utils_pom.util_flogging import flogger
-from utils_pom.util_flogging import trace_decorator
+from utils_pom.util_flogging import trace_decorator, trace_method
 
 class FieldType(ABC):
     """
@@ -157,7 +157,7 @@ class FieldType(ABC):
         return "SuffixTBD"
     
     # @abstractmethod
-    @trace_decorator
+    @trace_method
     def value_phrase(self, metadata: dict) -> str:
         """Generate a grammar rule phrase for this type."""
         return "ValuePhraseTBD"
@@ -246,13 +246,18 @@ class SimpleType(FieldType):
             return self.raw_string
         return "simple"
     
+    @trace_method
     def value_phrase(self, metadata: dict) -> str:
-        from class_casing import NTCase
+        from class_casing import NTCase, TokenCase
+        
+        flogger.info("In value phrase for simple type")
 
         if self.is_primitive_type():
             return self._primitive_phrase(metadata)
-        # if self.raw_string.lower() == "camelcase":
-        #     return "CAMEL_CASE"
+        flogger.infof(f"raw string is {self.raw_string}")
+        if self.is_presentable_token():
+            flogger.info("Presentable token")
+            return str(TokenCase(self.raw_string))
         return str(NTCase(self.raw_string))  # Class name for non-primitives
     
     def _primitive_phrase(self, metadata: dict) -> str:
@@ -277,6 +282,20 @@ class SimpleType(FieldType):
     def is_class_type(self) -> bool:
         return not self._is_primitive
     
+    @trace_method
+    def is_presentable_token(self) -> bool:
+        from pom_grammar_generator import the_class_hierarchy
+        info = the_class_hierarchy.get(self.raw_string, None)
+        if not info:
+            flogger.infof(f"no info in  hierarchy for [{self.raw_string}]")
+            return False
+        the_cls = info['class']
+        flogger.infof(f"class from hierarchy is {the_cls}")
+        
+        from class_pom_token import PresentableToken
+        if issubclass(the_cls, PresentableToken):
+            return True
+        return False
     def is_simple_type(self) -> bool:
         return True
     
@@ -309,7 +328,7 @@ class ListType(FieldType):
         element_phrase = self.element_type.value_phrase(metadata)
         
         # Create list rule template
-        list_template = metadata.get("list", "{element} ( ',+ ' {element} )+")
+        list_template = metadata.get("list", "{element} ( ',+ ' {element} )*")
         
         # Fill in the template
         rule = list_template.replace("{element}", element_phrase)

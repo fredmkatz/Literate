@@ -156,13 +156,22 @@ def markup_text_lines(lines: List[str], debug=False) -> List[str]:
                             , "InverseOf"
                             , "Dependents"
                             , "Subtyping"
+                            , "plural"
                             , "abbreviation"
+                            
                         
                             
                             ]
     
 
-    
+    global all_marked_lines
+    global all_collected_lines
+    global current_state
+    global all_headers
+
+    all_marked_lines = []
+    all_headers = []
+
     # Track all annotation labels seen for debugging
     all_annotation_labels = set()
     all_normal_labels = set()
@@ -171,9 +180,6 @@ def markup_text_lines(lines: List[str], debug=False) -> List[str]:
     normal_non_text_annotations = list( map(normalize_label, non_text_annotations))
     # print("Normal nottext: ", normal_non_text_annotations)
     
-    global all_marked_lines
-    global all_collected_lines
-    global current_state
 
     # Initialize state
     in_text_section = False
@@ -184,6 +190,8 @@ def markup_text_lines(lines: List[str], debug=False) -> List[str]:
         i += 1
         # line = lines[i]
 
+        if "===" in line:
+            break
         # Identify the type of the current line
         line_type, parts = new_identify_line_type(line, debug)
         

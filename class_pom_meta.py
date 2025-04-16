@@ -67,10 +67,10 @@ dull_dict = {
             "is_explicit": True,
         },
         
-        "list": "{element} (COMMA {element})+",
+        "list": "{element} (COMMA {element})*",
         "dict": "dull dict",
-        "set": "'{'{element} (','' {element})+'}'",
-        "tuple": " '[' {element} (','' {element})+ ']'"
+        "set": "'{'{element} (','' {element})*'}'",
+        "tuple": " '[' {element} (','' {element})* ']'"
     }
 }
 DullFormat = PomFormat("dull", dull_dict)

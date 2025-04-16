@@ -6,7 +6,7 @@ _defaults:
     separator: ','
     whitespace: true
 Component:
-  header: '_ {_type}: {name}{? - {one_liner}} NEWLINE'
+  header: 'COMPONENT: {name}{? - {one_liner}} NEWLINE'
 Class:
   header: '_ Class: {name}{? - {one_liner}} NEWLINE'
 Attribute:

@@ -13,17 +13,17 @@ _defaults:
     'true': 'true'
     'false': 'false'
     is_explicit: true
-  list: '{element} (COMMA {element})+'
+  list: '{element} (COMMA {element})*'
   dict: dull dict
-  set: '''{''{element} ('','''' {element})+''}'''
-  tuple: ' ''['' {element} ('','''' {element})+ '']'''
+  set: '''{''{element} ('','''' {element})*''}'''
+  tuple: ' ''['' {element} ('','''' {element})* '']'''
   field_clause: '{field_name} ":"  {field_value}'
 Component:
-  header: '_ {_type}: {name}{? - {one_liner}} "\n"'
+  header: 'COMPONENT: {name}{? - {one_liner}} NEWLINE'
 Class:
-  header: '_ Class: {name}{? - {one_liner}} "\n"'
+  header: _ {name}{? - {one_liner}} NEWLINE
 Attribute:
-  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} "\n"'
+  header: '-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE'
 BaseDataType:
   template: '{class_name} {? - {is_value}}'
 ListDataType:

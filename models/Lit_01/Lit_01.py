@@ -7,12 +7,15 @@ from abc import ABC, abstractmethod
 
 # Import the casing classes
 from class_casing import UpperCamel, LowerCamel, CamelCase
+
 from class_pom_token import (
     PresentableBoolean,
     PresentableToken,
     IsOptional,
     ReferenceOrValue,
     IsReallyRequired,
+    MarkedText,
+    Emoji,
 )
 
 # Specify which imported classes should be included in the model
@@ -23,6 +26,8 @@ __model_imports__ = [
     IsOptional,
     IsReallyRequired,
     ReferenceOrValue,
+    MarkedText,
+    Emoji,
 ]
 
 
@@ -38,7 +43,7 @@ def block_list_field(*args, **kwargs):
             "{element}+" if not separator else f"{{element}} ({separator} {{element}})*"
         ),
         "field_value": (
-            "{field_value}" if not leader else f"{leader} '\n' {{field_value}}"
+            "{field_value}" if not leader else f"{leader} NEWLINE {{field_value}}"
         ),
     }
 
@@ -59,32 +64,21 @@ def block_list_field(*args, **kwargs):
 
 
 @dataclass
-class Paragraph(PresentableToken):
-    content: str
+class Paragraph(MarkedText):
+    output: str
     _type: str = field(default=None, init=False)
 
     def __post_init__(self):
         if self._type is None:
             self._type = "paragraph"
 
-    @classmethod
-    def token_pattern(cls) -> str:
-        """
-        Returns the regex pattern, or other rule for this token type.
-        So: PomToken: token_pattern - will appear in the grammar rule.
-
-        """
-        return "AAA+?ZZZ"
-
-    def value(self) -> str:
-        return self.content
 
     class Meta:
-        presentable_template = "{content}"
+        presentable_template = "{output}"
 
 
 @dataclass
-class OneLiner(Paragraph):
+class OneLiner(MarkedText):
     def __post_init__(self):
         super().__post_init__()
         self._type = "one-liner"
@@ -92,18 +86,18 @@ class OneLiner(Paragraph):
 
 @dataclass
 
-class ClassName(CamelCase):
+class ClassName(UpperCamel):
     name: UpperCamel
 @dataclass
-class Label(CamelCase):
-    name: LowerCamel
+class Label(UpperCamel):
+    name: UpperCamel
 
 
 @dataclass
 class Annotation:
     label: Label
     content: OneLiner
-    emoji: Optional[str] = None
+    emoji: Optional[Emoji] = None
     _type: str = field(default=None, init=False)
 
     def __post_init__(self):
@@ -111,7 +105,7 @@ class Annotation:
             self._type = "annotation"
 
     class Meta:
-        presentable_template = "{?{emoji}}  {label}: {content} '\n'"
+        presentable_template = "{?{emoji}}  {label}: {content} NEWLINE"
 
 
 @dataclass
@@ -125,7 +119,7 @@ class Component(ABC):
 
     class Meta:
         is_abstract = True
-        presentable_header = "{_type}: {name}{? - {one_liner}} '\n'"
+        presentable_header = "COMPONENT: {name}{? - {one_liner}} NEWLINE"
 
     def __str__(self):
         return f"{self._type.capitalize()}: {self.name}"
@@ -160,7 +154,7 @@ class SubjectE(Component):
         self._type = "subject_e"
 
     class Meta:
-        presentable_header = "#####  {{name}{? - {one_liner}} '\n'"
+        presentable_header = "#####  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -172,7 +166,7 @@ class SubjectD(SubjectE):
         self._type = "subject_d"
 
     class Meta:
-        presentable_header = "####  {{name}{? - {one_liner}} '\n'"
+        presentable_header = "####  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -184,7 +178,7 @@ class SubjectC(SubjectD):
         self._type = "subject_c"
 
     class Meta:
-        presentable_header = "###  {{name}{? - {one_liner}} '\n'"
+        presentable_header = "###  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -196,7 +190,7 @@ class SubjectB(SubjectC):
         self._type = "subject_b"
 
     class Meta:
-        presentable_header = "##  {{name}{? - {one_liner}} '\n'"
+        presentable_header = "##  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -208,7 +202,7 @@ class LDM(SubjectB):
         self._type = "ldm"
 
     class Meta:
-        presentable_header = "#  {{name}{? - {one_liner}} '\n'"
+        presentable_header = "#  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -385,7 +379,7 @@ class Class(Component):
     dependents: Optional[List[ClassName]] = field(default_factory=list)
     # samplerA: Tuple[int, str, DataType] = None
     is_value_type: bool = False
-    where: Optional[str] = None
+    where: Optional[OneLiner] = None
     attributes: List[Attribute] = block_list_field(default_factory=list)
     attribute_sections: List[AttributeSection] = block_list_field(default_factory=list)
 
@@ -398,7 +392,7 @@ class Class(Component):
             self.attribute_sections = []
 
     class Meta:
-        presentable_header = "_ {name}{? - {one_liner}} '\n'"
+        presentable_header = "_ {name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -407,6 +401,8 @@ class ValueType(Class):
         super().__post_init__()
         self.is_value_type = True
         self._type = "value-type"
+    class Meta:
+        presentable_header = "_  ValueType : {name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -428,7 +424,7 @@ class AttributeSection(Component):
             self.attributes = []
 
     class Meta:
-        presentable_header = "-  {name}{? - {one_liner}}{? ({is_required})} '\n'"
+        presentable_header = "-  {name}{? - {one_liner}}{? ({is_required})} NEWLINE"
 
 
 @dataclass
@@ -447,5 +443,5 @@ class Attribute(Component):
 
     class Meta:
         presentable_header = (
-            "-  {name}{? - {one_liner}}{? ({data_type_clause})} '\n'"
+            "-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE"
         )

@@ -39,7 +39,7 @@ pmark_named = {
     "COMMA": ",",
     "COLON": ":",
     "DOT": ".",
-    "NEWLINE": "\\n",
+    "NEWLINE": '\\n',
 }
 
 named_pmarks = {v: k for k, v in pmark_named.items()}
@@ -84,7 +84,7 @@ class PomConfig:
                 "parser": "earley",
                 "case_sensitive": False,
                 "ambiguity": "resolve",
-                "debug": False,
+                "debug": True,
             },
         }
 
