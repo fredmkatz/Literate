@@ -30,19 +30,19 @@ starter0: start+	// For any number of any NT
 ASTERISK: "*"
 LBRACK: "["
 RBRACK: "]"
-LBRACE: "{"
 RBRACE: "}"
 COMMA: ","
 DOT: "."
 //
 // ===== Named Punctuation In Use =====
-NEWLINE: "\n"
 UNDERSCORE: "_"
 HASH: "#"
+DASH: "-"
+NEWLINE: "\n"
+RPAREN: ")"
+LBRACE: "{"
 COLON: ":"
 LPAREN: "("
-DASH: "-"
-RPAREN: ")"
 //
 // ===== Tokens =====
 //
@@ -142,7 +142,7 @@ attribute__data_type_clause__value: data_type_clause
 
 //
 //           ========== AttributeSection ==========
-attribute_section_header: UNDERSCORE UNDERSCORE attribute_section__name__value [ DASH attribute_section__one_liner__value ] [ LPAREN attribute_section__is_required__value RPAREN ] NEWLINE
+attribute_section_header: DASH attribute_section__name__value [ DASH attribute_section__one_liner__value ] [ LPAREN attribute_section__is_required__value RPAREN ] NEWLINE
 attribute_section_clause: component_clause
 		|	IS_REQUIRED_QF COLON IS_REALLY_REQUIRED NEWLINE -> attribute_section__is_required__simple
 		|	attribute+ -> attribute_section__attributes__list
@@ -194,7 +194,7 @@ value_type__one_liner__value: ONE_LINER
 
 //
 //           ========== SubjectE ==========
-subject_e_header: HASH HASH HASH HASH HASH subject_e__name__value [ DASH subject_e__one_liner__value ] NEWLINE
+subject_e_header: HASH HASH HASH HASH HASH LBRACE subject_e__name__value [ DASH subject_e__one_liner__value ] NEWLINE
 subject_e_clause: component_clause
 		|	class+ -> subject_e__classes__list
 subject_e.3: subject_d
@@ -206,7 +206,7 @@ subject_e__one_liner__value: ONE_LINER
 
 //
 //           ========== SubjectD ==========
-subject_d_header: HASH HASH HASH HASH subject_d__name__value [ DASH subject_d__one_liner__value ] NEWLINE
+subject_d_header: HASH HASH HASH HASH LBRACE subject_d__name__value [ DASH subject_d__one_liner__value ] NEWLINE
 subject_d_clause: subject_e_clause
 		|	subject_e+ -> subject_d__subjects__list
 subject_d.4: subject_c
@@ -218,7 +218,7 @@ subject_d__one_liner__value: ONE_LINER
 
 //
 //           ========== SubjectC ==========
-subject_c_header: HASH HASH HASH subject_c__name__value [ DASH subject_c__one_liner__value ] NEWLINE
+subject_c_header: HASH HASH HASH LBRACE subject_c__name__value [ DASH subject_c__one_liner__value ] NEWLINE
 subject_c_clause: subject_d_clause
 		|	subject_d+ -> subject_c__subjects__list
 subject_c.5: subject_b
@@ -230,7 +230,7 @@ subject_c__one_liner__value: ONE_LINER
 
 //
 //           ========== SubjectB ==========
-subject_b_header: HASH HASH subject_b__name__value [ DASH subject_b__one_liner__value ] NEWLINE
+subject_b_header: HASH HASH LBRACE subject_b__name__value [ DASH subject_b__one_liner__value ] NEWLINE
 subject_b_clause: subject_c_clause
 		|	subject_c+ -> subject_b__subjects__list
 subject_b.6: ldm
@@ -242,7 +242,7 @@ subject_b__one_liner__value: ONE_LINER
 
 //
 //           ========== Ldm ==========
-ldm_header: HASH ldm__name__value [ DASH ldm__one_liner__value ] NEWLINE
+ldm_header: HASH LBRACE ldm__name__value [ DASH ldm__one_liner__value ] NEWLINE
 ldm_clause: subject_b_clause
 		|	subject_b+ -> ldm__subjects__list
 ldm.7: ldm_header  (ldm_clause)*
@@ -317,40 +317,4 @@ formula_coding_clause: CONTENT_QF COLON STRING NEWLINE -> formula_coding__conten
 formula_coding.2: ( formula_coding_clause )+
 // === End of abstract section Main Class Rules ===
 
-
-// === Abstract display: Chunks ===
-chunk_Annotation_0: [ annotation__emoji__value ] annotation__label__value COLON annotation__content__value NEWLINE
-chunk_component_header_0: COMPONENT_Q COLON component__name__value [ DASH component__one_liner__value ] NEWLINE
-chunk_component_clause_0: NAME_QF COLON CAMEL_CASE NEWLINE
-chunk_component_clause_1: ONE_LINER_QF COLON ONE_LINER NEWLINE
-chunk_component_clause_2: ABBREVIATION_QF COLON UPPER_CAMEL NEWLINE
-chunk_attribute_header_0: DASH attribute__name__value [ DASH attribute__one_liner__value ] [ LPAREN attribute__data_type_clause__value RPAREN ] NEWLINE
-chunk_attribute_clause_0: NAME_QF COLON LOWER_CAMEL NEWLINE
-chunk_attribute_clause_1: DATA_TYPE_CLAUSE_QF COLON data_type_clause NEWLINE
-chunk_attribute_clause_2: DERIVATION_QF COLON derivation NEWLINE
-chunk_attribute_clause_3: DEFAULT_QF COLON default NEWLINE
-chunk_attribute_section_header_0: UNDERSCORE UNDERSCORE attribute_section__name__value [ DASH attribute_section__one_liner__value ] [ LPAREN attribute_section__is_required__value RPAREN ] NEWLINE
-chunk_attribute_section_clause_0: IS_REQUIRED_QF COLON IS_REALLY_REQUIRED NEWLINE
-chunk_class_header_0: UNDERSCORE class__name__value [ DASH class__one_liner__value ] NEWLINE
-chunk_class_clause_0: NAME_QF COLON UPPER_CAMEL NEWLINE
-chunk_class_clause_1: PLURAL_QF COLON UPPER_CAMEL NEWLINE
-chunk_class_clause_2: SUBTYPE_OF_QF COLON CLASS_NAME (COMMA CLASS_NAME)* NEWLINE
-chunk_class_clause_3: SUBTYPES_QF COLON CLASS_NAME (COMMA CLASS_NAME)* NEWLINE
-chunk_class_clause_4: BASED_ON_QF COLON CLASS_NAME (COMMA CLASS_NAME)* NEWLINE
-chunk_class_clause_5: DEPENDENTS_QF COLON CLASS_NAME (COMMA CLASS_NAME)* NEWLINE
-chunk_class_clause_6: IS_VALUE_TYPE_QF COLON BOOLEAN NEWLINE
-chunk_class_clause_7: WHERE_QF COLON ONE_LINER NEWLINE
-chunk_reference_type_header_0: UNDERSCORE reference_type__name__value [ DASH reference_type__one_liner__value ] NEWLINE
-chunk_value_type_header_0: UNDERSCORE VALUETYPE_Q COLON value_type__name__value [ DASH value_type__one_liner__value ] NEWLINE
-chunk_subject_e_header_0: HASH HASH HASH HASH HASH subject_e__name__value [ DASH subject_e__one_liner__value ] NEWLINE
-chunk_subject_d_header_0: HASH HASH HASH HASH subject_d__name__value [ DASH subject_d__one_liner__value ] NEWLINE
-chunk_subject_c_header_0: HASH HASH HASH subject_c__name__value [ DASH subject_c__one_liner__value ] NEWLINE
-chunk_subject_b_header_0: HASH HASH subject_b__name__value [ DASH subject_b__one_liner__value ] NEWLINE
-chunk_ldm_header_0: HASH ldm__name__value [ DASH ldm__one_liner__value ] NEWLINE
-chunk_formula_clause_0: ENGLISH_QF COLON STRING NEWLINE
-chunk_formula_clause_1: CODE_QF COLON formula_coding NEWLINE
-chunk_constraint_clause_0: MESSAGE_QF COLON STRING NEWLINE
-chunk_constraint_clause_1: SEVERITY_QF COLON STRING NEWLINE
-chunk_formula_coding_clause_0: CONTENT_QF COLON STRING NEWLINE
-// === End of abstract section Chunks ===
 

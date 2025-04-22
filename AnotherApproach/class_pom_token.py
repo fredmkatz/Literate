@@ -230,14 +230,14 @@ class ReferenceOrValue(PresentableBoolean):
     default_value = True
     is_explicit = False
 
-
+@dataclass
 class MarkedText(PresentableToken):
-    token_pattern_str = '"<<<" + /.*?/ + ">>>"'
+    token_pattern_str = "/<<<.*>>>/"
     
 
     def __init__(self, input_string):
         self.input = input_string
-        self.output = input.string.replace("<<<", "").replace(">>>", "")
+        self.output = input_string.replace("<<<", "").replace(">>>", "")
 
     def value(self) -> str:
         return self.output

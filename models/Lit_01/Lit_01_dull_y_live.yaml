@@ -18,7 +18,7 @@ Component:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectE:
-  header: '#####  {{name}{? - {one_liner}} NEWLINE'
+  header: '#####  {name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -30,7 +30,7 @@ SubjectE:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectD:
-  header: '####  {{name}{? - {one_liner}} NEWLINE'
+  header: '####  {name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -45,7 +45,7 @@ SubjectD:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectC:
-  header: '###  {{name}{? - {one_liner}} NEWLINE'
+  header: '###  {name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -60,7 +60,7 @@ SubjectC:
       list: '{element}+'
       field_value: '{field_value}'
 SubjectB:
-  header: '##  {{name}{? - {one_liner}} NEWLINE'
+  header: '##  {name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -75,7 +75,7 @@ SubjectB:
       list: '{element}+'
       field_value: '{field_value}'
 LDM:
-  header: '#  {{name}{? - {one_liner}} NEWLINE'
+  header: '#  {name}{? - {one_liner}} NEWLINE'
   _fields:
     elaboration:
       list: '{element}+'
@@ -153,7 +153,7 @@ ReferenceType:
       list: '{element}+'
       field_value: '{field_value}'
 AttributeSection:
-  header: '-  {name}{? - {one_liner}}{? ({is_required})} NEWLINE'
+  header: UNDERSCORE UNDERSCORE  {name}{? - {one_liner}}{? ({is_required})} NEWLINE
   _fields:
     elaboration:
       list: '{element}+'

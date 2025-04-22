@@ -10,7 +10,7 @@ from functools import partial
 import json
 from lark import Lark, Transformer, Discard, v_args  # Transformer, Discard, v_args might be used in the Transformer
 from PyQt5 import QtWidgets, QtCore, QtGui
-import common
+import utils_pom.utils_gui as utils_gui
 
 # constants
 lark_parsers = ('earley', 'lalr', 'cyk')
@@ -41,7 +41,7 @@ default_settings = {
 }
 
 
-class TextDisplay(common.CodeEditor):
+class TextDisplay(utils_gui.CodeEditor):
     """
     A text display that can store text to file.
     The mode is one of ('parsed', 'transformed').
@@ -72,10 +72,25 @@ class TextDisplay(common.CodeEditor):
         # we should save
         settings['path.current'] = os.path.dirname(file)
         content = self.toPlainText()
-        common.write_text(file, content)
+        write_text(file, content)
+def read_text(file):
+    """
+    Reads a whole text file (UTF-8 encoded).
+    """
+    with open(file, mode='r', encoding='utf-8', errors='ignore') as f:
+        text = f.read()
+    return text
 
 
-class TextEdit(common.CodeEditor):
+def write_text(file, text):
+    """
+    Writes a whole text file (UTF-8 encoded).
+    """
+    with open(file, mode='w', encoding='utf-8') as f:
+        f.write(text)
+
+
+class TextEdit(utils_gui.CodeEditor):
     """
     A code editor that can load and store text from and to file.
     The mode is one of ('grammar', 'transformer', 'content') and influences the file filter.
@@ -142,7 +157,7 @@ class TextEdit(common.CodeEditor):
 
         # file exists, we should load it
         settings['path.current'] = os.path.dirname(file)
-        content = common.read_text(file)
+        content = read_text(file)
         self.file = file
         self.tooltip_changer(self.file)
         self.read_content = content
@@ -170,7 +185,7 @@ class TextEdit(common.CodeEditor):
         # we should save
         settings['path.current'] = os.path.dirname(file)
         content = self.toPlainText()
-        common.write_text(file, content)
+        write_text(file, content)
         self.file = file
         self.tooltip_changer(self.file)
         self.read_content = content
@@ -284,9 +299,9 @@ class LarkHighlighter(QtGui.QSyntaxHighlighter):
     """
 
     styles = {
-        'statement': common.createTextCharFormat('mediumblue', style='bold'),
-        'comment': common.createTextCharFormat('darkgray', style='italic'),
-        'string': common.createTextCharFormat('darkcyan', style='bold')
+        'statement': utils_gui.createTextCharFormat('mediumblue', style='bold'),
+        'comment': utils_gui.createTextCharFormat('darkgray', style='italic'),
+        'string': utils_gui.createTextCharFormat('darkcyan', style='bold')
     }
 
     statements = ('%ignore', '%import', '%declare')
@@ -370,10 +385,10 @@ class SearchWidget(QtWidgets.QWidget):
         layout.addStretch()
 
         # format for highlighting all search results
-        self.fmt_all = common.createTextCharFormat(background_color=QtCore.Qt.yellow)
+        self.fmt_all = utils_gui.createTextCharFormat(background_color=QtCore.Qt.yellow)
 
         # format for highlighting the next search result
-        self.fmt_current = common.createTextCharFormat(QtCore.Qt.white, QtCore.Qt.blue)
+        self.fmt_current = utils_gui.createTextCharFormat(QtCore.Qt.white, QtCore.Qt.blue)
 
     def start_search(self, target):
         """
@@ -566,7 +581,7 @@ class MainWindow(QtWidgets.QWidget):
                 edit.setLineWrapMode(QtWidgets.QPlainTextEdit.NoWrap)
             self.transformer_tabs.addTab(edit, '{}'.format(i+1))
             self.transformers.append(edit)
-            self.transformer_highlighters.append(common.PythonHighlighter(edit.document()))
+            self.transformer_highlighters.append(utils_gui.PythonHighlighter(edit.document()))
             if files[i]:
                 edit.load(files[i])
         self.transformer_tabs.setCurrentIndex(settings['transformer.active_tab'])
@@ -851,7 +866,7 @@ class MainWindow(QtWidgets.QWidget):
 
         # save setting
         text = json.dumps(settings, indent=1, sort_keys=True)
-        common.write_text(settings_file, text)
+        write_text(settings_file, text)
 
         event.accept()
 
@@ -924,13 +939,13 @@ if __name__ == '__main__':
     root_path = os.path.dirname(__file__)
 
     # read readme file (for the help window)
-    readme_text = common.read_text(os.path.join(root_path, 'README.md'))
+    readme_text = read_text(os.path.join(root_path, 'README.md'))
 
     # read settings
     settings_file = os.path.join(root_path, 'settings.json')
     settings = default_settings
     try:
-        text = common.read_text(settings_file)
+        text = read_text(settings_file)
         settings = json.loads(text)
         # we delete all keys in settings that are not in default_settings (cleanup obsolete keys)
         settings = {k: v for k, v in settings.items() if k in default_settings}

@@ -50,6 +50,9 @@ class AbstractRule:
             priority_str = f".{self.priority}"
         return self.lhs  + priority_str + ": " + self.rhs
     
+    def find_rule_chunks(self) -> List["AbstractRule"]:
+        return []
+    
 @dataclass
 class AbstractTRule(AbstractRule):
     def __init__(self, lhs: str, rhs: str, priority: int = None):
@@ -75,8 +78,27 @@ class AbstractNTRule(AbstractRule):
         rule_name = self.lhs
         if any(char.isupper() for char in rule_name):
             rule_name = str(NTCase(rule_name))
-        print("RHS is ", repr(self.rhs))
+        # print("RHS is ", repr(self.rhs))
         return rule_name  + priority_str + ": " + self.rhs
+    def find_rule_chunks(self) -> List[AbstractRule]:
+        import re
+
+        chunk_rules = []
+        clauses = self.rhs.split("|")
+        counter = 0
+        for clause in clauses:
+            if "NEWLINE" in clause:
+                trimmed_clause = re.sub(r"\s*->.*", "", clause).strip()
+                # trimmed_clause = re.sub(r"COLON.*NEWLINE", "COLON ANY_CHARS NEWLINE", trimmed_clause)
+                # trimmed_clause = re.sub(r"UNDERSCORE.*NEWLINE", "UNDERSCORE ANY_CHARS NEWLINE", trimmed_clause)
+                # trimmed_clause = re.sub(r"DASH.*NEWLINE", "DASH ANY_CHARS NEWLINE", trimmed_clause)
+
+                chunk_name = "chunk_" + self.lhs + f"_{counter}"
+                chunk_rule = AbstractRule(chunk_name, trimmed_clause)
+                print(f"Found chunkrule: {chunk_rule}")
+                chunk_rules.append(chunk_rule)
+                counter += 1
+        return  chunk_rules
 
 
 
@@ -87,6 +109,24 @@ class AbstractGrammar():
         self.rules = []
         self.sections = []
         self.name = "Top Level"
+        
+    def add_chunks(self):
+        chunk_section = self.add_section("Chunks")
+        chunk_rules = self.find_chunks()
+        for rule in chunk_rules:
+            chunk_section.add_rule2(rule)
+    
+    def find_chunks(self) -> List[AbstractRule]:
+        section_chunks = []
+        for rule in self.rules:
+            if isinstance(rule, AbstractRule):
+                rule_chunks = rule.find_rule_chunks()
+                section_chunks.extend(rule_chunks)
+        for section in self.sections:
+            subsection_chunks = section.find_chunks()
+            section_chunks.extend(subsection_chunks)
+        return section_chunks
+
     
     def add_section(self, section_name: str) -> "AbstractSection":
         section = AbstractSection(section_name)

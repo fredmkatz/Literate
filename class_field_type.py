@@ -157,7 +157,7 @@ class FieldType(ABC):
         return "SuffixTBD"
     
     # @abstractmethod
-    @trace_method
+    # @trace_method
     def value_phrase(self, metadata: dict) -> str:
         """Generate a grammar rule phrase for this type."""
         return "ValuePhraseTBD"
@@ -246,17 +246,16 @@ class SimpleType(FieldType):
             return self.raw_string
         return "simple"
     
-    @trace_method
+    # @trace_method
     def value_phrase(self, metadata: dict) -> str:
         from class_casing import NTCase, TokenCase
         
-        flogger.info("In value phrase for simple type")
 
         if self.is_primitive_type():
             return self._primitive_phrase(metadata)
-        flogger.infof(f"raw string is {self.raw_string}")
+        # flogger.infof(f"raw string is {self.raw_string}")
         if self.is_presentable_token():
-            flogger.info("Presentable token")
+            # flogger.info("Presentable token")
             return str(TokenCase(self.raw_string))
         return str(NTCase(self.raw_string))  # Class name for non-primitives
     
@@ -282,7 +281,7 @@ class SimpleType(FieldType):
     def is_class_type(self) -> bool:
         return not self._is_primitive
     
-    @trace_method
+    # @trace_method
     def is_presentable_token(self) -> bool:
         from pom_grammar_generator import the_class_hierarchy
         info = the_class_hierarchy.get(self.raw_string, None)
@@ -290,7 +289,7 @@ class SimpleType(FieldType):
             flogger.infof(f"no info in  hierarchy for [{self.raw_string}]")
             return False
         the_cls = info['class']
-        flogger.infof(f"class from hierarchy is {the_cls}")
+        # flogger.infof(f"class from hierarchy is {the_cls}")
         
         from class_pom_token import PresentableToken
         if issubclass(the_cls, PresentableToken):
@@ -588,7 +587,7 @@ def to_terminal_name(text: str) -> str:
         token_name = named_pmarks[f"'{text}'"]
         
     if token_name:
-        flogger.infof(f"Adding {token_name} to field_terminals")
+        # flogger.infof(f"Adding {token_name} to field_terminals")
         # Add to terminals set
         add_field_terminal(token_name)
         return token_name

@@ -66,17 +66,16 @@ def block_list_field(*args, **kwargs):
 @dataclass
 class Paragraph(MarkedText):
     output: str
-    _type: str = field(default=None, init=False)
+    _type: str = field(default="paragraph", init=False)
 
+        
     def __post_init__(self):
         if self._type is None:
             self._type = "paragraph"
 
-
     class Meta:
         presentable_template = "{output}"
-
-
+        
 @dataclass
 class OneLiner(MarkedText):
     def __post_init__(self):
@@ -84,13 +83,14 @@ class OneLiner(MarkedText):
         self._type = "one-liner"
 
 
-@dataclass
 
+@dataclass
 class ClassName(UpperCamel):
-    name: UpperCamel
+    pass
+
 @dataclass
 class Label(UpperCamel):
-    name: UpperCamel
+    pass
 
 
 @dataclass
@@ -154,7 +154,7 @@ class SubjectE(Component):
         self._type = "subject_e"
 
     class Meta:
-        presentable_header = "#####  {name}{? - {one_liner}} NEWLINE"
+        presentable_header = "#####  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -166,7 +166,7 @@ class SubjectD(SubjectE):
         self._type = "subject_d"
 
     class Meta:
-        presentable_header = "####  {name}{? - {one_liner}} NEWLINE"
+        presentable_header = "####  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -178,7 +178,7 @@ class SubjectC(SubjectD):
         self._type = "subject_c"
 
     class Meta:
-        presentable_header = "###  {name}{? - {one_liner}} NEWLINE"
+        presentable_header = "###  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -190,7 +190,7 @@ class SubjectB(SubjectC):
         self._type = "subject_b"
 
     class Meta:
-        presentable_header = "##  {name}{? - {one_liner}} NEWLINE"
+        presentable_header = "##  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -202,7 +202,7 @@ class LDM(SubjectB):
         self._type = "ldm"
 
     class Meta:
-        presentable_header = "#  {name}{? - {one_liner}} NEWLINE"
+        presentable_header = "#  {{name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -424,13 +424,12 @@ class AttributeSection(Component):
             self.attributes = []
 
     class Meta:
-        presentable_header = "UNDERSCORE UNDERSCORE  {name}{? - {one_liner}}{? ({is_required})} NEWLINE"
+        presentable_header = "-  {name}{? - {one_liner}}{? ({is_required})} NEWLINE"
 
 
 @dataclass
 class Attribute(Component):
     name: LowerCamel
-    
     data_type_clause: Optional[DataTypeClause] = None
     derivation: Optional[Derivation] = None
     default: Optional[Default] = None

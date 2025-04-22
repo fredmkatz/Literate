@@ -221,31 +221,122 @@ class PomTemplate:
         
         return rule_template
 
+    @trace_method
     def as_handlebars(self):
-
         """
-        Convert simple template to handlebars format for rendering
+        Convert template with {field} and {? conditional} syntax to Handlebars format.
         """
-        
-        # Convert field references: {field_name} → {{field_name}}
-        hb_template = re.sub(r'\{([^?{}]+)\}', r'{{field_\1}}', self.template)
-        
-        # Convert conditionals: {? content} → {{#if has_field}}content{{/if}}
-        def conditional_replacer(match):
-            # Extract the conditional content
-            content = match.group(1)
+        # Split template into pieces with balanced brackets
+        def split_into_pieces(template):
+            pieces = []
+            i = 0
+            start = 0
+            in_piece = False
             
-            # Find all field references in the content
-            fields = re.findall(r'\{\{field_([^}]+)\}\}', content)
+            while i < len(template):
+                if template[i] == '{':
+                    # Start of a bracketed section
+                    if not in_piece:
+                        # If we have text before this bracket, add it
+                        if i > start:
+                            pieces.append(template[start:i])
+                        start = i
+                        in_piece = True
+                    
+                    # Check for conditional marker
+                    if i + 1 < len(template) and template[i+1] == '?':
+                        # It's a conditional - handle nested structures
+                        bracket_level = 1
+                        i += 2  # Skip '{?'
+                        
+                        # Find matching closing bracket
+                        while i < len(template) and bracket_level > 0:
+                            if template[i] == '{':
+                                bracket_level += 1
+                            elif template[i] == '}':
+                                bracket_level -= 1
+                            i += 1
+                        
+                        # End of conditional - add as piece
+                        if bracket_level == 0:
+                            pieces.append(template[start:i])
+                            start = i
+                            in_piece = False
+                    else:
+                        # Regular field reference
+                        i += 1
+                elif template[i] == '}' and in_piece:
+                    # End of field reference
+                    i += 1
+                    pieces.append(template[start:i])
+                    start = i
+                    in_piece = False
+                else:
+                    # Regular character
+                    i += 1
             
-            if fields:
-                # Use the first field as the condition
-                condition = fields[0]
-                return f"{{#if has_{condition}}}{content}{{/if}}"
-            else:
-                # No fields found, make it always visible
-                return content
+            # Add any remaining text
+            if start < len(template):
+                pieces.append(template[start:])
+            
+            return pieces
         
-        hb_template = re.sub(r'\{\?\s*(.*?)\}', conditional_replacer, hb_template)
+        # Find all field references in a string
+        def find_fields(content):
+            fields = []
+            matches = re.finditer(r'\{([^?{}]+)\}', content)
+            for match in matches:
+                fields.append(match.group(1).strip())
+            return fields
         
-        return hb_template
+        # Convert template to Handlebars
+        def convert_template(template_str):
+            result = ""
+            
+            # For plain text without any brackets, return as is
+            if '{' not in template_str:
+                return template_str
+            
+            # Process the template
+            pieces = split_into_pieces(template_str)
+            
+            for piece in pieces:
+                if not piece.startswith('{'):
+                    # Plain text - add as is
+                    result += piece
+                elif piece.startswith('{?'):
+                    # Conditional section
+                    conditional_content = piece[2:-1]
+                    
+                    # Find all fields in the conditional
+                    fields = find_fields(conditional_content)
+                    
+                    if fields:
+                        # Use the first field as the condition
+                        condition_field = fields[0]
+                        
+                        # Process fields in the content
+                        processed_content = conditional_content
+                        for field in fields:
+                            processed_content = processed_content.replace(
+                                '{' + field + '}', 
+                                '{{' + field + '}}'
+                            )
+                        
+                        # Add the conditional with proper Handlebars syntax
+                        result += "{{#if " + condition_field + "}}" + processed_content + "{{/if}}"
+                    else:
+                        # No fields found, add as is
+                        result += conditional_content
+                elif piece.startswith('{') and not piece.startswith('{{'):
+                    # Field reference
+                    field_name = piece[1:-1].strip()
+                    result += "{{" + field_name + "}}"
+                else:
+                    # Other bracketed content (like {{existing}})
+                    result += piece
+            
+            return result
+        
+        # Convert the template
+        return convert_template(self.template)

@@ -1,20 +1,23 @@
+from logging import DEBUG
+
 from pom_grammar import PresentableGrammar
 from utils_pom.util_fmk_pom import read_text
 from utils_pom.util_flogging import flogger
 from utils_pom.util_lark import pretty_print_parse_tree
 from utils_pom.util_text_markup import markup_text_lines
-
+# from utils_pom.util_lark_debug import debug_parse_with_trace, debug_tokens_detailed
 
 def test_pom():
     flogger.info("Starting to test POM")
+    flogger.setLevel(DEBUG)
 
-    lark_config = {"case_sensitive": False, "ambiguity": "resolve", "debug": True}
+    lark_config = {"case_sensitive": False, "ambiguity": "explicit", "debug": True, "lexer": "dynamic", "start": "start0"}
 
     g = PresentableGrammar("Lit_01", format_name="dull", config=lark_config)
     flogger.info("Grammar created")
     print(g)
 
-    path = "models/Lit_01/SamplerClass.md"
+    path = "models/Lit_01/SamplerClass0.md"
     flogger.infof(f"Trying file {path}")
     try_file(g, path)
     flogger.info("Done testing POM")
@@ -29,18 +32,19 @@ def try_file(g, path):
     print(f"\nLines are: ({len(lines)})")
     for line in lines:
         print("\n", line)
-    marked_lines = markup_text_lines(lines, debug=True)
+    # marked_lines = markup_text_lines(lines, debug=True)
 
-    print(f"\nMarkedLines are: ({len(marked_lines)})")
-    trimmed_lines = []
-    for line in marked_lines:
-        if "===" in line:
-            break
-        trimmed = line.replace(" ; \n", "")
-        trimmed_lines.append(trimmed.rstrip())
-        print("\t", line)
+    # print(f"\nMarkedLines are: ({len(marked_lines)})")
+    # trimmed_lines = []
+    # for line in marked_lines:
+    #     if "===" in line:
+    #         break
+    #     trimmed = line.replace(" ; \n", "")
+    #     trimmed_lines.append(trimmed.rstrip())
+    #     print("\t", line)
 
-    print(f"\nTrimmed lines are: ({len(trimmed_lines)})")
+    # print(f"\nTrimmed lines are: ({len(trimmed_lines)})")
+    trimmed_lines = lines
     for line in trimmed_lines:
         print("\t", line)
 

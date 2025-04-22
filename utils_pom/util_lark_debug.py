@@ -1,6 +1,3 @@
-# 1. Use Lark's TraceRule to log rule applications
-
-
 from lark.visitors import TraceRule
 
 def debug_parse_with_trace(grammar, text, start_rule='start'):

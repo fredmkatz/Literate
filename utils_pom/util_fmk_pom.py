@@ -13,6 +13,11 @@ def read_text(path: str) -> str:
         data = file.read()
     return data
 
+def read_lines(path: str) -> str:
+    with open(path, 'r', encoding="utf-8") as file:
+        data = file.read()
+    return data.split("\n")
+
 
 def glob_files(*file_list):
     """Processes a list of files using glob."""
@@ -106,7 +111,10 @@ def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
             flogger.warningf(f"Error reading YAML file {yaml_path}: {e}")
             return {}
     return {}
+def as_yaml(the_dict: Dict) -> str:
+        return yaml.dump(clean_dict(the_dict),indent=4,default_flow_style=False, sort_keys=False)
 
+    
 def write_yaml(the_dict: Dict, file_path: str):
     """
     Write a dictionary to a YAML file.

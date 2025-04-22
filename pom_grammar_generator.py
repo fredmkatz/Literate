@@ -138,7 +138,7 @@ class PomGrammarGenerator(grammar_base):
         self._generate_grammar_terminals(self.abstract_terminals)
 
         # Store the generated grammar
-        
+        self.abstract_grammar.add_chunks()
         abstract_text = self.abstract_grammar.displayed()
         self._lark_grammar = abstract_text
 
@@ -146,7 +146,7 @@ class PomGrammarGenerator(grammar_base):
         return abstract_text
 
 
-    @trace_method
+    # @trace_method
     def _find_model_classes(self, model_module) -> Dict:
         """
         Analyze the model to build class hierarchy and identify complex types.
@@ -194,7 +194,7 @@ class PomGrammarGenerator(grammar_base):
         # print(f"All classes: {len(classes)}\n {classes.keys()}")
         return classes
 
-    @trace_method
+    # @trace_method
     def _derive_class_hierarchy(self, classes: Dict) -> Dict:
 
         # Build class hierarchy
@@ -290,6 +290,28 @@ class PomGrammarGenerator(grammar_base):
 
     def _generate_grammar_terminals(self, abstract_terminals: AbstractSection):
         abstract_terminals.add_comment("===== Terminal definitions =====")
+
+        # Add whitespace handling
+
+        abstract_terminals.add_comment("Whitespace handling")
+        abstract_terminals.add_space("%import common.WS_INLINE")
+        abstract_terminals.add_space("%ignore WS_INLINE")
+
+            
+        abstract_terminals.add_comment("===== Unused Named Punctuation =====")
+        for name, value in pmark_named.items():
+                if not name in punctuation_terminals:
+                    abstract_terminals.add_t_rule(name, f"\"{value}\"")
+
+
+        abstract_terminals.add_comment("===== Named Punctuation In Use =====")
+
+        for name in  punctuation_terminals:
+            value = pmark_named[name]
+            abstract_terminals.add_t_rule(name, f"\"{value}\"")
+
+
+        abstract_terminals.add_comment("===== Tokens =====")
         abstract_terminals.add_comment("===== Field name literals =====")
 
         case_insensitive = (
@@ -306,21 +328,6 @@ class PomGrammarGenerator(grammar_base):
             literal_name = qf_name.replace("_QF", "").lower()
             pattern = literal_name.replace("_", "\\s*")
             abstract_terminals.add_t_rule(f"{qf_name}", f"/{pattern}/{case_insensitive}", priority=9)
-            
-        abstract_terminals.add_comment("===== Unused Named Punctuation =====")
-        for name, value in pmark_named.items():
-                if not name in punctuation_terminals:
-                    abstract_terminals.add_t_rule(name, f"\"{value}\"")
-
-
-        abstract_terminals.add_comment("===== Named Punctuation In Use =====")
-
-        for name in  punctuation_terminals:
-            value = pmark_named[name]
-            abstract_terminals.add_t_rule(name, f"\"{value}\"")
-
-
-        abstract_terminals.add_comment("===== Tokens =====")
 
         # Field name terminals
         for terminal in sorted(field_terminals):
@@ -348,13 +355,6 @@ class PomGrammarGenerator(grammar_base):
             abstract_terminals.add_t_rule(symbol, pattern)
         abstract_terminals.add_space("")
 
-        # Add whitespace handling
-
-        abstract_terminals.add_comment("Whitespace handling")
-        abstract_terminals.add_t_rule("WHITESPACE", "/[ \\t\\n\\r]+/")
-        abstract_terminals.add_t_rule("COMMENT", r"/\/\/[^\\n]*/ NEWLINE")
-        abstract_terminals.add_space("%ignore WHITESPACE")
-        abstract_terminals.add_space("%ignore COMMENT")
         
 
         print("Field terminals: ", field_terminals)
@@ -393,20 +393,20 @@ class PomGrammarGenerator(grammar_base):
             # Generate a simple token rule
             token_pattern = cls.token_pattern()  # gets message? shown
             # token_pattern = cls.token_pattern_str # Works. gets the pattern from the class
-            flogger.infof(f"Token pattern: {token_pattern}")
+            # flogger.infof(f"Token pattern: {token_pattern}")
             
             # For pattern tokens:
             # - If this class inherits from another - and has the same pattern,
             #  - then just use the rule THIS_TOKEN: PARENT_TOKEN, instead of
             #       repeating the pattern
             bases = info.get("bases", None)
-            flogger.infof(f"Bases of Presentable token {class_name} are {bases}")
+            # flogger.infof(f"Bases of Presentable token {class_name} are {bases}")
             if len(bases) == 1:
                 base_cls = self.class_hierarchy[bases[0]]['class']
                 base_name = bases[0]
-                flogger.infof(f".. and base cls is {base_cls}")
+                # flogger.infof(f".. and base cls is {base_cls}")
                 base_pattern = base_cls.token_pattern()
-                flogger.infof(f".. and base pattern is {base_pattern}")
+                # flogger.infof(f".. and base pattern is {base_pattern}")
                 if base_pattern  == token_pattern:
                     abstract_terminals.add_t_rule(class_name, terminal_class_name(base_name) )
                     continue
@@ -433,7 +433,7 @@ class PomGrammarGenerator(grammar_base):
             self._gen_rules_for_class(abstract_classes, class_name, info["class"])
 
 
-    @trace_method
+    # @trace_method
     def _gen_rules_for_class(self, abstract_classes: AbstractSection,  class_name, cls):
         """
         Generate grammar rules for a specific class.
@@ -591,7 +591,7 @@ class PomGrammarGenerator(grammar_base):
         header_clause = template.to_fragment(class_name)
         return AbstractClause(header_clause)
 
-    @trace_method
+    # @trace_method
     def _gen_full_class_by_template(self, class_name, template: PomTemplate) -> AbstractClause:
         """
         Generate a header rule for a class based on a template.
@@ -605,7 +605,7 @@ class PomGrammarGenerator(grammar_base):
         full_rhs = template.to_fragment(class_name)
         return AbstractClause(full_rhs)
 
-    @trace_method
+    # @trace_method
     def _gen_field_clauses(
         self, class_name, cls, inherited: List[str]) -> List[AbstractClause]:
         """
@@ -644,7 +644,7 @@ class PomGrammarGenerator(grammar_base):
             
 
         return field_clauses
-    @trace_method
+    # @trace_method
     def _gen_field_value_rules(
         self, class_name, cls, header_fields: Set[str]) -> List[AbstractRule]:
         """
@@ -682,7 +682,7 @@ class PomGrammarGenerator(grammar_base):
 
         return value_rules
 
-    @trace_method
+    # @trace_method
     def _assess_fields(self, cls) -> Tuple[Set[str], Set[str], Set[str], Set[str]]:
         """
         Get fields that are redefined  in this class.
@@ -731,11 +731,11 @@ class PomGrammarGenerator(grammar_base):
             if not resolved:
                 newfields.add(fname)
         
-        flogger.infof(f"Assessed: {cls}...")
-        flogger.infof(f"... New fields for {cls} are {newfields}")
-        flogger.infof(f"... Redefined fields for {cls} are {redefined}")
-        flogger.infof(f"... Inherited fields for {cls} are {inherited}")
-        flogger.infof(f"... Inherits from for {cls} are {inherits_from}")
+        # flogger.infof(f"Assessed: {cls}...")
+        # flogger.infof(f"... New fields for {cls} are {newfields}")
+        # flogger.infof(f"... Redefined fields for {cls} are {redefined}")
+        # flogger.infof(f"... Inherited fields for {cls} are {inherited}")
+        # flogger.infof(f"... Inherits from for {cls} are {inherits_from}")
         return (newfields, redefined, inherited, inherits_from)
 
     # @trace_method
@@ -841,7 +841,7 @@ class PomGrammarGenerator(grammar_base):
         """
         # Get subtypes of this class
         subtypes = self.class_hierarchy[class_name].get("subtypes", [])
-        flogger.infof(f"subtypes of {class_name} are {subtypes}")
+        # flogger.infof(f"subtypes of {class_name} are {subtypes}")
         if not subtypes:
             # No subtypes, just return
             return None

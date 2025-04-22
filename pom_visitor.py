@@ -53,7 +53,7 @@ except ImportError:
             return token.value
 
 from pom_diagnostics import DiagnosticRegistry, Diagnostic, DiagnosticSeverity, SourceLocation
-from pom_utils import to_snake_case, to_upper_camel, to_lower_camel
+from utils_pom.pom_utils import to_snake_case, to_upper_camel, to_lower_camel
 
 class VisitContext:
     """
