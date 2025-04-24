@@ -6,10 +6,36 @@
 
 In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.  
 
+```
+Sample code block between paragraphs
+   x <  y and y > z
+```
+
+
 We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
 
 
-_ **Component** - An element or building block of the literate data model 
+_ **Component** - An element or building block of the literate data model with an extended
+  OneLiner  
+
+
+In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.  
+
+
+```
+Sample code block between paragraphs
+   x <  y and y > z
+```
+
+We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
+abbreviation: COMPT
+
+Subtypes: ComponentA, ComponentB, ComponentC
+BasedOn: ComponentA, ComponentB, ComponentC
+- parentClass - the supertype - just here to test parser (Class)
+inverseOf: Class.child_class
+inverse: Class.child_class2
+
 - **normalName** - the name of the component, not in camel case (*String*)
 
 - **name** - The name of the component (CamelName)
@@ -20,6 +46,23 @@ _ **Component** - An element or building block of the literate data model
 - **abbreviatedName** - a short form of the component's name, used for cross references and improved readability. (*CamelName*)
 
 	***Default***: name
+  code: This is the OCL code for calculating the name
+  English: And thii is an english language rendering
+
+
+  constraint: this is the first constraint for name in Component
+  code: OCL for first constraint
+  english: English for first constraint
+  Severity: Harsh
+  Message: {name} is all wrong - first
+
+
+  constraint: this is the second constraint for name in Component
+  code: OCL for second constraint
+  english: English for second constraint
+  Severity: Harsh second
+  Message: {name} is all wrong - second
+
 	***Example***: "LDM" is the short form of "Literate Data Model".
 
 - **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(RichLine)_  
@@ -86,7 +129,7 @@ These are the recognized Annotation Types for the LDM model.
 
 And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model. 
 
-```typescript
+```
 interface AnnotationType {
   label: string;
   emoji: string;

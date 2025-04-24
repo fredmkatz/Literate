@@ -26,6 +26,8 @@ def clean_dict(obj):
             for k, v in asdict(obj).items()
             if v is not None and not (isinstance(v, (list, dict)) and not v)
         }
+    else:
+        return "UnserializablePiece"
     return obj
 
 def as_json(obj):
