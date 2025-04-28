@@ -13,7 +13,7 @@ def pretty_print_parse_tree(tree, max_text_length=30, indent=0, indent_size=2, t
         String representation of the parse tree
     """
     result = []
-    indent_str = ' ' * indent_size * indent
+    indent_str = '. ' * indent_size * indent
     
     if hasattr(tree, 'data'):  # It's a Tree node
         # Get the full text of this subtree

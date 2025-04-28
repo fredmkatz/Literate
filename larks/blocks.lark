@@ -1,0 +1,27 @@
+# A line/block level grammar
+
+# At the bottom, there are
+##   head-lines: each with a distinctive prefix:
+###     section head line: #
+###     class head line: _ (followed by ws) + any tex
+###     attribute head line: - (followed by ws) + any text
+###     labeled line: starts WS? SHORTTEXT WS? COLON ANYTEXT
+###         SHORTTEXT is < 12 chars
+
+##   blank lines: just whitespace followed by a newline
+##   codeblocks: all the text between starting and ending code fences
+##      a code fence is a line that begins with ``` (possible after some whitespace)
+##   text_lines: any other lines outside of codeblocks
+
+# Out of the lines, the following are constructed
+paragraph: text_line+                           # uninterrupted by blanks, headlines, or codeblocks
+
+elaboration: (paragraph | codeblock)+           # a run of paras and codeblocks
+section_header: section_head_line text_line*    # headline and any immediately following text_lines
+class_header: class_head_line text_line*        ## similar
+attribute_header: attribute_head_line text_line* ## similar
+field: labeled_line text_line*
+
+section: section_header (elaboration)? field+  class* section*
+class: class_header (elaboration)? field+  attribute*
+attribute: attribute_header (elaboration)? field+ 

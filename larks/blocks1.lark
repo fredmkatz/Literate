@@ -1,0 +1,44 @@
+// Basic line types
+start: document
+
+document: block+
+
+// Block types
+block: section | class_def | attribute_def | CODEBLOCK | paragraph | blank_line
+
+// Line types
+section_head_line: WS? SECTION_MARKER WHITESPACE TEXT NEWLINE
+class_head_line: WS? CLASS_MARKER WHITESPACE TEXT NEWLINE
+attribute_head_line: WS? ATTRIBUTE_MARKER WHITESPACE TEXT NEWLINE
+labeled_line: WS? SHORTTEXT WHITESPACE? COLON TEXT NEWLINE
+text_line: WS? TEXT NEWLINE
+blank_line: WS? NEWLINE
+
+// Higher-level constructs
+paragraph: text_line+
+elaboration: (paragraph | CODEBLOCK)+
+
+section: section_header elaboration? (field | class_def | attribute_def | section)*
+section_header: section_head_line text_line*
+
+class_def: class_header elaboration? field* attribute_def*
+class_header: class_head_line text_line*
+
+attribute_def: attribute_header elaboration? field*
+attribute_header: attribute_head_line text_line*
+
+field: labeled_line text_line*
+
+// Tokens
+SECTION_MARKER: /#+/
+CLASS_MARKER: /_/
+ATTRIBUTE_MARKER: /-/
+CODEBLOCK: /```[^\n]*\n[\s\S]*?```\n/
+COLON: ":"
+WHITESPACE: /[ \t]+/
+SHORTTEXT: /[a-zA-Z0-9_\[\]]{1,12}/
+TEXT: /[^\r\n]+/
+NEWLINE: /\r?\n/
+WS: /[ \t]*/
+
+%ignore WS

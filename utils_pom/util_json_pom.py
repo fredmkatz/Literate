@@ -8,6 +8,29 @@ def update_nested_dict(original, updates):
             original[key] = value
     return original
 
+def tidy_empties(obj):
+    """Convert dataclass instance to dict, excluding None values."""
+    if isinstance(obj, (str, int, float, bool)):
+        return obj
+    elif isinstance(obj, list):
+        return [tidy_empties(item) for item in obj if item is not None]
+    elif isinstance(obj, dict):
+        return {
+            k: tidy_empties(v)
+            for k, v in obj.items()
+            if v is not None and not (isinstance(v, (list, dict)) and not v)
+        }
+    elif hasattr(obj, "__dataclass_fields__"):  # Is a dataclass
+        return {
+            k: tidy_empties(v)
+            for k, v in asdict(obj).items()
+            if v is not None and not (isinstance(v, (list, dict)) and not v)
+        }
+    else:
+        return "UnserializablePiece"
+    return obj
+
+
 def clean_dict(obj):
     """Convert dataclass instance to dict, excluding None values."""
     if isinstance(obj, (str, int, float, bool)):

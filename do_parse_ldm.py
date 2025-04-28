@@ -2,56 +2,72 @@ from utils_pom.util_fmk_pom import as_yaml
 from utils_pom.util_json_pom import as_json
 from typing import List
 
-from ldm_parse_core import (
+from dull_parser_classes import (
     LineType,
     HeadLine,
     # ClauseLine,
     MajorClause,
     MinorClause,
     PartStarter,
-    ParseHandler,
 )
-from ldm_parse_bits import (  # to do. Not really core
+from ldm_parse_bits import (  
     parse_trivial,
     parse_name,
     parse_name_list,
     parse_att_ref,
     parse_header,
+    parse_annotation,
     
     validate_trivial,
     validate_name,
     validate_name_list,
     validate_att_ref,
     validate_header,
+    validate_annotation,
 
     render_trivial,
     render_name,
     render_name_list,
     render_att_ref,
     render_header,
+    render_annotation,
+
+
+)
+from dull_handlers import (
+    ParseName,
+    ParseNameList, 
+    ParseHandler, 
+    ParseTrivial, 
+    ParseAttributeReference, 
+    ParseHeader, 
+    ParseAnnotation
 
 )
 
 
 
 
-handle_name = ParseHandler(parse_name, render_name, validate_name)
-handle_name_list = ParseHandler(parse_name_list, render_name_list, validate_name_list)
-handle_trivial = ParseHandler(parse_trivial, render_trivial, validate_trivial)
-handle_att_ref = ParseHandler(
-    parse_att_ref, render_att_ref, validate_att_ref
-)
-handle_header = ParseHandler(parse_header, render_header, validate_header)
+handle_name = ParseName()
+handle_name_list = ParseNameList()
+handle_trivial = ParseTrivial()
+handle_att_ref = ParseAttributeReference()
+handle_header = ParseHeader()   
+handle_annotation = ParseAnnotation()
+
 
 
 component_clauses = [
     MinorClause(word="abbreviation", is_list=False, is_cum=False, line_label="", handlers=handle_name),
     MinorClause(word="name", is_list=False, is_cum=False),  # by default: non-cum scalar
     MinorClause(word="plural", is_list=False, is_cum=False),
-    MajorClause(word="note", class_started="Annotation", is_cum=True, is_list=False),
-    MajorClause(word="issue", class_started="Annotation", is_cum=True, is_list=False),
-    MajorClause(word="example", class_started="Annotation", is_cum=True, is_list=False),
-    MajorClause(word="see", class_started="Annotation", is_cum=True, is_list=False),
+    MinorClause(word="minerNote",  is_cum=True, is_list=False),
+    MajorClause(word="majorNote", class_started="Annotation",  handlers=handle_annotation, is_cum=True, is_list=False),
+    MajorClause(word="note", class_started="Annotation",  handlers=handle_annotation, is_cum=True, is_list=False),
+    MajorClause(word="issue", class_started="Annotation",  handlers=handle_annotation, is_cum=True, is_list=False),
+    MajorClause(word="example", class_started="Annotation",  handlers=handle_annotation, is_cum=True, is_list=False),
+    MajorClause(word="see", class_started="Annotation",  handlers=handle_annotation, is_cum=True, is_list=False),
+    MajorClause(word="[a-zA-Z ]+:", class_started="Annotation",  handlers=handle_annotation, is_cum=True, is_list=False, priority=-1, line_label="WILD"),
 ]
 
 section_clauses = component_clauses + [
@@ -78,7 +94,7 @@ class_clauses = component_clauses + [
         word="dependents", is_list=True, is_cum=True, handlers=handle_name_list
     ),
     MajorClause(
-        word="Constraint", class_started="Constraint", is_list=True, is_cum=True
+        word="constraint", class_started="Constraint", is_list=False, is_cum=True, plural="constraintes"
     ),
     MinorClause(
         word="dependent of", is_list=True, is_cum=True, handlers=handle_name_list
@@ -100,7 +116,7 @@ attribute_clauses = component_clauses + [
     MinorClause(word="overrides", handlers=handle_att_ref),
     MajorClause(word="Derivation", class_started="Derivation"),
     MajorClause(word="Default", class_started="Default"),
-    MajorClause(word="Constraint", class_started="Constraint"),
+    MajorClause(word="constraint", class_started="Constraint", is_list=False, is_cum=True, plural="constraintes"),
 ]
 
 formula_clauses = [
@@ -125,13 +141,13 @@ for x in all_clauses_by_priority:
     print(f"{x.line_label} -- {x.priority}")
 
 # print(r"All clauses {nclauses}: \n", as_yaml(all_clauses))
-print(f"All clauses: {nclauses}:\n", as_json(all_clauses))
+# print(f"All clauses: {nclauses}:\n", as_json(all_clauses))
 
-print(f"All clauses by Priority: {nclauses}:\n", as_json(all_clauses_by_priority))
+# print(f"All clauses by Priority: {nclauses}:\n", as_json(all_clauses_by_priority))
 
 all_clause_specs = {spec.line_label: spec for spec in all_clauses_by_priority}
 nkeys = len(all_clause_specs.keys())
-print(f"All clause specs: {nkeys}:\n", as_json(all_clause_specs))
+# print(f"All clause specs: {nkeys}:\n", as_json(all_clause_specs))
 
 
 partsNeeded = set(
@@ -142,15 +158,6 @@ print("parts needed: ", partsNeeded)
 
 section_starts = []
 
-clause_types = [
-    # for Components
-    # for Classes
-    # For Attributes
-    # for Formulas
-    # TBD
-    MajorClause(word="value type", class_started="Class"),
-    MajorClause(word="Annotation", class_started="Annotation"),
-]
 
 
 def labels_for(clauses: List[LineType]) -> List[str]:
@@ -197,8 +204,49 @@ part_labels = {
     "Constraint": labels_for(formula_clauses),
 }
 
+part_plurals = {
+    "Constraint": "constraintConditions",
+    "Annotation": "annotationNotes",
+    "Default": "defaultDefinitions",
+    "Attribute": "FieldNames",
+    "AttributeSection": "FieldGroups",
+}
+part_plurals = {
+    "Class": "Classes",
+}
 
 print("Part Parts:\n", as_json(part_parts))
 print("Part Labels:\n", as_json(part_labels))
 
+majors = set(x.class_started for x in all_clauses if isinstance(x, MajorClause))
+print("Majors")
+print(majors)
+parts_to_list = set(
+    spec.class_started for spec in all_clauses if isinstance(spec, MajorClause) and 
+        (spec.is_list or spec.is_cum)
+    ) 
+
+headed_parts = set(spec.class_started for spec in all_clauses if isinstance(spec, HeadLine))
+print("Headed parts")
+print(headed_parts)
+
+print("Parts to list", "\n", parts_to_list)
+listed_parts = headed_parts | parts_to_list
+print("Listed parts", "\n", listed_parts)
+
+
 all_line_types = all_clauses
+
+dull_specs = {
+    "part_parts": part_parts,
+    "part_plurals": part_plurals,
+    "all_clauses_by_priority": all_clauses_by_priority,
+    "listed_parts": listed_parts,
+
+}
+if __name__ == "__main__":
+    from dull_parser_main import parse_ldm
+    
+    path = "samples/LDMMeta.md"
+    parse_ldm(dull_specs, path)
+

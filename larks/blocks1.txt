@@ -1,0 +1,96 @@
+I'd be happy to help you create a block-level grammar for parsing your document into a structured outline. Based on your description, we need to build a grammar that first identifies the basic line types, then combines them into higher-level structures.
+
+Here's a complete Lark grammar implementation for your block-level parser:
+
+```
+// Basic line types
+start: document
+
+document: block+
+
+// Block types
+block: section | class_def | attribute_def | codeblock | paragraph | blank_line
+
+// Line types
+section_head_line: WS? SECTION_MARKER WHITESPACE TEXT NEWLINE
+class_head_line: WS? CLASS_MARKER WHITESPACE TEXT NEWLINE
+attribute_head_line: WS? ATTRIBUTE_MARKER WHITESPACE TEXT NEWLINE
+labeled_line: WS? SHORTTEXT WHITESPACE? COLON TEXT NEWLINE
+text_line: WS? TEXT NEWLINE
+blank_line: WS? NEWLINE
+
+// Higher-level constructs
+paragraph: text_line+
+elaboration: (paragraph | codeblock)+
+
+section: section_header elaboration? (field | class_def | attribute_def | section)*
+section_header: section_head_line text_line*
+
+class_def: class_header elaboration? field* attribute_def*
+class_header: class_head_line text_line*
+
+attribute_def: attribute_header elaboration? field*
+attribute_header: attribute_head_line text_line*
+
+field: labeled_line text_line*
+
+codeblock: code_fence_start code_content code_fence_end
+code_fence_start: WS? CODE_FENCE [LANGUAGE] NEWLINE
+code_fence_end: WS? CODE_FENCE NEWLINE
+code_content: (!CODE_FENCE TEXT NEWLINE)+
+
+// Tokens
+SECTION_MARKER: /#+/
+CLASS_MARKER: /_/
+ATTRIBUTE_MARKER: /-/
+CODE_FENCE: "```"
+COLON: ":"
+WHITESPACE: /[ \t]+/
+LANGUAGE: /[a-zA-Z0-9]+/
+SHORTTEXT: /[a-zA-Z0-9_\[\]]{1,12}/
+TEXT: /[^\r\n]+/
+NEWLINE: /\r?\n/
+WS: /[ \t]*/
+
+%ignore WS
+```
+
+Let me explain the key parts:
+
+1. **Basic Line Types**:
+   - `section_head_line`: Captures section headers with # markers
+   - `class_head_line`: Captures class headers with _ marker
+   - `attribute_head_line`: Captures attribute headers with - marker
+   - `labeled_line`: Captures field definitions with a short text followed by a colon
+   - `text_line`: Captures regular text lines
+   - `blank_line`: Captures empty lines
+
+2. **Block Structures**:
+   - `paragraph`: A sequence of text lines without interruption
+   - `elaboration`: A mix of paragraphs and code blocks
+   - `section`: A section header followed by optional elaboration and child elements
+   - `class_def`: A class header followed by optional elaboration and fields/attributes
+   - `attribute_def`: An attribute header followed by optional elaboration and fields
+
+3. **Code Blocks**:
+   - `codeblock`: Captures everything between code fence markers
+   - `code_fence_start`: Opening code fence (```), optionally with a language specifier
+   - `code_content`: All lines between code fences
+   - `code_fence_end`: Closing code fence
+
+4. **Tokens**:
+   - `SECTION_MARKER`: Matches one or more # characters
+   - `CLASS_MARKER`: Matches _ character
+   - `ATTRIBUTE_MARKER`: Matches - character
+   - `SHORTTEXT`: Matches short text (1-12 characters) for field labels
+   - `TEXT`: Matches any text on a line
+
+This grammar should parse your document into a tree structure that captures the hierarchical relationships between sections, classes, attributes, and fields, while preserving the text content and code blocks.
+
+Key features:
+- Sections can contain other sections, classes, attributes, and fields
+- Classes can contain attributes and fields
+- Attributes can contain fields
+- All elements can have elaboration (paragraphs and code blocks)
+
+Would you like me to modify or extend any particular part of this grammar?

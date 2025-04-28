@@ -1,0 +1,12 @@
+Grammar path: larks/blocks2.lark
+Document path: samples/LDMMeta.md
+Error: Failed to parse text: No terminal matches 'I' in the current parser context, at line 7 col 1
+
+In Literate Data Modeling, the main comp
+^
+Expected one of: 
+	* CLASS_LINE
+	* BLANK_LINE
+	* SECTION_LINE
+	* FIELD_LINE
+

@@ -1,0 +1,76 @@
+// Document structure
+start: document
+
+document: (section | class |  blank_line)+
+
+// Main structures
+section: section_head elaboration?  field* class* section*
+attsection: attsection_head elaboration?  field*  attribute*
+
+class: class_head elaboration?  field* attsection* attribute*
+attribute: attribute_head elaboration? field*
+
+
+section_head: SECTION_LINE TEXT_LINE*
+attsection_head: ATTSECTION_LINE TEXT_LINE*
+
+class_head: CLASS_LINE TEXT_LINE*
+attribute_head: ATTRIBUTE_LINE TEXT_LINE*
+
+// elaboration can be any combination of these elements
+elaboration: (paragraph | code_block | blank_line)+
+
+// Field definition (labeled content)
+field: FIELD_LINE (TEXT_LINE)*
+
+// Basic blocks
+paragraph: TEXT_LINE+
+code_block: CODE_BLOCK
+blank_line: BLANK_LINE
+
+
+
+// Common patterns
+REST_OF_LINE: /[^\r\n]*/
+NEWLINE: /\r?\n/
+
+// Line-level tokens with explicit priorities
+// Higher number = higher priority
+CODE_BLOCK.7: /```[^\n]*\n(?:[^\`]|`[^\`]|``[^\`])*```/ NEWLINE
+SECTION_LINE.6: /#+[ \t]+/ REST_OF_LINE NEWLINE
+ATTSECTION_LINE.5: /[ \t]*__[ \t]+/ REST_OF_LINE NEWLINE
+CLASS_LINE.4: /[ \t]*_[ \t]+/ REST_OF_LINE NEWLINE
+ATTRIBUTE_LINE.3: /[ \t]*-[ \t]+/ REST_OF_LINE NEWLINE
+FIELD_LINE.2: /[ \t]*[^-_#][^:\r\n]{0,30}:/ REST_OF_LINE NEWLINE
+TEXT_LINE.1: /[^\r\n]/ REST_OF_LINE NEWLINE
+BLANK_LINE.0: /[ \t]*/ NEWLINE
+
+// FIELD_LINE.-5: /[ \t]*[^-_#][^:\r\n]{0,30}:/ REST_OF_LINE NEWLINE
+
+// Line-level tokens with reused patterns
+// SECTION_LINE: /#+[ \t]+/ REST_OF_LINE NEWLINE
+
+// ATTSECTION_LINE.5: /[ \t]*__[ \t]+/ REST_OF_LINE NEWLINE
+// CLASS_LINE: /[ \t]*_(?!_)[ \t]+/ REST_OF_LINE NEWLINE  // Single underscore, not followed by another
+
+// ATTSECTION_LINE: /__[ \t]+/ REST_OF_LINE NEWLINE
+// CLASS_LINE: /_[ \t]+/ REST_OF_LINE NEWLINE
+// ATTRIBUTE_LINE: /-[ \t]+/ REST_OF_LINE NEWLINE
+
+
+
+// Much more permissive field line - any line with a colon in first ~20 chars
+// FIELD_LINE: /[ \t]*[^:#\-_`]{1,20}:/ REST_OF_LINE NEWLINE
+
+// FIELD_LINE: /[a-zA-Z0-9_\[\]]{1,12}[ \t]*:[ \t]*[^\r\n]*\r?\n/
+// FIELD_LINE: /[ \t]*[.]{1,12}[ \t]*:[ \t]*[^\r\n]*\r?\n/
+
+// TEXT_LINE: /[^\r\n#_\-`]/ REST_OF_LINE NEWLINE
+// BLANK_LINE: /[ \t]*/ NEWLINE
+
+// Code block as a complete token
+// CODE_BLOCK: /```[^\n]*\n(?:[^\`]|`[^\`]|``[^\`])*```\r?\n/
+
+// Handle multiple blank lines as a single blank line
+%import common.WS
+%ignore WS

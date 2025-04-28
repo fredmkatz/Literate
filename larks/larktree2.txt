@@ -1,0 +1,1676 @@
+start
+  document
+    section
+      # Literate Data Model
+
+      content
+        
+
+        
+
+    
+
+    section
+      ## Preliminaries
+
+      content
+        
+
+        paragraph	In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.  
+
+        
+
+        code_block	```
+Sample code block between paragraphs
+   x <  y and y > z
+```
+
+        
+
+        
+
+        paragraph	We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
+
+        
+
+    
+
+    class_def
+      _ **Component** - An element or building block of the literate data model with an extended
+
+      content
+        paragraph	  OneLiner  
+
+        
+
+        
+
+        paragraph	In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.  
+
+        
+
+        
+
+        code_block	```
+Sample code block between paragraphs
+   x <  y and y > z
+```
+
+        
+
+        paragraph	We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
+
+        field
+          abbreviation: COMPT
+
+          
+
+        field
+          Subtypes: ComponentA, ComponentB, ComponentC
+
+          
+
+              Trying an elaboration for a subtypes clauses. 
+
+              End of first paragraph
+
+          
+
+              Start of second paragraph.
+
+          
+
+        paragraph	BasedOn: ComponentA, ComponentB, ComponentC
+
+    attribute_def
+      - parentClass - the supertype - just here to test parser (Class)
+
+      content
+        
+
+        paragraph	    Trying an elaboration for an Attribute declaration clauses. 
+
+        paragraph	    End of first paragraph
+
+        
+
+        paragraph	    Start of second paragraph.
+
+        
+
+        field
+          inverseOf: Class.child_class
+
+          
+
+        paragraph	    Trying an elaboration for an InverseOf clause on an attribute declaration clauses. 
+
+        paragraph	    End of first paragraph
+
+        
+
+        paragraph	    Start of second paragraph.
+
+        
+
+        field
+          inverse: Class.child_class2
+
+          
+
+    attribute_def
+      - **normalName** - the name of the component, not in camel case (*String*)
+
+      content
+    
+
+    attribute_def
+      - **name** - The name of the component (CamelName)
+
+      content
+        
+
+        
+
+    
+
+    attribute_def
+      - **qualifiedName** - (*QualifiedCamel*)
+
+      content
+    attribute_def
+      - **abbreviatedName** - a short form of the component's name, used for cross references and improved readability. (*CamelName*)
+
+      content
+        
+
+        paragraph		***Default***: name
+
+        
+
+        paragraph	    Trying an elaboration for a Default declaration clause - ie first part of a Default Formuka object 
+
+        paragraph	    End of first paragraph
+
+        
+
+        paragraph	    Start of second paragraph.
+
+        
+
+        field
+          code: This is the OCL code for calculating the name
+
+          
+
+                Trying an elaboration for a Default code clause - ie subsequent  part of a Default Formuka object 
+
+              End of first paragraph
+
+          
+
+              Start of second paragraph.
+
+          
+
+          
+
+        field
+          English: And thii is an english language rendering
+
+          
+
+          
+
+        paragraph
+            constraint: this is the first constraint for name in Component
+
+            code: OCL for first constraint
+
+        paragraph
+            english: English for first constraint
+
+            Severity: Harsh
+
+        field
+          Message: {name} is all wrong - first
+
+          
+
+          
+
+        paragraph	  constraint: this is the second constraint for name in Component
+
+        paragraph
+            code: OCL for second constraint
+
+            english: English for second constraint
+
+        field
+          Severity: Harsh second
+
+            Message: {name} is all wrong - second
+
+          
+
+          	***Example***: "LDM" is the short form of "Literate Data Model".
+
+          
+
+    attribute_def
+      - **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(RichLine)_  
+
+      content
+    
+
+    attribute_def
+      - **elaboration** - A more detailed explanation or discussion of the component _(RichText)_  
+
+      content
+    
+
+    class_def
+      __ ***For Machinery*** - mechanical attributes
+
+      content
+    attribute_def
+      - **isEmbellishment** - Indicates whether this component is an embellishment added during post-parsing processing _(Boolean)_
+
+      content
+        paragraph
+            🔄 ***Default***: false
+
+            🔄  ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
+
+        
+
+        paragraph	  And after that very long onelner on the Note, here's additional elaboration on  it
+
+        paragraph	  With a second line in the first paragraph
+
+        
+
+        paragraph	  And another paragraph, too.
+
+        paragraph	  Also with a second line
+
+        
+
+        paragraph	    wildly: This is an unregistered annotation
+
+        paragraph
+              minorNote: This is a minor note
+
+              majorNote: And this is a major note. Both should be annotations
+
+    class_def
+      __ ***Markdown Support***
+
+      content
+    attribute_def
+      - **mdPrefix** (*[String](#string)*)
+
+      content
+        paragraph		🆎 ***Derivation***: ""
+
+    attribute_def
+      - **mdSuffix** (*[String](#string)*)
+
+      content
+        paragraph		🆎 ***Derivation***: ""
+
+    attribute_def
+      - **mdTopLine** (*[String](#string)*)
+
+      content
+        paragraph		🆎 ***Derivation***: mdPrefix + name + " - " + oneLiner + mdSuffix
+
+        	
+
+    
+
+    class_def
+      _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component. 
+
+      content
+        paragraph
+          And it can be continued on fresh lines.
+
+          However many you want.
+
+          But only up to a blank line or other clause
+
+        
+
+        paragraph	See. this is not included in the extra text.
+
+        
+
+        paragraph
+          ***Based on*** : Literate Data Model
+
+          ***Note***: Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types. 
+
+          But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type. 
+
+    attribute_def
+      - **emoji** - an emoji (Emoji)
+
+      content
+    attribute_def
+      - **emojiName** - an emoji (String)
+
+      content
+    attribute_def
+      - **emojiUnicode** - the Unicode for the emoji (Unicode)
+
+      content
+    attribute_def
+      - **label** - A short label to indicate the purpose of the annotation _(CamelName)_  
+
+      content
+    attribute_def
+      - **plural** - the plural form of the label (*UpperCamel*).  
+
+      content
+        field
+          Default: based on label
+
+           - **Purpose** - the intended reason for the annotation.
+
+          
+
+          
+
+          
+
+    class_def
+      _ ValueType: **Annotation**  
+
+      content
+        paragraph
+          A note or comment associated with a model element  
+
+          ***Based on***: Component 
+
+    attribute_def
+      - **annotationType** - (optional Annotation Type) 
+
+      content
+        paragraph	Note: An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.  
+
+    attribute_def
+      - **label** - A short label to indicate the purpose of the annotation _(CamelName)_  
+
+      content
+        paragraph
+               
+
+               But any short label is valid. 
+
+        field
+          Default: from annotationType
+
+          
+
+    attribute_def
+      - **Emoji** - (optional Emoji)
+
+      content
+        field
+          Default: from annotation type
+
+          
+
+    
+
+    attribute_def
+      - **content** - The content or body of the annotation (*RichText*)​​​​​​​  
+
+      content
+    attsection_def
+      __***For Machinery***
+
+      content
+    attribute_def
+      - **isEmbellishment** - Indicates whether this annotation is an embellishment added during post-parsing processing _(Boolean)_
+
+      content
+        paragraph
+            🔄 ***Default***: false
+
+            ℹ️ ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.
+
+            
+
+        
+
+        
+
+        
+
+    
+
+    section
+      ## The Model and its Subjects
+
+      content
+        
+
+        
+
+    class_def
+      _ **LiterateDataModel** - A representation of a domain's entities, attributes, and relationships, 
+
+      content
+        paragraph
+          along with explanatory text and examples  
+
+          ***Abbreviation***: LDM
+
+        field
+          Plural: LiterateDataModels 
+
+          Subtype of: Component  
+
+          
+
+    
+
+    attribute_def
+      - name (UpperCamel )
+
+      content
+    attribute_def
+      - allSubjects - list of all classes in the model, as ordered in the 
+
+      content
+        paragraph
+                          definition of the model. (List of Classes)
+
+              Derivation: gathering s.allSubjects over s in subjectAreas
+
+              
+
+              ***Constraint***: Subject names must be unique across the model.
+
+    attribute_def
+      - allClasses - list of all classes in the model, as ordered in the definition of the model. (List of Classes)
+
+      content
+        field
+          Derivation: gathering s.allClasses over s in allSubjects.  
+
+          ***Constraint***: Class names must be unique across the model.  
+
+          
+
+    class_def
+      __ 	***Modeling Configuration***
+
+      content
+    attribute_def
+      - **annotationTypes** - (List of AnnotationTypes)
+
+      content
+    attribute_def
+      - **Preferred Coding Language** - the recommended lanquage  for expressing derivation, defaults, and constraints (Coding Language). 
+
+      content
+        paragraph	   Default: OCL
+
+    attribute_def
+      - **alternate Coding Languages** -  (optional List of Coding Languages).  
+
+      content
+    attribute_def
+      - **Preferred Template Language** - the recommended lanquage  for expressing derivation, defaults, and constraints (Template Language). 
+
+      content
+        paragraph	   Default: Handlebars
+
+    attribute_def
+      - **alternate Template Languages** -  (optional List of Template Languages). 
+
+      content
+    attribute_def
+      - **aiFunctions** - A list of functions that require sophisticated AI-powered implementation *(List of String)*
+
+      content
+        paragraph
+            Derivation: ['aiEnglishPlural()']
+
+            
+
+    attsection_def
+      __***Markdown Support***
+
+      content
+    attribute_def
+      - **mdPrefix** (*[String](#string)*)
+
+      content
+        paragraph		🆎 ***Derivation***: "# "
+
+        
+
+    attribute_def
+      - **mdTopLine** (*[String](#string)*)
+
+      content
+        paragraph
+          	🆎 ***Derivation***: mdPrefix + name 
+
+          	
+
+          	
+
+    class_def
+      _ **Subject**  
+
+      content
+        paragraph	A specific topic or theme within the model  
+
+        field
+          Plural: Subjects  
+
+          Subtype of: Component  
+
+          Dependent of: LiterateDataModel
+
+          
+
+        paragraph	Subjects are the chapters an sections of the model. 
+
+        paragraph	A subject need not contain any Classes if it’s just expository.  
+
+    
+
+    attribute_def
+      - name (UpperCamel )
+
+      content
+    attribute_def
+      - **parentSubject** - The parent subject, if any, under which this subject is nested _(Subject, optional)_  
+
+      content
+    
+
+    attribute_def
+      - **Classes** - The major classes related to this subject, in the order in which they should be presented _(ListOf Classes)_  
+
+      content
+        paragraph
+            ***Issue***: define chapter, section, subsection as levels?  
+
+          	***DSL***: Generally, it is best to present the classes within a Subject in top down order:
+
+    attribute_def
+      - Each Class should be followed first by the classes that are dependent on it, and then
+
+      content
+    attribute_def
+      - By its subtype classes.
+
+      content
+        
+
+            
+
+    attribute_def
+      - **childSubjects** - Any child subjects nested under this subject, in the order in which they should be presented _(ListOf Subjects)_  
+
+      content
+        paragraph		inverse of: Subject.parentSubject. 
+
+        
+
+        paragraph	    ***DSL***:  the Classes within a Subject are always displayed before the childSubjects.  
+
+        
+
+    attsection_def
+      __***Markdown Support***
+
+      content
+    attribute_def
+      - **mdPrefix** (*[String](#string)*)
+
+      content
+        paragraph		🆎 ***Derivation***: levelIndicator + " "
+
+        
+
+    attribute_def
+      - **mdTopLine** (*[String](#string)*)
+
+      content
+        paragraph		🆎 ***Derivation***: mdPrefix + name. 
+
+        	
+
+    class_def
+      _ **SubjectArea**  
+
+      content
+        paragraph
+          A main topic or area of focus within the model, containing related subjects and classes  
+
+          Plural: SubjectAreas  
+
+          Subtype of: Subject  
+
+        field
+          _Where:_ parentSubject is absent
+
+          
+
+          
+
+    section
+      ### Classes
+
+      content
+        
+
+        
+
+    class_def
+      _ **Class** - A key entity or object type in the model, often corresponding to a real-world concept 
+
+      content
+        
+
+        paragraph	Plural: Classes  
+
+        paragraph
+          Subtype of: Component  
+
+          ***Constraint***: Within each Class, attribute names must be unique.  
+
+    attribute_def
+      - **pluralForm** - the normal English plural form of the name of the Class (UpperName)  
+
+      content
+        
+
+        paragraph
+              Might be Books for the Book class or other regular plurals. 
+
+              But also might be People for Person. 
+
+             
+
+              Note: When inputting a model, you will rarely need to specify the plural form. The input program will just look it up. 
+
+             
+
+              The exception is when a common noun has two plural forms, like People and Persons. But this is unusual.  
+
+          	***Default***: the regular plural, formed by adding "s" or "es".  
+
+    attribute_def
+      - **basedOn** - the Class or Classes on which this class is dependent (SetOf Classes).  
+
+      content
+        
+
+        
+
+        paragraph
+            	This is solely based on **Existence Dependency**. A true dependent entity cannot logically exist without the related parent entity. For instance, an Order Item cannot exist without an Order. If removing the parent entity logically implies removing the dependent entity, then it is a dependent entity.  
+
+            	
+
+            	Note: basedOn and dependentOf are being used synonymousle in this metamodel.  
+
+        field
+          issue: fix that
+
+          
+
+          
+
+    attribute_def
+      - **supertypes** - The parent class(es) from which this class inherits attributes _(ListOf Classes)_
+
+      content
+    
+
+    attribute_def
+      - **subtypings** - the criteria, or dimensions, by which the class can be divided into subtypes (list of Subtypings).
+
+      content
+        paragraph
+          	
+
+               Example: in a library model, the `Book` class could have subtypings based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback), or subject (e.g., Science, History).   
+
+             
+
+          	
+
+    attribute_def
+      - **subtypes** - Any subtypes or specializations of this class based on it’s subtypings. _(ListOf Classes)_  
+
+      content
+        
+
+            
+
+        field
+          Example: For instance, using the `Book` example, the subtypes could include `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`, `ScienceBook`, and `HistoryBook`.
+
+          
+
+          
+
+          
+
+    attribute_def
+      - **attributes** - The attributes or properties of the class, in the order in which they should be presented _(ListOf Attributes)_  
+
+      content
+    attribute_def
+      - **attributeSections** - additional attributes or properties of the class, grouped for clarity and elaboration.  _(ListOf AttributeSections)_  
+
+      content
+     
+
+    attribute_def
+      - **constraints** - Any constraints, rules, or validations specific to this class _(ListOf Constraints)_  
+
+      content
+        paragraph
+              Note: Constraints may be expressed on either the Class or the Attribute. Always?
+
+              Add examples where clarity would favor one or the other.   Sometimes just a matter of taste. 
+
+    attribute_def
+      - **methods** - Any behaviors or operations associated with this class _(ListOf Methods)_  
+
+      content
+    
+
+    class_def
+      __ ***Implied Attributes*** 
+
+      content
+    attribute_def
+      - **dependents** - the Classes which are basedOn this Class (optional SetOf Classes).  
+
+      content
+        
+
+        paragraph	     ***Inverse of***: Class.basedOn
+
+    attribute_def
+      - UniqueKeys - (optional Set of UniqueKeys).  
+
+      content
+        
+
+        paragraph
+                  ***Inverse of***:
+
+                  UniqueKey.basedOn
+
+            
+
+    
+
+    class_def
+      _ **Subtyping** - a way in which subtypes of a Class may be classified (Subtype of Component).  
+
+      content
+        paragraph	    ***Dependent of:*** Class
+
+    attribute_def
+      - **name** (Upper Name). 
+
+      content
+        paragraph	    Usually ByThis or ByThat
+
+    attribute_def
+      - **is exclusive** (Boolean).  
+
+      content
+        paragraph	    Default: true
+
+    attribute_def
+      - **is exhaustive** (Boolean).  
+
+      content
+        paragraph	    Default: true
+
+    attribute_def
+      - **classes** (List of Classes).  
+
+      content
+        
+
+        paragraph		***DSL***:  Shown in the DSL as  
+
+        paragraph
+          	> Subbtypes: byBrand - Brand1, Brand2,... (non exclusive, exhaustive)
+
+          	on the super class. And as
+
+          	> Subtype of: SuperClass byBrand
+
+          	on the subclass.  
+
+          	
+
+        field
+          Note: every class can have an unnamed subtyping.
+
+          	Also,  each subtyping is by default Exclusive and  Exhaustive. So those stipulations may be omitted.
+
+          
+
+    class_def
+      _ **ValueType** - 
+
+      content
+        paragraph	Subtype of: Class. 
+
+    attsection_def
+      __***Markdown Support***
+
+      content
+    attribute_def
+      - ***mdPrefix*** (*[String](#string)*)
+
+      content
+        paragraph
+          	🆎 ***Derivation***: "ValueType: ". 
+
+          	
+
+          	
+
+    class_def
+      _ **Reference Type**:
+
+      content
+        paragraph	Subtype of: Class. 
+
+        
+
+    class_def
+      _ **CodeType**  
+
+      content
+        paragraph
+          A data type or enumeration used in the model  
+
+          Subtype of: ValueType.  
+
+             Note: Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
+
+             - List the code values as a bulletted list inside the description of the attribute in the form: 
+
+          	   ‘**code**: description’
+
+             - A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive. 
+
+    attribute_def
+      - isCaptive - the code type was implied by use in an attribute and is only used for that attribute (Boolean) as
+
+      content
+    class_def
+      _ **Code Value**
+
+      content
+        paragraph	A possible value for an enumerated data class  DependentOf: CodeType
+
+        
+
+    attribute_def
+      - **code** - A short code or abbreviationi for the value _(NameString)_
+
+      content
+    attribute_def
+      - **description** - an explanation of what the code means (*RichText*)
+
+      content
+        
+
+        
+
+    class_def
+      _ **Key** - a list of attributes of a class
+
+      content
+        paragraph
+          Subtype of: Component 
+
+          DependentOf: Class
+
+    attribute_def
+      - keyAttributes - the attributes of the base Class. (List of Attributes ).  
+
+      content
+        
+
+        paragraph	Constraint: each attribute must be a direct or inherited of the base class.  
+
+        field
+          Constraint: no repetitions allowed in keyAttributes   
+
+          > 👍 **Issue**: introduce PureLists?
+
+              
+
+              
+
+          Issue: need ascending descending to support index keys or ordering keys. 
+
+          
+
+    class_def
+      _ **UniqueKey** - a list of attributes on which instances of the base class may be keyed.  
+
+      content
+        paragraph	Subtype of: Key 
+
+        
+
+        field
+          Note: order unimportant for Unique Keys. 
+
+          
+
+    section
+      ## Attributes
+
+      content
+    
+
+    class_def
+      _ **Attribute Section** - a group of attributes for a class that merit a shared explanation.  
+
+      content
+        paragraph
+          ***SubtypeOf***: Component.  
+
+          ***Based on***: Class
+
+    attribute_def
+      -	isOptional - whether the attributes in this section, taken together, are optional. (Boolean)
+
+      content
+        
+
+        paragraph
+          	 If the Attribute Section is required,then each Attribute within the sectional is optional ot required, depending on how it is marked.  
+
+          	&nbsp;
+
+          	But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.
+
+    
+
+    attsection_def
+      __***Markdown Support***
+
+      content
+    attribute_def
+      - **mdPrefix** (*[String](#string)*)
+
+      content
+        paragraph		🔄 ***Default***: "_ "
+
+    attribute_def
+      - **mdTopLine** (*[String](#string)*).  
+
+      content
+    
+
+    class_def
+      _ **Attribute**  
+
+      content
+        paragraph
+          A property or characteristic of a class  
+
+          Plural: Attributes  
+
+          Subtype of: Component  
+
+          *Based on*: AttributeSection
+
+    attribute_def
+      - **name** - (Lower Camel).   
+
+      content
+        paragraph	    Overrides: CamelName
+
+    attribute_def
+      - **dataType** - The kind of object to which the attribute refers.  _(DataType)_  
+
+      content
+        paragraph
+            H
+
+               In the simplest cases, the data type will be a class. And the specifier is the just the name of that class.   
+
+            
+
+               But,
+
+    attribute_def
+      - List of Editions
+
+      content
+    attribute_def
+      - Set of Edition
+
+      content
+    attribute_def
+      - ... and more complicated cases.  
+
+      content
+        paragraph	    ***See***: the section below on Data Type Specifiers.  
+
+            
+
+    class_def
+      __ **Cardinalities**.   
+
+      content
+    attribute_def
+      - **isOptional** - Indicates whether the attribute must have a value for every instance of the class _(Boolean)_
+
+      content
+        paragraph
+            
+
+            	***Default:*** False
+
+        
+
+    attribute_def
+      - **cardinality** - The cardinality of the relationship represented by the attribute _(CardinalityCode)_
+
+      content
+        paragraph
+            
+
+            	***Default:***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.
+
+            For a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.
+
+        
+
+        
+
+        
+
+        paragraph		***DSL***: the cardinality of an attribute, if stated explicitly, should be placed just before the class name in the parenthetical data type specification after the one-liner.
+
+        paragraph		For example:
+
+    attribute_def
+      - author (1:1 Author)
+
+      content
+        paragraph		- books (optional N:M Set of Books)
+
+        
+
+        paragraph		***Note***: how this works with optionality
+
+        
+
+    class_def
+      __ ***Inverse Attributes***
+
+      content
+    attribute_def
+      - **isInvertible** - (Boolean)
+
+      content
+        paragraph		***Derivation***: true if the data type is a class or a simple collection of members of a class.
+
+    attribute_def
+      - **inverseClass** - the class which contains, or would contain the inverse attribute (optional Class)
+
+      content
+        paragraph		***Derivation***: from the data type. Null unless arrribute is invertible.
+
+    attribute_def
+      - **inverseAttribute** - (optional Attribute)
+
+      content
+    attribute_def
+      - **inverseIsOptional** - (optional Attribute)
+
+      content
+    
+
+    class_def
+      _ ***Formulas*** 
+
+      content
+    
+
+    attribute_def
+      - **default** - The rule or formula for calculating the value, if no value is supplied 
+
+      content
+        paragraph
+              Now running to a second line with the parenthentical on yet a third line 
+
+              (Derivation, optional)
+
+        field
+          Note: even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed. 
+
+              And let's see if the note can span extra lines, too
+
+          
+
+              Yes, it handled extra lines.  Let's see about additional paras for an annotation
+
+          
+
+              Last paragraph here
+
+          
+
+        
+
+    attribute_def
+      - **derivation** - For derived attributes, the rule or formula for calculating the value _(Derivation, optional)_  
+
+      content
+        paragraph	    ***Issue***: on insert vs on access?
+
+    attribute_def
+      - **constraints** - Any validation rules specific to this attribute _(ListOf Constraints)_         
+
+      content
+        paragraph
+              Note: from Class.constraints 
+
+              
+
+    attsection_def
+      __Override Tracking
+
+      content
+    attribute_def
+      - Overrides
+
+      content
+        
+
+        
+
+    
+
+    class_def
+      _ ***ValueType:*** **Derivation**  
+
+      content
+        paragraph
+          A rule or formula for deriving the value of an attribute  
+
+          Plural: Derivations  
+
+    attribute_def
+      - **statement** - An English language statement of the derivation rule _(RichText)_  
+
+      content
+    attribute_def
+      - **expression** - The formal expression of the derivation in a programming language _(CodeExpression)_  
+
+      content
+        
+
+        
+
+        paragraph	  
+
+        
+
+    class_def
+      _ ***ValueType:*** **Constraint**  
+
+      content
+        paragraph
+          A rule, condition, or validation that must be satisfied by the model  
+
+          Plural: Constraints  
+
+          Subtype of: Component  
+
+    attribute_def
+      - **statement** - An English language statement of the constraint _(RichText)_  
+
+      content
+    attribute_def
+      - **expression** - The formal expression of the constraint in a programming language (e.g., OCL _(CodeExpression)_  
+
+      content
+    attribute_def
+      - **severity** -  (Code)
+
+      content
+    attribute_def
+      - - **Warning** - nothing fatal; just a caution
+
+      content
+    attribute_def
+      - - **Error** - serious. Fix now
+
+      content
+    attribute_def
+      - **Message** - (Template)
+
+      content
+    
+
+    class_def
+      _ **Class Constraint**  
+
+      content
+        paragraph
+          **Subtype of**: Constraint  
+
+          ***Based on***: Class. 
+
+    
+
+    class_def
+      _ **Attribute Constraint** 
+
+      content
+        paragraph
+          ***Subtype of***: Constraint 
+
+          ***Based on***: Attribute
+
+    
+
+    class_def
+      _ **CodeExpression**
+
+      content
+    attribute_def
+      - **Language** - the programming language (Code)
+
+      content
+    attribute_def
+      - - OCL: Object Constraint Language
+
+      content
+    attribute_def
+      - - Java: Java 
+
+      content
+    attribute_def
+      - **Expression** (String)
+
+      content
+    section
+      ## Methods 
+
+      content
+    class_def
+      _ **Method**  
+
+      content
+        paragraph
+          A behavior or operation associated with a class  
+
+          Plural: Methods  
+
+          Subtype of: Component  
+
+    attribute_def
+      - **parameters** - The input parameters of the method _(ListOf Parameters)_  
+
+      content
+    attribute_def
+      - **returnType** - The data type of the value returned by the method _(DataType )_  
+
+      content
+    
+
+    class_def
+      _ **Parameter**  
+
+      content
+        paragraph
+          An input to a method  
+
+          Plural: Parameters  
+
+          Subtype of: Component  
+
+    attribute_def
+      - **type** - The data type of the parameter _(DataType )_  
+
+      content
+    attribute_def
+      - **cardinality** - The cardinality of the parameter (e.g., optional, required) _(AttributeCardinality)_  
+
+      content
+    
+
+    section
+      ## Data Types
+
+      content
+        
+
+        paragraph	*ValueType*:**Data Type**
+
+    
+
+    class_def
+      _ **Simple Data Type** 
+
+      content
+        paragraph	***SubtpeOf***: DataType
+
+    attribute_def
+      - **coreClass** - (Class)
+
+      content
+        
+
+        
+
+    class_def
+      _ **Complex Data Type**  
+
+      content
+    attribute_def
+      - **aggregation** (Aggregating Operator)
+
+      content
+    attribute_def
+      - **aggregatedTypes** (List of DataTypes)
+
+      content
+    
+
+    class_def
+      _ **Aggregating Operator**
+
+      content
+    
+
+    attribute_def
+      - **Name**- (Code)
+
+      content
+    attribute_def
+      - - **SetOf**
+
+      content
+    attribute_def
+      - - **ListOf**
+
+      content
+    attribute_def
+      - - **Mapping**
+
+      content
+    attribute_def
+      - **arity** - (Integer)
+
+      content
+    attribute_def
+      - **spelling** - (Template)
+
+      content
+        
+
+        
+
+    section
+      ## Low level Data Types
+
+      content
+        
+
+        paragraph	insert Camel Case.md
+
+    
+
+    class_def
+      _ ***ValueType***: **CamelName**  
+
+      content
+        
+
+        paragraph	A short string without punctuation or spaces, suitable for names, labels, or identifiers and presented in camel case.  
+
+        paragraph	***Subtype of***: String
+
+    attribute_def
+      - value: the string (String)
+
+      content
+        paragraph	🚫 ***Constraint***: Must follow the camel case naming convention and not be empty.
+
+        field
+          _Example:_ "firstName", "orderDate", "customerID"  
+
+          
+
+          > 📝 ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute.
+
+          
+
+        paragraph
+            
+
+          *ModelingNote:* *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.
+
+    
+
+    class_def
+      _ **UpperCamel**- a CamelName that begins with a capital letter  
+
+      content
+        paragraph
+          **Subtype of**: CamelName
+
+          **Where**: content begins with an upper case letter. 
+
+        field
+          _Example:_ "Customer", "ProductCategory", "PaymentMethod"  
+
+          
+
+    
+
+    class_def
+      _ **LowerCamel** - a CamelName that begins with a lower case letter  
+
+      content
+        paragraph
+          **Subtype of**: CamelName
+
+          **Where**: content begins with a lower case letter. 
+
+        
+
+        field
+          _Example:_ "firstName", "orderTotal", "shippingAddress"  
+
+          
+
+    class_def
+      _ **Qualified Camel** - an expression consisting of Camel Names separated by periods 
+
+      content
+        paragraph
+          ***Subtype of***: String
+
+          ***Constraint***: content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first. 
+
+    
+
+    class_def
+      _ **RichText**.  A string with markup for block level formatting.  
+
+      content
+        paragraph
+            ***SubtypeOf***: String  
+
+            
+
+            - **value** - the string content (string)  
+
+            - **format** - the rich text coding language used (Code)  
+
+            	- **HTML**  
+
+            	- **MarkDown**  
+
+        
+
+    class_def
+      _  **RichLine**   - String with markup for line level formatting.  
+
+      content
+        paragraph
+            ***SubtypeOf***: RichText 
+
+            
+
+            - **value** - the string content (string)  
+
+                ***Constraint***: must not containa line break or new line character
+
+            
+
+    class_def
+      _ **PrimitiveType**  
+
+      content
+        paragraph
+          Subtype of: ValueType
+
+          A basic, built-in data type  
+
+        field	_Values:_  
+
+        paragraph	  **String**  
+
+        paragraph
+            **Integer**  
+
+            **Decimal**  
+
+        paragraph
+            **Boolean**  
+
+            **Date**  
+
+        paragraph
+            **Time**  
+
+            **DateTime**  
+
+        paragraph
+            
+
+          ===
+
+    section
+      ## Appendices
+
+      content
+        paragraph
+          Insert More Sidebars.md
+
+          Insert Overrides.md
+
+          insert LDM Intro.md
+
+          Insert OCL.md
+
+          Insert Camel Case.md
+
+        
+
+        
+
+        
+
+    section
+      ### Annotation Types Used
+
+      content
+        
+
+        paragraph	These are the recognized Annotation Types for the LDM model.
+
+        
+
+        
+
+        paragraph	And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model. 
+
+        
+
+        code_block	```
+interface AnnotationType {
+  label: string;
+  emoji: string;
+  emojiName: string;
+  emojiUnicode: string;
+  purpose: string;
+}
+// LINK: LiterateDataModel.annotationTypes
+const annotationTypes: AnnotationType[] = [
+  {
+    label: "Error",
+    emoji: "❌",
+    emojiName: "cross_mark",
+    emojiUnicode: "U+274C",
+    purpose: "Indicates a critical error or failure in the model."
+  },
+  {
+    label: "Warning",
+    emoji: "⚠️",
+    emojiName: "warning",
+    emojiUnicode: "U+26A0",
+    purpose: "Indicates a potential issue or warning in the model."
+  },
+  {
+    label: "Note",
+    emoji: "📘",
+    emojiName: "blue_book",
+    emojiUnicode: "U+1F4D8",
+    purpose: "Provides additional context, explanations, or clarifications for the annotated element."
+  },
+  {
+    label: "Issue",
+    emoji: "⚠️",
+    emojiName: "warning",
+    emojiUnicode: "U+26A0",
+    purpose: "Highlights a potential issue or error that needs to be addressed or resolved."
+  },
+  {
+    label: "Question",
+    emoji: "❓",
+    emojiName: "question",
+    emojiUnicode: "U+2753",
+    purpose: "Raises a question or seeks further clarification about the annotated element."
+  },
+  {
+    label: "Suggestion",
+    emoji: "💡",
+    emojiName: "bulb",
+    emojiUnicode: "U+1F4A1",
+    purpose: "Provides a suggestion or recommendation for improving the model or the annotated element."
+  },
+  {
+    label: "Info",
+    emoji: "ℹ️",
+    emojiName: "information_source",
+    emojiUnicode: "U+2139",
+    purpose: "Offers relevant information, facts, or details about the annotated element."
+  },
+  {
+    label: "Todo",
+    emoji: "📌",
+    emojiName: "pushpin",
+    emojiUnicode: "U+1F4CC",
+    purpose: "Indicates a pending task, action item, or future work related to the annotated element."
+  },
+  {
+    label: "Reference",
+    emoji: "🌐",
+    emojiName: "globe_with_meridians",
+    emojiUnicode: "U+1F310",
+    purpose: "Provides a reference or link to an external resource or documentation."
+  },
+  {
+    label: "See",
+    emoji: "🔍",
+    emojiName: "mag",
+    emojiUnicode: "U+1F50D",
+    purpose: "Indicates a cross-reference to another relevant element within the model."
+  }
+];
+```
+
+        
+
+        
+
+        
+
+    
+
+
