@@ -3,8 +3,10 @@ from typing import List, Dict, Tuple, Callable, Any
 from abc import ABC
 import re
 
+import os
 from utils_pom.util_fmk_pom import write_text, write_yaml
 from utils_pom.util_json_pom import as_json
+from utils_pom.util_fmk_pom import create_fresh_directory
 
 from emoji import emoji_list, replace_emoji
 
@@ -15,21 +17,23 @@ from emoji import emoji_list, replace_emoji
 from utils_pom.util_fmk_pom import read_lines
 
 
-from dull_parser_classes import (
+from dull_dsl.dull_parser_classes import (
     PartStarter,
     TypedLine,
     Clause,
     ClauseLine,
 )
-from dull_parser_core import DocPart
 
+
+from  dull_dsl.dull_parser_core import DocPart
 
 all_clauses_by_priority = None
 part_plurals = None
 part_parts = None
 
-def parse_ldm(dull_specs: Dict, document_path: str):
-    print(f"PARSING {document_path}")
+
+def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
+
     doc_part = DocPart("Document", None)
     current_part = doc_part
     current_part_type = "Document"
@@ -40,9 +44,10 @@ def parse_ldm(dull_specs: Dict, document_path: str):
     part_plurals = dull_specs["part_plurals"]
     part_parts = dull_specs["part_parts"]
 
+    print(f"PARSING {model_doc_path}")
     current_eligible_parts = part_parts.get(current_part.part_type)
     
-    lines = read_lines(document_path)
+    lines = read_lines(model_doc_path)
 
     # note. Looping through all lines, but
     # will have inner loops to collect text paras and blocks;
@@ -87,12 +92,12 @@ def parse_ldm(dull_specs: Dict, document_path: str):
                 paragraph = TypedLine("PARAGRAPH", None, open_paragraph)
                 open_elaboration.append(paragraph)
                 open_paragraph = []  # reset the paragraph
-            print(f"Starting code bock - for label {type_label}")
+            # print(f"Starting code bock - for label {type_label}")
 
             # note: next_k has already been incremented at the top of the loop
             (next_k, extra_text) = consume_through("CODE_FENCE", lines, next_k)
-            if extra_text:
-                print("FOUND CODE BLOCK:", extra_text)
+            # if extra_text:
+                # print("FOUND CODE BLOCK:", extra_text)
             typed_line.extra_text = extra_text
 
             # current_part.add_line(typed_line)
@@ -107,20 +112,20 @@ def parse_ldm(dull_specs: Dict, document_path: str):
             open_elaboration.append(paragraph)
             open_paragraph = []
         if open_elaboration:
-            print("Closing elaboration on finding Something Special")
-            print("..open_elaboration: ", open_elaboration)
+            # print("Closing elaboration on finding Something Special")
+            # print("..open_elaboration: ", open_elaboration)
             elaboration = TypedLine("ELABORATION", None, open_elaboration)
                                     
             current_part.add_line(elaboration)  # add the elaboration to the current part
-            print("..added Elaboration to current part (for Something Special): ", elaboration)
+            # print("..added Elaboration to current part (for Something Special): ", elaboration)
             open_paragraph = []  # reset the paragraph
             open_elaboration = []
         # for all clauses and headers, except text and blanks, gather addiional text
         (next_k, extra_text) = consume_while("TEXT_LINE", lines, next_k)
         if extra_text:
             typed_line.extra_text = extra_text
-            print("FOUND EXTRA TEXT")
-            print("..now included in: ", typed_line)
+            # print("FOUND EXTRA TEXT")
+            # print("..now included in: ", typed_line)
 
         # current_part.add_line(typed_line)
 
@@ -153,15 +158,11 @@ def parse_ldm(dull_specs: Dict, document_path: str):
         current_part.add_line(typed_line)  # for text-lines and blank-lines
         if typed_line.type_label in ["TEXT_LINE", "PARAGRAPH","ELABORATION"]:
             current_part.add_line(typed_line)
-            print(f"Directly Added {typed_line} to {current_part_type}")
-    displayed = doc_part.displayed()
-    write_text("samples/LDMMeta.parsed.txt", displayed)
-    # exit(0)
-    the_dict = doc_part.derive_dict_for_document(dull_specs)
-    print("Returned from dict creation")
-    write_text("samples/LDMMeta.dict.json", as_json(the_dict))
-    write_yaml(the_dict, "samples/LDMMeta.dict.yaml")
-
+            # print(f"Directly Added {typed_line} to {current_part_type}")
+    return doc_part
+    # displayed = doc_part.displayed()
+    # return displayed
+    
 
 def consume_until(
     final_label: str, lines: List[str], next_k: int
@@ -234,7 +235,7 @@ def assess_line(line: str) -> TypedLine:
     trimmed_bare = trimmed  # will be line wo emojis
     emojis = emoji_list(trimmed)
     if emojis:
-        print(f"found EMOJIS {emojis}: {trimmed}")
+        # print(f"found EMOJIS {emojis}: {trimmed}")
         trimmed_bare = replace_emoji(trimmed, "").strip()
 
     # for lineType in all_line_types:
@@ -252,5 +253,4 @@ def assess_line(line: str) -> TypedLine:
     if trimmed.startswith("```"):
         return TypedLine("CODE_FENCE", None, trimmed)
     return TypedLine("TEXT_LINE", None, trimmed)
-
 

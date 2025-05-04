@@ -84,3 +84,56 @@ def pretty_print_lark_tree(tree, max_text_length=30, text_column_width=35):
     print("---- Prettier Parse Tree ----")
     print(pretty_print_parse_tree(tree, max_text_length, text_column_width=text_column_width))
     print("-----------------------------")
+
+import lark
+def lark_to_dict(tree: lark.Tree) -> dict:
+    """
+    Converts a Lark parse tree to a JSON-like dictionary.
+    
+    Args:
+        tree: The Lark parse tree
+        
+    Returns:
+        Dictionary representation of the parse tree
+    """
+    if hasattr(tree, 'data'):  # It's a Tree node
+        rule_name = str(tree.data)  
+        print(f"Rule name: {rule_name}")
+        # first_element = tree.children[0] if tree.children else None
+        # print(f"First element: {first_element}")
+        # first_token = first_element.data
+        # print(f"First token: {first_token}")
+        return {
+            rule_name : [lark_to_dict(child) for child in tree.children]
+        }
+    else:  # It's a Token
+        print(f"Token type: {tree.type}")
+        return {tree.type: str(tree)}
+def lark_to_json_pretty(tree, indent=2):
+    """
+    Converts a Lark parse tree to a pretty-printed JSON string.
+    
+    Args:
+        tree: The Lark parse tree
+        indent: Number of spaces for indentation
+        
+    Returns:
+        Pretty-printed JSON string representation of the parse tree
+    """
+    import json
+    return json.dumps(lark_to_dict(tree), indent=indent)
+def lark_to_yaml_pretty(tree, indent=2):
+    """
+    Converts a Lark parse tree to a pretty-printed JSON string.
+    
+    Args:
+        tree: The Lark parse tree
+        indent: Number of spaces for indentation
+        
+    Returns:
+        Pretty-printed JSON string representation of the parse tree
+    """
+    from utils_pom.util_fmk_pom import as_yaml
+    return as_yaml(lark_to_dict(tree))
+
+    

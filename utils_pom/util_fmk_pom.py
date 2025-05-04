@@ -133,3 +133,20 @@ def write_text(file, text):
     with open(file, mode='w', encoding='utf-8') as f:
         f.write(text)
 
+
+
+import os
+import shutil
+
+def create_fresh_directory(dir_path):
+    """Creates a fresh directory at the given path. 
+    Removes the directory first if it exists.
+    """
+    if os.path.exists(dir_path):
+        shutil.rmtree(dir_path)  # Remove existing directory and its contents
+    os.makedirs(dir_path) # Create the directory (and any necessary parent directories)
+
+# Example usage:
+# directory_path = "my_fresh_dir"
+# create_fresh_directory(directory_path)
+# print(f"Directory '{directory_path}' created (or recreated).")

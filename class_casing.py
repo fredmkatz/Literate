@@ -67,6 +67,7 @@ class Casing(PresentableToken):
         self.input = input_string
         self.words = self.split_to_words(input_string)
         self.output = self.convert()
+        self._type = type(self).__name__
 
     def value(self) -> str:
         return self.output
@@ -116,18 +117,37 @@ class Casing(PresentableToken):
 
     def __str__(self):
         return self.output
+    # def __repr__(self):
+        return type(self).__name__ + "(" + self.output + ")"
+    
+    def __json__(self):
+        return str(self)
 
+    def __dict__(self):
+        return {"_type": self._type, "input": self.input}
+
+
+    def toJSON(self):
+        """Convert the object to a JSON string."""
+        return json.dumps(self.to_dict(), indent=2)
     def to_dict(self):
-        """
-        Convert the object to a dictionary for JSON serialization.
-        """
-        values = {
-            "arguments": self.argument,
-            "input": self.input,
-            "words": self.words,
-            "output": self.output,
+        """Simplified serialization with just type and input"""
+        return {
+            "_type": self._type,  # Your existing code already sets this correctly
+            "input": self.input
         }
-        return {self.__class__.__name__: values}
+    
+    @classmethod
+    def from_dict(cls, data):
+        """Standard deserialization method"""
+        if isinstance(data, dict):
+            input_string = data.get("input", "")
+            return cls(input_string=input_string)
+        return cls(input_string=str(data))
+
+    def __json__(self):
+        """Convert the object to a JSON string."""
+        return json.dumps(self.to_dict(), indent=2)
 
     def to_json(self):
         """
@@ -144,6 +164,9 @@ class UpperCamel(CamelCase):
     """
     Converts words to UpperCamelCase.
     """
+    def __init__(self, input_string):
+        super().__init__(input_string)
+        self.words = [word.capitalize() for word in self.words]
 
     def convert(self):
         return "".join(word.capitalize() for word in self.words)
@@ -155,6 +178,8 @@ class LowerCamel(CamelCase):
     """
 
     def convert(self):
+        if not self.words:
+            return ""
         return self.words[0].lower() + "".join(
             word.capitalize() for word in self.words[1:]
         )

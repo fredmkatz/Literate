@@ -1,8 +1,13 @@
-# Literate Data Model
+# Literate Data Model - a detailed description 
+of the contents
+
+This is a section with no real content, except for these intro words and other sections.
+And this is the elaboration
 
 
+## Preliminaries - the basic structure
+of the model
 
-## Preliminaries
 
 In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.  
 
@@ -30,14 +35,18 @@ Sample code block between paragraphs
 We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
 abbreviation: COMPT
 
+Further elaboration for a Component.
+End of first paragraph
+
+Start of last paragraph.
+
+Note: This is an annotation for the Component class, with extra text on
+extra lines with extra text on extra lines 
+extra lines with extra text on extra lines 
+extra lines with extra text on extra lines 
 Subtypes: ComponentA, ComponentB, ComponentC
-
-    Trying an elaboration for a subtypes clauses. 
-    End of first paragraph
-
-    Start of second paragraph.
-
 BasedOn: ComponentA, ComponentB, ComponentC
+
 - parentClass - the supertype - just here to test parser (Class)
 
     Trying an elaboration for an Attribute declaration clauses. 
@@ -79,6 +88,7 @@ inverse: Class.child_class2
 
 
   English: And thii is an english language rendering
+  Noting: And this is trying an annotation on a formula clause
 
 
   constraint: this is the first constraint for name in Component
@@ -129,10 +139,10 @@ However many you want.
 But only up to a blank line or other clause
 
 See. this is not included in the extra text.
-
-***Based on*** : Literate Data Model
 ***Note***: Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types. 
 But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type. 
+
+***Based on*** : Literate Data Model
 - **emoji** - an emoji (Emoji)
 - **emojiName** - an emoji (String)
 - **emojiUnicode** - the Unicode for the emoji (Unicode)
@@ -266,8 +276,8 @@ Subtype of: Component
 
   	This is solely based on **Existence Dependency**. A true dependent entity cannot logically exist without the related parent entity. For instance, an Order Item cannot exist without an Order. If removing the parent entity logically implies removing the dependent entity, then it is a dependent entity.  
   	
-  	Note: basedOn and dependentOf are being used synonymousle in this metamodel.  
-  	issue: fix that
+  	Note: that basedOn and dependentOf are being used synonymousle in this metamodel.  
+  	ToDo - fix that
 
 
 - **supertypes** - The parent class(es) from which this class inherits attributes _(ListOf Classes)_

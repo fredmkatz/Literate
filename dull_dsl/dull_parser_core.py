@@ -6,15 +6,18 @@ from typing import Any, List, Dict, Union
 # from ldm_parse_bits import parse_header
 # from utils_pom.util_fmk_pom import as_yaml
 from utils_pom.util_json_pom import as_json
-# from utils_pom.util_flogging import flogger, trace_method
-from dull_parser_classes import (
+from utils_pom.util_flogging import flogger, trace_method, trace_decorator
+from dull_dsl.dull_parser_classes import (
     TypedLine,
     ClauseLine,
     MajorClause,
     # ParseHandler,
     # print_messages,
 )
-from class_casing import LowerCamel
+from class_casing import LowerCamel, SnakeCase, UpperCamel
+
+from ldm.Literate_01 import ClassName, AttributeName
+
 
 
 all_clauses_by_priority = None
@@ -114,7 +117,8 @@ class DocPart:
                     continue
 
                 if label == "ELABORATION":
-                    the_dict["elaboration"] = item
+                    # the_dict["elaboration"] = item
+                    the_dict["elaboration"] = convert_to_paragraphs(item)
                     continue
 
                 if label.endswith("_Head"):
@@ -124,6 +128,14 @@ class DocPart:
                     handlers = item.line_Type.handlers
                     (header_dict, messages) = handlers.round_trip(full_header)
                     # print_messages(messages)
+                    
+                    # if label.startswith("Class"):
+                    #     rawname = header_dict.get("name", "NoName")
+                    #     # header_dict['name'] = ClassName(rawname)
+                    #     header_dict['name'] = ClassName(rawname).to_dict()
+                    #     print(repr(ClassName(rawname)))
+                    #     print(f"{ClassName(rawname)}")
+                    #     print(header_dict)
 
                     # the_dict["full_header"] = full_header
                     the_dict.update(header_dict)
@@ -143,8 +155,12 @@ class DocPart:
                     # print_messages(messages)
 
                     # the_dict["full_annotation"] = full_annotation
-                    print("Annotation dict: ", annotation_dict)
-                    print("the dict: ", the_dict)
+                    # print("Annotation dict: ", annotation_dict)
+                    annotation_dict.pop("line_type", None)
+                    annotation_dict['content'] = annotation_dict.pop("value", None)
+                    # print(".. revised Annotation dict: ", annotation_dict)
+
+                    # print("the dict: ", the_dict)
                     the_dict.update(annotation_dict)
                     continue
 
@@ -163,9 +179,14 @@ class DocPart:
                     clause_dict = item.derive_clause_dict(level)
                     for keyword, value in clause_dict.items():
                         # for the real value, we need clause spec
+                        
+                        att_name = str(SnakeCase(keyword))
+                        if att_name != keyword:
+                            print(f"Using ATT_NAME  {att_name} for {keyword}")
+                        # print(f"Adding value. {att_name} -. {value}")
                         the_dict = absorb_into(
                             the_dict,
-                            keyword,
+                            att_name,
                             value,
                             item.line_Type.is_list,
                             item.line_Type.is_cum,
@@ -189,9 +210,16 @@ class DocPart:
                 
                 is_cum = part_type in listed_parts
                 if is_cum:
-                    att_name_for_part =  str(LowerCamel(plural))
+                    att_name_for_part =  str(SnakeCase(plural))
+                    # print("Using plural atttribute name: ", att_name_for_part)
+
                 else:
-                    att_name_for_part = str(LowerCamel(part_type))
+                    att_name_for_part = str(SnakeCase(part_type))
+                    # print("Using singular atttribute name: ", att_name_for_part)
+                if att_name_for_part.startswith("subject"):
+                    att_name_for_part = "subjects"
+                if att_name_for_part.startswith("ld"):
+                    att_name_for_part = "LDMs"
                 the_dict = absorb_into(
                     the_dict, att_name_for_part, part_dict, is_list = False, is_cum = is_cum
                 )
@@ -214,10 +242,62 @@ class DocPart:
         #     exit(0)
         return the_dict
 
+# @trace_decorator
+def convert_to_paragraphs(item: TypedLine) -> List[str]:
+    """
+    Convert a TypedLine item into a list of paragraphs.
+    """
+    # print("Converting to paragraphs: ", item)
+    pieces = []
+    subitems = item.content
+    for subitem in subitems:
+        # print("Subitem: ", as_json(subitem))
+        element_type = None
+        if subitem.type_label == "CODE_FENCE":
+            element_type =  "CodeBlock" #"CodeBlock"
+            code_content = subitem.content
+            # print("CodeContent: ", code_content)
+            code_full_text = subitem.full_text()
+            # print("CodeFullText: ", code_full_text)
+            piece = {
+                "_type": element_type,
+                "content": code_full_text
+            }
+            # print("PieceContent: ", piece)
+            pieces.append(piece)
+            continue
+
+            
+        elif subitem.type_label == "PARAGRAPH":
+            element_type = "Paragraph"
+        if element_type:
+            # Assuming item.content contains the text to be converted
+            content = subitem.content
+            # print("PieceContent: ", content)
+            # for x in content:
+            #     print("\t x is ", x)
+            #     # print("\t and full text is ", x.full_text())
+            para_text = " \n+ ".join(x.full_text() for x in content)
+            piece = {
+                "_type": element_type,
+                "content": para_text
+            }
+            pieces.append(piece)
+        else:
+            print("DictingError: something odd  in elaboration--", item)
+    
+    # print("ReturningElaboration: ", pieces)
+    return pieces
+
+    
 
 def absorb_into(
     the_dict: Dict, keyword: str, value: Any, is_list: bool, is_cum: bool
 ) -> Dict:
+    
+    # don't clutter the dict with empty values
+    if not value:
+        return the_dict
 
     if not is_cum and not is_list:
         # to do:  always check if the value is already there
@@ -237,3 +317,5 @@ def absorb_into(
         else:
             the_dict[keyword].extend(value)
     return the_dict
+
+

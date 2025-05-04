@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass, field
 from abc import ABC
 from typing import Any, List, Dict, Tuple, Callable, Optional
-from dull_handlers import (
+from ldm.ldm_dull_handlers import (
     ParseHandler,
     ParseName,
     ParseNameList,
@@ -19,9 +19,9 @@ from dull_handlers import (
 # from ldm_parse_bits import parse_header
 # from utils_pom.util_fmk_pom import as_yaml
 # from utils_pom.util_json_pom import as_json
-# from utils_pom.util_flogging import flogger, trace_method
+from utils_pom.util_flogging import flogger, trace_method
 
-from class_casing import LowerCamel
+from class_casing import LowerCamel, SnakeCase
 
 
 # The Rules:
@@ -117,7 +117,7 @@ class Clause(LineType):
         if not self.attribute_name:
             self.attribute_name = self.word
 
-        self.attribute_name = str(LowerCamel(self.attribute_name))
+        self.attribute_name = str(SnakeCase(self.attribute_name))
 
         if not self.plural:
             if self.is_list:  # assume that the name is already plural
@@ -161,7 +161,9 @@ class TypedLine:
         return f"{self.type_label}: {self.content}{extras}"
 
     def full_text(self) -> str:
-        return self.content + ("\n").join(self.extra_text)
+        # print("content is ", self.content)
+        # print("extra_text is ", self.extra_text)
+        return self.content + ("\n - ").join(self.extra_text)
 
     def display(self, level):
         print(self.displayed(level))
@@ -189,14 +191,20 @@ class ClauseLine(TypedLine):
         (keyword, rest_of_line) = splits
 
         handlers = self.line_Type.handlers
+    
+        att_name = self.line_Type.attribute_name
+        # print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
+        if att_name == "constraint":
+            att_name = "as_entered"
+            print(f"Patched att_name is {att_name} for {self.line_Type} is {att_name}")
+
 
         if handlers:
 
             # get the attribute name from the type, not the label
-            att_name = self.line_Type.attribute_name
             # (rtvalue, messages) = handlers.round_trip(rest_of_line)
             rtvalue = handlers.parse(rest_of_line)
-            # print(f"adding nonaw value. {att_name} -. {rtvalue}")
+            # print(f"adding name value. {att_name} -. {rtvalue}")
             # print_messages(messages)
 
             the_dict[att_name] = rtvalue

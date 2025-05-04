@@ -1,0 +1,10 @@
+// Line-level tokens with explicit priorities
+// Higher number = higher priority
+CODE_BLOCK.7: /```[^\n]*\n(?:[^\`]|`[^\`]|``[^\`])*```/ NEWLINE
+SECTION_LINE.6: /#+[ \t]+/ REST_OF_LINE NEWLINE
+ATTSECTION_LINE.5: /[ \t]*__[ \t]+/ REST_OF_LINE NEWLINE
+CLASS_LINE.4: /[ \t]*_[ \t]+/ REST_OF_LINE NEWLINE
+ATTRIBUTE_LINE.3: /[ \t]*-[ \t]+/ REST_OF_LINE NEWLINE
+FIELD_LINE.2: /[ \t]*[^-_#][^:\r\n]{0,30}:/ REST_OF_LINE NEWLINE
+TEXT_LINE.1: /[^\r\n]/ REST_OF_LINE NEWLINE
+BLANK_LINE.0: /[ \t]*/ NEWLINE

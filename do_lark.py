@@ -1,5 +1,5 @@
 from lark import Lark
-from utils_pom.util_lark import pretty_print_parse_tree
+from utils_pom.util_lark import pretty_print_parse_tree, lark_to_json_pretty, lark_to_yaml_pretty
 
 from utils_pom.util_fmk_pom  import read_text, write_text
 
@@ -8,18 +8,19 @@ def try_lark(g_path: str, d_path: str) -> bool:
     
     print(f"Grammar path: {g_path}")
     print(f"Document path: {d_path}")   
-    
     parser = parse_grammar_file(g_path)
     if not parser:
         print(f"Error: Failed to create parser from grammar at {g_path}")
         return False
-    # Parse the document text
     
+    print(f"Parser created successfully")
+    # Parse the document text
     
     parse_tree = parse_text(parser, doc_text)
     if parse_tree:
+        print("Parse tree created successfully")
         ptree1 = parse_tree.pretty()
-        out1 = d_path.replace(".md", ".pretty.txt")
+        out1 = d_path + ".pretty.txt"
         write_text(out1, ptree1)
         print(f"Parse tree written to {out1}")
         # print(f"Parse tree: {ptree1}")
@@ -28,11 +29,21 @@ def try_lark(g_path: str, d_path: str) -> bool:
             parse_tree, max_text_length=30, text_column_width=35, indent_size=1
         )
 
-        out2 = d_path.replace(".md", ".prettier.txt")
+        out2 = d_path + ".prettier.txt"
         write_text(out2, ptree2)
         
-        # print(parse_tree.pretty())
-        print(ptree2)
+        
+        print("YAMLing parse tree")
+        ptree4 = lark_to_yaml_pretty(parse_tree, indent=2)
+        out4 = d_path + ".lark.yaml"
+        write_text(out4, ptree4)
+        print(f"Parse tree YAML written to {out4}")
+        
+        # # print(parse_tree.pretty())
+        # print(ptree2)
+    else:
+        print("Error: Failed to parse document text")
+        return False
 
 def parse_grammar_file(grammar_file_path, start_rule='start'):
     """
@@ -55,7 +66,7 @@ def parse_grammar_file(grammar_file_path, start_rule='start'):
     try:
         # parser = Lark(grammar_text, start=start_rule)
         # Parser configuration
-        parser = Lark(grammar_text, start="start", parser="earley", lexer="dynamic_complete")
+        parser = Lark(grammar_text, start="start", parser="earley", lexer="dynamic")
         # parser = Lark(grammar_text, start="start", parser="lalr", lexer="contextual")
         return parser
     except Exception as e:
@@ -72,7 +83,7 @@ def parse_text(parser, text):
         return None
 
 if __name__ == '__main__':
-    grammar_path = "larks/blocks2.lark"
+    grammar_path = "larks/ldm_blocks.lark"
     doc_path = "samples/LDMMeta.md"
     try_lark(grammar_path, doc_path)
 

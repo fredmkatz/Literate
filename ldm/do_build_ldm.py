@@ -2,7 +2,7 @@ from utils_pom.util_fmk_pom import as_yaml
 from utils_pom.util_json_pom import as_json
 from typing import List
 
-from dull_parser_classes import (
+from dull_dsl.dull_parser_classes import (
     LineType,
     HeadLine,
     # ClauseLine,
@@ -10,34 +10,9 @@ from dull_parser_classes import (
     MinorClause,
     PartStarter,
 )
-from ldm_parse_bits import (  
-    parse_trivial,
-    parse_name,
-    parse_name_list,
-    parse_att_ref,
-    parse_header,
-    parse_annotation,
-    
-    validate_trivial,
-    validate_name,
-    validate_name_list,
-    validate_att_ref,
-    validate_header,
-    validate_annotation,
-
-    render_trivial,
-    render_name,
-    render_name_list,
-    render_att_ref,
-    render_header,
-    render_annotation,
-
-
-)
-from dull_handlers import (
+from ldm.ldm_dull_handlers import (
     ParseName,
     ParseNameList, 
-    ParseHandler, 
     ParseTrivial, 
     ParseAttributeReference, 
     ParseHeader, 
@@ -70,11 +45,11 @@ component_clauses = [
     MajorClause(word="[a-zA-Z ]+:", class_started="Annotation",  handlers=handle_annotation, is_cum=True, is_list=False, priority=-1, line_label="WILD"),
 ]
 
-section_clauses = component_clauses + [
-    HeadLine(starter_pattern="#####", class_started="Section5", priority=10, handlers=handle_header),
-    HeadLine(starter_pattern="####", class_started="Section4", priority=9, handlers=handle_header),
-    HeadLine(starter_pattern="###", class_started="Section3", priority=8, handlers=handle_header),
-    HeadLine(starter_pattern="##", class_started="Section2", priority=7, handlers=handle_header),
+subject_clauses = component_clauses + [
+    HeadLine(starter_pattern="#####", class_started="SubjectE", priority=10, handlers=handle_header),
+    HeadLine(starter_pattern="####", class_started="SubjectD", priority=9, handlers=handle_header),
+    HeadLine(starter_pattern="###", class_started="SubjectC", priority=8, handlers=handle_header),
+    HeadLine(starter_pattern="##", class_started="SubjectB", priority=7, handlers=handle_header),
     HeadLine(starter_pattern="#", class_started="LDM", priority=1, handlers=handle_header),
     # HeadLine(starter_pattern="```", class_started="CodeBlock", handlers=handle_header),
     HeadLine(starter_pattern="_", class_started="Class", handlers=handle_header),
@@ -114,9 +89,9 @@ attribute_clauses = component_clauses + [
     MinorClause(word="inverse", handlers=handle_att_ref),
     MinorClause(word="inverse of", handlers=handle_att_ref),
     MinorClause(word="overrides", handlers=handle_att_ref),
-    MajorClause(word="Derivation", class_started="Derivation"),
-    MajorClause(word="Default", class_started="Default"),
-    MajorClause(word="constraint", class_started="Constraint", is_list=False, is_cum=True, plural="constraintes"),
+    MajorClause(word="Derivation", class_started="Derivation", attribute_name="as_entered"),
+    MajorClause(word="Default", class_started="Default", attribute_name="as_entered"),
+    MajorClause(word="Constraint", class_started="Constraint", is_list=False, is_cum=True, attribute_name="as_entered", plural="constraints"),
 ]
 
 formula_clauses = [
@@ -126,7 +101,7 @@ formula_clauses = [
     MinorClause(word="severity"),
 ]
 all_clauses = (
-    section_clauses
+    subject_clauses
     + att_section_clauses
     + class_clauses
     + attribute_clauses
@@ -136,9 +111,9 @@ nclauses = len(all_clauses)
 all_clauses_by_priority = sorted(
     all_clauses, key=lambda clause: clause.priority, reverse=True
 )
-print("BY PRI")
-for x in all_clauses_by_priority:
-    print(f"{x.line_label} -- {x.priority}")
+# print("BY PRI")
+# for x in all_clauses_by_priority:
+    # print(f"{x.line_label} -- {x.priority}")
 
 # print(r"All clauses {nclauses}: \n", as_yaml(all_clauses))
 # print(f"All clauses: {nclauses}:\n", as_json(all_clauses))
@@ -156,7 +131,7 @@ partsNeeded = set(
 
 print("parts needed: ", partsNeeded)
 
-section_starts = []
+# section_starts = []
 
 
 
@@ -170,15 +145,15 @@ formula_clause_labels = labels_for(formula_clauses)
 
 component_parts = ["Annotation"]
 
-section_parts = component_parts + ["Class"]
+subject_parts = component_parts + ["Class"]
 part_parts = {
     "Document": component_parts
-    + ["LDM", "Class", "Section2", "Section3", "Section4", "Section5"],
-    "LDM": section_parts + ["Section2", "Section3", "Section4", "Section5"],
-    "Section2": section_parts + ["Section3", "Section4", "Section5"],
-    "Section3": section_parts + ["Section4", "Section5"],
-    "Section4": section_parts + ["Section5"],
-    "Section5": section_parts + [],
+    + ["LDM", "Class", "SubjectB", "SubjectC", "SubjectD", "SubjectE"],
+    "LDM": subject_parts + ["SubjectB", "SubjectC", "SubjectD", "SubjectE"],
+    "SubjectB": subject_parts + ["SubjectC", "SubjectD", "SubjectE"],
+    "SubjectC": subject_parts + ["SubjectD", "SubjectE"],
+    "SubjectD": subject_parts + ["SubjectE"],
+    "SubjectE": subject_parts + [],
     "Class": component_parts + ["AttributeSection", "Attribute", "Constraint"],
     "AttributeSection": component_parts + ["Attribute"],
     "Attribute": component_parts + ["Derivation", "Default", "Constraint"],
@@ -189,12 +164,12 @@ part_parts = {
 }
 
 part_labels = {
-    "Document": labels_for(section_clauses),
-    "LDM": labels_for(section_clauses),
-    "Section2": labels_for(section_clauses),
-    "Section3": labels_for(section_clauses),
-    "Section4": labels_for(section_clauses),
-    "Section5": labels_for(section_clauses),
+    "Document": labels_for(subject_clauses),
+    "LDM": labels_for(subject_clauses),
+    "SubjectB": labels_for(subject_clauses),
+    "SubjectC": labels_for(subject_clauses),
+    "SubjectD": labels_for(subject_clauses),
+    "SubjectE": labels_for(subject_clauses),
     "Class": labels_for(class_clauses),
     "AttributeSection": labels_for(att_section_clauses),
     "Attribute": labels_for(attribute_clauses),
@@ -215,38 +190,41 @@ part_plurals = {
     "Class": "Classes",
 }
 
-print("Part Parts:\n", as_json(part_parts))
-print("Part Labels:\n", as_json(part_labels))
+# print("Part Parts:\n", as_json(part_parts))
+# print("Part Labels:\n", as_json(part_labels))
 
 majors = set(x.class_started for x in all_clauses if isinstance(x, MajorClause))
-print("Majors")
-print(majors)
+# print("Majors")
+# print(majors)
 parts_to_list = set(
     spec.class_started for spec in all_clauses if isinstance(spec, MajorClause) and 
         (spec.is_list or spec.is_cum)
     ) 
 
 headed_parts = set(spec.class_started for spec in all_clauses if isinstance(spec, HeadLine))
-print("Headed parts")
-print(headed_parts)
+# print("Headed parts")
+# print(headed_parts)
 
-print("Parts to list", "\n", parts_to_list)
+# print("Parts to list", "\n", parts_to_list)
 listed_parts = headed_parts | parts_to_list
-print("Listed parts", "\n", listed_parts)
+# print("Listed parts", "\n", listed_parts)
 
 
 all_line_types = all_clauses
 
-dull_specs = {
+ldm_dull_specs = {
     "part_parts": part_parts,
     "part_plurals": part_plurals,
     "all_clauses_by_priority": all_clauses_by_priority,
     "listed_parts": listed_parts,
+    "dirpath": "ldm",
+    "model_doc": "LDMMeta.md",
+    "model_module": "Literate01.py",
 
 }
 if __name__ == "__main__":
-    from dull_parser_main import parse_ldm
+    from dull_dsl.dull_build import build_dull_dsl
     
-    path = "samples/LDMMeta.md"
-    parse_ldm(dull_specs, path)
+    path = "ldm/LDMMeta.md"
+    build_dull_dsl(ldm_dull_specs)
 

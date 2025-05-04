@@ -1,0 +1,108 @@
+parts needed:  {'Annotation', 'AttributeSection', 'Derivation', 'Attribute', 'LDM', 'Constraint', 'SubjectC', 'Default', 'SubjectB', 'SubjectE', 'SubjectD', 'Class'}
+Model dir:  ldm
+Model doc:  LDMMeta.md
+Model name:  LDMMeta
+Model doc path:  ldm/LDMMeta.md
+Model module:  Literate01.py
+Model module path:  ldm/Literate01.py
+Results dir:  ldm/LDMMeta_results
+PARSING ldm/LDMMeta.md
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Patched att_name is as_entered for MajorClause(line_label='CONSTRAINT', priority=1, class_started='Constraint', word='constraint', attribute_name='constraint', is_list=False, is_cum=True, special_pattern='', plural='constraintes', handlers=ParseTrivial(), kw_pattern='[_\\*]*constraint[_\\*:]*') is as_entered
+Returned from dict creation
+Building class map for module: ldm.Literate_01
+[ldm_object_creator.py:40 -                    _build_class_map()] Building class map for module: ldm.Literate_01
+Class map is
+{   'Annotation': <class 'ldm.Literate_01.Annotation'>,
+    'Attribute': <class 'ldm.Literate_01.Attribute'>,
+    'AttributeName': <class 'ldm.Literate_01.AttributeName'>,
+    'AttributeReference': <class 'ldm.Literate_01.AttributeReference'>,
+    'AttributeSection': <class 'ldm.Literate_01.AttributeSection'>,
+    'BaseDataType': <class 'ldm.Literate_01.BaseDataType'>,
+    'CamelCase': <class 'class_casing.CamelCase'>,
+    'Class': <class 'ldm.Literate_01.Class'>,
+    'ClassName': <class 'ldm.Literate_01.ClassName'>,
+    'Class_': <class 'ldm.Literate_01.Class'>,
+    'CodeBlock': <class 'ldm.Literate_01.CodeBlock'>,
+    'Component': <class 'ldm.Literate_01.Component'>,
+    'Constraint': <class 'ldm.Literate_01.Constraint'>,
+    'DataType': <class 'ldm.Literate_01.SetDataType'>,
+    'DataTypeClause': <class 'ldm.Literate_01.DataTypeClause'>,
+    'Default': <class 'ldm.Literate_01.Default'>,
+    'Derivation': <class 'ldm.Literate_01.Derivation'>,
+    'Emoji': <class 'class_pom_token.Emoji'>,
+    'Formula': <class 'ldm.Literate_01.Formula'>,
+    'FormulaCoding': <class 'ldm.Literate_01.FormulaCoding'>,
+    'IsOptional': <class 'class_pom_token.IsOptional'>,
+    'IsReallyRequired': <class 'class_pom_token.IsReallyRequired'>,
+    'LDM': <class 'ldm.Literate_01.LDM'>,
+    'Label': <class 'ldm.Literate_01.Label'>,
+    'ListDataType': <class 'ldm.Literate_01.ListDataType'>,
+    'LowerCamel': <class 'class_casing.LowerCamel'>,
+    'MappingDataType': <class 'ldm.Literate_01.MappingDataType'>,
+    'OneLiner': <class 'ldm.Literate_01.OneLiner'>,
+    'Paragraph': <class 'ldm.Literate_01.Paragraph'>,
+    'PresentableBoolean': <class 'class_pom_token.PresentableBoolean'>,
+    'ReferenceOrValue': <class 'class_pom_token.ReferenceOrValue'>,
+    'ReferenceType': <class 'ldm.Literate_01.ReferenceType'>,
+    'SetDataType': <class 'ldm.Literate_01.SetDataType'>,
+    'Subject': <class 'ldm.Literate_01.SubjectB'>,
+    'SubjectB': <class 'ldm.Literate_01.SubjectB'>,
+    'SubjectC': <class 'ldm.Literate_01.SubjectC'>,
+    'SubjectD': <class 'ldm.Literate_01.SubjectD'>,
+    'SubjectE': <class 'ldm.Literate_01.SubjectE'>,
+    'UpperCamel': <class 'class_casing.UpperCamel'>,
+    'ValueType': <class 'ldm.Literate_01.ValueType'>}
+[ldm_object_creator.py:132 -                     _prepare_kwargs()] Field subtypes not found in class Annotation
+[ldm_object_creator.py:132 -                     _prepare_kwargs()] Field based_on not found in class Annotation
+[ldm_object_creator.py:100 -                              create()] Error creating Annotation: Annotation.__init__() missing 1 required positional argument: 'label'
+Traceback (most recent call last):
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm_object_creator.py", line 95, in create
+    the_obj = cls(**kwargs)
+TypeError: Annotation.__init__() missing 1 required positional argument: 'label'
+[ldm_object_creator.py:101 -                              create()] Using kwargs: ['content']
+[ldm_object_creator.py:132 -                     _prepare_kwargs()] Field based_on not found in class Annotation
+Created model: <class 'ldm.Literate_01.LDM'>
+Model serialized to ldm/LDMMeta_results/LDMMeta.model.json
+Model serialized to ldm/LDMMeta_results/LDMMeta.model.yaml
+Created model JSON and YAML files
+Validating model...
+Validating references...
+Validation errors:
+- LDM: Missing name
+- Class 'SubjectAreaA main topic or area of focus within the model, containing related subjects and classes': Invalid reference to 'Subject' in subtype_of
+- Class 'Attribute Section': Invalid reference to 'Component.' in subtype_of
+- Class 'Attribute Section': Invalid reference to 'Class' in based_on
+- Class 'AttributeA property or characteristic of a class': Invalid reference to 'AttributeSection' in based_on
+- Class 'Class Constraint': Invalid reference to 'Constraint' in subtype_of
+- Class 'Class Constraint': Invalid reference to 'Class.' in based_on
+- Class 'Attribute Constraint': Invalid reference to 'Constraint' in subtype_of
+- Class 'Attribute Constraint': Invalid reference to 'Attribute' in based_on
+- Class 'ValueType: CamelName': Invalid reference to 'String' in subtype_of
+- Class 'UpperCamel': Invalid reference to 'CamelName' in subtype_of
+- Class 'LowerCamel': Invalid reference to 'CamelName' in subtype_of
+- Class 'Qualified Camel': Invalid reference to 'String' in subtype_of
+- Class 'RichText.  A string with markup for block level formatting.': Invalid reference to 'String' in subtype_of
+- Class 'RichLine': Invalid reference to 'RichText' in subtype_of
+- Class 'PrimitiveType': Invalid reference to 'ValueTypeA basic' in subtype_of
+- Class 'PrimitiveType': Invalid reference to 'built-in data type' in subtype_of
+Rendering....
+7  subjects coming in model
+0  subjects coming in subject
+1  subjects coming in subject
+0  subjects coming in subject
+0  subjects coming in subject
+0  subjects coming in subject
+0  subjects coming in subject
+0  subjects coming in subject
+1  subjects coming in subject
+0  subjects coming in subject
+Saved styled dictionary to ldm/LDMMeta_results/LDMMeta.html

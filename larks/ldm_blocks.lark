@@ -1,0 +1,72 @@
+// Document structure
+start: document
+
+document: (section | class | attsection )+
+
+// Main structures
+section: SECTION_HEAD elaboration?  field* class* section*
+// section: section_head elaboration?  field* class* section*
+attsection: attsection_head elaboration?  field*  attribute*
+
+class: class_head elaboration?  field* attsection* attribute*
+attribute: attribute_head elaboration? field*
+
+
+//section_head.10: SECTION_LINE TEXT_LINE*
+SECTION_HEAD: SECTION_LINE TEXT_LINE*
+
+attsection_head: ATTSECTION_LINE TEXT_LINE*
+
+class_head: CLASS_LINE TEXT_LINE*
+attribute_head: ATTRIBUTE_LINE TEXT_LINE*
+
+// elaboration can be any combination of these elements
+elaboration.5: (paragraph | code_block | blank_line)+
+
+// Field definition (labeled content)
+field: FIELD_LINE (TEXT_LINE)*
+
+// Basic blocks
+paragraph.-5: PARAGRAPH
+PARAGRAPH: TEXT_LINE+
+code_block: CODE_BLOCK
+blank_line: BLANK_LINE
+
+
+
+// Common patterns
+REST_OF_LINE: /[^\r\n]*/
+NEWLINE: /\r?\n/
+
+
+// FIELD_LINE.-5: /[ \t]*[^-_#][^:\r\n]{0,30}:/ REST_OF_LINE NEWLINE
+
+// Line-level tokens with reused patterns
+SECTION_LINE: /#+[ \t]+/ REST_OF_LINE NEWLINE
+
+//ATTSECTION_LINE.5: /[ \t]*__[ \t]+/ REST_OF_LINE NEWLINE
+//CLASS_LINE: /[ \t]*_(?!_)[ \t]+/ REST_OF_LINE NEWLINE  // Single underscore, not followed by another
+
+ATTSECTION_LINE: /__[ \t]+/ REST_OF_LINE NEWLINE
+CLASS_LINE: /_[ \t]+/ REST_OF_LINE NEWLINE
+ATTRIBUTE_LINE: /-[ \t]+/ REST_OF_LINE NEWLINE
+
+
+
+// Much more permissive field line - any line with a colon in first ~20 chars
+FIELD_LINE: /[ \t]*.{1,20}:/ REST_OF_LINE NEWLINE
+// FIELD_LINE: /[ \t]*[^:#\-_`]{1,20}:/ REST_OF_LINE NEWLINE
+
+// FIELD_LINE: /[a-zA-Z0-9_\[\]]{1,12}[ \t]*:[ \t]*[^\r\n]*\r?\n/
+// FIELD_LINE: /[ \t]*[.]{1,12}[ \t]*:[ \t]*[^\r\n]*\r?\n/
+
+TEXT_LINE: /[^\r\n#_\-`]/ REST_OF_LINE NEWLINE
+BLANK_LINE: /[ \t]*/ NEWLINE
+
+// Code block as a complete token
+CODE_BLOCK: /```[^\n]*\n(?:[^\`]|`[^\`]|``[^\`])*```\r?\n/
+
+// Handle multiple blank lines as a single blank line
+%import common.WS
+%ignore WS
+%ignore BLANK_LINE
