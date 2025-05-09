@@ -138,6 +138,21 @@ class Annotation:
     class Meta:
         presentable_template = "{?{emoji}}  {label}: {content} NEWLINE"
 
+@dataclass
+class Diagnostic():
+    
+    object_type: str = ""
+    object_name: str  = ""
+    message:str  = ""
+
+    severity: str = "Error"
+    constraint_name: str  = ""
+
+    def __str__(self):
+        return f"{self.severity} on {self.object_type} named {self.object_name}: {self.message}"
+    def __post_init__(self):
+        self._type = "Diagnostic"
+
 
 @dataclass
 class Component(ABC):
@@ -148,6 +163,7 @@ class Component(ABC):
     abbreviation: Optional[UpperCamel] = None
     elaboration: Optional[List[Paragraph]] = block_list_field(default_factory=list)
     annotations: Optional[List[Annotation]] = block_list_field(default_factory=list)
+    diagnostics: Optional[List[Diagnostic]] = block_list_field(default_factory=list)
     _type: str = field(default=None, init=False)
 
     class Meta:
@@ -167,6 +183,8 @@ class Component(ABC):
         # Ensure collections are initialized
         if self.annotations is None:
             self.annotations = []
+        if self.diagnostics is None:
+            self.diagnostics = []
         if self.elaboration is None:
             self.elaboration = []
     def show_name(self):
@@ -405,6 +423,7 @@ class Formula:
     elaboration: Optional[List[Paragraph]] = block_list_field(default_factory=list)
 
     annotations: Optional[List[Annotation]] = block_list_field(default_factory=list)
+    diagnostics: Optional[List[Diagnostic]] = block_list_field(default_factory=list)
 
     _type: str = field(default=None, init=False)
 
@@ -413,6 +432,8 @@ class Formula:
             self._type = "Formula"
         if self.annotations is None:
             self.annotations = []
+        if self.diagnostics is None:
+            self.diagnostics = []
         if self.elaboration is None:
             self.elaboration = []
 
@@ -514,7 +535,7 @@ class AttributeSection(Component):
 @dataclass
 class Attribute(Component):
     name: LowerCamel = None
-    data_type_clause: Optional[DataTypeClause] = None
+    data_type_clause: DataTypeClause = None
     overrides: Optional[AttributeReference] = None
     inverse: Optional[AttributeReference] = None
     inverse_of: Optional[AttributeReference] = None

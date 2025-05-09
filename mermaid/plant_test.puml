@@ -1,9 +1,133 @@
+@startuml
+' Configure the modern style approach with CSS
+' Try polyline instead of ortho
+skinparam linetype polyline
+
+<style>
+  /* Global settings */
+  diagram {
+    backgroundColor: white;
+  }
+  
+  /* Class styling */
+  class {
+    BackgroundColor: #FFFFEE;
+    BorderColor: #333333;
+    BorderThickness: 1;
+    BorderRadius: 8;
+    FontColor: #333333;
+    FontSize: 12;
+  }
+  
+  /* Arrow styling */
+  arrow {
+    Color: #333333;
+    Thickness: 1.5;
+  }
+  
+  /* Package styling */
+  package {
+    BackgroundColor: #E6F2FF;
+    BorderColor: #336699;
+    BorderThickness: 3;
+    FontColor: #333333;
+  }
+  
+  /* Custom style for Component */
+  .container {
+    BackgroundColor: #E6F2FF;
+    BorderColor: #336699;
+    BorderThickness: 3;
+    BorderRadius: 10;
+  }
+</style>
+
+package "Component" <<container>> {
+  class Literate {
+    Core implementation
+  }
+  
+  class Subject {
+    Domain entity
+  }
+  class Class {
+    Schema definition
+  }
+  class AttributeSection {
+    Property group
+  }
+  class Attribute {
+    Individual property
+  }
+  
+  ' Relationships 
+  Subject -> Literate
+  Class -> Literate
+  AttributeSection -> Literate
+  Attribute -> Literate
+}
+
+@enduml
+
+@startmindmap
+* Component
+** Literate
+*** Subject
+*** Class
+*** AttributeSection
+*** Attribute
+@endmindmap
+@startuml
+!include <C4/C4_Component>
+
+Person(user, "User")
+Container_Boundary(component, "Component") {
+  Component(literate, "Literate", "Core implementation")
+  Component(subject, "Subject", "Domain entity")
+  Component(class, "Class", "Schema definition")
+  Component(attributeSection, "AttributeSection", "Property group")
+  Component(attribute, "Attribute", "Individual property")
+}
+
+Rel(subject, literate, "extends")
+Rel(class, literate, "extends")
+Rel(attributeSection, literate, "extends")
+Rel(attribute, literate, "extends")
+@enduml
+
+@startjson
+{
+  "Component": {
+    "Literate": {"description": "Core implementation"},
+    "Subject": {"description": "Domain entity", "extends": "Literate"},
+    "Class": {"description": "Schema definition", "extends": "Literate"},
+    "AttributeSection": {"description": "Property group", "extends": "Literate"},
+    "Attribute": {"description": "Individual property", "extends": "Literate"}
+  }
+}
+@endjson
+
+
+@startjson
+{
+  "Component": {
+    "Literate": ["description", "Core implementation"],
+    "Subject": {"description": "Domain entity", "extends": "Literate"},
+    "Class": {"description": "Schema definition", "extends": "Literate"},
+    "AttributeSection": {"description": "Property group", "extends": "Literate"},
+    "Attribute": {"description": "Individual property", "extends": "Literate"}
+  }
+}
+@endjson
+
+@startjson
+
 {
   "_type": "LDM",
   "prefix": "#",
+  "name": "Literate Data Model",
   "one_liner": "a detailed descriptionof the contents",
   "parenthetical": "",
-  "abbreviation": "",
   "elaboration": [
     {
       "_type": "Paragraph",
@@ -38,7 +162,6 @@
           "name": "Component",
           "one_liner": "An element or building block of the literate data model with an extendedOneLiner",
           "parenthetical": "",
-          "abbreviation": "COMPT",
           "elaboration": [
             {
               "_type": "Paragraph",
@@ -49,15 +172,27 @@
               "content": "Start of last paragraph."
             }
           ],
+          "abbreviation": "COMPT",
           "annotations": [
             {
               "_type": "Annotation",
+              "emoji": "",
               "label": "Note",
               "content": "This is an annotation for the Component class, with extra text onextra lines with extra text on extra lines",
-              "emoji": ""
+              "subtypes": [
+                "ComponentA",
+                "Component",
+                "ComponentB",
+                "ComponentC"
+              ],
+              "based_on": [
+                "Component",
+                "ComponentA",
+                "ComponentB",
+                "ComponentC"
+              ]
             }
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -77,12 +212,8 @@
               ],
               "inverse": {
                 "_type": "AttributeReference",
-                "class_name": {
-                  "_type": "ClassName"
-                },
-                "attribute_name": {
-                  "_type": "AttributeName"
-                }
+                "class_name": {},
+                "attribute_name": {}
               }
             },
             {
@@ -112,25 +243,9 @@
               "name": "abbreviatedName",
               "one_liner": "a short form of the component's name, used for cross references and improved readability.",
               "parenthetical": "*CamelName*",
-              "annotations": [
-                {
-                  "_type": "Annotation",
-                  "label": "Noting",
-                  "content": "And this is trying an annotation on a formula clause",
-                  "emoji": ""
-                },
-                {
-                  "_type": "Annotation",
-                  "label": "Example",
-                  "content": "\"LDM\" is the short form of \"Literate Data Model\".",
-                  "emoji": ""
-                }
-              ],
               "default": {
                 "_type": "Default",
                 "as_entered": " name",
-                "english": " And thii is an english language rendering",
-                "code": " This is the OCL code for calculating the name",
                 "elaboration": [
                   {
                     "_type": "Paragraph",
@@ -140,28 +255,44 @@
                     "_type": "Paragraph",
                     "content": "Start of second paragraph."
                   }
-                ]
+                ],
+                "code": " This is the OCL code for calculating the name",
+                "english": " And thii is an english language rendering"
               },
+              "annotations": [
+                {
+                  "_type": "Annotation",
+                  "emoji": "",
+                  "label": "Noting",
+                  "content": "And this is trying an annotation on a formula clause"
+                },
+                {
+                  "_type": "Annotation",
+                  "emoji": "",
+                  "label": "Example",
+                  "content": "\"LDM\" is the short form of \"Literate Data Model\"."
+                }
+              ],
               "constraints": [
                 {
                   "_type": "Constraint",
                   "as_entered": [
                     " this is the first constraint for name in Component"
                   ],
-                  "english": " English for first constraint",
                   "code": " OCL for first constraint",
-                  "message": " {name} is all wrong - first",
-                  "severity": " Harsh"
+                  "english": " English for first constraint",
+                  "severity": " Harsh",
+                  "message": " {name} is all wrong - first"
                 },
                 {
                   "_type": "Constraint",
                   "as_entered": [
                     " this is the second constraint for name in Component"
                   ],
-                  "english": " English for second constraint",
                   "code": " OCL for second constraint",
-                  "message": " {name} is all wrong - second",
-                  "severity": " Harsh second"
+                  "english": " English for second constraint",
+                  "severity": " Harsh second",
+                  "message": " {name} is all wrong - second"
                 }
               ]
             },
@@ -187,7 +318,6 @@
               "name": "For Machinery",
               "one_liner": "mechanical attributes",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -195,12 +325,16 @@
                   "name": "isEmbellishment",
                   "one_liner": "Indicates whether this component is an embellishment added during post-parsing processing _",
                   "parenthetical": "Boolean",
+                  "default": {
+                    "_type": "Default",
+                    "as_entered": " false"
+                  },
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Note",
                       "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.",
-                      "emoji": "",
                       "elaboration": [
                         {
                           "_type": "Paragraph",
@@ -214,27 +348,23 @@
                     },
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "wildly",
-                      "content": "This is an unregistered annotation",
-                      "emoji": ""
+                      "content": "This is an unregistered annotation"
                     },
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "minorNote",
-                      "content": "This is a minor note",
-                      "emoji": ""
+                      "content": "This is a minor note"
                     },
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "majorNote",
-                      "content": "And this is a major note. Both should be annotations",
-                      "emoji": ""
+                      "content": "And this is a major note. Both should be annotations"
                     }
-                  ],
-                  "default": {
-                    "_type": "Default",
-                    "as_entered": " false"
-                  }
+                  ]
                 }
               ]
             },
@@ -244,7 +374,6 @@
               "name": "Markdown Support",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -291,17 +420,18 @@
           "parenthetical": "",
           "annotations": [
             {
-              "_type": "Annotation",
-              "content": null
+              "_type": "Annotation"
             },
             {
               "_type": "Annotation",
+              "emoji": "",
               "label": "Note",
               "content": "Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type.",
-              "emoji": ""
+              "based_on": [
+                "Literate Data Model"
+              ]
             }
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -360,7 +490,6 @@
           "based_on": [
             "Component"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -371,9 +500,9 @@
               "annotations": [
                 {
                   "_type": "Annotation",
+                  "emoji": "",
                   "label": "Note",
-                  "content": "An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.",
-                  "emoji": ""
+                  "content": "An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*."
                 }
               ]
             },
@@ -420,7 +549,6 @@
               "name": "For Machinery",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -428,18 +556,18 @@
                   "name": "isEmbellishment",
                   "one_liner": "Indicates whether this annotation is an embellishment added during post-parsing processing _",
                   "parenthetical": "Boolean",
-                  "annotations": [
-                    {
-                      "_type": "Annotation",
-                      "label": "Note",
-                      "content": "This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.",
-                      "emoji": ""
-                    }
-                  ],
                   "default": {
                     "_type": "Default",
                     "as_entered": " false"
-                  }
+                  },
+                  "annotations": [
+                    {
+                      "_type": "Annotation",
+                      "emoji": "",
+                      "label": "Note",
+                      "content": "This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source."
+                    }
+                  ]
                 }
               ]
             }
@@ -465,7 +593,6 @@
           "subtype_of": [
             "Component"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -520,7 +647,6 @@
               "name": "Modeling Configuration",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -584,7 +710,6 @@
               "name": "Markdown Support",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -618,12 +743,6 @@
           "name": "SubjectA specific topic or theme within the model",
           "one_liner": "",
           "parenthetical": "",
-          "elaboration": [
-            {
-              "_type": "Paragraph",
-              "content": "Subjects are the chapters an sections of the model. \n+ A subject need not contain any Classes if it’s just expository."
-            }
-          ],
           "plural": " Subjects",
           "subtype_of": [
             "Component"
@@ -631,7 +750,12 @@
           "dependent_of": [
             "LiterateDataModel"
           ],
-          "is_value_type": false,
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "Subjects are the chapters an sections of the model. \n+ A subject need not contain any Classes if it\u2019s just expository."
+            }
+          ],
           "attributes": [
             {
               "_type": "Attribute",
@@ -656,9 +780,9 @@
               "annotations": [
                 {
                   "_type": "Annotation",
+                  "emoji": "",
                   "label": "Issue",
-                  "content": "define chapter, section, subsection as levels?***DSL***: Generally, it is best to present the classes within a Subject in top down order:",
-                  "emoji": ""
+                  "content": "define chapter, section, subsection as levels?***DSL***: Generally, it is best to present the classes within a Subject in top down order:"
                 }
               ]
             },
@@ -682,21 +806,17 @@
               "name": "childSubjects",
               "one_liner": "Any child subjects nested under this subject, in the order in which they should be presented _",
               "parenthetical": "ListOf Subjects",
+              "inverse": {
+                "_type": "AttributeReference",
+                "class_name": {},
+                "attribute_name": {}
+              },
               "elaboration": [
                 {
                   "_type": "Paragraph",
                   "content": "***DSL***:  the Classes within a Subject are always displayed before the childSubjects."
                 }
-              ],
-              "inverse": {
-                "_type": "AttributeReference",
-                "class_name": {
-                  "_type": "ClassName"
-                },
-                "attribute_name": {
-                  "_type": "AttributeName"
-                }
-              }
+              ]
             }
           ],
           "attribute_sections": [
@@ -706,7 +826,6 @@
               "name": "Markdown Support",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -744,15 +863,7 @@
           "subtype_of": [
             "Subject"
           ],
-          "is_value_type": false
-        },
-        {
-          "_type": "Class",
-          "prefix": "_",
-          "name": "Where: parentSubject is absent",
-          "one_liner": "",
-          "parenthetical": "",
-          "is_value_type": false
+          "where": " parentSubject is absent"
         }
       ],
       "subjects": [
@@ -773,7 +884,6 @@
               "subtype_of": [
                 "Component"
               ],
-              "is_value_type": false,
               "constraints": [
                 {
                   "_type": "Constraint",
@@ -798,9 +908,9 @@
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Note",
                       "content": "When inputting a model, you will rarely need to specify the plural form. The input program will just look it up.",
-                      "emoji": "",
                       "elaboration": [
                         {
                           "_type": "Paragraph",
@@ -829,9 +939,9 @@
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Note",
-                      "content": "that basedOn and dependentOf are being used synonymousle in this metamodel.ToDo - fix that",
-                      "emoji": ""
+                      "content": "that basedOn and dependentOf are being used synonymousle in this metamodel.ToDo - fix that"
                     }
                   ]
                 },
@@ -851,9 +961,9 @@
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Example",
-                      "content": "in a library model, the `Book` class could have subtypings based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback), or subject (e.g., Science, History).",
-                      "emoji": ""
+                      "content": "in a library model, the `Book` class could have subtypings based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback), or subject (e.g., Science, History)."
                     }
                   ]
                 },
@@ -861,14 +971,14 @@
                   "_type": "Attribute",
                   "prefix": "-",
                   "name": "subtypes",
-                  "one_liner": "Any subtypes or specializations of this class based on it’s subtypings. _",
+                  "one_liner": "Any subtypes or specializations of this class based on it\u2019s subtypings. _",
                   "parenthetical": "ListOf Classes",
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Example",
-                      "content": "For instance, using the `Book` example, the subtypes could include `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`, `ScienceBook`, and `HistoryBook`.",
-                      "emoji": ""
+                      "content": "For instance, using the `Book` example, the subtypes could include `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`, `ScienceBook`, and `HistoryBook`."
                     }
                   ]
                 },
@@ -895,9 +1005,9 @@
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Note",
-                      "content": "Constraints may be expressed on either the Class or the Attribute. Always?Add examples where clarity would favor one or the other.   Sometimes just a matter of taste.",
-                      "emoji": ""
+                      "content": "Constraints may be expressed on either the Class or the Attribute. Always?Add examples where clarity would favor one or the other.   Sometimes just a matter of taste."
                     }
                   ]
                 },
@@ -916,7 +1026,6 @@
                   "name": "Implied Attributes",
                   "one_liner": "",
                   "parenthetical": "",
-                  "is_required": {},
                   "attributes": [
                     {
                       "_type": "Attribute",
@@ -926,12 +1035,8 @@
                       "parenthetical": "optional SetOf Classes",
                       "inverse": {
                         "_type": "AttributeReference",
-                        "class_name": {
-                          "_type": "ClassName"
-                        },
-                        "attribute_name": {
-                          "_type": "AttributeName"
-                        }
+                        "class_name": {},
+                        "attribute_name": {}
                       }
                     },
                     {
@@ -942,12 +1047,8 @@
                       "parenthetical": "optional Set of UniqueKeys",
                       "inverse": {
                         "_type": "AttributeReference",
-                        "class_name": {
-                          "_type": "ClassName"
-                        },
-                        "attribute_name": {
-                          "_type": "AttributeName"
-                        }
+                        "class_name": {},
+                        "attribute_name": {}
                       }
                     }
                   ]
@@ -963,7 +1064,6 @@
               "dependent_of": [
                 "Class"
               ],
-              "is_value_type": false,
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -1009,9 +1109,9 @@
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Note",
-                      "content": "every class can have an unnamed subtyping.Also,  each subtyping is by default Exclusive and  Exhaustive. So those stipulations may be omitted.",
-                      "emoji": ""
+                      "content": "every class can have an unnamed subtyping.Also,  each subtyping is by default Exclusive and  Exhaustive. So those stipulations may be omitted."
                     }
                   ]
                 }
@@ -1026,7 +1126,6 @@
               "subtype_of": [
                 "Class."
               ],
-              "is_value_type": false,
               "attribute_sections": [
                 {
                   "_type": "AttributeSection",
@@ -1034,7 +1133,6 @@
                   "name": "Markdown Support",
                   "one_liner": "",
                   "parenthetical": "",
-                  "is_required": {},
                   "attributes": [
                     {
                       "_type": "Attribute",
@@ -1059,8 +1157,7 @@
               "parenthetical": "",
               "subtype_of": [
                 "Class."
-              ],
-              "is_value_type": false
+              ]
             },
             {
               "_type": "Class",
@@ -1068,23 +1165,22 @@
               "name": "CodeTypeA data type or enumeration used in the model",
               "one_liner": "",
               "parenthetical": "",
-              "annotations": [
-                {
-                  "_type": "Annotation",
-                  "label": "Note",
-                  "content": "Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:",
-                  "emoji": ""
-                }
-              ],
               "subtype_of": [
                 "ValueType."
               ],
-              "is_value_type": false,
+              "annotations": [
+                {
+                  "_type": "Annotation",
+                  "emoji": "",
+                  "label": "Note",
+                  "content": "Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:"
+                }
+              ],
               "attributes": [
                 {
                   "_type": "Attribute",
                   "prefix": "-",
-                  "name": "List the code values as a bulletted list inside the description of the attribute in the form:‘code: description’",
+                  "name": "List the code values as a bulletted list inside the description of the attribute in the form:\u2018code: description\u2019",
                   "one_liner": "",
                   "parenthetical": ""
                 },
@@ -1113,12 +1209,11 @@
               "annotations": [
                 {
                   "_type": "Annotation",
+                  "emoji": "",
                   "label": "A possible value for an enumerated data class  DependentOf",
-                  "content": "CodeType",
-                  "emoji": ""
+                  "content": "CodeType"
                 }
               ],
-              "is_value_type": false,
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -1148,7 +1243,6 @@
               "dependent_of": [
                 "Class"
               ],
-              "is_value_type": false,
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -1156,14 +1250,6 @@
                   "name": "keyAttributes",
                   "one_liner": "the attributes of the base Class.",
                   "parenthetical": "List of Attributes",
-                  "annotations": [
-                    {
-                      "_type": "Annotation",
-                      "label": "Issue",
-                      "content": "need ascending descending to support index keys or ordering keys.",
-                      "emoji": ""
-                    }
-                  ],
                   "constraints": [
                     {
                       "_type": "Constraint",
@@ -1174,8 +1260,16 @@
                     {
                       "_type": "Constraint",
                       "as_entered": [
-                        " no repetitions allowed in keyAttributes> 👍 **Issue**: introduce PureLists?"
+                        " no repetitions allowed in keyAttributes> \ud83d\udc4d **Issue**: introduce PureLists?"
                       ]
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "_type": "Annotation",
+                      "emoji": "",
+                      "label": "Issue",
+                      "content": "need ascending descending to support index keys or ordering keys."
                     }
                   ]
                 }
@@ -1187,18 +1281,17 @@
               "name": "UniqueKey",
               "one_liner": "a list of attributes on which instances of the base class may be keyed.",
               "parenthetical": "",
-              "annotations": [
-                {
-                  "_type": "Annotation",
-                  "label": "Note",
-                  "content": "order unimportant for Unique Keys.",
-                  "emoji": ""
-                }
-              ],
               "subtype_of": [
                 "Key"
               ],
-              "is_value_type": false
+              "annotations": [
+                {
+                  "_type": "Annotation",
+                  "emoji": "",
+                  "label": "Note",
+                  "content": "order unimportant for Unique Keys."
+                }
+              ]
             }
           ]
         }
@@ -1223,7 +1316,6 @@
           "based_on": [
             "Class"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1246,7 +1338,6 @@
               "name": "Markdown Support",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -1283,7 +1374,6 @@
           "based_on": [
             "AttributeSection"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1293,12 +1383,8 @@
               "parenthetical": "Lower Camel",
               "overrides": {
                 "_type": "AttributeReference",
-                "class_name": {
-                  "_type": "ClassName"
-                },
-                "attribute_name": {
-                  "_type": "AttributeName"
-                }
+                "class_name": "CamelName",
+                "attribute_name": ""
               }
             },
             {
@@ -1337,9 +1423,9 @@
               "annotations": [
                 {
                   "_type": "Annotation",
+                  "emoji": "",
                   "label": "See",
-                  "content": "the section below on Data Type Specifiers.",
-                  "emoji": ""
+                  "content": "the section below on Data Type Specifiers."
                 }
               ]
             }
@@ -1351,7 +1437,6 @@
               "name": "Cardinalities.",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -1370,14 +1455,6 @@
                   "name": "cardinality",
                   "one_liner": "The cardinality of the relationship represented by the attribute _",
                   "parenthetical": "CardinalityCode",
-                  "annotations": [
-                    {
-                      "_type": "Annotation",
-                      "label": "For example",
-                      "content": "",
-                      "emoji": ""
-                    }
-                  ],
                   "default": {
                     "_type": "Default",
                     "as_entered": "***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.For a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.",
@@ -1387,7 +1464,15 @@
                         "content": "***DSL***: the cardinality of an attribute, if stated explicitly, should be placed just before the class name in the parenthetical data type specification after the one-liner."
                       }
                     ]
-                  }
+                  },
+                  "annotations": [
+                    {
+                      "_type": "Annotation",
+                      "emoji": "",
+                      "label": "For example",
+                      "content": ""
+                    }
+                  ]
                 },
                 {
                   "_type": "Attribute",
@@ -1405,9 +1490,9 @@
                   "annotations": [
                     {
                       "_type": "Annotation",
+                      "emoji": "",
                       "label": "Note",
-                      "content": "how this works with optionality",
-                      "emoji": ""
+                      "content": "how this works with optionality"
                     }
                   ]
                 }
@@ -1419,7 +1504,6 @@
               "name": "Inverse Attributes",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -1467,7 +1551,6 @@
           "name": "Formulas",
           "one_liner": "",
           "parenthetical": "",
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1478,9 +1561,9 @@
               "annotations": [
                 {
                   "_type": "Annotation",
-                  "label": "Note",
-                  "content": "even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed.And let's see if the note can span extra lines, too",
                   "emoji": "",
+                  "label": "Note",
+                  "content": "even when an Attribute has a default derivation, there\u2019s no guarantee that every instance will have an assigned value. Example needed.And let's see if the note can span extra lines, too",
                   "elaboration": [
                     {
                       "_type": "Paragraph",
@@ -1503,9 +1586,9 @@
               "annotations": [
                 {
                   "_type": "Annotation",
+                  "emoji": "",
                   "label": "Issue",
-                  "content": "on insert vs on access?",
-                  "emoji": ""
+                  "content": "on insert vs on access?"
                 }
               ]
             },
@@ -1518,9 +1601,9 @@
               "annotations": [
                 {
                   "_type": "Annotation",
+                  "emoji": "",
                   "label": "Note",
-                  "content": "from Class.constraints",
-                  "emoji": ""
+                  "content": "from Class.constraints"
                 }
               ]
             }
@@ -1532,7 +1615,6 @@
               "name": "Override Tracking",
               "one_liner": "",
               "parenthetical": "",
-              "is_required": {},
               "attributes": [
                 {
                   "_type": "Attribute",
@@ -1552,7 +1634,6 @@
           "one_liner": "",
           "parenthetical": "",
           "plural": " Derivations",
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1580,7 +1661,6 @@
           "subtype_of": [
             "Component"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1637,8 +1717,7 @@
           ],
           "based_on": [
             "Class."
-          ],
-          "is_value_type": false
+          ]
         },
         {
           "_type": "Class",
@@ -1651,8 +1730,7 @@
           ],
           "based_on": [
             "Attribute"
-          ],
-          "is_value_type": false
+          ]
         },
         {
           "_type": "Class",
@@ -1660,7 +1738,6 @@
           "name": "CodeExpression",
           "one_liner": "",
           "parenthetical": "",
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1711,7 +1788,6 @@
           "subtype_of": [
             "Component"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1739,7 +1815,6 @@
           "subtype_of": [
             "Component"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1778,7 +1853,6 @@
           "name": "Simple Data TypeSubtpeOf: DataType",
           "one_liner": "",
           "parenthetical": "",
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1795,7 +1869,6 @@
           "name": "Complex Data Type",
           "one_liner": "",
           "parenthetical": "",
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1819,7 +1892,6 @@
           "name": "Aggregating Operator",
           "one_liner": "",
           "parenthetical": "",
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1895,7 +1967,6 @@
           "subtype_of": [
             "String"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -1903,32 +1974,32 @@
               "name": "value: the string",
               "one_liner": "",
               "parenthetical": "String",
-              "annotations": [
-                {
-                  "_type": "Annotation",
-                  "label": "Example",
-                  "content": "\"firstName\", \"orderDate\", \"customerID\"",
-                  "emoji": "",
-                  "elaboration": [
-                    {
-                      "_type": "Paragraph",
-                      "content": "> 📝 ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute."
-                    }
-                  ]
-                },
-                {
-                  "_type": "Annotation",
-                  "label": "ModelingNote",
-                  "content": "* *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.",
-                  "emoji": ""
-                }
-              ],
               "constraints": [
                 {
                   "_type": "Constraint",
                   "as_entered": [
                     " Must follow the camel case naming convention and not be empty."
                   ]
+                }
+              ],
+              "annotations": [
+                {
+                  "_type": "Annotation",
+                  "emoji": "",
+                  "label": "Example",
+                  "content": "\"firstName\", \"orderDate\", \"customerID\"",
+                  "elaboration": [
+                    {
+                      "_type": "Paragraph",
+                      "content": "> \ud83d\udcdd ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute."
+                    }
+                  ]
+                },
+                {
+                  "_type": "Annotation",
+                  "emoji": "",
+                  "label": "ModelingNote",
+                  "content": "* *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model."
                 }
               ]
             }
@@ -1940,19 +2011,18 @@
           "name": "UpperCamel",
           "one_liner": "a CamelName that begins with a capital letter",
           "parenthetical": "",
-          "annotations": [
-            {
-              "_type": "Annotation",
-              "label": "Example",
-              "content": "_ \"Customer\", \"ProductCategory\", \"PaymentMethod\"",
-              "emoji": ""
-            }
-          ],
           "subtype_of": [
             "CamelName"
           ],
-          "is_value_type": false,
-          "where": " content begins with an upper case letter."
+          "where": " content begins with an upper case letter.",
+          "annotations": [
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "Example",
+              "content": "_ \"Customer\", \"ProductCategory\", \"PaymentMethod\""
+            }
+          ]
         },
         {
           "_type": "Class",
@@ -1960,19 +2030,18 @@
           "name": "LowerCamel",
           "one_liner": "a CamelName that begins with a lower case letter",
           "parenthetical": "",
-          "annotations": [
-            {
-              "_type": "Annotation",
-              "label": "Example",
-              "content": "\"firstName\", \"orderTotal\", \"shippingAddress\"",
-              "emoji": ""
-            }
-          ],
           "subtype_of": [
             "CamelName"
           ],
-          "is_value_type": false,
-          "where": " content begins with a lower case letter."
+          "where": " content begins with a lower case letter.",
+          "annotations": [
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "Example",
+              "content": "\"firstName\", \"orderTotal\", \"shippingAddress\""
+            }
+          ]
         },
         {
           "_type": "Class",
@@ -1983,7 +2052,6 @@
           "subtype_of": [
             "String"
           ],
-          "is_value_type": false,
           "constraints": [
             {
               "_type": "Constraint",
@@ -2002,7 +2070,6 @@
           "subtype_of": [
             "String"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -2043,7 +2110,6 @@
           "subtype_of": [
             "RichText"
           ],
-          "is_value_type": false,
           "attributes": [
             {
               "_type": "Attribute",
@@ -2068,12 +2134,16 @@
           "name": "PrimitiveType",
           "one_liner": "",
           "parenthetical": "",
+          "subtype_of": [
+            "ValueTypeA basic",
+            "built-in data type"
+          ],
           "annotations": [
             {
               "_type": "Annotation",
+              "emoji": "",
               "label": "Values",
               "content": "**String**",
-              "emoji": "",
               "elaboration": [
                 {
                   "_type": "Paragraph",
@@ -2081,12 +2151,7 @@
                 }
               ]
             }
-          ],
-          "subtype_of": [
-            "ValueTypeA basic",
-            "built-in data type"
-          ],
-          "is_value_type": false
+          ]
         }
       ]
     },
@@ -2108,3 +2173,90 @@
     }
   ]
 }
+
+@endjson
+
+@startuml
+nwdiag {
+  network {
+    Component;
+    
+    Component -- Literate;
+    Component -- Subject;
+    Component -- Class;
+    Component -- AttributeSection;
+    Component -- Attribute;
+    
+    Subject [description = "Domain entity"];
+    Literate [description = "Core implementation"];
+    Class [description = "Schema definition"];
+    AttributeSection [description = "Property group"];
+    Attribute [description = "Individual property"];
+  }
+}
+@enduml
+
+
+@startuml
+component Component {
+  component Literate {
+    description "Core implementation"
+  }
+  component Subject {
+    description "Domain entity"
+  }
+  component Class {
+    description "Schema definition"
+  }
+  component AttributeSection {
+    description "Property group"
+  }
+  component Attribute {
+    description "Individual property"
+  }
+  
+}
+@enduml
+
+@startuml
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+@enduml

@@ -1,0 +1,45 @@
+List intros - just hide key, show value
+     attribute_sections
+	 constraints
+	 classes
+	 attributes
+	 annotations
+	 subjects
+     elaboration
+
+Field names - show as clause or subclause. 
+            add class=fieldname to key node. 
+            And to value node (possibly with other classes)
+	 where
+	 inverse
+	 code
+	 default
+	 based_on
+	 derivation
+	 message
+	 as_entered
+	 abbreviation
+	 subtype_of
+	 subtypes
+	 plural
+	 english
+	 severity
+	 overrides
+	 dependent_of
+
+Nonsense - no node for key - use as class for value
+    * Header parts. handled
+	 one_liner
+	 parenthetical
+	 prefix
+	 name
+
+	 content
+	 emoji
+	 label
+	 elaboration
+	 _type
+
+TBD
+	 attribute_name
+	 class_name

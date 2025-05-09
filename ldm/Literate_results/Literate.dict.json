@@ -2,14 +2,8 @@
   "_type": "LDM",
   "prefix": "#",
   "name": "Literate Data Model",
-  "one_liner": "a detailed descriptionof the contents",
+  "one_liner": "",
   "parenthetical": "",
-  "elaboration": [
-    {
-      "_type": "Paragraph",
-      "content": "This is a section with no real content, except for these intro words and other sections. \n+ And this is the elaboration"
-    }
-  ],
   "subjects": [
     {
       "_type": "SubjectB",
@@ -23,10 +17,6 @@
           "content": "In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model."
         },
         {
-          "_type": "CodeBlock",
-          "content": "```Sample code block between paragraphs\n - x <  y and y > z\n - ```"
-        },
-        {
           "_type": "Paragraph",
           "content": "We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component."
         }
@@ -36,60 +26,9 @@
           "_type": "Class",
           "prefix": "_",
           "name": "Component",
-          "one_liner": "An element or building block of the literate data model with an extendedOneLiner",
+          "one_liner": "An element or building block of the literate data model",
           "parenthetical": "",
-          "elaboration": [
-            {
-              "_type": "Paragraph",
-              "content": "Further elaboration for a Component. \n+ End of first paragraph"
-            },
-            {
-              "_type": "Paragraph",
-              "content": "Start of last paragraph."
-            }
-          ],
-          "abbreviation": "COMPT",
-          "annotations": [
-            {
-              "_type": "Annotation",
-              "emoji": "",
-              "label": "Note",
-              "content": "This is an annotation for the Component class, with extra text onextra lines with extra text on extra lines",
-              "subtypes": [
-                "ComponentA",
-                "ComponentB",
-                "ComponentC"
-              ],
-              "based_on": [
-                "ComponentA",
-                "ComponentB",
-                "ComponentC"
-              ]
-            }
-          ],
           "attributes": [
-            {
-              "_type": "Attribute",
-              "prefix": "-",
-              "name": "parentClass",
-              "one_liner": "the supertype - just here to test parser",
-              "parenthetical": "Class",
-              "elaboration": [
-                {
-                  "_type": "Paragraph",
-                  "content": "Trying an elaboration for an InverseOf clause on an attribute declaration clauses. \n+ End of first paragraph"
-                },
-                {
-                  "_type": "Paragraph",
-                  "content": "Start of second paragraph."
-                }
-              ],
-              "inverse": {
-                "_type": "AttributeReference",
-                "class_name": {},
-                "attribute_name": {}
-              }
-            },
             {
               "_type": "Attribute",
               "prefix": "-",
@@ -119,54 +58,14 @@
               "parenthetical": "*CamelName*",
               "default": {
                 "_type": "Default",
-                "as_entered": " name",
-                "elaboration": [
-                  {
-                    "_type": "Paragraph",
-                    "content": "Trying an elaboration for a Default code clause - ie subsequent  part of a Default Formuka object \n+ End of first paragraph"
-                  },
-                  {
-                    "_type": "Paragraph",
-                    "content": "Start of second paragraph."
-                  }
-                ],
-                "code": " This is the OCL code for calculating the name",
-                "english": " And thii is an english language rendering"
+                "as_entered": " name"
               },
               "annotations": [
                 {
                   "_type": "Annotation",
                   "emoji": "",
-                  "label": "Noting",
-                  "content": "And this is trying an annotation on a formula clause"
-                },
-                {
-                  "_type": "Annotation",
-                  "emoji": "",
                   "label": "Example",
                   "content": "\"LDM\" is the short form of \"Literate Data Model\"."
-                }
-              ],
-              "constraints": [
-                {
-                  "_type": "Constraint",
-                  "as_entered": [
-                    " this is the first constraint for name in Component"
-                  ],
-                  "code": " OCL for first constraint",
-                  "english": " English for first constraint",
-                  "severity": " Harsh",
-                  "message": " {name} is all wrong - first"
-                },
-                {
-                  "_type": "Constraint",
-                  "as_entered": [
-                    " this is the second constraint for name in Component"
-                  ],
-                  "code": " OCL for second constraint",
-                  "english": " English for second constraint",
-                  "severity": " Harsh second",
-                  "message": " {name} is all wrong - second"
                 }
               ]
             },
@@ -208,35 +107,7 @@
                       "_type": "Annotation",
                       "emoji": "",
                       "label": "Note",
-                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.",
-                      "elaboration": [
-                        {
-                          "_type": "Paragraph",
-                          "content": "And after that very long onelner on the Note, here's additional elaboration on  it \n+ With a second line in the first paragraph"
-                        },
-                        {
-                          "_type": "Paragraph",
-                          "content": "And another paragraph, too. \n+ Also with a second line"
-                        }
-                      ]
-                    },
-                    {
-                      "_type": "Annotation",
-                      "emoji": "",
-                      "label": "wildly",
-                      "content": "This is an unregistered annotation"
-                    },
-                    {
-                      "_type": "Annotation",
-                      "emoji": "",
-                      "label": "minorNote",
-                      "content": "This is a minor note"
-                    },
-                    {
-                      "_type": "Annotation",
-                      "emoji": "",
-                      "label": "majorNote",
-                      "content": "And this is a major note. Both should be annotations"
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
                     }
                   ]
                 }
@@ -290,20 +161,17 @@
           "_type": "Class",
           "prefix": "_",
           "name": "AnnotationType",
-          "one_liner": "a kind of note, or aside, used to call attention to additional information about some Component.And it can be continued on fresh lines.\n - However many you want.\n - But only up to a blank line or other clause",
+          "one_liner": "a kind of note, or aside, used to call attention to additional information about some Component.",
           "parenthetical": "",
+          "based_on": [
+            "Literate Data Model"
+          ],
           "annotations": [
-            {
-              "_type": "Annotation"
-            },
             {
               "_type": "Annotation",
               "emoji": "",
               "label": "Note",
-              "content": "Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type.",
-              "based_on": [
-                "Literate Data Model"
-              ]
+              "content": "Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type."
             }
           ],
           "attributes": [
@@ -736,14 +604,8 @@
           "plural": " SubjectAreas",
           "subtype_of": [
             "Subject"
-          ]
-        },
-        {
-          "_type": "Class",
-          "prefix": "_",
-          "name": "Where: parentSubject is absent",
-          "one_liner": "",
-          "parenthetical": ""
+          ],
+          "where": " parentSubject is absent"
         }
       ],
       "subjects": [
@@ -2047,9 +1909,34 @@
           "prefix": "###",
           "name": "Annotation Types Used",
           "one_liner": "",
-          "parenthetical": ""
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "These are the recognized Annotation Types for the LDM model."
+            },
+            {
+              "_type": "Paragraph",
+              "content": "And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model."
+            },
+            {
+              "_type": "CodeBlock",
+              "content": "```typescriptinterface AnnotationType {\n - label: string;\n - emoji: string;\n - emojiName: string;\n - emojiUnicode: string;\n - purpose: string;\n - }\n - // LINK: LiterateDataModel.annotationTypes\n - const annotationTypes: AnnotationType[] = [\n - {\n - label: \"Error\",\n - emoji: \"\",\n - emojiName: \"cross_mark\",\n - emojiUnicode: \"U+274C\",\n - purpose: \"Indicates a critical error or failure in the model.\"\n - },\n - {\n - label: \"Warning\",\n - emoji: \"\",\n - emojiName: \"warning\",\n - emojiUnicode: \"U+26A0\",\n - purpose: \"Indicates a potential issue or warning in the model.\"\n - },\n - {\n - label: \"Note\",\n - emoji: \"\",\n - emojiName: \"blue_book\",\n - emojiUnicode: \"U+1F4D8\",\n - purpose: \"Provides additional context, explanations, or clarifications for the annotated element.\"\n - },\n - {\n - label: \"Issue\",\n - emoji: \"\",\n - emojiName: \"warning\",\n - emojiUnicode: \"U+26A0\",\n - purpose: \"Highlights a potential issue or error that needs to be addressed or resolved.\"\n - },\n - {\n - label: \"Question\",\n - emoji: \"\",\n - emojiName: \"question\",\n - emojiUnicode: \"U+2753\",\n - purpose: \"Raises a question or seeks further clarification about the annotated element.\"\n - },\n - {\n - label: \"Suggestion\",\n - emoji: \"\",\n - emojiName: \"bulb\",\n - emojiUnicode: \"U+1F4A1\",\n - purpose: \"Provides a suggestion or recommendation for improving the model or the annotated element.\"\n - },\n - {\n - label: \"Info\",\n - emoji: \"\",\n - emojiName: \"information_source\",\n - emojiUnicode: \"U+2139\",\n - purpose: \"Offers relevant information, facts, or details about the annotated element.\"\n - },\n - {\n - label: \"Todo\",\n - emoji: \"\",\n - emojiName: \"pushpin\",\n - emojiUnicode: \"U+1F4CC\",\n - purpose: \"Indicates a pending task, action item, or future work related to the annotated element.\"\n - },\n - {\n - label: \"Reference\",\n - emoji: \"\",\n - emojiName: \"globe_with_meridians\",\n - emojiUnicode: \"U+1F310\",\n - purpose: \"Provides a reference or link to an external resource or documentation.\"\n - },\n - {\n - label: \"See\",\n - emoji: \"\",\n - emojiName: \"mag\",\n - emojiUnicode: \"U+1F50D\",\n - purpose: \"Indicates a cross-reference to another relevant element within the model.\"\n - }\n - ];\n - ```"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "==="
+            }
+          ]
         }
       ]
+    },
+    {
+      "_type": "SubjectB",
+      "prefix": "##",
+      "name": "AppendicesInsert More Sidebars.md",
+      "one_liner": "Insert Overrides.md\n - insert LDM Intro.md\n - Insert OCL.md\n - Insert Camel Case.md",
+      "parenthetical": ""
     }
   ]
 }

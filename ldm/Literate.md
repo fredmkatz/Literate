@@ -1,8 +1,5 @@
-# Literate Data Model - a detailed description 
-of the contents
+# Literate Data Model
 
-This is a section with no real content, except for these intro words and other sections.
-And this is the elaboration
 
 
 ## Preliminaries - the basic structure
@@ -11,58 +8,10 @@ of the model
 
 In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.  
 
-```
-Sample code block between paragraphs
-   x <  y and y > z
-```
-
-
 We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
 
 
-_ **Component** - An element or building block of the literate data model with an extended
-  OneLiner  
-
-
-In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.  
-
-
-```
-Sample code block between paragraphs
-   x <  y and y > z
-```
-
-We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
-abbreviation: COMPT
-
-Further elaboration for a Component.
-End of first paragraph
-
-Start of last paragraph.
-
-Note: This is an annotation for the Component class, with extra text on
-extra lines with extra text on extra lines 
-extra lines with extra text on extra lines 
-extra lines with extra text on extra lines 
-Subtypes: ComponentA, ComponentB, ComponentC
-BasedOn: ComponentA, ComponentB, ComponentC
-
-- parentClass - the supertype - just here to test parser (Class)
-
-    Trying an elaboration for an Attribute declaration clauses. 
-    End of first paragraph
-
-    Start of second paragraph.
-
-inverseOf: Class.child_class
-
-    Trying an elaboration for an InverseOf clause on an attribute declaration clauses. 
-    End of first paragraph
-
-    Start of second paragraph.
-
-inverse: Class.child_class2
-
+_ **Component** - An element or building block of the literate data model 
 - **normalName** - the name of the component, not in camel case (*String*)
 
 - **name** - The name of the component (CamelName)
@@ -73,37 +22,6 @@ inverse: Class.child_class2
 - **abbreviatedName** - a short form of the component's name, used for cross references and improved readability. (*CamelName*)
 
 	***Default***: name
-
-    Trying an elaboration for a Default declaration clause - ie first part of a Default Formuka object 
-    End of first paragraph
-
-    Start of second paragraph.
-
-  code: This is the OCL code for calculating the name
-
-      Trying an elaboration for a Default code clause - ie subsequent  part of a Default Formuka object 
-    End of first paragraph
-
-    Start of second paragraph.
-
-
-  English: And thii is an english language rendering
-  Noting: And this is trying an annotation on a formula clause
-
-
-  constraint: this is the first constraint for name in Component
-  code: OCL for first constraint
-  english: English for first constraint
-  Severity: Harsh
-  Message: {name} is all wrong - first
-
-
-  constraint: this is the second constraint for name in Component
-  code: OCL for second constraint
-  english: English for second constraint
-  Severity: Harsh second
-  Message: {name} is all wrong - second
-
 	***Example***: "LDM" is the short form of "Literate Data Model".
 
 - **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(RichLine)_  
@@ -113,18 +31,8 @@ inverse: Class.child_class2
 __  ***For Machinery*** - mechanical attributes
 - **isEmbellishment** - Indicates whether this component is an embellishment added during post-parsing processing _(Boolean)_
   🔄 ***Default***: false
-  🔄  ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
-
-  And after that very long onelner on the Note, here's additional elaboration on  it
-  With a second line in the first paragraph
-
-  And another paragraph, too.
-  Also with a second line
-
-    wildly: This is an unregistered annotation
-    minorNote: This is a minor note
-    majorNote: And this is a major note. Both should be annotations
-__  ***Markdown Support***
+  ℹ️ ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
+__***Markdown Support***
 - **mdPrefix** (*[String](#string)*)
 	🆎 ***Derivation***: ""
 - **mdSuffix** (*[String](#string)*)
@@ -134,15 +42,9 @@ __  ***Markdown Support***
 	
 
 _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component. 
-And it can be continued on fresh lines.
-However many you want.
-But only up to a blank line or other clause
-
-See. this is not included in the extra text.
+***Based on*** : Literate Data Model
 ***Note***: Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types. 
 But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type. 
-
-***Based on*** : Literate Data Model
 - **emoji** - an emoji (Emoji)
 - **emojiName** - an emoji (String)
 - **emojiUnicode** - the Unicode for the emoji (Unicode)
@@ -168,7 +70,7 @@ Note: An Annotation is considered to *recognized* if the label is associated wit
 
 
 - **content** - The content or body of the annotation (*RichText*)​​​​​​​  
-__ ***For Machinery***
+__***For Machinery***
 - **isEmbellishment** - Indicates whether this annotation is an embellishment added during post-parsing processing _(Boolean)_
   🔄 ***Default***: false
   ℹ️ ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.
@@ -251,7 +153,7 @@ _ **SubjectArea**
 A main topic or area of focus within the model, containing related subjects and classes  
 Plural: SubjectAreas  
 Subtype of: Subject  
-  _Where:_ parentSubject is absent
+Where: parentSubject is absent
 
 
 ### Classes
@@ -603,7 +505,7 @@ These are the recognized Annotation Types for the LDM model.
 
 And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model. 
 
-```
+```typescript
 interface AnnotationType {
   label: string;
   emoji: string;
@@ -685,7 +587,14 @@ const annotationTypes: AnnotationType[] = [
   }
 ];
 ```
-
+  
+===
+## Appendices
+Insert More Sidebars.md
+Insert Overrides.md
+insert LDM Intro.md
+Insert OCL.md
+Insert Camel Case.md
 
 
 

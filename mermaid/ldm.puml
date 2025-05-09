@@ -1,0 +1,16 @@
+@startuml
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u->  a
+Subject -u-> a
+Class -u-> a
+Attribute -u-> a
+a -u-> Component
+skinparam linetype ortho
+@enduml

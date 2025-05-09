@@ -1,0 +1,17 @@
+Objects
+    LDM
+    Subject
+    Class 
+    AttributeSection
+    Attribute
+    Subtyping
+Relations
+    Subject based_on LDM
+    AttributeSection based_on Class
+    Attribute subtype_of Component
+    Attribute based_on Class
+    Attribute overrides Attribute
+    Attribute inverse_of Attribute
+    Subtyping pertains_to Class
+    Class belongs_to Subtyping
+

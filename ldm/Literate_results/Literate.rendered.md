@@ -1,7 +1,4 @@
-# None - a detailed descriptionof the contents
-
-            This is a section with no real content, except for these intro words and other
-            sections.  + And this is the elaboration
+# None
 
 ## Preliminaries - the basic structureof the model
 
@@ -12,31 +9,14 @@
             the subclasses, ensuring consistency and reducing duplication throughout the
             model.
 
-            ```Sample code block between paragraphs  - x <  y and y > z  - ```
-
             We present the Component class first because it is a best practice in modeling
             to introduce supertypes before their subtypes. This approach allows readers to
             understand the general concepts and shared properties before delving into the
             specifics of each specialized component.
 
-_ Component - An element or building block of the literate data model with an
-            extendedOneLiner
+_ Component - An element or building block of the literate data model
 
-            Further elaboration for a Component.  + End of first paragraph
-
-            Start of last paragraph.
-
-         Note: This is an annotation for the Component class, with extra text
-            onextra lines with extra text on extra lines
             isValueType: False
-    - parentClass - the supertype - just here to test parser (Class)
-
-            Trying an elaboration for an InverseOf clause on an attribute declaration
-            clauses.  + End of first paragraph
-
-            Start of second paragraph.
-
-            inverse: Class_._childclass
     - normalName - the name of the component, not in camel case (*String*)
 
     - name - The name of the component (CamelName)
@@ -46,7 +26,6 @@ _ Component - An element or building block of the literate data model with an
     - abbreviatedName - a short form of the component's name, used for cross
             references and improved readability. (*CamelName*)
 
-         Noting: And this is trying an annotation on a formula clause
          Example: "LDM" is the short form of "Literate Data Model".
     - oneLiner - A brief, one-line definition or description of the component,
             suitable for use in a descriptive table of contents. _ (RichLine)
@@ -64,9 +43,6 @@ __ For Machinery - mechanical attributes
             rendering processes, such as implied attributes or suggested model
             elements. It helps distinguish embellishments from the core model
             elements defined in the original LDM source.
-         wildly: This is an unregistered annotation
-         minorNote: This is a minor note
-         majorNote: And this is a major note. Both should be annotations
 __ Markdown Support
 
     - mdPrefix (*[String](#string)
@@ -76,15 +52,14 @@ __ Markdown Support
     - mdTopLine (*[String](#string)
 
 _ AnnotationType - a kind of note, or aside, used to call attention to
-            additional information about some Component.And it can be continued
-            on fresh lines.  - However many you want.  - But only up to a blank
-            line or other clause
+            additional information about some Component.
 
-{'_type': 'Annotation', 'content': None}         Note: Each LDM declares a set of Annotation Types, with defined labels,
+         Note: Each LDM declares a set of Annotation Types, with defined labels,
             emojis, and clearly documented purposes. These are *recognized* or
             *registered* Annotation Types.But, if none of these fit, you can
             introduce an Annotation with any label. It would have an *ad hoc*
             Annotation Type.
+            basedOn: Literate Data Model
             isValueType: False
     - emoji - an emoji (Emoji)
 
@@ -209,9 +184,7 @@ _ SubjectAreaA main topic or area of focus within the model, containing related
             plural:  SubjectAreas
             subtypeOf: Subject
             isValueType: False
-_ Where: parentSubject is absent
-
-            isValueType: False
+            where:  parentSubject is absent
 ### Classes
 
 _ Class - A key entity or object type in the model, often corresponding to a
@@ -600,4 +573,43 @@ _ PrimitiveType
             Intro.md  - Insert OCL.md  - Insert Camel Case.md
 
 ### Annotation Types Used
+
+            These are the recognized Annotation Types for the LDM model.
+
+            And this is how you register the AnnotationTyped for a model. By including this
+            sort of array in the DSL document for the model.
+
+            ```typescriptinterface AnnotationType {  - label: string;  - emoji: string;  -
+            emojiName: string;  - emojiUnicode: string;  - purpose: string;  - }  - // LINK:
+            LiterateDataModel.annotationTypes  - const annotationTypes: AnnotationType[] = [
+            - {  - label: "Error",  - emoji: "",  - emojiName: "cross_mark",  -
+            emojiUnicode: "U+274C",  - purpose: "Indicates a critical error or failure in
+            the model."  - },  - {  - label: "Warning",  - emoji: "",  - emojiName:
+            "warning",  - emojiUnicode: "U+26A0",  - purpose: "Indicates a potential issue
+            or warning in the model."  - },  - {  - label: "Note",  - emoji: "",  -
+            emojiName: "blue_book",  - emojiUnicode: "U+1F4D8",  - purpose: "Provides
+            additional context, explanations, or clarifications for the annotated element."
+            - },  - {  - label: "Issue",  - emoji: "",  - emojiName: "warning",  -
+            emojiUnicode: "U+26A0",  - purpose: "Highlights a potential issue or error that
+            needs to be addressed or resolved."  - },  - {  - label: "Question",  - emoji:
+            "",  - emojiName: "question",  - emojiUnicode: "U+2753",  - purpose: "Raises a
+            question or seeks further clarification about the annotated element."  - },  - {
+            - label: "Suggestion",  - emoji: "",  - emojiName: "bulb",  - emojiUnicode:
+            "U+1F4A1",  - purpose: "Provides a suggestion or recommendation for improving
+            the model or the annotated element."  - },  - {  - label: "Info",  - emoji: "",
+            - emojiName: "information_source",  - emojiUnicode: "U+2139",  - purpose:
+            "Offers relevant information, facts, or details about the annotated element."  -
+            },  - {  - label: "Todo",  - emoji: "",  - emojiName: "pushpin",  -
+            emojiUnicode: "U+1F4CC",  - purpose: "Indicates a pending task, action item, or
+            future work related to the annotated element."  - },  - {  - label: "Reference",
+            - emoji: "",  - emojiName: "globe_with_meridians",  - emojiUnicode: "U+1F310",
+            - purpose: "Provides a reference or link to an external resource or
+            documentation."  - },  - {  - label: "See",  - emoji: "",  - emojiName: "mag",
+            - emojiUnicode: "U+1F50D",  - purpose: "Indicates a cross-reference to another
+            relevant element within the model."  - }  - ];  - ```
+
+            ===
+
+## AppendicesInsert More Sidebars.md - Insert Overrides.md  - insert LDM
+            Intro.md  - Insert OCL.md  - Insert Camel Case.md
 

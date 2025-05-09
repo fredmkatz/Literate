@@ -1,27 +1,11 @@
 Document - <class 'dull_dsl.dull_parser_core.DocPart'> 
 . LDM - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ LDM_Head: # Literate Data Model - a detailed descriptionof the contents
-_ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='This is a section with no real content, except for these intro words and other sections.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='And this is the elaboration', extra_text=[])], extra_text=[])]
+_ _ LDM_Head: # Literate Data Model
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ SubjectB_Head: ## Preliminaries - the basic structureof the model
-_ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.', extra_text=[])], extra_text=[]), TypedLine(type_label='CODE_FENCE', line_Type=None, content='```', extra_text=['Sample code block between paragraphs', 'x <  y and y > z', '```']), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.', extra_text=[])], extra_text=[])]
+_ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.', extra_text=[])], extra_text=[])]
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Component** - An element or building block of the literate data model with an extendedOneLiner
-_ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.', extra_text=[])], extra_text=[]), TypedLine(type_label='CODE_FENCE', line_Type=None, content='```', extra_text=['Sample code block between paragraphs', 'x <  y and y > z', '```']), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.', extra_text=[])], extra_text=[])]
-_ _ _ _ ABBREVIATION: abbreviation: COMPT
-_ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Further elaboration for a Component.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='End of first paragraph', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Start of last paragraph.', extra_text=[])], extra_text=[])]
-. . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ NOTE: Note: This is an annotation for the Component class, with extra text onextra lines with extra text on extra lines 
-+ extra lines with extra text on extra lines 
-+ extra lines with extra text on extra lines
-_ _ _ _ _ SUBTYPES: Subtypes: ComponentA, ComponentB, ComponentC
-_ _ _ _ _ BASED_ON: BasedOn: ComponentA, ComponentB, ComponentC
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - parentClass - the supertype - just here to test parser (Class)
-_ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Trying an elaboration for an Attribute declaration clauses.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='End of first paragraph', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Start of second paragraph.', extra_text=[])], extra_text=[])]
-_ _ _ _ _ INVERSE: inverseOf: Class.child_class
-_ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Trying an elaboration for an InverseOf clause on an attribute declaration clauses.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='End of first paragraph', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Start of second paragraph.', extra_text=[])], extra_text=[])]
-_ _ _ _ _ INVERSE: inverse: Class.child_class2
+_ _ _ _ Class_Head: _ **Component** - An element or building block of the literate data model
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **normalName** - the name of the component, not in camel case (*String*)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -32,24 +16,6 @@ _ _ _ _ _ Attribute_Head: - **qualifiedName** - (*QualifiedCamel*)
 _ _ _ _ _ Attribute_Head: - **abbreviatedName** - a short form of the component's name, used for cross references and improved readability. (*CamelName*)
 . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ DEFAULT: ***Default***: name
-_ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Trying an elaboration for a Default declaration clause - ie first part of a Default Formuka object', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='End of first paragraph', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Start of second paragraph.', extra_text=[])], extra_text=[])]
-_ _ _ _ _ _ CODE: code: This is the OCL code for calculating the name
-_ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Trying an elaboration for a Default code clause - ie subsequent  part of a Default Formuka object', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='End of first paragraph', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Start of second paragraph.', extra_text=[])], extra_text=[])]
-_ _ _ _ _ _ ENGLISH: English: And thii is an english language rendering
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ WILD: Noting: And this is trying an annotation on a formula clause
-. . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ CONSTRAINT: constraint: this is the first constraint for name in Component
-_ _ _ _ _ _ CODE: code: OCL for first constraint
-_ _ _ _ _ _ ENGLISH: english: English for first constraint
-_ _ _ _ _ _ SEVERITY: Severity: Harsh
-_ _ _ _ _ _ MESSAGE: Message: {name} is all wrong - first
-. . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ CONSTRAINT: constraint: this is the second constraint for name in Component
-_ _ _ _ _ _ CODE: code: OCL for second constraint
-_ _ _ _ _ _ ENGLISH: english: English for second constraint
-_ _ _ _ _ _ SEVERITY: Severity: Harsh second
-_ _ _ _ _ _ MESSAGE: Message: {name} is all wrong - second
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ EXAMPLE: ***Example***: "LDM" is the short form of "Literate Data Model".
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -64,15 +30,8 @@ _ _ _ _ _ _ Attribute_Head: - **isEmbellishment** - Indicates whether this compo
 _ _ _ _ _ _ _ DEFAULT: ***Default***: false
 . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ NOTE: ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
-_ _ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content="And after that very long onelner on the Note, here's additional elaboration on  it", extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='With a second line in the first paragraph', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='And another paragraph, too.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='Also with a second line', extra_text=[])], extra_text=[])]
-. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ WILD: wildly: This is an unregistered annotation
-. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ WILD: minorNote: This is a minor note
-. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ MAJORNOTE: majorNote: And this is a major note. Both should be annotations
 . . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ AttributeSection_Head: __  ***Markdown Support***
+_ _ _ _ _ AttributeSection_Head: __***Markdown Support***
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **mdPrefix** (*[String](#string)*)
 . . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -86,14 +45,10 @@ _ _ _ _ _ _ Attribute_Head: - **mdTopLine** (*[String](#string)*)
 . . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ DERIVATION: ***Derivation***: mdPrefix + name + " - " + oneLiner + mdSuffix
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component.And it can be continued on fresh lines. 
-+ However many you want. 
-+ But only up to a blank line or other clause
-. . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ SEE: See. this is not included in the extra text.
+_ _ _ _ Class_Head: _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component.
+_ _ _ _ BASED_ON: ***Based on*** : Literate Data Model
 . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ NOTE: ***Note***: Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type.
-_ _ _ _ _ BASED_ON: ***Based on*** : Literate Data Model
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **emoji** - an emoji (Emoji)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -127,7 +82,7 @@ _ _ _ _ _ _ DEFAULT: Default: from annotation type
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **content** - The content or body of the annotation (*RichText*)​​​​​​​
 . . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ AttributeSection_Head: __ ***For Machinery***
+_ _ _ _ _ AttributeSection_Head: __***For Machinery***
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **isEmbellishment** - Indicates whether this annotation is an embellishment added during post-parsing processing _(Boolean)_
 . . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -221,8 +176,7 @@ _ _ _ _ _ _ _ DERIVATION: ***Derivation***: mdPrefix + name.
 _ _ _ _ Class_Head: _ **SubjectArea**A main topic or area of focus within the model, containing related subjects and classes
 _ _ _ _ PLURAL: Plural: SubjectAreas
 _ _ _ _ SUBTYPE_OF: Subtype of: Subject
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _Where:_ parentSubject is absent
+_ _ _ _ WHERE: Where: parentSubject is absent
 . . . SubjectC - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ SubjectC_Head: ### Classes
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -585,3 +539,10 @@ _ _ _ SubjectB_Head: ## AppendicesInsert More Sidebars.md
 + Insert Camel Case.md
 . . . SubjectC - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ SubjectC_Head: ### Annotation Types Used
+_ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='These are the recognized Annotation Types for the LDM model.', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model.', extra_text=[])], extra_text=[]), TypedLine(type_label='CODE_FENCE', line_Type=None, content='```typescript', extra_text=['interface AnnotationType {', 'label: string;', 'emoji: string;', 'emojiName: string;', 'emojiUnicode: string;', 'purpose: string;', '}', '// LINK: LiterateDataModel.annotationTypes', 'const annotationTypes: AnnotationType[] = [', '{', 'label: "Error",', 'emoji: "",', 'emojiName: "cross_mark",', 'emojiUnicode: "U+274C",', 'purpose: "Indicates a critical error or failure in the model."', '},', '{', 'label: "Warning",', 'emoji: "",', 'emojiName: "warning",', 'emojiUnicode: "U+26A0",', 'purpose: "Indicates a potential issue or warning in the model."', '},', '{', 'label: "Note",', 'emoji: "",', 'emojiName: "blue_book",', 'emojiUnicode: "U+1F4D8",', 'purpose: "Provides additional context, explanations, or clarifications for the annotated element."', '},', '{', 'label: "Issue",', 'emoji: "",', 'emojiName: "warning",', 'emojiUnicode: "U+26A0",', 'purpose: "Highlights a potential issue or error that needs to be addressed or resolved."', '},', '{', 'label: "Question",', 'emoji: "",', 'emojiName: "question",', 'emojiUnicode: "U+2753",', 'purpose: "Raises a question or seeks further clarification about the annotated element."', '},', '{', 'label: "Suggestion",', 'emoji: "",', 'emojiName: "bulb",', 'emojiUnicode: "U+1F4A1",', 'purpose: "Provides a suggestion or recommendation for improving the model or the annotated element."', '},', '{', 'label: "Info",', 'emoji: "",', 'emojiName: "information_source",', 'emojiUnicode: "U+2139",', 'purpose: "Offers relevant information, facts, or details about the annotated element."', '},', '{', 'label: "Todo",', 'emoji: "",', 'emojiName: "pushpin",', 'emojiUnicode: "U+1F4CC",', 'purpose: "Indicates a pending task, action item, or future work related to the annotated element."', '},', '{', 'label: "Reference",', 'emoji: "",', 'emojiName: "globe_with_meridians",', 'emojiUnicode: "U+1F310",', 'purpose: "Provides a reference or link to an external resource or documentation."', '},', '{', 'label: "See",', 'emoji: "",', 'emojiName: "mag",', 'emojiUnicode: "U+1F50D",', 'purpose: "Indicates a cross-reference to another relevant element within the model."', '}', '];', '```']), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='===', extra_text=[])], extra_text=[])]
+. . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ SubjectB_Head: ## AppendicesInsert More Sidebars.md 
++ Insert Overrides.md 
++ insert LDM Intro.md 
++ Insert OCL.md 
++ Insert Camel Case.md

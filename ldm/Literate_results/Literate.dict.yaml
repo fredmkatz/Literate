@@ -1,12 +1,8 @@
 _type: LDM
 prefix: '#'
-one_liner: a detailed descriptionof the contents
+name: Literate Data Model
+one_liner: ''
 parenthetical: ''
-abbreviation: ''
-elaboration:
-- _type: Paragraph
-  content: "This is a section with no real content, except for these intro words and\
-    \ other sections. \n+ And this is the elaboration"
 subjects:
 - _type: SubjectB
   prefix: '##'
@@ -21,8 +17,6 @@ subjects:
       common attributes and behaviors in the Component class, we can inherit them
       in the subclasses, ensuring consistency and reducing duplication throughout
       the model.
-  - _type: CodeBlock
-    content: "```Sample code block between paragraphs\n - x <  y and y > z\n - ```"
   - _type: Paragraph
     content: We present the Component class first because it is a best practice in
       modeling to introduce supertypes before their subtypes. This approach allows
@@ -32,39 +26,9 @@ subjects:
   - _type: Class
     prefix: _
     name: Component
-    one_liner: An element or building block of the literate data model with an extendedOneLiner
+    one_liner: An element or building block of the literate data model
     parenthetical: ''
-    abbreviation: COMPT
-    elaboration:
-    - _type: Paragraph
-      content: "Further elaboration for a Component. \n+ End of first paragraph"
-    - _type: Paragraph
-      content: Start of last paragraph.
-    annotations:
-    - _type: Annotation
-      label: Note
-      content: This is an annotation for the Component class, with extra text onextra
-        lines with extra text on extra lines
-      emoji: ''
-    is_value_type: false
     attributes:
-    - _type: Attribute
-      prefix: '-'
-      name: parentClass
-      one_liner: the supertype - just here to test parser
-      parenthetical: Class
-      elaboration:
-      - _type: Paragraph
-        content: "Trying an elaboration for an InverseOf clause on an attribute declaration\
-          \ clauses. \n+ End of first paragraph"
-      - _type: Paragraph
-        content: Start of second paragraph.
-      inverse:
-        _type: AttributeReference
-        class_name:
-          _type: ClassName
-        attribute_name:
-          _type: AttributeName
     - _type: Attribute
       prefix: '-'
       name: normalName
@@ -86,41 +50,14 @@ subjects:
       one_liner: a short form of the component's name, used for cross references and
         improved readability.
       parenthetical: '*CamelName*'
-      annotations:
-      - _type: Annotation
-        label: Noting
-        content: And this is trying an annotation on a formula clause
-        emoji: ''
-      - _type: Annotation
-        label: Example
-        content: '"LDM" is the short form of "Literate Data Model".'
-        emoji: ''
       default:
         _type: Default
         as_entered: ' name'
-        english: ' And thii is an english language rendering'
-        code: ' This is the OCL code for calculating the name'
-        elaboration:
-        - _type: Paragraph
-          content: "Trying an elaboration for a Default code clause - ie subsequent\
-            \  part of a Default Formuka object \n+ End of first paragraph"
-        - _type: Paragraph
-          content: Start of second paragraph.
-      constraints:
-      - _type: Constraint
-        as_entered:
-        - ' this is the first constraint for name in Component'
-        english: ' English for first constraint'
-        code: ' OCL for first constraint'
-        message: ' {name} is all wrong - first'
-        severity: ' Harsh'
-      - _type: Constraint
-        as_entered:
-        - ' this is the second constraint for name in Component'
-        english: ' English for second constraint'
-        code: ' OCL for second constraint'
-        message: ' {name} is all wrong - second'
-        severity: ' Harsh second'
+      annotations:
+      - _type: Annotation
+        emoji: ''
+        label: Example
+        content: '"LDM" is the short form of "Literate Data Model".'
     - _type: Attribute
       prefix: '-'
       name: oneLiner
@@ -138,7 +75,6 @@ subjects:
       name: For Machinery
       one_liner: mechanical attributes
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -146,42 +82,23 @@ subjects:
         one_liner: Indicates whether this component is an embellishment added during
           post-parsing processing _
         parenthetical: Boolean
+        default:
+          _type: Default
+          as_entered: ' false'
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Note
           content: This attribute is set to true for components that are automatically
             generated or added during the fleshing out, review, or rendering processes,
             such as implied attributes or suggested model elements. It helps distinguish
             embellishments from the core model elements defined in the original LDM
             source.
-          emoji: ''
-          elaboration:
-          - _type: Paragraph
-            content: "And after that very long onelner on the Note, here's additional\
-              \ elaboration on  it \n+ With a second line in the first paragraph"
-          - _type: Paragraph
-            content: "And another paragraph, too. \n+ Also with a second line"
-        - _type: Annotation
-          label: wildly
-          content: This is an unregistered annotation
-          emoji: ''
-        - _type: Annotation
-          label: minorNote
-          content: This is a minor note
-          emoji: ''
-        - _type: Annotation
-          label: majorNote
-          content: And this is a major note. Both should be annotations
-          emoji: ''
-        default:
-          _type: Default
-          as_entered: ' false'
     - _type: AttributeSection
       prefix: __
       name: Markdown Support
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -210,21 +127,19 @@ subjects:
   - _type: Class
     prefix: _
     name: AnnotationType
-    one_liner: "a kind of note, or aside, used to call attention to additional information\
-      \ about some Component.And it can be continued on fresh lines.\n - However many\
-      \ you want.\n - But only up to a blank line or other clause"
+    one_liner: a kind of note, or aside, used to call attention to additional information
+      about some Component.
     parenthetical: ''
+    based_on:
+    - Literate Data Model
     annotations:
     - _type: Annotation
-      content: null
-    - _type: Annotation
+      emoji: ''
       label: Note
       content: Each LDM declares a set of Annotation Types, with defined labels, emojis,
         and clearly documented purposes. These are *recognized* or *registered* Annotation
         Types.But, if none of these fit, you can  introduce an Annotation with any
         label. It would have an *ad hoc* Annotation Type.
-      emoji: ''
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -266,7 +181,6 @@ subjects:
     parenthetical: ''
     based_on:
     - Component
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -275,10 +189,10 @@ subjects:
       parenthetical: optional Annotation Type
       annotations:
       - _type: Annotation
+        emoji: ''
         label: Note
         content: An Annotation is considered to *recognized* if the label is associated
           with an Annotation Type. otherwise it is *ad hoc*.
-        emoji: ''
     - _type: Attribute
       prefix: '-'
       name: label
@@ -309,7 +223,6 @@ subjects:
       name: For Machinery
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -317,18 +230,18 @@ subjects:
         one_liner: Indicates whether this annotation is an embellishment added during
           post-parsing processing _
         parenthetical: Boolean
+        default:
+          _type: Default
+          as_entered: ' false'
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Note
           content: This attribute is set to true for annotations that are automatically
             generated or added during the fleshing out, review, or rendering processes,
             such as suggestions, issues, or diagnostic messages. It helps distinguish
             embellishment annotations from the annotations defined in the original
             LDM source.
-          emoji: ''
-        default:
-          _type: Default
-          as_entered: ' false'
 - _type: SubjectB
   prefix: '##'
   name: The Model and its Subjects
@@ -345,7 +258,6 @@ subjects:
     plural: ' LiterateDataModels'
     subtype_of:
     - Component
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -384,7 +296,6 @@ subjects:
       name: Modeling Configuration
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -433,7 +344,6 @@ subjects:
       name: Markdown Support
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -456,16 +366,15 @@ subjects:
     name: SubjectA specific topic or theme within the model
     one_liner: ''
     parenthetical: ''
-    elaboration:
-    - _type: Paragraph
-      content: "Subjects are the chapters an sections of the model. \n+ A subject\
-        \ need not contain any Classes if it\u2019s just expository."
     plural: ' Subjects'
     subtype_of:
     - Component
     dependent_of:
     - LiterateDataModel
-    is_value_type: false
+    elaboration:
+    - _type: Paragraph
+      content: "Subjects are the chapters an sections of the model. \n+ A subject\
+        \ need not contain any Classes if it\u2019s just expository."
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -485,10 +394,10 @@ subjects:
       parenthetical: ListOf Classes
       annotations:
       - _type: Annotation
+        emoji: ''
         label: Issue
         content: 'define chapter, section, subsection as levels?***DSL***: Generally,
           it is best to present the classes within a Subject in top down order:'
-        emoji: ''
     - _type: Attribute
       prefix: '-'
       name: Each Class should be followed first by the classes that are dependent
@@ -506,23 +415,20 @@ subjects:
       one_liner: Any child subjects nested under this subject, in the order in which
         they should be presented _
       parenthetical: ListOf Subjects
+      inverse:
+        _type: AttributeReference
+        class_name: {}
+        attribute_name: {}
       elaboration:
       - _type: Paragraph
         content: '***DSL***:  the Classes within a Subject are always displayed before
           the childSubjects.'
-      inverse:
-        _type: AttributeReference
-        class_name:
-          _type: ClassName
-        attribute_name:
-          _type: AttributeName
     attribute_sections:
     - _type: AttributeSection
       prefix: __
       name: Markdown Support
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -549,13 +455,7 @@ subjects:
     plural: ' SubjectAreas'
     subtype_of:
     - Subject
-    is_value_type: false
-  - _type: Class
-    prefix: _
-    name: 'Where: parentSubject is absent'
-    one_liner: ''
-    parenthetical: ''
-    is_value_type: false
+    where: ' parentSubject is absent'
   subjects:
   - _type: SubjectC
     prefix: '###'
@@ -572,7 +472,6 @@ subjects:
       plural: ' Classes'
       subtype_of:
       - Component
-      is_value_type: false
       constraints:
       - _type: Constraint
         as_entered:
@@ -589,10 +488,10 @@ subjects:
             + But also might be People for Person."
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Note
           content: When inputting a model, you will rarely need to specify the plural
             form. The input program will just look it up.
-          emoji: ''
           elaboration:
           - _type: Paragraph
             content: The exception is when a common noun has two plural forms, like
@@ -614,10 +513,10 @@ subjects:
             entity.
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Note
           content: that basedOn and dependentOf are being used synonymousle in this
             metamodel.ToDo - fix that
-          emoji: ''
       - _type: Attribute
         prefix: '-'
         name: supertypes
@@ -631,11 +530,11 @@ subjects:
         parenthetical: list of Subtypings
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Example
           content: in a library model, the `Book` class could have subtypings based
             on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback),
             or subject (e.g., Science, History).
-          emoji: ''
       - _type: Attribute
         prefix: '-'
         name: subtypes
@@ -644,11 +543,11 @@ subjects:
         parenthetical: ListOf Classes
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Example
           content: For instance, using the `Book` example, the subtypes could include
             `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`, `ScienceBook`,
             and `HistoryBook`.
-          emoji: ''
       - _type: Attribute
         prefix: '-'
         name: attributes
@@ -668,11 +567,11 @@ subjects:
         parenthetical: ListOf Constraints
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Note
           content: Constraints may be expressed on either the Class or the Attribute.
             Always?Add examples where clarity would favor one or the other.   Sometimes
             just a matter of taste.
-          emoji: ''
       - _type: Attribute
         prefix: '-'
         name: methods
@@ -684,7 +583,6 @@ subjects:
         name: Implied Attributes
         one_liner: ''
         parenthetical: ''
-        is_required: {}
         attributes:
         - _type: Attribute
           prefix: '-'
@@ -693,10 +591,8 @@ subjects:
           parenthetical: optional SetOf Classes
           inverse:
             _type: AttributeReference
-            class_name:
-              _type: ClassName
-            attribute_name:
-              _type: AttributeName
+            class_name: {}
+            attribute_name: {}
         - _type: Attribute
           prefix: '-'
           name: UniqueKeys
@@ -704,10 +600,8 @@ subjects:
           parenthetical: optional Set of UniqueKeys
           inverse:
             _type: AttributeReference
-            class_name:
-              _type: ClassName
-            attribute_name:
-              _type: AttributeName
+            class_name: {}
+            attribute_name: {}
     - _type: Class
       prefix: _
       name: Subtyping
@@ -715,7 +609,6 @@ subjects:
       parenthetical: Subtype of Component
       dependent_of:
       - Class
-      is_value_type: false
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -750,11 +643,11 @@ subjects:
             \ \n+ > Subtype of: SuperClass byBrand \n+ on the subclass."
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Note
           content: every class can have an unnamed subtyping.Also,  each subtyping
             is by default Exclusive and  Exhaustive. So those stipulations may be
             omitted.
-          emoji: ''
     - _type: Class
       prefix: _
       name: ValueType
@@ -762,14 +655,12 @@ subjects:
       parenthetical: ''
       subtype_of:
       - Class.
-      is_value_type: false
       attribute_sections:
       - _type: AttributeSection
         prefix: __
         name: Markdown Support
         one_liner: ''
         parenthetical: ''
-        is_required: {}
         attributes:
         - _type: Attribute
           prefix: '-'
@@ -786,22 +677,20 @@ subjects:
       parenthetical: ''
       subtype_of:
       - Class.
-      is_value_type: false
     - _type: Class
       prefix: _
       name: CodeTypeA data type or enumeration used in the model
       one_liner: ''
       parenthetical: ''
+      subtype_of:
+      - ValueType.
       annotations:
       - _type: Annotation
+        emoji: ''
         label: Note
         content: 'Often, a CodeType will be assigned to just one attribute in the
           model.  In such cases, there''s no need to declare a new Code Type and invent
           a name for it.  Instead:'
-        emoji: ''
-      subtype_of:
-      - ValueType.
-      is_value_type: false
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -828,10 +717,9 @@ subjects:
       parenthetical: ''
       annotations:
       - _type: Annotation
+        emoji: ''
         label: A possible value for an enumerated data class  DependentOf
         content: CodeType
-        emoji: ''
-      is_value_type: false
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -852,18 +740,12 @@ subjects:
       - Component
       dependent_of:
       - Class
-      is_value_type: false
       attributes:
       - _type: Attribute
         prefix: '-'
         name: keyAttributes
         one_liner: the attributes of the base Class.
         parenthetical: List of Attributes
-        annotations:
-        - _type: Annotation
-          label: Issue
-          content: need ascending descending to support index keys or ordering keys.
-          emoji: ''
         constraints:
         - _type: Constraint
           as_entered:
@@ -872,20 +754,24 @@ subjects:
           as_entered:
           - " no repetitions allowed in keyAttributes> \U0001F44D **Issue**: introduce\
             \ PureLists?"
+        annotations:
+        - _type: Annotation
+          emoji: ''
+          label: Issue
+          content: need ascending descending to support index keys or ordering keys.
     - _type: Class
       prefix: _
       name: UniqueKey
       one_liner: a list of attributes on which instances of the base class may be
         keyed.
       parenthetical: ''
-      annotations:
-      - _type: Annotation
-        label: Note
-        content: order unimportant for Unique Keys.
-        emoji: ''
       subtype_of:
       - Key
-      is_value_type: false
+      annotations:
+      - _type: Annotation
+        emoji: ''
+        label: Note
+        content: order unimportant for Unique Keys.
 - _type: SubjectB
   prefix: '##'
   name: Attributes
@@ -901,7 +787,6 @@ subjects:
     - Component.
     based_on:
     - Class
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -920,7 +805,6 @@ subjects:
       name: Markdown Support
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -945,7 +829,6 @@ subjects:
     - Component
     based_on:
     - AttributeSection
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -954,10 +837,8 @@ subjects:
       parenthetical: Lower Camel
       overrides:
         _type: AttributeReference
-        class_name:
-          _type: ClassName
-        attribute_name:
-          _type: AttributeName
+        class_name: CamelName
+        attribute_name: ''
     - _type: Attribute
       prefix: '-'
       name: dataType
@@ -983,16 +864,15 @@ subjects:
       parenthetical: ''
       annotations:
       - _type: Annotation
+        emoji: ''
         label: See
         content: the section below on Data Type Specifiers.
-        emoji: ''
     attribute_sections:
     - _type: AttributeSection
       prefix: __
       name: Cardinalities.
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -1009,11 +889,6 @@ subjects:
         one_liner: The cardinality of the relationship represented by the attribute
           _
         parenthetical: CardinalityCode
-        annotations:
-        - _type: Annotation
-          label: For example
-          content: ''
-          emoji: ''
         default:
           _type: Default
           as_entered: '***  For a singular attribute, the default cardinality is N:1.
@@ -1025,6 +900,11 @@ subjects:
             content: '***DSL***: the cardinality of an attribute, if stated explicitly,
               should be placed just before the class name in the parenthetical data
               type specification after the one-liner.'
+        annotations:
+        - _type: Annotation
+          emoji: ''
+          label: For example
+          content: ''
       - _type: Attribute
         prefix: '-'
         name: author
@@ -1037,15 +917,14 @@ subjects:
         parenthetical: optional N:M Set of Books
         annotations:
         - _type: Annotation
+          emoji: ''
           label: Note
           content: how this works with optionality
-          emoji: ''
     - _type: AttributeSection
       prefix: __
       name: Inverse Attributes
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -1079,7 +958,6 @@ subjects:
     name: Formulas
     one_liner: ''
     parenthetical: ''
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1089,11 +967,11 @@ subjects:
       parenthetical: Derivation, optional
       annotations:
       - _type: Annotation
+        emoji: ''
         label: Note
         content: "even when an Attribute has a default derivation, there\u2019s no\
           \ guarantee that every instance will have an assigned value. Example needed.And\
           \ let's see if the note can span extra lines, too"
-        emoji: ''
         elaboration:
         - _type: Paragraph
           content: Yes, it handled extra lines.  Let's see about additional paras
@@ -1108,9 +986,9 @@ subjects:
       parenthetical: Derivation, optional
       annotations:
       - _type: Annotation
+        emoji: ''
         label: Issue
         content: on insert vs on access?
-        emoji: ''
     - _type: Attribute
       prefix: '-'
       name: constraints
@@ -1118,16 +996,15 @@ subjects:
       parenthetical: ListOf Constraints
       annotations:
       - _type: Annotation
+        emoji: ''
         label: Note
         content: from Class.constraints
-        emoji: ''
     attribute_sections:
     - _type: AttributeSection
       prefix: __
       name: Override Tracking
       one_liner: ''
       parenthetical: ''
-      is_required: {}
       attributes:
       - _type: Attribute
         prefix: '-'
@@ -1140,7 +1017,6 @@ subjects:
     one_liner: ''
     parenthetical: ''
     plural: ' Derivations'
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1162,7 +1038,6 @@ subjects:
     plural: ' Constraints'
     subtype_of:
     - Component
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1203,7 +1078,6 @@ subjects:
     - Constraint
     based_on:
     - Class.
-    is_value_type: false
   - _type: Class
     prefix: _
     name: Attribute Constraint
@@ -1213,13 +1087,11 @@ subjects:
     - Constraint
     based_on:
     - Attribute
-    is_value_type: false
   - _type: Class
     prefix: _
     name: CodeExpression
     one_liner: ''
     parenthetical: ''
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1255,7 +1127,6 @@ subjects:
     plural: ' Methods'
     subtype_of:
     - Component
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1275,7 +1146,6 @@ subjects:
     plural: ' Parameters'
     subtype_of:
     - Component
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1301,7 +1171,6 @@ subjects:
     name: 'Simple Data TypeSubtpeOf: DataType'
     one_liner: ''
     parenthetical: ''
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1313,7 +1182,6 @@ subjects:
     name: Complex Data Type
     one_liner: ''
     parenthetical: ''
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1330,7 +1198,6 @@ subjects:
     name: Aggregating Operator
     one_liner: ''
     parenthetical: ''
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1382,18 +1249,21 @@ subjects:
         or identifiers and presented in camel case.
     subtype_of:
     - String
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
       name: 'value: the string'
       one_liner: ''
       parenthetical: String
+      constraints:
+      - _type: Constraint
+        as_entered:
+        - ' Must follow the camel case naming convention and not be empty.'
       annotations:
       - _type: Annotation
+        emoji: ''
         label: Example
         content: '"firstName", "orderDate", "customerID"'
-        emoji: ''
         elaboration:
         - _type: Paragraph
           content: "> \U0001F4DD ***ModelingNote***: Putting the non-empty constraint\
@@ -1401,43 +1271,37 @@ subjects:
             \ to all attributes that use CamelName as their type. This ensures consistency\
             \ and avoids the need to define the constraint separately for each attribute."
       - _type: Annotation
+        emoji: ''
         label: ModelingNote
         content: '* *CamelName* is presented here, just after its first usage by another
           class (Component), to provide context and understanding before it is used
           further in the model.'
-        emoji: ''
-      constraints:
-      - _type: Constraint
-        as_entered:
-        - ' Must follow the camel case naming convention and not be empty.'
   - _type: Class
     prefix: _
     name: UpperCamel
     one_liner: a CamelName that begins with a capital letter
     parenthetical: ''
-    annotations:
-    - _type: Annotation
-      label: Example
-      content: _ "Customer", "ProductCategory", "PaymentMethod"
-      emoji: ''
     subtype_of:
     - CamelName
-    is_value_type: false
     where: ' content begins with an upper case letter.'
+    annotations:
+    - _type: Annotation
+      emoji: ''
+      label: Example
+      content: _ "Customer", "ProductCategory", "PaymentMethod"
   - _type: Class
     prefix: _
     name: LowerCamel
     one_liner: a CamelName that begins with a lower case letter
     parenthetical: ''
-    annotations:
-    - _type: Annotation
-      label: Example
-      content: '"firstName", "orderTotal", "shippingAddress"'
-      emoji: ''
     subtype_of:
     - CamelName
-    is_value_type: false
     where: ' content begins with a lower case letter.'
+    annotations:
+    - _type: Annotation
+      emoji: ''
+      label: Example
+      content: '"firstName", "orderTotal", "shippingAddress"'
   - _type: Class
     prefix: _
     name: Qualified Camel
@@ -1445,7 +1309,6 @@ subjects:
     parenthetical: ''
     subtype_of:
     - String
-    is_value_type: false
     constraints:
     - _type: Constraint
       as_entered:
@@ -1458,7 +1321,6 @@ subjects:
     parenthetical: ''
     subtype_of:
     - String
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1487,7 +1349,6 @@ subjects:
     parenthetical: ''
     subtype_of:
     - RichText
-    is_value_type: false
     attributes:
     - _type: Attribute
       prefix: '-'
@@ -1503,18 +1364,17 @@ subjects:
     name: PrimitiveType
     one_liner: ''
     parenthetical: ''
-    annotations:
-    - _type: Annotation
-      label: Values
-      content: '**String**'
-      emoji: ''
-      elaboration:
-      - _type: Paragraph
-        content: ===
     subtype_of:
     - ValueTypeA basic
     - built-in data type
-    is_value_type: false
+    annotations:
+    - _type: Annotation
+      emoji: ''
+      label: Values
+      content: '**String**'
+      elaboration:
+      - _type: Paragraph
+        content: ===
 - _type: SubjectB
   prefix: '##'
   name: AppendicesInsert More Sidebars.md
@@ -1527,3 +1387,49 @@ subjects:
     name: Annotation Types Used
     one_liner: ''
     parenthetical: ''
+    elaboration:
+    - _type: Paragraph
+      content: These are the recognized Annotation Types for the LDM model.
+    - _type: Paragraph
+      content: And this is how you register the AnnotationTyped for a model. By including
+        this sort of array in the DSL document for the model.
+    - _type: CodeBlock
+      content: "```typescriptinterface AnnotationType {\n - label: string;\n - emoji:\
+        \ string;\n - emojiName: string;\n - emojiUnicode: string;\n - purpose: string;\n\
+        \ - }\n - // LINK: LiterateDataModel.annotationTypes\n - const annotationTypes:\
+        \ AnnotationType[] = [\n - {\n - label: \"Error\",\n - emoji: \"\",\n - emojiName:\
+        \ \"cross_mark\",\n - emojiUnicode: \"U+274C\",\n - purpose: \"Indicates a\
+        \ critical error or failure in the model.\"\n - },\n - {\n - label: \"Warning\"\
+        ,\n - emoji: \"\",\n - emojiName: \"warning\",\n - emojiUnicode: \"U+26A0\"\
+        ,\n - purpose: \"Indicates a potential issue or warning in the model.\"\n\
+        \ - },\n - {\n - label: \"Note\",\n - emoji: \"\",\n - emojiName: \"blue_book\"\
+        ,\n - emojiUnicode: \"U+1F4D8\",\n - purpose: \"Provides additional context,\
+        \ explanations, or clarifications for the annotated element.\"\n - },\n -\
+        \ {\n - label: \"Issue\",\n - emoji: \"\",\n - emojiName: \"warning\",\n -\
+        \ emojiUnicode: \"U+26A0\",\n - purpose: \"Highlights a potential issue or\
+        \ error that needs to be addressed or resolved.\"\n - },\n - {\n - label:\
+        \ \"Question\",\n - emoji: \"\",\n - emojiName: \"question\",\n - emojiUnicode:\
+        \ \"U+2753\",\n - purpose: \"Raises a question or seeks further clarification\
+        \ about the annotated element.\"\n - },\n - {\n - label: \"Suggestion\",\n\
+        \ - emoji: \"\",\n - emojiName: \"bulb\",\n - emojiUnicode: \"U+1F4A1\",\n\
+        \ - purpose: \"Provides a suggestion or recommendation for improving the model\
+        \ or the annotated element.\"\n - },\n - {\n - label: \"Info\",\n - emoji:\
+        \ \"\",\n - emojiName: \"information_source\",\n - emojiUnicode: \"U+2139\"\
+        ,\n - purpose: \"Offers relevant information, facts, or details about the\
+        \ annotated element.\"\n - },\n - {\n - label: \"Todo\",\n - emoji: \"\",\n\
+        \ - emojiName: \"pushpin\",\n - emojiUnicode: \"U+1F4CC\",\n - purpose: \"\
+        Indicates a pending task, action item, or future work related to the annotated\
+        \ element.\"\n - },\n - {\n - label: \"Reference\",\n - emoji: \"\",\n - emojiName:\
+        \ \"globe_with_meridians\",\n - emojiUnicode: \"U+1F310\",\n - purpose: \"\
+        Provides a reference or link to an external resource or documentation.\"\n\
+        \ - },\n - {\n - label: \"See\",\n - emoji: \"\",\n - emojiName: \"mag\",\n\
+        \ - emojiUnicode: \"U+1F50D\",\n - purpose: \"Indicates a cross-reference\
+        \ to another relevant element within the model.\"\n - }\n - ];\n - ```"
+    - _type: Paragraph
+      content: ===
+- _type: SubjectB
+  prefix: '##'
+  name: AppendicesInsert More Sidebars.md
+  one_liner: "Insert Overrides.md\n - insert LDM Intro.md\n - Insert OCL.md\n - Insert\
+    \ Camel Case.md"
+  parenthetical: ''

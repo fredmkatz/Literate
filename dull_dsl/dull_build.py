@@ -2,14 +2,15 @@ from dataclasses import dataclass, field
 from typing import List, Dict, Tuple, Callable, Any
 from abc import ABC
 import re
-from dict_to_html import create_dict_html
 
 import os
 from utils_pom.util_fmk_pom import write_text, write_yaml
 from utils_pom.util_json_pom import as_json
 from utils_pom.util_fmk_pom import create_fresh_directory
+import weasy_pdf as weasy
+from dict_to_html import create_dict_html
 
-
+from pdf2md import convert_pdf2md
 # from utils_pom.util_json_pom import as_json
 # from utils_pom.util_fmk_pom import as_yaml
 import ldm.ldm_renderers as ldm_renderers
@@ -40,7 +41,7 @@ def build_dull_dsl(dull_specs: Dict):
     
     
     # print("Dull specs: ", as_json(dull_specs))
-   
+    show_phase("Warming up")
     print("Model dir: ", model_dir)
     print("Model doc: ", model_doc)
     print("Model name: ", model_name)
@@ -51,11 +52,14 @@ def build_dull_dsl(dull_specs: Dict):
     
 
     create_fresh_directory(results_dir)
+    show_phase(r"Parsing model: {model_doc_path}")
     doc_part = parse_model_doc(dull_specs, model_doc_path)
     displayed = doc_part.displayed()
 
 
     write_text(f"{results_dir}/{model_name}.parsed.txt", displayed)
+    
+    show_phase("Deriving dict for model")
     the_dict = doc_part.derive_dict_for_document(dull_specs)
     ldms = the_dict.get("LDMs", [])
     if not ldms:
@@ -63,46 +67,59 @@ def build_dull_dsl(dull_specs: Dict):
         return
     the_ldm_dict = ldms[0]
 
-    print("Returned from dict creation")
-    write_text(f"{results_dir}/{model_name}.dict.json", as_json(the_ldm_dict))
-    write_yaml(the_ldm_dict, f"{results_dir}/{model_name}.dict.yaml")
-
+    yaml_dict_file = f"{results_dir}/{model_name}.dict.yaml"
+    json_dict_file = f"{results_dir}/{model_name}.dict.json"
+    write_text(json_dict_file, as_json(the_ldm_dict))
+    write_yaml(the_ldm_dict, yaml_dict_file)
+    print(f".. dict saved  in {yaml_dict_file} and {json_dict_file}")
 
 
     
     
     creator = GenericObjectCreator(Literate_01) 
-    # print(f"Creating model from dictionary: {the_ldm_dict}")
+    show_phase(f"Creating model from dictionary: {yaml_dict_file}")
     the_ldm_model = creator.create(the_ldm_dict)
     print(f"Created model: {the_ldm_model.__class__}")
-    # print("Repr for model is", repr(the_ldm_model))
     
     # test_ldm_model(the_ldm_model)
-            
-    
-    # Serialize it to files
-    json_sample = model_to_json_file(the_ldm_model, f"{results_dir}/{model_name}.model.json")
-    yaml_sample = model_to_yaml_file(the_ldm_model, f"{results_dir}/{model_name}.model.yaml")
-    print("Created model JSON and YAML files")
-    
+
+    show_phase("Validating model")
     validate_model(the_ldm_model)
 
-    print("Rendering....")    # Render
+    show_phase("Serialing model ...")
+    # Serialize it to files
+    json_model_path = f"{results_dir}/{model_name}.model.json"
+    yaml_model_path = f"{results_dir}/{model_name}.model.yaml"
+    json_sample = model_to_json_file(the_ldm_model, json_model_path)
+    yaml_sample = model_to_yaml_file(the_ldm_model, yaml_model_path)
+    print(f"..Created model files: {json_model_path} and {yaml_model_path}")
+    
+
+    show_phase("Rendering back to markdown")    # Render
     # Render
     render_path2 = f"{results_dir}/{model_name}.rendered.md"
     rendering = render_to_markdown(the_ldm_model)
     write_text(render_path2, rendering)
     
     # Create HTML
+    show_phase("Creating HTML from model dict")
     html_path = f"{results_dir}/{model_name}.html"
 
     create_dict_html(the_ldm_dict, html_path)
+    show_phase("Skipping PDF creation")
 
+    show_phase("Creating PDF from html and css")
+    css_path = "ldm/Literate.css"
+    pdf_path = f"{results_dir}/{model_name}.pdf"
+    weasy.generate_weasy_pdf(html_path, css_path=css_path, output_path=pdf_path)
+    
+def show_phase(caption: str):
+    print(f"\nPhase: {caption}")
+    
 def validate_model(the_model) -> List[str]:
     
     import ldm.ldm_validators as ldm_validators
     # Validate the model
-    print("Validating model...")
     errors = ldm_validators.validate_model(the_model)
     print("Validating references...")
     errors += ldm_validators.validate_references(the_model)

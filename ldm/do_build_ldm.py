@@ -218,13 +218,15 @@ ldm_dull_specs = {
     "all_clauses_by_priority": all_clauses_by_priority,
     "listed_parts": listed_parts,
     "dirpath": "ldm",
-    "model_doc": "LDMMeta.md",
+    # "model_doc": "LDMMeta.md",
+    "model_doc": "Literate.md",
     "model_module": "Literate01.py",
 
 }
 if __name__ == "__main__":
     from dull_dsl.dull_build import build_dull_dsl
     
-    path = "ldm/LDMMeta.md"
+    # path = "ldm/LDMMeta.md"
+    path = "ldm/Literate.md"
     build_dull_dsl(ldm_dull_specs)
 
