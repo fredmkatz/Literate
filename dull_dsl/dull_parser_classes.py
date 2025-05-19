@@ -163,7 +163,7 @@ class TypedLine:
     def full_text(self) -> str:
         # print("content is ", self.content)
         # print("extra_text is ", self.extra_text)
-        return self.content + ("\n - ").join(self.extra_text)
+        return self.content + "\n" + ("\n").join(self.extra_text)
 
     def display(self, level):
         print(self.displayed(level))
@@ -176,9 +176,9 @@ class TypedLine:
 class ClauseLine(TypedLine):
     line_Type: Clause
 
-    # @trace_method
+    @trace_method
     def derive_clause_dict(self, level=0) -> Dict:
-        # print(f"derive_clause_dict for {self}")
+        print(f"derive_clause_dict for {self}")
         the_dict = {}
         full_text = self.full_text()
 
@@ -191,23 +191,27 @@ class ClauseLine(TypedLine):
         (keyword, rest_of_line) = splits
 
         handlers = self.line_Type.handlers
+        # print("Using handlers: ", handlers)
     
         att_name = self.line_Type.attribute_name
         # print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
         if att_name == "constraint":
-            att_name = "as_entered"
+            att_name = "one_liner"
             print(f"Patched att_name is {att_name} for {self.line_Type} is {att_name}")
 
 
+        from ldm.Literate_01 import OneLiner
         if handlers:
 
             # get the attribute name from the type, not the label
             # (rtvalue, messages) = handlers.round_trip(rest_of_line)
             rtvalue = handlers.parse(rest_of_line)
-            # print(f"adding name value. {att_name} -. {rtvalue}")
+            print(f"adding name value. {att_name} -. {rtvalue}")
             # print_messages(messages)
-
-            the_dict[att_name] = rtvalue
+            if att_name == "one_liner":
+                the_dict[att_name] = OneLiner(rtvalue)  # todo - This is a hack!
+            else:
+                the_dict[att_name] = rtvalue
             # print(as_json(the_dict))
         else:
             print(f"Found clause-spec but no handlers for {self.type_label}")

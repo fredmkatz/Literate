@@ -8,14 +8,15 @@ import json
 
 # import ldm_renderers
 # Import the casing classes
-from class_casing import UpperCamel, LowerCamel, CamelCase
+from class_casing import UpperCamel, LowerCamel, CamelCase, NormalCase
 
 from class_pom_token import (
     PresentableBoolean,
     PresentableToken,
     IsOptional,
-    ReferenceOrValue,
-    IsReallyRequired,
+    AsValue,
+    IsExhaustive,
+    IsExclusive,
     MarkedText,
     Emoji,
 )
@@ -26,11 +27,15 @@ __model_imports__ = [
     LowerCamel,
     CamelCase,
     IsOptional,
-    IsReallyRequired,
-    ReferenceOrValue,
+    AsValue,
+    IsExhaustive,
+    IsExclusive,
     MarkedText,
     Emoji,
 ]
+
+# TODO: subtypings
+# todo: codes
 
 
 def block_list_field(*args, **kwargs):
@@ -66,23 +71,44 @@ def block_list_field(*args, **kwargs):
 
 
 @dataclass
-class Paragraph():
-    _type: str = field(default="Paragraph", init=False)
+class Natural(ABC):
+    _type: str = field(default="Natural", init=False)
     content: str = ""
 
-        
+    def __str__(self):
+        return self.content
+
+    def __post_init__(self):
+        if self._type is None:
+            self._type = "Natural"
+
+    class Meta:
+        presentable_template = "{content}"
+
+
+@dataclass
+class OneLiner(Natural):
+    _type: str = field(default="OneLiner", init=False)
+
+    def __post_init__(self):
+        if self._type is None:
+            self._type = "OneLiner"
+
+
+@dataclass
+class Paragraph(Natural):
+    _type: str = field(default="Paragraph", init=False)
+
     def __post_init__(self):
         if self._type is None:
             self._type = "Paragraph"
 
-    class Meta:
-        presentable_template = "{content}"
+
 @dataclass
-class CodeBlock():
+class CodeBlock:
     content: str = None
     _type: str = field(default="CodeBlock", init=False)
 
-        
     def __post_init__(self):
         if self._type is None:
             self._type = "CodeBlock"
@@ -91,34 +117,53 @@ class CodeBlock():
 
     class Meta:
         presentable_template = "{content}"
-        
+
+
 @dataclass
-class OneLiner(MarkedText):
+class OneLiner(Natural):
     def __post_init__(self):
         super().__post_init__()
-        self._type = "one-liner"
+        self._type = "OneLiner"
 
+@dataclass
+class ModelName(NormalCase):
+    _type: str = field(default="ModelName", init=False)
 
 
 @dataclass
 class ClassName(UpperCamel):
-    def __init__(self, input_string):
-        super().__init__(input_string)
-        repre = type(self).__name__ + "(" + self.output + ")"
+    _type: str = field(default="ClassName", init=False)
 
-        # print(f"created class name: {repre}")
-        # print(f"created class name: {repr(self)}")
-        # self._type = "ClassName"
+
+
+@dataclass
+class SubjectName(NormalCase):
+    _type: str = field(default="SubjectName", init=False)
+
+
+
+@dataclass
+class AttributeSectionName(NormalCase):
+    _type: str = field(default="AttributeSectionName", init=False)
+
+
 
 @dataclass
 class AttributeName(LowerCamel):
-    def __init__(self, input_string):
-        super().__init__(input_string)
+    _type: str = field(default="AttributeName", init=False)
+
+
 
 @dataclass
-class Label(UpperCamel):
-    def __init__(self, input_string):
-        super().__init__(input_string)
+class SubtypingName(LowerCamel):
+    _type: str = field(default="SubtypingName", init=False)
+
+
+
+@dataclass
+class Label(LowerCamel):
+    _type: str = field(default="Label", init=False)
+
 
 
 @dataclass
@@ -126,7 +171,9 @@ class Annotation:
     label: Label
     content: OneLiner
     emoji: Optional[Emoji] = None
-    elaboration: Optional[List[Paragraph]] = block_list_field(default_factory=list)
+    elaboration: Optional[List[Union[Paragraph, CodeBlock]]] = block_list_field(
+        default_factory=list
+    )
     _type: str = field(default="Annotation", init=False)
 
     def __post_init__(self):
@@ -138,32 +185,59 @@ class Annotation:
     class Meta:
         presentable_template = "{?{emoji}}  {label}: {content} NEWLINE"
 
+
 @dataclass
-class Diagnostic():
-    
+class Diagnostic:
+
     object_type: str = ""
-    object_name: str  = ""
-    message:str  = ""
+    object_name: str = ""
+    message: Paragraph = None
 
     severity: str = "Error"
-    constraint_name: str  = ""
+    constraint_name: str = ""
 
     def __str__(self):
         return f"{self.severity} on {self.object_type} named {self.object_name}: {self.message}"
+
     def __post_init__(self):
         self._type = "Diagnostic"
+        if self.message == None:
+            self.message = Paragraph("")
 
 
 @dataclass
-class Component(ABC):
-    prefix: Optional[str] = None
-    name: CamelCase = None
+class MinorComponent(ABC):  # TO DO: Change to subtype of Component, or vv
     one_liner: Optional[OneLiner] = None
-    parenthetical: Optional[str] = None
-    abbreviation: Optional[UpperCamel] = None
-    elaboration: Optional[List[Paragraph]] = block_list_field(default_factory=list)
+    elaboration: Optional[List[Union[Paragraph, CodeBlock]]] = block_list_field(
+        default_factory=list
+    )
     annotations: Optional[List[Annotation]] = block_list_field(default_factory=list)
     diagnostics: Optional[List[Diagnostic]] = block_list_field(default_factory=list)
+    is_embellishment: bool = False
+    _type: str = field(default=None, init=False)
+
+    class Meta:
+        is_abstract = True
+
+    def __post_init__(self):
+        if self._type is None:
+            self._type = "MinorComponent"
+
+        # Ensure collections are initialized
+        if self.annotations is None:
+            self.annotations = []
+        if self.diagnostics is None:
+            self.diagnostics = List[Diagnostic] = []
+        if self.elaboration is None:
+            self.elaboration = []
+
+
+@dataclass
+class Component(MinorComponent):
+    prefix: Optional[str] = None
+    name: CamelCase = None
+    parenthetical: Optional[str] = None
+    abbreviation: Optional[CamelCase] = None
     _type: str = field(default=None, init=False)
 
     class Meta:
@@ -177,16 +251,11 @@ class Component(ABC):
         return f"{self._type.capitalize()}: {self.name} (repr)"
 
     def __post_init__(self):
+        super().__post_init__()
+
         if self._type is None:
             self._type = "Component"
 
-        # Ensure collections are initialized
-        if self.annotations is None:
-            self.annotations = []
-        if self.diagnostics is None:
-            self.diagnostics = []
-        if self.elaboration is None:
-            self.elaboration = []
     def show_name(self):
         return f"I am a {self._type.capitalize()}: named {self.name} "
 
@@ -206,6 +275,9 @@ class SubjectE(Component):
     def __post_init__(self):
         super().__post_init__()
         self._type = "SubjectE"
+        if isinstance(self.name, str):
+            print("Fixing Subject name!")
+            self.name = SubjectName(self.name)
 
     class Meta:
         presentable_header = "#####  {{name}{? - {one_liner}} NEWLINE"
@@ -246,26 +318,34 @@ class SubjectB(SubjectC):
     class Meta:
         presentable_header = "##  {{name}{? - {one_liner}} NEWLINE"
 
+
 @dataclass
-class LDM(SubjectB):
+class LiterateModel(SubjectB):
     def __init__(self, name=None, description=None, **kwargs):
         # Call the parent constructor
         super().__init__(name, description)
-        
+
         # Set the type explicitly
-        self._type = "LDM"
-        
-        
+        self._type = "LiterateModel"
+
         # Initialize other attributes
-        self.prefix = kwargs.get('prefix', '')
-        self.abbreviation = kwargs.get('abbreviation', '')
-        self.parenthetical = kwargs.get('parenthetical', '')
-        self.one_liner = kwargs.get('one_liner', '')
-        self.elaboration = kwargs.get('elaboration', '')
-        self.annotations = kwargs.get('annotations', [])
-        self.subjects = kwargs.get('subjects', [])
-        self.classes = kwargs.get('classes', [])
-    
+        self.prefix = kwargs.get("prefix", "")
+        self.abbreviation = kwargs.get("abbreviation", "")
+        self.parenthetical = kwargs.get("parenthetical", "")
+        self.one_liner = kwargs.get("one_liner", "")
+        self.elaboration = kwargs.get("elaboration", "")
+        self.annotations = kwargs.get("annotations", [])
+        self.subjects = kwargs.get("subjects", [])
+        self.classes = kwargs.get("classes", [])
+
+    def __post_init__(self):
+        super().__post_init__()
+        self._type = "LiterateModel"
+        if isinstance(self.name, str):
+            print("Fixing LiterateModel name!")
+            self.name = ModelName(self.name)
+
+
     # Replace the from_dict method in LDM class in Literate_01.py
 
     @classmethod
@@ -273,13 +353,12 @@ class LDM(SubjectB):
         """Create a model instance from a dictionary representation"""
         from ldm_object_creator import GenericObjectCreator
         import ldm.Literate_01 as Literate_01
-        
-        creator = GenericObjectCreator(Literate_01) 
+
+        creator = GenericObjectCreator(Literate_01)
         # print(f"Creating model from dictionary: {data_dict}")
         model = creator.create(data_dict)
         print(f"Created model: {model.__class__}")
-        
-        
+
         return model
 
     class Meta:
@@ -287,6 +366,8 @@ class LDM(SubjectB):
 
 
 Subject = SubjectB
+
+
 @dataclass
 class DataType(ABC):
     """A simple or complex data type"""
@@ -303,19 +384,26 @@ class DataType(ABC):
 
 @dataclass
 class BaseDataType(DataType):
-    class_name: str  # The name of a class, or primitive?
-    is_value: ReferenceOrValue = field(default_factory=ReferenceOrValue)
+    class_name: ClassName = field(default_factory=ClassName)
+    as_value_type: AsValue = field(default_factory=AsValue)
+
+    # def __init__(self, class_name: str, is_value = False):
+    #     self.class_name = ClassName(class_name)
+    #     self.is_value = is_value
 
     def __post_init__(self):
         super().__post_init__()
+        if isinstance(self.class_name, str):
+            self.class_name = ClassName(self.class_name)
         self._type = "BaseDataType"
+        # print("Created BDT is ", self)
 
     class Meta:
         presentable_template = "{class_name} {? - {is_value}}"
 
     def __str__(self):
         ref_or_value = "reference"
-        if self.is_value:
+        if self.as_value_type.t_value:
             ref_or_value = "value"
         return f"{ref_or_value} {self.class_name}"
 
@@ -378,31 +466,21 @@ class DataTypeClause:
     """
 
     data_type: DataType
-    is_required: IsReallyRequired = field(default_factory=IsReallyRequired)
-    is_also_optional: IsOptional = field(default_factory=IsOptional)
-    is_optional: bool = field(
-        default=False,
-        metadata={
-            "bool": {
-                "true": "optional",
-                "false": "required",
-                "is_explicit": False,  # Whether to show the false value explicitly
-            }
-        },
-    )
+    is_optional_lit: IsOptional = field(default_factory=IsOptional)
     cardinality: Optional[str] = None
-    _type: str = field(default=None, init=False)
+    _type: str = field(default="DataTypeClause", init=False)
 
     def __post_init__(self):
         if self._type is None:
             self._type = "DataTypeClause"
+        self.is_optional_lit = IsOptional(False)
 
     class Meta:
-        presentable_template = "{is_optional} {data_type}{? {cardinality}}"
+        presentable_template = "{is_optional_lit} {data_type}{? {cardinality}}"
 
     def __str__(self):
-        req_or_optional = "optional" if self.is_also_optional else "required"
-        return f"({req_or_optional}) {self.data_type})"
+        req_or_optional = "optional" if self.is_optional_lit else "required"
+        return f"{req_or_optional} {self.data_type}"
 
 
 @dataclass
@@ -416,36 +494,29 @@ class FormulaCoding:
 
 
 @dataclass
-class Formula:
-    as_entered: Optional[str] = None
-    english: Optional[str] = None
+class Formula(MinorComponent):
+    english: Optional[Paragraph] = None
     code: Optional[FormulaCoding] = None
-    elaboration: Optional[List[Paragraph]] = block_list_field(default_factory=list)
-
-    annotations: Optional[List[Annotation]] = block_list_field(default_factory=list)
-    diagnostics: Optional[List[Diagnostic]] = block_list_field(default_factory=list)
 
     _type: str = field(default=None, init=False)
 
     def __post_init__(self):
         if self._type is None:
             self._type = "Formula"
-        if self.annotations is None:
-            self.annotations = []
-        if self.diagnostics is None:
-            self.diagnostics = []
-        if self.elaboration is None:
-            self.elaboration = []
+        if self.english is None:
+            self.english = Paragraph("")
 
 
 @dataclass
 class Constraint(Formula):
-    message: Optional[str] = None
+    message: Optional[Paragraph] = None
     severity: Optional[str] = None
 
     def __post_init__(self):
         super().__post_init__()
         self._type = "Constraint"
+        if self.message is None:
+            self.message = Paragraph("")
 
 
 @dataclass
@@ -464,14 +535,15 @@ class Default(Formula):
 
 @dataclass
 class Class(Component):
-    name: UpperCamel = None
-    plural: Optional[UpperCamel] = None
-    subtype_of: Optional[List[ClassName]] = field(default_factory=list)
-    subtypes: Optional[List[ClassName]] = field(default_factory=list)
+    name: ClassName = None
+    plural: Optional[str] = None
+    subtype_of: Optional[Dict[ClassName, SubtypingName]] = field(default_factory=dict)
+    subtypings: Optional[List[Subtyping]] = block_list_field(default_factory=list)
+
+    subtypes: Optional[Dict[ClassName, SubtypingName]] = field(default_factory=dict)
     based_on: Optional[List[ClassName]] = field(default_factory=list)
     dependent_of: Optional[List[ClassName]] = field(default_factory=list)
     dependents: Optional[List[ClassName]] = field(default_factory=list)
-    # samplerA: Tuple[int, str, DataType] = None
     is_value_type: bool = False
     where: Optional[OneLiner] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
@@ -486,11 +558,18 @@ class Class(Component):
             self.attributes = []
         if self.attribute_sections is None:
             self.attribute_sections = []
+        if self.subtypings is None:
+            self.subtypings = []
+        if isinstance(self.name, str):
+            print("Fixing Class name!")
+            self.name = ClassName(self.name)
 
     class Meta:
         presentable_header = "_ {name}{? - {one_liner}} NEWLINE"
 
+
 Class_ = Class
+
 
 @dataclass
 class ValueType(Class):
@@ -498,8 +577,18 @@ class ValueType(Class):
         super().__post_init__()
         self.is_value_type = True
         self._type = "ValueType"
+
     class Meta:
         presentable_header = "_  ValueType : {name}{? - {one_liner}} NEWLINE"
+@dataclass
+class CodeType(ValueType):
+    def __post_init__(self):
+        super().__post_init__()
+        self.is_value_type = True
+        self._type = "CodeType"
+
+    class Meta:
+        presentable_header = "_  CodeType : {name}{? - {one_liner}} NEWLINE"
 
 
 @dataclass
@@ -510,31 +599,51 @@ class ReferenceType(Class):
 
 
 @dataclass
+class Subtyping:
+    name: SubtypingName = ""
+    is_exclusive: IsExclusive = field(default_factory=IsExclusive)
+    is_exhaustive: IsExhaustive = field(default_factory=IsExhaustive)
+    subtypes: Optional[List[ClassName]] = field(default_factory=list)
+
+    def __post_init__(self):
+        self._type = "Subtyping"
+        self.is_exclusive = True
+        self.is_exhaustive = True
+
+
+@dataclass
 class AttributeSection(Component):
-    is_required: IsReallyRequired = None
+    name: AttributeSectionName = None
+
+    is_optional: IsOptional = None
     attributes: List[Attribute] = block_list_field(default_factory=list)
 
     def __post_init__(self):
         super().__post_init__()
         self._type = "AttributeSection"
+        print(
+            f"In AttSection post-init for {self.name}, is_optional = {self.is_optional}"
+        )
         if self.attributes is None:
             self.attributes = []
-        if self.is_required is None:
-            self.is_required = IsReallyRequired(True)
+        if self.is_optional is None:
+            self.is_optional = IsOptional("Required")
+        if isinstance(self.name, str):
+            print("Fixing AttSection name!")
+            self.name = AttributeSectionName(self.name)
 
     class Meta:
-        presentable_header = "-  {name}{? - {one_liner}}{? ({is_required})} NEWLINE"
-        
+        presentable_header = "-  {name}{? - {one_liner}}{? ({is_optional})} NEWLINE"
+
     # def render_markdown(self):
     #     print("Rendering AttributeSection")
     #     return ("ATTRIBUTE SECTION GOES HERE\n")
     #     return self.render_markdown_component(prefix="__ ", parenthetical=None)
-    
 
 
 @dataclass
 class Attribute(Component):
-    name: LowerCamel = None
+    name: AttributeName = None
     data_type_clause: DataTypeClause = None
     overrides: Optional[AttributeReference] = None
     inverse: Optional[AttributeReference] = None
@@ -548,53 +657,70 @@ class Attribute(Component):
         self._type = "Attribute"
         if self.constraints is None:
             self.constraints = []
+        if isinstance(self.name, str):
+            print("Fixing attribute name!")
+            self.name = AttributeName(self.name)
 
     class Meta:
         presentable_header = (
             "-  {name}{? - {one_liner}}{? ({data_type_clause})} NEWLINE"
         )
 
-        
+
 @dataclass
 class AttributeReference:
     class_name: ClassName = None
     attribute_name: AttributeName = None
     _type: str = field(default="AttributeReference", init=False)
-    
-    def __init__(self, class_name: ClassName = None, attribute_name: AttributeName = None):
-        self.class_name = ClassName(str(class_name))       # so caller can user str() or UpperCamel
-        self.attribute_name = AttributeName(str(attribute_name)) # so caller can user str() or UpperCamel
+
+    def __init__(
+        self, class_name: ClassName = None, attribute_name: AttributeName = None
+    ):
+        self.class_name = ClassName(
+            str(class_name)
+        )  # so caller can user str() or UpperCamel
+        self.attribute_name = AttributeName(
+            str(attribute_name)
+        )  # so caller can user str() or UpperCamel
         if self._type is None:
             self._type = "AttributeReference"
-            
+
     def __dict__(self):
         return self.to_dict()
-
-
 
     def to_dict(self):
         """Specialized serialization for AttributeReference"""
         return {
             "_type": self._type,
             "class_name": self.class_name.to_dict() if self.class_name else None,
-            "attribute_name": self.attribute_name.to_dict() if self.attribute_name else None
+            "attribute_name": (
+                self.attribute_name.to_dict() if self.attribute_name else None
+            ),
         }
-    
+
     def __str__(self):
         """Convert the object to a string."""
         return f"{self.class_name}.{self.attribute_name}"
-    
+
     def __json__(self):
         """Convert the object to a JSON string."""
         return json.dumps(self.to_dict(), indent=2)
-    
+
     @classmethod
     def from_dict(cls, data):
         """Specialized deserialization for AttributeReference"""
         if not isinstance(data, dict):
             return None
-        class_name = ClassName.from_dict(data.get("class_name")) if data.get("class_name") else None
-        attribute_name = AttributeName.from_dict(data.get("attribute_name")) if data.get("attribute_name") else None
+        class_name = (
+            ClassName.from_dict(data.get("class_name"))
+            if data.get("class_name")
+            else None
+        )
+        attribute_name = (
+            AttributeName.from_dict(data.get("attribute_name"))
+            if data.get("attribute_name")
+            else None
+        )
         return cls(class_name=class_name, attribute_name=attribute_name)
 
     def to_json(self):
@@ -603,14 +729,15 @@ class AttributeReference:
         """
         return json.dumps(self.to_dict(), indent=2)
 
-
     class Meta:
         presentable_template = "{name} ({class_name})"
+
+
 AllLDMClasses = [
     SubjectB,
     SubjectC,
     SubjectD,
-    SubjectE,           
+    SubjectE,
     Class,
     ValueType,
     ReferenceType,
@@ -626,8 +753,8 @@ AllLDMClasses = [
     Constraint,
     Derivation,
     Default,
-    LDM,
-    Paragraph,  
+    LiterateModel,
+    Paragraph,
     OneLiner,
     Annotation,
     ClassName,
@@ -635,8 +762,7 @@ AllLDMClasses = [
     PresentableBoolean,
     PresentableToken,
     IsOptional,
-    IsReallyRequired,
-    ReferenceOrValue,
+    AsValue,
     MarkedText,
     Emoji,
 ]

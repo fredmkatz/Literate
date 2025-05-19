@@ -177,22 +177,6 @@ def create_boolean_type(
     )
 
 
-class IsReallyRequired(PresentableBoolean):
-    """
-    Class representing a boolean token for "is required".
-
-    Attributes:
-        value (bool): The boolean value.
-
-    """
-
-    true_word = "required"
-    true_words = ["required", "true", "sure", "yes"]
-
-    false_word = "optional"
-    false_words = ["optional", "false", "no way"]
-    default_value = True
-    is_explicit = True
 
 
 class IsOptional(PresentableBoolean):
@@ -240,7 +224,7 @@ class MarkedText(PresentableToken):
         self.output = input_string.replace("<<<", "").replace(">>>", "")
 
     def value(self) -> str:
-        return self.output
+        return self.content
 
     @classmethod
     def token_pattern(cls) -> str:

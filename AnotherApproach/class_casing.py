@@ -11,9 +11,9 @@ Casing has
 possible separated by spaces (but not by tabs or newlines)
 - words - the input string, split into a list of words (strs)
 - input - the string passed into init on construction
-- output - the words, xlated to the proper casing
+- content - the words, xlated to the proper casing
 
-The str() function should return the value of output
+The str() function should return the value of content
 
 The init should also handle UpperCamel(SnakeCase("xxx"), ...)
     really any list of items that have str() representations
@@ -44,7 +44,7 @@ class Casing(PresentableToken):
     Attributes:
         input (str): The original input string.
         words (list): The input string split into a list of words.
-        output (str): The words translated to the proper casing.
+        content (str): The words translated to the proper casing.
     """
 
 
@@ -66,10 +66,10 @@ class Casing(PresentableToken):
         self.argument = input_string
         self.input = input_string
         self.words = self.split_to_words(input_string)
-        self.output = self.convert()
+        self.content = self.convert()
 
     def value(self) -> str:
-        return self.output
+        return self.content
 
     @classmethod
     def token_pattern(cls) -> str:
@@ -115,7 +115,7 @@ class Casing(PresentableToken):
         pass
 
     def __str__(self):
-        return self.output
+        return self.content
 
     def to_dict(self):
         """
@@ -125,7 +125,7 @@ class Casing(PresentableToken):
             "arguments": self.argument,
             "input": self.input,
             "words": self.words,
-            "output": self.output,
+            "content": self.content,
         }
         return {self.__class__.__name__: values}
 

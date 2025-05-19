@@ -7,5 +7,7 @@
             "path": "../LiterateDataModels"
         }
     ],
-    "settings": {}
+    "settings": {
+        "markdown-editor.useVscodeThemeColor": false
+    }
 }

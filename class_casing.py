@@ -11,9 +11,9 @@ Casing has
 possible separated by spaces (but not by tabs or newlines)
 - words - the input string, split into a list of words (strs)
 - input - the string passed into init on construction
-- output - the words, xlated to the proper casing
+- content - the words, xlated to the proper casing
 
-The str() function should return the value of output
+The str() function should return the value of content
 
 The init should also handle UpperCamel(SnakeCase("xxx"), ...)
     really any list of items that have str() representations
@@ -29,7 +29,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import List, Optional
 
-from dataclasses import is_dataclass, fields
+from dataclasses import is_dataclass, fields, field
 
 from utils_pom.util_json_pom import as_json
 from class_pom_token import PresentableToken
@@ -38,6 +38,9 @@ from class_templates import PomTemplate
 
 @dataclass
 class Casing(PresentableToken):
+    content: str = ""
+    _type: str = field(default="Casing", init=False)
+
     """
     Abstract base class for different casing styles.
 
@@ -60,17 +63,17 @@ class Casing(PresentableToken):
     # token_pattern_str = f"/{IDENTIFIER}/"
     
 
-    def __init__(self, input_string):
-        if isinstance(input_string, list):
-            input_string = " ".join(str(item) for item in input_string)
-        self.argument = input_string
-        self.input = input_string
-        self.words = self.split_to_words(input_string)
-        self.output = self.convert()
+    def __post_init__(self):
+        if isinstance(self.content, list):
+            self.content = " ".join(str(item) for item in self.content)
+        self.argument = self.content
+        self.input = self.content
+        self.words = self.split_to_words(self.content)
+        self.content = self.convert()
         self._type = type(self).__name__
 
     def value(self) -> str:
-        return self.output
+        return self.content
 
     @classmethod
     def token_pattern(cls) -> str:
@@ -116,15 +119,15 @@ class Casing(PresentableToken):
         pass
 
     def __str__(self):
-        return self.output
+        return self.content
     # def __repr__(self):
-        return type(self).__name__ + "(" + self.output + ")"
+        return type(self).__name__ + "(" + self.content + ")"
     
     def __json__(self):
         return str(self)
 
     def __dict__(self):
-        return {"_type": self._type, "input": self.input}
+        return {"_type": self._type, "content": self.content}
 
 
     def toJSON(self):
@@ -134,16 +137,16 @@ class Casing(PresentableToken):
         """Simplified serialization with just type and input"""
         return {
             "_type": self._type,  # Your existing code already sets this correctly
-            "input": self.input
+            "content": self.content
         }
     
     @classmethod
     def from_dict(cls, data):
         """Standard deserialization method"""
         if isinstance(data, dict):
-            input_string = data.get("input", "")
-            return cls(input_string=input_string)
-        return cls(input_string=str(data))
+            content = data.get("content", "")
+            return cls(content=content)
+        return cls(content=str(data))
 
     def __json__(self):
         """Convert the object to a JSON string."""
@@ -155,87 +158,126 @@ class Casing(PresentableToken):
         """
         return json.dumps(self.to_dict(), indent=2)
 
+
+@dataclass
+class NormalCase(Casing):
+    _type: str = field(default="NormalCase", init=False)
+
+
+    
+    def convert(self):
+        return " ".join(str(word) for word in self.words)
+
+@dataclass
 class CamelCase(Casing):
+    _type: str = field(default="CamelCase", init=False)
+
+    # def __post_init__(self):
+    #     super().__post_init__()
+
     def convert(self):
         return "".join(word.capitalize() for word in self.words)
    
-
+@dataclass
 class UpperCamel(CamelCase):
+    _type: str = field(default="UpperCamel", init=False)
+
     """
     Converts words to UpperCamelCase.
     """
-    def __init__(self, input_string):
-        super().__init__(input_string)
-        self.words = [word.capitalize() for word in self.words]
 
     def convert(self):
-        return "".join(word.capitalize() for word in self.words)
+        upper = "".join(word.capitalize() for word in self.words)
+        print(f"Casing: UpperCamel for {self.words} = {upper}")
+        return upper
 
 
+
+@dataclass
 class LowerCamel(CamelCase):
+    _type: str = field(default="LowerCamel", init=False)
+
     """
     Converts words to lowerCamelCase.
     """
-
+    # def __post_init__(self):
+    #     super().__post_init__()
+        
     def convert(self):
         if not self.words:
             return ""
-        return self.words[0].lower() + "".join(
-            word.capitalize() for word in self.words[1:]
-        )
+        lower = self.words[0].lower() + "".join(
+            word.capitalize() for word in self.words[1:])
+        print(f"Casing: LowerCamel for {self.words} = {lower}")
+        return lower
 
 
+@dataclass
 class SnakeCase(Casing):
+    _type: str = field(default="SnakeCase", init=False)
+    
     """
     Converts words to snake_case.
     """
 
     def convert(self):
-        return "_".join(word.lower() for word in self.words)
+        snake = "_".join(word.lower() for word in self.words)
+        # print(f"Snake for {self.words} = {snake}")
+        return snake
 
 
+@dataclass
 class UpperSnake(Casing):
     """
     Converts words to UPPER_SNAKE_CASE.
     """
+    _type: str = field(default="UpperSnake", init=False)
+
 
     def convert(self):
         return "_".join(word.upper() for word in self.words)
 
 NTCase = SnakeCase
 TokenCase = UpperSnake
-
+@dataclass
 class Kebab(Casing):
     """
     Converts words to kebab-case.
     """
+    _type: str = field(default="Kebab", init=False)
 
     def convert(self):
         return "-".join(word.lower() for word in self.words)
 
 
+@dataclass
 class PascalCase(Casing):
     """
     Converts words to PascalCase.
     """
+    _type: str = field(default="PascalCase", init=False)
 
     def convert(self):
         return "".join(word.capitalize() for word in self.words)
 
 
+@dataclass
 class DotCase(Casing):
     """
     Converts words to dot.case.
     """
+    _type: str = field(default="DotCase", init=False)
 
     def convert(self):
         return ".".join(word.lower() for word in self.words)
 
 
+@dataclass
 class TrainCase(Casing):
     """
     Converts words to Train-Case.
     """
+    _type: str = field(default="TrainCase", init=False)
 
     def convert(self):
         return "-".join(word.capitalize() for word in self.words)

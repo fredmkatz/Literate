@@ -63,7 +63,7 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
         type_label = typed_line.type_label
         line_Type = typed_line.line_Type  # the object for the LineType
 
-        # print(f"Found {typed_line}")
+        print(f"Found {typed_line}")
         # if "AnnotationType" in str(typed_line):
         #     print("STOPPING")
         #     next_k = len(lines) + 10
@@ -134,7 +134,7 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
         if isinstance(line_Type, PartStarter):
             class_to_start = line_Type.class_started
             part_type = class_to_start
-            # print(f"For {typed_line}\n  new: {class_to_start}")
+            print(f"For {typed_line}\n  new: {class_to_start}")
 
         if part_type:  # i.e not just text or a minor clause
             # print(f"Found new part: {part_type}")

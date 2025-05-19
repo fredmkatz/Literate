@@ -1,0 +1,101 @@
+# To do list
+
+## The Model
+- named components
+- subtypings
+- embellishments
+
+- id value types
+- keys, unique keys
+- Words, phrases
+- codes and values
+- capturing AnnotationTypes list?
+
+- id subjects
+- id dependencies, keys
+
+- Sidebars
+- figures
+- diagrams
+## Validation
+- cycles for subtypes, etc
+- attribute references, inverses
+-- cardinality matching, too
+- data types
+- valid types for all field values
+- name uniqueness rules
+
+## Fleshing out
+- dependents, subtypes, etc
+- inverse attributes?
+
+
+## Parsing
+- name cleanup
+- fix subtype of, etc for subtypings
+- fix one_liners as NounPhrases
+- handle embellishments
+- handle code blocks/language
+- inserts, sidebars,  and figures, too
+- code tables
+- ROUND TRIPPING!
+## Presentation
+
+### Render MD
+Handle
+- Embellishments
+- Diagnostics
+
+- via html, with span styles?
+### Render HTML
+- Fix
+-- anchors
+-- annotations
+-- subfields
+
+- css styling
+- change dict to html structure?
+### and PDF
+- page styling
+- TOC
+- index
+### Diagrams
+- JSON files to Mermaid, PlantUML, etc
+- CSS with anchors
+
+
+## Documents
+### Literate
+#### Sidebars
+- Reference and Value Types
+- Dependents
+- Scope statement
+- Ordering, importance of
+- Multilanguage support
+- Overrides
+- Defaults and derivations
+- Inheritance
+
+### Biblio
+- work/edition
+- edition/printing
+- manuscripts
+- Ebooks audio
+- author, contrib, pen names
+-- house names
+- Admin areas
+- Publishers
+- Hierarchies
+- Scopes
+-- Library
+-- Retail
+-- Rare
+-- Used
+- special bibliographies, cites
+- composites
+- characters
+- plays and recordings
+
+### TestLit
+
+

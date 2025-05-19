@@ -89,7 +89,7 @@ class DocPart:
 
         paragraphs = []
 
-        # print("DerivingDict for Part: ", self.part_type)
+        print("DerivingDict for Part: ", self.part_type)
         if self.part_type == "Annotation":
             nitems = len(self.items)
             # print(f"THIS IS AN ANNOTATION. All {nitems} items are...")
@@ -104,6 +104,8 @@ class DocPart:
                 header_dict = {}
                 if label == "CODE_FENCE":
                     print("--- ouch found CODE_FENCE para")
+                    print("appending code item...")
+                    print(item)
                     paragraphs.append(item)
                     continue
 
@@ -123,10 +125,10 @@ class DocPart:
 
                 if label.endswith("_Head"):
                     full_header = item.full_text()
-                    # print(f"\t\tFull header is: {full_header}")
+                    print(f"\t\tFull header is: {full_header}")
 
                     handlers = item.line_Type.handlers
-                    (header_dict, messages) = handlers.round_trip(full_header)
+                    header_dict = handlers.parse(full_header)
                     # print_messages(messages)
                     
                     # if label.startswith("Class"):
@@ -175,15 +177,15 @@ class DocPart:
                     paragraphs = ["Might be more1"]  # to avoid reinserting it, but leave open the po ssibility of more text
 
                 if isinstance(item, ClauseLine):
-
                     clause_dict = item.derive_clause_dict(level)
+                    # print("Clause line dict is", clause_dict)
                     for keyword, value in clause_dict.items():
                         # for the real value, we need clause spec
                         
                         att_name = str(SnakeCase(keyword))
-                        if att_name != keyword:
-                            print(f"Using ATT_NAME  {att_name} for {keyword}")
-                        # print(f"Adding value. {att_name} -. {value}")
+                        # if att_name != keyword:
+                        print(f"Using ATT_NAME  {att_name} for {keyword}")
+                        print(f"Adding value in ddforpart. {att_name} -. {value}")
                         the_dict = absorb_into(
                             the_dict,
                             att_name,
@@ -191,6 +193,8 @@ class DocPart:
                             item.line_Type.is_list,
                             item.line_Type.is_cum,
                         )
+                        print("And the dict has;;;")
+                        print(as_json(the_dict))
                     continue
 
             elif isinstance(item, DocPart):
@@ -210,16 +214,19 @@ class DocPart:
                 
                 is_cum = part_type in listed_parts
                 if is_cum:
-                    att_name_for_part =  str(SnakeCase(plural))
+                    att_name_for_part =  str(SnakeCase(plural)).lower()
                     # print("Using plural atttribute name: ", att_name_for_part)
 
                 else:
                     att_name_for_part = str(SnakeCase(part_type))
                     # print("Using singular atttribute name: ", att_name_for_part)
-                if att_name_for_part.startswith("subject"):
+                if att_name_for_part.lower().startswith("subject"):
                     att_name_for_part = "subjects"
-                if att_name_for_part.startswith("ld"):
-                    att_name_for_part = "LDMs"
+                if att_name_for_part.lower() == "code_types":
+                    att_name_for_part = "classes"
+                if att_name_for_part.lower() == "value_types":
+                    att_name_for_part = "classes"
+                att_name_for_part = att_name_for_part.replace("'", "")
                 the_dict = absorb_into(
                     the_dict, att_name_for_part, part_dict, is_list = False, is_cum = is_cum
                 )
@@ -229,8 +236,8 @@ class DocPart:
 
         displayables = ["AttributeSection"]
         displayables = ["Class"]
-        displayables = []
-        # displayables = ["LDM"]
+        displayables = ["Default", "Derivation", "Attribute"]
+        # displayables = []
         # ["Class", "Attribute", "Formula", "Default"]
         if self.part_type in displayables:
             print("Re-display for Part: ", self.part_type)
@@ -294,7 +301,7 @@ def convert_to_paragraphs(item: TypedLine) -> List[str]:
 def absorb_into(
     the_dict: Dict, keyword: str, value: Any, is_list: bool, is_cum: bool
 ) -> Dict:
-    
+    print(f"Absorbing to {keyword} {value} into {the_dict}")
     # don't clutter the dict with empty values
     if not value:
         return the_dict
@@ -313,9 +320,13 @@ def absorb_into(
             the_dict[keyword] = []
 
         if not is_list:  # ie single value from parse function
+            print(f"Append {value} to {keyword}")
             the_dict[keyword].append(value)
         else:
+            print(f"Extend {value} to {keyword}")
+
             the_dict[keyword].extend(value)
+    print("after absorb, dict has: ", the_dict)
     return the_dict
 
 

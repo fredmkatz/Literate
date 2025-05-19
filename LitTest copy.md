@@ -32,13 +32,6 @@ __  ***For Machinery*** - mechanical attributes
 - **isEmbellishment** - Indicates whether this component is an embellishment added during post-parsing processing _(Boolean)_
   🔄 ***Default***: false
   ℹ️ ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
-__***Markdown Support***
-- **mdPrefix** (*[String](#string)*)
-	🆎 ***Derivation***: ""
-- **mdSuffix** (*[String](#string)*)
-	🆎 ***Derivation***: ""
-- **mdTopLine** (*[String](#string)*)
-	🆎 ***Derivation***: mdPrefix + name + " - " + oneLiner + mdSuffix
 	
 
 _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component. 
@@ -110,13 +103,6 @@ __ 	***Modeling Configuration***
 - **aiFunctions** - A list of functions that require sophisticated AI-powered implementation *(List of String)*
   Derivation: ['aiEnglishPlural()']
   
-__ ***Markdown Support***
-- **mdPrefix** (*[String](#string)*)
-	🆎 ***Derivation***: "# "
-
-- **mdTopLine** (*[String](#string)*)
-	🆎 ***Derivation***: mdPrefix + name 
-	
 	
 _ **Subject**  
 A specific topic or theme within the model  
@@ -128,7 +114,7 @@ Subjects are the chapters an sections of the model.
 A subject need not contain any Classes if it’s just expository.  
 
 - name (UpperCamel )
-- **parentSubject** - The parent subject, if any, under which this subject is nested _(Subject, optional)_  
+- **parentSubject** - The parent subject, if any, under which this subject is nested _(optional Subject)_  
 
 - **Classes** - The major classes related to this subject, in the order in which they should be presented _(ListOf Classes)_  
   ***Issue***: define chapter, section, subsection as levels?  
@@ -142,12 +128,6 @@ A subject need not contain any Classes if it’s just expository.
 
     ***DSL***:  the Classes within a Subject are always displayed before the childSubjects.  
 
-__ ***Markdown Support***
-- **mdPrefix** (*[String](#string)*)
-	🆎 ***Derivation***: levelIndicator + " "
-
-- **mdTopLine** (*[String](#string)*)
-	🆎 ***Derivation***: mdPrefix + name. 
 	
 _ **SubjectArea**  
 A main topic or area of focus within the model, containing related subjects and classes  
@@ -235,10 +215,6 @@ _ **Subtyping** - a way in which subtypes of a Class may be classified (Subtype 
 
 _ **ValueType** - 
 Subtype of: Class. 
-__ ***Markdown Support***
-- ***mdPrefix*** (*[String](#string)*)
-	🆎 ***Derivation***: "ValueType: ". 
-	
 	
 _ **Reference Type**:
 Subtype of: Class. 
@@ -286,10 +262,6 @@ _ **Attribute Section** - a group of attributes for a class that merit a shared 
 	&nbsp;
 	But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.
 
-__ ***Markdown Support***
-- **mdPrefix** (*[String](#string)*)
-	🔄 ***Default***: "_ "
-- **mdTopLine** (*[String](#string)*).  
 
 _ **Attribute**  
 A property or characteristic of a class  
@@ -339,7 +311,7 @@ _ ***Formulas***
 
 - **default** - The rule or formula for calculating the value, if no value is supplied 
     Now running to a second line with the parenthentical on yet a third line 
-    (Derivation, optional)
+    (optional Derivation)
     Note: even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed. 
     And let's see if the note can span extra lines, too
 
@@ -348,7 +320,7 @@ _ ***Formulas***
     Last paragraph here
 
     
-- **derivation** - For derived attributes, the rule or formula for calculating the value _(Derivation, optional)_  
+- **derivation** - For derived attributes, the rule or formula for calculating the value _(optional Derivation)_  
     ***Issue***: on insert vs on access?
 - **constraints** - Any validation rules specific to this attribute _(ListOf Constraints)_         
     Note: from Class.constraints 
@@ -598,3 +570,7 @@ Insert Camel Case.md
 
 
 
+== content to add
+- minor component
+- embellishment
+- words and phrases

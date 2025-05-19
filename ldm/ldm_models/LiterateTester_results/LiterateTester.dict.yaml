@@ -1,0 +1,1101 @@
+_type: Document
+literate_models:
+- _type: LiterateModel
+  prefix: '#'
+  name:
+    content: Literate Tester
+    _type: SubjectName
+  parenthetical: ''
+  elaboration:
+  - _type: Paragraph
+    content: 'This is a small sample of a Literate Data Model, used for testing each
+      of the constructs, at lease once.
+
+      '
+  subjects:
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: Sample Classes
+      _type: SubjectName
+    one_liner:
+      _type: OneLiner
+      content: 'with a one liner for the subject, spanning
+
+        two lines'
+    parenthetical: ''
+    elaboration:
+    - _type: Paragraph
+      content: 'And an elaboration, with a few paragraphs
+
+        '
+    - _type: Paragraph
+      content: 'Paragraph 2
+
+        '
+    - _type: Paragraph
+      content: 'Paragraph 3
+
+        '
+    subjects:
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Editions
+        _type: SubjectName
+      parenthetical: ''
+      classes:
+      - _type: Class
+        prefix: _
+        name:
+          content: Edition
+          _type: ClassName
+        one_liner:
+          _type: OneLiner
+          content: a manifestation of a literary work
+        parenthetical: ''
+        based_on:
+        - content: LiteraryWork
+          _type: ClassName
+        - content: OtherBase
+          _type: ClassName
+        attributes:
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: title
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: the title, as shown on the book's title page
+          parenthetical: Full Title
+          data_type_clause:
+            data_type:
+              _type: BaseDataType
+              class_name:
+                content: FullTitle
+                _type: ClassName
+              as_value_type:
+                t_value: false
+                _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+          default:
+            _type: Default
+            one_liner:
+              _type: OneLiner
+              content: ' the title of the Work of which this is an edition
+
+                '
+            code: ' baseWork.title
+
+              '
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: author
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: the writer
+          parenthetical: Person
+          data_type_clause:
+            data_type:
+              _type: BaseDataType
+              class_name:
+                content: Person
+                _type: ClassName
+              as_value_type:
+                t_value: false
+                _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: illustrators
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: artists who supplied the pictures
+          parenthetical: List of People
+          data_type_clause:
+            data_type:
+              _type: ListDataType
+              element_type:
+                _type: BaseDataType
+                class_name:
+                  content: People
+                  _type: ClassName
+                as_value_type:
+                  t_value: false
+                  _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+        attribute_sections:
+        - _type: AttributeSection
+          prefix: __
+          name:
+            content: Optional Publication Details
+            _type: AttributeSectionName
+          parenthetical: ''
+          is_optional:
+            t_value: true
+            _type: IsOptional
+          attributes:
+          - _type: Attribute
+            prefix: '-'
+            name:
+              content: datePublished
+              _type: AttributeName
+            one_liner:
+              _type: OneLiner
+              content: when the edition was released to the public
+            parenthetical: BiblioDate
+            data_type_clause:
+              data_type:
+                _type: BaseDataType
+                class_name:
+                  content: BiblioDate
+                  _type: ClassName
+                as_value_type:
+                  t_value: false
+                  _type: AsValue
+              is_optional_lit:
+                t_value: false
+                _type: IsOptional
+              _type: DataTypeClause
+        - _type: AttributeSection
+          prefix: __
+          name:
+            content: Required Format Details
+            _type: AttributeSectionName
+          parenthetical: ''
+          is_optional:
+            t_value: false
+            _type: IsOptional
+          attributes:
+          - _type: Attribute
+            prefix: '-'
+            name:
+              content: numberOfPages
+              _type: AttributeName
+            one_liner:
+              _type: OneLiner
+              content: last page number
+            parenthetical: optional Integer
+            data_type_clause:
+              data_type:
+                _type: BaseDataType
+                class_name:
+                  content: Integer
+                  _type: ClassName
+                as_value_type:
+                  t_value: false
+                  _type: AsValue
+              is_optional_lit:
+                t_value: false
+                _type: IsOptional
+              _type: DataTypeClause
+        - _type: AttributeSection
+          prefix: __
+          name:
+            content: Unsaid Other Details
+            _type: AttributeSectionName
+          parenthetical: ''
+          attributes:
+          - _type: Attribute
+            prefix: '-'
+            name:
+              content: datePublished
+              _type: AttributeName
+            one_liner:
+              _type: OneLiner
+              content: when the edition was released to the public
+            parenthetical: BiblioDate
+            data_type_clause:
+              data_type:
+                _type: BaseDataType
+                class_name:
+                  content: BiblioDate
+                  _type: ClassName
+                as_value_type:
+                  t_value: false
+                  _type: AsValue
+              is_optional_lit:
+                t_value: false
+                _type: IsOptional
+              _type: DataTypeClause
+      - _type: Class
+        prefix: _
+        name:
+          content: HardcoverEdition
+          _type: ClassName
+        parenthetical: ''
+        subtype_of:
+        - UnserializablePiece
+        - UnserializablePiece
+      - _type: Class
+        prefix: _
+        name:
+          content: PaperbackEdition
+          _type: ClassName
+        parenthetical: ''
+        subtype_of:
+        - UnserializablePiece
+        - UnserializablePiece
+      - _type: Class
+        prefix: _
+        name:
+          content: ElectronicEdition
+          _type: ClassName
+        parenthetical: ''
+        subtype_of:
+        - UnserializablePiece
+        attributes:
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: eFormat
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: the precise medium for the electronic edition
+          parenthetical: Code
+          data_type_clause:
+            data_type:
+              _type: BaseDataType
+              class_name:
+                content: Code
+                _type: ClassName
+              as_value_type:
+                t_value: false
+                _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+          elaboration:
+          - _type: CodeBlock
+            content: '```csv
+
+              eFormat, Description
+
+              E-Book, ''Kindle or Apple books - etc''
+
+              PDF, formatted for printing and direct delivery
+
+
+              ```'
+      - _type: CodeType
+        prefix: 'Code Type:'
+        name:
+          content: EBookFormat
+          _type: ClassName
+        one_liner:
+          _type: OneLiner
+          content: the precise medium for the electronic edition
+        parenthetical: ''
+        elaboration:
+        - _type: CodeBlock
+          content: '```csv
+
+            Format, Description
+
+            E-Book, ''Kindle or Apple books - etc''
+
+            PDF, formatted for printing and direct delivery
+
+
+            ```'
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Addresses
+        _type: SubjectName
+      parenthetical: ''
+      classes:
+      - _type: ValueType
+        prefix: 'Value Type:'
+        name:
+          content: Address
+          _type: ClassName
+        one_liner:
+          _type: OneLiner
+          content: a US Street address
+        parenthetical: ''
+        attributes:
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: streetAddress
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: usually the street and number
+          parenthetical: Text
+          data_type_clause:
+            data_type:
+              _type: BaseDataType
+              class_name:
+                content: Text
+                _type: ClassName
+              as_value_type:
+                t_value: false
+                _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: streetAddress
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: usually the apartment or unit number
+          parenthetical: Text
+          data_type_clause:
+            data_type:
+              _type: BaseDataType
+              class_name:
+                content: Text
+                _type: ClassName
+              as_value_type:
+                t_value: false
+                _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: city
+            _type: AttributeName
+          parenthetical: US City
+          data_type_clause:
+            data_type:
+              _type: BaseDataType
+              class_name:
+                content: UsCity
+                _type: ClassName
+              as_value_type:
+                t_value: false
+                _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: state
+            _type: AttributeName
+          parenthetical: US State
+          data_type_clause:
+            data_type:
+              _type: BaseDataType
+              class_name:
+                content: UsState
+                _type: ClassName
+              as_value_type:
+                t_value: false
+                _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+        attribute_sections:
+        - _type: AttributeSection
+          prefix: __
+          name:
+            content: Full Zip Code
+            _type: AttributeSectionName
+          parenthetical: ''
+          is_optional:
+            t_value: false
+            _type: IsOptional
+          attributes:
+          - _type: Attribute
+            prefix: '-'
+            name:
+              content: mainZipCode
+              _type: AttributeName
+            parenthetical: Required Number
+            data_type_clause:
+              data_type:
+                _type: BaseDataType
+                class_name:
+                  content: RequiredNumber
+                  _type: ClassName
+                as_value_type:
+                  t_value: false
+                  _type: AsValue
+              is_optional_lit:
+                t_value: false
+                _type: IsOptional
+              _type: DataTypeClause
+            annotations:
+            - _type: Annotation
+              emoji: ''
+              label: Must be
+              content: 5 digits
+          - _type: Attribute
+            prefix: '-'
+            name:
+              content: preciseZipCode
+              _type: AttributeName
+            parenthetical: Optiona Numberl
+            data_type_clause:
+              data_type:
+                _type: BaseDataType
+                class_name:
+                  content: OptionaNumberl
+                  _type: ClassName
+                as_value_type:
+                  t_value: false
+                  _type: AsValue
+              is_optional_lit:
+                t_value: false
+                _type: IsOptional
+              _type: DataTypeClause
+            annotations:
+            - _type: Annotation
+              emoji: ''
+              label: Must be
+              content: 4 digits
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: Next steps
+      _type: SubjectName
+    parenthetical: ''
+    subjects:
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Clean up
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* Name parsing\n \n+ * value types\n \n+ * Rendering code blocks.\
+          \ capture language\n \n+ * Subtypings - exclusive, exhaustive\n \n+ * Data\
+          \ types with reference/value and cardinality\n \n+ * Optional on Attribute\
+          \ Section\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Complete
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* Code types\n \n+ * And data block\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Validation
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* cycles\n \n+ * references to classes, subtypings\n \n+ * references\
+          \ to attributes\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Flesh out
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* Subtypes, subtypings\n \n+ * inverse attributes\n \n+ * Overrides\
+          \ what\n \n+ * explicit for data type value/reference\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Futures
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: '* Diagrams
+
+          '
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: Tests to include
+      _type: SubjectName
+    parenthetical: ''
+    subjects:
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Headers
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: 'Notice that, here, asterisks are used for lists and embedded list,
+          so the items won''t be confused with attributes
+
+          '
+      - _type: Paragraph
+        content: "* Subject - w/ one-liner\n \n+ * Class one-liner?, Value Type\n\
+          \ \n+ * Attribute Section - optional?\n \n+ * Attribute Header\n \n+ **\
+          \  with and without one-liners\n \n+ ** with and without data type expressions\n\
+          \ \n+ * Formulas, derivation, default, constraint\n \n+ * Annotations\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Name tests Variations Styling Anchors
+        _type: SubjectName
+      parenthetical: ''
+      annotations:
+      - _type: Annotation
+        emoji: ''
+        label: In
+        content: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Class clauses
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* Plural\n \n+ * Abbreviation\n \n+ * Subtype of\n \n+ * Based on\n\
+          \ \n+ * Where\n \n+ * Diagnostics\n \n+ * Annotations\n"
+      - _type: Paragraph
+        content: "Fleshed in\n \n+ * Subtypes, subtypings\n \n+ * Dependents\n \n\
+          + * Ancestors\n \n+ *\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Attribute clauses
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* Data type\n \n+ * Default\n \n+ * Derivation\n \n+ * Constraint\n\
+          \ \n+ * Required/optional - if/unless\n"
+      - _type: Paragraph
+        content: "Fleshed in\n \n+ * overrides\n \n+ * inverse of\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Constraints and derivations
+        _type: SubjectName
+      parenthetical: ''
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: More Tests needed
+      _type: SubjectName
+    parenthetical: ''
+    subjects:
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Formula Tester English OCL Message Severity
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Data types
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* Base Type. Reference vs Value\n \n+ * List, set, mapping types\n\
+          \ \n+ * Nested operators\n"
+      classes:
+      - _type: Class
+        prefix: _
+        name:
+          content: LiteraryWork
+          _type: ClassName
+        parenthetical: ''
+        attributes:
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: firstEdition
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: a home for the data type clauses
+          parenthetical: List of Edition
+          data_type_clause:
+            data_type:
+              _type: ListDataType
+              element_type:
+                _type: BaseDataType
+                class_name:
+                  content: Edition
+                  _type: ClassName
+                as_value_type:
+                  t_value: false
+                  _type: AsValue
+            is_optional_lit:
+              t_value: false
+              _type: IsOptional
+            _type: DataTypeClause
+          data_type: ' List of sets of Editions
+
+            '
+      - _type: Class
+        prefix: _
+        name:
+          content: Edition
+          _type: ClassName
+        one_liner:
+          _type: OneLiner
+          content: to try more complex data types
+        parenthetical: ''
+        attributes:
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: author
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: assuming just one
+          parenthetical: ''
+          data_type: ' Person
+
+            '
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: artists
+            _type: AttributeName
+          one_liner:
+            _type: OneLiner
+            content: allowing for multiple
+          parenthetical: ''
+          data_type: ' list of People
+
+            '
+        - _type: Attribute
+          prefix: '-'
+          name:
+            content: contributors
+            _type: AttributeName
+          parenthetical: ''
+          data_type: ' mapping of Role to List of People
+
+            '
+          constraints:
+          - _type: Constraint
+            one_liner:
+            - _type: OneLiner
+              content: ' Must be several for each role
+
+                '
+            code: ' len(contributors[role]) > 1 for each role
+
+              '
+            message: ' not enough contributors for role
+
+              '
+            severity: ' Error
+
+              '
+          annotations:
+          - _type: Annotation
+            emoji: ''
+            label: con note
+            content: constraints take annotations which may span
+            elaboration:
+            - _type: Paragraph
+              content: "And those annotations may have their own elaborations.\n \n\
+                + Which may contain more that one paragraph.\n"
+            - _type: Paragraph
+              content: 'Here''s a second paragraph, followed by a code block
+
+                '
+            - _type: CodeBlock
+              content: '``` markdown
+
+                This is the code block for  the annotation
+
+                ```'
+          - _type: Annotation
+            emoji: ''
+            label: def ote
+            content: defaults take annotations
+          - _type: Annotation
+            emoji: ''
+            label: der note
+            content: derivations take annotations
+          default:
+            _type: Default
+            one_liner:
+              _type: OneLiner
+              content: ' {''author'': [a, b, c] }
+
+                '
+          derivation:
+            _type: Derivation
+            one_liner:
+              _type: OneLiner
+              content: ' {''author'': [a, b, c] }
+
+                '
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Data type clauses
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "* Optionality\n \n+ * Cardinality\n"
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: Elaborations
+      _type: SubjectName
+    parenthetical: ''
+    subjects:
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Paragraphs
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "Unindented paragraph.\n \n+ and not on next line and many subsequent\
+          \ lines\n \n+ and not on next line and many subsequent lines\n \n+ and not\
+          \ on next line and many subsequent lines\n \n+ and not on next line and\
+          \ many subsequent lines\n \n+ and not on next line and many subsequent lines\n\
+          \ \n+ and not on next line and many subsequent lines\n"
+      - _type: Paragraph
+        content: "Indented paragraph.\n \n+ and not on next line and many subsequent\
+          \ lines\n \n+ and not on next line and many subsequent lines\n \n+ and not\
+          \ on next line and many subsequent lines\n \n+ and not on next line and\
+          \ many subsequent lines\n \n+ and not on next line and many subsequent lines\n\
+          \ \n+ and not on next line and many subsequent lines\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Lists indented lists
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Code blocks with language
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Block quotes
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "> paragraph with angle before first line\n \n+ and not on next line\
+          \ and many subsequent lines\n \n+ and not on next line and many subsequent\
+          \ lines\n \n+ and not on next line and many subsequent lines\n \n+ and not\
+          \ on next line and many subsequent lines\n \n+ and not on next line and\
+          \ many subsequent lines\n \n+ and not on next line and many subsequent lines\n"
+      - _type: Paragraph
+        content: "> parag with angles on every line\n \n+ > next line\n \n+ > next\
+          \ line\n"
+      - _type: Paragraph
+        content: 'Nested block quotes
+
+          '
+      - _type: Paragraph
+        content: "> paragraph with angle before first line\n \n+ and not on next line\
+          \ and many subsequent lines\n \n+ and not on next line and many subsequent\
+          \ lines\n \n+ and not on next line and many subsequent lines\n \n+ and not\
+          \ on next line and many subsequent lines\n \n+ and not on next line and\
+          \ many subsequent lines\n \n+ and not on next line and many subsequent lines\n\
+          \ \n+ >> Nested goes here\n \n+ and not on next line and many subsequent\
+          \ lines\n \n+ and not on next line and many subsequent lines\n \n+ and not\
+          \ on next line and many subsequent lines\n \n+ and not on next line and\
+          \ many subsequent lines\n \n+ and not on next line and many subsequent lines\n\
+          \ \n+ and not on next line and many subsequent lines\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Pseudo admonitions
+        _type: SubjectName
+      parenthetical: ''
+      annotations:
+      - _type: Annotation
+        emoji: ''
+        label: This is a
+        content: 'warning: Don''t do that'
+        elaboration:
+        - _type: Paragraph
+          content: "> :warning: **Warning:**\n \n+ > Do not push the big red button.\n"
+        - _type: Paragraph
+          content: '> :memo: **Note:** Sunrises are beautiful.
+
+            '
+        - _type: Paragraph
+          content: '> :bulb: **Tip:** Remember to appreciate the little things in
+            life.
+
+            '
+        - _type: Paragraph
+          content: "So, how do I insert an emoji?  \U0001F41B\n \n+ In Obsidian the\
+            \ colon, after a space? \U0001F6F0\n"
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Markdown code blocks
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: CodeBlock
+        content: '```markdown
+
+          This is some text, with indented lists
+
+          - Item
+
+          - Item2
+
+          - Item 3
+
+          - Item a
+
+          - Item b
+
+          - Item c
+
+          ```'
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Code Tables
+        _type: SubjectName
+      one_liner:
+        _type: OneLiner
+        content: 'CSV Codeblock
+
+          So. This is the **one to use to enter codes**, lists of annotations, etc'
+      parenthetical: ''
+      elaboration:
+      - _type: CodeBlock
+        content: '```csv
+
+          Pos, Date, Name, Price
+
+          1, 2023-09-28, Spices, 150$
+
+          2, 2023-02-29, Shovel, 1.25$
+
+          ```'
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: HTML code center This should be centered center
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Comments
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "Here's a paragraph that will be visible.\n \n+ (Hard to see what's\
+          \ required: blank lines?]\n"
+      - _type: Paragraph
+        content: '[This is a comment that will be hidden.]: #
+
+          '
+      - _type: Paragraph
+        content: '[This is a comment] #
+
+          '
+      - _type: Paragraph
+        content: '[This is a comment that will be hidden.]: #
+
+          '
+      - _type: Paragraph
+        content: 'And here''s another paragraph that''s visible.
+
+          '
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Figures DS Copy jpg
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: 'just copy and paste into Obsidian page (or drag and drop)
+
+          '
+      - _type: Paragraph
+        content: 'Captions are harder
+
+          '
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: Diagrams Just use Mermaid in code block
+      _type: SubjectName
+    parenthetical: ''
+    elaboration:
+    - _type: CodeBlock
+      content: '``` (mermaid)
+
+
+        block-beta
+
+        columns 3
+
+        a:3
+
+        block:group1:2
+
+        columns 2
+
+        h i j k
+
+        end
+
+        g
+
+        block:group2:3
+
+        %% columns auto (default)
+
+        l m n o p q r
+
+        end
+
+        ```'
+    - _type: Paragraph
+      content: 'And here''s the result
+
+        '
+    - _type: CodeBlock
+      content: '```mermaid
+
+
+        block-beta
+
+        columns 3
+
+        a:3
+
+        block:group1:2
+
+        columns 2
+
+        h i j k
+
+        end
+
+        g
+
+        block:group2:3
+
+        %% columns auto (default)
+
+        l m n o p q r
+
+        end
+
+        ```'
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: Admonitions
+      _type: SubjectName
+    parenthetical: ''
+    elaboration:
+    - _type: CodeBlock
+      content: '```ad-tip
+
+        title: This is a tip
+
+        This is the content of the admonition tip.
+
+        ```'
+    subjects:
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Obsidian Callouts
+        _type: SubjectName
+      parenthetical: ''
+      elaboration:
+      - _type: Paragraph
+        content: "> [!info]\n \n+ > Here's a callout block.\n \n+ > It supports **Markdown**,\
+          \ [[Internal link|Wikilinks]], and [[Embed files|embeds]]!\n \n+ > ![[Engelbart.jpg]]\n"
+      - _type: Paragraph
+        content: "> [!note]\n \n+ > Lorem ipsum dolor sit amet\n"
+      - _type: Paragraph
+        content: "> [!abstract]\n \n+ > Lorem ipsum dolor sit amet\n"
+      - _type: Paragraph
+        content: "> [!question]\n \n+ > Lorem ipsum dolor sit amet\n"
+      - _type: Paragraph
+        content: ">[!question]\n \n+ >Why is the sky blue?\n"
+  - _type: SubjectB
+    prefix: '##'
+    name:
+      content: Capabilities
+      _type: SubjectName
+    parenthetical: ''
+    subjects:
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: To PDF
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: To HTML
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Prettify
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Edit in VS Code
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: TOC
+        _type: SubjectName
+      parenthetical: ''
+    - _type: SubjectC
+      prefix: '###'
+      name:
+        content: Index
+        _type: SubjectName
+      parenthetical: ''

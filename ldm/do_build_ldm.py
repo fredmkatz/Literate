@@ -16,7 +16,8 @@ from ldm.ldm_dull_handlers import (
     ParseTrivial, 
     ParseAttributeReference, 
     ParseHeader, 
-    ParseAnnotation
+    ParseAnnotation,
+    ParseSubtypeOf,
 
 )
 
@@ -25,6 +26,7 @@ from ldm.ldm_dull_handlers import (
 
 handle_name = ParseName()
 handle_name_list = ParseNameList()
+handle_subtype_of = ParseSubtypeOf()
 handle_trivial = ParseTrivial()
 handle_att_ref = ParseAttributeReference()
 handle_header = ParseHeader()   
@@ -50,14 +52,20 @@ subject_clauses = component_clauses + [
     HeadLine(starter_pattern="####", class_started="SubjectD", priority=9, handlers=handle_header),
     HeadLine(starter_pattern="###", class_started="SubjectC", priority=8, handlers=handle_header),
     HeadLine(starter_pattern="##", class_started="SubjectB", priority=7, handlers=handle_header),
-    HeadLine(starter_pattern="#", class_started="LDM", priority=1, handlers=handle_header),
+    HeadLine(starter_pattern="#", class_started="LiterateModel", priority=1, handlers=handle_header),
     # HeadLine(starter_pattern="```", class_started="CodeBlock", handlers=handle_header),
     HeadLine(starter_pattern="_", class_started="Class", handlers=handle_header),
+    HeadLine(starter_pattern="Class", class_started="Class", handlers=handle_header),
+    HeadLine(starter_pattern="Value Type:", class_started="ValueType", handlers=handle_header),
+    HeadLine(starter_pattern="Code Type:", class_started="CodeType", handlers=handle_header),
 ]
 class_clauses = component_clauses + [
     HeadLine(starter_pattern="_", class_started="Class", handlers=handle_header),
+    HeadLine(starter_pattern="_ Value Type:", class_started="ValueType", handlers=handle_header),
+    HeadLine(starter_pattern="_ Code Type:", class_started="CodeType", handlers=handle_header),
+
     MinorClause(
-        word="subtype of", is_list=True, is_cum=True, handlers=handle_name_list
+        word="subtype of", is_list=True, is_cum=True, handlers=handle_subtype_of
     ),
     MinorClause(
         word="subtypes", is_list=True, is_cum=True, handlers=handle_name_list
@@ -89,9 +97,9 @@ attribute_clauses = component_clauses + [
     MinorClause(word="inverse", handlers=handle_att_ref),
     MinorClause(word="inverse of", handlers=handle_att_ref),
     MinorClause(word="overrides", handlers=handle_att_ref),
-    MajorClause(word="Derivation", class_started="Derivation", attribute_name="as_entered"),
-    MajorClause(word="Default", class_started="Default", attribute_name="as_entered"),
-    MajorClause(word="Constraint", class_started="Constraint", is_list=False, is_cum=True, attribute_name="as_entered", plural="constraints"),
+    MajorClause(word="Derivation", class_started="Derivation", attribute_name="one_liner"),
+    MajorClause(word="Default", class_started="Default", attribute_name="one_liner"),
+    MajorClause(word="Constraint", class_started="Constraint", is_list=False, is_cum=True, attribute_name="one_liner", plural="constraints"),
 ]
 
 formula_clauses = [
@@ -129,7 +137,7 @@ partsNeeded = set(
     spec.class_started for spec in all_clauses if isinstance(spec, PartStarter)
 )
 
-print("parts needed: ", partsNeeded)
+# print("parts needed: ", partsNeeded)
 
 # section_starts = []
 
@@ -145,16 +153,18 @@ formula_clause_labels = labels_for(formula_clauses)
 
 component_parts = ["Annotation"]
 
-subject_parts = component_parts + ["Class"]
+subject_parts = component_parts + ["Class", "CodeType", "ValueType"]
 part_parts = {
     "Document": component_parts
-    + ["LDM", "Class", "SubjectB", "SubjectC", "SubjectD", "SubjectE"],
-    "LDM": subject_parts + ["SubjectB", "SubjectC", "SubjectD", "SubjectE"],
+    + ["LiterateModel", "Class", "CodeType", "ValueType", "SubjectB", "SubjectC", "SubjectD", "SubjectE"],
+    "LiterateModel": subject_parts + ["SubjectB", "SubjectC", "SubjectD", "SubjectE"],
     "SubjectB": subject_parts + ["SubjectC", "SubjectD", "SubjectE"],
     "SubjectC": subject_parts + ["SubjectD", "SubjectE"],
     "SubjectD": subject_parts + ["SubjectE"],
     "SubjectE": subject_parts + [],
     "Class": component_parts + ["AttributeSection", "Attribute", "Constraint"],
+    "CodeType": component_parts + ["AttributeSection", "Attribute", "Constraint"],
+    "ValueType": component_parts + ["AttributeSection", "Attribute", "Constraint"],
     "AttributeSection": component_parts + ["Attribute"],
     "Attribute": component_parts + ["Derivation", "Default", "Constraint"],
     # No parts; only subclauses
@@ -165,12 +175,14 @@ part_parts = {
 
 part_labels = {
     "Document": labels_for(subject_clauses),
-    "LDM": labels_for(subject_clauses),
+    "LiterateModel": labels_for(subject_clauses),
     "SubjectB": labels_for(subject_clauses),
     "SubjectC": labels_for(subject_clauses),
     "SubjectD": labels_for(subject_clauses),
     "SubjectE": labels_for(subject_clauses),
     "Class": labels_for(class_clauses),
+    "ValueType": labels_for(class_clauses),
+    "CodeType": labels_for(class_clauses),
     "AttributeSection": labels_for(att_section_clauses),
     "Attribute": labels_for(attribute_clauses),
     # No parts; only subclauses
@@ -212,13 +224,13 @@ listed_parts = headed_parts | parts_to_list
 
 all_line_types = all_clauses
 
+models_dir = "ldm/ldm_models"
 ldm_dull_specs = {
     "part_parts": part_parts,
     "part_plurals": part_plurals,
     "all_clauses_by_priority": all_clauses_by_priority,
     "listed_parts": listed_parts,
-    "dirpath": "ldm",
-    # "model_doc": "LDMMeta.md",
+    "dirpath": models_dir,
     "model_doc": "Literate.md",
     "model_module": "Literate01.py",
 
@@ -226,7 +238,15 @@ ldm_dull_specs = {
 if __name__ == "__main__":
     from dull_dsl.dull_build import build_dull_dsl
     
-    # path = "ldm/LDMMeta.md"
-    path = "ldm/Literate.md"
+    model_doc = "Literate.md"
+    model_doc = "LiterateTester.md"
+
+
+    model_doc = "Literate.md"
+    model_doc = "LiterateTester.md"
+
+
+
+    ldm_dull_specs["model_doc"] = model_doc
     build_dull_dsl(ldm_dull_specs)
 

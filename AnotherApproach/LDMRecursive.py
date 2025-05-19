@@ -50,7 +50,7 @@ class LiterateParser:
             print(f"Error creating Paragraph: {e}")
             # Fallback
             p = Paragraph(output="")
-            p.output = text
+            p.content = text
             return p
     
     def create_one_liner(self, text):
@@ -61,7 +61,7 @@ class LiterateParser:
         # Create without arguments and set properties manually
         one_liner = OneLiner()
         one_liner.input = text
-        one_liner.output = text.replace("<<<", "").replace(">>>", "")
+        one_liner.content = text.replace("<<<", "").replace(">>>", "")
         return one_liner    
     
     def parse(self) -> LDM:
@@ -450,8 +450,7 @@ class LiterateParser:
         from Lit_01 import IsOptional
         return DataTypeClause(
             data_type=data_type,
-            is_optional=is_optional,
-            is_also_optional=IsOptional(is_optional)
+            is_optional = IsOptional(is_optional)
         )
     
     def parse_simple_data_type(self, type_text):

@@ -16,9 +16,9 @@ def create_model_from_dict(metamodel, metaclasses, model_dict: Dict) -> Any:
     metas_by_name = {x.__name__: x for x in metaclasses}
     print("Metas by name: ", metas_by_name)   
     
-    the_object = create_obect_for_class_named("LDM", metas_by_name)
+    the_object = create_obect_for_class_named("LiterateModel", metas_by_name)
     if not the_object:
-        print(f"ERROR: No class found for LDM")
+        print(f"ERROR: No class found for LiterateModel")
         return None
     the_object.name = "The NAME"
     print("The object is ", the_object)   

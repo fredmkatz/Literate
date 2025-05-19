@@ -1,0 +1,4488 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../Literate.css">
+</head>
+<body>
+<div class="LiterateModel">
+ <div class="subjects list">
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Preliminaries">
+     Preliminaries
+    </a>
+    <div class="OneLiner">
+     the basic structure
+of the model
+    </div>
+   </div>
+   <div class="elaboration list">
+    <div class="Paragraph">
+     In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.
+    </div>
+    <div class="Paragraph">
+     We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
+    </div>
+   </div>
+   <div class="classes list">
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Component">
+       Component
+      </a>
+      <div class="OneLiner">
+       An element or building block of the literate data model
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="normalName">
+         normalName
+        </a>
+        <div class="OneLiner">
+         the name of the component, not in camel case
+        </div>
+        <span class="parenthetical value">
+         *String*
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#String">
+            String
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="name">
+         name
+        </a>
+        <div class="OneLiner">
+         The name of the component
+        </div>
+        <span class="parenthetical value">
+         CamelName
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#CamelName">
+            CamelName
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="qualifiedName">
+         qualifiedName
+        </a>
+        <span class="parenthetical value">
+         *QualifiedCamel*
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#QualifiedCamel">
+            QualifiedCamel
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="abbreviatedName">
+         abbreviatedName
+        </a>
+        <div class="OneLiner">
+         a short form of the component's name, used for cross references and improved readability.
+        </div>
+        <span class="parenthetical value">
+         *CamelName*
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#CamelName">
+            CamelName
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="dict">
+        <span class="key">
+         default:
+        </span>
+        <span class="value">
+         <div class="Default">
+         </div>
+        </span>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Example
+         </span>
+         <span class="content">
+          "LDM" is the short form of "Literate Data Model".
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="oneLiner">
+         oneLiner
+        </a>
+        <div class="OneLiner">
+         A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _
+        </div>
+        <span class="parenthetical value">
+         RichLine
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#RichLine">
+            RichLine
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="elaboration">
+         elaboration
+        </a>
+        <div class="OneLiner">
+         A more detailed explanation or discussion of the component _
+        </div>
+        <span class="parenthetical value">
+         RichText
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#RichText">
+            RichText
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="attribute_sections list">
+      <div class="AttributeSection">
+       <div class="AttributeSection_header header">
+        <span class="prefix value">
+         __
+        </span>
+        <a class="AttributeSectionName name" id="For Machinery">
+         For Machinery
+        </a>
+        <div class="OneLiner">
+         mechanical attributes
+        </div>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="isEmbellishment">
+           isEmbellishment
+          </a>
+          <div class="OneLiner">
+           Indicates whether this component is an embellishment added during post-parsing processing _
+          </div>
+          <span class="parenthetical value">
+           Boolean
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Boolean">
+              Boolean
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Note
+           </span>
+           <span class="content">
+            This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="AnnotationType">
+       AnnotationType
+      </a>
+      <div class="OneLiner">
+       a kind of note, or aside, used to call attention to additional information about some Component.
+      </div>
+     </div>
+     <div class="based_on_clause">
+      <span class="clause_label">
+       based_on
+      </span>
+      <div class="list">
+       <span class="class_name_link" href="#Literate Data Model">
+        Literate Data Model
+       </span>
+      </div>
+     </div>
+     <div class="annotations list">
+      <div class="Annotation">
+       <span class="label">
+        Note
+       </span>
+       <span class="content">
+        Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.
+       </span>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="emoji">
+         emoji
+        </a>
+        <div class="OneLiner">
+         an emoji
+        </div>
+        <span class="parenthetical value">
+         Emoji
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Emoji">
+            Emoji
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="emojiName">
+         emojiName
+        </a>
+        <div class="OneLiner">
+         an emoji
+        </div>
+        <span class="parenthetical value">
+         String
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#String">
+            String
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="emojiUnicode">
+         emojiUnicode
+        </a>
+        <div class="OneLiner">
+         the Unicode for the emoji
+        </div>
+        <span class="parenthetical value">
+         Unicode
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Unicode">
+            Unicode
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="label">
+         label
+        </a>
+        <div class="OneLiner">
+         A short label to indicate the purpose of the annotation _
+        </div>
+        <span class="parenthetical value">
+         CamelName
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#CamelName">
+            CamelName
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="plural">
+         plural
+        </a>
+        <div class="OneLiner">
+         the plural form of the label
+        </div>
+        <span class="parenthetical value">
+         *UpperCamel*
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#UpperCamel">
+            UpperCamel
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="dict">
+        <span class="key">
+         default:
+        </span>
+        <span class="value">
+         <div class="Default">
+         </div>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Purpose">
+         Purpose
+        </a>
+        <div class="OneLiner">
+         the intended reason for the annotation.
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="ValueType Annotation
+A note or comment associated with a model element">
+       ValueType Annotation
+A note or comment associated with a model element
+      </a>
+     </div>
+     <div class="based_on_clause">
+      <span class="clause_label">
+       based_on
+      </span>
+      <div class="list">
+       <span class="class_name_link" href="#Component">
+        Component
+       </span>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="annotationType">
+         annotationType
+        </a>
+        <span class="parenthetical value">
+         optional Annotation Type
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Annotation Type">
+            Annotation Type
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Note
+         </span>
+         <span class="content">
+          An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="label">
+         label
+        </a>
+        <div class="OneLiner">
+         A short label to indicate the purpose of the annotation _
+        </div>
+        <span class="parenthetical value">
+         CamelName
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#CamelName">
+            CamelName
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="elaboration list">
+        <div class="Paragraph">
+         But any short label is valid.
+        </div>
+       </div>
+       <div class="dict">
+        <span class="key">
+         default:
+        </span>
+        <span class="value">
+         <div class="Default">
+         </div>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Emoji">
+         Emoji
+        </a>
+        <span class="parenthetical value">
+         optional Emoji
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Emoji">
+            Emoji
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="dict">
+        <span class="key">
+         default:
+        </span>
+        <span class="value">
+         <div class="Default">
+         </div>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="content">
+         content
+        </a>
+        <div class="OneLiner">
+         The content or body of the annotation
+        </div>
+        <span class="parenthetical value">
+         *RichText*
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#RichText">
+            RichText
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="attribute_sections list">
+      <div class="AttributeSection">
+       <div class="AttributeSection_header header">
+        <span class="prefix value">
+         __
+        </span>
+        <a class="AttributeSectionName name" id="For Machinery">
+         For Machinery
+        </a>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="isEmbellishment">
+           isEmbellishment
+          </a>
+          <div class="OneLiner">
+           Indicates whether this annotation is an embellishment added during post-parsing processing _
+          </div>
+          <span class="parenthetical value">
+           Boolean
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Boolean">
+              Boolean
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Note
+           </span>
+           <span class="content">
+            This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="The Model and its Subjects">
+     The Model and its Subjects
+    </a>
+   </div>
+   <div class="classes list">
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="LiterateDataModel">
+       LiterateDataModel
+      </a>
+      <div class="OneLiner">
+       A representation of a domain's entities, attributes, and relationships,
+along with explanatory text and examples
+      </div>
+     </div>
+     <div class="str">
+      <span class="key">
+       abbreviation:
+      </span>
+      <span class="value">
+       LDM
+      </span>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       LiterateDataModels
+      </span>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Component">
+         Component
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="name">
+         name
+        </a>
+        <span class="parenthetical value">
+         UpperCamel
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#UpperCamel">
+            UpperCamel
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="allSubjects">
+         allSubjects
+        </a>
+        <div class="OneLiner">
+         list of all classes in the model, as ordered in the
+definition of the model.
+        </div>
+        <span class="parenthetical value">
+         List of Classes
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="ListDataType">
+           <span class="BaseDataType">
+            <span class="class_name_link" href="#Classes">
+             Classes
+            </span>
+            <span class="as_value">
+             value
+            </span>
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="dict">
+        <span class="key">
+         derivation:
+        </span>
+        <span class="value">
+         <div class="Derivation">
+         </div>
+        </span>
+       </div>
+       <div class="constraints list">
+        <div class="Constraint">
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="allClasses">
+         allClasses
+        </a>
+        <div class="OneLiner">
+         list of all classes in the model, as ordered in the definition of the model.
+        </div>
+        <span class="parenthetical value">
+         List of Classes
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="ListDataType">
+           <span class="BaseDataType">
+            <span class="class_name_link" href="#Classes">
+             Classes
+            </span>
+            <span class="as_value">
+             value
+            </span>
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="dict">
+        <span class="key">
+         derivation:
+        </span>
+        <span class="value">
+         <div class="Derivation">
+         </div>
+        </span>
+       </div>
+       <div class="constraints list">
+        <div class="Constraint">
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="attribute_sections list">
+      <div class="AttributeSection">
+       <div class="AttributeSection_header header">
+        <span class="prefix value">
+         __
+        </span>
+        <a class="AttributeSectionName name" id="Modeling Configuration">
+         Modeling Configuration
+        </a>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="annotationTypes">
+           annotationTypes
+          </a>
+          <span class="parenthetical value">
+           List of AnnotationTypes
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#AnnotationTypes">
+               AnnotationTypes
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="Preferred Coding Language">
+           Preferred Coding Language
+          </a>
+          <div class="OneLiner">
+           the recommended lanquage  for expressing derivation, defaults, and constraints
+          </div>
+          <span class="parenthetical value">
+           Coding Language
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Coding Language">
+              Coding Language
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="alternate Coding Languages">
+           alternate Coding Languages
+          </a>
+          <span class="parenthetical value">
+           optional List of Coding Languages
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Coding Languages">
+               Coding Languages
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="Preferred Template Language">
+           Preferred Template Language
+          </a>
+          <div class="OneLiner">
+           the recommended lanquage  for expressing derivation, defaults, and constraints
+          </div>
+          <span class="parenthetical value">
+           Template Language
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Template Language">
+              Template Language
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="alternate Template Languages">
+           alternate Template Languages
+          </a>
+          <span class="parenthetical value">
+           optional List of Template Languages
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Template Languages">
+               Template Languages
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="aiFunctions">
+           aiFunctions
+          </a>
+          <div class="OneLiner">
+           A list of functions that require sophisticated AI-powered implementation *
+          </div>
+          <span class="parenthetical value">
+           List of String
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#String">
+               String
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           derivation:
+          </span>
+          <span class="value">
+           <div class="Derivation">
+           </div>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Subject
+A specific topic or theme within the model">
+       Subject
+A specific topic or theme within the model
+      </a>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       Subjects
+      </span>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Component">
+         Component
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="dependent_of_clause">
+      <span class="clause_label">
+       dependent_of
+      </span>
+      <div class="list">
+       <span class="class_name_link" href="#LiterateDataModel">
+        LiterateDataModel
+       </span>
+      </div>
+     </div>
+     <div class="elaboration list">
+      <div class="Paragraph">
+       Subjects are the chapters an sections of the model.
+ 
++ A subject need not contain any Classes if it’s just expository.
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="name">
+         name
+        </a>
+        <span class="parenthetical value">
+         UpperCamel
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#UpperCamel">
+            UpperCamel
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="parentSubject">
+         parentSubject
+        </a>
+        <div class="OneLiner">
+         The parent subject, if any, under which this subject is nested _
+        </div>
+        <span class="parenthetical value">
+         optional Subject
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Subject">
+            Subject
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Classes">
+         Classes
+        </a>
+        <div class="OneLiner">
+         The major classes related to this subject, in the order in which they should be presented _
+        </div>
+        <span class="parenthetical value">
+         ListOf Classes
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="ListDataType">
+           <span class="BaseDataType">
+            <span class="class_name_link" href="#Classes">
+             Classes
+            </span>
+            <span class="as_value">
+             value
+            </span>
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Issue
+         </span>
+         <span class="content">
+          define chapter, section, subsection as levels?
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Each Class should be followed first by the classes that are dependent on it, and then">
+         Each Class should be followed first by the classes that are dependent on it, and then
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="By its subtype classes.">
+         By its subtype classes.
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="childSubjects">
+         childSubjects
+        </a>
+        <div class="OneLiner">
+         Any child subjects nested under this subject, in the order in which they should be presented _
+        </div>
+        <span class="parenthetical value">
+         ListOf Subjects
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="ListDataType">
+           <span class="BaseDataType">
+            <span class="class_name_link" href="#Subjects">
+             Subjects
+            </span>
+            <span class="as_value">
+             value
+            </span>
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="dict">
+        <span class="key">
+         inverse:
+        </span>
+        <span class="value">
+         <div class="AttributeReference">
+          <div class="ClassName">
+           <span class="key">
+            class_name:
+           </span>
+           <span class="value">
+            <span class="class_name_link" href="#Subject">
+             Subject
+            </span>
+           </span>
+          </div>
+          <div class="AttributeName">
+           <span class="key">
+            attribute_name:
+           </span>
+           <span class="value">
+            parentSubject.
+           </span>
+          </div>
+         </div>
+        </span>
+       </div>
+       <div class="elaboration list">
+        <div class="Paragraph">
+         ***DSL***:  the Classes within a Subject are always displayed before the childSubjects.
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="SubjectArea
+A main topic or area of focus within the model, containing related subjects and classes">
+       SubjectArea
+A main topic or area of focus within the model, containing related subjects and classes
+      </a>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       SubjectAreas
+      </span>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Subject">
+         Subject
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="str">
+      <span class="key">
+       where:
+      </span>
+      <span class="value">
+       parentSubject is absent
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="subjects list">
+    <div class="Subject">
+     <div class="Subject_header header">
+      <span class="prefix value">
+       ###
+      </span>
+      <a class="SubjectName name" id="Classes">
+       Classes
+      </a>
+     </div>
+     <div class="classes list">
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="Class">
+         Class
+        </a>
+        <div class="OneLiner">
+         A key entity or object type in the model, often corresponding to a real-world concept
+        </div>
+       </div>
+       <div class="str">
+        <span class="key">
+         plural:
+        </span>
+        <span class="value">
+         Classes
+        </span>
+       </div>
+       <div class="subtype_of_clause">
+        <span class="clause_label">
+         subtype_of
+        </span>
+        <div class="subtype_pairs">
+         <div class="subtype_pair">
+          <span class="class_name_link" href="#Component">
+           Component
+          </span>
+          bySomething
+         </div>
+        </div>
+       </div>
+       <div class="constraints list">
+        <div class="Constraint">
+        </div>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="pluralForm">
+           pluralForm
+          </a>
+          <div class="OneLiner">
+           the normal English plural form of the name of the Class
+          </div>
+          <span class="parenthetical value">
+           UpperName
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#UpperName">
+              UpperName
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="elaboration list">
+          <div class="Paragraph">
+           Might be Books for the Book class or other regular plurals.
+ 
++ But also might be People for Person.
+          </div>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Note
+           </span>
+           <span class="content">
+            When inputting a model, you will rarely need to specify the plural form. The input program will just look it up.
+           </span>
+          </div>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="basedOn">
+           basedOn
+          </a>
+          <div class="OneLiner">
+           the Class or Classes on which this class is dependent
+          </div>
+          <span class="parenthetical value">
+           SetOf Classes
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <div class="SetDataType">
+             <div class="dict">
+              <span class="key">
+               element_type:
+              </span>
+              <span class="value">
+               <span class="BaseDataType">
+                <span class="class_name_link" href="#Classes">
+                 Classes
+                </span>
+                <span class="as_value">
+                 value
+                </span>
+               </span>
+              </span>
+             </div>
+            </div>
+           </span>
+          </span>
+         </div>
+         <div class="elaboration list">
+          <div class="Paragraph">
+           This is solely based on **Existence Dependency**. A true dependent entity cannot logically exist without the related parent entity. For instance, an Order Item cannot exist without an Order. If removing the parent entity logically implies removing the dependent entity, then it is a dependent entity.
+          </div>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Note
+           </span>
+           <span class="content">
+            that basedOn and dependentOf are being used synonymousle in this metamodel.
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="supertypes">
+           supertypes
+          </a>
+          <div class="OneLiner">
+           The parent class
+          </div>
+          <span class="parenthetical value">
+           es
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#es">
+              es
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="subtypings">
+           subtypings
+          </a>
+          <div class="OneLiner">
+           the criteria, or dimensions, by which the class can be divided into subtypes
+          </div>
+          <span class="parenthetical value">
+           list of Subtypings
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Subtypings">
+               Subtypings
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Example
+           </span>
+           <span class="content">
+            in a library model, the `Book` class could have subtypings based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback), or subject (e.g., Science, History).
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="subtypes">
+           subtypes
+          </a>
+          <div class="OneLiner">
+           Any subtypes or specializations of this class based on it’s subtypings. _
+          </div>
+          <span class="parenthetical value">
+           ListOf Classes
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Classes">
+               Classes
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Example
+           </span>
+           <span class="content">
+            For instance, using the `Book` example, the subtypes could include `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`, `ScienceBook`, and `HistoryBook`.
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="attributes">
+           attributes
+          </a>
+          <div class="OneLiner">
+           The attributes or properties of the class, in the order in which they should be presented _
+          </div>
+          <span class="parenthetical value">
+           ListOf Attributes
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Attributes">
+               Attributes
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="attributeSections">
+           attributeSections
+          </a>
+          <div class="OneLiner">
+           additional attributes or properties of the class, grouped for clarity and elaboration.  _
+          </div>
+          <span class="parenthetical value">
+           ListOf AttributeSections
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#AttributeSections">
+               AttributeSections
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="constraints">
+           constraints
+          </a>
+          <div class="OneLiner">
+           Any constraints, rules, or validations specific to this class _
+          </div>
+          <span class="parenthetical value">
+           ListOf Constraints
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Constraints">
+               Constraints
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Note
+           </span>
+           <span class="content">
+            Constraints may be expressed on either the Class or the Attribute. Always?
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="methods">
+           methods
+          </a>
+          <div class="OneLiner">
+           Any behaviors or operations associated with this class _
+          </div>
+          <span class="parenthetical value">
+           ListOf Methods
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Methods">
+               Methods
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+       <div class="attribute_sections list">
+        <div class="AttributeSection">
+         <div class="AttributeSection_header header">
+          <span class="prefix value">
+           __
+          </span>
+          <a class="AttributeSectionName name" id="Implied Attributes">
+           Implied Attributes
+          </a>
+         </div>
+         <div class="attributes list">
+          <div class="Attribute">
+           <div class="Attribute_header header">
+            <span class="prefix value">
+             -
+            </span>
+            <a class="AttributeName name" id="dependents">
+             dependents
+            </a>
+            <div class="OneLiner">
+             the Classes which are basedOn this Class
+            </div>
+            <span class="parenthetical value">
+             optional SetOf Classes
+            </span>
+            <span class="data_type_clause value">
+             <span class="DataTypeClause">
+              <div class="SetDataType">
+               <div class="dict">
+                <span class="key">
+                 element_type:
+                </span>
+                <span class="value">
+                 <span class="BaseDataType">
+                  <span class="class_name_link" href="#Classes">
+                   Classes
+                  </span>
+                  <span class="as_value">
+                   value
+                  </span>
+                 </span>
+                </span>
+               </div>
+              </div>
+             </span>
+            </span>
+           </div>
+           <div class="dict">
+            <span class="key">
+             inverse:
+            </span>
+            <span class="value">
+             <div class="AttributeReference">
+              <div class="ClassName">
+               <span class="key">
+                class_name:
+               </span>
+               <span class="value">
+                <span class="class_name_link" href="#Class">
+                 Class
+                </span>
+               </span>
+              </div>
+              <div class="AttributeName">
+               <span class="key">
+                attribute_name:
+               </span>
+               <span class="value">
+                basedOn
+               </span>
+              </div>
+             </div>
+            </span>
+           </div>
+          </div>
+          <div class="Attribute">
+           <div class="Attribute_header header">
+            <span class="prefix value">
+             -
+            </span>
+            <a class="AttributeName name" id="UniqueKeys">
+             UniqueKeys
+            </a>
+            <span class="parenthetical value">
+             optional Set of UniqueKeys
+            </span>
+            <span class="data_type_clause value">
+             <span class="DataTypeClause">
+              <div class="SetDataType">
+               <div class="dict">
+                <span class="key">
+                 element_type:
+                </span>
+                <span class="value">
+                 <span class="BaseDataType">
+                  <span class="class_name_link" href="#UniqueKeys">
+                   UniqueKeys
+                  </span>
+                  <span class="as_value">
+                   value
+                  </span>
+                 </span>
+                </span>
+               </div>
+              </div>
+             </span>
+            </span>
+           </div>
+           <div class="dict">
+            <span class="key">
+             inverse:
+            </span>
+            <span class="value">
+             <div class="AttributeReference">
+              <div class="ClassName">
+               <span class="key">
+                class_name:
+               </span>
+               <span class="value">
+                <span class="class_name_link" href="#UniqueKey">
+                 UniqueKey
+                </span>
+               </span>
+              </div>
+              <div class="AttributeName">
+               <span class="key">
+                attribute_name:
+               </span>
+               <span class="value">
+                basedOn
+               </span>
+              </div>
+             </div>
+            </span>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="Subtyping">
+         Subtyping
+        </a>
+        <div class="OneLiner">
+         a way in which subtypes of a Class may be classified
+        </div>
+        <span class="parenthetical value">
+         Subtype of Component
+        </span>
+       </div>
+       <div class="dependent_of_clause">
+        <span class="clause_label">
+         dependent_of
+        </span>
+        <div class="list">
+         <span class="class_name_link" href="#Class">
+          Class
+         </span>
+        </div>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="name">
+           name
+          </a>
+          <span class="parenthetical value">
+           Upper Name
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Upper Name">
+              Upper Name
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="is exclusive">
+           is exclusive
+          </a>
+          <span class="parenthetical value">
+           Boolean
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Boolean">
+              Boolean
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="is exhaustive">
+           is exhaustive
+          </a>
+          <span class="parenthetical value">
+           Boolean
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Boolean">
+              Boolean
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="classes">
+           classes
+          </a>
+          <span class="parenthetical value">
+           List of Classes
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Classes">
+               Classes
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="elaboration list">
+          <div class="Paragraph">
+           ***DSL***:  Shown in the DSL as
+ 
++ &gt; Subbtypes: byBrand - Brand1, Brand2,... (non exclusive, exhaustive)
+ 
++ on the super class. And as
+ 
++ &gt; Subtype of: SuperClass byBrand
+ 
++ on the subclass.
+          </div>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Note
+           </span>
+           <span class="content">
+            every class can have an unnamed subtyping.
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="ValueType">
+         ValueType
+        </a>
+       </div>
+       <div class="subtype_of_clause">
+        <span class="clause_label">
+         subtype_of
+        </span>
+        <div class="subtype_pairs">
+         <div class="subtype_pair">
+          <span class="class_name_link" href="#Class.">
+           Class.
+          </span>
+          bySomething
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="Reference Type">
+         Reference Type
+        </a>
+       </div>
+       <div class="subtype_of_clause">
+        <span class="clause_label">
+         subtype_of
+        </span>
+        <div class="subtype_pairs">
+         <div class="subtype_pair">
+          <span class="class_name_link" href="#Class.">
+           Class.
+          </span>
+          bySomething
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="CodeType
+A data type or enumeration used in the model">
+         CodeType
+A data type or enumeration used in the model
+        </a>
+       </div>
+       <div class="subtype_of_clause">
+        <span class="clause_label">
+         subtype_of
+        </span>
+        <div class="subtype_pairs">
+         <div class="subtype_pair">
+          <span class="class_name_link" href="#ValueType.">
+           ValueType.
+          </span>
+          bySomething
+         </div>
+        </div>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Note
+         </span>
+         <span class="content">
+          Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
+         </span>
+        </div>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="List the code values as a bulletted list inside the description of the attribute in the form
+‘code description’">
+           List the code values as a bulletted list inside the description of the attribute in the form
+‘code description’
+          </a>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive.">
+           A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive.
+          </a>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="isCaptive">
+           isCaptive
+          </a>
+          <div class="OneLiner">
+           the code type was implied by use in an attribute and is only used for that attribute
+          </div>
+          <span class="parenthetical value">
+           Boolean
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Boolean">
+              Boolean
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="Code Value">
+         Code Value
+        </a>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          A possible value for an enumerated data class  DependentOf
+         </span>
+         <span class="content">
+          CodeType
+         </span>
+        </div>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="code">
+           code
+          </a>
+          <div class="OneLiner">
+           A short code or abbreviationi for the value _
+          </div>
+          <span class="parenthetical value">
+           NameString
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#NameString">
+              NameString
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="description">
+           description
+          </a>
+          <div class="OneLiner">
+           an explanation of what the code means
+          </div>
+          <span class="parenthetical value">
+           *RichText*
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#RichText">
+              RichText
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="Key">
+         Key
+        </a>
+        <div class="OneLiner">
+         a list of attributes of a class
+        </div>
+       </div>
+       <div class="subtype_of_clause">
+        <span class="clause_label">
+         subtype_of
+        </span>
+        <div class="subtype_pairs">
+         <div class="subtype_pair">
+          <span class="class_name_link" href="#Component">
+           Component
+          </span>
+          bySomething
+         </div>
+        </div>
+       </div>
+       <div class="dependent_of_clause">
+        <span class="clause_label">
+         dependent_of
+        </span>
+        <div class="list">
+         <span class="class_name_link" href="#Class">
+          Class
+         </span>
+        </div>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="keyAttributes">
+           keyAttributes
+          </a>
+          <div class="OneLiner">
+           the attributes of the base Class.
+          </div>
+          <span class="parenthetical value">
+           List of Attributes
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="ListDataType">
+             <span class="BaseDataType">
+              <span class="class_name_link" href="#Attributes">
+               Attributes
+              </span>
+              <span class="as_value">
+               value
+              </span>
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="constraints list">
+          <div class="Constraint">
+          </div>
+          <div class="Constraint">
+          </div>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Issue
+           </span>
+           <span class="content">
+            need ascending descending to support index keys or ordering keys.
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Class">
+       <div class="Class_header header">
+        <span class="prefix value">
+         _
+        </span>
+        <a class="ClassName name" id="UniqueKey">
+         UniqueKey
+        </a>
+        <div class="OneLiner">
+         a list of attributes on which instances of the base class may be keyed.
+        </div>
+       </div>
+       <div class="subtype_of_clause">
+        <span class="clause_label">
+         subtype_of
+        </span>
+        <div class="subtype_pairs">
+         <div class="subtype_pair">
+          <span class="class_name_link" href="#Key">
+           Key
+          </span>
+          bySomething
+         </div>
+        </div>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Note
+         </span>
+         <span class="content">
+          order unimportant for Unique Keys.
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Attributes">
+     Attributes
+    </a>
+   </div>
+   <div class="classes list">
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Attribute Section">
+       Attribute Section
+      </a>
+      <div class="OneLiner">
+       a group of attributes for a class that merit a shared explanation.
+      </div>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Component.">
+         Component.
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="based_on_clause">
+      <span class="clause_label">
+       based_on
+      </span>
+      <div class="list">
+       <span class="class_name_link" href="#Class">
+        Class
+       </span>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="isOptional">
+         isOptional
+        </a>
+        <div class="OneLiner">
+         whether the attributes in this section, taken together, are optional.
+        </div>
+        <span class="parenthetical value">
+         Boolean
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Boolean">
+            Boolean
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="elaboration list">
+        <div class="Paragraph">
+         If the Attribute Section is required,then each Attribute within the sectional is optional ot required, depending on how it is marked.
+ 
++  
+ 
++ But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Attribute
+A property or characteristic of a class">
+       Attribute
+A property or characteristic of a class
+      </a>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       Attributes
+      </span>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Component">
+         Component
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="based_on_clause">
+      <span class="clause_label">
+       based_on
+      </span>
+      <div class="list">
+       <span class="class_name_link" href="#AttributeSection">
+        AttributeSection
+       </span>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="name">
+         name
+        </a>
+        <span class="parenthetical value">
+         Lower Camel
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Lower Camel">
+            Lower Camel
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="dict">
+        <span class="key">
+         overrides:
+        </span>
+        <span class="value">
+         <div class="AttributeReference">
+          <div class="str">
+           <span class="key">
+            class_name:
+           </span>
+           <span class="value">
+            CamelName
+           </span>
+          </div>
+          <div class="str">
+           <span class="key">
+            attribute_name:
+           </span>
+           <span class="value">
+           </span>
+          </div>
+         </div>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="dataType">
+         dataType
+        </a>
+        <div class="OneLiner">
+         The kind of object to which the attribute refers.  _
+        </div>
+        <span class="parenthetical value">
+         DataType
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#DataType">
+            DataType
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="elaboration list">
+        <div class="Paragraph">
+         But,
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="List of Editions">
+         List of Editions
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Set of Edition">
+         Set of Edition
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="... and more complicated cases.">
+         ... and more complicated cases.
+        </a>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          See
+         </span>
+         <span class="content">
+          the section below on Data Type Specifiers.
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="attribute_sections list">
+      <div class="AttributeSection">
+       <div class="AttributeSection_header header">
+        <span class="prefix value">
+         __
+        </span>
+        <a class="AttributeSectionName name" id="Cardinalities.">
+         Cardinalities.
+        </a>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="isOptional">
+           isOptional
+          </a>
+          <div class="OneLiner">
+           Indicates whether the attribute must have a value for every instance of the class _
+          </div>
+          <span class="parenthetical value">
+           Boolean
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Boolean">
+              Boolean
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="cardinality">
+           cardinality
+          </a>
+          <div class="OneLiner">
+           The cardinality of the relationship represented by the attribute _
+          </div>
+          <span class="parenthetical value">
+           CardinalityCode
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#CardinalityCode">
+              CardinalityCode
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           default:
+          </span>
+          <span class="value">
+           <div class="Default">
+            <div class="elaboration list">
+             <div class="Paragraph">
+              ***DSL***: the cardinality of an attribute, if stated explicitly, should be placed just before the class name in the parenthetical data type specification after the one-liner.
+             </div>
+            </div>
+           </div>
+          </span>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            For example
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="author">
+           author
+          </a>
+          <span class="parenthetical value">
+           1:1 Author
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Invented Name">
+              Invented Name
+             </span>
+             <span class="as_value">
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="books">
+           books
+          </a>
+          <span class="parenthetical value">
+           optional N:M Set of Books
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Invented Name">
+              Invented Name
+             </span>
+             <span class="as_value">
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="annotations list">
+          <div class="Annotation">
+           <span class="label">
+            Note
+           </span>
+           <span class="content">
+            how this works with optionality
+           </span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="AttributeSection">
+       <div class="AttributeSection_header header">
+        <span class="prefix value">
+         __
+        </span>
+        <a class="AttributeSectionName name" id="Inverse Attributes">
+         Inverse Attributes
+        </a>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="isInvertible">
+           isInvertible
+          </a>
+          <span class="parenthetical value">
+           Boolean
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Boolean">
+              Boolean
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           derivation:
+          </span>
+          <span class="value">
+           <div class="Derivation">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="inverseClass">
+           inverseClass
+          </a>
+          <div class="OneLiner">
+           the class which contains, or would contain the inverse attribute
+          </div>
+          <span class="parenthetical value">
+           optional Class
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Class">
+              Class
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+         <div class="dict">
+          <span class="key">
+           derivation:
+          </span>
+          <span class="value">
+           <div class="Derivation">
+           </div>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="inverseAttribute">
+           inverseAttribute
+          </a>
+          <span class="parenthetical value">
+           optional Attribute
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Attribute">
+              Attribute
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="inverseIsOptional">
+           inverseIsOptional
+          </a>
+          <span class="parenthetical value">
+           optional Attribute
+          </span>
+          <span class="data_type_clause value">
+           <span class="DataTypeClause">
+            <span class="BaseDataType">
+             <span class="class_name_link" href="#Attribute">
+              Attribute
+             </span>
+             <span class="as_value">
+              value
+             </span>
+            </span>
+           </span>
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Formulas">
+       Formulas
+      </a>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="default">
+         default
+        </a>
+        <div class="OneLiner">
+         The rule or formula for calculating the value, if no value is supplied
+Now running to a second line with the parenthentical on yet a third line
+        </div>
+        <span class="parenthetical value">
+         optional Derivation
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Derivation">
+            Derivation
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Note
+         </span>
+         <span class="content">
+          even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed.
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="derivation">
+         derivation
+        </a>
+        <div class="OneLiner">
+         For derived attributes, the rule or formula for calculating the value _
+        </div>
+        <span class="parenthetical value">
+         optional Derivation
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Derivation">
+            Derivation
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Issue
+         </span>
+         <span class="content">
+          on insert vs on access?
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="constraints">
+         constraints
+        </a>
+        <div class="OneLiner">
+         Any validation rules specific to this attribute _
+        </div>
+        <span class="parenthetical value">
+         ListOf Constraints
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="ListDataType">
+           <span class="BaseDataType">
+            <span class="class_name_link" href="#Constraints">
+             Constraints
+            </span>
+            <span class="as_value">
+             value
+            </span>
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Note
+         </span>
+         <span class="content">
+          from Class.constraints
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="attribute_sections list">
+      <div class="AttributeSection">
+       <div class="AttributeSection_header header">
+        <span class="prefix value">
+         __
+        </span>
+        <a class="AttributeSectionName name" id="Override Tracking">
+         Override Tracking
+        </a>
+       </div>
+       <div class="attributes list">
+        <div class="Attribute">
+         <div class="Attribute_header header">
+          <span class="prefix value">
+           -
+          </span>
+          <a class="AttributeName name" id="Overrides">
+           Overrides
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="ValueType Derivation
+A rule or formula for deriving the value of an attribute">
+       ValueType Derivation
+A rule or formula for deriving the value of an attribute
+      </a>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       Derivations
+      </span>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="statement">
+         statement
+        </a>
+        <div class="OneLiner">
+         An English language statement of the derivation rule _
+        </div>
+        <span class="parenthetical value">
+         RichText
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#RichText">
+            RichText
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="expression">
+         expression
+        </a>
+        <div class="OneLiner">
+         The formal expression of the derivation in a programming language _
+        </div>
+        <span class="parenthetical value">
+         CodeExpression
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#CodeExpression">
+            CodeExpression
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="ValueType Constraint
+A rule, condition, or validation that must be satisfied by the model">
+       ValueType Constraint
+A rule, condition, or validation that must be satisfied by the model
+      </a>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       Constraints
+      </span>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Component">
+         Component
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="statement">
+         statement
+        </a>
+        <div class="OneLiner">
+         An English language statement of the constraint _
+        </div>
+        <span class="parenthetical value">
+         RichText
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#RichText">
+            RichText
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="expression">
+         expression
+        </a>
+        <div class="OneLiner">
+         The formal expression of the constraint in a programming language
+        </div>
+        <span class="parenthetical value">
+         e.g., OCL _(CodeExpression
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Invented Name">
+            Invented Name
+           </span>
+           <span class="as_value">
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="severity">
+         severity
+        </a>
+        <span class="parenthetical value">
+         Code
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Code">
+            Code
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <div class="OneLiner">
+         **Warning** - nothing fatal; just a caution
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <div class="OneLiner">
+         **Error** - serious. Fix now
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Message">
+         Message
+        </a>
+        <span class="parenthetical value">
+         Template
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Template">
+            Template
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Class Constraint">
+       Class Constraint
+      </a>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Constraint">
+         Constraint
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="based_on_clause">
+      <span class="clause_label">
+       based_on
+      </span>
+      <div class="list">
+       <span class="class_name_link" href="#Class.">
+        Class.
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Attribute Constraint">
+       Attribute Constraint
+      </a>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Constraint">
+         Constraint
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="based_on_clause">
+      <span class="clause_label">
+       based_on
+      </span>
+      <div class="list">
+       <span class="class_name_link" href="#Attribute">
+        Attribute
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="CodeExpression">
+       CodeExpression
+      </a>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Language">
+         Language
+        </a>
+        <div class="OneLiner">
+         the programming language
+        </div>
+        <span class="parenthetical value">
+         Code
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Code">
+            Code
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <div class="OneLiner">
+         OCL: Object Constraint Language
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <div class="OneLiner">
+         Java: Java
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Expression">
+         Expression
+        </a>
+        <span class="parenthetical value">
+         String
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#String">
+            String
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Methods">
+     Methods
+    </a>
+   </div>
+   <div class="classes list">
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Method
+A behavior or operation associated with a class">
+       Method
+A behavior or operation associated with a class
+      </a>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       Methods
+      </span>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Component">
+         Component
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="parameters">
+         parameters
+        </a>
+        <div class="OneLiner">
+         The input parameters of the method _
+        </div>
+        <span class="parenthetical value">
+         ListOf Parameters
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="ListDataType">
+           <span class="BaseDataType">
+            <span class="class_name_link" href="#Parameters">
+             Parameters
+            </span>
+            <span class="as_value">
+             value
+            </span>
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="returnType">
+         returnType
+        </a>
+        <div class="OneLiner">
+         The data type of the value returned by the method _
+        </div>
+        <span class="parenthetical value">
+         DataType
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#DataType">
+            DataType
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Parameter
+An input to a method">
+       Parameter
+An input to a method
+      </a>
+     </div>
+     <div class="str">
+      <span class="key">
+       plural:
+      </span>
+      <span class="value">
+       Parameters
+      </span>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#Component">
+         Component
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="type">
+         type
+        </a>
+        <div class="OneLiner">
+         The data type of the parameter _
+        </div>
+        <span class="parenthetical value">
+         DataType
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#DataType">
+            DataType
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="cardinality">
+         cardinality
+        </a>
+        <div class="OneLiner">
+         The cardinality of the parameter
+        </div>
+        <span class="parenthetical value">
+         e.g., optional, required
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Invented Name">
+            Invented Name
+           </span>
+           <span class="as_value">
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Data Types">
+     Data Types
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="Paragraph">
+     *ValueType*:**Data Type**
+    </div>
+   </div>
+   <div class="classes list">
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Simple Data Type
+SubtpeOf DataType">
+       Simple Data Type
+SubtpeOf DataType
+      </a>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="coreClass">
+         coreClass
+        </a>
+        <span class="parenthetical value">
+         Class
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Class">
+            Class
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Complex Data Type">
+       Complex Data Type
+      </a>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="aggregation">
+         aggregation
+        </a>
+        <span class="parenthetical value">
+         Aggregating Operator
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Aggregating Operator">
+            Aggregating Operator
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="aggregatedTypes">
+         aggregatedTypes
+        </a>
+        <span class="parenthetical value">
+         List of DataTypes
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="ListDataType">
+           <span class="BaseDataType">
+            <span class="class_name_link" href="#DataTypes">
+             DataTypes
+            </span>
+            <span class="as_value">
+             value
+            </span>
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Aggregating Operator">
+       Aggregating Operator
+      </a>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="Name">
+         Name
+        </a>
+        <span class="parenthetical value">
+         Code
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Code">
+            Code
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <div class="OneLiner">
+         **SetOf**
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <div class="OneLiner">
+         **ListOf**
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <div class="OneLiner">
+         **Mapping**
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="arity">
+         arity
+        </a>
+        <span class="parenthetical value">
+         Integer
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Integer">
+            Integer
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="spelling">
+         spelling
+        </a>
+        <span class="parenthetical value">
+         Template
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Template">
+            Template
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Low level Data Types">
+     Low level Data Types
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="Paragraph">
+     insert Camel Case.md
+    </div>
+   </div>
+   <div class="classes list">
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="ValueType CamelName">
+       ValueType CamelName
+      </a>
+     </div>
+     <div class="elaboration list">
+      <div class="Paragraph">
+       A short string without punctuation or spaces, suitable for names, labels, or identifiers and presented in camel case.
+      </div>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#String">
+         String
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="value the string">
+         value the string
+        </a>
+        <span class="parenthetical value">
+         String
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#String">
+            String
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="constraints list">
+        <div class="Constraint">
+        </div>
+       </div>
+       <div class="annotations list">
+        <div class="Annotation">
+         <span class="label">
+          Example
+         </span>
+         <span class="content">
+          "firstName", "orderDate", "customerID"
+         </span>
+        </div>
+        <div class="Annotation">
+         <span class="label">
+          ModelingNote
+         </span>
+         <span class="content">
+          * *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="UpperCamel">
+       UpperCamel
+      </a>
+      <div class="OneLiner">
+       a CamelName that begins with a capital letter
+      </div>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#CamelName">
+         CamelName
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="str">
+      <span class="key">
+       where:
+      </span>
+      <span class="value">
+       content begins with an upper case letter.
+      </span>
+     </div>
+     <div class="annotations list">
+      <div class="Annotation">
+       <span class="label">
+        Example
+       </span>
+       <span class="content">
+        _ "Customer", "ProductCategory", "PaymentMethod"
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="LowerCamel">
+       LowerCamel
+      </a>
+      <div class="OneLiner">
+       a CamelName that begins with a lower case letter
+      </div>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#CamelName">
+         CamelName
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="str">
+      <span class="key">
+       where:
+      </span>
+      <span class="value">
+       content begins with a lower case letter.
+      </span>
+     </div>
+     <div class="annotations list">
+      <div class="Annotation">
+       <span class="label">
+        Example
+       </span>
+       <span class="content">
+        "firstName", "orderTotal", "shippingAddress"
+       </span>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="Qualified Camel">
+       Qualified Camel
+      </a>
+      <div class="OneLiner">
+       an expression consisting of Camel Names separated by periods
+      </div>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#String">
+         String
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="constraints list">
+      <div class="Constraint">
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="RichText.  A string with markup for block level formatting.">
+       RichText.  A string with markup for block level formatting.
+      </a>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#String">
+         String
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="value">
+         value
+        </a>
+        <div class="OneLiner">
+         the string content
+        </div>
+        <span class="parenthetical value">
+         string
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#string">
+            string
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="format">
+         format
+        </a>
+        <div class="OneLiner">
+         the rich text coding language used
+        </div>
+        <span class="parenthetical value">
+         Code
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#Code">
+            Code
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="HTML">
+         HTML
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="MarkDown">
+         MarkDown
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="RichLine">
+       RichLine
+      </a>
+      <div class="OneLiner">
+       String with markup for line level formatting.
+      </div>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#RichText">
+         RichText
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="attributes list">
+      <div class="Attribute">
+       <div class="Attribute_header header">
+        <span class="prefix value">
+         -
+        </span>
+        <a class="AttributeName name" id="value">
+         value
+        </a>
+        <div class="OneLiner">
+         the string content
+        </div>
+        <span class="parenthetical value">
+         string
+        </span>
+        <span class="data_type_clause value">
+         <span class="DataTypeClause">
+          <span class="BaseDataType">
+           <span class="class_name_link" href="#string">
+            string
+           </span>
+           <span class="as_value">
+            value
+           </span>
+          </span>
+         </span>
+        </span>
+       </div>
+       <div class="constraints list">
+        <div class="Constraint">
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="Class_header header">
+      <span class="prefix value">
+       _
+      </span>
+      <a class="ClassName name" id="PrimitiveType">
+       PrimitiveType
+      </a>
+     </div>
+     <div class="subtype_of_clause">
+      <span class="clause_label">
+       subtype_of
+      </span>
+      <div class="subtype_pairs">
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#ValueType
+A basic">
+         ValueType
+A basic
+        </span>
+        bySomething
+       </div>
+       <div class="subtype_pair">
+        <span class="class_name_link" href="#built-in data type">
+         built-in data type
+        </span>
+        bySomething
+       </div>
+      </div>
+     </div>
+     <div class="annotations list">
+      <div class="Annotation">
+       <span class="label">
+        Values
+       </span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Appendices
+Insert More Sidebars.md
+Insert Overrides.md
+insert LDM Intro.md
+Insert OCL.md
+Insert Camel Case.md">
+     Appendices
+Insert More Sidebars.md
+Insert Overrides.md
+insert LDM Intro.md
+Insert OCL.md
+Insert Camel Case.md
+    </a>
+   </div>
+   <div class="subjects list">
+    <div class="Subject">
+     <div class="Subject_header header">
+      <span class="prefix value">
+       ###
+      </span>
+      <a class="SubjectName name" id="Annotation Types Used">
+       Annotation Types Used
+      </a>
+     </div>
+     <div class="elaboration list">
+      <div class="Paragraph">
+       These are the recognized Annotation Types for the LDM model.
+      </div>
+      <div class="Paragraph">
+       And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model.
+      </div>
+      <div class="CodeBlock">
+       ```typescript
+interface AnnotationType {
+label: string;
+emoji: string;
+emojiName: string;
+emojiUnicode: string;
+purpose: string;
+}
+// LINK: LiterateDataModel.annotationTypes
+const annotationTypes: AnnotationType[] = [
+{
+label: "Error",
+emoji: "",
+emojiName: "cross_mark",
+emojiUnicode: "U+274C",
+purpose: "Indicates a critical error or failure in the model."
+},
+{
+label: "Warning",
+emoji: "",
+emojiName: "warning",
+emojiUnicode: "U+26A0",
+purpose: "Indicates a potential issue or warning in the model."
+},
+{
+label: "Note",
+emoji: "",
+emojiName: "blue_book",
+emojiUnicode: "U+1F4D8",
+purpose: "Provides additional context, explanations, or clarifications for the annotated element."
+},
+{
+label: "Issue",
+emoji: "",
+emojiName: "warning",
+emojiUnicode: "U+26A0",
+purpose: "Highlights a potential issue or error that needs to be addressed or resolved."
+},
+{
+label: "Question",
+emoji: "",
+emojiName: "question",
+emojiUnicode: "U+2753",
+purpose: "Raises a question or seeks further clarification about the annotated element."
+},
+{
+label: "Suggestion",
+emoji: "",
+emojiName: "bulb",
+emojiUnicode: "U+1F4A1",
+purpose: "Provides a suggestion or recommendation for improving the model or the annotated element."
+},
+{
+label: "Info",
+emoji: "",
+emojiName: "information_source",
+emojiUnicode: "U+2139",
+purpose: "Offers relevant information, facts, or details about the annotated element."
+},
+{
+label: "Todo",
+emoji: "",
+emojiName: "pushpin",
+emojiUnicode: "U+1F4CC",
+purpose: "Indicates a pending task, action item, or future work related to the annotated element."
+},
+{
+label: "Reference",
+emoji: "",
+emojiName: "globe_with_meridians",
+emojiUnicode: "U+1F310",
+purpose: "Provides a reference or link to an external resource or documentation."
+},
+{
+label: "See",
+emoji: "",
+emojiName: "mag",
+emojiUnicode: "U+1F50D",
+purpose: "Indicates a cross-reference to another relevant element within the model."
+}
+];
+```
+      </div>
+      <div class="Paragraph">
+       ===
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Appendices
+Insert More Sidebars.md
+Insert Overrides.md
+insert LDM Intro.md
+Insert OCL.md
+Insert Camel Case.md">
+     Appendices
+Insert More Sidebars.md
+Insert Overrides.md
+insert LDM Intro.md
+Insert OCL.md
+Insert Camel Case.md
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="Paragraph">
+     == content to add
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+</body>
+</html>

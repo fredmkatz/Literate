@@ -297,29 +297,18 @@ class DataTypeClause:
 
     data_type: DataType
     is_required: IsReallyRequired = field(default_factory=IsReallyRequired)
-    is_also_optional: IsOptional = field(default_factory=IsOptional)
-    is_optional: bool = field(
-        default=False,
-        metadata={
-            "bool": {
-                "true": "optional",
-                "false": "required",
-                "is_explicit": False,  # Whether to show the false value explicitly
-            }
-        },
-    )
     cardinality: Optional[str] = None
     _type: str = field(default=None, init=False)
 
     def __post_init__(self):
         if self._type is None:
-            self._type = "data-type-clause"
+            self._type = "DataTypeClause"
 
     class Meta:
         presentable_template = "{is_optional} {data_type}{? {cardinality}}"
 
     def __str__(self):
-        req_or_optional = "optional" if self.is_also_optional else "required"
+        req_or_optional = "optional" if self.is_optional else "required"
         return f"({req_or_optional}) {self.data_type})"
 
 
@@ -335,7 +324,6 @@ class FormulaCoding:
 
 @dataclass
 class Formula:
-    _as_entered: Optional[str] = None
     english: Optional[str] = None
     code: Optional[FormulaCoding] = None
     _type: str = field(default=None, init=False)

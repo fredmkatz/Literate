@@ -296,18 +296,7 @@ class DataTypeClause:
     """
 
     data_type: DataType
-    is_required: IsReallyRequired = field(default_factory=IsReallyRequired)
-    is_also_optional: IsOptional = field(default_factory=IsOptional)
-    is_optional: bool = field(
-        default=False,
-        metadata={
-            "bool": {
-                "true": "optional",
-                "false": "required",
-                "is_explicit": False,  # Whether to show the false value explicitly
-            }
-        },
-    )
+    is_optional: IsOptional = field(default_factory=IsOptional)
     cardinality: Optional[str] = None
     _type: str = field(default=None, init=False)
 
@@ -319,7 +308,7 @@ class DataTypeClause:
         presentable_template = "{is_optional} {data_type}{? {cardinality}}"
 
     def __str__(self):
-        req_or_optional = "optional" if self.is_also_optional else "required"
+        req_or_optional = "optional" if self.is_optional else "required"
         return f"({req_or_optional}) {self.data_type})"
 
 

@@ -19,6 +19,9 @@ premailer = "^3.10.0"
 diagrams = "^0.24.4"
 pymupdf = "^1.25.5"
 pymupdf4llm = "^0.0.22"
+mdformat = "^0.7.22"
+beautifulsoup4 = "^4.13.4"
+inflect = "^7.5.0"
 
 
 [build-system]

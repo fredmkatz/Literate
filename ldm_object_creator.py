@@ -69,6 +69,11 @@ class GenericObjectCreator:
         Returns:
             Instantiated object of the specified type or the original dictionary if creation fails
         """
+        tracing = []
+       
+        tracing = ["BaseDataType", "DataType", "ClassName", "AttributeName", "SubjectName", "Class"]
+        tracing = ["Class", "CodeType", "ValueType"]
+
         # Handle None or empty dictionary case
         if data_dict is None or not data_dict:
             logger.warning("Empty or None dictionary provided")
@@ -76,7 +81,9 @@ class GenericObjectCreator:
             
         # Get type from data
         type_name = data_dict.get('_type')
-        # print(f"Creating object of type: {type_name}")
+        oname = data_dict.get("name", "Unnamed")
+
+        print(f"ObjectCreator Creating object of type: {type_name} - named {oname}")
         if not type_name:
             logger.warning(f"No _type specified in dictionary: {data_dict}")
             return data_dict
@@ -86,14 +93,23 @@ class GenericObjectCreator:
         if not cls:
             logger.warning(f"Unknown type: {type_name}. Available types: {list(self.class_map.keys())}")
             return data_dict
-        
+        if type_name in tracing:
+            print(f"Tracing {type_name} - type is {type(data_dict)} to {cls}, dict = {data_dict} ")
+
         # Create kwargs for instantiation
         kwargs = self._prepare_kwargs(cls, data_dict)
-        
+
+        if type_name in tracing:
+            string = as_json(kwargs)
+            print(f"\n\nKWARGS are {kwargs}\n{string}")
         # Create the object
         try:
             the_obj = cls(**kwargs)
-            # print(f"...Creatied object of type: {the_obj.__class__.__name__}")
+            if type_name in tracing:
+                print(f"...Createed object of type: {the_obj.__class__.__name__}")
+                print(f"... = {the_obj}")
+                ostring = as_json(the_obj)
+                print("final object is ", ostring)
             
             return the_obj
         except Exception as e:
@@ -147,6 +163,7 @@ class GenericObjectCreator:
         # Handle None
         if value is None:
             return None
+        
         
         # Handle string literal type hints (forward references)
         if isinstance(expected_type, str):

@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 import json
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 
@@ -65,54 +65,75 @@ class PresentableToken(ABC):
 
 @dataclass
 class PresentableBoolean(PresentableToken, ABC):
-    """
-    Abstract base class representing a boolean token with customizable true/false representations.
-    """
-
-    true_word = None  # To be defined by subclasses
-    false_word = None  # To be defined by subclasses
-    default_value = False  # Can be overridden by subclasses
-    is_explicit = True  # Can be overridden by subclasses
-    true_words = None  # Will be initialized based on true_word
-    false_words = None  # Will be initialized based on false_word
-    token_pattern_str = "Not inited"  # Placeholder for the token pattern string
-    input_value = None  # The original input value
-
-    token_pattern_str = None  # Placeholder for the token pattern string
-
-    def __init__(self, value: bool):
-        self.input_value = value
-
-        # Make sure subclass has defined required properties
+    t_value: bool = field(default=False, init=True)  # Accept initial value through dataclass mechanism
+    _type: str = field(default="PresentableBoolean", init=False)
+    
+    # Class attributes that should be overridden by subclasses
+    true_word = None
+    false_word = None
+    default_value = False
+    is_explicit = True
+    
+    # Will be auto-populated in __post_init__
+    true_words = None
+    false_words = None
+    token_pattern_str = None
+    
+    def __post_init__(self):
+        # Initialize word lists
         if self.true_word is None or self.false_word is None:
             raise NotImplementedError("Subclasses must define true_word and false_word")
-
+            
         # Initialize words lists if not already set
         if self.true_words is None:
             self.true_words = [self.true_word.lower(), "true", "yes"]
-        if self.false_words is None:
+        if self.false_words is None:  
             self.false_words = [self.false_word.lower(), "false", "no"]
-
+            
+        # Process the input value
+        if isinstance(self.t_value, str):
+            # Normalize to lowercase for comparison
+            normalized_value = self.t_value.lower()
+            if normalized_value in self.true_words:
+                self.t_value = True
+            elif normalized_value in self.false_words:
+                self.t_value = False
+            else:
+                print(f"Invalid boolean value: {self.t_value} - should be {self.true_word} or {self.false_word}")
+                self.t_value = False
+        elif not isinstance(self.t_value, bool):
+            raise TypeError(f"Expected string or boolean, got {type(self.t_value)}")
+        
+        # Generate the token pattern
         all_words = [f'"{word}"i' for word in self.true_words + self.false_words]
         self.token_pattern_str = " | ".join(all_words)
 
+    # Rest of your methods would remain the same
+    def toJSON(self):
+        return {"_type": self._type, "value": self.t_value}
+
+
     def __str__(self):
         """String representation based on the value and settings."""
-        val = self.value()
+        val = self.t_value
 
         # If not explicit and value matches default, return empty string
         if not self.is_explicit and val == self.default_value:
             return ""
 
         # Otherwise return appropriate word
+        if val is None:
+            return "NoValue"
+
         return self.true_word if val else self.false_word
+
 
     @classmethod
     def token_pattern(cls) -> str:
         """Return the grammar pattern for this token."""
-        # Join all possible values with OR operator
-        all_words = [f'"{word}"i' for word in cls.true_words + cls.false_words]
-        return " | ".join(all_words)
+        instance = cls(False)  # Create a temporary instance to access instance attributes
+        return instance.token_pattern_str
+
 
     def handlebars_template(self) -> str:
         """Return the Handlebars template for rendering."""
@@ -128,22 +149,7 @@ class PresentableBoolean(PresentableToken, ABC):
         return PomTemplate("{value}")
 
     def value(self) -> bool:
-        """Return the boolean value."""
-        # Check if input_value is a string and convert to boolean
-        if isinstance(self.input_value, str):
-            # Normalize to lowercase for comparison
-            normalized_value = self.input_value.lower()
-            if normalized_value in self.true_words:
-                return True
-            elif normalized_value in self.false_words:
-                return False
-            else:
-                raise ValueError(f"Invalid boolean value: {self.input_value}")
-        # If it's not a string, assume it's already a boolean
-        elif isinstance(self.input_value, bool):
-            return self.input_value
-        else:
-            raise TypeError(f"Expected string or boolean, got {type(self.input_value)}")
+        return self.value
 
 
 def create_boolean_type(
@@ -177,43 +183,63 @@ def create_boolean_type(
     )
 
 
-class IsReallyRequired(PresentableBoolean):
-    """
-    Class representing a boolean token for "is required".
-
-    Attributes:
-        value (bool): The boolean value.
-
-    """
-
-    true_word = "required"
-    true_words = ["required", "true", "sure", "yes"]
-
-    false_word = "optional"
-    false_words = ["optional", "false", "no way"]
-    default_value = True
-    is_explicit = True
-
-
+@dataclass
 class IsOptional(PresentableBoolean):
-    """
-    Class representing a boolean token for "is required".
-
-    Attributes:
-        value (bool): The boolean value.
-
-    """
-
-    true_word = "optional"
+    """Class representing a boolean token for "is required"."""
+    _type: str = field(default="IsOptional", init=False)
+    
+    # Class attributes - no need for __init__ or __post_init__ override
+    true_word = "Optional"
+    false_word = "Required"
     true_words = ["optional", "true", "sure", "yes"]
-
-    false_word = "required"
     false_words = ["required", "false", "no way"]
     default_value = False
-    is_explicit = True
+    is_explicit = False
+
+@dataclass
+class IsExclusive(PresentableBoolean):
+    """
+    Class representing a boolean token for "is exclusive".
+
+    Attributes:
+        value (bool): The boolean value.
+
+    """
+
+    _type: str = field(default="IsExclusive", init=False)
+
+    true_word = "exclusive"
+    true_words = ["exclusive"]
+
+    false_word = "nonExclusive"
+    false_words = ["nonExclusive"]
+    default_value = True
+    is_explicit = False
 
 
-class ReferenceOrValue(PresentableBoolean):
+@dataclass
+class IsExhaustive(PresentableBoolean):
+    """
+    Class representing a boolean token for "is exhaustive".
+
+    Attributes:
+        value (bool): The boolean value.
+
+    """
+
+    _type: str = field(default="IsExhaustive", init=False)
+
+    true_word = "exhaustive"
+    true_words = ["exhaustive"]
+
+    false_word = "nonExhaustive"
+    false_words = ["nonExhaustive"]
+    default_value = True
+    is_explicit = False
+
+
+@dataclass
+class AsValue(PresentableBoolean):
     """
     Class representing a boolean token for whether
     a class is Reference or Value
@@ -222,6 +248,8 @@ class ReferenceOrValue(PresentableBoolean):
         value (bool): The boolean value.
 
     """
+
+    _type: str = field(default="AsValue", init=False)
 
     true_word = "reference"
     true_words = ["reference"]
@@ -233,14 +261,13 @@ class ReferenceOrValue(PresentableBoolean):
 
 class MarkedText(PresentableToken):
     token_pattern_str = '"<<<" + /.*?/ + ">>>"'
-    
 
     def __init__(self, input_string):
         self.input = input_string
-        self.output = input.string.replace("<<<", "").replace(">>>", "")
+        self.content = input.string.replace("<<<", "").replace(">>>", "")
 
     def value(self) -> str:
-        return self.output
+        return self.content
 
     @classmethod
     def token_pattern(cls) -> str:
@@ -248,21 +275,23 @@ class MarkedText(PresentableToken):
 
     def rendering_template(self) -> PomTemplate:
         return PomTemplate("{value}")
-    def handlebars_template(self) -> str:
-        return ("{{value}}")
 
-@dataclass 
+    def handlebars_template(self) -> str:
+        return "{{value}}"
+
+
+@dataclass
 class Emoji(PresentableToken):
 
-    token_pattern_str = r'/\d+(.*?)[\u263a-\U0001f645]/'
+    token_pattern_str = r"/\d+(.*?)[\u263a-\U0001f645]/"
     # regex = re.compile(r'\d+(.*?)[\u263a-\U0001f645]')
 
     @classmethod
     def token_pattern(cls) -> str:
         return cls.token_pattern_str
-    
+
     def rendering_template(self) -> PomTemplate:
         return PomTemplate("{value}")
-    def handlebars_template(self) -> str:
-        return ("{{value}}")
 
+    def handlebars_template(self) -> str:
+        return "{{value}}"

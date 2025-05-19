@@ -1,0 +1,47 @@
+.LiterateModel,
+.Class,
+.Attribute,
+.Subject,
+.header,
+.SubjectHeader
+
+ {
+  display: grid;
+  grid-template-columns: 20% 1fr;  /* Fixed left column, flexible right */
+  gap: 1.5rem;
+  align-items: start;
+  grid-auto-flow: row dense;
+
+}
+
+[class*="label"], .Header, .name {
+  grid-column: 1;
+  text-align: right;         /* Right justify labels */
+  word-break: break-word;    /* Wrap long labels */
+  hyphens: auto;             /* Optional: hyphenate if needed */
+  padding-right: 0.5rem;     /* Optional: space before gutter */
+  background-color: black;
+  color: white;
+}
+
+.OneLiner, .Paragraph, .CodeBlock, .fieldClause, .elaboration {
+  grid-column: 2;
+  background-color: bisque;
+}
+.CodeBlock  {
+  font-family: monospace;
+  background-color: #f8f8f8;
+  border-left: 3px solid #ccc;
+  padding: 0.5em;
+  white-space: pre-wrap;
+}
+
+.OneLiner{
+  color: red;
+}
+/* For nested content in right column (e.g., lists of paragraphs/code blocks) */
+.elaboration {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}

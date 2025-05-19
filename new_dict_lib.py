@@ -168,6 +168,7 @@ import json
 import dataclasses
 import inspect
 from typing import Any, Dict, List, Optional, Set, Union, get_type_hints
+from utils_pom.util_json_pom import clean_dict
 
 def serialize_model(obj, max_depth=20):
     """
@@ -250,6 +251,12 @@ def serialize_model(obj, max_depth=20):
     # Start the serialization
     return _serialize(obj)
 
+def model_to_dict(model) -> dict:
+    
+    serialized = serialize_model(model)
+    cleaned = clean_dict(serialized)
+    return cleaned
+
 def model_to_json_file(model, filename, indent=2):
     """
     Serialize a model to a JSON file.
@@ -259,7 +266,7 @@ def model_to_json_file(model, filename, indent=2):
         filename: The output filename
         indent: JSON indentation level
     """
-    serialized = serialize_model(model)
+    serialized = model_to_dict(model)
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(serialized, f, indent=indent, ensure_ascii=False)
     print(f"Model serialized to {filename}")
@@ -276,8 +283,7 @@ def model_to_yaml_file(model, filename):
         model: The model object to serialize
         filename: The output filename
     """
-    
-    serialized = serialize_model(model)
+    serialized = model_to_dict(model)
     with open(filename, 'w', encoding='utf-8') as f:
         yaml.dump(serialized, f, sort_keys=False, default_flow_style=False)
     print(f"Model serialized to {filename}")

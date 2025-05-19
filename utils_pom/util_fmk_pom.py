@@ -1,4 +1,6 @@
 import os
+import shutil
+
 import datetime
 import glob
 import inspect
@@ -135,18 +137,22 @@ def write_text(file, text):
 
 
 
-import os
-import shutil
 
 def create_fresh_directory(dir_path):
     """Creates a fresh directory at the given path. 
     Removes the directory first if it exists.
     """
     if os.path.exists(dir_path):
-        shutil.rmtree(dir_path)  # Remove existing directory and its contents
+        try:
+            shutil.rmtree(dir_path, ignore_errors=True)  # Remove existing directory and its contents
+            print(f"Directory '{dir_path}' and its contents have been removed.")
+        except FileNotFoundError:
+            print(f"Directory '{dir_path}' not found.")
+        except PermissionError:
+            print(f"Permission denied: Unable to remove '{dir_path}'.")
+        except OSError as e:
+            print(f"Error removing '{dir_path}': {e}")
+
     os.makedirs(dir_path) # Create the directory (and any necessary parent directories)
 
-# Example usage:
-# directory_path = "my_fresh_dir"
-# create_fresh_directory(directory_path)
-# print(f"Directory '{directory_path}' created (or recreated).")
+

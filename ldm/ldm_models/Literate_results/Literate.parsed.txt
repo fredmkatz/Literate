@@ -1,6 +1,6 @@
 Document - <class 'dull_dsl.dull_parser_core.DocPart'> 
-. LDM - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ LDM_Head: # Literate Data Model
+. LiterateModel - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ LiterateModel_Head: # Literate Data Model
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ SubjectB_Head: ## Preliminaries - the basic structureof the model
 _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.', extra_text=[])], extra_text=[])]
@@ -30,20 +30,6 @@ _ _ _ _ _ _ Attribute_Head: - **isEmbellishment** - Indicates whether this compo
 _ _ _ _ _ _ _ DEFAULT: ***Default***: false
 . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ NOTE: ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
-. . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ AttributeSection_Head: __***Markdown Support***
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdPrefix** (*[String](#string)*)
-. . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DERIVATION: ***Derivation***: ""
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdSuffix** (*[String](#string)*)
-. . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DERIVATION: ***Derivation***: ""
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdTopLine** (*[String](#string)*)
-. . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DERIVATION: ***Derivation***: mdPrefix + name + " - " + oneLiner + mdSuffix
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ Class_Head: _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component.
 _ _ _ _ BASED_ON: ***Based on*** : Literate Data Model
@@ -130,16 +116,6 @@ _ _ _ _ _ _ Attribute_Head: - **alternate Template Languages** -  (optional List
 _ _ _ _ _ _ Attribute_Head: - **aiFunctions** - A list of functions that require sophisticated AI-powered implementation *(List of String)*
 . . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ DERIVATION: Derivation: ['aiEnglishPlural()']
-. . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ AttributeSection_Head: __ ***Markdown Support***
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdPrefix** (*[String](#string)*)
-. . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DERIVATION: ***Derivation***: "# "
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdTopLine** (*[String](#string)*)
-. . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DERIVATION: ***Derivation***: mdPrefix + name
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ Class_Head: _ **Subject**A specific topic or theme within the model
 _ _ _ _ PLURAL: Plural: Subjects
@@ -149,7 +125,7 @@ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - name (UpperCamel )
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **parentSubject** - The parent subject, if any, under which this subject is nested _(Subject, optional)_
+_ _ _ _ _ Attribute_Head: - **parentSubject** - The parent subject, if any, under which this subject is nested _(optional Subject)_
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **Classes** - The major classes related to this subject, in the order in which they should be presented _(ListOf Classes)_
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -162,16 +138,6 @@ _ _ _ _ _ Attribute_Head: - By its subtype classes.
 _ _ _ _ _ Attribute_Head: - **childSubjects** - Any child subjects nested under this subject, in the order in which they should be presented _(ListOf Subjects)_
 _ _ _ _ _ INVERSE: inverse of: Subject.parentSubject.
 _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='***DSL***:  the Classes within a Subject are always displayed before the childSubjects.', extra_text=[])], extra_text=[])]
-. . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ AttributeSection_Head: __ ***Markdown Support***
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdPrefix** (*[String](#string)*)
-. . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DERIVATION: ***Derivation***: levelIndicator + " "
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdTopLine** (*[String](#string)*)
-. . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DERIVATION: ***Derivation***: mdPrefix + name.
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ Class_Head: _ **SubjectArea**A main topic or area of focus within the model, containing related subjects and classes
 _ _ _ _ PLURAL: Plural: SubjectAreas
@@ -247,12 +213,6 @@ _ _ _ _ _ _ _ NOTE: Note: every class can have an unnamed subtyping.Also,  each 
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Class_Head: _ **ValueType** -
 _ _ _ _ _ SUBTYPE_OF: Subtype of: Class.
-. . . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ AttributeSection_Head: __ ***Markdown Support***
-. . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ Attribute_Head: - ***mdPrefix*** (*[String](#string)*)
-. . . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ _ DERIVATION: ***Derivation***: "ValueType: ".
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Class_Head: _ **Reference Type**:
 _ _ _ _ _ SUBTYPE_OF: Subtype of: Class.
@@ -301,14 +261,6 @@ _ _ _ _ BASED_ON: ***Based on***: Class
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: -	isOptional - whether the attributes in this section, taken together, are optional. (Boolean)
 _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='If the Attribute Section is required,then each Attribute within the sectional is optional ot required, depending on how it is marked.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='&nbsp;', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.', extra_text=[])], extra_text=[])]
-. . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ AttributeSection_Head: __ ***Markdown Support***
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdPrefix** (*[String](#string)*)
-. . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DEFAULT: ***Default***: "_ "
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - **mdTopLine** (*[String](#string)*).
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ Class_Head: _ **Attribute**A property or characteristic of a class
 _ _ _ _ PLURAL: Plural: Attributes
@@ -366,12 +318,12 @@ _ _ _ _ _ _ Attribute_Head: - **inverseIsOptional** - (optional Attribute)
 _ _ _ _ Class_Head: _ ***Formulas***
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **default** - The rule or formula for calculating the value, if no value is suppliedNow running to a second line with the parenthentical on yet a third line 
-+ (Derivation, optional)
++ (optional Derivation)
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ NOTE: Note: even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed.And let's see if the note can span extra lines, too
 _ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content="Yes, it handled extra lines.  Let's see about additional paras for an annotation", extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Last paragraph here', extra_text=[])], extra_text=[])]
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **derivation** - For derived attributes, the rule or formula for calculating the value _(Derivation, optional)_
+_ _ _ _ _ Attribute_Head: - **derivation** - For derived attributes, the rule or formula for calculating the value _(optional Derivation)_
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ ISSUE: ***Issue***: on insert vs on access?
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -546,3 +498,10 @@ _ _ _ SubjectB_Head: ## AppendicesInsert More Sidebars.md
 + insert LDM Intro.md 
 + Insert OCL.md 
 + Insert Camel Case.md
+_ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='== content to add', extra_text=[])], extra_text=[])]
+. Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ Attribute_Head: - minor component
+. Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ Attribute_Head: - embellishment
+. Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ Attribute_Head: - words and phrases
