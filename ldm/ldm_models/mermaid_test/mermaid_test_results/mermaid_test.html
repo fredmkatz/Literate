@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../ldm_assets/Literate.css">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    </script>
+</head>
+<body>
+<div class="LiterateModel">
+ <div class="subjects list">
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Mermaid Class Diagram">
+     Mermaid Class Diagram
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-mermaid mermaid">
+
+classDiagram
+class Component
+class Literate
+class Subject
+class Class
+class Attrribute Section
+class Attribute
+
+Component  &lt;|-- Literate
+Subject  &lt;|-- Literate
+Class  &lt;|-- Literate
+AttributeSection  &lt;|-- Literate
+Attribute  &lt;|-- Literate
+
+classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
+</code></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Mermaid Flowchart">
+     Mermaid Flowchart
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-mermaid mermaid">%%{init: {
+"flowchart": {
+"curve": "stepAfter",
+"useMaxWidth": true
+}
+}}%%
+
+flowchart TB
+subgraph Component["Component - Base class"]
+direction TB
+
+Literate["Literate&lt;br&gt;Core implementation"]
+
+subgraph Subtypes["Component Subtypes"]
+direction LR
+Subject["Subject&lt;br&gt;Domain entity"]
+Class["Class&lt;br&gt;Schema definition"]
+AttributeSection["AttributeSection&lt;br&gt;Property group"]
+Attribute["Attribute&lt;br&gt;Individual property"]
+end
+
+Subject ==&gt; Literate
+Class ==&gt; Literate
+AttributeSection ==&gt; Literate
+Attribute ==&gt; Literate
+end
+
+%% Styling with border-radius only
+classDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px
+classDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px
+classDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px
+
+class Component container
+class Subtypes subcontainer
+
+%% Edge styling
+linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
+</code></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Plant UML jsondata">
+     Plant UML jsondata
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-puml">@startjson
+&lt;style&gt;
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+&lt;/style&gt;
+#highlight "lastName"
+#highlight "address" / "city" &lt;&lt;h1&gt;&gt;
+#highlight "phoneNumbers" / "0" / "number" &lt;&lt;h2&gt;&gt;
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram1.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram1.svg"/></div></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Plant UML UML">
+     Plant UML UML
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-puml">
+@startuml
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u-&gt;  a
+Subject -u-&gt; a
+Class -u-&gt; a
+Attribute -u-&gt; a
+a -u-&gt; Component
+skinparam linetype ortho
+@enduml
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram2.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram2.svg"/></div></pre>
+    </div>
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-mermaid mermaid">block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+</code></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Mermaid ER Diagram">
+     Mermaid ER Diagram
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-mermaid mermaid">
+erDiagram
+
+CAR {
+
+string registrationNumber
+
+string make
+
+string model
+
+}
+
+PERSON {
+
+string firstName
+
+string lastName
+
+int age
+
+}
+
+style CAR fill: red,stroke:navy,stroke-width:3px
+
+style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
+
+</code></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Mermaid ER Diagram">
+     Mermaid ER Diagram
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-mermaid mermaid">erDiagram
+
+class Subject Component
+
+class Section Component
+
+class Attribute Component
+
+class Classe Component
+
+Subject ||--|{ Subject : contains
+
+Subject ||--|{ Classe : contains
+
+
+
+Classe ||--|{ Section : contains
+
+Classe ||--|{ Attribute : contains
+
+Section ||--|{ Attribute : contains
+
+</code></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig">
+     Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig
+    </a>
+    <div class="OneLiner mdhtml">
+     <p>
+      Trulli, Puglia, Italy.
+ And the same figure with figure/caption markup
+     </p>
+    </div>
+   </div>
+   <div class="elaboration list">
+    <div class="Paragraph mdhtml">
+     <figure title="A Drivers License">
+      +
+      <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%"/>
+      +
+      <figcaption>
+       My Non-Drivers License
+      </figcaption>
+      +
+     </figure>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="List of Codes">
+     List of Codes
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-csv">eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+</code></pre>
+     <table border="1" class="dataframe">
+      <thead>
+       <tr style="text-align: right;">
+        <th>
+        </th>
+        <th>
+         eFormat
+        </th>
+        <th>
+         Description
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <th>
+         0
+        </th>
+        <td>
+         E-Book
+        </td>
+        <td>
+         'Kindle or Apple books - etc'
+        </td>
+       </tr>
+       <tr>
+        <th>
+         1
+        </th>
+        <td>
+         PDF
+        </td>
+        <td>
+         formatted for printing and direct delivery
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="UML">
+     UML
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-puml">
+@startuml
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+@enduml
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram3.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram3.svg"/></div></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Russian UML">
+     Russian UML
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-puml">@startuml
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform &lt;-- baseobjects
+platform &lt;-- workflow
+platform &lt;-- takeoffice
+platform &lt;-- windowsclient
+platform &lt;-- documentmanagement
+platform &lt;-- approvaldesigner
+
+windowsclient -up-&gt; approvaldesigner
+windowsclient -up-&gt; documentmanagement
+windowsclient -up-&gt; baseobjects
+windowsclient -up-&gt; takeoffice
+windowsclient -up-&gt; workflow
+
+worker &lt;-- approvaldesigner
+worker &lt;-- baseobjects
+@enduml
+
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram4.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram4.svg"/></div></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="Car diagram">
+     Car diagram
+    </a>
+   </div>
+   <div class="elaboration list">
+    <div class="CodeBlock mdhtml">
+     <pre><code class="language-puml">@startuml
+class Car
+
+Driver - Car : drives &gt;
+Car *- Wheel : have 4 &gt;
+Car -- Person : &lt; owns
+@enduml
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram5.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram5.svg"/></div></pre>
+    </div>
+   </div>
+  </div>
+  <div class="Subject">
+   <div class="Subject_header header">
+    <span class="prefix value">
+     ##
+    </span>
+    <a class="SubjectName name" id="and a dummy section">
+     and a dummy section
+    </a>
+   </div>
+  </div>
+ </div>
+</div>
+
+</body>
+</html>

@@ -151,8 +151,8 @@ def render_elaboration(self) -> str:
             # first output any gathered Paragraph pieces
             result += cleaned_paras(parablock)
             parablock = []
-            print("adding code block...")
-            print(piece.content)
+            # print("adding code block...")
+            # print(piece.content)
             result += piece.content + "\n\n"
             
             # then add the code block
@@ -194,7 +194,7 @@ def render_subject(self):
     # Render child subjects
     subjects = self.subjects
 
-    print(len(subjects), " subjects coming in subject")
+    # print(len(subjects), " subjects coming in subject")
 
     result += render_each(self.subjects)
 
@@ -214,13 +214,13 @@ def style_for_header(prefix, name) -> str:
         elif isinstance(name, AttributeName) or prefix == "- ":
             style_mark = "***"
     display_name = f"{style_mark}{name}{style_mark}"
-    print("Prefix is [", prefix, "] dislay is ", display_name)
+    # print("Prefix is [", prefix, "] dislay is ", display_name)
     return display_name
 
 def render_header(self, prefix: str, parenthetical: str = None) -> str:
     """Render the header for the object."""
     
-    print("Render header:", f"[{prefix}] {self.name} ({parenthetical}) ")
+    # print("Render header:", f"[{prefix}] {self.name} ({parenthetical}) ")
     displayed_name = style_for_header(prefix, str(self.name))
 
     headline = f"{prefix}{displayed_name}"

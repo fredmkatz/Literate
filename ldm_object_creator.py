@@ -83,7 +83,7 @@ class GenericObjectCreator:
         type_name = data_dict.get('_type')
         oname = data_dict.get("name", "Unnamed")
 
-        print(f"ObjectCreator Creating object of type: {type_name} - named {oname}")
+        # print(f"ObjectCreator Creating object of type: {type_name} - named {oname}")
         if not type_name:
             logger.warning(f"No _type specified in dictionary: {data_dict}")
             return data_dict
@@ -101,15 +101,15 @@ class GenericObjectCreator:
 
         if type_name in tracing:
             string = as_json(kwargs)
-            print(f"\n\nKWARGS are {kwargs}\n{string}")
+            # print(f"\n\nKWARGS are {kwargs}\n{string}")
         # Create the object
         try:
             the_obj = cls(**kwargs)
             if type_name in tracing:
-                print(f"...Createed object of type: {the_obj.__class__.__name__}")
-                print(f"... = {the_obj}")
+                # print(f"...Createed object of type: {the_obj.__class__.__name__}")
+                # print(f"... = {the_obj}")
                 ostring = as_json(the_obj)
-                print("final object is ", ostring)
+                # print("final object is ", ostring)
             
             return the_obj
         except Exception as e:

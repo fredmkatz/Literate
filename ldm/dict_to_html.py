@@ -6,6 +6,8 @@ from typing import Dict, List
 from bs4 import BeautifulSoup
 from Literate_01 import *
 
+# Perplexity on md to html
+# https://www.perplexity.ai/search/best-python-markdown-to-html-b-R1stqFsKQ.6gGtS1PWnsLw
 HEADER_KEYS = ["prefix", "name", "one_liner", "parenthetical", "data_type_clause", "is_optional", "content"]
 HEADED_CLASSES = ["LDM", "Subject", "Class", "AttributeSection", "Attribute",]
 FORMULA_CLASSES =[ "Formula", "Derivation", "Default", "Constraint"]
@@ -431,6 +433,8 @@ def add_anchor_html(key_name, value, html):
     html.append(f'<a class="{name_class} {key_name}"  id="{the_name}">{the_name}</a>')
 
 def add_html_simple_content(obj_type, obj, html):
+    from do_md_parse import as_prose_html
+    
     print(f"Adding simple: {obj_type} ")
     content = ""
     if isinstance(obj, dict):
@@ -438,9 +442,10 @@ def add_html_simple_content(obj_type, obj, html):
     else:
         content = getattr(obj, "content", "No object content found")
     
-    print(f"Adding simple: {obj_type} with {content}")
-    html.append(f'<div class="{obj_type}">')
-    html.append(f'  {content}')
+    html_content = as_prose_html(content)
+    print(f"Adding simple: {obj_type} with {html_content}")
+    html.append(f'<div class="{obj_type} mdhtml">')
+    html.append(f'  {html_content}')
     html.append(f'</div>')
 
 def add_html_div(obj_type, content, html):
@@ -485,6 +490,9 @@ def save_styled_dict(data, css_path="styles.css", output_path="output.md"):
 <html>
 <head>
     <link rel="stylesheet" href="{css_path}">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    </script>
 </head>
 <body>
 {pretty_html}

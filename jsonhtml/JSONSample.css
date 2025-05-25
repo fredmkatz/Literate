@@ -1,0 +1,18 @@
+body {
+    background: yellow;
+}
+
+.Dictionary {
+    border: 1px solid black;
+    width: auto;
+}
+
+.KeyValue{
+    width: min-content;
+    border: 1px solid black;
+    .Value{
+        display: inline;
+        border: 1px solid black;
+
+    }
+}

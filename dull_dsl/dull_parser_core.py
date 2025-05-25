@@ -89,7 +89,7 @@ class DocPart:
 
         paragraphs = []
 
-        print("DerivingDict for Part: ", self.part_type)
+        # print("DerivingDict for Part: ", self.part_type)
         if self.part_type == "Annotation":
             nitems = len(self.items)
             # print(f"THIS IS AN ANNOTATION. All {nitems} items are...")
@@ -125,7 +125,7 @@ class DocPart:
 
                 if label.endswith("_Head"):
                     full_header = item.full_text()
-                    print(f"\t\tFull header is: {full_header}")
+                    # print(f"\t\tFull header is: {full_header}")
 
                     handlers = item.line_Type.handlers
                     header_dict = handlers.parse(full_header)
@@ -184,8 +184,8 @@ class DocPart:
                         
                         att_name = str(SnakeCase(keyword))
                         # if att_name != keyword:
-                        print(f"Using ATT_NAME  {att_name} for {keyword}")
-                        print(f"Adding value in ddforpart. {att_name} -. {value}")
+                        # print(f"Using ATT_NAME  {att_name} for {keyword}")
+                        # print(f"Adding value in ddforpart. {att_name} -. {value}")
                         the_dict = absorb_into(
                             the_dict,
                             att_name,
@@ -193,8 +193,8 @@ class DocPart:
                             item.line_Type.is_list,
                             item.line_Type.is_cum,
                         )
-                        print("And the dict has;;;")
-                        print(as_json(the_dict))
+                        # print("And the dict has;;;")
+                        # print(as_json(the_dict))
                     continue
 
             elif isinstance(item, DocPart):
@@ -237,10 +237,10 @@ class DocPart:
         displayables = ["AttributeSection"]
         displayables = ["Class"]
         displayables = ["Default", "Derivation", "Attribute"]
-        # displayables = []
+        displayables = []
         # ["Class", "Attribute", "Formula", "Default"]
         if self.part_type in displayables:
-            print("Re-display for Part: ", self.part_type)
+            # print("Re-display for Part: ", self.part_type)
 
             self.display(1)
             print("DerivedDict for Part: ", self.part_type)
@@ -301,7 +301,7 @@ def convert_to_paragraphs(item: TypedLine) -> List[str]:
 def absorb_into(
     the_dict: Dict, keyword: str, value: Any, is_list: bool, is_cum: bool
 ) -> Dict:
-    print(f"Absorbing to {keyword} {value} into {the_dict}")
+    # print(f"Absorbing to {keyword} {value} into {the_dict}")
     # don't clutter the dict with empty values
     if not value:
         return the_dict
@@ -320,13 +320,13 @@ def absorb_into(
             the_dict[keyword] = []
 
         if not is_list:  # ie single value from parse function
-            print(f"Append {value} to {keyword}")
+            # print(f"Append {value} to {keyword}")
             the_dict[keyword].append(value)
         else:
-            print(f"Extend {value} to {keyword}")
+            # print(f"Extend {value} to {keyword}")
 
             the_dict[keyword].extend(value)
-    print("after absorb, dict has: ", the_dict)
+    # print("after absorb, dict has: ", the_dict)
     return the_dict
 
 

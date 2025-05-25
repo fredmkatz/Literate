@@ -1,0 +1,2176 @@
+
+Phase: Parsing model: ldm/ldm_models/mermaid_test/mermaid_test.md
+PARSING ldm/ldm_models/mermaid_test/mermaid_test.md
+Found LiterateModel_Head: # This is my first Mermaid test
+For LiterateModel_Head: # This is my first Mermaid test
+  new: LiterateModel
+Found BLANK_LINE: 
+Found SubjectB_Head: ## Mermaid Class Diagram
+For SubjectB_Head: ## Mermaid Class Diagram
+  new: SubjectB
+Found BLANK_LINE: 
+Found CODE_FENCE: ```mermaid
+Found BLANK_LINE: 
+Found BLANK_LINE: 
+Found SubjectB_Head: ## Mermaid Flowchart
+For SubjectB_Head: ## Mermaid Flowchart
+  new: SubjectB
+Found BLANK_LINE: 
+Found CODE_FENCE: ``` mermaid
+Found SubjectB_Head: ## PlantUML jsondata
+For SubjectB_Head: ## PlantUML jsondata
+  new: SubjectB
+Found BLANK_LINE: 
+Found CODE_FENCE: ``` puml
+Found BLANK_LINE: 
+Found SubjectB_Head: ## PlantUML UML
+For SubjectB_Head: ## PlantUML UML
+  new: SubjectB
+Found CODE_FENCE: ``` puml
+Found BLANK_LINE: 
+Found BLANK_LINE: 
+Found CODE_FENCE: ```mermaid
+Found BLANK_LINE: 
+Found SubjectB_Head: ## Mermaid ER Diagram
+For SubjectB_Head: ## Mermaid ER Diagram
+  new: SubjectB
+Found CODE_FENCE: ``` mermaid
+Found BLANK_LINE: 
+Found SubjectB_Head: ## Mermaid ER Diagram
+For SubjectB_Head: ## Mermaid ER Diagram
+  new: SubjectB
+Found BLANK_LINE: 
+Found CODE_FENCE: ``` mermaid
+Found SubjectB_Head: ## Captioned figure
+For SubjectB_Head: ## Captioned figure<figure> 
++ <img src="../FMKNYIDFrontIMG_1141.jpg" alt="Trulli" style="width:30%"> 
++ <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> 
++ </figure> 
++ And the same figure with figure/caption markup
+  new: SubjectB
+Found BLANK_LINE: 
+Found TEXT_LINE: <figure title="A Drivers License">
+Found TEXT_LINE: <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">
+Found TEXT_LINE: <figcaption>My Non-Drivers License</figcaption>
+Found TEXT_LINE: </figure>
+Found BLANK_LINE: 
+Found SubjectB_Head: ## List of Codes
+For SubjectB_Head: ## List of Codes
+  new: SubjectB
+Found BLANK_LINE: 
+Found CODE_FENCE: ```csv
+Found BLANK_LINE: 
+Found SubjectB_Head: ## UML
+For SubjectB_Head: ## UML
+  new: SubjectB
+Found CODE_FENCE: ``` puml
+Found BLANK_LINE: 
+Found SubjectB_Head: ## Russian UML
+For SubjectB_Head: ## Russian UML
+  new: SubjectB
+Found CODE_FENCE: ``` puml
+Found SubjectB_Head: ## Car diagram
+For SubjectB_Head: ## Car diagram
+  new: SubjectB
+Found CODE_FENCE: ``` puml
+Found BLANK_LINE: 
+Found SubjectB_Head: ## and a dummy section
+For SubjectB_Head: ## and a dummy section
+  new: SubjectB
+Found BLANK_LINE: 
+Found BLANK_LINE: 
+
+Phase: Deriving dict for model
+DerivingDict for Part:  Document
+DerivingDict for Part:  LiterateModel
+		Full header is: # This is my first Mermaid test
+
+
+
+===
+ParsingHeader header: # This is my first Mermaid test
+
+ParsingHeader result: {'prefix': '#', 'name': SubjectName(content='This is my first Mermaid test', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+DerivingDict for Part:  SubjectB
+		Full header is: ## Mermaid Class Diagram
+
+
+
+===
+ParsingHeader header: ## Mermaid Class Diagram
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Mermaid Class Diagram', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': ''}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## Mermaid Flowchart
+
+
+
+===
+ParsingHeader header: ## Mermaid Flowchart
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Mermaid Flowchart', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## PlantUML jsondata
+
+
+
+===
+ParsingHeader header: ## PlantUML jsondata
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Plant UML jsondata', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## PlantUML UML
+
+
+
+===
+ParsingHeader header: ## PlantUML UML
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Plant UML UML', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## Mermaid ER Diagram
+
+
+
+===
+ParsingHeader header: ## Mermaid ER Diagram
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Mermaid ER Diagram', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## Mermaid ER Diagram
+
+
+
+===
+ParsingHeader header: ## Mermaid ER Diagram
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Mermaid ER Diagram', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## Captioned figure
+<figure>
+<img src="../FMKNYIDFrontIMG_1141.jpg" alt="Trulli" style="width:30%">
+<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+</figure>
+And the same figure with figure/caption markup
+
+
+===
+ParsingHeader header: ## Captioned figure
+<figure>
+<img src="../FMKNYIDFrontIMG_1141.jpg" alt="Trulli" style="width:30%">
+<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+</figure>
+And the same figure with figure/caption markup
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', _type='SubjectName'), 'one_liner': OneLiner(_type='OneLiner', content='Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'), 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## List of Codes
+
+
+
+===
+ParsingHeader header: ## List of Codes
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='List of Codes', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## UML
+
+
+
+===
+ParsingHeader header: ## UML
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='UML', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## Russian UML
+
+
+
+===
+ParsingHeader header: ## Russian UML
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Russian UML', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## Car diagram
+
+
+
+===
+ParsingHeader header: ## Car diagram
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Car diagram', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## and a dummy section
+
+
+
+===
+ParsingHeader header: ## and a dummy section
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='and a dummy section', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'and a dummy section', '_type': 'SubjectName'}, 'parenthetical': ''} into {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'and a dummy section', '_type': 'SubjectName'}, 'parenthetical': ''} to subjects
+after absorb, dict has:  {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'and a dummy section', '_type': 'SubjectName'}, 'parenthetical': ''}]}
+Absorbing to literate_models {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'and a dummy section', '_type': 'SubjectName'}, 'parenthetical': ''}]} into {'_type': 'Document'}
+Append {'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'and a dummy section', '_type': 'SubjectName'}, 'parenthetical': ''}]} to literate_models
+after absorb, dict has:  {'_type': 'Document', 'literate_models': [{'_type': 'LiterateModel', 'prefix': '#', 'name': {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}, 'parenthetical': '', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n%%{init: {\n"flowchart": {\n"curve": "stepAfter",\n"useMaxWidth": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component["Component - Base class"]\ndirection TB\n\nLiterate["Literate<br>Core implementation"]\n\nsubgraph Subtypes["Component Subtypes"]\ndirection LR\nSubject["Subject<br>Domain entity"]\nClass["Class<br>Schema definition"]\nAttributeSection["AttributeSection<br>Property group"]\nAttribute["Attribute<br>Individual property"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML jsondata', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight "lastName"\n#highlight "address" / "city" <<h1>>\n#highlight "phoneNumbers" / "0" / "number" <<h2>>\n{\n"firstName": "John",\n"lastName": "Smith",\n"isAlive": true,\n"age": 28,\n"address": {\n"streetAddress": "21 2nd Street",\n"city": "New York",\n"state": "NY",\n"postalCode": "10021-3100"\n},\n"phoneNumbers": [\n{\n"type": "home",\n"number": "212 555-1234"\n},\n{\n"type": "office",\n"number": "646 555-4567"\n}\n],\n"children": [],\n"spouse": null\n}\n@endjson\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Plant UML UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```'}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup'}, 'parenthetical': '', 'elaboration': [{'_type': 'Paragraph', 'content': '<figure title="A Drivers License">\n \n+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'List of Codes', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = "Domain entity"];\n\nLiterate [description = "Core implementation"];\n\nAttributeSection [description = "Property group"];\n\nAttribute [description = "Individual property"];\n\nClass [description = "Schema definition"];\n\n\n\n\n}\n\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Russian UML', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\n\'hide empty description\n\'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle "Базовые модули" as base {\n\nclass "Базовые объекты" as baseobjects\nclass "Делопроизводство\\n4.5" as takeoffice\nclass "Управление\\nпроцессами" as workflow\nclass "Windows-клиент" as windowsclient\n\nclass "Управление\\nдокументами" as documentmanagement\nclass "Конструктор\\nсогласований" as approvaldesigner\n\nclass "Платформа" as platform\nclass "Служба\\n фоновых операций" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Car diagram', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'and a dummy section', '_type': 'SubjectName'}, 'parenthetical': ''}]}]}
+.. full dict saved  in ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.dict.yaml and ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.dict.json
+Building class map for module: ldm.Literate_01
+Class map is
+{   'Annotation': <class 'ldm.Literate_01.Annotation'>,
+    'AsValue': <class 'class_pom_token.AsValue'>,
+    'Attribute': <class 'ldm.Literate_01.Attribute'>,
+    'AttributeName': <class 'ldm.Literate_01.AttributeName'>,
+    'AttributeReference': <class 'ldm.Literate_01.AttributeReference'>,
+    'AttributeSection': <class 'ldm.Literate_01.AttributeSection'>,
+    'AttributeSectionName': <class 'ldm.Literate_01.AttributeSectionName'>,
+    'BaseDataType': <class 'ldm.Literate_01.BaseDataType'>,
+    'CamelCase': <class 'class_casing.CamelCase'>,
+    'Class': <class 'ldm.Literate_01.Class'>,
+    'ClassName': <class 'ldm.Literate_01.ClassName'>,
+    'Class_': <class 'ldm.Literate_01.Class'>,
+    'CodeBlock': <class 'ldm.Literate_01.CodeBlock'>,
+    'CodeType': <class 'ldm.Literate_01.CodeType'>,
+    'Component': <class 'ldm.Literate_01.Component'>,
+    'Constraint': <class 'ldm.Literate_01.Constraint'>,
+    'DataType': <class 'ldm.Literate_01.SetDataType'>,
+    'DataTypeClause': <class 'ldm.Literate_01.DataTypeClause'>,
+    'Default': <class 'ldm.Literate_01.Default'>,
+    'Derivation': <class 'ldm.Literate_01.Derivation'>,
+    'Diagnostic': <class 'ldm.Literate_01.Diagnostic'>,
+    'Emoji': <class 'class_pom_token.Emoji'>,
+    'Formula': <class 'ldm.Literate_01.Formula'>,
+    'FormulaCoding': <class 'ldm.Literate_01.FormulaCoding'>,
+    'IsExclusive': <class 'class_pom_token.IsExclusive'>,
+    'IsExhaustive': <class 'class_pom_token.IsExhaustive'>,
+    'IsOptional': <class 'class_pom_token.IsOptional'>,
+    'Label': <class 'ldm.Literate_01.Label'>,
+    'ListDataType': <class 'ldm.Literate_01.ListDataType'>,
+    'LiterateModel': <class 'ldm.Literate_01.LiterateModel'>,
+    'LowerCamel': <class 'class_casing.LowerCamel'>,
+    'MappingDataType': <class 'ldm.Literate_01.MappingDataType'>,
+    'MinorComponent': <class 'ldm.Literate_01.MinorComponent'>,
+    'ModelName': <class 'ldm.Literate_01.ModelName'>,
+    'Natural': <class 'ldm.Literate_01.OneLiner'>,
+    'NormalCase': <class 'class_casing.NormalCase'>,
+    'OneLiner': <class 'ldm.Literate_01.OneLiner'>,
+    'Paragraph': <class 'ldm.Literate_01.Paragraph'>,
+    'PresentableBoolean': <class 'class_pom_token.PresentableBoolean'>,
+    'ReferenceType': <class 'ldm.Literate_01.ReferenceType'>,
+    'SetDataType': <class 'ldm.Literate_01.SetDataType'>,
+    'Subject': <class 'ldm.Literate_01.SubjectB'>,
+    'SubjectB': <class 'ldm.Literate_01.SubjectB'>,
+    'SubjectC': <class 'ldm.Literate_01.SubjectC'>,
+    'SubjectD': <class 'ldm.Literate_01.SubjectD'>,
+    'SubjectE': <class 'ldm.Literate_01.SubjectE'>,
+    'SubjectName': <class 'ldm.Literate_01.SubjectName'>,
+    'Subtyping': <class 'ldm.Literate_01.Subtyping'>,
+    'SubtypingName': <class 'ldm.Literate_01.SubtypingName'>,
+    'UpperCamel': <class 'class_casing.UpperCamel'>,
+    'ValueType': <class 'ldm.Literate_01.ValueType'>}
+
+Phase: Creating model from dictionary: ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.dict.yaml
+ObjectCreator Creating object of type: LiterateModel - named {'content': 'This is my first Mermaid test', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Mermaid Flowchart', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Plant UML jsondata', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Plant UML UML', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: OneLiner - named Unnamed
+ObjectCreator Creating object of type: Paragraph - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'List of Codes', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'UML', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Russian UML', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'Car diagram', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+ObjectCreator Creating object of type: CodeBlock - named Unnamed
+ObjectCreator Creating object of type: SubjectB - named {'content': 'and a dummy section', '_type': 'SubjectName'}
+ObjectCreator Creating object of type: SubjectName - named Unnamed
+Created model: <class 'ldm.Literate_01.LiterateModel'>
+
+Phase: Validating model
+Validating references...
+Validation errors: 2
+
+Phase: counting errors
+{"Validation Error in SubjectB: For field 'name' - expected <class 'class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 12}
+12 	 Validation Error in SubjectB: For field 'name' - expected <class 'class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
+
+Phase: Serialing model ...
+Model serialized to ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.model.json
+Model serialized to ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.model.yaml
+..Created model files: ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.model.json and ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.model.yaml
+
+Phase: Rendering back to markdown
+Render header: [# ] None () 
+Prefix is [ #  ] dislay is  None
+12  subjects coming in model
+Render header: [## ] Mermaid Class Diagram () 
+Prefix is [ ##  ] dislay is  Mermaid Class Diagram
+adding code block...
+```mermaid
+
+
+classDiagram
+class Component
+class Literate
+class Subject
+class Class
+class Attrribute Section
+class Attribute
+
+Component  <|-- Literate
+Subject  <|-- Literate
+Class  <|-- Literate
+AttributeSection  <|-- Literate
+Attribute  <|-- Literate
+
+classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
+```
+0  subjects coming in subject
+Render header: [## ] Mermaid Flowchart () 
+Prefix is [ ##  ] dislay is  Mermaid Flowchart
+adding code block...
+``` mermaid
+%%{init: {
+"flowchart": {
+"curve": "stepAfter",
+"useMaxWidth": true
+}
+}}%%
+
+flowchart TB
+subgraph Component["Component - Base class"]
+direction TB
+
+Literate["Literate<br>Core implementation"]
+
+subgraph Subtypes["Component Subtypes"]
+direction LR
+Subject["Subject<br>Domain entity"]
+Class["Class<br>Schema definition"]
+AttributeSection["AttributeSection<br>Property group"]
+Attribute["Attribute<br>Individual property"]
+end
+
+Subject ==> Literate
+Class ==> Literate
+AttributeSection ==> Literate
+Attribute ==> Literate
+end
+
+%% Styling with border-radius only
+classDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px
+classDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px
+classDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px
+
+class Component container
+class Subtypes subcontainer
+
+%% Edge styling
+linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
+```
+0  subjects coming in subject
+Render header: [## ] Plant UML jsondata () 
+Prefix is [ ##  ] dislay is  Plant UML jsondata
+adding code block...
+``` puml
+@startjson
+<style>
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+</style>
+#highlight "lastName"
+#highlight "address" / "city" <<h1>>
+#highlight "phoneNumbers" / "0" / "number" <<h2>>
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+```
+0  subjects coming in subject
+Render header: [## ] Plant UML UML () 
+Prefix is [ ##  ] dislay is  Plant UML UML
+adding code block...
+``` puml
+
+@startuml
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u->  a
+Subject -u-> a
+Class -u-> a
+Attribute -u-> a
+a -u-> Component
+skinparam linetype ortho
+@enduml
+```
+adding code block...
+```mermaid
+block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+```
+0  subjects coming in subject
+Render header: [## ] Mermaid ER Diagram () 
+Prefix is [ ##  ] dislay is  Mermaid ER Diagram
+adding code block...
+``` mermaid
+
+erDiagram
+
+CAR {
+
+string registrationNumber
+
+string make
+
+string model
+
+}
+
+PERSON {
+
+string firstName
+
+string lastName
+
+int age
+
+}
+
+style CAR fill: red,stroke:navy,stroke-width:3px
+
+style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
+
+```
+0  subjects coming in subject
+Render header: [## ] Mermaid ER Diagram () 
+Prefix is [ ##  ] dislay is  Mermaid ER Diagram
+adding code block...
+``` mermaid
+erDiagram
+
+class Subject Component
+
+class Section Component
+
+class Attribute Component
+
+class Classe Component
+
+Subject ||--|{ Subject : contains
+
+Subject ||--|{ Classe : contains
+
+
+
+Classe ||--|{ Section : contains
+
+Classe ||--|{ Attribute : contains
+
+Section ||--|{ Attribute : contains
+
+```
+0  subjects coming in subject
+Render header: [## ] Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig () 
+Prefix is [ ##  ] dislay is  Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig
+0  subjects coming in subject
+Render header: [## ] List of Codes () 
+Prefix is [ ##  ] dislay is  List of Codes
+adding code block...
+```csv
+eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+```
+0  subjects coming in subject
+Render header: [## ] UML () 
+Prefix is [ ##  ] dislay is  UML
+adding code block...
+``` puml
+
+@startuml
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+@enduml
+```
+0  subjects coming in subject
+Render header: [## ] Russian UML () 
+Prefix is [ ##  ] dislay is  Russian UML
+adding code block...
+``` puml
+@startuml
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+@enduml
+
+```
+0  subjects coming in subject
+Render header: [## ] Car diagram () 
+Prefix is [ ##  ] dislay is  Car diagram
+adding code block...
+``` puml
+@startuml
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+@enduml
+```
+0  subjects coming in subject
+Render header: [## ] and a dummy section () 
+Prefix is [ ##  ] dislay is  and a dummy section
+0  subjects coming in subject
+
+Phase: Creating HTML from model dict
+All keys are: 
+	 _type
+	 subjects
+	 parenthetical
+	 prefix
+	 content
+	 name
+	 elaboration
+	 one_liner
+htmling dict with _type =  LiterateModel
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Mermaid Class Diagram', '_type': 'SubjectName'} the_name = Mermaid Class Diagram
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-mermaid">
+
+classDiagram
+class Component
+class Literate
+class Subject
+class Class
+class Attrribute Section
+class Attribute
+
+Component  &lt;|-- Literate
+Subject  &lt;|-- Literate
+Class  &lt;|-- Literate
+AttributeSection  &lt;|-- Literate
+Attribute  &lt;|-- Literate
+
+classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
+</code>
+Current soup classes are  ['language-mermaid']
+setting new code classes to  ['language-mermaid', 'mermaid']
+New code classes: ['language-mermaid', 'mermaid']
+Adding simple: CodeBlock with <pre><code class="language-mermaid mermaid">
+
+classDiagram
+class Component
+class Literate
+class Subject
+class Class
+class Attrribute Section
+class Attribute
+
+Component  &lt;|-- Literate
+Subject  &lt;|-- Literate
+Class  &lt;|-- Literate
+AttributeSection  &lt;|-- Literate
+Attribute  &lt;|-- Literate
+
+classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
+</code></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Mermaid Flowchart', '_type': 'SubjectName'} the_name = Mermaid Flowchart
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-mermaid">%%{init: {
+"flowchart": {
+"curve": "stepAfter",
+"useMaxWidth": true
+}
+}}%%
+
+flowchart TB
+subgraph Component["Component - Base class"]
+direction TB
+
+Literate["Literate&lt;br&gt;Core implementation"]
+
+subgraph Subtypes["Component Subtypes"]
+direction LR
+Subject["Subject&lt;br&gt;Domain entity"]
+Class["Class&lt;br&gt;Schema definition"]
+AttributeSection["AttributeSection&lt;br&gt;Property group"]
+Attribute["Attribute&lt;br&gt;Individual property"]
+end
+
+Subject ==&gt; Literate
+Class ==&gt; Literate
+AttributeSection ==&gt; Literate
+Attribute ==&gt; Literate
+end
+
+%% Styling with border-radius only
+classDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px
+classDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px
+classDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px
+
+class Component container
+class Subtypes subcontainer
+
+%% Edge styling
+linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
+</code>
+Current soup classes are  ['language-mermaid']
+setting new code classes to  ['language-mermaid', 'mermaid']
+New code classes: ['language-mermaid', 'mermaid']
+Adding simple: CodeBlock with <pre><code class="language-mermaid mermaid">%%{init: {
+"flowchart": {
+"curve": "stepAfter",
+"useMaxWidth": true
+}
+}}%%
+
+flowchart TB
+subgraph Component["Component - Base class"]
+direction TB
+
+Literate["Literate&lt;br&gt;Core implementation"]
+
+subgraph Subtypes["Component Subtypes"]
+direction LR
+Subject["Subject&lt;br&gt;Domain entity"]
+Class["Class&lt;br&gt;Schema definition"]
+AttributeSection["AttributeSection&lt;br&gt;Property group"]
+Attribute["Attribute&lt;br&gt;Individual property"]
+end
+
+Subject ==&gt; Literate
+Class ==&gt; Literate
+AttributeSection ==&gt; Literate
+Attribute ==&gt; Literate
+end
+
+%% Styling with border-radius only
+classDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px
+classDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px
+classDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px
+
+class Component container
+class Subtypes subcontainer
+
+%% Edge styling
+linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
+</code></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Plant UML jsondata', '_type': 'SubjectName'} the_name = Plant UML jsondata
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-puml">@startjson
+&lt;style&gt;
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+&lt;/style&gt;
+#highlight "lastName"
+#highlight "address" / "city" &lt;&lt;h1&gt;&gt;
+#highlight "phoneNumbers" / "0" / "number" &lt;&lt;h2&gt;&gt;
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+</code>
+Current soup classes are  ['language-puml']
+FOUND PUML CODEBLOCK.  PUML is
+@startjson
+<style>
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+</style>
+#highlight "lastName"
+#highlight "address" / "city" <<h1>>
+#highlight "phoneNumbers" / "0" / "number" <<h2>>
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+
+... and clean PUML is
+@startjson
+<style>
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+</style>
+#highlight "lastName"
+#highlight "address" / "city" <<h1>>
+#highlight "phoneNumbers" / "0" / "number" <<h2>>
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+
+creating png in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram1.png
+==> INPUT to render_puml in png:
+@startjson
+<style>
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+</style>
+#highlight "lastName"
+#highlight "address" / "city" <<h1>>
+#highlight "phoneNumbers" / "0" / "number" <<h2>>
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+
+PUML png file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram1.png
+creating svg in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram1.svg
+==> INPUT to render_puml in svg:
+@startjson
+<style>
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+</style>
+#highlight "lastName"
+#highlight "address" / "city" <<h1>>
+#highlight "phoneNumbers" / "0" / "number" <<h2>>
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+
+PUML svg file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram1.svg
+Adding simple: CodeBlock with <pre><code class="language-puml">@startjson
+&lt;style&gt;
+.h1 {
+BackGroundColor green
+FontColor white
+FontStyle italic
+}
+.h2 {
+BackGroundColor red
+FontColor white
+FontStyle bold
+}
+&lt;/style&gt;
+#highlight "lastName"
+#highlight "address" / "city" &lt;&lt;h1&gt;&gt;
+#highlight "phoneNumbers" / "0" / "number" &lt;&lt;h2&gt;&gt;
+{
+"firstName": "John",
+"lastName": "Smith",
+"isAlive": true,
+"age": 28,
+"address": {
+"streetAddress": "21 2nd Street",
+"city": "New York",
+"state": "NY",
+"postalCode": "10021-3100"
+},
+"phoneNumbers": [
+{
+"type": "home",
+"number": "212 555-1234"
+},
+{
+"type": "office",
+"number": "646 555-4567"
+}
+],
+"children": [],
+"spouse": null
+}
+@endjson
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram1.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram1.svg"/></div></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Plant UML UML', '_type': 'SubjectName'} the_name = Plant UML UML
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-puml">
+@startuml
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u-&gt;  a
+Subject -u-&gt; a
+Class -u-&gt; a
+Attribute -u-&gt; a
+a -u-&gt; Component
+skinparam linetype ortho
+@enduml
+</code>
+Current soup classes are  ['language-puml']
+FOUND PUML CODEBLOCK.  PUML is
+
+@startuml
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u->  a
+Subject -u-> a
+Class -u-> a
+Attribute -u-> a
+a -u-> Component
+skinparam linetype ortho
+@enduml
+
+... and clean PUML is
+
+
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u->  a
+Subject -u-> a
+Class -u-> a
+Attribute -u-> a
+a -u-> Component
+skinparam linetype ortho
+
+
+creating png in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram2.png
+==> INPUT to render_puml in png:
+
+
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u->  a
+Subject -u-> a
+Class -u-> a
+Attribute -u-> a
+a -u-> Component
+skinparam linetype ortho
+
+
+PUML png file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram2.png
+creating svg in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram2.svg
+==> INPUT to render_puml in svg:
+
+
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u->  a
+Subject -u-> a
+Class -u-> a
+Attribute -u-> a
+a -u-> Component
+skinparam linetype ortho
+
+
+PUML svg file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram2.svg
+Adding simple: CodeBlock with <pre><code class="language-puml">
+@startuml
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u-&gt;  a
+Subject -u-&gt; a
+Class -u-&gt; a
+Attribute -u-&gt; a
+a -u-&gt; Component
+skinparam linetype ortho
+@enduml
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram2.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram2.svg"/></div></pre>
+
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-mermaid">block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+</code>
+Current soup classes are  ['language-mermaid']
+setting new code classes to  ['language-mermaid', 'mermaid']
+New code classes: ['language-mermaid', 'mermaid']
+Adding simple: CodeBlock with <pre><code class="language-mermaid mermaid">block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+</code></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'} the_name = Mermaid ER Diagram
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-mermaid">
+erDiagram
+
+CAR {
+
+string registrationNumber
+
+string make
+
+string model
+
+}
+
+PERSON {
+
+string firstName
+
+string lastName
+
+int age
+
+}
+
+style CAR fill: red,stroke:navy,stroke-width:3px
+
+style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
+
+</code>
+Current soup classes are  ['language-mermaid']
+setting new code classes to  ['language-mermaid', 'mermaid']
+New code classes: ['language-mermaid', 'mermaid']
+Adding simple: CodeBlock with <pre><code class="language-mermaid mermaid">
+erDiagram
+
+CAR {
+
+string registrationNumber
+
+string make
+
+string model
+
+}
+
+PERSON {
+
+string firstName
+
+string lastName
+
+int age
+
+}
+
+style CAR fill: red,stroke:navy,stroke-width:3px
+
+style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
+
+</code></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Mermaid ER Diagram', '_type': 'SubjectName'} the_name = Mermaid ER Diagram
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-mermaid">erDiagram
+
+class Subject Component
+
+class Section Component
+
+class Attribute Component
+
+class Classe Component
+
+Subject ||--|{ Subject : contains
+
+Subject ||--|{ Classe : contains
+
+
+
+Classe ||--|{ Section : contains
+
+Classe ||--|{ Attribute : contains
+
+Section ||--|{ Attribute : contains
+
+</code>
+Current soup classes are  ['language-mermaid']
+setting new code classes to  ['language-mermaid', 'mermaid']
+New code classes: ['language-mermaid', 'mermaid']
+Adding simple: CodeBlock with <pre><code class="language-mermaid mermaid">erDiagram
+
+class Subject Component
+
+class Section Component
+
+class Attribute Component
+
+class Classe Component
+
+Subject ||--|{ Subject : contains
+
+Subject ||--|{ Classe : contains
+
+
+
+Classe ||--|{ Section : contains
+
+Classe ||--|{ Attribute : contains
+
+Section ||--|{ Attribute : contains
+
+</code></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig', '_type': 'SubjectName'} the_name = Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig
+Adding simple: OneLiner 
+Adding simple: OneLiner with <p>
+ Trulli, Puglia, Italy.
+ And the same figure with figure/caption markup
+</p>
+
+htmling dict with _type =  Paragraph
+Adding simple: Paragraph 
+Adding simple: Paragraph with <figure title="A Drivers License">
+ +
+ <img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%"/>
+ +
+ <figcaption>
+  My Non-Drivers License
+ </figcaption>
+ +
+</figure>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'List of Codes', '_type': 'SubjectName'} the_name = List of Codes
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-csv">eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+</code>
+Current soup classes are  ['language-csv']
+FOUND CSV CODEBLOCK.  CSV is
+eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+
+HTML table is
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>eFormat</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>E-Book</td>
+      <td>'Kindle or Apple books - etc'</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PDF</td>
+      <td>formatted for printing and direct delivery</td>
+    </tr>
+  </tbody>
+</table>
+Adding simple: CodeBlock with <pre><code class="language-csv">eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+</code></pre>
+<table border="1" class="dataframe">
+ <thead>
+  <tr style="text-align: right;">
+   <th>
+   </th>
+   <th>
+    eFormat
+   </th>
+   <th>
+    Description
+   </th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <th>
+    0
+   </th>
+   <td>
+    E-Book
+   </td>
+   <td>
+    'Kindle or Apple books - etc'
+   </td>
+  </tr>
+  <tr>
+   <th>
+    1
+   </th>
+   <td>
+    PDF
+   </td>
+   <td>
+    formatted for printing and direct delivery
+   </td>
+  </tr>
+ </tbody>
+</table>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'UML', '_type': 'SubjectName'} the_name = UML
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-puml">
+@startuml
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+@enduml
+</code>
+Current soup classes are  ['language-puml']
+FOUND PUML CODEBLOCK.  PUML is
+
+@startuml
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+@enduml
+
+... and clean PUML is
+
+
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+
+
+creating png in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram3.png
+==> INPUT to render_puml in png:
+
+
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+
+
+PUML png file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram3.png
+creating svg in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram3.svg
+==> INPUT to render_puml in svg:
+
+
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+
+
+PUML svg file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram3.svg
+Adding simple: CodeBlock with <pre><code class="language-puml">
+@startuml
+
+nwdiag {
+
+network {
+
+Component;
+
+Literate;
+
+Subject;
+
+Attribute;
+
+AttributeSection;
+
+Class;
+
+Component -- Literate;
+
+Component -- Subject;
+
+Component -- Class;
+
+Component -- AttributeSection;
+
+Component -- Attribute;
+
+
+
+Subject [description = "Domain entity"];
+
+Literate [description = "Core implementation"];
+
+AttributeSection [description = "Property group"];
+
+Attribute [description = "Individual property"];
+
+Class [description = "Schema definition"];
+
+
+
+
+}
+
+}
+
+@enduml
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram3.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram3.svg"/></div></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Russian UML', '_type': 'SubjectName'} the_name = Russian UML
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-puml">@startuml
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform &lt;-- baseobjects
+platform &lt;-- workflow
+platform &lt;-- takeoffice
+platform &lt;-- windowsclient
+platform &lt;-- documentmanagement
+platform &lt;-- approvaldesigner
+
+windowsclient -up-&gt; approvaldesigner
+windowsclient -up-&gt; documentmanagement
+windowsclient -up-&gt; baseobjects
+windowsclient -up-&gt; takeoffice
+windowsclient -up-&gt; workflow
+
+worker &lt;-- approvaldesigner
+worker &lt;-- baseobjects
+@enduml
+
+</code>
+Current soup classes are  ['language-puml']
+FOUND PUML CODEBLOCK.  PUML is
+@startuml
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+@enduml
+
+
+... and clean PUML is
+
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+
+
+
+creating png in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram4.png
+==> INPUT to render_puml in png:
+
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+
+
+
+PUML png file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram4.png
+creating svg in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram4.svg
+==> INPUT to render_puml in svg:
+
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+
+
+
+PUML svg file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram4.svg
+Adding simple: CodeBlock with <pre><code class="language-puml">@startuml
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform &lt;-- baseobjects
+platform &lt;-- workflow
+platform &lt;-- takeoffice
+platform &lt;-- windowsclient
+platform &lt;-- documentmanagement
+platform &lt;-- approvaldesigner
+
+windowsclient -up-&gt; approvaldesigner
+windowsclient -up-&gt; documentmanagement
+windowsclient -up-&gt; baseobjects
+windowsclient -up-&gt; takeoffice
+windowsclient -up-&gt; workflow
+
+worker &lt;-- approvaldesigner
+worker &lt;-- baseobjects
+@enduml
+
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram4.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram4.svg"/></div></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'Car diagram', '_type': 'SubjectName'} the_name = Car diagram
+htmling dict with _type =  CodeBlock
+Adding simple: CodeBlock 
+SOUP found codeblock <code class="language-puml">@startuml
+class Car
+
+Driver - Car : drives &gt;
+Car *- Wheel : have 4 &gt;
+Car -- Person : &lt; owns
+@enduml
+</code>
+Current soup classes are  ['language-puml']
+FOUND PUML CODEBLOCK.  PUML is
+@startuml
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+@enduml
+
+... and clean PUML is
+
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+
+
+creating png in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram5.png
+==> INPUT to render_puml in png:
+
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+
+
+PUML png file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram5.png
+creating svg in ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram5.svg
+==> INPUT to render_puml in svg:
+
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+
+
+PUML svg file saved to: ldm/ldm_models/mermaid_test/mermaid_test_results/assets/diagram5.svg
+Adding simple: CodeBlock with <pre><code class="language-puml">@startuml
+class Car
+
+Driver - Car : drives &gt;
+Car *- Wheel : have 4 &gt;
+Car -- Person : &lt; owns
+@enduml
+</code><div class="diagram png puml" string="PNG Diagram"><img class="IMAGECLASS" src="assets/diagram5.png"/></div><div class="diagram svg puml" string="SVG Diagram"><img class="IMAGECLASS" src="assets/diagram5.svg"/></div></pre>
+
+htmling dict with _type =  SubjectB
+add anchor called for key_name = name, value = {'content': 'and a dummy section', '_type': 'SubjectName'} the_name = and a dummy section
+Saved styled dictionary to ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.html
+
+Phase: Skipping PDF creation
+
+Phase: Creating PDF from html and css
+PDFing for ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.html written to ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.pdf
+PDF for ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.html written to ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test.pdf

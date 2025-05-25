@@ -1,0 +1,275 @@
+       {
+          "_type": "Class",
+          "prefix": "_",
+          "name": {
+            "content": "Component",
+            "_type": "ClassName"
+          },
+          "one_liner": {
+            "_type": "OneLiner",
+            "content": "An element or building block of the literate data model"
+          },
+          "parenthetical": "",
+          "attributes": [
+            {
+              "_type": "Attribute",
+              "prefix": "-",
+              "name": {
+                "content": "normalName",
+                "_type": "AttributeName"
+              },
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "the name of the component, not in camel case"
+              },
+              "parenthetical": "*String*",
+              "data_type_clause": {
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "content": "String",
+                    "_type": "ClassName"
+                  },
+                  "as_value_type": {
+                    "t_value": false,
+                    "_type": "AsValue"
+                  }
+                },
+                "is_optional_lit": {
+                  "t_value": false,
+                  "_type": "IsOptional"
+                },
+                "_type": "DataTypeClause"
+              }
+            },
+            {
+              "_type": "Attribute",
+              "prefix": "-",
+              "name": {
+                "content": "name",
+                "_type": "AttributeName"
+              },
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "The name of the component"
+              },
+              "parenthetical": "CamelName",
+              "data_type_clause": {
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "content": "CamelName",
+                    "_type": "ClassName"
+                  },
+                  "as_value_type": {
+                    "t_value": false,
+                    "_type": "AsValue"
+                  }
+                },
+                "is_optional_lit": {
+                  "t_value": false,
+                  "_type": "IsOptional"
+                },
+                "_type": "DataTypeClause"
+              }
+            },
+            {
+              "_type": "Attribute",
+              "prefix": "-",
+              "name": {
+                "content": "qualifiedName",
+                "_type": "AttributeName"
+              },
+              "parenthetical": "*QualifiedCamel*",
+              "data_type_clause": {
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "content": "QualifiedCamel",
+                    "_type": "ClassName"
+                  },
+                  "as_value_type": {
+                    "t_value": false,
+                    "_type": "AsValue"
+                  }
+                },
+                "is_optional_lit": {
+                  "t_value": false,
+                  "_type": "IsOptional"
+                },
+                "_type": "DataTypeClause"
+              }
+            },
+            {
+              "_type": "Attribute",
+              "prefix": "-",
+              "name": {
+                "content": "abbreviatedName",
+                "_type": "AttributeName"
+              },
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "a short form of the component's name, used for cross references and improved readability."
+              },
+              "parenthetical": "*CamelName*",
+              "data_type_clause": {
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "content": "CamelName",
+                    "_type": "ClassName"
+                  },
+                  "as_value_type": {
+                    "t_value": false,
+                    "_type": "AsValue"
+                  }
+                },
+                "is_optional_lit": {
+                  "t_value": false,
+                  "_type": "IsOptional"
+                },
+                "_type": "DataTypeClause"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " name\n"
+                }
+              },
+              "annotations": [
+                {
+                  "_type": "Annotation",
+                  "emoji": "",
+                  "label": "Example",
+                  "content": "\"LDM\" is the short form of \"Literate Data Model\"."
+                }
+              ]
+            },
+            {
+              "_type": "Attribute",
+              "prefix": "-",
+              "name": {
+                "content": "oneLiner",
+                "_type": "AttributeName"
+              },
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _"
+              },
+              "parenthetical": "RichLine",
+              "data_type_clause": {
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "content": "RichLine",
+                    "_type": "ClassName"
+                  },
+                  "as_value_type": {
+                    "t_value": false,
+                    "_type": "AsValue"
+                  }
+                },
+                "is_optional_lit": {
+                  "t_value": false,
+                  "_type": "IsOptional"
+                },
+                "_type": "DataTypeClause"
+              }
+            },
+            {
+              "_type": "Attribute",
+              "prefix": "-",
+              "name": {
+                "content": "elaboration",
+                "_type": "AttributeName"
+              },
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "A more detailed explanation or discussion of the component _"
+              },
+              "parenthetical": "RichText",
+              "data_type_clause": {
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "content": "RichText",
+                    "_type": "ClassName"
+                  },
+                  "as_value_type": {
+                    "t_value": false,
+                    "_type": "AsValue"
+                  }
+                },
+                "is_optional_lit": {
+                  "t_value": false,
+                  "_type": "IsOptional"
+                },
+                "_type": "DataTypeClause"
+              }
+            }
+          ],
+          "attribute_sections": [
+            {
+              "_type": "AttributeSection",
+              "prefix": "__",
+              "name": {
+                "content": "For Machinery",
+                "_type": "AttributeSectionName"
+              },
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "mechanical attributes"
+              },
+              "parenthetical": "",
+              "attributes": [
+                {
+                  "_type": "Attribute",
+                  "prefix": "-",
+                  "name": {
+                    "content": "isEmbellishment",
+                    "_type": "AttributeName"
+                  },
+                  "one_liner": {
+                    "_type": "OneLiner",
+                    "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+                  },
+                  "parenthetical": "Boolean",
+                  "data_type_clause": {
+                    "data_type": {
+                      "_type": "BaseDataType",
+                      "class_name": {
+                        "content": "Boolean",
+                        "_type": "ClassName"
+                      },
+                      "as_value_type": {
+                        "t_value": false,
+                        "_type": "AsValue"
+                      }
+                    },
+                    "is_optional_lit": {
+                      "t_value": false,
+                      "_type": "IsOptional"
+                    },
+                    "_type": "DataTypeClause"
+                  },
+                  "default": {
+                    "_type": "Default",
+                    "one_liner": {
+                      "_type": "OneLiner",
+                      "content": " false\n"
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "_type": "Annotation",
+                      "emoji": "",
+                      "label": "Note",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }

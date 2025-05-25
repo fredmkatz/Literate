@@ -176,9 +176,9 @@ class TypedLine:
 class ClauseLine(TypedLine):
     line_Type: Clause
 
-    @trace_method
+    # @trace_method
     def derive_clause_dict(self, level=0) -> Dict:
-        print(f"derive_clause_dict for {self}")
+        # print(f"derive_clause_dict for {self}")
         the_dict = {}
         full_text = self.full_text()
 

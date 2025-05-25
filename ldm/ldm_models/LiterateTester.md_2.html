@@ -1,0 +1,656 @@
+<h1 id="literate-tester">Literate Tester</h1>
+<p>This is a small sample of a Literate Data Model, used for testing each of the constructs, at lease once.  </p>
+<h2 id="sample-classes-with-a-one-liner-for-the-subject-spanning">Sample Classes - with a one liner for the subject, spanning</h2>
+<p>two lines</p>
+<p>And an elaboration, with a few paragraphs</p>
+<p>Paragraph 2</p>
+<p>Paragraph 3</p>
+<h3 id="editions">Editions</h3>
+<p>Class Edition - a manifestation of a literary work
+basedOn: Literary Work, Other Base
+- Title - the title, as shown on the book's title page (Full Title)
+    Default: the title of the Work of which this is an edition
+      Code: baseWork.title
+- Author - the writer (Person)
+- Illustrators - artists who supplied the pictures (List of People)
+    Shows use of plural for class.
+__ Optional Publication Details (Optional)
+- Date Published - when the edition was released to the public (BiblioDate)
+__ Required Format Details (Required)
+- Number of pages  - last page number  (optional Integer)
+__ Unsaid Other Details 
+- Date Published - when the edition was released to the public (BiblioDate)</p>
+<p>_ Hardcover Edition
+subtype of: Edition, Work</p>
+<p>_ Paperback Edition
+subtype of: Edition by Format, Work by Something Else</p>
+<p>_ Electronic Edition
+subtype of: Edition
+- eFormat - the precise medium for the electronic edition (Code)</p>
+<pre><code class="language-csv">eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+</code></pre>
+<p>Code Type: EBook Format - the precise medium for the electronic edition</p>
+<pre><code class="language-csv">Format, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+</code></pre>
+<h3 id="addresses">Addresses</h3>
+<p>Value Type: Address - a US Street address
+- Street Address 1 - usually the street and number (Text)
+- Street Address 2 - usually the apartment or unit number (Text)
+- City (US City)
+- State (US State)
+__ Full ZipCode (Required)
+- main zip code (Required Number)
+  Must be: 5 digits
+- precise zip code (Optiona Numberl)
+  Must be: 4 digits</p>
+<h2 id="next-steps">Next steps</h2>
+<h3 id="clean-up">Clean up</h3>
+<ul>
+<li>Name parsing</li>
+<li>value types</li>
+<li>Rendering code blocks. capture language</li>
+<li>Subtypings - exclusive, exhaustive</li>
+<li>Data types with reference/value and cardinality</li>
+<li>Optional on Attribute Section</li>
+</ul>
+<h3 id="complete">Complete</h3>
+<ul>
+<li>Code types</li>
+<li>And data block</li>
+</ul>
+<h3 id="validation">Validation</h3>
+<ul>
+<li>cycles</li>
+<li>references to classes, subtypings</li>
+<li>references to attributes</li>
+</ul>
+<h3 id="flesh-out">Flesh out</h3>
+<ul>
+<li>Subtypes, subtypings</li>
+<li>inverse attributes</li>
+<li>Overrides what</li>
+<li>explicit for data type value/reference</li>
+</ul>
+<h3 id="futures">Futures</h3>
+<ul>
+<li>Diagrams</li>
+</ul>
+<h2 id="tests-to-include">Tests to include</h2>
+<h3 id="headers">Headers</h3>
+<p>Notice that, here, asterisks are used for lists and embedded list, so the items won't be confused with attributes</p>
+<ul>
+<li>Subject - w/ one-liner</li>
+<li>Class one-liner?, Value Type</li>
+<li>Attribute Section - optional? </li>
+<li>Attribute Header
+**  with and without one-liners
+** with and without data type expressions</li>
+<li>Formulas, derivation, default, constraint</li>
+<li>Annotations </li>
+</ul>
+<h3 id="name-tests">Name tests</h3>
+<ul>
+<li>Variations<ul>
+<li>Styling</li>
+<li>Anchors</li>
+</ul>
+</li>
+<li>In:<ul>
+<li>Headers</li>
+<li>Class lists</li>
+<li>subtyping lists</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h3 id="class-clauses">Class clauses</h3>
+<ul>
+<li>Plural</li>
+<li>Abbreviation</li>
+<li>Subtype of</li>
+<li>Based on</li>
+<li>Where</li>
+<li>Diagnostics</li>
+<li>Annotations</li>
+</ul>
+<p>Fleshed in
+* Subtypes, subtypings
+* Dependents
+* Ancestors
+* </p>
+<h3 id="attribute-clauses">Attribute clauses</h3>
+<ul>
+<li>Data type</li>
+<li>Default</li>
+<li>Derivation</li>
+<li>Constraint</li>
+<li>Required/optional - if/unless</li>
+</ul>
+<p>Fleshed in
+* overrides
+* inverse of</p>
+<h3 id="constraints-and-derivations">Constraints and derivations</h3>
+<h2 id="more-tests-needed">More Tests needed</h2>
+<h3 id="formula-tester">Formula Tester</h3>
+<ul>
+<li>English</li>
+<li>OCL</li>
+<li>Message</li>
+<li>Severity</li>
+</ul>
+<h3 id="data-types">Data types</h3>
+<ul>
+<li>Base Type. Reference vs Value</li>
+<li>List, set, mapping types</li>
+<li>Nested operators</li>
+</ul>
+<p>_ Literary Work
+- first Edition - a home for the data type clauses (List of Edition)</p>
+<pre><code>data type: Edition
+data type: Edition reference
+data type: Edition value
+data type: List of Edition
+    testing with singular for of class name
+
+data type: List of Editions
+    testing for plural form should be equivalent
+data type: List of set of Editions
+data type: List of sets of Editions
+</code></pre>
+<p>_ Edition - to try more complex data types
+- author - assuming just one
+    data type: Person
+- artists - allowing for multiple
+    data type: list of People
+- contributors
+    data type: mapping of Roles to Lists of Person values
+    data type: mapping of Role to List of People</p>
+<pre><code>constraint: Must be several for each role
+code: len(contributors[role]) &gt; 1 for each role
+message: not enough contributors for role
+severity: Error
+con note: constraints take annotations which may span 
+multiple lines.
+
+And those annotations may have their own elaborations.
+Which may contain more that one paragraph.
+
+Here's a second paragraph, followed by a code block
+``` markdown
+This is the code block for  the annotation
+```
+
+
+
+default: {'author': [a, b, c] }
+def ote: defaults take annotations
+
+derivation: {'author': [a, b, c] }
+der note: derivations take annotations
+</code></pre>
+<h3 id="data-type-clauses">Data type clauses</h3>
+<ul>
+<li>Optionality</li>
+<li>Cardinality</li>
+</ul>
+<h2 id="elaborations">Elaborations</h2>
+<h3 id="paragraphs">Paragraphs</h3>
+<p>Unindented paragraph.
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines</p>
+<pre><code>Indented paragraph.
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+</code></pre>
+<h3 id="lists-indented-lists">Lists, indented lists</h3>
+<h3 id="code-blocks-with-language">Code blocks with language</h3>
+<h3 id="block-quotes">Block quotes</h3>
+<blockquote>
+<p>paragraph with angle before first line
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines</p>
+<p>parag with angles on every line
+next line
+next line</p>
+</blockquote>
+<p>Nested block quotes</p>
+<blockquote>
+<p>paragraph with angle before first line
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines</p>
+<blockquote>
+<p>Nested goes here
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines
+and not on next line and many subsequent lines</p>
+</blockquote>
+</blockquote>
+<h3 id="pseudo-admonitions">Pseudo admonitions</h3>
+<p>This is a :warning: Don't do that</p>
+<blockquote>
+<p>:warning: <strong>Warning:</strong> 
+Do not push the big red button.</p>
+<p>:memo: <strong>Note:</strong> Sunrises are beautiful.</p>
+<p>:bulb: <strong>Tip:</strong> Remember to appreciate the little things in life.</p>
+</blockquote>
+<p>So, how do I insert an emoji?  🐛
+In Obsidian the colon, after a space? 🛰</p>
+<h3 id="markdown-code-blocks">Markdown code blocks?</h3>
+<pre><code class="language-markdown">This is some text, with indented lists
+- Item
+- Item2
+- Item 3
+    - Item a 
+    - Item b
+    - Item c
+</code></pre>
+<h3 id="code-tables-csv-codeblock">Code Tables - CSV Codeblock</h3>
+<p>So. This is the <strong>one to use to enter codes</strong>, lists of annotations, etc</p>
+<pre><code class="language-csv">Pos, Date, Name, Price
+1, 2023-09-28, Spices, 150$
+2, 2023-02-29, Shovel, 1.25$
+</code></pre>
+<h3 id="html-code">HTML code</h3>
+<center>
+This should be centered
+</center>
+<h3 id="comments">Comments</h3>
+<p>Here's a paragraph that will be visible.
+(Hard to see what's required: blank lines?]</p>
+<p>[This is a comment] #</p>
+<p>And here's another paragraph that's visible.</p>
+<h3 id="figures">Figures</h3>
+<ol>
+<li>First item<ul>
+<li>A
+        ![[FMKNYIDFrontIMG_1141.jpg]]</li>
+<li>B</li>
+<li>C</li>
+</ul>
+</li>
+<li>Second item
+    ![[FMKNYIDFrontIMG_1141.jpg]]</li>
+<li>Third item
+Now, some paragraphs inside of nested List</li>
+<li>Item 1
+    ![[FMKNYIDFrontIMG_1141.jpg]]
+** Item 1a
+*** Item 1a
+**** Item 1a
+    ![[FMKNYIDFrontIMG_1141.jpg]]</li>
+</ol>
+<p>** Item 1b
+* *
+![[FMKNYIDFrontIMG_1141.jpg]]</p>
+<p>And now with a caption?</p>
+<p><img alt="**Not visible in Editing mode**" src="FMKNYIDFrontIMG_1141.jpg" /></p>
+<p>[[https://obsidian.md/logo.png]]
+just copy and paste into Obsidian page (or drag and drop)</p>
+<p>Captions are harder</p>
+<p><a href="https://obsidian.md/logo.png">Not visible in Editing mode</a></p>
+<h3 id="figure-caption">Figure caption</h3>
+<figure>
+    ![[FMKNYIDFrontIMG_1141.jpg]]
+<figcaption>
+This is the caption
+</figcaption>
+</figure>
+
+<h2 id="diagrams">Diagrams</h2>
+<p>Just use Mermaid in code block</p>
+<pre><code class="language-notmermaid">
+block-beta
+  columns 3
+  a:3
+  block:group1:2
+    columns 2
+    h i j k
+  end
+  g
+  block:group2:3
+    %% columns auto (default)
+    l m n o p q r
+  end
+
+</code></pre>
+<p>And here's the result</p>
+<pre><code class="language-mermaid">block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+</code></pre>
+<h2 id="admonitions">Admonitions</h2>
+<pre><code class="language-ad-tip">title: This is a tip 
+This is the content of the admonition tip. 
+</code></pre>
+<h3 id="obsidian-callouts">Obsidian Callouts</h3>
+<blockquote>
+<p>[!info]
+Here's a callout block.
+It supports <strong>Markdown</strong>, [[Internal link|Wikilinks]], and [[Embed files|embeds]]!
+![[Engelbart.jpg]]</p>
+<p>[!note]
+Lorem ipsum dolor sit amet</p>
+<p>[!abstract]
+Lorem ipsum dolor sit amet</p>
+<p>[!question]
+Lorem ipsum dolor sit amet</p>
+<p>[!question]
+Why is the sky blue?</p>
+</blockquote>
+<h2 id="capabilities">Capabilities</h2>
+<h3 id="to-pdf">To PDF</h3>
+<h3 id="to-html">To HTML</h3>
+<h3 id="prettify">Prettify</h3>
+<h3 id="edit-in-vs-code">Edit in VS Code</h3>
+<h3 id="toc">TOC</h3>
+<h3 id="index">Index</h3>
+<p>_ NewClass - just to see if it does that</p>
+<h2 id="markdown-syntax">Markdown: Syntax</h2>
+<ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#philosophy">Philosophy</a></li>
+<li><a href="#html">Inline HTML</a></li>
+<li><a href="#autoescape">Automatic Escaping for Special Characters</a></li>
+</ul>
+</li>
+<li><a href="#block">Block Elements</a><ul>
+<li><a href="#p">Paragraphs and Line Breaks</a></li>
+<li><a href="#header">Headers</a></li>
+<li><a href="#blockquote">Blockquotes</a></li>
+<li><a href="#list">Lists</a></li>
+<li><a href="#precode">Code Blocks</a></li>
+<li><a href="#hr">Horizontal Rules</a></li>
+</ul>
+</li>
+<li><a href="#span">Span Elements</a><ul>
+<li><a href="#link">Links</a></li>
+<li><a href="#em">Emphasis</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#img">Images</a></li>
+</ul>
+</li>
+<li><a href="#misc">Miscellaneous</a><ul>
+<li><a href="#backslash">Backslash Escapes</a></li>
+<li><a href="#autolink">Automatic Links</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong> This document is itself written using Markdown; you
+can <a href="/projects/markdown/syntax.text">see the source for it by adding '.text' to the URL</a>.</p>
+<hr />
+<h3 id="overview">Overview</h3>
+<h4 id="philosophy">Philosophy</h4>
+<p>Markdown is intended to be as easy-to-read and easy-to-write as is feasible.</p>
+<p>Readability, however, is emphasized above all else. A Markdown-formatted
+document should be publishable as-is, as plain text, without looking
+like it's been marked up with tags or formatting instructions. While
+Markdown's syntax has been influenced by several existing text-to-HTML
+filters -- including <a href="http://docutils.sourceforge.net/mirror/setext.html">Setext</a>, <a href="http://www.aaronsw.com/2002/atx/">atx</a>, <a href="http://textism.com/tools/textile/">Textile</a>, <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>,
+<a href="http://www.triptico.com/software/grutatxt.html">Grutatext</a>, and <a href="http://ettext.taint.org/doc/">EtText</a> -- the single biggest source of
+inspiration for Markdown's syntax is the format of plain text email.</p>
+<h3 id="block-elements">Block Elements</h3>
+<h4 id="paragraphs-and-line-breaks">Paragraphs and Line Breaks</h4>
+<p>A paragraph is simply one or more consecutive lines of text, separated
+by one or more blank lines. (A blank line is any line that looks like a
+blank line -- a line containing nothing but spaces or tabs is considered
+blank.) Normal paragraphs should not be indented with spaces or tabs.</p>
+<p>The implication of the "one or more consecutive lines of text" rule is
+that Markdown supports "hard-wrapped" text paragraphs. This differs
+significantly from most other text-to-HTML formatters (including Movable
+Type's "Convert Line Breaks" option) which translate every line break
+character in a paragraph into a <code>&lt;br /&gt;</code> tag.</p>
+<p>When you <em>do</em> want to insert a <code>&lt;br /&gt;</code> break tag using Markdown, you
+end a line with two or more spaces, then type return.</p>
+<h4 id="headers_1">Headers</h4>
+<p>Markdown supports two styles of headers, [Setext] [1] and [atx] [2].</p>
+<p>Optionally, you may "close" atx-style headers. This is purely
+cosmetic -- you can use this if you think it looks better. The
+closing hashes don't even need to match the number of hashes
+used to open the header. (The number of opening hashes
+determines the header level.)</p>
+<h4 id="blockquotes">Blockquotes</h4>
+<p>Markdown uses email-style <code>&gt;</code> characters for blockquoting. If you're
+familiar with quoting passages of text in an email message, then you
+know how to create a blockquote in Markdown. It looks best if you hard
+wrap the text and put a <code>&gt;</code> before every line:</p>
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<p>Markdown allows you to be lazy and only put the <code>&gt;</code> before the first
+line of a hard-wrapped paragraph:</p>
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<p>Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by
+adding additional levels of <code>&gt;</code>:</p>
+<blockquote>
+<p>This is the first level of quoting.</p>
+<blockquote>
+<p>This is nested blockquote.</p>
+</blockquote>
+<p>Back to the first level.</p>
+</blockquote>
+<p>Blockquotes can contain other Markdown elements, including headers, lists,
+and code blocks:</p>
+<blockquote>
+<h2 id="this-is-a-header">This is a header.</h2>
+<ol>
+<li>This is the first list item.</li>
+<li>This is the second list item.</li>
+</ol>
+<p>Here's some example code:</p>
+<pre><code>return shell_exec("echo $input | $markdown_script");
+</code></pre>
+</blockquote>
+<p>Any decent text editor should make email-style quoting easy. For
+example, with BBEdit, you can make a selection and choose Increase
+Quote Level from the Text menu.</p>
+<h4 id="lists">Lists</h4>
+<p>Markdown supports ordered (numbered) and unordered (bulleted) lists.</p>
+<p>Unordered lists use asterisks, pluses, and hyphens -- interchangably
+-- as list markers:</p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<p>is equivalent to:</p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<p>and:</p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<p>Ordered lists use numbers followed by periods:</p>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<p>It's important to note that the actual numbers you use to mark the
+list have no effect on the HTML output Markdown produces. The HTML
+Markdown produces from the above list is:</p>
+<p>If you instead wrote the list in Markdown like this:</p>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<p>or even:</p>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<p>you'd get the exact same HTML output. The point is, if you want to,
+you can use ordinal numbers in your ordered Markdown lists, so that
+the numbers in your source match the numbers in your published HTML.
+But if you want to be lazy, you don't have to.</p>
+<p>To make lists look nice, you can wrap items with hanging indents:</p>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.</li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ul>
+<p>But if you want to be lazy, you don't have to:</p>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.</li>
+<li>Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.</li>
+</ul>
+<p>List items may consist of multiple paragraphs. Each subsequent
+paragraph in a list item must be indented by either 4 spaces
+or one tab:</p>
+<ol>
+<li>
+<p>This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.</p>
+<p>Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+sit amet velit.</p>
+</li>
+<li>
+<p>Suspendisse id sem consectetuer libero luctus adipiscing.</p>
+</li>
+</ol>
+<p>It looks nice if you indent every line of the subsequent
+paragraphs, but here again, Markdown will allow you to be
+lazy:</p>
+<ul>
+<li>
+<p>This is a list item with two paragraphs.</p>
+<p>This is the second paragraph in the list item. You're
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.</p>
+</li>
+<li>
+<p>Another item in the same list.</p>
+</li>
+</ul>
+<p>To put a blockquote within a list item, the blockquote's <code>&gt;</code>
+delimiters need to be indented:</p>
+<ul>
+<li>
+<p>A list item with a blockquote:</p>
+<blockquote>
+<p>This is a blockquote
+inside a list item.</p>
+</blockquote>
+</li>
+</ul>
+<p>To put a code block within a list item, the code block needs
+to be indented <em>twice</em> -- 8 spaces or two tabs:</p>
+<ul>
+<li>A list item with a code block:<pre><code>&lt;code goes here&gt;
+</code></pre>
+</li>
+</ul>
+<h4 id="code-blocks">Code Blocks</h4>
+<p>Pre-formatted code blocks are used for writing about programming or
+markup source code. Rather than forming normal paragraphs, the lines
+of a code block are interpreted literally. Markdown wraps a code block
+in both <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code> tags.</p>
+<p>To produce a code block in Markdown, simply indent every line of the
+block by at least 4 spaces or 1 tab.</p>
+<p>This is a normal paragraph:</p>
+<pre><code>This is a code block.
+</code></pre>
+<p>Here is an example of AppleScript:</p>
+<pre><code>tell application "Foo"
+    beep
+end tell
+</code></pre>
+<p>A code block continues until it reaches a line that is not indented
+(or the end of the article).</p>
+<p>Within a code block, ampersands (<code>&amp;</code>) and angle brackets (<code>&lt;</code> and <code>&gt;</code>)
+are automatically converted into HTML entities. This makes it very
+easy to include example HTML source code using Markdown -- just paste
+it and indent it, and Markdown will handle the hassle of encoding the
+ampersands and angle brackets. For example, this:</p>
+<pre><code>&lt;div class="footer"&gt;
+    &amp;copy; 2004 Foo Corporation
+&lt;/div&gt;
+</code></pre>
+<p>Regular Markdown syntax is not processed within code blocks. E.g.,
+asterisks are just literal asterisks within a code block. This means
+it's also easy to use Markdown to write about Markdown's own syntax.</p>
+<pre><code>tell application &quot;Foo&quot;
+    beep
+end tell
+</code></pre>
+<h3 id="span-elements">Span Elements</h3>
+<h4 id="links">Links</h4>
+<p>Markdown supports two style of links: <em>inline</em> and <em>reference</em>.</p>
+<p>In both styles, the link text is delimited by [square brackets].</p>
+<p>To create an inline link, use a set of regular parentheses immediately
+after the link text's closing square bracket. Inside the parentheses,
+put the URL where you want the link to point, along with an <em>optional</em>
+title for the link, surrounded in quotes. For example:</p>
+<p>This is <a href="http://example.com/">an example</a> inline link.</p>
+<p><a href="http://example.net/">This link</a> has no title attribute.</p>
+<h4 id="emphasis">Emphasis</h4>
+<p>Markdown treats asterisks (<code>*</code>) and underscores (<code>_</code>) as indicators of
+emphasis. Text wrapped with one <code>*</code> or <code>_</code> will be wrapped with an
+HTML <code>&lt;em&gt;</code> tag; double <code>*</code>'s or <code>_</code>'s will be wrapped with an HTML
+<code>&lt;strong&gt;</code> tag. E.g., this input:</p>
+<p><em>single asterisks</em></p>
+<p><em>single underscores</em></p>
+<p><strong>double asterisks</strong></p>
+<p><strong>double underscores</strong></p>
+<h4 id="code">Code</h4>
+<p>To indicate a span of code, wrap it with backtick quotes (<code>`</code>).
+Unlike a pre-formatted code block, a code span indicates code within a
+normal paragraph. For example:</p>
+<p>Use the <code>printf()</code> function.</p>

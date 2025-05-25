@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <pre class="mermaid">
+  graph LR
+      A --- B
+      B-->C[fa:fa-ban forbidden]
+      B-->D(fa:fa-spinner);
+    </pre>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    </script>
+<h3>And, a second example...</h3>
+    <div class="CodeBlock mdhtml">
+        <pre><code class="language-mermaid">
+            block-beta
+            columns 3
+            a:3
+            block:group1:2
+            columns 2
+            h i j k
+            end
+            g
+            block:group2:3
+            %% columns auto (default)
+            l m n o p q r
+            end
+        </code></pre>
+    </div>
+
+<h3>Change class to just mermaid</h3>
+<pre>
+        div class="CodeBlock mdhtml">
+            pre code class="mermaid"
+
+</pre>
+    <div class="CodeBlock mdhtml">
+        <pre><code class="mermaid">
+            block-beta
+            columns 3
+            a:3
+            block:group1:2
+            columns 2
+            h i j k
+            end
+            g
+            block:group2:3
+            %% columns auto (default)
+            l m n o p q r
+            end
+        </code></pre>
+    </div>
+
+    Now, diagram in a List
+    <ol>
+        <li>
+                <div class="CodeBlock mdhtml">
+        <pre><code class="mermaid">
+            block-beta
+            columns 3
+            a:3
+            block:group1:2
+            columns 2
+            h i j k
+            end
+            g
+            block:group2:3
+            %% columns auto (default)
+            l m n o p q r
+            end
+        </code></pre>
+    </div>
+
+        </li>
+    </ol>
+  </body>
+</html>

@@ -439,7 +439,7 @@ def parse_header(header: str) -> dict:
     - one_liner: The one-liner description (if present)
     - parenthetical: The content in parentheses (if present)
     """
-    print(f"\n\n===\nParsingHeader header: {header}")
+    # print(f"\n\n===\nParsingHeader header: {header}")
 
     result = {"prefix": "", "name": None, "one_liner": None, "parenthetical": ""}
 
@@ -506,11 +506,11 @@ def parse_header(header: str) -> dict:
         if prefix.strip() == "__": # Attribute Section
             is_optional = IsOptional(parenthetical)
             result["is_optional"] = is_optional
-            print(f"AttSection: {is_optional} Result is {result}")
+            # print(f"AttSection: {is_optional} Result is {result}")
         else:
             result['parenthetical'] = parenthetical
 
-    print(f"ParsingHeader result: {result}\n===\n")
+    # print(f"ParsingHeader result: {result}\n===\n")
 
     return tidy_empties(result)
 
@@ -536,18 +536,18 @@ def parse_data_type(phrase) -> DataType:
     if operator == "ListOf":
         dt0 = parse_data_type(typeA)
         dt = ListDataType(dt0)
-        print("Created list dt: ", dt)
+        # print("Created list dt: ", dt)
         return dt
     if operator == "SetOf":
         dt0 = parse_data_type(typeA)
         dt = SetDataType(dt0)
-        print("Created set dt: ", dt)
+        # print("Created set dt: ", dt)
         return dt
     if operator == "Mapping":
         dt1 = parse_data_type(typeA)
         dt2 = parse_data_type(typeB)
         dt = MappingDataType(dt1, dt2)
-        print("Created Mapping dt: ", dt)
+        # print("Created Mapping dt: ", dt)
         return dt
 
     if is_name(phrase):

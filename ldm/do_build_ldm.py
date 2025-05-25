@@ -230,23 +230,24 @@ ldm_dull_specs = {
     "part_plurals": part_plurals,
     "all_clauses_by_priority": all_clauses_by_priority,
     "listed_parts": listed_parts,
-    "dirpath": models_dir,
-    "model_doc": "Literate.md",
     "model_module": "Literate01.py",
+
+    "models_dir": models_dir,
+    "model_name": "Literate",
 
 }
 if __name__ == "__main__":
     from dull_dsl.dull_build import build_dull_dsl
     
-    model_doc = "Literate.md"
-    model_doc = "LiterateTester.md"
+    model_name = "Literate"
+    model_name = "LiterateTester"
 
 
-    model_doc = "Literate.md"
-    model_doc = "LiterateTester.md"
+    model_name = "Literate"
+    model_name = "LiterateTester"
 
 
 
-    ldm_dull_specs["model_doc"] = model_doc
+    ldm_dull_specs["model_name"] = model_name
     build_dull_dsl(ldm_dull_specs)
 

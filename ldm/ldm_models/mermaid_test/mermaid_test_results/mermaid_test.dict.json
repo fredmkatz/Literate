@@ -1,0 +1,198 @@
+{
+  "_type": "Document",
+  "literate_models": [
+    {
+      "_type": "LiterateModel",
+      "prefix": "#",
+      "name": {
+        "content": "This is my first Mermaid test",
+        "_type": "SubjectName"
+      },
+      "parenthetical": "",
+      "subjects": [
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Mermaid Class Diagram",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "```mermaid\n\n\nclassDiagram\nclass Component\nclass Literate\nclass Subject\nclass Class\nclass Attrribute Section\nclass Attribute\n\nComponent  <|-- Literate\nSubject  <|-- Literate\nClass  <|-- Literate\nAttributeSection  <|-- Literate\nAttribute  <|-- Literate\n\nclassDef default fill:yellow,stroke:#000, color:black, stroke-width:4px\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Mermaid Flowchart",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` mermaid\n%%{init: {\n\"flowchart\": {\n\"curve\": \"stepAfter\",\n\"useMaxWidth\": true\n}\n}}%%\n\nflowchart TB\nsubgraph Component[\"Component - Base class\"]\ndirection TB\n\nLiterate[\"Literate<br>Core implementation\"]\n\nsubgraph Subtypes[\"Component Subtypes\"]\ndirection LR\nSubject[\"Subject<br>Domain entity\"]\nClass[\"Class<br>Schema definition\"]\nAttributeSection[\"AttributeSection<br>Property group\"]\nAttribute[\"Attribute<br>Individual property\"]\nend\n\nSubject ==> Literate\nClass ==> Literate\nAttributeSection ==> Literate\nAttribute ==> Literate\nend\n\n%% Styling with border-radius only\nclassDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px\nclassDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px\nclassDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px\n\nclass Component container\nclass Subtypes subcontainer\n\n%% Edge styling\nlinkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Plant UML jsondata",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` puml\n@startjson\n<style>\n.h1 {\nBackGroundColor green\nFontColor white\nFontStyle italic\n}\n.h2 {\nBackGroundColor red\nFontColor white\nFontStyle bold\n}\n</style>\n#highlight \"lastName\"\n#highlight \"address\" / \"city\" <<h1>>\n#highlight \"phoneNumbers\" / \"0\" / \"number\" <<h2>>\n{\n\"firstName\": \"John\",\n\"lastName\": \"Smith\",\n\"isAlive\": true,\n\"age\": 28,\n\"address\": {\n\"streetAddress\": \"21 2nd Street\",\n\"city\": \"New York\",\n\"state\": \"NY\",\n\"postalCode\": \"10021-3100\"\n},\n\"phoneNumbers\": [\n{\n\"type\": \"home\",\n\"number\": \"212 555-1234\"\n},\n{\n\"type\": \"office\",\n\"number\": \"646 555-4567\"\n}\n],\n\"children\": [],\n\"spouse\": null\n}\n@endjson\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Plant UML UML",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` puml\n\n@startuml\n\nrectangle Component\nrectangle Literate\nrectangle Subject\nrectangle Class\nrectangle Attribute\nrectangle a\n\nLiterate -u->  a\nSubject -u-> a\nClass -u-> a\nAttribute -u-> a\na -u-> Component\nskinparam linetype ortho\n@enduml\n```"
+            },
+            {
+              "_type": "CodeBlock",
+              "content": "```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Mermaid ER Diagram",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` mermaid\n\nerDiagram\n\nCAR {\n\nstring registrationNumber\n\nstring make\n\nstring model\n\n}\n\nPERSON {\n\nstring firstName\n\nstring lastName\n\nint age\n\n}\n\nstyle CAR fill: red,stroke:navy,stroke-width:3px\n\nstyle PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px\n\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Mermaid ER Diagram",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` mermaid\nerDiagram\n\nclass Subject Component\n\nclass Section Component\n\nclass Attribute Component\n\nclass Classe Component\n\nSubject ||--|{ Subject : contains\n\nSubject ||--|{ Classe : contains\n\n\n\nClasse ||--|{ Section : contains\n\nClasse ||--|{ Attribute : contains\n\nSection ||--|{ Attribute : contains\n\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Captioned figure figure img src FMKNYID Front IM jpg alt Trulli style width figcaption Fig",
+            "_type": "SubjectName"
+          },
+          "one_liner": {
+            "_type": "OneLiner",
+            "content": "Trulli, Puglia, Italy.</figcaption>\n</figure>\nAnd the same figure with figure/caption markup"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "<figure title=\"A Drivers License\">\n \n+ <img src=\"../FMKNYIDFrontIMG_1141.jpg\" style=\"width:20%\">\n \n+ <figcaption>My Non-Drivers License</figcaption>\n \n+ </figure>\n"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "List of Codes",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "```csv\neFormat, Description\nE-Book, 'Kindle or Apple books - etc'\nPDF, formatted for printing and direct delivery\n\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "UML",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` puml\n\n@startuml\n\nnwdiag {\n\nnetwork {\n\nComponent;\n\nLiterate;\n\nSubject;\n\nAttribute;\n\nAttributeSection;\n\nClass;\n\nComponent -- Literate;\n\nComponent -- Subject;\n\nComponent -- Class;\n\nComponent -- AttributeSection;\n\nComponent -- Attribute;\n\n\n\nSubject [description = \"Domain entity\"];\n\nLiterate [description = \"Core implementation\"];\n\nAttributeSection [description = \"Property group\"];\n\nAttribute [description = \"Individual property\"];\n\nClass [description = \"Schema definition\"];\n\n\n\n\n}\n\n}\n\n@enduml\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Russian UML",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` puml\n@startuml\n'hide empty description\n'!pragma layout elk\nskinparam rectangleBorderThickness 1\nskinparam defaultTextAlignment center\nskinparam lifelineStrategy solid\nskinparam monochrome false\nskinparam style strictuml\nhide empty members\nskinparam Linetype ortho\n\nrectangle \"\u0411\u0430\u0437\u043e\u0432\u044b\u0435 \u043c\u043e\u0434\u0443\u043b\u0438\" as base {\n\nclass \"\u0411\u0430\u0437\u043e\u0432\u044b\u0435 \u043e\u0431\u044a\u0435\u043a\u0442\u044b\" as baseobjects\nclass \"\u0414\u0435\u043b\u043e\u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u043e\\n4.5\" as takeoffice\nclass \"\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435\\n\u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430\u043c\u0438\" as workflow\nclass \"Windows-\u043a\u043b\u0438\u0435\u043d\u0442\" as windowsclient\n\nclass \"\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435\\n\u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043c\u0438\" as documentmanagement\nclass \"\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\\n\u0441\u043e\u0433\u043b\u0430\u0441\u043e\u0432\u0430\u043d\u0438\u0439\" as approvaldesigner\n\nclass \"\u041f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430\" as platform\nclass \"\u0421\u043b\u0443\u0436\u0431\u0430\\n \u0444\u043e\u043d\u043e\u0432\u044b\u0445 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439\" as worker\n\n}\n\nplatform <-- baseobjects\nplatform <-- workflow\nplatform <-- takeoffice\nplatform <-- windowsclient\nplatform <-- documentmanagement\nplatform <-- approvaldesigner\n\nwindowsclient -up-> approvaldesigner\nwindowsclient -up-> documentmanagement\nwindowsclient -up-> baseobjects\nwindowsclient -up-> takeoffice\nwindowsclient -up-> workflow\n\nworker <-- approvaldesigner\nworker <-- baseobjects\n@enduml\n\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Car diagram",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` puml\n@startuml\nclass Car\n\nDriver - Car : drives >\nCar *- Wheel : have 4 >\nCar -- Person : < owns\n@enduml\n```"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "and a dummy section",
+            "_type": "SubjectName"
+          },
+          "parenthetical": ""
+        }
+      ]
+    }
+  ]
+}

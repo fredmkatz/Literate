@@ -1,0 +1,59 @@
+
+Phase: Warming up
+Model dir:  ldm/ldm_models
+Model doc:  plantuml_test.md
+Model name:  plantuml_test
+Model doc path:  ldm/ldm_models/plantuml_test.md
+Model module:  Literate01.py
+Model module path:  ldm/ldm_models/Literate01.py
+Results dir:  ldm/ldm_models/plantuml_test_results
+
+Phase: Parsing model: {model_doc_path}
+PARSING ldm/ldm_models/plantuml_test.md
+Found SubjectB_Head: ## way more
+For SubjectB_Head: ## way more
+  new: SubjectB
+Found BLANK_LINE: 
+Found CODE_FENCE: ```puml
+Found SubjectB_Head: ## MindMap
+For SubjectB_Head: ## MindMap
+  new: SubjectB
+Found CODE_FENCE: ```puml
+Found CODE_FENCE: ``` puml
+Found BLANK_LINE: 
+Found CODE_FENCE: ```puml
+Found BLANK_LINE: 
+Found BLANK_LINE: 
+
+Phase: Deriving dict for model
+DerivingDict for Part:  Document
+DerivingDict for Part:  SubjectB
+		Full header is: ## way more
+
+
+
+===
+ParsingHeader header: ## way more
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='way more', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'way more', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```puml\n@startuml\n\' Configure the modern style approach with CSS\n\' Try polyline instead of ortho\nskinparam linetype polyline\n\n<style>\n/* Global settings */\ndiagram {\nbackgroundColor: white;\n}\n\n/* Class styling */\nclass {\nBackgroundColor: #FFFFEE;\nBorderColor: #333333;\nBorderThickness: 1;\nBorderRadius: 8;\nFontColor: #333333;\nFontSize: 12;\n}\n\n/* Arrow styling */\narrow {\nColor: #333333;\nThickness: 1.5;\n}\n\n/* Package styling */\npackage {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nFontColor: #333333;\n}\n\n/* Custom style for Component */\n.container {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nBorderRadius: 10;\n}\n</style>\n\npackage "Component" <<container>> {\nclass Literate {\nCore implementation\n}\n\nclass Subject {\nDomain entity\n}\nclass Class {\nSchema definition\n}\nclass AttributeSection {\nProperty group\n}\nclass Attribute {\nIndividual property\n}\n\n\' Relationships\nSubject -> Literate\nClass -> Literate\nAttributeSection -> Literate\nAttribute -> Literate\n}\n\n@enduml\n```'}]} into {'_type': 'Document'}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'way more', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```puml\n@startuml\n\' Configure the modern style approach with CSS\n\' Try polyline instead of ortho\nskinparam linetype polyline\n\n<style>\n/* Global settings */\ndiagram {\nbackgroundColor: white;\n}\n\n/* Class styling */\nclass {\nBackgroundColor: #FFFFEE;\nBorderColor: #333333;\nBorderThickness: 1;\nBorderRadius: 8;\nFontColor: #333333;\nFontSize: 12;\n}\n\n/* Arrow styling */\narrow {\nColor: #333333;\nThickness: 1.5;\n}\n\n/* Package styling */\npackage {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nFontColor: #333333;\n}\n\n/* Custom style for Component */\n.container {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nBorderRadius: 10;\n}\n</style>\n\npackage "Component" <<container>> {\nclass Literate {\nCore implementation\n}\n\nclass Subject {\nDomain entity\n}\nclass Class {\nSchema definition\n}\nclass AttributeSection {\nProperty group\n}\nclass Attribute {\nIndividual property\n}\n\n\' Relationships\nSubject -> Literate\nClass -> Literate\nAttributeSection -> Literate\nAttribute -> Literate\n}\n\n@enduml\n```'}]} to subjects
+after absorb, dict has:  {'_type': 'Document', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'way more', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```puml\n@startuml\n\' Configure the modern style approach with CSS\n\' Try polyline instead of ortho\nskinparam linetype polyline\n\n<style>\n/* Global settings */\ndiagram {\nbackgroundColor: white;\n}\n\n/* Class styling */\nclass {\nBackgroundColor: #FFFFEE;\nBorderColor: #333333;\nBorderThickness: 1;\nBorderRadius: 8;\nFontColor: #333333;\nFontSize: 12;\n}\n\n/* Arrow styling */\narrow {\nColor: #333333;\nThickness: 1.5;\n}\n\n/* Package styling */\npackage {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nFontColor: #333333;\n}\n\n/* Custom style for Component */\n.container {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nBorderRadius: 10;\n}\n</style>\n\npackage "Component" <<container>> {\nclass Literate {\nCore implementation\n}\n\nclass Subject {\nDomain entity\n}\nclass Class {\nSchema definition\n}\nclass AttributeSection {\nProperty group\n}\nclass Attribute {\nIndividual property\n}\n\n\' Relationships\nSubject -> Literate\nClass -> Literate\nAttributeSection -> Literate\nAttribute -> Literate\n}\n\n@enduml\n```'}]}]}
+DerivingDict for Part:  SubjectB
+		Full header is: ## MindMap
+
+
+
+===
+ParsingHeader header: ## MindMap
+
+ParsingHeader result: {'prefix': '##', 'name': SubjectName(content='Mind Map', _type='SubjectName'), 'one_liner': None, 'parenthetical': ''}
+===
+
+Absorbing to subjects {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mind Map', '_type': 'SubjectName'}, 'parenthetical': ''} into {'_type': 'Document', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'way more', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```puml\n@startuml\n\' Configure the modern style approach with CSS\n\' Try polyline instead of ortho\nskinparam linetype polyline\n\n<style>\n/* Global settings */\ndiagram {\nbackgroundColor: white;\n}\n\n/* Class styling */\nclass {\nBackgroundColor: #FFFFEE;\nBorderColor: #333333;\nBorderThickness: 1;\nBorderRadius: 8;\nFontColor: #333333;\nFontSize: 12;\n}\n\n/* Arrow styling */\narrow {\nColor: #333333;\nThickness: 1.5;\n}\n\n/* Package styling */\npackage {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nFontColor: #333333;\n}\n\n/* Custom style for Component */\n.container {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nBorderRadius: 10;\n}\n</style>\n\npackage "Component" <<container>> {\nclass Literate {\nCore implementation\n}\n\nclass Subject {\nDomain entity\n}\nclass Class {\nSchema definition\n}\nclass AttributeSection {\nProperty group\n}\nclass Attribute {\nIndividual property\n}\n\n\' Relationships\nSubject -> Literate\nClass -> Literate\nAttributeSection -> Literate\nAttribute -> Literate\n}\n\n@enduml\n```'}]}]}
+Append {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mind Map', '_type': 'SubjectName'}, 'parenthetical': ''} to subjects
+after absorb, dict has:  {'_type': 'Document', 'subjects': [{'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'way more', '_type': 'SubjectName'}, 'parenthetical': '', 'elaboration': [{'_type': 'CodeBlock', 'content': '```puml\n@startuml\n\' Configure the modern style approach with CSS\n\' Try polyline instead of ortho\nskinparam linetype polyline\n\n<style>\n/* Global settings */\ndiagram {\nbackgroundColor: white;\n}\n\n/* Class styling */\nclass {\nBackgroundColor: #FFFFEE;\nBorderColor: #333333;\nBorderThickness: 1;\nBorderRadius: 8;\nFontColor: #333333;\nFontSize: 12;\n}\n\n/* Arrow styling */\narrow {\nColor: #333333;\nThickness: 1.5;\n}\n\n/* Package styling */\npackage {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nFontColor: #333333;\n}\n\n/* Custom style for Component */\n.container {\nBackgroundColor: #E6F2FF;\nBorderColor: #336699;\nBorderThickness: 3;\nBorderRadius: 10;\n}\n</style>\n\npackage "Component" <<container>> {\nclass Literate {\nCore implementation\n}\n\nclass Subject {\nDomain entity\n}\nclass Class {\nSchema definition\n}\nclass AttributeSection {\nProperty group\n}\nclass Attribute {\nIndividual property\n}\n\n\' Relationships\nSubject -> Literate\nClass -> Literate\nAttributeSection -> Literate\nAttribute -> Literate\n}\n\n@enduml\n```'}]}, {'_type': 'SubjectB', 'prefix': '##', 'name': {'content': 'Mind Map', '_type': 'SubjectName'}, 'parenthetical': ''}]}
+.. full dict saved  in ldm/ldm_models/plantuml_test_results/plantuml_test.dict.yaml and ldm/ldm_models/plantuml_test_results/plantuml_test.dict.json
+No LiterateModels found in the dictionary

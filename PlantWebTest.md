@@ -1,0 +1,42 @@
+
+# PlantWeb test
+
+```puml
+
+@startuml
+nwdiag {
+  network {
+    Component;
+    Literate;
+    Subject;
+    Attribute;
+    AttributeSection;
+    Class;
+    
+    Component -- Literate;
+    Component -- Subject;
+    Component -- Class;
+    Component -- AttributeSection;
+    Component -- Attribute;
+
+    Subject [description = "Domain entity"];
+    Literate [description = "Core implementation"];
+    AttributeSection [description = "Property group"];
+    Attribute [description = "Individual property"];
+    Class [description = "Schema definition"];
+
+
+  }
+}
+@enduml
+
+@startuml
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+
+@enduml
+
+```

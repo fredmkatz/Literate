@@ -9,7 +9,7 @@ from utils_pom.util_fmk_pom import write_text, write_yaml
 from utils_pom.util_json_pom import as_json
 from utils_pom.util_fmk_pom import create_fresh_directory
 import weasy_pdf as weasy
-from dict_to_html import create_dict_html
+from ldm_to_html import create_model_html
 
 from pdf2md import convert_pdf2md
 # from utils_pom.util_json_pom import as_json
@@ -23,7 +23,9 @@ from new_dict_lib import model_to_json, model_to_yaml, model_to_json_file, model
 from ldm_object_creator import GenericObjectCreator
 import ldm.Literate_01 as Literate_01
 
-
+the_model_dir = ""
+the_model_results_dir = ""
+the_model_assets_dir = ""
 
 all_clauses_by_priority = None
 part_plurals = None
@@ -31,33 +33,46 @@ part_parts = None
 
 def build_dull_dsl(dull_specs: Dict):
     
-    model_dir = dull_specs["dirpath"]
-    model_doc = dull_specs["model_doc"]
-    model_name =   os.path.splitext(model_doc)[0]
+    models_dir = dull_specs["models_dir"]
+    model_name = dull_specs["model_name"]
+    model_doc = model_name + ".md"
+    model_dir = f"{models_dir}/{model_name}"
     model_doc_path = f"{model_dir}/{model_doc}"
     
-    model_module = dull_specs["model_module"]
-    model_module_path = f"{model_dir}/{model_module}"
+    # model_module = dull_specs["model_module"]
+    # model_module_path = f"{model_dir}/{model_module}"
     results_dir = f"{model_dir}/{model_name}_results"
+    assets_dir = f"{results_dir}/assets"
     create_fresh_directory(results_dir)
-
-    trace_path = f"{model_dir}/{model_name}_trace.txt"
-    print("Rediirecting to: ", trace_path)
-    sys.stdout = open(trace_path, "w", encoding="utf-8")
+    create_fresh_directory(assets_dir)
 
     
+    global the_model_assets_dir
+    the_model_assets_dir = assets_dir
+    global the_model_results_dir
+    the_model_results_dir = results_dir
+    global the_model_dir
+    the_model_dir = model_dir
+    trace_path = f"{results_dir}/{model_name}_trace.txt"
     # print("Dull specs: ", as_json(dull_specs))
     show_phase("Warming up")
     print("Model dir: ", model_dir)
+    print("Model name: ", model_name)
     print("Model doc: ", model_doc)
     print("Model name: ", model_name)
     print("Model doc path: ", model_doc_path)
-    print("Model module: ", model_module)
-    print("Model module path: ", model_module_path)
+    # print("Model module: ", model_module)
+    # print("Model module path: ", model_module_path)
     print("Results dir: ", results_dir)
-    
+    print("Trace path: ", trace_path)
 
-    show_phase(r"Parsing model: {model_doc_path}")
+    trace_path = f"{results_dir}/{model_name}_trace.txt"
+    print("Rediirecting to: ", trace_path)
+    sys.stdout = open(trace_path, "w", encoding="utf-8")
+
+
+    show_phase(f"Parsing model: {model_doc_path}")
+    # exit(0)
     doc_part = parse_model_doc(dull_specs, model_doc_path)
     displayed = doc_part.displayed()
 
@@ -118,13 +133,13 @@ def build_dull_dsl(dull_specs: Dict):
     show_phase("Creating HTML from model dict")
     html_path = f"{results_dir}/{model_name}.html"
 
-    create_dict_html(the_ldm_dict, html_path)
+    create_model_html(the_ldm_dict, html_path)
     show_phase("Skipping PDF creation")
 
-    show_phase("Creating PDF from html and css")
-    css_path = "ldm/Literate.css"
-    pdf_path = f"{results_dir}/{model_name}.pdf"
-    weasy.generate_weasy_pdf(html_path, css_path=css_path, output_path=pdf_path)
+    # show_phase("Creating PDF from html and css")
+    # css_path = "ldm/Literate.css"
+    # pdf_path = f"{results_dir}/{model_name}.pdf"
+    # weasy.generate_weasy_pdf(html_path, css_path=css_path, output_path=pdf_path)
     
 def show_phase(caption: str):
     print(f"\nPhase: {caption}")
@@ -164,7 +179,7 @@ def render_to_markdown(the_model):
 
 def create_ldm_html(results_dir, model_name, the_ldm_dict, html_path):
     html_path = f"{results_dir}/{model_name}.dict.html"
-    create_dict_html(the_ldm_dict, html_path)
+    create_model_html(the_ldm_dict, html_path)
     exit(0)
     # from ldm_object_creator import GenericObjectCreator
 

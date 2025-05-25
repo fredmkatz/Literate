@@ -190,25 +190,28 @@
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": true,
-      "markdown-table-editor:Open Markdown Table Editor": false
+      "markdown-table-editor:Open Markdown Table Editor": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
   "active": "c7904c6925e9ed75",
   "lastOpenFiles": [
     "LiterateTester_results/LiterateTester.pdf",
     "LiterateTester_results/LiterateTester.html",
+    "LiterateTester.md_2.html",
     "LiterateTester_results/LiterateTester.rendered.md",
     "LiterateTester_results/LiterateTester.model.yaml",
     "LiterateTester_results/LiterateTester.model.json",
+    "LiterateTester.md2html.html",
+    "LiterateTester_results/LiterateTester_md2html.html",
+    "FMKNYIDFrontIMG_1141.jpg",
+    "Literate.md",
+    "LiterateTester.md",
+    "Literate_results/Literate_md2html.html",
     "LiterateTester_results/LiterateTester.dict.yaml",
     "LiterateTester_results/LiterateTester.dict.json",
     "Literate_results/Literate.pdf",
-    "Literate_results/Literate.html",
     "Literate_results/Literate.rendered.md",
-    "Literate_results/Literate.model.yaml",
-    "Literate_results/Literate.model.json",
-    "LiterateTester.md",
-    "Literate.md",
     "LiterateTester_results/LiterateTester.clean.md",
     "Literate_results/Literate.clean.md"
   ]

@@ -82,7 +82,7 @@ class Casing(PresentableToken):
     def rendering_template(self) -> PomTemplate:
         return PomTemplate("{value}")
     def handlebars_template(self) -> str:
-        return ("{{value}}")
+        return "{{value}}"
 
     def split_to_words(self, input_string):
         """_summary_
@@ -137,7 +137,7 @@ class Casing(PresentableToken):
         """Simplified serialization with just type and input"""
         return {
             "_type": self._type,  # Your existing code already sets this correctly
-            "content": self.content
+            "content": self.content,
         }
     
     @classmethod
@@ -188,7 +188,7 @@ class UpperCamel(CamelCase):
 
     def convert(self):
         upper = "".join(word.capitalize() for word in self.words)
-        print(f"Casing: UpperCamel for {self.words} = {upper}")
+        # print(f"Casing: UpperCamel for {self.words} = {upper}")
         return upper
 
 
@@ -207,8 +207,9 @@ class LowerCamel(CamelCase):
         if not self.words:
             return ""
         lower = self.words[0].lower() + "".join(
-            word.capitalize() for word in self.words[1:])
-        print(f"Casing: LowerCamel for {self.words} = {lower}")
+            word.capitalize() for word in self.words[1:]
+        )
+        # print(f" LowerCamel for {self.words} = {lower}")
         return lower
 
 
