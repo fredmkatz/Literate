@@ -1,8 +1,7 @@
 import random
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Tuple, List
-from utils_pom.util_json_pom import tidy_empties
-
+from utils.util_json import tidy_empties
 
 
 def keyword_pattern(word: str) -> str:
@@ -16,8 +15,6 @@ def keyword_pattern(word: str) -> str:
     final = pattern3
     # print(f"final pattern for {word} = {final}")
     return final
-
-
 
 
 @dataclass
@@ -126,12 +123,13 @@ def render_name(saved: str) -> str:
         return saved
     return saved
 
+
 def is_name(name: str) -> bool:
     SYLLABLE = r"[A-Za-z][A-Za-z0-9]*"
     IDENTIFIER = rf"{SYLLABLE}(SYLLABLE)*"
-    
+
     return re.fullmatch(IDENTIFIER, name)
- 
+
 
 def validate_name(saved_name: str) -> Tuple[bool, Optional[str]]:
     if not saved_name:
@@ -189,10 +187,12 @@ def parse_att_ref(input_str: str) -> dict:
         # If there's no dot, assume it's just a class name
         return {"class_name": cleaned, "attribute_name": ""}
 
+
 def render_att_ref(ar_dict: Dict) -> str:
     class_name = ar_dict.get("class_name", "NoClassName")
     attribute_name = ar_dict.get("attribute_name", "NoAttributeName")
     return f"{class_name}.{attribute_name}"
+
 
 def validate_att_ref(ar_dict: Dict) -> Tuple[bool, Optional[str]]:
     if not isinstance(ar_dict, Dict):
@@ -279,7 +279,7 @@ def parse_header(header: str) -> dict:
     if "rest_of_line" not in parsed:
         print("No rest of line")
         return result
-    
+
     result["prefix"] = parsed.get("prefix", "")
 
     rest = parsed.get("rest_of_line", "")
@@ -305,14 +305,15 @@ def parse_header(header: str) -> dict:
 
     return tidy_empties(result)
 
+
 def render_header(head_dict: Dict) -> str:
     prefix = head_dict.get("prefix", "PREFIX?")
     name = head_dict.get("name", None)
     one_liner = head_dict.get("one_liner", None)
-    parenthetical = head_dict.get('parenthetical', None)
-    
-    header = prefix +  " "
-    
+    parenthetical = head_dict.get("parenthetical", None)
+
+    header = prefix + " "
+
     header += name if name else "NAME?"
     if one_liner:
         header += " - " + one_liner
@@ -320,7 +321,8 @@ def render_header(head_dict: Dict) -> str:
         header += " (" + parenthetical + ")"
     return header
 
-def validate_header(head_dict: Dict)-> Tuple[bool, Optional[str]]:
+
+def validate_header(head_dict: Dict) -> Tuple[bool, Optional[str]]:
     # print("Validating header")
     name = head_dict.get("name", None)
     if not name:
@@ -332,6 +334,7 @@ def validate_header(head_dict: Dict)-> Tuple[bool, Optional[str]]:
         return False, f"Name = '{name}' is not a valid name"
     # print("returnin True NOMESSAage")
     return True, "No Message"
+
 
 def parse_input_line2(input_str: str) -> dict:
     """
@@ -384,17 +387,19 @@ def parse_input_line2(input_str: str) -> dict:
     # If none of the above, it's just regular text
     return {"line_type": "text", "content": line}
 
+
 def parse_annotation(input_str: str) -> dict:
     the_dict = parse_input_line(input_str)
     the_dict.pop("line_type", None)
     return tidy_empties(the_dict)
     # return the_dict
 
+
 def validate_annotation(the_dict: Dict) -> Tuple[bool, Optional[str]]:
     label = the_dict.get("label", None)
     if not label:
         return False, "No label found for annotation"
-    
+
     if not is_name(label):
         return False, f"[{label} is not a valid label for annotation]"
     value = the_dict.get("value", None)
@@ -402,18 +407,19 @@ def validate_annotation(the_dict: Dict) -> Tuple[bool, Optional[str]]:
         return False, "No value for annotation"
     return True, None
 
+
 def render_annotation(annotation_dict: Dict) -> str:
     label = annotation_dict.get("label", "NoLABEL?")
     value = annotation_dict.get("value", "NoVALUE")
-    emoji = annotation_dict.get('emoji', None)
-    
+    emoji = annotation_dict.get("emoji", None)
+
     annotation = ""
     if emoji:
         annotation += f"{emoji} "
     annotation += label + ": " + value
-    
-    
+
     return annotation
+
 
 def test_parsers():
     # Test parse_name
@@ -445,10 +451,10 @@ def test_parsers():
     assert header_result["name"] == "Component"
     assert header_result["one_liner"] == "An element"
     assert header_result["parenthetical"] == "Type"
-    
 
     print("All tests passed!")
-    from utils_pom.util_json_pom import as_json
+    from utils.util_json import as_json
+
     tests = [
         "_ **Component** - A building block",
         "🔄 **Default**: value",
@@ -457,11 +463,11 @@ def test_parsers():
         print("Testing: ", test)
         result = parse_input_line(test)
         print(as_json(result))
-    
+
     headers = [
         "_ **Component** - An element (Type)",
         "_ **Component** - An element  with a two \
-            line oneliner(Type)"
+            line oneliner(Type)",
     ]
     for header in headers:
         print("TestingHeader: ", header)
@@ -473,10 +479,8 @@ def test_parsers():
         '***Example***: "LDM" is the short form of "Literate Data Model".',
         "🔄 ***NoteA***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.",
         "ℹ️  ***NoteA***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.",
-"\u2139\ufe0f ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.",
-        'wildly: This is an unregistered annotation',
-
-        
+        "\u2139\ufe0f ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.",
+        "wildly: This is an unregistered annotation",
     ]
     for annotation in annotations:
         print()
@@ -486,6 +490,7 @@ def test_parsers():
         print(as_json(result))
         rendered = render_annotation(result)
         print(f"Renders as: {rendered}")
+
 
 # Run the tests
 test_parsers()

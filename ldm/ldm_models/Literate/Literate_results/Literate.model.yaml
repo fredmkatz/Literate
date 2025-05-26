@@ -321,7 +321,7 @@ subjects:
     parenthetical: ''
     based_on:
     - _type: ClassName
-      content: Literate Data Model
+      content: LiterateDataModel
     is_value_type: false
     attributes:
     - _type: Attribute
@@ -466,7 +466,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: Purpose
+          content: purpose
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -479,9 +479,7 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'ValueType Annotation
-
-        A note or comment associated with a model element'
+      content: ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
     parenthetical: ''
     based_on:
     - _type: ClassName
@@ -507,7 +505,7 @@ subjects:
           _type: BaseDataType
           class_name:
             _type: ClassName
-            content: Annotation Type
+            content: AnnotationType
           as_value_type:
             _type: AsValue
             t_value: false
@@ -565,7 +563,7 @@ subjects:
       prefix: '-'
       name:
         _type: AttributeName
-        content: Emoji
+        content: emoji
       parenthetical: optional Emoji
       data_type_clause:
         _type: DataTypeClause
@@ -723,7 +721,7 @@ subjects:
 
       '
     subtype_of:
-    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     attributes:
@@ -921,7 +919,7 @@ subjects:
         prefix: '-'
         name:
           _type: AttributeName
-          content: Preferred Coding Language
+          content: preferredCodingLanguage
         parenthetical: Coding Language
         data_type_clause:
           _type: DataTypeClause
@@ -929,7 +927,7 @@ subjects:
             _type: BaseDataType
             class_name:
               _type: ClassName
-              content: Coding Language
+              content: CodingLanguage
             as_value_type:
               _type: AsValue
               t_value: false
@@ -959,7 +957,7 @@ subjects:
         prefix: '-'
         name:
           _type: AttributeName
-          content: alternate Coding Languages
+          content: alternateCodingLanguages
         parenthetical: optional List of Coding Languages
         data_type_clause:
           _type: DataTypeClause
@@ -969,7 +967,7 @@ subjects:
               _type: BaseDataType
               class_name:
                 _type: ClassName
-                content: Coding Languages
+                content: CodingLanguages
               as_value_type:
                 _type: AsValue
                 t_value: false
@@ -985,7 +983,7 @@ subjects:
         prefix: '-'
         name:
           _type: AttributeName
-          content: Preferred Template Language
+          content: preferredTemplateLanguage
         parenthetical: Template Language
         data_type_clause:
           _type: DataTypeClause
@@ -993,7 +991,7 @@ subjects:
             _type: BaseDataType
             class_name:
               _type: ClassName
-              content: Template Language
+              content: TemplateLanguage
             as_value_type:
               _type: AsValue
               t_value: false
@@ -1023,7 +1021,7 @@ subjects:
         prefix: '-'
         name:
           _type: AttributeName
-          content: alternate Template Languages
+          content: alternateTemplateLanguages
         parenthetical: optional List of Template Languages
         data_type_clause:
           _type: DataTypeClause
@@ -1033,7 +1031,7 @@ subjects:
               _type: BaseDataType
               class_name:
                 _type: ClassName
-                content: Template Languages
+                content: TemplateLanguages
               as_value_type:
                 _type: AsValue
                 t_value: false
@@ -1093,15 +1091,13 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'Subject
-
-        A specific topic or theme within the model'
+      content: SubjectASpecificTopicOrThemeWithinTheModel
     parenthetical: ''
     plural: ' Subjects
 
       '
     subtype_of:
-    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     dependent_of:
     - _type: ClassName
@@ -1166,7 +1162,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: Classes
+          content: classes
         message: oneLiner is too long. (91 chars).
         severity: Warning
         constraint_name: ''
@@ -1195,8 +1191,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: Each Class should be followed first by the classes that are dependent
-            on it, and then
+          content: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -1210,7 +1205,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: By its subtype classes.
+          content: byItsSubtypeClasses
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -1264,22 +1259,19 @@ subjects:
           content: Subject
         attribute_name:
           _type: AttributeName
-          content: parentSubject.
+          content: parentSubject
   - _type: Class
     is_embellishment: false
     prefix: _
     name:
       _type: ClassName
-      content: 'SubjectArea
-
-        A main topic or area of focus within the model, containing related subjects
-        and classes'
+      content: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
     parenthetical: ''
     plural: ' SubjectAreas
 
       '
     subtype_of:
-    - (ClassName(content='Subject', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Subject', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     where: ' parentSubject is absent
@@ -1309,7 +1301,7 @@ subjects:
 
         '
       subtype_of:
-      - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+      - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
         _type='SubtypingName'))
       is_value_type: false
       constraints:
@@ -1433,7 +1425,7 @@ subjects:
             _type: BaseDataType
             class_name:
               _type: ClassName
-              content: es
+              content: Es
             as_value_type:
               _type: AsValue
               t_value: false
@@ -1664,7 +1656,7 @@ subjects:
           prefix: '-'
           name:
             _type: AttributeName
-            content: UniqueKeys
+            content: uniqueKeys
           parenthetical: optional Set of UniqueKeys
           data_type_clause:
             _type: DataTypeClause
@@ -1717,7 +1709,7 @@ subjects:
             _type: BaseDataType
             class_name:
               _type: ClassName
-              content: Upper Name
+              content: UpperName
             as_value_type:
               _type: AsValue
               t_value: false
@@ -1729,7 +1721,7 @@ subjects:
         prefix: '-'
         name:
           _type: AttributeName
-          content: is exclusive
+          content: isExclusive
         parenthetical: Boolean
         data_type_clause:
           _type: DataTypeClause
@@ -1760,7 +1752,7 @@ subjects:
         prefix: '-'
         name:
           _type: AttributeName
-          content: is exhaustive
+          content: isExhaustive
         parenthetical: Boolean
         data_type_clause:
           _type: DataTypeClause
@@ -1826,7 +1818,7 @@ subjects:
         content: ValueType
       parenthetical: ''
       subtype_of:
-      - (ClassName(content='Class.', _type='ClassName'), SubtypingName(content='Subtypes',
+      - (ClassName(content='Class', _type='ClassName'), SubtypingName(content='subtypes',
         _type='SubtypingName'))
       is_value_type: false
     - _type: Class
@@ -1834,10 +1826,10 @@ subjects:
       prefix: _
       name:
         _type: ClassName
-        content: Reference Type
+        content: ReferenceType
       parenthetical: ''
       subtype_of:
-      - (ClassName(content='Class.', _type='ClassName'), SubtypingName(content='Subtypes',
+      - (ClassName(content='Class', _type='ClassName'), SubtypingName(content='subtypes',
         _type='SubtypingName'))
       is_value_type: false
     - _type: Class
@@ -1852,12 +1844,10 @@ subjects:
       prefix: _
       name:
         _type: ClassName
-        content: 'CodeType
-
-          A data type or enumeration used in the model'
+        content: CodeTypeADataTypeOrEnumerationUsedInTheModel
       parenthetical: ''
       subtype_of:
-      - (ClassName(content='ValueType.', _type='ClassName'), SubtypingName(content='Subtypes',
+      - (ClassName(content='ValueType', _type='ClassName'), SubtypingName(content='subtypes',
         _type='SubtypingName'))
       is_value_type: false
       attributes:
@@ -1866,16 +1856,14 @@ subjects:
         prefix: '-'
         name:
           _type: AttributeName
-          content: "List the code values as a bulletted list inside the description\
-            \ of the attribute in the form\n\u2018code description\u2019"
+          content: listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFormCodeDescription
         parenthetical: ''
       - _type: Attribute
         is_embellishment: false
         prefix: '-'
         name:
           _type: AttributeName
-          content: A Code Type will be created with the name [class][attribute]Code
-            and the code values listed. That CodeType will be marked as isCaptive.
+          content: aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedThatCodeTypeWillBeMarkedAsIsCaptive
         parenthetical: ''
       - _type: Attribute
         one_liner:
@@ -1911,7 +1899,7 @@ subjects:
       prefix: _
       name:
         _type: ClassName
-        content: Code Value
+        content: CodeValue
       parenthetical: ''
       is_value_type: false
       attributes:
@@ -1972,7 +1960,7 @@ subjects:
         content: Key
       parenthetical: ''
       subtype_of:
-      - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+      - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
         _type='SubtypingName'))
       dependent_of:
       - _type: ClassName
@@ -2052,7 +2040,7 @@ subjects:
         content: UniqueKey
       parenthetical: ''
       subtype_of:
-      - (ClassName(content='Key', _type='ClassName'), SubtypingName(content='Subtypes',
+      - (ClassName(content='Key', _type='ClassName'), SubtypingName(content='subtypes',
         _type='SubtypingName'))
       is_value_type: false
 - _type: SubjectB
@@ -2071,10 +2059,10 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: Attribute Section
+      content: AttributeSection
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='Component.', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     based_on:
     - _type: ClassName
@@ -2115,15 +2103,13 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'Attribute
-
-        A property or characteristic of a class'
+      content: AttributeAPropertyOrCharacteristicOfAClass
     parenthetical: ''
     plural: ' Attributes
 
       '
     subtype_of:
-    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     based_on:
     - _type: ClassName
@@ -2143,7 +2129,7 @@ subjects:
           _type: BaseDataType
           class_name:
             _type: ClassName
-            content: Lower Camel
+            content: LowerCamel
           as_value_type:
             _type: AsValue
             t_value: false
@@ -2192,7 +2178,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: List of Editions
+          content: listOfEditions
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -2206,7 +2192,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: Set of Edition
+          content: setOfEdition
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -2225,7 +2211,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: '... and more complicated cases.'
+          content: andMoreComplicatedCases
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -2239,7 +2225,7 @@ subjects:
       prefix: __
       name:
         _type: AttributeSectionName
-        content: Cardinalities.
+        content: Cardinalities
       parenthetical: ''
       is_optional:
         _type: IsOptional
@@ -2362,7 +2348,7 @@ subjects:
             _type: BaseDataType
             class_name:
               _type: ClassName
-              content: Invented Name
+              content: InventedName
             as_value_type:
               _type: AsValue
               t_value: true
@@ -2387,7 +2373,7 @@ subjects:
             _type: BaseDataType
             class_name:
               _type: ClassName
-              content: Invented Name
+              content: InventedName
             as_value_type:
               _type: AsValue
               t_value: true
@@ -2659,7 +2645,7 @@ subjects:
           object_type: Attribute
           object_name:
             _type: AttributeName
-            content: Overrides
+            content: overrides
           message: No value for data_type_clause
           severity: Error
           constraint_name: ''
@@ -2672,9 +2658,7 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'ValueType Derivation
-
-        A rule or formula for deriving the value of an attribute'
+      content: ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
     parenthetical: ''
     plural: ' Derivations
 
@@ -2733,15 +2717,13 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'ValueType Constraint
-
-        A rule, condition, or validation that must be satisfied by the model'
+      content: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
     parenthetical: ''
     plural: ' Constraints
 
       '
     subtype_of:
-    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     attributes:
@@ -2784,7 +2766,7 @@ subjects:
           _type: BaseDataType
           class_name:
             _type: ClassName
-            content: Invented Name
+            content: InventedName
           as_value_type:
             _type: AsValue
             t_value: true
@@ -2852,7 +2834,7 @@ subjects:
       prefix: '-'
       name:
         _type: AttributeName
-        content: Message
+        content: message
       parenthetical: Template
       data_type_clause:
         _type: DataTypeClause
@@ -2872,24 +2854,24 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: Class Constraint
+      content: ClassConstraint
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     based_on:
     - _type: ClassName
-      content: Class.
+      content: Class
     is_value_type: false
   - _type: Class
     is_embellishment: false
     prefix: _
     name:
       _type: ClassName
-      content: Attribute Constraint
+      content: AttributeConstraint
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     based_on:
     - _type: ClassName
@@ -2912,7 +2894,7 @@ subjects:
       prefix: '-'
       name:
         _type: AttributeName
-        content: Language
+        content: language
       parenthetical: Code
       data_type_clause:
         _type: DataTypeClause
@@ -2968,7 +2950,7 @@ subjects:
       prefix: '-'
       name:
         _type: AttributeName
-        content: Expression
+        content: expression
       parenthetical: String
       data_type_clause:
         _type: DataTypeClause
@@ -2996,15 +2978,13 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'Method
-
-        A behavior or operation associated with a class'
+      content: MethodABehaviorOrOperationAssociatedWithAClass
     parenthetical: ''
     plural: ' Methods
 
       '
     subtype_of:
-    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     attributes:
@@ -3061,15 +3041,13 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'Parameter
-
-        An input to a method'
+      content: ParameterAnInputToAMethod
     parenthetical: ''
     plural: ' Parameters
 
       '
     subtype_of:
-    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     attributes:
@@ -3112,7 +3090,7 @@ subjects:
           _type: BaseDataType
           class_name:
             _type: ClassName
-            content: Invented Name
+            content: InventedName
           as_value_type:
             _type: AsValue
             t_value: true
@@ -3137,9 +3115,7 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: 'Simple Data Type
-
-        SubtpeOf DataType'
+      content: SimpleDataTypeSubtpeOfDataType
     parenthetical: ''
     is_value_type: false
     attributes:
@@ -3168,7 +3144,7 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: Complex Data Type
+      content: ComplexDataType
     parenthetical: ''
     is_value_type: false
     attributes:
@@ -3185,7 +3161,7 @@ subjects:
           _type: BaseDataType
           class_name:
             _type: ClassName
-            content: Aggregating Operator
+            content: AggregatingOperator
           as_value_type:
             _type: AsValue
             t_value: false
@@ -3219,7 +3195,7 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: Aggregating Operator
+      content: AggregatingOperator
     parenthetical: ''
     is_value_type: false
     attributes:
@@ -3228,7 +3204,7 @@ subjects:
       prefix: '-'
       name:
         _type: AttributeName
-        content: Name
+        content: name
       parenthetical: Code
       data_type_clause:
         _type: DataTypeClause
@@ -3361,10 +3337,10 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: ValueType CamelName
+      content: ValueTypeCamelName
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='String', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='String', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     attributes:
@@ -3390,7 +3366,7 @@ subjects:
       prefix: '-'
       name:
         _type: AttributeName
-        content: value the string
+        content: valueTheString
       parenthetical: String
       data_type_clause:
         _type: DataTypeClause
@@ -3448,7 +3424,7 @@ subjects:
       content: UpperCamel
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     where: ' content begins with an upper case letter.
@@ -3470,7 +3446,7 @@ subjects:
       content: LowerCamel
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     where: ' content begins with a lower case letter.
@@ -3484,10 +3460,10 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: Qualified Camel
+      content: QualifiedCamel
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='String', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='String', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     constraints:
@@ -3523,10 +3499,10 @@ subjects:
     prefix: _
     name:
       _type: ClassName
-      content: RichText.  A string with markup for block level formatting.
+      content: RichTextAStringWithMarkupForBlockLevelFormatting
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='String', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='String', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     attributes:
@@ -3546,7 +3522,7 @@ subjects:
           _type: BaseDataType
           class_name:
             _type: ClassName
-            content: string
+            content: String
           as_value_type:
             _type: AsValue
             t_value: false
@@ -3582,7 +3558,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: HTML
+          content: html
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -3596,7 +3572,7 @@ subjects:
         object_type: Attribute
         object_name:
           _type: AttributeName
-          content: MarkDown
+          content: markDown
         message: No value for data_type_clause
         severity: Error
         constraint_name: ''
@@ -3615,7 +3591,7 @@ subjects:
       content: RichLine
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='RichText', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='RichText', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
     attributes:
@@ -3635,7 +3611,7 @@ subjects:
           _type: BaseDataType
           class_name:
             _type: ClassName
-            content: string
+            content: String
           as_value_type:
             _type: AsValue
             t_value: false
@@ -3687,9 +3663,9 @@ subjects:
       content: PrimitiveType
     parenthetical: ''
     subtype_of:
-    - (ClassName(content='ValueType\nA basic', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='ValueTypeABasic', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
-    - (ClassName(content='built-in data type', _type='ClassName'), SubtypingName(content='Subtypes',
+    - (ClassName(content='BuiltInDataType', _type='ClassName'), SubtypingName(content='subtypes',
       _type='SubtypingName'))
     is_value_type: false
 - _type: SubjectB
@@ -3697,17 +3673,8 @@ subjects:
   prefix: '##'
   name:
     _type: SubjectName
-    content: 'Appendices
-
-      Insert More Sidebars.md
-
-      Insert Overrides.md
-
-      insert LDM Intro.md
-
-      Insert OCL.md
-
-      Insert Camel Case.md'
+    content: Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro
+      md Insert OCL md Insert Camel Case md
   parenthetical: ''
   subjects:
   - _type: SubjectC
@@ -3912,15 +3879,6 @@ subjects:
   prefix: '##'
   name:
     _type: SubjectName
-    content: 'Appendices
-
-      Insert More Sidebars.md
-
-      Insert Overrides.md
-
-      insert LDM Intro.md
-
-      Insert OCL.md
-
-      Insert Camel Case.md'
+    content: Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro
+      md Insert OCL md Insert Camel Case md
   parenthetical: ''

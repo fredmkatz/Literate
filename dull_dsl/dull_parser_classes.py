@@ -12,16 +12,16 @@ from ldm.ldm_dull_handlers import (
     ParseAnnotation,
     keyword_pattern,
     # print_messages,
-    TRIVIAL_HANDLER
+    TRIVIAL_HANDLER,
 )
 
 
 # from ldm_parse_bits import parse_header
-# from utils_pom.util_fmk_pom import as_yaml
-# from utils_pom.util_json_pom import as_json
-from utils_pom.util_flogging import flogger, trace_method
+# from utils.util_fmk_pom import as_yaml
+# from utils.util_json_pom import as_json
+from utils.util_flogging import flogger, trace_method
 
-from class_casing import LowerCamel, SnakeCase
+from utils.class_casing import LowerCamel, SnakeCase
 
 
 # The Rules:
@@ -85,8 +85,6 @@ class HeadLine(PartStarter):
 
     def matches(self, string) -> bool:
         return string.startswith(self.starter_pattern)
-
-
 
 
 @dataclass
@@ -192,15 +190,15 @@ class ClauseLine(TypedLine):
 
         handlers = self.line_Type.handlers
         # print("Using handlers: ", handlers)
-    
+
         att_name = self.line_Type.attribute_name
         # print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
         if att_name == "constraint":
             att_name = "one_liner"
             print(f"Patched att_name is {att_name} for {self.line_Type} is {att_name}")
 
-
         from ldm.Literate_01 import OneLiner
+
         if handlers:
 
             # get the attribute name from the type, not the label
@@ -222,5 +220,3 @@ def print_messages(messages: List[str]):
     print("Messages...")
     for message in messages:
         print("..Message: ", message)
-
-

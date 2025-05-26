@@ -8,9 +8,9 @@ import json
 
 # import ldm_renderers
 # Import the casing classes
-from class_casing import UpperCamel, LowerCamel, CamelCase, NormalCase
+from utils.class_casing import UpperCamel, LowerCamel, CamelCase, NormalCase
 
-from class_pom_token import (
+from utils.class_pom_token import (
     PresentableBoolean,
     PresentableToken,
     IsOptional,
@@ -125,6 +125,7 @@ class OneLiner(Natural):
         super().__post_init__()
         self._type = "OneLiner"
 
+
 @dataclass
 class ModelName(NormalCase):
     _type: str = field(default="ModelName", init=False)
@@ -135,11 +136,9 @@ class ClassName(UpperCamel):
     _type: str = field(default="ClassName", init=False)
 
 
-
 @dataclass
 class SubjectName(NormalCase):
     _type: str = field(default="SubjectName", init=False)
-
 
 
 @dataclass
@@ -147,11 +146,9 @@ class AttributeSectionName(NormalCase):
     _type: str = field(default="AttributeSectionName", init=False)
 
 
-
 @dataclass
 class AttributeName(LowerCamel):
     _type: str = field(default="AttributeName", init=False)
-
 
 
 @dataclass
@@ -159,11 +156,9 @@ class SubtypingName(LowerCamel):
     _type: str = field(default="SubtypingName", init=False)
 
 
-
 @dataclass
 class Label(LowerCamel):
     _type: str = field(default="Label", init=False)
-
 
 
 @dataclass
@@ -344,7 +339,6 @@ class LiterateModel(SubjectB):
         if isinstance(self.name, str):
             print("Fixing LiterateModel name!")
             self.name = ModelName(self.name)
-
 
     # Replace the from_dict method in LDM class in Literate_01.py
 
@@ -580,6 +574,8 @@ class ValueType(Class):
 
     class Meta:
         presentable_header = "_  ValueType : {name}{? - {one_liner}} NEWLINE"
+
+
 @dataclass
 class CodeType(ValueType):
     def __post_init__(self):

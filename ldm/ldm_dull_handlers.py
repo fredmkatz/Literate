@@ -1,17 +1,31 @@
-
 import re
 from dataclasses import dataclass
 from abc import ABC
+
 # from typing import Any, List, Dict, Tuple, Union, Callable, Optional
 from typing import Any, List, Dict, Tuple, Optional
-from utils_pom.util_json_pom import tidy_empties
+from utils.util_json import tidy_empties
 
-from Literate_01 import ClassName, AttributeName, Label, SubjectName, AttributeSectionName, SubtypingName
-from Literate_01 import DataTypeClause, BaseDataType, ListDataType, SetDataType, AsValue, MappingDataType
+from Literate_01 import (
+    ClassName,
+    AttributeName,
+    Label,
+    SubjectName,
+    AttributeSectionName,
+    SubtypingName,
+)
+from Literate_01 import (
+    DataTypeClause,
+    BaseDataType,
+    ListDataType,
+    SetDataType,
+    AsValue,
+    MappingDataType,
+)
 from Literate_01 import OneLiner, DataType, IsOptional
 
-# from utils_pom.util_fmk_pom import as_yaml
-from class_casing import UpperCamel, LowerCamel
+# from utils.util_fmk_pom import as_yaml
+from utils.class_casing import UpperCamel, LowerCamel
 
 
 def keyword_pattern(word: str) -> str:
@@ -25,8 +39,6 @@ def keyword_pattern(word: str) -> str:
     final = pattern3
     # print(f"final pattern for {word} = {final}")
     return final
-
-
 
 
 @dataclass
@@ -97,6 +109,7 @@ keywords = [
     Keyword("AnAnnotation"),
 ]
 
+
 def parse_name(input_str: str) -> str:
     """Extract a bare name from text that might include markdown formatting."""
     if not input_str:
@@ -122,7 +135,7 @@ def is_name(name: str) -> bool:
     SYLLABLE = r"[A-Za-z][A-Za-z0-9]*"
     IDENTIFIER = rf"{SYLLABLE}(SYLLABLE)*"
     IDENTIFIERS = rf"{IDENTIFIER}(\s+{IDENTIFIER})*"
-    
+
     return re.fullmatch(IDENTIFIERS, str(name))
 
 
@@ -141,8 +154,7 @@ class ParseHandler(ABC):
     def render(self, result: Any) -> str:
         return "X"
 
-
-    def round_trip(self, the_string : str) -> Tuple[Any, Optional[List[str]]]:
+    def round_trip(self, the_string: str) -> Tuple[Any, Optional[List[str]]]:
         messages = []
 
         value = self.parse(the_string)
@@ -156,9 +168,7 @@ class ParseHandler(ABC):
             message = returns[1]
 
         if not validated:
-            messages.append(
-                f"ERROR: {value} does not validate " + "==" + message
-            )
+            messages.append(f"ERROR: {value} does not validate " + "==" + message)
         else:
             messages.append(f"OK. {value} ok for ")
 
@@ -177,9 +187,6 @@ class ParseHandler(ABC):
         return value, messages
 
 
-
-
-
 @dataclass
 class ParseTrivial(ParseHandler):
 
@@ -191,13 +198,14 @@ class ParseTrivial(ParseHandler):
 
     def validate(self, saved: str) -> Tuple[bool, Optional[str]]:
         return True, "No message for trivial1"
- 
+
+
 TRIVIAL_HANDLER = ParseTrivial()
 
 
 @dataclass
 class ParseName(ParseHandler):
-    
+
     def parse(self, input_str: str) -> str:
         if not input_str:
             return ""
@@ -221,18 +229,19 @@ class ParseName(ParseHandler):
         return saved
 
     def validate(self, saved_name: str) -> Tuple[bool, Optional[str]]:
-    
+
         if not saved_name:
             return False, "Name is missing"
         if not is_name(saved_name):
             return False, f"Name - {saved_name} - not a valid name"
         return True, None
 
-@dataclass 
+
+@dataclass
 class ParseSubtypeOf(ParseHandler):
-    
+
     # parses list of subtypes into dict from Supertyping to SUbtyping of Supertype
-    # subtype_of Product byFlavor, Concept byColor 
+    # subtype_of Product byFlavor, Concept byColor
     # yields:
     # {
     #   Product: byFlavor,
@@ -253,12 +262,12 @@ class ParseSubtypeOf(ParseHandler):
             else:
                 subtyping_name = "Subtypes"
             class_name = ClassName(parse_name(class_name0))
-            result.append( (class_name, SubtypingName(subtyping_name)))
+            result.append((class_name, SubtypingName(subtyping_name)))
         print("SubtypeOf result is ", result)
-        
+
         return result
-    
-    def render(self, pairs: List[Tuple[ClassName, SubtypingName]] ) -> str:
+
+    def render(self, pairs: List[Tuple[ClassName, SubtypingName]]) -> str:
         pair_strs = []
         for cname, stname in pairs:
             if stname == "subtypes":
@@ -268,51 +277,52 @@ class ParseSubtypeOf(ParseHandler):
             pair_strs.append(pair_str)
         return ", ".join(pair_strs)
 
-
     def validate(self, names: List[ClassName]) -> Tuple[bool, Optional[str]]:
-        return  True, None
+        return True, None
+
 
 @dataclass
 class ParseNameList(ParseHandler):
-    
-        def parse(self, input_str: str) -> list[ClassName]:
-            """Parse a comma-separated list of names with potential markdown formatting."""
-            # print(f"parse_name_list: {input_str}")
-            if not input_str:
-                return []
-    
-            # Split by commas
-            parts = re.split(r",\s*", input_str)
-    
-            # Clean each part
-            cleaned_names = [parse_name(part) for part in parts]
-    
-            # Filter out empty strings - and create ClassNames
-            return [ClassName(name) for name in cleaned_names if name]
-    
-    
-        def render(self, names: List[ClassName]) -> str:
-            return ", ".join(names)
-    
-    
-        def validate(self, names: List[ClassName]) -> Tuple[bool, Optional[str]]:
-            # print("validating name list: ", names)
-            if not isinstance(names, List):
-                return False, f"NameList doesn't seem to be a list at all: {names}"
-            for name in names:
-                if not is_name(name.content):
-                    return False, f"Name in NameList is not a name: {name}"
-            return True, None
+
+    def parse(self, input_str: str) -> list[ClassName]:
+        """Parse a comma-separated list of names with potential markdown formatting."""
+        # print(f"parse_name_list: {input_str}")
+        if not input_str:
+            return []
+
+        # Split by commas
+        parts = re.split(r",\s*", input_str)
+
+        # Clean each part
+        cleaned_names = [parse_name(part) for part in parts]
+
+        # Filter out empty strings - and create ClassNames
+        return [ClassName(name) for name in cleaned_names if name]
+
+    def render(self, names: List[ClassName]) -> str:
+        return ", ".join(names)
+
+    def validate(self, names: List[ClassName]) -> Tuple[bool, Optional[str]]:
+        # print("validating name list: ", names)
+        if not isinstance(names, List):
+            return False, f"NameList doesn't seem to be a list at all: {names}"
+        for name in names:
+            if not is_name(name.content):
+                return False, f"Name in NameList is not a name: {name}"
+        return True, None
+
+
 ###
 @dataclass
 class ParseAttributeReference(ParseHandler):
     def parse(self, input_str: str) -> dict:
         """Parse a reference in the form ClassName.AttributeName."""
         if not input_str:
-            return {"_type": "AttributeReference",
-                    "class_name": "", 
-                    "attribute_name": ""
-                    }
+            return {
+                "_type": "AttributeReference",
+                "class_name": "",
+                "attribute_name": "",
+            }
 
         # Clean the input first to remove any markdown
         cleaned = parse_name(input_str)
@@ -320,21 +330,28 @@ class ParseAttributeReference(ParseHandler):
         # Split by dot
         parts = re.split(r"\.\s*", str(cleaned), 1)
         class_name = ClassName(parts[0].strip())
-        attribute_name =  AttributeName(parts[1].strip() )if len(parts) > 1 else ""
-        
+        attribute_name = AttributeName(parts[1].strip()) if len(parts) > 1 else ""
 
         if len(parts) == 2:
-            return {"_type": "AttributeReference", "class_name": class_name, "attribute_name": attribute_name}
+            return {
+                "_type": "AttributeReference",
+                "class_name": class_name,
+                "attribute_name": attribute_name,
+            }
         else:
             # If there's no dot, assume it's just a class name
-            return {"_type": "AttributeReference", "class_name": cleaned, "attribute_name": ""}
-        
+            return {
+                "_type": "AttributeReference",
+                "class_name": cleaned,
+                "attribute_name": "",
+            }
+
     def render(self, ar_dict: Dict) -> str:
         """Render the attribute reference as ClassName.AttributeName."""
         class_name = ar_dict.get("class_name", "NoClassName")
         attribute_name = ar_dict.get("attribute_name", "NoAttributeName")
         return f"{class_name}.{attribute_name}"
-    
+
     def validate(self, ar_dict: Dict) -> Tuple[bool, Optional[str]]:
         """Validate the attribute reference dictionary."""
         if not isinstance(ar_dict, Dict):
@@ -350,9 +367,6 @@ class ParseAttributeReference(ParseHandler):
         if not is_name(attribute_name):
             return False, f"attribute_name, {attribute_name}, is not a name"
         return True, None
-
-
-
 
 
 def parse_input_line(input_str: str) -> dict:
@@ -410,6 +424,7 @@ def parse_input_line(input_str: str) -> dict:
     # If none of the above, it's just regular text
     return {"line_type": "text", "content": line}
 
+
 @dataclass
 class ParseHeader(ParseHandler):
     def parse(self, input_str: str) -> dict:
@@ -427,7 +442,7 @@ class ParseHeader(ParseHandler):
         return render_header(head_dict)
 
     def validate(self, head_dict: Dict) -> Tuple[bool, Optional[str]]:
-        return validate_header(head_dict)   
+        return validate_header(head_dict)
 
 
 def parse_header(header: str) -> dict:
@@ -449,8 +464,8 @@ def parse_header(header: str) -> dict:
     if "rest_of_line" not in parsed:
         print("No rest of line")
         return result
-    
-    prefix =  parsed.get("prefix", "").strip()
+
+    prefix = parsed.get("prefix", "").strip()
     result["prefix"] = prefix
 
     # print("PREFIX IS:", prefix)
@@ -458,13 +473,13 @@ def parse_header(header: str) -> dict:
 
     # Extract name (everything up to a dash or parenthesis)
     name_match = re.match(r"^([^-\(]+)(?:[-\(]|$)", rest)
-    
+
     if name_match:
         raw_name = parse_name(name_match.group(1)).replace(":", "")
         deep_name = None
         if prefix == "_" or prefix == "Class":
             deep_name = ClassName(raw_name)
-        elif  prefix is None or prefix == "":
+        elif prefix is None or prefix == "":
             print("Empty prefix")
             deep_name = raw_name
         elif prefix == "-":
@@ -481,7 +496,7 @@ def parse_header(header: str) -> dict:
         else:
             print(f"prefix not associatedw with name type? - {prefix}")
             deep_name = raw_name
-        result['name'] = deep_name
+        result["name"] = deep_name
         rest = rest[len(name_match.group(1)) :].strip()
 
     # Extract one-liner (between dash and parenthesis, if present)
@@ -496,25 +511,28 @@ def parse_header(header: str) -> dict:
     parenthetical_match = re.match(r"^\(([^\)]+)\)", rest)
     parenthetical = ""
     if parenthetical_match:
-        
+
         parenthetical = parenthetical_match.group(1).strip()
-    
+
     if parenthetical:
-        if prefix.strip() == '-':
+        if prefix.strip() == "-":
             dtc = parse_data_type_clause(parenthetical)
             result["data_type_clause"] = dtc
-        if prefix.strip() == "__": # Attribute Section
+        if prefix.strip() == "__":  # Attribute Section
             is_optional = IsOptional(parenthetical)
             result["is_optional"] = is_optional
             # print(f"AttSection: {is_optional} Result is {result}")
         else:
-            result['parenthetical'] = parenthetical
+            result["parenthetical"] = parenthetical
 
     # print(f"ParsingHeader result: {result}\n===\n")
 
     return tidy_empties(result)
 
-from utils_pom.util_json_pom import as_json
+
+from utils.util_json import as_json
+
+
 def parse_data_type_clause(parenthetical: str) -> DataTypeClause:
     is_optional = False
     phrase = parenthetical.replace("*", "")
@@ -522,14 +540,16 @@ def parse_data_type_clause(parenthetical: str) -> DataTypeClause:
     if phrase.lower().startswith("optional "):
         phrase = phrase.replace("optional ", "")
         is_optional = True
-    
+
     # now parse the rest as a mere data type
-    dt = parse_data_type(phrase)    
-    dtc = DataTypeClause(data_type = dt, is_optional_lit=IsOptional(is_optional))
+    dt = parse_data_type(phrase)
+    dtc = DataTypeClause(data_type=dt, is_optional_lit=IsOptional(is_optional))
     # print("Crreated dtc", as_json(dtc))
     return dtc
 
-from parsedt import parse_dt_phrase
+
+from ldm.parsedt import parse_dt_phrase
+
 
 def parse_data_type(phrase) -> DataType:
     (operator, typeA, typeB) = parse_dt_phrase(phrase)
@@ -551,32 +571,32 @@ def parse_data_type(phrase) -> DataType:
         return dt
 
     if is_name(phrase):
-        dt = BaseDataType(class_name = phrase, as_value_type = AsValue(False))
+        dt = BaseDataType(class_name=phrase, as_value_type=AsValue(False))
         return dt
-    
+
     print("Inventing name for: ", phrase)
     phrase = "Invented Name"
-    dt = BaseDataType(class_name = phrase, as_value_type = AsValue(True))
+    dt = BaseDataType(class_name=phrase, as_value_type=AsValue(True))
     return dt
-    
 
 
 def render_header(head_dict: Dict) -> str:
     prefix = head_dict.get("prefix", "PREFIX?")
     name = head_dict.get("name", None)
     one_liner = head_dict.get("one_liner", None)
-    parenthetical = head_dict.get('parenthetical', None)
-    
-    header = prefix +  " "
-    
-    header += str(name )if name else "NAME?"
+    parenthetical = head_dict.get("parenthetical", None)
+
+    header = prefix + " "
+
+    header += str(name) if name else "NAME?"
     if one_liner:
         header += " - " + str(one_liner)
     if parenthetical:
         header += " (" + parenthetical + ")"
     return header
 
-def validate_header(head_dict: Dict)-> Tuple[bool, Optional[str]]:
+
+def validate_header(head_dict: Dict) -> Tuple[bool, Optional[str]]:
     # print("Validating header")
     name = head_dict.get("name", None)
     if not name:
@@ -588,6 +608,7 @@ def validate_header(head_dict: Dict)-> Tuple[bool, Optional[str]]:
         return False, f"Name = '{name}' is not a valid name"
     # print("returnin True NOMESSAage")
     return True, "No Message"
+
 
 def parse_input_line2(input_str: str) -> dict:
     """
@@ -640,6 +661,7 @@ def parse_input_line2(input_str: str) -> dict:
     # If none of the above, it's just regular text
     return {"line_type": "text", "content": line}
 
+
 @dataclass
 class ParseAnnotation(ParseHandler):
     def parse(self, input_str: str) -> dict:
@@ -656,12 +678,13 @@ class ParseAnnotation(ParseHandler):
             return parsed
         else:
             return {"line_type": "text", "content": input_str}
-        
+
     def render(self, annotation_dict: Dict) -> str:
         return render_annotation(annotation_dict)
-    
+
     def validate(self, annotation_dict: Dict) -> Tuple[bool, Optional[str]]:
         return validate_annotation(annotation_dict)
+
 
 def parse_annotation(input_str: str) -> dict:
     the_dict = parse_input_line(input_str)
@@ -669,11 +692,12 @@ def parse_annotation(input_str: str) -> dict:
     return tidy_empties(the_dict)
     # return the_dict
 
+
 def validate_annotation(the_dict: Dict) -> Tuple[bool, Optional[str]]:
     label = the_dict.get("label", None)
     if not label:
         return False, "No label found for annotation"
-    
+
     if not is_name(label):
         return False, f"[{label} is not a valid label for annotation]"
     value = the_dict.get("value", None)
@@ -681,18 +705,19 @@ def validate_annotation(the_dict: Dict) -> Tuple[bool, Optional[str]]:
         return False, "No value for annotation"
     return True, None
 
+
 def render_annotation(annotation_dict: Dict) -> str:
     label = annotation_dict.get("label", "NoLABEL?")
     value = annotation_dict.get("value", "NoVALUE")
-    emoji = annotation_dict.get('emoji', None)
-    
+    emoji = annotation_dict.get("emoji", None)
+
     annotation = ""
     if emoji:
         annotation += f"{emoji} "
     annotation += label + ": " + value
-    
-    
+
     return annotation
+
 
 def test_parsers():
     # Test parse_name
@@ -703,7 +728,7 @@ def test_parsers():
 
     # Test parse_name_list
     name_list_parser = ParseNameList()
-    assert name_list_parser.parse("Item1, Item2, Item3") == ["Item1", "Item2", "Item3"] 
+    assert name_list_parser.parse("Item1, Item2, Item3") == ["Item1", "Item2", "Item3"]
 
     # Test parse_attribute_reference
     att_ref_parser = ParseAttributeReference()
@@ -724,17 +749,16 @@ def test_parsers():
 
     # Test parse_full_header
     head_parser = ParseHeader()
-    assert head_parser.parse("_ **Component** - A building block") == { 
+    assert head_parser.parse("_ **Component** - A building block") == {
         "prefix": "_",
-        "name": "Component",    
+        "name": "Component",
         "one_liner": "A building block",
-        "parenthetical": "",    
+        "parenthetical": "",
     }
-    
-    
 
     print("All tests passed!")
-    from utils_pom.util_json_pom import as_json
+    from utils.util_json import as_json
+
     tests = [
         "_ **Component** - A building block",
         "🔄 **Default**: value",
@@ -743,11 +767,11 @@ def test_parsers():
         print("Testing: ", test)
         result = parse_input_line(test)
         print(as_json(result))
-    
+
     headers = [
         "_ **Component** - An element (Type)",
         "_ **Component** - An element  with a two \
-            line oneliner(Type)"
+            line oneliner(Type)",
     ]
     for header in headers:
         # print("TestingHeader: ", header)
@@ -759,12 +783,10 @@ def test_parsers():
         '***Example***: "LDM" is the short form of "Literate Data Model".',
         "🔄 ***NoteA***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.",
         "ℹ️  ***NoteA***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.",
-"\u2139\ufe0f ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.",
-        'wildly: This is an unregistered annotation',
-
-        
+        "\u2139\ufe0f ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.",
+        "wildly: This is an unregistered annotation",
     ]
-    
+
     annotation_parser = ParseAnnotation()
     for annotation in annotations:
         # print()
@@ -774,6 +796,7 @@ def test_parsers():
         # print(as_json(result))
         rendered = annotation_parser.render(result)
         # print(f"Renders as: {rendered}")
+
 
 # Run the tests
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # Direct method attachment
 import ldm.Literate_01 as Literate_01
-from utils_pom.util_flogging import trace_decorator
+from utils.util_flogging import trace_decorator
 
 import textwrap
 
@@ -13,19 +13,20 @@ add_links = True
 
 # utility functions
 
-# @trace_decorator     
+
+# @trace_decorator
 def render(obj) -> str:
     otype = getattr(obj, "_type", None)
     if otype is None:
         print(f"ERROR: No _type for {obj}")
         return str
-    
+
     else:
         print(f"Nothing to render {otype} for {obj}")
         return
-        
 
-# @trace_decorator     
+
+# @trace_decorator
 def render_each(obj_list):
     """Render each object in the list, if it has a render method."""
     result = ""
@@ -36,7 +37,9 @@ def render_each(obj_list):
         else:
             result += render_value(obj)
     return result
-# @trace_decorator     
+
+
+# @trace_decorator
 def render(obj, attribute_name):
     """Render the attribute with the specified  name, if it exists."""
     if hasattr(obj, attribute_name):
@@ -47,12 +50,13 @@ def render(obj, attribute_name):
             if isinstance(value, list):
                 return ", ".join([render_value(x) for x in value])
             elif hasattr(value, "render"):
-                return value.render()           
+                return value.render()
             else:
                 return render_value(value)
     return ""
 
-# @trace_decorator     
+
+# @trace_decorator
 def render_value(value):
     """Render the value, if it has a render method."""
     vtype = getattr(value, "_type", None)
@@ -61,7 +65,7 @@ def render_value(value):
 
     if isinstance(value, str):
         return value
-    
+
     # print(f"RenderValue for {vtype}")
     if isinstance(value, list):
         return "\n".join([render_value(x) for x in value])
@@ -77,7 +81,7 @@ def render_value(value):
         return render_diagnostic(value)
     elif vtype == "Diagnostic":
         return render_diagnostic(value)
-    
+
     elif isinstance(value, Literate_01.CodeBlock):
         return render_codeblock(value)
     elif isinstance(value, Literate_01.Paragraph):
@@ -100,7 +104,8 @@ def render_value(value):
         return str(value)
     else:
         print(f"WARNING: No render for type {type(value)}")
-        return str(value)  
+        return str(value)
+
 
 def render_class_name(name) -> str:
     display_name = str(name)
@@ -110,21 +115,38 @@ def render_class_name(name) -> str:
         display_name = f"[{display_name}]({name})"
     return display_name
 
+
 def render_data_type_clause(value):
     return str(value)
 
+
 def as_rest_of_block(content: str) -> str:
-    display = textwrap.fill(content, width=para_width, initial_indent='', subsequent_indent=para_indent) + "\n"
+    display = (
+        textwrap.fill(
+            content, width=para_width, initial_indent="", subsequent_indent=para_indent
+        )
+        + "\n"
+    )
     return display
+
 
 def as_text_block(content: str) -> str:
-    display = textwrap.fill(content, width=para_width, initial_indent=para_indent, subsequent_indent=para_indent) + "\n"
+    display = (
+        textwrap.fill(
+            content,
+            width=para_width,
+            initial_indent=para_indent,
+            subsequent_indent=para_indent,
+        )
+        + "\n"
+    )
     return display
 
-# @trace_decorator     
+
+# @trace_decorator
 def render_annotation(self) -> str:
     """Render the annotations for the object."""
-    
+
     label = render(self, "label")
     one_liner = render(self, "content")
     emoji = render(self, "emoji")
@@ -132,6 +154,7 @@ def render_annotation(self) -> str:
     if emoji:
         text = emoji + " " + text
     return as_text_block(text)
+
 
 # @trace_decorator
 def render_elaboration(self) -> str:
@@ -141,7 +164,7 @@ def render_elaboration(self) -> str:
         return ""
     if not elaboration:
         return ""
-    
+
     parablock = []
     for piece in elaboration:
         if isinstance(piece, Literate_01.Paragraph):
@@ -154,7 +177,7 @@ def render_elaboration(self) -> str:
             # print("adding code block...")
             # print(piece.content)
             result += piece.content + "\n\n"
-            
+
             # then add the code block
     # finally, take care of gathered paras
     result += cleaned_paras(parablock)
@@ -162,34 +185,36 @@ def render_elaboration(self) -> str:
 
     return result
 
-def cleaned_paras(paras: list[Literate_01.Paragraph])-> str:
+
+def cleaned_paras(paras: list[Literate_01.Paragraph]) -> str:
     if not paras:
         return ""
-    full_text = "\n\n".join( [str(p) for p in paras]) + "\n\n"
-    
-    from clean_markdown import clean_markdown
-    
+    full_text = "\n\n".join([str(p) for p in paras]) + "\n\n"
+
+    from ldm.clean_markdown import clean_markdown
+
     clean_text = clean_markdown(full_text)
     return clean_text
 
-    
+
 # Define the rendering methods
+
 
 def render_ldm(self):
     result = render_component(self, prefix=self.prefix + " ")
-    
+
     subjects = self.subjects
     print(len(subjects), " subjects coming in model")
     result += render_each(self.subjects)
-    
+
     return result
 
+
 def render_subject(self):
-    
+
     result = render_component(self, prefix=self.prefix + " ")
 
-    
-    # Render classes    
+    # Render classes
     result += render_each(self.classes)
     # Render child subjects
     subjects = self.subjects
@@ -198,16 +223,23 @@ def render_subject(self):
 
     result += render_each(self.subjects)
 
-    
     return result
 
+
 from Literate_01 import ClassName, AttributeName, AttributeSectionName, Label
+
+
 def style_for_header(prefix, name) -> str:
     display_name = str(name)
-    
+
     style_mark = ""
     if style_names or True:
-        if isinstance(name, ClassName) or prefix == "_ " or  "Value" in prefix or "Code" in prefix:
+        if (
+            isinstance(name, ClassName)
+            or prefix == "_ "
+            or "Value" in prefix
+            or "Code" in prefix
+        ):
             style_mark = "**"
         elif isinstance(name, AttributeSectionName) or prefix == "__ ":
             style_mark = "_"
@@ -217,9 +249,10 @@ def style_for_header(prefix, name) -> str:
     # print("Prefix is [", prefix, "] dislay is ", display_name)
     return display_name
 
+
 def render_header(self, prefix: str, parenthetical: str = None) -> str:
     """Render the header for the object."""
-    
+
     # print("Render header:", f"[{prefix}] {self.name} ({parenthetical}) ")
     displayed_name = style_for_header(prefix, str(self.name))
 
@@ -231,14 +264,18 @@ def render_header(self, prefix: str, parenthetical: str = None) -> str:
         phrase = render_value(parenthetical)
         if parenthetical:
             headline += f" ({phrase})"
-        
 
-    result = textwrap.fill(headline, width=para_width, initial_indent='', subsequent_indent=para_indent)
+    result = textwrap.fill(
+        headline, width=para_width, initial_indent="", subsequent_indent=para_indent
+    )
 
     result += "\n\n"
     return result
 
-from class_casing import UpperCamel, LowerCamel
+
+from utils.class_casing import UpperCamel, LowerCamel
+
+
 def render_field(self, field_name: str, label: str = "") -> str:
     """Render the field with the specified name."""
     from do_build_ldm import handle_subtype_of
@@ -262,25 +299,28 @@ def render_field(self, field_name: str, label: str = "") -> str:
         result = f"{para_indent}{label}: {result}\n"
     return result
 
-def render_component(self, prefix: str = "", parenthetical: str = "" ) -> str:
+
+def render_component(self, prefix: str = "", parenthetical: str = "") -> str:
     """Render the component with the specified prefix."""
     result = render_header(self, prefix, parenthetical)
-    
+
     # Render elaboration and annotations if present
-    
+
     # Render elaboration if present
     result += render_elaboration(self)
     result += render_each(self.annotations)
-    if self.diagnostics: # so, block df diagnostics, surrounded by blank lines
+    if self.diagnostics:  # so, block df diagnostics, surrounded by blank lines
         result += "\n"
         result += render_each(self.diagnostics)
         result += "\n"
 
-    return result    
+    return result
+
 
 def render_diagnostic(d) -> str:
     return as_text_block(f"!! {d.severity}: {d.message}\n")
-    
+
+
 def render_class(self):
     the_prefix = "_ "
     if isinstance(self, Literate_01.CodeType):
@@ -288,27 +328,26 @@ def render_class(self):
     elif isinstance(self, Literate_01.ValueType):
         the_prefix = "Value Type: "
 
-    result = render_component(self, prefix= the_prefix, parenthetical=None)    
-    
+    result = render_component(self, prefix=the_prefix, parenthetical=None)
 
     # fields
 
     result += render_field(self, "plural")
     result += render_field(self, "subtype_of")
-    result += render_field(self, "subtypes") 
+    result += render_field(self, "subtypes")
     result += render_field(self, "based_on")
     result += render_field(self, "dependent_of")
     result += render_field(self, "dependents")
     result += render_field(self, "is_value_type")
     result += render_field(self, "where")
     result += render_each(self.constraints)
-    
 
     # Render attributes
     result += render_each(self.attributes)
     result += render_each(self.attribute_sections)
-    
+
     return result
+
 
 def render_attribute_reference(self):
     result = ""
@@ -316,10 +355,11 @@ def render_attribute_reference(self):
     result += "_._"
     result += render(self, "attribute_name")
     return result
-    
+
+
 def render_attribute(self):
     result = render_component(self, prefix="- ", parenthetical=self.data_type_clause)
-    
+
     # result += render_field(self, "data_type")
     # result += render_field(self, "data_type_clause")
     result += render_field(self, "overrides")
@@ -330,21 +370,25 @@ def render_attribute(self):
     # result += render_field(self, "default")
     # for constraint in self.constraints:
     #     result += render_formula(constraint)
-        
+
     return result
+
 
 def render_attribute_section(self) -> str:
     result = render_component(self, prefix="__ ", parenthetical=self.is_optional)
-    
-    
+
     # Render attributes
     result += render_each(self.attributes)
-        
+
     return result
-from utils_pom.util_json_pom import as_json
+
+
+from utils.util_json import as_json
+
+
 def render_formula_field(self, field_name: str) -> str:
     result = ""
-    formula  = getattr(self, field_name, None)
+    formula = getattr(self, field_name, None)
     if not formula:
         result += f"ERROR No formula for {field_name}\n"
         # print(result)
@@ -355,41 +399,40 @@ def render_formula_field(self, field_name: str) -> str:
     result += render_field(formula, "one_liner", getattr(formula, "_type", "one_liner"))
     result += render_field(formula, "english")
     result += render_field(formula, "code")
-    
+
     result += render_elaboration(formula)
     result += render_each(formula.annotations)
 
-    return result 
+    return result
+
 
 def render_formula(self) -> str:
     """Render the formula for the object."""
-    result = render_field(self, "one_liner",  getattr(self, "_type", "one_liner"))
+    result = render_field(self, "one_liner", getattr(self, "_type", "one_liner"))
     result += render_field(self, "english")
     result += render_field(self, "code")
 
     result += render_elaboration(self)
     result += render_each(self.annotations)
-    
+
     return result
 
+
 def render_paragraph(self):
-    
+
     if not hasattr(self, "content"):
         return ""
     lines = textwrap.wrap(self.content, width=para_width)
     rawtext = "\n".join(lines)
-    text = textwrap.indent(rawtext, prefix = para_indent)
-    
-    
-    
-    return f"{text}\n\n"
-def render_codeblock(self):
-    
-    if not hasattr(self, "content"):
-        return ""
-    text = textwrap.indent(self.content, prefix = para_indent)
-    
-    
-    
+    text = textwrap.indent(rawtext, prefix=para_indent)
+
     return f"{text}\n\n"
 
+
+def render_codeblock(self):
+
+    if not hasattr(self, "content"):
+        return ""
+    text = textwrap.indent(self.content, prefix=para_indent)
+
+    return f"{text}\n\n"

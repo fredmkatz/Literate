@@ -4,17 +4,17 @@ from abc import ABC
 import re
 
 import os
-from utils_pom.util_fmk_pom import write_text, write_yaml
-from utils_pom.util_json_pom import as_json
-from utils_pom.util_fmk_pom import create_fresh_directory
+from utils.util_fmk import write_text, write_yaml
+from utils.util_json import as_json
+from utils.util_fmk import create_fresh_directory
 
 from emoji import emoji_list, replace_emoji
 
-# from utils_pom.util_json_pom import as_json
-# from utils_pom.util_fmk_pom import as_yaml
+# from utils.util_json_pom import as_json
+# from utils.util_fmk_pom import as_yaml
 
 
-from utils_pom.util_fmk_pom import read_lines
+from utils.util_fmk import read_lines
 
 
 from dull_dsl.dull_parser_classes import (
@@ -25,7 +25,7 @@ from dull_dsl.dull_parser_classes import (
 )
 
 
-from  dull_dsl.dull_parser_core import DocPart
+from dull_dsl.dull_parser_core import DocPart
 
 all_clauses_by_priority = None
 part_plurals = None
@@ -37,8 +37,7 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
     doc_part = DocPart("Document", None)
     current_part = doc_part
     current_part_type = "Document"
-    
-    
+
     global all_clauses_by_priority, part_plurals, part_parts
     all_clauses_by_priority = dull_specs["all_clauses_by_priority"]
     part_plurals = dull_specs["part_plurals"]
@@ -46,7 +45,7 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
 
     print(f"PARSING {model_doc_path}")
     current_eligible_parts = part_parts.get(current_part.part_type)
-    
+
     lines = read_lines(model_doc_path)
 
     # note. Looping through all lines, but
@@ -80,7 +79,7 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
                 open_elaboration.append(paragraph)
                 open_paragraph = []  # reset the paragraph
             continue
-        if type_label =="TEXT_LINE":
+        if type_label == "TEXT_LINE":
             # current_part.add_line(typed_line)  # for text-lines and blank-lines
             open_paragraph.append(typed_line)
             continue
@@ -97,7 +96,7 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
             # note: next_k has already been incremented at the top of the loop
             (next_k, extra_text) = consume_through("CODE_FENCE", lines, next_k)
             # if extra_text:
-                # print("FOUND CODE BLOCK:", extra_text)
+            # print("FOUND CODE BLOCK:", extra_text)
             typed_line.extra_text = extra_text
 
             # current_part.add_line(typed_line)
@@ -115,8 +114,10 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
             # print("Closing elaboration on finding Something Special")
             # print("..open_elaboration: ", open_elaboration)
             elaboration = TypedLine("ELABORATION", None, open_elaboration)
-                                    
-            current_part.add_line(elaboration)  # add the elaboration to the current part
+
+            current_part.add_line(
+                elaboration
+            )  # add the elaboration to the current part
             # print("..added Elaboration to current part (for Something Special): ", elaboration)
             open_paragraph = []  # reset the paragraph
             open_elaboration = []
@@ -156,13 +157,13 @@ def parse_model_doc(dull_specs: Dict, model_doc_path: str) -> DocPart:
             current_eligible_parts = part_parts.get(part_type, [])
             ## .. and then put the line into the new current part
         current_part.add_line(typed_line)  # for text-lines and blank-lines
-        if typed_line.type_label in ["TEXT_LINE", "PARAGRAPH","ELABORATION"]:
+        if typed_line.type_label in ["TEXT_LINE", "PARAGRAPH", "ELABORATION"]:
             current_part.add_line(typed_line)
             # print(f"Directly Added {typed_line} to {current_part_type}")
     return doc_part
     # displayed = doc_part.displayed()
     # return displayed
-    
+
 
 def consume_until(
     final_label: str, lines: List[str], next_k: int
@@ -253,4 +254,3 @@ def assess_line(line: str) -> TypedLine:
     if trimmed.startswith("```"):
         return TypedLine("CODE_FENCE", None, trimmed)
     return TypedLine("TEXT_LINE", None, trimmed)
-

@@ -63,7 +63,7 @@ Annotation Types.
 
 !! Warning: oneLiner is too long. (96 chars).
 
-_based_on_: Literate Data Model
+_basedOn_: LiterateDataModel
 - ***emoji*** - an emoji (optional reference Emoji)
 
 - ***emojiName*** - an emoji (optional reference String)
@@ -75,15 +75,15 @@ _based_on_: Literate Data Model
 
 - ***plural*** - the plural form of the label (optional reference UpperCamel)
 
-- ***Purpose*** - the intended reason for the annotation.
+- ***purpose*** - the intended reason for the annotation.
 
 
 !! Error: No value for data_type_clause
 
-_ **ValueType Annotation A note or comment associated with a model element**
+_ **ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement**
 
-_based_on_: Component
-- ***annotationType*** (optional reference Annotation Type)
+_basedOn_: Component
+- ***annotationType*** (optional reference AnnotationType)
 
 Note: An Annotation is considered to *recognized* if the label is associated
 with an Annotation Type. otherwise it is *ad hoc*.
@@ -93,7 +93,7 @@ with an Annotation Type. otherwise it is *ad hoc*.
 But any short label is valid.
 
 
-- ***Emoji*** (optional reference Emoji)
+- ***emoji*** (optional reference Emoji)
 
 - ***content*** - The content or body of the annotation (optional reference
 RichText)
@@ -121,7 +121,7 @@ and relationships, along with explanatory text and examples
 
 _plural_:  LiterateDataModels
 
-_subtype_of_: Component Subtypes
+_subtypeOf_: Component subtypes
 - ***name*** (optional reference UpperCamel)
 
 - ***allSubjects*** - list of all classes in the model, as ordered in the
@@ -134,21 +134,21 @@ __ _Modeling Configuration_ ()
 
 - ***annotationTypes*** (optional List of reference AnnotationTypes)
 
-- ***Preferred Coding Language*** - the recommended lanquage  for expressing
-derivation, defaults, and constraints (optional reference Coding Language)
+- ***preferredCodingLanguage*** - the recommended lanquage  for expressing
+derivation, defaults, and constraints (optional reference CodingLanguage)
 
-- ***alternate Coding Languages*** (optional List of reference Coding Languages)
+- ***alternateCodingLanguages*** (optional List of reference CodingLanguages)
 
-- ***Preferred Template Language*** - the recommended lanquage  for expressing
-derivation, defaults, and constraints (optional reference Template Language)
+- ***preferredTemplateLanguage*** - the recommended lanquage  for expressing
+derivation, defaults, and constraints (optional reference TemplateLanguage)
 
-- ***alternate Template Languages*** (optional List of reference Template
-Languages)
+- ***alternateTemplateLanguages*** (optional List of reference
+TemplateLanguages)
 
 - ***aiFunctions*** - A list of functions that require sophisticated AI-powered
 implementation * (optional List of reference String)
 
-_ **Subject A specific topic or theme within the model**
+_ **SubjectASpecificTopicOrThemeWithinTheModel**
 
 Subjects are the chapters an sections of the model.
 
@@ -157,27 +157,26 @@ Subjects are the chapters an sections of the model.
 
 _plural_:  Subjects
 
-_subtype_of_: Component Subtypes
-_dependent_of_: LiterateDataModel
+_subtypeOf_: Component subtypes
+_dependentOf_: LiterateDataModel
 - ***name*** (optional reference UpperCamel)
 
 - ***parentSubject*** - The parent subject, if any, under which this subject is
 nested _ (optional reference Subject)
 
-- ***Classes*** - The major classes related to this subject, in the order in
+- ***classes*** - The major classes related to this subject, in the order in
 which they should be presented _ (optional List of reference Classes)
 
 Issue: define chapter, section, subsection as levels?
 
 !! Warning: oneLiner is too long. (91 chars).
 
-- ***Each Class should be followed first by the classes that are dependent on
-it, and then***
+- ***eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen***
 
 
 !! Error: No value for data_type_clause
 
-- ***By its subtype classes.***
+- ***byItsSubtypeClasses***
 
 
 !! Error: No value for data_type_clause
@@ -192,13 +191,13 @@ childSubjects.
 
 !! Warning: oneLiner is too long. (94 chars).
 
-_inverse_: [_Subject_](Subject)_._parentSubject.
-_ **SubjectArea A main topic or area of focus within the model, containing
-related subjects and classes**
+_inverse_: [_Subject_](Subject)_._parentSubject
+_ **SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAnd
+Classes**
 
 _plural_:  SubjectAreas
 
-_subtype_of_: Subject Subtypes
+_subtypeOf_: Subject subtypes
 _where_:  parentSubject is absent
 
 ### Classes
@@ -208,7 +207,7 @@ real-world concept
 
 _plural_:  Classes
 
-_subtype_of_: Component Subtypes
+_subtypeOf_: Component subtypes
 _Constraint_:  Within each Class, attribute names must be unique.
 
 _english_: 
@@ -235,7 +234,7 @@ removing the dependent entity, then it is a dependent entity.
 
 Note: that basedOn and dependentOf are being used synonymousle in this
 metamodel.
-- ***supertypes*** - The parent class (optional reference es)
+- ***supertypes*** - The parent class (optional reference Es)
 
 - ***subtypings*** - the criteria, or dimensions, by which the class can be
 divided into subtypes (optional List of reference Subtypings)
@@ -269,17 +268,17 @@ __ _Implied Attributes_ ()
 reference Classes)
 
 _inverse_: [_Class_](Class)_._basedOn
-- ***UniqueKeys*** (optional Set of reference UniqueKeys)
+- ***uniqueKeys*** (optional Set of reference UniqueKeys)
 
 _inverse_: [_UniqueKey_](UniqueKey)_._basedOn
 _ **Subtyping** - a way in which subtypes of a Class may be classified
 
-_dependent_of_: Class
-- ***name*** (optional reference Upper Name)
+_dependentOf_: Class
+- ***name*** (optional reference UpperName)
 
-- ***is exclusive*** (optional reference Boolean)
+- ***isExclusive*** (optional reference Boolean)
 
-- ***is exhaustive*** (optional reference Boolean)
+- ***isExhaustive*** (optional reference Boolean)
 
 - ***classes*** (optional List of reference Classes)
 
@@ -297,26 +296,26 @@ _dependent_of_: Class
 Note: every class can have an unnamed subtyping.
 _ **ValueType**
 
-_subtype_of_: Class. Subtypes
-_ **Reference Type**
+_subtypeOf_: Class subtypes
+_ **ReferenceType**
 
-_subtype_of_: Class. Subtypes
-_ **CodeType A data type or enumeration used in the model**
+_subtypeOf_: Class subtypes
+_ **CodeTypeADataTypeOrEnumerationUsedInTheModel**
 
 Note: Often, a CodeType will be assigned to just one attribute in the model.  In
 such cases, there's no need to declare a new Code Type and invent a name for it.
 Instead:
-_subtype_of_: ValueType. Subtypes
-- ***List the code values as a bulletted list inside the description of the
-attribute in the form ‘code description’***
+_subtypeOf_: ValueType subtypes
+- ***listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFor
+mCodeDescription***
 
-- ***A Code Type will be created with the name [class][attribute]Code and the
-code values listed. That CodeType will be marked as isCaptive.***
+- ***aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedTh
+atCodeTypeWillBeMarkedAsIsCaptive***
 
 - ***isCaptive*** - the code type was implied by use in an attribute and is only
 used for that attribute (optional reference Boolean)
 
-_ **Code Value**
+_ **CodeValue**
 
 A possible value for an enumerated data class  DependentOf: CodeType
 - ***code*** - A short code or abbreviationi for the value _ (optional reference
@@ -327,8 +326,8 @@ RichText)
 
 _ **Key** - a list of attributes of a class
 
-_subtype_of_: Component Subtypes
-_dependent_of_: Class
+_subtypeOf_: Component subtypes
+_dependentOf_: Class
 - ***keyAttributes*** - the attributes of the base Class. (optional List of
 reference Attributes)
 
@@ -337,14 +336,14 @@ _ **UniqueKey** - a list of attributes on which instances of the base class may
 be keyed.
 
 Note: order unimportant for Unique Keys.
-_subtype_of_: Key Subtypes
+_subtypeOf_: Key subtypes
 ## Attributes
 
-_ **Attribute Section** - a group of attributes for a class that merit a shared
+_ **AttributeSection** - a group of attributes for a class that merit a shared
 explanation.
 
-_subtype_of_: Component. Subtypes
-_based_on_: Class
+_subtypeOf_: Component subtypes
+_basedOn_: Class
 - ***isOptional*** - whether the attributes in this section, taken together, are
 optional. (optional reference Boolean)
 
@@ -356,13 +355,13 @@ optional ot required, depending on how it is marked.
 + But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.
 
 
-_ **Attribute A property or characteristic of a class**
+_ **AttributeAPropertyOrCharacteristicOfAClass**
 
 _plural_:  Attributes
 
-_subtype_of_: Component Subtypes
-_based_on_: AttributeSection
-- ***name*** (optional reference Lower Camel)
+_subtypeOf_: Component subtypes
+_basedOn_: AttributeSection
+- ***name*** (optional reference LowerCamel)
 
 _overrides_: [_CamelName_](CamelName)_._
 - ***dataType*** - The kind of object to which the attribute refers.  _
@@ -371,23 +370,23 @@ _overrides_: [_CamelName_](CamelName)_._
 But,
 
 
-- ***List of Editions***
+- ***listOfEditions***
 
 
 !! Error: No value for data_type_clause
 
-- ***Set of Edition***
+- ***setOfEdition***
 
 
 !! Error: No value for data_type_clause
 
-- ***... and more complicated cases.***
+- ***andMoreComplicatedCases***
 
 See: the section below on Data Type Specifiers.
 
 !! Error: No value for data_type_clause
 
-__ _Cardinalities._ ()
+__ _Cardinalities_ ()
 
 - ***isOptional*** - Indicates whether the attribute must have a value for every
 instance of the class _ (optional reference Boolean)
@@ -396,9 +395,9 @@ instance of the class _ (optional reference Boolean)
 attribute _ (optional reference CardinalityCode)
 
 For example:
-- ***author*** (optional value Invented Name)
+- ***author*** (optional value InventedName)
 
-- ***books*** (optional value Invented Name)
+- ***books*** (optional value InventedName)
 
 Note: how this works with optionality
 __ _Inverse Attributes_ ()
@@ -433,13 +432,12 @@ Issue: on insert vs on access?
 Note: from Class.constraints
 __ _Override Tracking_ ()
 
-- ***Overrides***
+- ***overrides***
 
 
 !! Error: No value for data_type_clause
 
-_ **ValueType Derivation A rule or formula for deriving the value of an
-attribute**
+_ **ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute**
 
 _plural_:  Derivations
 
@@ -449,17 +447,16 @@ _plural_:  Derivations
 - ***expression*** - The formal expression of the derivation in a programming
 language _ (optional reference CodeExpression)
 
-_ **ValueType Constraint A rule, condition, or validation that must be satisfied
-by the model**
+_ **ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel**
 
 _plural_:  Constraints
 
-_subtype_of_: Component Subtypes
+_subtypeOf_: Component subtypes
 - ***statement*** - An English language statement of the constraint _ (optional
 reference RichText)
 
 - ***expression*** - The formal expression of the constraint in a programming
-language (optional value Invented Name)
+language (optional value InventedName)
 
 - ***severity*** (optional reference Code)
 
@@ -475,19 +472,19 @@ language (optional value Invented Name)
 !! Error: Name is missing
 !! Error: No value for data_type_clause
 
-- ***Message*** (optional reference Template)
+- ***message*** (optional reference Template)
 
-_ **Class Constraint**
+_ **ClassConstraint**
 
-_subtype_of_: Constraint Subtypes
-_based_on_: Class.
-_ **Attribute Constraint**
+_subtypeOf_: Constraint subtypes
+_basedOn_: Class
+_ **AttributeConstraint**
 
-_subtype_of_: Constraint Subtypes
-_based_on_: Attribute
+_subtypeOf_: Constraint subtypes
+_basedOn_: Attribute
 _ **CodeExpression**
 
-- ***Language*** - the programming language (optional reference Code)
+- ***language*** - the programming language (optional reference Code)
 
 - ***None*** - OCL: Object Constraint Language
 
@@ -501,49 +498,49 @@ _ **CodeExpression**
 !! Error: Name is missing
 !! Error: No value for data_type_clause
 
-- ***Expression*** (optional reference String)
+- ***expression*** (optional reference String)
 
 ## Methods
 
-_ **Method A behavior or operation associated with a class**
+_ **MethodABehaviorOrOperationAssociatedWithAClass**
 
 _plural_:  Methods
 
-_subtype_of_: Component Subtypes
+_subtypeOf_: Component subtypes
 - ***parameters*** - The input parameters of the method _ (optional List of
 reference Parameters)
 
 - ***returnType*** - The data type of the value returned by the method _
 (optional reference DataType)
 
-_ **Parameter An input to a method**
+_ **ParameterAnInputToAMethod**
 
 _plural_:  Parameters
 
-_subtype_of_: Component Subtypes
+_subtypeOf_: Component subtypes
 - ***type*** - The data type of the parameter _ (optional reference DataType)
 
-- ***cardinality*** - The cardinality of the parameter (optional value Invented
-Name)
+- ***cardinality*** - The cardinality of the parameter (optional value
+InventedName)
 
 ## Data Types
 
 *ValueType*:**Data Type**
 
 
-_ **Simple Data Type SubtpeOf DataType**
+_ **SimpleDataTypeSubtpeOfDataType**
 
 - ***coreClass*** (optional reference Class)
 
-_ **Complex Data Type**
+_ **ComplexDataType**
 
-- ***aggregation*** (optional reference Aggregating Operator)
+- ***aggregation*** (optional reference AggregatingOperator)
 
 - ***aggregatedTypes*** (optional List of reference DataTypes)
 
-_ **Aggregating Operator**
+_ **AggregatingOperator**
 
-- ***Name*** (optional reference Code)
+- ***name*** (optional reference Code)
 
 - ***None*** - **SetOf**
 
@@ -572,14 +569,14 @@ _ **Aggregating Operator**
 insert Camel Case.md
 
 
-_ **ValueType CamelName**
+_ **ValueTypeCamelName**
 
 A short string without punctuation or spaces, suitable for names, labels, or
 identifiers and presented in camel case.
 
 
-_subtype_of_: String Subtypes
-- ***value the string*** (optional reference String)
+_subtypeOf_: String subtypes
+- ***valueTheString*** (optional reference String)
 
 Example: "firstName", "orderDate", "customerID"
 ModelingNote: * *CamelName* is presented here, just after its first usage by
@@ -588,53 +585,52 @@ used further in the model.
 _ **UpperCamel** - a CamelName that begins with a capital letter
 
 Example: _ "Customer", "ProductCategory", "PaymentMethod"
-_subtype_of_: CamelName Subtypes
+_subtypeOf_: CamelName subtypes
 _where_:  content begins with an upper case letter.
 
 _ **LowerCamel** - a CamelName that begins with a lower case letter
 
 Example: "firstName", "orderTotal", "shippingAddress"
-_subtype_of_: CamelName Subtypes
+_subtypeOf_: CamelName subtypes
 _where_:  content begins with a lower case letter.
 
-_ **Qualified Camel** - an expression consisting of Camel Names separated by
+_ **QualifiedCamel** - an expression consisting of Camel Names separated by
 periods
 
-_subtype_of_: String Subtypes
+_subtypeOf_: String subtypes
 _Constraint_:  content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.
 
 _english_: 
 
 
-_ **RichText.  A string with markup for block level formatting.**
+_ **RichTextAStringWithMarkupForBlockLevelFormatting**
 
-_subtype_of_: String Subtypes
-- ***value*** - the string content (optional reference string)
+_subtypeOf_: String subtypes
+- ***value*** - the string content (optional reference String)
 
 - ***format*** - the rich text coding language used (optional reference Code)
 
-- ***HTML***
+- ***html***
 
 
 !! Error: No value for data_type_clause
 
-- ***MarkDown***
+- ***markDown***
 
 
 !! Error: No value for data_type_clause
 
 _ **RichLine** - String with markup for line level formatting.
 
-_subtype_of_: RichText Subtypes
-- ***value*** - the string content (optional reference string)
+_subtypeOf_: RichText subtypes
+- ***value*** - the string content (optional reference String)
 
 _ **PrimitiveType**
 
 Values:
-_subtype_of_: ValueType
-A basic Subtypes, built-in data type Subtypes
-## Appendices Insert More Sidebars.md Insert Overrides.md insert LDM Intro.md
-Insert OCL.md Insert Camel Case.md
+_subtypeOf_: ValueTypeABasic subtypes, BuiltInDataType subtypes
+## Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md
+Insert OCL md Insert Camel Case md
 
 ### Annotation Types Used
 
@@ -731,8 +727,8 @@ purpose: "Indicates a cross-reference to another relevant element within the mod
 ===
 
 
-## Appendices Insert More Sidebars.md Insert Overrides.md insert LDM Intro.md
-Insert OCL.md Insert Camel Case.md
+## Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md
+Insert OCL md Insert Camel Case md
 
 == content to add
 

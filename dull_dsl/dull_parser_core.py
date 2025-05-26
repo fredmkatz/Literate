@@ -1,12 +1,13 @@
 # import re
 from dataclasses import dataclass, field
+
 # from typing import Any, List, Dict, Tuple, Union, Callable, Optional
 from typing import Any, List, Dict, Union
 
 # from ldm_parse_bits import parse_header
-# from utils_pom.util_fmk_pom import as_yaml
-from utils_pom.util_json_pom import as_json
-from utils_pom.util_flogging import flogger, trace_method, trace_decorator
+# from utils.util_fmk_pom import as_yaml
+from utils.util_json import as_json
+from utils.util_flogging import flogger, trace_method, trace_decorator
 from dull_dsl.dull_parser_classes import (
     TypedLine,
     ClauseLine,
@@ -14,20 +15,15 @@ from dull_dsl.dull_parser_classes import (
     # ParseHandler,
     # print_messages,
 )
-from class_casing import LowerCamel, SnakeCase, UpperCamel
+from utils.class_casing import LowerCamel, SnakeCase, UpperCamel
 
 from ldm.Literate_01 import ClassName, AttributeName
-
 
 
 all_clauses_by_priority = None
 part_plurals = None
 part_parts = None
 listed_parts = None
-
-
-
-
 
 
 @dataclass
@@ -68,7 +64,7 @@ class DocPart:
         return displayed
 
     def derive_dict_for_document(self, dull_specs: Dict):
-        
+
         self.saved_dull_specs = dull_specs
         global all_clauses_by_priority, part_plurals, part_parts, listed_parts
         all_clauses_by_priority = dull_specs["all_clauses_by_priority"]
@@ -77,11 +73,10 @@ class DocPart:
         listed_parts = dull_specs["listed_parts"]
 
         return self.derive_dict_for_part(0)
+
     def derive_dict_for_part(self, level: int = 0) -> Dict:
         # identify the full oneliner - ie all text lines immediately after
         # the header should be included.
-
-    
 
         ntexts = 0
         the_dict = {}
@@ -97,7 +92,7 @@ class DocPart:
             #     print(repr(item))
             # print("...END OF ANNOTATION ITEMS")
         for item in self.items:
-            
+
             # collect any text/code blocks into paragraphs
             if isinstance(item, TypedLine):
                 label = item.type_label
@@ -130,7 +125,7 @@ class DocPart:
                     handlers = item.line_Type.handlers
                     header_dict = handlers.parse(full_header)
                     # print_messages(messages)
-                    
+
                     # if label.startswith("Class"):
                     #     rawname = header_dict.get("name", "NoName")
                     #     # header_dict['name'] = ClassName(rawname)
@@ -159,13 +154,12 @@ class DocPart:
                     # the_dict["full_annotation"] = full_annotation
                     # print("Annotation dict: ", annotation_dict)
                     annotation_dict.pop("line_type", None)
-                    annotation_dict['content'] = annotation_dict.pop("value", None)
+                    annotation_dict["content"] = annotation_dict.pop("value", None)
                     # print(".. revised Annotation dict: ", annotation_dict)
 
                     # print("the dict: ", the_dict)
                     the_dict.update(annotation_dict)
                     continue
-
 
                 # Note. In order to place the alaboration just after the header
                 # elemeents (name, oneliner, etc):
@@ -173,15 +167,17 @@ class DocPart:
                 # insert the elaboration
                 if paragraphs:
                     old_paragraphs = the_dict.get("elaboration", [])
-                    
-                    paragraphs = ["Might be more1"]  # to avoid reinserting it, but leave open the po ssibility of more text
+
+                    paragraphs = [
+                        "Might be more1"
+                    ]  # to avoid reinserting it, but leave open the po ssibility of more text
 
                 if isinstance(item, ClauseLine):
                     clause_dict = item.derive_clause_dict(level)
                     # print("Clause line dict is", clause_dict)
                     for keyword, value in clause_dict.items():
                         # for the real value, we need clause spec
-                        
+
                         att_name = str(SnakeCase(keyword))
                         # if att_name != keyword:
                         # print(f"Using ATT_NAME  {att_name} for {keyword}")
@@ -209,12 +205,10 @@ class DocPart:
                 part_dict = item.derive_dict_for_part(level)
                 part_type = item.part_type
                 plural = part_plurals.get(part_type, part_type + "s'")
-                
-                
-                
+
                 is_cum = part_type in listed_parts
                 if is_cum:
-                    att_name_for_part =  str(SnakeCase(plural)).lower()
+                    att_name_for_part = str(SnakeCase(plural)).lower()
                     # print("Using plural atttribute name: ", att_name_for_part)
 
                 else:
@@ -228,7 +222,7 @@ class DocPart:
                     att_name_for_part = "classes"
                 att_name_for_part = att_name_for_part.replace("'", "")
                 the_dict = absorb_into(
-                    the_dict, att_name_for_part, part_dict, is_list = False, is_cum = is_cum
+                    the_dict, att_name_for_part, part_dict, is_list=False, is_cum=is_cum
                 )
 
             else:
@@ -249,6 +243,7 @@ class DocPart:
         #     exit(0)
         return the_dict
 
+
 # @trace_decorator
 def convert_to_paragraphs(item: TypedLine) -> List[str]:
     """
@@ -261,20 +256,16 @@ def convert_to_paragraphs(item: TypedLine) -> List[str]:
         # print("Subitem: ", as_json(subitem))
         element_type = None
         if subitem.type_label == "CODE_FENCE":
-            element_type =  "CodeBlock" #"CodeBlock"
+            element_type = "CodeBlock"  # "CodeBlock"
             code_content = subitem.content
             # print("CodeContent: ", code_content)
             code_full_text = subitem.full_text()
             # print("CodeFullText: ", code_full_text)
-            piece = {
-                "_type": element_type,
-                "content": code_full_text
-            }
+            piece = {"_type": element_type, "content": code_full_text}
             # print("PieceContent: ", piece)
             pieces.append(piece)
             continue
 
-            
         elif subitem.type_label == "PARAGRAPH":
             element_type = "Paragraph"
         if element_type:
@@ -285,18 +276,14 @@ def convert_to_paragraphs(item: TypedLine) -> List[str]:
             #     print("\t x is ", x)
             #     # print("\t and full text is ", x.full_text())
             para_text = " \n+ ".join(x.full_text() for x in content)
-            piece = {
-                "_type": element_type,
-                "content": para_text
-            }
+            piece = {"_type": element_type, "content": para_text}
             pieces.append(piece)
         else:
             print("DictingError: something odd  in elaboration--", item)
-    
+
     # print("ReturningElaboration: ", pieces)
     return pieces
 
-    
 
 def absorb_into(
     the_dict: Dict, keyword: str, value: Any, is_list: bool, is_cum: bool
@@ -328,5 +315,3 @@ def absorb_into(
             the_dict[keyword].extend(value)
     # print("after absorb, dict has: ", the_dict)
     return the_dict
-
-

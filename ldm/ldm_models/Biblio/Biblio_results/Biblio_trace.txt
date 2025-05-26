@@ -1,0 +1,10 @@
+PARSING ldm/ldm_models/Biblio/Biblio.md
+Directory 'ldm/ldm_models/LiterateTester/LiterateTester_results' and its contents have been removed.
+Model dir:  ldm/ldm_models/LiterateTester
+Model name:  LiterateTester
+Model doc:  LiterateTester.md
+Model name:  LiterateTester
+Model doc path:  ldm/ldm_models/LiterateTester/LiterateTester.md
+Results dir:  ldm/ldm_models/LiterateTester/LiterateTester_results
+Trace path:  ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester_trace.txt
+Rediirecting to:  ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester_trace.txt

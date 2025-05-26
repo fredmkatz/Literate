@@ -1,8 +1,4 @@
-
-Phase: Parsing model: ldm/ldm_models/LiterateTester/LiterateTester.md
 PARSING ldm/ldm_models/LiterateTester/LiterateTester.md
-
-Phase: Deriving dict for model
 adding name value. based_on -. [ClassName(content='LiteraryWork', _type='ClassName'), ClassName(content='OtherBase', _type='ClassName')]
 adding name value. one_liner -.  the title of the Work of which this is an edition
 
@@ -60,14 +56,14 @@ adding name value. one_liner -.  {'author': [a, b, c] }
 Building class map for module: ldm.Literate_01
 Class map is
 {   'Annotation': <class 'ldm.Literate_01.Annotation'>,
-    'AsValue': <class 'class_pom_token.AsValue'>,
+    'AsValue': <class 'utils.class_pom_token.AsValue'>,
     'Attribute': <class 'ldm.Literate_01.Attribute'>,
     'AttributeName': <class 'ldm.Literate_01.AttributeName'>,
     'AttributeReference': <class 'ldm.Literate_01.AttributeReference'>,
     'AttributeSection': <class 'ldm.Literate_01.AttributeSection'>,
     'AttributeSectionName': <class 'ldm.Literate_01.AttributeSectionName'>,
     'BaseDataType': <class 'ldm.Literate_01.BaseDataType'>,
-    'CamelCase': <class 'class_casing.CamelCase'>,
+    'CamelCase': <class 'utils.class_casing.CamelCase'>,
     'Class': <class 'ldm.Literate_01.Class'>,
     'ClassName': <class 'ldm.Literate_01.ClassName'>,
     'Class_': <class 'ldm.Literate_01.Class'>,
@@ -80,24 +76,24 @@ Class map is
     'Default': <class 'ldm.Literate_01.Default'>,
     'Derivation': <class 'ldm.Literate_01.Derivation'>,
     'Diagnostic': <class 'ldm.Literate_01.Diagnostic'>,
-    'Emoji': <class 'class_pom_token.Emoji'>,
+    'Emoji': <class 'utils.class_pom_token.Emoji'>,
     'Formula': <class 'ldm.Literate_01.Formula'>,
     'FormulaCoding': <class 'ldm.Literate_01.FormulaCoding'>,
-    'IsExclusive': <class 'class_pom_token.IsExclusive'>,
-    'IsExhaustive': <class 'class_pom_token.IsExhaustive'>,
-    'IsOptional': <class 'class_pom_token.IsOptional'>,
+    'IsExclusive': <class 'utils.class_pom_token.IsExclusive'>,
+    'IsExhaustive': <class 'utils.class_pom_token.IsExhaustive'>,
+    'IsOptional': <class 'utils.class_pom_token.IsOptional'>,
     'Label': <class 'ldm.Literate_01.Label'>,
     'ListDataType': <class 'ldm.Literate_01.ListDataType'>,
     'LiterateModel': <class 'ldm.Literate_01.LiterateModel'>,
-    'LowerCamel': <class 'class_casing.LowerCamel'>,
+    'LowerCamel': <class 'utils.class_casing.LowerCamel'>,
     'MappingDataType': <class 'ldm.Literate_01.MappingDataType'>,
     'MinorComponent': <class 'ldm.Literate_01.MinorComponent'>,
     'ModelName': <class 'ldm.Literate_01.ModelName'>,
     'Natural': <class 'ldm.Literate_01.OneLiner'>,
-    'NormalCase': <class 'class_casing.NormalCase'>,
+    'NormalCase': <class 'utils.class_casing.NormalCase'>,
     'OneLiner': <class 'ldm.Literate_01.OneLiner'>,
     'Paragraph': <class 'ldm.Literate_01.Paragraph'>,
-    'PresentableBoolean': <class 'class_pom_token.PresentableBoolean'>,
+    'PresentableBoolean': <class 'utils.class_pom_token.PresentableBoolean'>,
     'ReferenceType': <class 'ldm.Literate_01.ReferenceType'>,
     'SetDataType': <class 'ldm.Literate_01.SetDataType'>,
     'Subject': <class 'ldm.Literate_01.SubjectB'>,
@@ -108,10 +104,8 @@ Class map is
     'SubjectName': <class 'ldm.Literate_01.SubjectName'>,
     'Subtyping': <class 'ldm.Literate_01.Subtyping'>,
     'SubtypingName': <class 'ldm.Literate_01.SubtypingName'>,
-    'UpperCamel': <class 'class_casing.UpperCamel'>,
+    'UpperCamel': <class 'utils.class_casing.UpperCamel'>,
     'ValueType': <class 'ldm.Literate_01.ValueType'>}
-
-Phase: Creating model from dictionary: ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.dict.yaml
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'Edition', '_type': 'ClassName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'a manifestation of a literary work'}, 'parenthetical': '', 'based_on': [ClassName(content='LiteraryWork', _type='ClassName'), ClassName(content='OtherBase', _type='ClassName')], 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'title', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': "the title, as shown on the book's title page"}, 'parenthetical': 'Full Title', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'FullTitle', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'default': {'_type': 'Default', 'one_liner': OneLiner(_type='OneLiner', content=' the title of the Work of which this is an edition\n'), 'code': ' baseWork.title\n'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'author', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'the writer'}, 'parenthetical': 'Person', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Person', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'illustrators', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'artists who supplied the pictures'}, 'parenthetical': 'List of People', 'data_type_clause': {'data_type': {'_type': 'ListDataType', 'element_type': {'_type': 'BaseDataType', 'class_name': {'content': 'People', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}], 'attribute_sections': [{'_type': 'AttributeSection', 'prefix': '__', 'name': {'content': 'Optional Publication Details', '_type': 'AttributeSectionName'}, 'parenthetical': '', 'is_optional': {'t_value': True, '_type': 'IsOptional'}, 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'datePublished', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'when the edition was released to the public'}, 'parenthetical': 'BiblioDate', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'BiblioDate', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}]}, {'_type': 'AttributeSection', 'prefix': '__', 'name': {'content': 'Required Format Details', '_type': 'AttributeSectionName'}, 'parenthetical': '', 'is_optional': {'t_value': False, '_type': 'IsOptional'}, 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'numberOfPages', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'last page number'}, 'parenthetical': 'optional Integer', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Integer', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}]}, {'_type': 'AttributeSection', 'prefix': '__', 'name': {'content': 'Unsaid Other Details', '_type': 'AttributeSectionName'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'datePublished', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'when the edition was released to the public'}, 'parenthetical': 'BiblioDate', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'BiblioDate', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'elaboration': [{'_type': 'Paragraph', 'content': 'Just use Mermaid in code block\n'}, {'_type': 'CodeBlock', 'content': '``` notmermaid\n\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n\n```'}, {'_type': 'Paragraph', 'content': "And here's the result\n"}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}, {'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\nCAR {\nstring registrationNumber\nstring make\nstring model\n}\nPERSON {\nstring firstName\nstring lastName\nint age\n}\n\nstyle CAR fill:#f9f,stroke:#333,stroke-width:4px\n\n\n```'}]}]}]} 
 In AttSection post-init for Optional Publication Details, is_optional = Optional
 In AttSection post-init for Required Format Details, is_optional = 
@@ -125,62 +119,60 @@ In AttSection post-init for Full Zip Code, is_optional =
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'LiteraryWork', '_type': 'ClassName'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'firstEdition', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'a home for the data type clauses'}, 'parenthetical': 'List of Edition', 'data_type_clause': {'data_type': {'_type': 'ListDataType', 'element_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Edition', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'data_type': ' List of sets of Editions\n'}]} 
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'Edition', '_type': 'ClassName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'to try more complex data types'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'author', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'assuming just one'}, 'parenthetical': '', 'data_type': ' Person\n'}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'artists', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'allowing for multiple'}, 'parenthetical': '', 'data_type': ' list of People\n'}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'contributors', '_type': 'AttributeName'}, 'parenthetical': '', 'data_type': ' mapping of Role to List of People\n', 'constraints': [{'_type': 'Constraint', 'one_liner': [OneLiner(_type='OneLiner', content=' Must be several for each role\n')], 'code': ' len(contributors[role]) > 1 for each role\n', 'message': ' not enough contributors for role\n', 'severity': ' Error\n'}], 'annotations': [{'_type': 'Annotation', 'emoji': '', 'label': 'constrain note', 'content': 'constraints take annotations which may span', 'elaboration': [{'_type': 'Paragraph', 'content': 'And those annotations may have their own elaborations.\n \n+ Which may contain more that one paragraph.\n'}, {'_type': 'Paragraph', 'content': "Here's a second paragraph, followed by a code block\n"}, {'_type': 'CodeBlock', 'content': '``` markdown\nThis is the code block for  the annotation\n```'}]}, {'_type': 'Annotation', 'emoji': '', 'label': 'defaul note', 'content': 'defaults take annotations'}, {'_type': 'Annotation', 'emoji': '', 'label': 'derivatio note', 'content': 'derivations take annotations'}], 'default': {'_type': 'Default', 'one_liner': OneLiner(_type='OneLiner', content=" {'author': [a, b, c] }\n")}, 'derivation': {'_type': 'Derivation', 'one_liner': OneLiner(_type='OneLiner', content=" {'author': [a, b, c] }\n")}}]} 
 Created model: <class 'ldm.Literate_01.LiterateModel'>
-
-Phase: Validating model
 Validating references...
-Validation errors: 1
-
-Phase: counting errors
-{"Validation Error in SubjectC: For field 'name' - expected <class 'class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 26, "Validation Error in SubjectB: For field 'name' - expected <class 'class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 6}
-26 	 Validation Error in SubjectC: For field 'name' - expected <class 'class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
-6 	 Validation Error in SubjectB: For field 'name' - expected <class 'class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
-
-Phase: Serialing model ...
+Validation errors: 57
+{"Validation Error in Attribute: Required field 'data_type_clause' is missing": 16, "Validation Error in Class: For field 'based_on' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 6, "Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 14, "Validation Error in Constraint: For field 'one_liner' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'list'>": 5, "Validation Error in Class: For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got <class 'str'>": 1, "Validation Error in Class: For field 'subtype_of' - expected typing.Optional[typing.Dict[ldm.Literate_01.ClassName, ldm.Literate_01.SubtypingName]], but got <class 'list'>": 17, "Validation Error in Class: For field 'dependent_of' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 1, "Validation Error in Class: For field 'where' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'str'>": 3, "Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 28, "Validation Error in Attribute: Required field 'name' is missing": 7}
+16 	 Validation Error in Attribute: Required field 'data_type_clause' is missing
+6 	 Validation Error in Class: For field 'based_on' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>
+14 	 Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
+5 	 Validation Error in Constraint: For field 'one_liner' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'list'>
+1 	 Validation Error in Class: For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got <class 'str'>
+17 	 Validation Error in Class: For field 'subtype_of' - expected typing.Optional[typing.Dict[ldm.Literate_01.ClassName, ldm.Literate_01.SubtypingName]], but got <class 'list'>
+1 	 Validation Error in Class: For field 'dependent_of' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>
+3 	 Validation Error in Class: For field 'where' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'str'>
+28 	 Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
+7 	 Validation Error in Attribute: Required field 'name' is missing
 Model serialized to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.json
 Model serialized to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.yaml
 ..Created model files: ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.json and ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.yaml
-
-Phase: Rendering back to markdown
 6  subjects coming in model
 WARNING: No render for type <class 'Literate_01.ClassName'>
 WARNING: No render for type <class 'Literate_01.ClassName'>
-WARNING: No render for type <class 'class_pom_token.IsOptional'>
-WARNING: No render for type <class 'class_pom_token.IsOptional'>
-WARNING: No render for type <class 'class_pom_token.IsOptional'>
-WARNING: No render for type <class 'class_pom_token.IsOptional'>
-
-Phase: Creating HTML from model dict
+WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
+WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
+WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
+WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
 All keys are: 
-	 data_type_clause
-	 _type
-	 is_optional_lit
-	 as_value_type
-	 derivation
-	 label
-	 is_optional
-	 elaboration
-	 classes
-	 severity
-	 class_name
-	 attributes
-	 parenthetical
-	 emoji
-	 prefix
+	 subjects
 	 attribute_sections
 	 default
+	 elaboration
+	 prefix
 	 element_type
-	 subjects
-	 subtype_of
-	 code
-	 based_on
+	 constraints
+	 is_optional_lit
+	 data_type
+	 emoji
+	 parenthetical
 	 annotations
-	 message
+	 classes
 	 one_liner
 	 t_value
-	 content
-	 data_type
+	 code
+	 attributes
+	 derivation
+	 _type
+	 message
+	 data_type_clause
+	 class_name
+	 based_on
+	 severity
+	 is_optional
+	 as_value_type
 	 name
-	 constraints
+	 label
+	 subtype_of
+	 content
 Subject header is <div class="Subject_header header">
  <span class="prefix value">
   ##
@@ -1168,5 +1160,12 @@ Subject header is <div class="Subject_header header">
 
 Saved styled dictionary to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.html
 Saved styled dictionary (for review) to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.review.html
-
-Phase: Skipping PDF creation
+Directory 'ldm/ldm_models/mdtestdocs/mdtestdocs_results' and its contents have been removed.
+Model dir:  ldm/ldm_models/mdtestdocs
+Model name:  mdtestdocs
+Model doc:  mdtestdocs.md
+Model name:  mdtestdocs
+Model doc path:  ldm/ldm_models/mdtestdocs/mdtestdocs.md
+Results dir:  ldm/ldm_models/mdtestdocs/mdtestdocs_results
+Trace path:  ldm/ldm_models/mdtestdocs/mdtestdocs_results/mdtestdocs_trace.txt
+Rediirecting to:  ldm/ldm_models/mdtestdocs/mdtestdocs_results/mdtestdocs_trace.txt

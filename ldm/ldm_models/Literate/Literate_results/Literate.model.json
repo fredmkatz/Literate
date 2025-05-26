@@ -413,7 +413,7 @@
           "based_on": [
             {
               "_type": "ClassName",
-              "content": "Literate Data Model"
+              "content": "LiterateDataModel"
             }
           ],
           "is_value_type": false,
@@ -612,7 +612,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "Purpose"
+                    "content": "purpose"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -632,7 +632,7 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "ValueType Annotation\nA note or comment associated with a model element"
+            "content": "ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement"
           },
           "parenthetical": "",
           "based_on": [
@@ -666,7 +666,7 @@
                   "_type": "BaseDataType",
                   "class_name": {
                     "_type": "ClassName",
-                    "content": "Annotation Type"
+                    "content": "AnnotationType"
                   },
                   "as_value_type": {
                     "_type": "AsValue",
@@ -745,7 +745,7 @@
               "prefix": "-",
               "name": {
                 "_type": "AttributeName",
-                "content": "Emoji"
+                "content": "emoji"
               },
               "parenthetical": "optional Emoji",
               "data_type_clause": {
@@ -951,7 +951,7 @@
           "abbreviation": "LDM",
           "plural": " LiterateDataModels\n",
           "subtype_of": [
-            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "attributes": [
@@ -1214,7 +1214,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "Preferred Coding Language"
+                    "content": "preferredCodingLanguage"
                   },
                   "parenthetical": "Coding Language",
                   "data_type_clause": {
@@ -1223,7 +1223,7 @@
                       "_type": "BaseDataType",
                       "class_name": {
                         "_type": "ClassName",
-                        "content": "Coding Language"
+                        "content": "CodingLanguage"
                       },
                       "as_value_type": {
                         "_type": "AsValue",
@@ -1264,7 +1264,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "alternate Coding Languages"
+                    "content": "alternateCodingLanguages"
                   },
                   "parenthetical": "optional List of Coding Languages",
                   "data_type_clause": {
@@ -1275,7 +1275,7 @@
                         "_type": "BaseDataType",
                         "class_name": {
                           "_type": "ClassName",
-                          "content": "Coding Languages"
+                          "content": "CodingLanguages"
                         },
                         "as_value_type": {
                           "_type": "AsValue",
@@ -1299,7 +1299,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "Preferred Template Language"
+                    "content": "preferredTemplateLanguage"
                   },
                   "parenthetical": "Template Language",
                   "data_type_clause": {
@@ -1308,7 +1308,7 @@
                       "_type": "BaseDataType",
                       "class_name": {
                         "_type": "ClassName",
-                        "content": "Template Language"
+                        "content": "TemplateLanguage"
                       },
                       "as_value_type": {
                         "_type": "AsValue",
@@ -1349,7 +1349,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "alternate Template Languages"
+                    "content": "alternateTemplateLanguages"
                   },
                   "parenthetical": "optional List of Template Languages",
                   "data_type_clause": {
@@ -1360,7 +1360,7 @@
                         "_type": "BaseDataType",
                         "class_name": {
                           "_type": "ClassName",
-                          "content": "Template Languages"
+                          "content": "TemplateLanguages"
                         },
                         "as_value_type": {
                           "_type": "AsValue",
@@ -1447,12 +1447,12 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Subject\nA specific topic or theme within the model"
+            "content": "SubjectASpecificTopicOrThemeWithinTheModel"
           },
           "parenthetical": "",
           "plural": " Subjects\n",
           "subtype_of": [
-            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "dependent_of": [
             {
@@ -1542,7 +1542,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "Classes"
+                    "content": "classes"
                   },
                   "message": "oneLiner is too long. (91 chars).",
                   "severity": "Warning",
@@ -1583,7 +1583,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "Each Class should be followed first by the classes that are dependent on it, and then"
+                    "content": "eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -1603,7 +1603,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "By its subtype classes."
+                    "content": "byItsSubtypeClasses"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -1673,7 +1673,7 @@
                 },
                 "attribute_name": {
                   "_type": "AttributeName",
-                  "content": "parentSubject."
+                  "content": "parentSubject"
                 }
               }
             }
@@ -1685,12 +1685,12 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "SubjectArea\nA main topic or area of focus within the model, containing related subjects and classes"
+            "content": "SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses"
           },
           "parenthetical": "",
           "plural": " SubjectAreas\n",
           "subtype_of": [
-            "(ClassName(content='Subject', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Subject', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "where": " parentSubject is absent\n"
@@ -1722,7 +1722,7 @@
               "parenthetical": "",
               "plural": " Classes\n",
               "subtype_of": [
-                "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+                "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
               ],
               "is_value_type": false,
               "constraints": [
@@ -1878,7 +1878,7 @@
                       "_type": "BaseDataType",
                       "class_name": {
                         "_type": "ClassName",
-                        "content": "es"
+                        "content": "Es"
                       },
                       "as_value_type": {
                         "_type": "AsValue",
@@ -2193,7 +2193,7 @@
                       "prefix": "-",
                       "name": {
                         "_type": "AttributeName",
-                        "content": "UniqueKeys"
+                        "content": "uniqueKeys"
                       },
                       "parenthetical": "optional Set of UniqueKeys",
                       "data_type_clause": {
@@ -2269,7 +2269,7 @@
                       "_type": "BaseDataType",
                       "class_name": {
                         "_type": "ClassName",
-                        "content": "Upper Name"
+                        "content": "UpperName"
                       },
                       "as_value_type": {
                         "_type": "AsValue",
@@ -2288,7 +2288,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "is exclusive"
+                    "content": "isExclusive"
                   },
                   "parenthetical": "Boolean",
                   "data_type_clause": {
@@ -2328,7 +2328,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "is exhaustive"
+                    "content": "isExhaustive"
                   },
                   "parenthetical": "Boolean",
                   "data_type_clause": {
@@ -2419,7 +2419,7 @@
               },
               "parenthetical": "",
               "subtype_of": [
-                "(ClassName(content='Class.', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+                "(ClassName(content='Class', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
               ],
               "is_value_type": false
             },
@@ -2429,11 +2429,11 @@
               "prefix": "_",
               "name": {
                 "_type": "ClassName",
-                "content": "Reference Type"
+                "content": "ReferenceType"
               },
               "parenthetical": "",
               "subtype_of": [
-                "(ClassName(content='Class.', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+                "(ClassName(content='Class', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
               ],
               "is_value_type": false
             },
@@ -2451,11 +2451,11 @@
               "prefix": "_",
               "name": {
                 "_type": "ClassName",
-                "content": "CodeType\nA data type or enumeration used in the model"
+                "content": "CodeTypeADataTypeOrEnumerationUsedInTheModel"
               },
               "parenthetical": "",
               "subtype_of": [
-                "(ClassName(content='ValueType.', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+                "(ClassName(content='ValueType', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
               ],
               "is_value_type": false,
               "attributes": [
@@ -2465,7 +2465,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "List the code values as a bulletted list inside the description of the attribute in the form\n‘code description’"
+                    "content": "listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFormCodeDescription"
                   },
                   "parenthetical": ""
                 },
@@ -2475,7 +2475,7 @@
                   "prefix": "-",
                   "name": {
                     "_type": "AttributeName",
-                    "content": "A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive."
+                    "content": "aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedThatCodeTypeWillBeMarkedAsIsCaptive"
                   },
                   "parenthetical": ""
                 },
@@ -2527,7 +2527,7 @@
               "prefix": "_",
               "name": {
                 "_type": "ClassName",
-                "content": "Code Value"
+                "content": "CodeValue"
               },
               "parenthetical": "",
               "is_value_type": false,
@@ -2612,7 +2612,7 @@
               },
               "parenthetical": "",
               "subtype_of": [
-                "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+                "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
               ],
               "dependent_of": [
                 {
@@ -2727,7 +2727,7 @@
               },
               "parenthetical": "",
               "subtype_of": [
-                "(ClassName(content='Key', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+                "(ClassName(content='Key', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
               ],
               "is_value_type": false
             }
@@ -2755,11 +2755,11 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Attribute Section"
+            "content": "AttributeSection"
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='Component.', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "based_on": [
             {
@@ -2815,12 +2815,12 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Attribute\nA property or characteristic of a class"
+            "content": "AttributeAPropertyOrCharacteristicOfAClass"
           },
           "parenthetical": "",
           "plural": " Attributes\n",
           "subtype_of": [
-            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "based_on": [
             {
@@ -2845,7 +2845,7 @@
                   "_type": "BaseDataType",
                   "class_name": {
                     "_type": "ClassName",
-                    "content": "Lower Camel"
+                    "content": "LowerCamel"
                   },
                   "as_value_type": {
                     "_type": "AsValue",
@@ -2915,7 +2915,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "List of Editions"
+                    "content": "listOfEditions"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -2935,7 +2935,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "Set of Edition"
+                    "content": "setOfEdition"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -2963,7 +2963,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "... and more complicated cases."
+                    "content": "andMoreComplicatedCases"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -2983,7 +2983,7 @@
               "prefix": "__",
               "name": {
                 "_type": "AttributeSectionName",
-                "content": "Cardinalities."
+                "content": "Cardinalities"
               },
               "parenthetical": "",
               "is_optional": {
@@ -3136,7 +3136,7 @@
                       "_type": "BaseDataType",
                       "class_name": {
                         "_type": "ClassName",
-                        "content": "Invented Name"
+                        "content": "InventedName"
                       },
                       "as_value_type": {
                         "_type": "AsValue",
@@ -3172,7 +3172,7 @@
                       "_type": "BaseDataType",
                       "class_name": {
                         "_type": "ClassName",
-                        "content": "Invented Name"
+                        "content": "InventedName"
                       },
                       "as_value_type": {
                         "_type": "AsValue",
@@ -3543,7 +3543,7 @@
                       "object_type": "Attribute",
                       "object_name": {
                         "_type": "AttributeName",
-                        "content": "Overrides"
+                        "content": "overrides"
                       },
                       "message": "No value for data_type_clause",
                       "severity": "Error",
@@ -3565,7 +3565,7 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "ValueType Derivation\nA rule or formula for deriving the value of an attribute"
+            "content": "ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute"
           },
           "parenthetical": "",
           "plural": " Derivations\n",
@@ -3643,12 +3643,12 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "ValueType Constraint\nA rule, condition, or validation that must be satisfied by the model"
+            "content": "ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel"
           },
           "parenthetical": "",
           "plural": " Constraints\n",
           "subtype_of": [
-            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "attributes": [
@@ -3703,7 +3703,7 @@
                   "_type": "BaseDataType",
                   "class_name": {
                     "_type": "ClassName",
-                    "content": "Invented Name"
+                    "content": "InventedName"
                   },
                   "as_value_type": {
                     "_type": "AsValue",
@@ -3802,7 +3802,7 @@
               "prefix": "-",
               "name": {
                 "_type": "AttributeName",
-                "content": "Message"
+                "content": "message"
               },
               "parenthetical": "Template",
               "data_type_clause": {
@@ -3832,16 +3832,16 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Class Constraint"
+            "content": "ClassConstraint"
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "based_on": [
             {
               "_type": "ClassName",
-              "content": "Class."
+              "content": "Class"
             }
           ],
           "is_value_type": false
@@ -3852,11 +3852,11 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Attribute Constraint"
+            "content": "AttributeConstraint"
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Constraint', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "based_on": [
             {
@@ -3887,7 +3887,7 @@
               "prefix": "-",
               "name": {
                 "_type": "AttributeName",
-                "content": "Language"
+                "content": "language"
               },
               "parenthetical": "Code",
               "data_type_clause": {
@@ -3967,7 +3967,7 @@
               "prefix": "-",
               "name": {
                 "_type": "AttributeName",
-                "content": "Expression"
+                "content": "expression"
               },
               "parenthetical": "String",
               "data_type_clause": {
@@ -4009,12 +4009,12 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Method\nA behavior or operation associated with a class"
+            "content": "MethodABehaviorOrOperationAssociatedWithAClass"
           },
           "parenthetical": "",
           "plural": " Methods\n",
           "subtype_of": [
-            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "attributes": [
@@ -4093,12 +4093,12 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Parameter\nAn input to a method"
+            "content": "ParameterAnInputToAMethod"
           },
           "parenthetical": "",
           "plural": " Parameters\n",
           "subtype_of": [
-            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='Component', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "attributes": [
@@ -4153,7 +4153,7 @@
                   "_type": "BaseDataType",
                   "class_name": {
                     "_type": "ClassName",
-                    "content": "Invented Name"
+                    "content": "InventedName"
                   },
                   "as_value_type": {
                     "_type": "AsValue",
@@ -4192,7 +4192,7 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Simple Data Type\nSubtpeOf DataType"
+            "content": "SimpleDataTypeSubtpeOfDataType"
           },
           "parenthetical": "",
           "is_value_type": false,
@@ -4233,7 +4233,7 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Complex Data Type"
+            "content": "ComplexDataType"
           },
           "parenthetical": "",
           "is_value_type": false,
@@ -4253,7 +4253,7 @@
                   "_type": "BaseDataType",
                   "class_name": {
                     "_type": "ClassName",
-                    "content": "Aggregating Operator"
+                    "content": "AggregatingOperator"
                   },
                   "as_value_type": {
                     "_type": "AsValue",
@@ -4305,7 +4305,7 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Aggregating Operator"
+            "content": "AggregatingOperator"
           },
           "parenthetical": "",
           "is_value_type": false,
@@ -4316,7 +4316,7 @@
               "prefix": "-",
               "name": {
                 "_type": "AttributeName",
-                "content": "Name"
+                "content": "name"
               },
               "parenthetical": "Code",
               "data_type_clause": {
@@ -4504,11 +4504,11 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "ValueType CamelName"
+            "content": "ValueTypeCamelName"
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='String', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='String', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "attributes": [
@@ -4538,7 +4538,7 @@
               "prefix": "-",
               "name": {
                 "_type": "AttributeName",
-                "content": "value the string"
+                "content": "valueTheString"
               },
               "parenthetical": "String",
               "data_type_clause": {
@@ -4622,7 +4622,7 @@
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "where": " content begins with an upper case letter.\n"
@@ -4649,7 +4649,7 @@
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='CamelName', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "where": " content begins with a lower case letter.\n"
@@ -4664,11 +4664,11 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "Qualified Camel"
+            "content": "QualifiedCamel"
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='String', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='String', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "constraints": [
@@ -4716,11 +4716,11 @@
           "prefix": "_",
           "name": {
             "_type": "ClassName",
-            "content": "RichText.  A string with markup for block level formatting."
+            "content": "RichTextAStringWithMarkupForBlockLevelFormatting"
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='String', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='String', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "attributes": [
@@ -4743,7 +4743,7 @@
                   "_type": "BaseDataType",
                   "class_name": {
                     "_type": "ClassName",
-                    "content": "string"
+                    "content": "String"
                   },
                   "as_value_type": {
                     "_type": "AsValue",
@@ -4796,7 +4796,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "HTML"
+                    "content": "html"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -4816,7 +4816,7 @@
                   "object_type": "Attribute",
                   "object_name": {
                     "_type": "AttributeName",
-                    "content": "MarkDown"
+                    "content": "markDown"
                   },
                   "message": "No value for data_type_clause",
                   "severity": "Error",
@@ -4844,7 +4844,7 @@
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='RichText', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='RichText', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false,
           "attributes": [
@@ -4867,7 +4867,7 @@
                   "_type": "BaseDataType",
                   "class_name": {
                     "_type": "ClassName",
-                    "content": "string"
+                    "content": "String"
                   },
                   "as_value_type": {
                     "_type": "AsValue",
@@ -4944,8 +4944,8 @@
           },
           "parenthetical": "",
           "subtype_of": [
-            "(ClassName(content='ValueType\\nA basic', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))",
-            "(ClassName(content='built-in data type', _type='ClassName'), SubtypingName(content='Subtypes', _type='SubtypingName'))"
+            "(ClassName(content='ValueTypeABasic', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))",
+            "(ClassName(content='BuiltInDataType', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))"
           ],
           "is_value_type": false
         }
@@ -4957,7 +4957,7 @@
       "prefix": "##",
       "name": {
         "_type": "SubjectName",
-        "content": "Appendices\nInsert More Sidebars.md\nInsert Overrides.md\ninsert LDM Intro.md\nInsert OCL.md\nInsert Camel Case.md"
+        "content": "Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md"
       },
       "parenthetical": "",
       "subjects": [
@@ -5003,7 +5003,7 @@
       "prefix": "##",
       "name": {
         "_type": "SubjectName",
-        "content": "Appendices\nInsert More Sidebars.md\nInsert Overrides.md\ninsert LDM Intro.md\nInsert OCL.md\nInsert Camel Case.md"
+        "content": "Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md"
       },
       "parenthetical": ""
     }

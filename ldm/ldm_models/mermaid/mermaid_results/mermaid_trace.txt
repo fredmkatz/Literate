@@ -1,0 +1,10 @@
+PARSING ldm/ldm_models/mermaid/mermaid.md
+Directory 'ldm/ldm_models/mermaid_test/mermaid_test_results' and its contents have been removed.
+Model dir:  ldm/ldm_models/mermaid_test
+Model name:  mermaid_test
+Model doc:  mermaid_test.md
+Model name:  mermaid_test
+Model doc path:  ldm/ldm_models/mermaid_test/mermaid_test.md
+Results dir:  ldm/ldm_models/mermaid_test/mermaid_test_results
+Trace path:  ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test_trace.txt
+Rediirecting to:  ldm/ldm_models/mermaid_test/mermaid_test_results/mermaid_test_trace.txt
