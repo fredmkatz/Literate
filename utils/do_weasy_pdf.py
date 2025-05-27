@@ -61,7 +61,15 @@ from utils.util_fmk import write_text, read_text
 
 
 def gen_markdown_to_html(html_path, md_path):
+    """_summary_
 
+    Args:
+        html_path (_str_): _path to .html input file_
+        md_path (_type_): _description_
+
+    Returns:
+        None
+    """
     html = read_text(html_path)
     markdown = convert_to_markdown(html)
     write_text(md_path, markdown)

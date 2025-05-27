@@ -1,0 +1,33 @@
+{
+  "_type": "LiterateModel",
+  "one_liner": {
+    "_type": "OneLiner",
+    "content": "as LDM"
+  },
+  "elaboration": "",
+  "diagnostics": [
+    {
+      "_type": "Diagnostic",
+      "object_type": "LiterateModel",
+      "message": "Name is missing",
+      "severity": "Error",
+      "constraint_name": ""
+    }
+  ],
+  "is_embellishment": false,
+  "prefix": "#",
+  "parenthetical": "",
+  "abbreviation": "",
+  "subjects": [
+    {
+      "_type": "SubjectB",
+      "is_embellishment": false,
+      "prefix": "##",
+      "name": {
+        "_type": "SubjectName",
+        "content": "Markdown Syntax"
+      },
+      "parenthetical": ""
+    }
+  ]
+}

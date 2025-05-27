@@ -1,4 +1,8 @@
+
+Phase: Parsing model: ldm/ldm_models/LiterateTester/LiterateTester.md
 PARSING ldm/ldm_models/LiterateTester/LiterateTester.md
+
+Phase: Deriving dict for model
 adding name value. based_on -. [ClassName(content='LiteraryWork', _type='ClassName'), ClassName(content='OtherBase', _type='ClassName')]
 adding name value. one_liner -.  the title of the Work of which this is an edition
 
@@ -106,6 +110,8 @@ Class map is
     'SubtypingName': <class 'ldm.Literate_01.SubtypingName'>,
     'UpperCamel': <class 'utils.class_casing.UpperCamel'>,
     'ValueType': <class 'ldm.Literate_01.ValueType'>}
+
+Phase: Creating model from dictionary: ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.dict.yaml
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'Edition', '_type': 'ClassName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'a manifestation of a literary work'}, 'parenthetical': '', 'based_on': [ClassName(content='LiteraryWork', _type='ClassName'), ClassName(content='OtherBase', _type='ClassName')], 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'title', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': "the title, as shown on the book's title page"}, 'parenthetical': 'Full Title', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'FullTitle', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'default': {'_type': 'Default', 'one_liner': OneLiner(_type='OneLiner', content=' the title of the Work of which this is an edition\n'), 'code': ' baseWork.title\n'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'author', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'the writer'}, 'parenthetical': 'Person', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Person', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'illustrators', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'artists who supplied the pictures'}, 'parenthetical': 'List of People', 'data_type_clause': {'data_type': {'_type': 'ListDataType', 'element_type': {'_type': 'BaseDataType', 'class_name': {'content': 'People', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}], 'attribute_sections': [{'_type': 'AttributeSection', 'prefix': '__', 'name': {'content': 'Optional Publication Details', '_type': 'AttributeSectionName'}, 'parenthetical': '', 'is_optional': {'t_value': True, '_type': 'IsOptional'}, 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'datePublished', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'when the edition was released to the public'}, 'parenthetical': 'BiblioDate', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'BiblioDate', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}]}, {'_type': 'AttributeSection', 'prefix': '__', 'name': {'content': 'Required Format Details', '_type': 'AttributeSectionName'}, 'parenthetical': '', 'is_optional': {'t_value': False, '_type': 'IsOptional'}, 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'numberOfPages', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'last page number'}, 'parenthetical': 'optional Integer', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Integer', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}]}, {'_type': 'AttributeSection', 'prefix': '__', 'name': {'content': 'Unsaid Other Details', '_type': 'AttributeSectionName'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'datePublished', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'when the edition was released to the public'}, 'parenthetical': 'BiblioDate', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'BiblioDate', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'elaboration': [{'_type': 'Paragraph', 'content': 'Just use Mermaid in code block\n'}, {'_type': 'CodeBlock', 'content': '``` notmermaid\n\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n\n```'}, {'_type': 'Paragraph', 'content': "And here's the result\n"}, {'_type': 'CodeBlock', 'content': '```mermaid\nblock-beta\ncolumns 3\na:3\nblock:group1:2\ncolumns 2\nh i j k\nend\ng\nblock:group2:3\n%% columns auto (default)\nl m n o p q r\nend\n```'}, {'_type': 'CodeBlock', 'content': '``` mermaid\n\nerDiagram\nCAR {\nstring registrationNumber\nstring make\nstring model\n}\nPERSON {\nstring firstName\nstring lastName\nint age\n}\n\nstyle CAR fill:#f9f,stroke:#333,stroke-width:4px\n\n\n```'}]}]}]} 
 In AttSection post-init for Optional Publication Details, is_optional = Optional
 In AttSection post-init for Required Format Details, is_optional = 
@@ -119,8 +125,12 @@ In AttSection post-init for Full Zip Code, is_optional =
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'LiteraryWork', '_type': 'ClassName'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'firstEdition', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'a home for the data type clauses'}, 'parenthetical': 'List of Edition', 'data_type_clause': {'data_type': {'_type': 'ListDataType', 'element_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Edition', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'data_type': ' List of sets of Editions\n'}]} 
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'Edition', '_type': 'ClassName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'to try more complex data types'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'author', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'assuming just one'}, 'parenthetical': '', 'data_type': ' Person\n'}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'artists', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'allowing for multiple'}, 'parenthetical': '', 'data_type': ' list of People\n'}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'contributors', '_type': 'AttributeName'}, 'parenthetical': '', 'data_type': ' mapping of Role to List of People\n', 'constraints': [{'_type': 'Constraint', 'one_liner': [OneLiner(_type='OneLiner', content=' Must be several for each role\n')], 'code': ' len(contributors[role]) > 1 for each role\n', 'message': ' not enough contributors for role\n', 'severity': ' Error\n'}], 'annotations': [{'_type': 'Annotation', 'emoji': '', 'label': 'constrain note', 'content': 'constraints take annotations which may span', 'elaboration': [{'_type': 'Paragraph', 'content': 'And those annotations may have their own elaborations.\n \n+ Which may contain more that one paragraph.\n'}, {'_type': 'Paragraph', 'content': "Here's a second paragraph, followed by a code block\n"}, {'_type': 'CodeBlock', 'content': '``` markdown\nThis is the code block for  the annotation\n```'}]}, {'_type': 'Annotation', 'emoji': '', 'label': 'defaul note', 'content': 'defaults take annotations'}, {'_type': 'Annotation', 'emoji': '', 'label': 'derivatio note', 'content': 'derivations take annotations'}], 'default': {'_type': 'Default', 'one_liner': OneLiner(_type='OneLiner', content=" {'author': [a, b, c] }\n")}, 'derivation': {'_type': 'Derivation', 'one_liner': OneLiner(_type='OneLiner', content=" {'author': [a, b, c] }\n")}}]} 
 Created model: <class 'ldm.Literate_01.LiterateModel'>
+
+Phase: Validating model
 Validating references...
 Validation errors: 57
+
+Phase: counting errors
 {"Validation Error in Attribute: Required field 'data_type_clause' is missing": 16, "Validation Error in Class: For field 'based_on' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 6, "Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 14, "Validation Error in Constraint: For field 'one_liner' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'list'>": 5, "Validation Error in Class: For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got <class 'str'>": 1, "Validation Error in Class: For field 'subtype_of' - expected typing.Optional[typing.Dict[ldm.Literate_01.ClassName, ldm.Literate_01.SubtypingName]], but got <class 'list'>": 17, "Validation Error in Class: For field 'dependent_of' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 1, "Validation Error in Class: For field 'where' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'str'>": 3, "Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 28, "Validation Error in Attribute: Required field 'name' is missing": 7}
 16 	 Validation Error in Attribute: Required field 'data_type_clause' is missing
 6 	 Validation Error in Class: For field 'based_on' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>
@@ -132,9 +142,13 @@ Validation errors: 57
 3 	 Validation Error in Class: For field 'where' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'str'>
 28 	 Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
 7 	 Validation Error in Attribute: Required field 'name' is missing
+
+Phase: Serialing model ...
 Model serialized to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.json
 Model serialized to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.yaml
 ..Created model files: ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.json and ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.model.yaml
+
+Phase: Rendering back to markdown
 6  subjects coming in model
 WARNING: No render for type <class 'Literate_01.ClassName'>
 WARNING: No render for type <class 'Literate_01.ClassName'>
@@ -142,825 +156,197 @@ WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
 WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
 WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
 WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
+
+Phase: Creating HTML from model dict
 All keys are: 
-	 subjects
-	 attribute_sections
-	 default
-	 elaboration
-	 prefix
-	 element_type
-	 constraints
-	 is_optional_lit
-	 data_type
-	 emoji
-	 parenthetical
-	 annotations
-	 classes
-	 one_liner
-	 t_value
-	 code
-	 attributes
-	 derivation
-	 _type
 	 message
-	 data_type_clause
-	 class_name
-	 based_on
-	 severity
-	 is_optional
-	 as_value_type
-	 name
+	 default
+	 _type
 	 label
-	 subtype_of
+	 data_type_clause
+	 t_value
+	 one_liner
+	 parenthetical
+	 name
+	 based_on
 	 content
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="Sample Classes">
-  Sample Classes
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   with a one liner for the subject, spanning
-two lines
-  </p>
- </div>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Header B">
-  Header B
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ####
- </span>
- <a class="SubjectName name" id="Header C">
-  Header C
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Editions">
-  Editions
- </a>
-</div>
-
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="Edition">
-  Edition
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   a manifestation of a literary work
-  </p>
- </div>
-</div>
-
+	 subtype_of
+	 annotations
+	 constraints
+	 as_value_type
+	 emoji
+	 class_name
+	 attribute_sections
+	 prefix
+	 subjects
+	 code
+	 is_optional
+	 is_optional_lit
+	 severity
+	 elaboration
+	 data_type
+	 derivation
+	 attributes
+	 element_type
+	 classes
 Orphaned list:  [ClassName(content='LiteraryWork', _type='ClassName'), ClassName(content='OtherBase', _type='ClassName')]
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="title">
-  title
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the title, as shown on the book's title page
-  </p>
- </div>
- <span class="parenthetical value">
-  Full Title
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#FullTitle">
-    FullTitle
-   </a>
-   value
-  </span>
- </span>
-</div>
-
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   the title of the Work of which this is an edition
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="author">
-  author
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the writer
-  </p>
- </div>
- <span class="parenthetical value">
-  Person
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Person">
-    Person
-   </a>
-   value
-  </span>
- </span>
-</div>
+Starting codeblock
+<code class="language-notmermaid">
+ block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+</code>
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="illustrators">
-  illustrators
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   artists who supplied the pictures
-  </p>
- </div>
- <span class="parenthetical value">
-  List of People
- </span>
- <span class="data_type_clause value">
-  <span class="list_data_type">
-   List of
-   <span class="base_data_type">
-    <a class="base_class" href="#People">
-     People-es
-    </a>
-    value_es
-   </span>
-  </span>
- </span>
-</div>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058ECA0>
+Starting codeblock
+<code class="language-mermaid">
+ block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+</code>
 
-AttributeSection header is <div class="AttributeSection_header header">
- <span class="prefix value">
-  __
- </span>
- <a class="AttributeSectionName name" id="Optional Publication Details">
-  Optional Publication Details
- </a>
- <span class="is_optional value">
-  <span class="is_optional">
-   Optional
-  </span>
- </span>
-</div>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058F600>
+Starting codeblock
+<code class="language-mermaid">
+ erDiagram
+CAR {
+string registrationNumber
+string make
+string model
+}
+PERSON {
+string firstName
+string lastName
+int age
+}
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="datePublished">
-  datePublished
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   when the edition was released to the public
-  </p>
- </div>
- <span class="parenthetical value">
-  BiblioDate
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#BiblioDate">
-    BiblioDate
-   </a>
-   value
-  </span>
- </span>
-</div>
+style CAR fill:#f9f,stroke:#333,stroke-width:4px
+</code>
 
-AttributeSection header is <div class="AttributeSection_header header">
- <span class="prefix value">
-  __
- </span>
- <a class="AttributeSectionName name" id="Required Format Details">
-  Required Format Details
- </a>
- <span class="is_optional value">
- </span>
-</div>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058F7E0>
+Starting codeblock
+<code class="language-mermaid">
+ erDiagram
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="numberOfPages">
-  numberOfPages
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   last page number
-  </p>
- </div>
- <span class="parenthetical value">
-  optional Integer
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Integer">
-    Integer
-   </a>
-   value
-  </span>
- </span>
-</div>
 
-AttributeSection header is <div class="AttributeSection_header header">
- <span class="prefix value">
-  __
- </span>
- <a class="AttributeSectionName name" id="Unsaid Other Details">
-  Unsaid Other Details
- </a>
-</div>
+class Subject Component
+class Section Component
+class Attribute Component
+class Class Component
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="datePublished">
-  datePublished
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   when the edition was released to the public
-  </p>
- </div>
- <span class="parenthetical value">
-  BiblioDate
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#BiblioDate">
-    BiblioDate
-   </a>
-   value
-  </span>
- </span>
-</div>
+SUBJECT {
+string name
 
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="HardcoverEdition">
-  HardcoverEdition
- </a>
-</div>
+}
+Subject ||--|{ Subject : contains
+Subject ||--|{ Class : contains
+Class {
+string name
+}
 
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="PaperbackEdition">
-  PaperbackEdition
- </a>
-</div>
+Class ||--|{ Section : contains
+Class ||--|{ Attribute : contains
+Attribute {
 
-table follows <table border="1" class="dataframe">
- <thead>
-  <tr style="text-align: right;">
-   <th>
-   </th>
-   <th>
-    eFormat
-   </th>
-   <th>
-    Description
-   </th>
-  </tr>
- </thead>
- <tbody>
-  <tr>
-   <th>
-    0
-   </th>
-   <td>
-    E-Book
-   </td>
-   <td>
-    'Kindle or Apple books - etc'
-   </td>
-  </tr>
-  <tr>
-   <th>
-    1
-   </th>
-   <td>
-    PDF
-   </td>
-   <td>
-    formatted for printing and direct delivery
-   </td>
-  </tr>
- </tbody>
-</table>
+string name
+}
+Section ||--|{ Attribute : contains
+</code>
 
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="ElectronicEdition">
-  ElectronicEdition
- </a>
-</div>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058ECA0>
+Starting codeblock
+<code class="language-csv">
+ eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+</code>
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="eFormat">
-  eFormat
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the precise medium for the electronic edition
-  </p>
- </div>
- <span class="parenthetical value">
-  Code
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Code">
-    Code
-   </a>
-   value
-  </span>
- </span>
-</div>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058E520>
+failed on simple content: obj type is CodeBlock, content is...
+```csv
+eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
 
-table follows <table border="1" class="dataframe">
- <thead>
-  <tr style="text-align: right;">
-   <th>
-   </th>
-   <th>
-    eFormat
-   </th>
-   <th>
-    Description
-   </th>
-  </tr>
- </thead>
- <tbody>
-  <tr>
-   <th>
-    0
-   </th>
-   <td>
-    E-Book
-   </td>
-   <td>
-    'Kindle or Apple books - etc'
-   </td>
-  </tr>
-  <tr>
-   <th>
-    1
-   </th>
-   <td>
-    PDF
-   </td>
-   <td>
-    formatted for printing and direct delivery
-   </td>
-  </tr>
- </tbody>
-</table>
+```
+Traceback (most recent call last):
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_to_html.py", line 478, in add_html_simple_content
+    content_h = as_prose_html(content)
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\do_md_parse.py", line 42, in as_prose_html
+    codeblock.parent.insert_after(table_soup)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'insert_after'
+Starting codeblock
+<code class="language-csv">
+ eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+</code>
 
-table follows <table border="1" class="dataframe">
- <thead>
-  <tr style="text-align: right;">
-   <th>
-   </th>
-   <th>
-    Format
-   </th>
-   <th>
-    Description
-   </th>
-  </tr>
- </thead>
- <tbody>
-  <tr>
-   <th>
-    0
-   </th>
-   <td>
-    E-Book
-   </td>
-   <td>
-    'Kindle or Apple books - etc'
-   </td>
-  </tr>
-  <tr>
-   <th>
-    1
-   </th>
-   <td>
-    PDF
-   </td>
-   <td>
-    formatted for printing and direct delivery
-   </td>
-  </tr>
- </tbody>
-</table>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058E7A0>
+failed on simple content: obj type is CodeBlock, content is...
+```csv
+eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
 
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Addresses">
-  Addresses
- </a>
-</div>
+```
+Traceback (most recent call last):
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_to_html.py", line 478, in add_html_simple_content
+    content_h = as_prose_html(content)
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\do_md_parse.py", line 42, in as_prose_html
+    codeblock.parent.insert_after(table_soup)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'insert_after'
+Starting codeblock
+<code class="language-csv">
+ Format, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+</code>
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="streetAddress">
-  streetAddress
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   usually the street and number
-  </p>
- </div>
- <span class="parenthetical value">
-  Text
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Text">
-    Text
-   </a>
-   value
-  </span>
- </span>
-</div>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058EE80>
+failed on simple content: obj type is CodeBlock, content is...
+```csv
+Format, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="streetAddress">
-  streetAddress
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   usually the apartment or unit number
-  </p>
- </div>
- <span class="parenthetical value">
-  Text
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Text">
-    Text
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="city">
-  city
- </a>
- <span class="parenthetical value">
-  US City
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#UsCity">
-    UsCity
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="state">
-  state
- </a>
- <span class="parenthetical value">
-  US State
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#UsState">
-    UsState
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-AttributeSection header is <div class="AttributeSection_header header">
- <span class="prefix value">
-  __
- </span>
- <a class="AttributeSectionName name" id="Full Zip Code">
-  Full Zip Code
- </a>
- <span class="is_optional value">
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="mainZipCode">
-  mainZipCode
- </a>
- <span class="parenthetical value">
-  Required Number
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#RequiredNumber">
-    RequiredNumber
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="preciseZipCode">
-  preciseZipCode
- </a>
- <span class="parenthetical value">
-  Optiona Numberl
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#OptionaNumberl">
-    OptionaNumberl
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="Next steps">
-  Next steps
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Clean up">
-  Clean up
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Complete">
-  Complete
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Validation">
-  Validation
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Flesh out">
-  Flesh out
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Futures">
-  Futures
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="Tests to include">
-  Tests to include
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Headers">
-  Headers
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Name tests Variations Styling Anchors">
-  Name tests Variations Styling Anchors
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Class clauses">
-  Class clauses
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Attribute clauses">
-  Attribute clauses
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Constraints and derivations">
-  Constraints and derivations
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="More Tests needed">
-  More Tests needed
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Formula Tester English OCL Message Severity">
-  Formula Tester English OCL Message Severity
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Data types">
-  Data types
- </a>
-</div>
-
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="LiteraryWork">
-  LiteraryWork
- </a>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="firstEdition">
-  firstEdition
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   a home for the data type clauses
-  </p>
- </div>
- <span class="parenthetical value">
-  List of Edition
- </span>
- <span class="data_type_clause value">
-  <span class="list_data_type">
-   List of
-   <span class="base_data_type">
-    <a class="base_class" href="#Edition">
-     Edition-es
-    </a>
-    value_es
-   </span>
-  </span>
- </span>
-</div>
-
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="Edition">
-  Edition
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   to try more complex data types
-  </p>
- </div>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="author">
-  author
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   assuming just one
-  </p>
- </div>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="artists">
-  artists
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   allowing for multiple
-  </p>
- </div>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="contributors">
-  contributors
- </a>
-</div>
-
+```
+Traceback (most recent call last):
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_to_html.py", line 478, in add_html_simple_content
+    content_h = as_prose_html(content)
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\do_md_parse.py", line 42, in as_prose_html
+    codeblock.parent.insert_after(table_soup)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'insert_after'
 Orphaned list:  [OneLiner(_type='OneLiner', content=' Must be several for each role\n')]
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   Must be several for each role
 
@@ -968,204 +354,55 @@ Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   {'author': [a, b, c] }
 
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   {'author': [a, b, c] }
 
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Data type clauses">
-  Data type clauses
- </a>
-</div>
+Starting codeblock
+<code class="language-markdown">
+ This is some text, with indented lists
+- Item
+- Item2
+- Item 3
+- Item a
+- Item b
+- Item c
+</code>
 
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="Elaborations">
-  Elaborations
- </a>
-</div>
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058E980>
+Starting codeblock
+<code class="language-csv">
+ Pos, Date, Name, Price
+1, 2023-09-28, Spices, 150$
+2, 2023-02-29, Shovel, 1.25$
+</code>
 
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Paragraphs">
-  Paragraphs
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Lists indented lists">
-  Lists indented lists
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Code blocks with language">
-  Code blocks with language
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Block quotes">
-  Block quotes
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Pseudo admonitions">
-  Pseudo admonitions
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Markdown code blocks">
-  Markdown code blocks
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Code Tables">
-  Code Tables
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   CSV Codeblock
-So. This is the
-   <strong>
-    one to use to enter codes
-   </strong>
-   , lists of annotations, etc
-  </p>
- </div>
-</div>
-
-table follows <table border="1" class="dataframe">
- <thead>
-  <tr style="text-align: right;">
-   <th>
-   </th>
-   <th>
-    Pos
-   </th>
-   <th>
-    Date
-   </th>
-   <th>
-    Name
-   </th>
-   <th>
-    Price
-   </th>
-  </tr>
- </thead>
- <tbody>
-  <tr>
-   <th>
-    0
-   </th>
-   <td>
-    1
-   </td>
-   <td>
-    2023-09-28
-   </td>
-   <td>
-    Spices
-   </td>
-   <td>
-    150$
-   </td>
-  </tr>
-  <tr>
-   <th>
-    1
-   </th>
-   <td>
-    2
-   </td>
-   <td>
-    2023-02-29
-   </td>
-   <td>
-    Shovel
-   </td>
-   <td>
-    1.25$
-   </td>
-  </tr>
- </tbody>
-</table>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="HTML code center This should be centered center">
-  HTML code center This should be centered center
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Comments">
-  Comments
- </a>
-</div>
-
-failed on simple content: obj type is Paragraph, content is...
-[This is a comment that will be hidden.]: #
-
-failed on simple content: obj type is Paragraph, content is...
-[This is a comment that will be hidden.]: #
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="Diagrams">
-  Diagrams
- </a>
-</div>
-
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ###
- </span>
- <a class="SubjectName name" id="Figures">
-  Figures
- </a>
-</div>
-
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x0000016BD058DA80>
+failed on simple content: obj type is CodeBlock, content is...
+```csv
+Pos, Date, Name, Price
+1, 2023-09-28, Spices, 150$
+2, 2023-02-29, Shovel, 1.25$
+```
+Traceback (most recent call last):
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_to_html.py", line 478, in add_html_simple_content
+    content_h = as_prose_html(content)
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\do_md_parse.py", line 42, in as_prose_html
+    codeblock.parent.insert_after(table_soup)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'insert_after'
+Body classes are None
 Saved styled dictionary to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.html
+Body classes are ['reviewing']
 Saved styled dictionary (for review) to ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester.review.html
-Directory 'ldm/ldm_models/mdtestdocs/mdtestdocs_results' and its contents have been removed.
-Model dir:  ldm/ldm_models/mdtestdocs
-Model name:  mdtestdocs
-Model doc:  mdtestdocs.md
-Model name:  mdtestdocs
-Model doc path:  ldm/ldm_models/mdtestdocs/mdtestdocs.md
-Results dir:  ldm/ldm_models/mdtestdocs/mdtestdocs_results
-Trace path:  ldm/ldm_models/mdtestdocs/mdtestdocs_results/mdtestdocs_trace.txt
-Rediirecting to:  ldm/ldm_models/mdtestdocs/mdtestdocs_results/mdtestdocs_trace.txt
+
+Phase: Skipping PDF creation
+Directory 'ldm/ldm_models/Markdown/Markdown_results' and its contents have been removed.
+
+Phase: Warming up
+Model dir:  ldm/ldm_models/Markdown
+Model name:  Markdown
+Model doc:  Markdown.md
+Model name:  Markdown
+Model doc path:  ldm/ldm_models/Markdown/Markdown.md
+Results dir:  ldm/ldm_models/Markdown/Markdown_results
+Trace path:  ldm/ldm_models/Markdown/Markdown_results/Markdown_trace.txt
+Rediirecting to:  ldm/ldm_models/Markdown/Markdown_results/Markdown_trace.txt

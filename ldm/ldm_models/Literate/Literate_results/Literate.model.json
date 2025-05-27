@@ -20,7 +20,7 @@
       "_type": "SubjectB",
       "one_liner": {
         "_type": "OneLiner",
-        "content": "the basic structure\nof the model"
+        "content": "the basic structure of the model"
       },
       "elaboration": [
         {
@@ -4974,7 +4974,23 @@
             },
             {
               "_type": "CodeBlock",
-              "content": "```typescript\ninterface AnnotationType {\nlabel: string;\nemoji: string;\nemojiName: string;\nemojiUnicode: string;\npurpose: string;\n}\n// LINK: LiterateDataModel.annotationTypes\nconst annotationTypes: AnnotationType[] = [\n{\nlabel: \"Error\",\nemoji: \"\",\nemojiName: \"cross_mark\",\nemojiUnicode: \"U+274C\",\npurpose: \"Indicates a critical error or failure in the model.\"\n},\n{\nlabel: \"Warning\",\nemoji: \"\",\nemojiName: \"warning\",\nemojiUnicode: \"U+26A0\",\npurpose: \"Indicates a potential issue or warning in the model.\"\n},\n{\nlabel: \"Note\",\nemoji: \"\",\nemojiName: \"blue_book\",\nemojiUnicode: \"U+1F4D8\",\npurpose: \"Provides additional context, explanations, or clarifications for the annotated element.\"\n},\n{\nlabel: \"Issue\",\nemoji: \"\",\nemojiName: \"warning\",\nemojiUnicode: \"U+26A0\",\npurpose: \"Highlights a potential issue or error that needs to be addressed or resolved.\"\n},\n{\nlabel: \"Question\",\nemoji: \"\",\nemojiName: \"question\",\nemojiUnicode: \"U+2753\",\npurpose: \"Raises a question or seeks further clarification about the annotated element.\"\n},\n{\nlabel: \"Suggestion\",\nemoji: \"\",\nemojiName: \"bulb\",\nemojiUnicode: \"U+1F4A1\",\npurpose: \"Provides a suggestion or recommendation for improving the model or the annotated element.\"\n},\n{\nlabel: \"Info\",\nemoji: \"\",\nemojiName: \"information_source\",\nemojiUnicode: \"U+2139\",\npurpose: \"Offers relevant information, facts, or details about the annotated element.\"\n},\n{\nlabel: \"Todo\",\nemoji: \"\",\nemojiName: \"pushpin\",\nemojiUnicode: \"U+1F4CC\",\npurpose: \"Indicates a pending task, action item, or future work related to the annotated element.\"\n},\n{\nlabel: \"Reference\",\nemoji: \"\",\nemojiName: \"globe_with_meridians\",\nemojiUnicode: \"U+1F310\",\npurpose: \"Provides a reference or link to an external resource or documentation.\"\n},\n{\nlabel: \"See\",\nemoji: \"\",\nemojiName: \"mag\",\nemojiUnicode: \"U+1F50D\",\npurpose: \"Indicates a cross-reference to another relevant element within the model.\"\n}\n];\n```"
+              "content": "```puml\n@startjson\n\n[\n{\n\"label\": \"Error\",\n\"emoji\": \"❌\",\n\"emojiName\": \"cross_mark\",\n\"emojiUnicode\": \"U+274C\",\n\"purpose\": \"Indicates a critical error or failure in the model.\"\n},\n{\n\"label\": \"Warning\",\n\"emoji\": \"⚠️\",\n\"emojiName\": \"warning\",\n\"emojiUnicode\": \"U+26A0\",\n\"purpose\": \"Indicates a potential issue or warning in the model.\"\n},\n{\n\"label\": \"Note\",\n\"emoji\": \"📘\",\n\"emojiName\": \"blue_book\",\n\"emojiUnicode\": \"U+1F4D8\",\n\"purpose\": \"Provides additional context, explanations, or clarifications for the annotated element.\"\n},\n{\n\"label\": \"Issue\",\n\"emoji\": \"⚠️\",\n\"emojiName\": \"warning\",\n\"emojiUnicode\": \"U+26A0\",\n\"purpose\": \"Highlights a potential issue or error that needs to be addressed or resolved.\"\n},\n{\n\"label\": \"Question\",\n\"emoji\": \"❓\",\n\"emojiName\": \"question\",\n\"emojiUnicode\": \"U+2753\",\n\"purpose\": \"Raises a question or seeks further clarification about the annotated element.\"\n},\n{\n\"label\": \"Suggestion\",\n\"emoji\": \"💡\",\n\"emojiName\": \"bulb\",\n\"emojiUnicode\": \"U+1F4A1\",\n\"purpose\": \"Provides a suggestion or recommendation for improving the model or the annotated element.\"\n},\n{\n\"label\": \"Info\",\n\"emoji\": \"ℹ️\",\n\"emojiName\": \"information_source\",\n\"emojiUnicode\": \"U+2139\",\n\"purpose\": \"Offers relevant information, facts, or details about the annotated element.\"\n},\n{\n\"label\": \"Todo\",\n\"emoji\": \"📌\",\n\"emojiName\": \"pushpin\",\n\"emojiUnicode\": \"U+1F4CC\",\n\"purpose\": \"Indicates a pending task, action item, or future work related to the annotated element.\"\n},\n{\n\"label\": \"Reference\",\n\"emoji\": \"🌐\",\n\"emojiName\": \"globe_with_meridians\",\n\"emojiUnicode\": \"U+1F310\",\n\"purpose\": \"Provides a reference or link to an external resource or documentation.\"\n},\n{\n\"label\": \"See\",\n\"emoji\": \"🔍\",\n\"emojiName\": \"mag\",\n\"emojiUnicode\": \"U+1F50D\",\n\"purpose\": \"Indicates a cross-reference to another relevant element within the model.\"\n}\n]\n@endjson\n\n```"
+            }
+          ],
+          "is_embellishment": false,
+          "prefix": "###",
+          "name": {
+            "_type": "SubjectName",
+            "content": "Annotation Types Used"
+          },
+          "parenthetical": ""
+        },
+        {
+          "_type": "SubjectC",
+          "elaboration": [
+            {
+              "_type": "CodeBlock",
+              "content": "``` csv\nlabel,emoji,emojiName,emojiUnicode,purpose\nError,❌,cross_mark,U+274C,Indicates a critical error or failure in the model.\nWarning,⚠️,warning,U+26A0,Indicates a potential issue or warning in the model.\nNote,,blue_book,U+1F4D8,\"Provides additional context, explanations, or clarifications for the annotated element.\"\nIssue,,warning,U+26A0,Highlights a potential issue or error that needs to be addressed or resolved.\nQuestion,❓,question,U+2753,Raises a question or seeks further clarification about the annotated element.\nSuggestion,💡,bulb,U+1F4A1,Provides a suggestion or recommendation for improving the model or the annotated element.\nInfo,ℹ️,information_source,U+2139,\"Offers relevant information, facts, or details about the annotated element.\"\nTodo,📌,pushpin,U+1F4CC,\"Indicates a pending task, action item, or future work related to the annotated element.\"\nReference,🌐,globe_with_meridians,U+1F310,Provides a reference or link to an external resource or documentation.\nSee,,mag,U+1F50D,Indicates a cross-reference to another relevant element within the model.\n\n```"
             },
             {
               "_type": "Paragraph",
@@ -4985,7 +5001,7 @@
           "prefix": "###",
           "name": {
             "_type": "SubjectName",
-            "content": "Annotation Types Used"
+            "content": "Annotation types as CSV"
           },
           "parenthetical": ""
         }

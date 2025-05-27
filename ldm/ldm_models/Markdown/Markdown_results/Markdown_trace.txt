@@ -1,0 +1,108 @@
+
+Phase: Parsing model: ldm/ldm_models/Markdown/Markdown.md
+PARSING ldm/ldm_models/Markdown/Markdown.md
+
+Phase: Deriving dict for model
+Inventing name for:  #markdown-test----as-ldm
+Inventing name for:  #markdown-syntax
+Inventing name for:  #overview
+Inventing name for:  #philosophy
+Inventing name for:  #block-elements
+Inventing name for:  #paragraphs-and-line-breaks
+Inventing name for:  #headers
+Inventing name for:  #blockquotes
+Inventing name for:  #lists
+Inventing name for:  #code-blocks
+Inventing name for:  #span-elements
+Inventing name for:  #links
+Inventing name for:  #emphasis
+Inventing name for:  #code
+.. full dict saved  in ldm/ldm_models/Markdown/Markdown_results/Markdown.dict.yaml and ldm/ldm_models/Markdown/Markdown_results/Markdown.dict.json
+Building class map for module: ldm.Literate_01
+Class map is
+{   'Annotation': <class 'ldm.Literate_01.Annotation'>,
+    'AsValue': <class 'utils.class_pom_token.AsValue'>,
+    'Attribute': <class 'ldm.Literate_01.Attribute'>,
+    'AttributeName': <class 'ldm.Literate_01.AttributeName'>,
+    'AttributeReference': <class 'ldm.Literate_01.AttributeReference'>,
+    'AttributeSection': <class 'ldm.Literate_01.AttributeSection'>,
+    'AttributeSectionName': <class 'ldm.Literate_01.AttributeSectionName'>,
+    'BaseDataType': <class 'ldm.Literate_01.BaseDataType'>,
+    'CamelCase': <class 'utils.class_casing.CamelCase'>,
+    'Class': <class 'ldm.Literate_01.Class'>,
+    'ClassName': <class 'ldm.Literate_01.ClassName'>,
+    'Class_': <class 'ldm.Literate_01.Class'>,
+    'CodeBlock': <class 'ldm.Literate_01.CodeBlock'>,
+    'CodeType': <class 'ldm.Literate_01.CodeType'>,
+    'Component': <class 'ldm.Literate_01.Component'>,
+    'Constraint': <class 'ldm.Literate_01.Constraint'>,
+    'DataType': <class 'ldm.Literate_01.SetDataType'>,
+    'DataTypeClause': <class 'ldm.Literate_01.DataTypeClause'>,
+    'Default': <class 'ldm.Literate_01.Default'>,
+    'Derivation': <class 'ldm.Literate_01.Derivation'>,
+    'Diagnostic': <class 'ldm.Literate_01.Diagnostic'>,
+    'Emoji': <class 'utils.class_pom_token.Emoji'>,
+    'Formula': <class 'ldm.Literate_01.Formula'>,
+    'FormulaCoding': <class 'ldm.Literate_01.FormulaCoding'>,
+    'IsExclusive': <class 'utils.class_pom_token.IsExclusive'>,
+    'IsExhaustive': <class 'utils.class_pom_token.IsExhaustive'>,
+    'IsOptional': <class 'utils.class_pom_token.IsOptional'>,
+    'Label': <class 'ldm.Literate_01.Label'>,
+    'ListDataType': <class 'ldm.Literate_01.ListDataType'>,
+    'LiterateModel': <class 'ldm.Literate_01.LiterateModel'>,
+    'LowerCamel': <class 'utils.class_casing.LowerCamel'>,
+    'MappingDataType': <class 'ldm.Literate_01.MappingDataType'>,
+    'MinorComponent': <class 'ldm.Literate_01.MinorComponent'>,
+    'ModelName': <class 'ldm.Literate_01.ModelName'>,
+    'Natural': <class 'ldm.Literate_01.OneLiner'>,
+    'NormalCase': <class 'utils.class_casing.NormalCase'>,
+    'OneLiner': <class 'ldm.Literate_01.OneLiner'>,
+    'Paragraph': <class 'ldm.Literate_01.Paragraph'>,
+    'PresentableBoolean': <class 'utils.class_pom_token.PresentableBoolean'>,
+    'ReferenceType': <class 'ldm.Literate_01.ReferenceType'>,
+    'SetDataType': <class 'ldm.Literate_01.SetDataType'>,
+    'Subject': <class 'ldm.Literate_01.SubjectB'>,
+    'SubjectB': <class 'ldm.Literate_01.SubjectB'>,
+    'SubjectC': <class 'ldm.Literate_01.SubjectC'>,
+    'SubjectD': <class 'ldm.Literate_01.SubjectD'>,
+    'SubjectE': <class 'ldm.Literate_01.SubjectE'>,
+    'SubjectName': <class 'ldm.Literate_01.SubjectName'>,
+    'Subtyping': <class 'ldm.Literate_01.Subtyping'>,
+    'SubtypingName': <class 'ldm.Literate_01.SubtypingName'>,
+    'UpperCamel': <class 'utils.class_casing.UpperCamel'>,
+    'ValueType': <class 'ldm.Literate_01.ValueType'>}
+
+Phase: Creating model from dictionary: ldm/ldm_models/Markdown/Markdown_results/Markdown.dict.yaml
+Created model: <class 'ldm.Literate_01.LiterateModel'>
+
+Phase: Validating model
+Validating references...
+Validation errors: 1
+
+Phase: counting errors
+{"Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 1}
+1 	 Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
+
+Phase: Serialing model ...
+Model serialized to ldm/ldm_models/Markdown/Markdown_results/Markdown.model.json
+Model serialized to ldm/ldm_models/Markdown/Markdown_results/Markdown.model.yaml
+..Created model files: ldm/ldm_models/Markdown/Markdown_results/Markdown.model.json and ldm/ldm_models/Markdown/Markdown_results/Markdown.model.yaml
+
+Phase: Rendering back to markdown
+1  subjects coming in model
+
+Phase: Creating HTML from model dict
+All keys are: 
+	 subjects
+	 _type
+	 one_liner
+	 name
+	 prefix
+	 content
+	 parenthetical
+Body classes are None
+Saved styled dictionary to ldm/ldm_models/Markdown/Markdown_results/Markdown.html
+Body classes are ['reviewing']
+Saved styled dictionary (for review) to ldm/ldm_models/Markdown/Markdown_results/Markdown.review.html
+
+Phase: Skipping PDF creation

@@ -141,6 +141,7 @@ def build_dull_dsl(dull_specs: Dict):
 
 def show_phase(caption: str):
     print(f"\nPhase: {caption}", file=sys.stderr)
+    print(f"\nPhase: {caption}")
 
 
 def count_strings(string_list):

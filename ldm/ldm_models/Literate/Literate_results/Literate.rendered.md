@@ -641,87 +641,100 @@ And this is how you register the AnnotationTyped for a model. By including this
 sort of array in the DSL document for the model.
 
 
-```typescript
-interface AnnotationType {
-label: string;
-emoji: string;
-emojiName: string;
-emojiUnicode: string;
-purpose: string;
+```puml
+@startjson
+
+[
+{
+"label": "Error",
+"emoji": "❌",
+"emojiName": "cross_mark",
+"emojiUnicode": "U+274C",
+"purpose": "Indicates a critical error or failure in the model."
+},
+{
+"label": "Warning",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Indicates a potential issue or warning in the model."
+},
+{
+"label": "Note",
+"emoji": "📘",
+"emojiName": "blue_book",
+"emojiUnicode": "U+1F4D8",
+"purpose": "Provides additional context, explanations, or clarifications for the annotated element."
+},
+{
+"label": "Issue",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Highlights a potential issue or error that needs to be addressed or resolved."
+},
+{
+"label": "Question",
+"emoji": "❓",
+"emojiName": "question",
+"emojiUnicode": "U+2753",
+"purpose": "Raises a question or seeks further clarification about the annotated element."
+},
+{
+"label": "Suggestion",
+"emoji": "💡",
+"emojiName": "bulb",
+"emojiUnicode": "U+1F4A1",
+"purpose": "Provides a suggestion or recommendation for improving the model or the annotated element."
+},
+{
+"label": "Info",
+"emoji": "ℹ️",
+"emojiName": "information_source",
+"emojiUnicode": "U+2139",
+"purpose": "Offers relevant information, facts, or details about the annotated element."
+},
+{
+"label": "Todo",
+"emoji": "📌",
+"emojiName": "pushpin",
+"emojiUnicode": "U+1F4CC",
+"purpose": "Indicates a pending task, action item, or future work related to the annotated element."
+},
+{
+"label": "Reference",
+"emoji": "🌐",
+"emojiName": "globe_with_meridians",
+"emojiUnicode": "U+1F310",
+"purpose": "Provides a reference or link to an external resource or documentation."
+},
+{
+"label": "See",
+"emoji": "🔍",
+"emojiName": "mag",
+"emojiUnicode": "U+1F50D",
+"purpose": "Indicates a cross-reference to another relevant element within the model."
 }
-// LINK: LiterateDataModel.annotationTypes
-const annotationTypes: AnnotationType[] = [
-{
-label: "Error",
-emoji: "",
-emojiName: "cross_mark",
-emojiUnicode: "U+274C",
-purpose: "Indicates a critical error or failure in the model."
-},
-{
-label: "Warning",
-emoji: "",
-emojiName: "warning",
-emojiUnicode: "U+26A0",
-purpose: "Indicates a potential issue or warning in the model."
-},
-{
-label: "Note",
-emoji: "",
-emojiName: "blue_book",
-emojiUnicode: "U+1F4D8",
-purpose: "Provides additional context, explanations, or clarifications for the annotated element."
-},
-{
-label: "Issue",
-emoji: "",
-emojiName: "warning",
-emojiUnicode: "U+26A0",
-purpose: "Highlights a potential issue or error that needs to be addressed or resolved."
-},
-{
-label: "Question",
-emoji: "",
-emojiName: "question",
-emojiUnicode: "U+2753",
-purpose: "Raises a question or seeks further clarification about the annotated element."
-},
-{
-label: "Suggestion",
-emoji: "",
-emojiName: "bulb",
-emojiUnicode: "U+1F4A1",
-purpose: "Provides a suggestion or recommendation for improving the model or the annotated element."
-},
-{
-label: "Info",
-emoji: "",
-emojiName: "information_source",
-emojiUnicode: "U+2139",
-purpose: "Offers relevant information, facts, or details about the annotated element."
-},
-{
-label: "Todo",
-emoji: "",
-emojiName: "pushpin",
-emojiUnicode: "U+1F4CC",
-purpose: "Indicates a pending task, action item, or future work related to the annotated element."
-},
-{
-label: "Reference",
-emoji: "",
-emojiName: "globe_with_meridians",
-emojiUnicode: "U+1F310",
-purpose: "Provides a reference or link to an external resource or documentation."
-},
-{
-label: "See",
-emoji: "",
-emojiName: "mag",
-emojiUnicode: "U+1F50D",
-purpose: "Indicates a cross-reference to another relevant element within the model."
-}
-];
+]
+@endjson
+
+```
+
+### Annotation types as CSV
+
+``` csv
+label,emoji,emojiName,emojiUnicode,purpose
+Error,❌,cross_mark,U+274C,Indicates a critical error or failure in the model.
+Warning,⚠️,warning,U+26A0,Indicates a potential issue or warning in the model.
+Note,,blue_book,U+1F4D8,"Provides additional context, explanations, or clarifications for the annotated element."
+Issue,,warning,U+26A0,Highlights a potential issue or error that needs to be addressed or resolved.
+Question,❓,question,U+2753,Raises a question or seeks further clarification about the annotated element.
+Suggestion,💡,bulb,U+1F4A1,Provides a suggestion or recommendation for improving the model or the annotated element.
+Info,ℹ️,information_source,U+2139,"Offers relevant information, facts, or details about the annotated element."
+Todo,📌,pushpin,U+1F4CC,"Indicates a pending task, action item, or future work related to the annotated element."
+Reference,🌐,globe_with_meridians,U+1F310,Provides a reference or link to an external resource or documentation.
+See,,mag,U+1F50D,Indicates a cross-reference to another relevant element within the model.
+
 ```
 
 ===

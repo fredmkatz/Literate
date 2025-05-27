@@ -5,8 +5,10 @@ import builtins
 # Patch global __str__ for all bs4.Tag instances
 Tag.__str__ = lambda self: self.prettify()
 
-TAGS_TO_EXPORT =  ["html", "head", "link", "script", "title", "body", "div", "table",
-                   "img", "span", "h1", "p", "a", "b"]
+TAGS_TO_EXPORT = [
+    "html", "head", "link", "script", "title", "body", "div", "table",
+    "img", "span", "h1", "p", "a", "b"
+]
 
 VALID_HTML_TAGS = {
     "a", "abbr", "address", "area", "article", "aside", "audio",
@@ -31,21 +33,76 @@ VALID_HTML_TAGS = {
     "wbr"
 }
 
+_shared_soup = BeautifulSoup("", "html.parser")
+
+def make_tag(name, *children, **attrs):
+    tag = _shared_soup.new_tag(name)
+    return FluentTag(tag)(*children, **attrs)
+
+def export_tags_globally(names):
+    for name in names:
+        def make_factory(n):
+            def fn(*args, **kwargs):
+                return make_tag(n, *args, **kwargs)
+            return fn
+        builtins.__dict__[name] = make_factory(name)
+
+def retarget_soup(tag_like, new_soup):
+    if isinstance(tag_like, FluentTag):
+        tag = tag_like.tag
+    elif isinstance(tag_like, Tag):
+        tag = tag_like
+    else:
+        return
+
+    tag._formatter = new_soup.builder.formatter
+    for child in tag.contents:
+        retarget_soup(child, new_soup)
+
+def wrap_deep(tag_like):
+    if isinstance(tag_like, FluentTag):
+        tag = tag_like.tag
+    elif isinstance(tag_like, Tag):
+        tag = tag_like
+    else:
+        raise TypeError("wrap_deep expects a Tag or FluentTag")
+
+    for i, child in enumerate(tag.contents):
+        if isinstance(child, FluentTag):
+            tag.contents[i] = child.tag
+            child = child.tag
+        if isinstance(child, Tag):
+            wrap_deep(child)
+
+    retarget_soup(tag, _shared_soup)
+    return FluentTag(tag)
+
+def unify_soup_tree(tag_like):
+    if isinstance(tag_like, FluentTag):
+        html_str = tag_like.tag.decode()
+    elif isinstance(tag_like, Tag):
+        html_str = tag_like.decode()
+    else:
+        raise TypeError("Expected Tag or FluentTag")
+
+    fragment = BeautifulSoup(html_str, "html.parser")
+    if len(fragment.contents) == 1 and isinstance(fragment.contents[0], Tag):
+        return FluentTag(fragment.contents[0])
+    else:
+        container = _shared_soup.new_tag("div")
+        for el in fragment.contents:
+            container.append(el)
+        return FluentTag(container)
+
+def create_html_root():
+    html_tag = _shared_soup.new_tag("html")
+    _shared_soup.append(html_tag)
+    return FluentTag(html_tag)
+
 class FluentTag:
     def __init__(self, tag: Tag):
         self.tag = tag
 
-    # def __call__(self, *children, **attrs):
-    #     for child in children:
-    #         if isinstance(child, FluentTag):
-    #             self.tag.append(child.tag)
-    #         elif isinstance(child, Tag):
-    #             self.tag.append(child)
-    #         elif isinstance(child, str):
-    #             self.tag.append(child)
-    #     for k, v in attrs.items():
-    #         self.tag[k] = v
-    #     return self
     def __call__(self, *children, **attrs):
         for child in children:
             if isinstance(child, FluentTag):
@@ -55,16 +112,14 @@ class FluentTag:
             elif isinstance(child, str):
                 self.tag.append(child)
 
-        # Translate class_ → class
         for k, v in attrs.items():
             if k.endswith("_") and k[:-1] in {"class", "for", "id"}:
-                k = k[:-1] 
+                k = k[:-1]
             self.tag[k] = v
 
         return self
 
     def __getattr__(self, name):
-        # Forward known attributes/methods to the underlying Tag
         if hasattr(self.tag, name):
             attr = getattr(self.tag, name)
             if callable(attr):
@@ -78,7 +133,6 @@ class FluentTag:
                 return wrapped
             return attr
 
-        # Only create new tag if it's a valid HTML tag name
         if name in VALID_HTML_TAGS and self.tag.builder is not None:
             new_tag = self.tag.builder.new_tag(name)
             self.tag.append(new_tag)
@@ -105,7 +159,16 @@ class FluentTag:
         return self.tag
 
     def __str__(self):
-        return self.tag.prettify()
+        try:
+            return self.tag.prettify()
+        except Exception:
+            import traceback
+            print("⚠️ Falling back to decode() with formatter='html'")
+            traceback.print_exc()
+            try:
+                return self.tag.decode(formatter="html")
+            except Exception:
+                return repr(self.tag)
 
     def __repr__(self):
         return f"FluentTag({repr(self.tag)})"
@@ -124,9 +187,14 @@ class FluentTag:
     def __contains__(self, key):
         return key in self.tag
 
-    def append(self, item):
+    def append(self, item, warn_on_retarget=True):
         if isinstance(item, FluentTag):
             item = item.tag
+        if isinstance(item, Tag):
+            if item.soup is not self.tag.soup:
+                if warn_on_retarget:
+                    print("⚠️ Retargeting tag from different soup before append.")
+                retarget_soup(item, self.tag.soup)
         self.tag.append(item)
         return self
 
@@ -134,66 +202,24 @@ class FluentTag:
         for item in items:
             self.append(item)
         return self
-    
+
     def add_class(self, classname):
         currents = self.get("class", [])
-        clean_classes = list( set(currents + [classname]))
+        clean_classes = list(set(currents + [classname]))
         self["class"] = clean_classes
+# def create_html_fragment(html_text):
+#     div_tag = _shared_soup.new_tag("div")
+#     div_tag.append("Content to come later")
+#     return FluentTag(div_tag)
 
+def parse_fragment(html_str):
+    """Parse an HTML string into a Tag using the shared soup."""
+    fragment = BeautifulSoup(html_str, "html.parser")
+    # clone its children into the shared soup
+    container = _shared_soup.new_tag("div")
+    for el in fragment.contents:
+        container.append(el)
+    return FluentTag(container)
 
-class FluentSoupBuilder:
-    def __init__(self):
-        self.soup = BeautifulSoup("", "html.parser")
-        self.export_tags(TAGS_TO_EXPORT)
-
-
-    def tag(self, name, *children, **attrs):
-        t = self.soup.new_tag(name)
-        t.builder = self  # allow chaining to access soup
-        return FluentTag(t)(*children, **attrs)
-
-    def export_tags(self, names):
-        for name in names:
-            def make_factory(n):
-                def fn(*args, **kwargs):
-                    return self.tag(n, *args, **kwargs)
-                return fn
-            builtins.__dict__[name] = make_factory(name)
-
-    def to_fluent(self, tag: Tag):
-        return FluentTag(tag)
-
-    def from_html(self, html: str):
-        soup = BeautifulSoup(html, "html.parser")
-        return self.to_fluent(soup)
-
-builder = FluentSoupBuilder()   # needed on import to get html tag routines exported
-
-### Usage examples
-# from class_fluent_html import FluentSoupBuilder
-
-# builder.export_tags(["html", "head", "title", "body", "div", "span", "h1", "p", "a", "b"])
-
-# page = html(
-#     head(title("Hello Page")),
-#     body(
-#         h1("Welcome!"),
-#         div("Main block", id="main")(
-#             div("Nested content", class_="note")
-#         )
-#     )
-# )
-
-# print(page)  # Pretty print works
-
-# ## on imported html
-# from bs4 import BeautifulSoup
-# from class_fluent_html import FluentSoupBuilder
-
-# soup = BeautifulSoup("<div id='main'><p>Hello</p></div>", "html.parser")
-# builder = FluentSoupBuilder()
-
-# main = builder.to_fluent(soup.find(id="main"))
-# main(" World!", div("New block"))
-
-# print(main)
+# Export tags globally on import
+export_tags_globally(TAGS_TO_EXPORT)  # html(), head(), etc.

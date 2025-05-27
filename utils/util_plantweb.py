@@ -2,8 +2,8 @@ from plantweb.render import render, render_cached
 
 def render_puml(puml_text, format, output_file):
 
-    print(f'==> INPUT to render_puml in {format}:')
-    print(puml_text)
+    # print(f'==> INPUT to render_puml in {format}:')
+    # print(puml_text)
 
     plantuml_server_url = "http://www.plantuml.com/plantuml"
     try:

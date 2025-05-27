@@ -349,16 +349,27 @@ if __name__ == "__main__":
     model_name = "LiterateTester"
     ntried = 0
     ngood = 0
-    for model_name in [
+    all_models =  [
         "Literate",
-        "Biblio",
         "LiterateTester",
-        "mdtestdocs",
-        "mermaid",
-        "mermaid_test",
-        "plantuml_test",
+        "Markdown",
+        "Diagrams",
+        "Biblio",
+
         
-    ]:
+    ]
+    
+    test_models = ["LiterateTester"]
+    test_models = ["Diagrams"]
+
+    test_models = ["Bibiio"]
+    test_models = all_models
+    test_models = ["Markdown"]
+    test_models = ["Literate"]
+
+    import traceback
+    for model_name in test_models:
+        
         ntried += 1
         try:
             ldm_dull_specs["model_name"] = model_name
@@ -368,4 +379,8 @@ if __name__ == "__main__":
             ngood += 1
         except Exception:
             print(model_name, " Failed BUILD", file=sys.stderr)
+            print("Printing stack trace using traceback.print_exc():")
+            traceback.print_exc(file=sys.stdout)
+            traceback.print_exc(file=sys.stderr)
+
     print(f"{ngood} of {ntried} ran successfully", file=sys.stderr)

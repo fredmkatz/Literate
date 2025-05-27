@@ -4,7 +4,7 @@ from typing import Dict, List
 
 from bs4 import BeautifulSoup
 from Literate_01 import *
-from utils.class_fluent_html import FluentSoupBuilder, FluentTag
+from utils.class_fluent_html import  FluentTag
 
 HEADER_KEYS = [
     "prefix",
@@ -124,7 +124,7 @@ def dict_to_html(data):
         if obj_type == "ClassName":
             return class_name_link(data)
         if obj_type == "AsValue":
-            print("Found ASVALUE dict", data)
+     #       print("Found ASVALUE dict", data)
             as_value = AsValue(data["t_value"])
             if not as_value:
                 return ""
@@ -188,7 +188,7 @@ def dict_to_html(data):
                     add_classed_value_html(key, value, header_h)
 
             # end the header
-            print(f"{obj_type} header is", header_h)
+            # print(f"{obj_type} header is", header_h)
         if is_formula(obj_type):
             one_liner = data.get("one_liner", "")
             add_html_clause(obj_type, one_liner, html_h)
@@ -459,7 +459,8 @@ def add_anchor_html(key_name, value, html_h):
     anchor_h = a(the_name, id=the_name, class_=f"{name_class} {key_name}")
     html_h.append(anchor_h)
 
-
+import traceback
+import sys
 def add_html_simple_content(obj_type, obj, html_h):
     from ldm.do_md_parse import as_prose_html
 
@@ -481,13 +482,19 @@ def add_html_simple_content(obj_type, obj, html_h):
         print(
             f"failed on simple content: obj type is {obj_type}, content is...\n{content}"
         )
+        traceback.print_exc(file=sys.stdout)
+        traceback.print_exc(file=sys.stderr)
 
-
+@trace_decorator
 def add_key_value_html(key, value, html_h):
 
     value_type = getattr(value, "_type", type(value).__name__)
     div_h = div(class_=value_type)
-    div_h.span(f"{key}:", class_="key")
+    print("ADD_KEY_VALUE")
+    print(div_h)
+    
+    span1_h = span(f"{key}:", class_="key")
+    div_h.append(span1_h)
     div_h.span(dict_to_html(value), class_="value")
     html_h.append(div_h)
 
@@ -523,25 +530,35 @@ def create_model_html(data, html_path):
     css_path = "../../ldm_assets/Literate.css"
     save_model_html(data, css_path, html_path)
 
-
+from utils.class_fluent_html import create_html_root, wrap_deep
 def save_model_html(data, css_path, output_path):
     model_h = dict_to_html(data)
+    
+    html_h = create_html_root()
+    head_h = head()
+    html_h.append(head_h)
 
-    html_h = html(
-        head(
-            link(rel="stylesheet", href=css_path),
-            script(
+    head_h.append( link(rel="stylesheet", href=css_path))
+    head_h.append( script(
                 "import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'",
                 type="module",
-            ),
-        ),
-        body(model_h),
-    )
+            ))
+    body_h = body()
+    html_h.append(body_h)
+    
+    body_h.append(model_h)
+    
+    body_classes = html_h.find('body').get("class")
+    the_body = html_h.find('body')
+    print("Body classes are", body_classes)
+    # print("Body is: ", the_body)
     html_content = f"{html_h}"
     Path(output_path).write_text(html_content, encoding="utf-8")
     print(f"Saved styled dictionary to {output_path}")
 
     html_h.find("body").add_class("reviewing")
+    body_classes = html_h.find('body').get("class")
+    print("Body classes are", body_classes)
     html_content = f"{html_h}"
 
     review_output_path = output_path.replace(".html", ".review.html")

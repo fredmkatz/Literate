@@ -1,0 +1,99 @@
+annotation_types =  [ {
+    "label": "Error",
+    "emoji": "❌",
+    "emojiName": "cross_mark",
+    "emojiUnicode": "U+274C",
+    "purpose": "Indicates a critical error or failure in the model."
+  },
+  {
+    "label": "Warning",
+    "emoji": "⚠️",
+    "emojiName": "warning",
+    "emojiUnicode": "U+26A0",
+    "purpose": "Indicates a potential issue or warning in the model."
+  },
+  {
+    "label": "Note",
+    "emoji": "📘",
+    "emojiName": "blue_book",
+    "emojiUnicode": "U+1F4D8",
+    "purpose": "Provides additional context, explanations, or clarifications for the annotated element."
+  },
+  {
+    "label": "Issue",
+    "emoji": "⚠️",
+    "emojiName": "warning",
+    "emojiUnicode": "U+26A0",
+    "purpose": "Highlights a potential issue or error that needs to be addressed or resolved."
+  },
+  {
+    "label": "Question",
+    "emoji": "❓",
+    "emojiName": "question",
+    "emojiUnicode": "U+2753",
+    "purpose": "Raises a question or seeks further clarification about the annotated element."
+  },
+  {
+    "label": "Suggestion",
+    "emoji": "💡",
+    "emojiName": "bulb",
+    "emojiUnicode": "U+1F4A1",
+    "purpose": "Provides a suggestion or recommendation for improving the model or the annotated element."
+  },
+  {
+    "label": "Info",
+    "emoji": "ℹ️",
+    "emojiName": "information_source",
+    "emojiUnicode": "U+2139",
+    "purpose": "Offers relevant information, facts, or details about the annotated element."
+  },
+  {
+    "label": "Todo",
+    "emoji": "📌",
+    "emojiName": "pushpin",
+    "emojiUnicode": "U+1F4CC",
+    "purpose": "Indicates a pending task, action item, or future work related to the annotated element."
+  },
+  {
+    "label": "Reference",
+    "emoji": "🌐",
+    "emojiName": "globe_with_meridians",
+    "emojiUnicode": "U+1F310",
+    "purpose": "Provides a reference or link to an external resource or documentation."
+  },
+  {
+    "label": "See",
+    "emoji": "🔍",
+    "emojiName": "mag",
+    "emojiUnicode": "U+1F50D",
+    "purpose": "Indicates a cross-reference to another relevant element within the model."
+  }
+]
+
+import utils.util_all_fmk as fmk
+
+print(fmk.as_json(annotation_types))
+
+import json
+import csv
+
+
+
+df = open('ldm/annotations.csv', 'w', encoding="utf-8")
+
+cw = csv.writer(df)
+
+c = 0
+
+for emp in annotation_types:
+    if c == 0:
+
+        # Writing headers of CSV file
+        h = emp.keys()
+        cw.writerow(h)
+        c += 1
+
+    # Writing data of CSV file
+    cw.writerow(emp.values())
+
+df.close()

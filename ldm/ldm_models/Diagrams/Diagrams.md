@@ -1,0 +1,738 @@
+# This is my first Mermaid test
+
+## Mermaid Class Diagram
+
+```mermaid
+
+
+classDiagram
+    class Component
+    class Literate
+    class Subject
+    class Class
+    class Attrribute Section
+    class Attribute
+
+    Component  <|-- Literate
+    Subject  <|-- Literate
+    Class  <|-- Literate
+    AttributeSection  <|-- Literate
+    Attribute  <|-- Literate
+
+classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
+```
+
+
+## Mermaid Flowchart
+
+``` mermaid
+%%{init: {
+  "flowchart": {
+    "curve": "stepAfter",
+    "useMaxWidth": true
+  }
+}}%%
+
+flowchart TB
+    subgraph Component["Component - Base class"]
+        direction TB
+        
+        Literate["Literate<br>Core implementation"]
+        
+        subgraph Subtypes["Component Subtypes"]
+            direction LR
+            Subject["Subject<br>Domain entity"]
+            Class["Class<br>Schema definition"]
+            AttributeSection["AttributeSection<br>Property group"]
+            Attribute["Attribute<br>Individual property"]
+        end
+        
+        Subject ==> Literate
+        Class ==> Literate
+        AttributeSection ==> Literate
+        Attribute ==> Literate
+    end
+    
+    %% Styling with border-radius only
+    classDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px
+    classDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px
+    classDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px
+    
+    class Component container
+    class Subtypes subcontainer
+    
+    %% Edge styling
+    linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
+```
+## PlantUML jsondata
+
+``` puml
+@startjson
+<style>
+  .h1 {
+    BackGroundColor green
+    FontColor white
+    FontStyle italic
+  }
+  .h2 {
+    BackGroundColor red
+    FontColor white
+    FontStyle bold
+  }
+</style>
+#highlight "lastName"
+#highlight "address" / "city" <<h1>>
+#highlight "phoneNumbers" / "0" / "number" <<h2>>
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 28,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+@endjson
+```
+
+## PlantUML UML
+``` puml
+
+@startuml
+
+rectangle Component
+rectangle Literate
+rectangle Subject
+rectangle Class
+rectangle Attribute
+rectangle a
+
+Literate -u->  a
+Subject -u-> a
+Class -u-> a
+Attribute -u-> a
+a -u-> Component
+skinparam linetype ortho
+@enduml
+```
+
+## Mermaid block diagram
+
+```mermaid
+block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+```
+
+## Mermaid ER Diagram
+``` mermaid
+
+erDiagram
+
+    CAR {
+
+        string registrationNumber
+
+        string make
+
+        string model
+
+    }
+
+    PERSON {
+
+        string firstName
+
+        string lastName
+
+        int age
+
+    }
+
+    style CAR fill: red,stroke:navy,stroke-width:3px
+
+    style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
+
+```
+
+## Mermaid ER Diagram
+
+``` mermaid
+erDiagram
+
+    class Subject Component
+
+    class Section Component
+
+    class Attribute Component
+
+    class Classe Component
+
+    Subject ||--|{ Subject : contains
+
+    Subject ||--|{ Classe : contains
+
+  
+
+    Classe ||--|{ Section : contains
+
+    Classe ||--|{ Attribute : contains
+
+    Section ||--|{ Attribute : contains
+
+```
+## Captioned figure
+
+<figure>
+  <img src="../ldm_assets/FMKNYIDFrontIMG_1141.jpg" alt="Trulli" style="width:30%">
+  <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+</figure>
+
+
+And the same figure with figure/caption markup
+
+<figure title="A Drivers License">
+	<img src="../FMKNYIDFrontIMG_1141.jpg" style="width:20%">
+	<figcaption>My Non-Drivers License</figcaption>
+</figure>
+
+## List of Codes
+
+```csv
+eFormat, Description
+E-Book, 'Kindle or Apple books - etc'
+PDF, formatted for printing and direct delivery
+
+```
+
+## PlantUML UML
+``` puml
+
+@startuml
+
+nwdiag {
+
+  network {
+
+    Component;
+
+    Literate;
+
+    Subject;
+
+    Attribute;
+
+    AttributeSection;
+
+    Class;
+
+    Component -- Literate;
+
+    Component -- Subject;
+
+    Component -- Class;
+
+    Component -- AttributeSection;
+
+    Component -- Attribute;
+
+  
+
+    Subject [description = "Domain entity"];
+
+    Literate [description = "Core implementation"];
+
+    AttributeSection [description = "Property group"];
+
+    Attribute [description = "Individual property"];
+
+    Class [description = "Schema definition"];
+
+  
+  
+
+  }
+
+}
+
+@enduml
+```
+
+## Russian UML
+``` puml
+@startuml
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+@enduml
+
+```
+## Car diagram
+``` puml
+@startuml
+class Car
+
+Driver - Car : drives >
+Car *- Wheel : have 4 >
+Car -- Person : < owns
+@enduml
+```
+## Fancy PlantUML
+
+```puml
+@startuml
+' Configure the modern style approach with CSS
+' Try polyline instead of ortho
+skinparam linetype polyline
+
+<style>
+  /* Global settings */
+  diagram {
+    backgroundColor: white;
+  }
+  
+  /* Class styling */
+  class {
+    BackgroundColor: #FFFFEE;
+    BorderColor: #333333;
+    BorderThickness: 1;
+    BorderRadius: 8;
+    FontColor: #333333;
+    FontSize: 12;
+  }
+  
+  /* Arrow styling */
+  arrow {
+    Color: #333333;
+    Thickness: 1.5;
+  }
+  
+  /* Package styling */
+  package {
+    BackgroundColor: #E6F2FF;
+    BorderColor: #336699;
+    BorderThickness: 3;
+    FontColor: #333333;
+  }
+  
+  /* Custom style for Component */
+  .container {
+    BackgroundColor: #E6F2FF;
+    BorderColor: #336699;
+    BorderThickness: 3;
+    BorderRadius: 10;
+  }
+</style>
+
+package "Component" <<container>> {
+  class Literate {
+    Core implementation
+  }
+  
+  class Subject {
+    Domain entity
+  }
+  class Class {
+    Schema definition
+  }
+  class AttributeSection {
+    Property group
+  }
+  class Attribute {
+    Individual property
+  }
+  
+  ' Relationships 
+  Subject -> Literate
+  Class -> Literate
+  AttributeSection -> Literate
+  Attribute -> Literate
+}
+
+@enduml
+```
+## MindMap - PlanUML
+```puml
+
+@startmindmap
+* Component
+** Literate
+*** Subject
+*** Class
+*** AttributeSection
+*** Attribute
+@endmindmap
+@startuml
+!include <C4/C4_Component>
+
+Person(user, "User")
+Container_Boundary(component, "Component") {
+  Component(literate, "Literate", "Core implementation")
+  Component(subject, "Subject", "Domain entity")
+  Component(class, "Class", "Schema definition")
+  Component(attributeSection, "AttributeSection", "Property group")
+  Component(attribute, "Attribute", "Individual property")
+}
+
+Rel(subject, literate, "extends")
+Rel(class, literate, "extends")
+Rel(attributeSection, literate, "extends")
+Rel(attribute, literate, "extends")
+@enduml
+
+@startjson
+{
+  "Component": {
+    "Literate": {"description": "Core implementation"},
+    "Subject": {"description": "Domain entity", "extends": "Literate"},
+    "Class": {"description": "Schema definition", "extends": "Literate"},
+    "AttributeSection": {"description": "Property group", "extends": "Literate"},
+    "Attribute": {"description": "Individual property", "extends": "Literate"}
+  }
+}
+@endjson
+```
+
+## JSON for Components
+``` puml
+@startjson
+{
+  "Component": {
+    "Literate": ["description", "Core implementation"],
+    "Subject": {"description": "Domain entity", "extends": "Literate"},
+    "Class": {"description": "Schema definition", "extends": "Literate"},
+    "AttributeSection": {"description": "Property group", "extends": "Literate"},
+    "Attribute": {"description": "Individual property", "extends": "Literate"}
+  }
+}
+@endjson
+```
+
+
+#JSON for LDM Component
+```puml
+@startjson
+
+{
+  "_type": "Class",
+  "prefix": "_",
+  "name": "Component",
+  "one_liner": "An element or building block of the literate data model with an extendedOneLiner",
+  "parenthetical": "",
+  "elaboration": [
+    {
+      "_type": "Paragraph",
+      "content": "Further elaboration for a Component. \n+ End of first paragraph"
+    },
+    {
+      "_type": "Paragraph",
+      "content": "Start of last paragraph."
+    }
+  ],
+  "abbreviation": "COMPT",
+  "annotations": [
+    {
+      "_type": "Annotation",
+      "emoji": "",
+      "label": "Note",
+      "content": "This is an annotation for the Component class, with extra text onextra lines with extra text on extra lines",
+      "subtypes": [
+        "ComponentA",
+        "Component",
+        "ComponentB",
+        "ComponentC"
+      ],
+      "based_on": [
+        "Component",
+        "ComponentA",
+        "ComponentB",
+        "ComponentC"
+      ]
+    }
+  ],
+  "attributes": [
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": "parentClass",
+      "one_liner": "the supertype - just here to test parser",
+      "parenthetical": "Class",
+      "elaboration": [
+        {
+          "_type": "Paragraph",
+          "content": "Trying an elaboration for an InverseOf clause on an attribute declaration clauses. \n+ End of first paragraph"
+        },
+        {
+          "_type": "Paragraph",
+          "content": "Start of second paragraph."
+        }
+      ],
+      "inverse": {
+        "_type": "AttributeReference",
+        "class_name": {},
+        "attribute_name": {}
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": "normalName",
+      "one_liner": "the name of the component, not in camel case",
+      "parenthetical": "*String*"
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": "name",
+      "one_liner": "The name of the component",
+      "parenthetical": "CamelName"
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": "qualifiedName",
+      "one_liner": "",
+      "parenthetical": "*QualifiedCamel*"
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": "abbreviatedName",
+      "one_liner": "a short form of the component's name, used for cross references and improved readability.",
+      "parenthetical": "*CamelName*",
+      "default": {
+        "_type": "Default",
+        "as_entered": " name",
+        "elaboration": [
+          {
+            "_type": "Paragraph",
+            "content": "Trying an elaboration for a Default code clause - ie subsequent  part of a Default Formuka object \n+ End of first paragraph"
+          },
+          {
+            "_type": "Paragraph",
+            "content": "Start of second paragraph."
+          }
+        ],
+        "code": " This is the OCL code for calculating the name",
+        "english": " And thii is an english language rendering"
+      },
+      "annotations": [
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "Noting",
+          "content": "And this is trying an annotation on a formula clause"
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "Example",
+          "content": "\"LDM\" is the short form of \"Literate Data Model\"."
+        }
+      ],
+      "constraints": [
+        {
+          "_type": "Constraint",
+          "as_entered": [
+            " this is the first constraint for name in Component"
+          ],
+          "code": " OCL for first constraint",
+          "english": " English for first constraint",
+          "severity": " Harsh",
+          "message": " {name} is all wrong - first"
+        },
+        {
+          "_type": "Constraint",
+          "as_entered": [
+            " this is the second constraint for name in Component"
+          ],
+          "code": " OCL for second constraint",
+          "english": " English for second constraint",
+          "severity": " Harsh second",
+          "message": " {name} is all wrong - second"
+        }
+      ]
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": "oneLiner",
+      "one_liner": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _",
+      "parenthetical": "RichLine"
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": "elaboration",
+      "one_liner": "A more detailed explanation or discussion of the component _",
+      "parenthetical": "RichText"
+    }
+  ],
+  "attribute_sections": [
+    {
+      "_type": "AttributeSection",
+      "prefix": "__",
+      "name": "For Machinery",
+      "one_liner": "mechanical attributes",
+      "parenthetical": "",
+      "attributes": [
+        {
+          "_type": "Attribute",
+          "prefix": "-",
+          "name": "isEmbellishment",
+          "one_liner": "Indicates whether this component is an embellishment added during post-parsing processing _",
+          "parenthetical": "Boolean",
+          "default": {
+            "_type": "Default",
+            "as_entered": " false"
+          },
+          "annotations": [
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "Note",
+              "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.",
+              "elaboration": [
+                {
+                  "_type": "Paragraph",
+                  "content": "And after that very long onelner on the Note, here's additional elaboration on  it \n+ With a second line in the first paragraph"
+                },
+                {
+                  "_type": "Paragraph",
+                  "content": "And another paragraph, too. \n+ Also with a second line"
+                }
+              ]
+            },
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "wildly",
+              "content": "This is an unregistered annotation"
+            },
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "minorNote",
+              "content": "This is a minor note"
+            },
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "majorNote",
+              "content": "And this is a major note. Both should be annotations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "AttributeSection",
+      "prefix": "__",
+      "name": "Markdown Support",
+      "one_liner": "",
+      "parenthetical": "",
+      "attributes": [
+        {
+          "_type": "Attribute",
+          "prefix": "-",
+          "name": "mdPrefix",
+          "one_liner": "",
+          "parenthetical": "*[String](#string",
+          "derivation": {
+            "_type": "Derivation",
+            "as_entered": " \"\""
+          }
+        },
+        {
+          "_type": "Attribute",
+          "prefix": "-",
+          "name": "mdSuffix",
+          "one_liner": "",
+          "parenthetical": "*[String](#string",
+          "derivation": {
+            "_type": "Derivation",
+            "as_entered": " \"\""
+          }
+        },
+        {
+          "_type": "Attribute",
+          "prefix": "-",
+          "name": "mdTopLine",
+          "one_liner": "",
+          "parenthetical": "*[String](#string",
+          "derivation": {
+            "_type": "Derivation",
+            "as_entered": " mdPrefix + name + \" - \" + oneLiner + mdSuffix"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+@endjson
+```
+
+## and a dummy section
+

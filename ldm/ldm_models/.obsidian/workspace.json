@@ -11,14 +11,10 @@
             "id": "c7904c6925e9ed75",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "LiterateTester.md",
-                "mode": "source",
-                "source": true
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "LiterateTester"
+              "title": "New tab"
             }
           },
           {
@@ -156,13 +152,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LiterateTester.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of LiterateTester"
+              "title": "Outline"
             }
           },
           {

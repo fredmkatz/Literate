@@ -1,0 +1,981 @@
+{
+  "_type": "Document",
+  "literate_models": [
+    {
+      "_type": "LiterateModel",
+      "prefix": "#",
+      "name": {
+        "content": "Markdown Test",
+        "_type": "SubjectName"
+      },
+      "one_liner": {
+        "_type": "OneLiner",
+        "content": "as LDM"
+      },
+      "parenthetical": "",
+      "subjects": [
+        {
+          "_type": "SubjectB",
+          "prefix": "##",
+          "name": {
+            "content": "Markdown Syntax",
+            "_type": "SubjectName"
+          },
+          "parenthetical": ""
+        }
+      ]
+    }
+  ],
+  "attributes": [
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "markdownTest",
+        "_type": "AttributeName"
+      },
+      "one_liner": {
+        "_type": "OneLiner",
+        "content": "as LDM]"
+      },
+      "parenthetical": "#markdown-test----as-ldm",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "markdownSyntax",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#markdown-syntax",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "overview",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#overview",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "philosophy",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#philosophy",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "blockElements",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#block-elements",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "paragraphsAndLineBreaks",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#paragraphs-and-line-breaks",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "headers",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#headers",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "blockquotes",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#blockquotes",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "lists",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#lists",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "codeBlocks",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#code-blocks",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "spanElements",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#span-elements",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "links",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#links",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "emphasis",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#emphasis",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      }
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "code",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "#code",
+      "data_type_clause": {
+        "data_type": {
+          "_type": "BaseDataType",
+          "class_name": {
+            "content": "InventedName",
+            "_type": "ClassName"
+          },
+          "as_value_type": {
+            "t_value": true,
+            "_type": "AsValue"
+          }
+        },
+        "is_optional_lit": {
+          "t_value": false,
+          "_type": "IsOptional"
+        },
+        "_type": "DataTypeClause"
+      },
+      "annotations": [
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "Note",
+          "content": "** This document is itself written using Markdown; you"
+        }
+      ]
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "one_liner": {
+        "_type": "OneLiner",
+        "content": "--"
+      },
+      "parenthetical": ""
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "one_liner": {
+        "_type": "OneLiner",
+        "content": "as list markers:"
+      },
+      "parenthetical": "",
+      "elaboration": [
+        {
+          "_type": "Paragraph",
+          "content": "*   Red\n \n+ *   Green\n \n+ *   Blue\n"
+        }
+      ],
+      "annotations": [
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "is equivalent to",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "+   Red\n \n+ +   Green\n \n+ +   Blue\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "and",
+          "content": ""
+        }
+      ]
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "red",
+        "_type": "AttributeName"
+      },
+      "parenthetical": ""
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "green",
+        "_type": "AttributeName"
+      },
+      "parenthetical": ""
+    },
+    {
+      "_type": "Attribute",
+      "prefix": "-",
+      "name": {
+        "content": "blue",
+        "_type": "AttributeName"
+      },
+      "parenthetical": "",
+      "annotations": [
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "Ordered lists use numbers followed by periods",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "1.  Bird\n \n+ 2.  McHale\n \n+ 3.  Parish\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "It's important to note that the actual numbers you use to mark the\n \n+ list have no effect on the HTML output Markdown produces. The HTML\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "Markdown produces from the above list is",
+          "content": ""
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "If you instead wrote the list in Markdown like this",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "1.  Bird\n \n+ 1.  McHale\n \n+ 1.  Parish\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "or even",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "3. Bird\n \n+ 1. McHale\n \n+ 8. Parish\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "you'd get the exact same HTML output. The point is, if you want to,\n \n+ you can use ordinal numbers in your ordered Markdown lists, so that\n \n+ the numbers in your source match the numbers in your published HTML.\n \n+ But if you want to be lazy, you don't have to.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "To make lists look nice, you can wrap items with hanging indents:\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n \n+ Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,\n \n+ viverra nec, fringilla in, laoreet vitae, risus.\n \n+ *   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.\n \n+ Suspendisse id sem consectetuer libero luctus adipiscing.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "But if you want to be lazy, you don't have to:\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n \n+ Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,\n \n+ viverra nec, fringilla in, laoreet vitae, risus.\n \n+ *   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.\n \n+ Suspendisse id sem consectetuer libero luctus adipiscing.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "List items may consist of multiple paragraphs. Each subsequent\n \n+ paragraph in a list item must be indented by either 4 spaces\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "or one tab",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "1.  This is a list item with two paragraphs. Lorem ipsum dolor\n \n+ sit amet, consectetuer adipiscing elit. Aliquam hendrerit\n \n+ mi posuere lectus.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Vestibulum enim wisi, viverra nec, fringilla in, laoreet\n \n+ vitae, risus. Donec sit amet nisl. Aliquam semper ipsum\n \n+ sit amet velit.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "2.  Suspendisse id sem consectetuer libero luctus adipiscing.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "It looks nice if you indent every line of the subsequent\n \n+ paragraphs, but here again, Markdown will allow you to be\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "lazy",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "*   This is a list item with two paragraphs.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "This is the second paragraph in the list item. You're\n \n+ only required to indent the first line. Lorem ipsum dolor\n \n+ sit amet, consectetuer adipiscing elit.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "*   Another item in the same list.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "To put a blockquote within a list item, the blockquote's `>`\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "delimiters need to be indented",
+          "content": ""
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "A list item with a blockquote",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "> This is a blockquote\n \n+ > inside a list item.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "To put a code block within a list item, the code block needs\n \n+ to be indented *twice* -- 8 spaces or two tabs:\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "A list item with a code block",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "<code goes here>\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "_type": "SubjectC",
+      "prefix": "###",
+      "name": {
+        "content": "Overview",
+        "_type": "SubjectName"
+      },
+      "parenthetical": "",
+      "subjects": [
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Philosophy",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "Markdown is intended to be as easy-to-read and easy-to-write as is feasible.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Readability, however, is emphasized above all else. A Markdown-formatted\n \n+ document should be publishable as-is, as plain text, without looking\n \n+ like it's been marked up with tags or formatting instructions. While\n \n+ Markdown's syntax has been influenced by several existing text-to-HTML\n \n+ filters -- including [Setext](http://docutils.sourceforge.net/mirror/setext.html), [atx](http://www.aaronsw.com/2002/atx/), [Textile](http://textism.com/tools/textile/), [reStructuredText](http://docutils.sourceforge.net/rst.html),\n \n+ [Grutatext](http://www.triptico.com/software/grutatxt.html), and [EtText](http://ettext.taint.org/doc/) -- the single biggest source of\n \n+ inspiration for Markdown's syntax is the format of plain text email.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "SubjectC",
+      "prefix": "###",
+      "name": {
+        "content": "Block Elements",
+        "_type": "SubjectName"
+      },
+      "parenthetical": "",
+      "subjects": [
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Paragraphs and Line Breaks",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "A paragraph is simply one or more consecutive lines of text, separated\n \n+ by one or more blank lines. (A blank line is any line that looks like a\n \n+ blank line -- a line containing nothing but spaces or tabs is considered\n \n+ blank.) Normal paragraphs should not be indented with spaces or tabs.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "The implication of the \"one or more consecutive lines of text\" rule is\n \n+ that Markdown supports \"hard-wrapped\" text paragraphs. This differs\n \n+ significantly from most other text-to-HTML formatters (including Movable\n \n+ Type's \"Convert Line Breaks\" option) which translate every line break\n \n+ character in a paragraph into a `<br />` tag.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "When you *do* want to insert a `<br />` break tag using Markdown, you\n \n+ end a line with two or more spaces, then type return.\n"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Headers",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "Markdown supports two styles of headers, [Setext] [1] and [atx] [2].\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Optionally, you may \"close\" atx-style headers. This is purely\n \n+ cosmetic -- you can use this if you think it looks better. The\n \n+ closing hashes don't even need to match the number of hashes\n \n+ used to open the header. (The number of opening hashes\n \n+ determines the header level.)\n"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Blockquotes",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "Markdown uses email-style `>` characters for blockquoting. If you're\n \n+ familiar with quoting passages of text in an email message, then you\n \n+ know how to create a blockquote in Markdown. It looks best if you hard\n \n+ wrap the text and put a `>` before every line:\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,\n \n+ > consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.\n \n+ > Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.\n \n+ >\n \n+ > Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse\n \n+ > id sem consectetuer libero luctus adipiscing.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Markdown allows you to be lazy and only put the `>` before the first\n \n+ line of a hard-wrapped paragraph:\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,\n \n+ consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.\n \n+ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse\n \n+ id sem consectetuer libero luctus adipiscing.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by\n \n+ adding additional levels of `>`:\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "> This is the first level of quoting.\n \n+ >\n \n+ > > This is nested blockquote.\n \n+ >\n \n+ > Back to the first level.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Blockquotes can contain other Markdown elements, including headers, lists,\n"
+            }
+          ],
+          "annotations": [
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "and code blocks",
+              "content": "",
+              "elaboration": [
+                {
+                  "_type": "Paragraph",
+                  "content": "> ## This is a header.\n \n+ >\n \n+ > 1.   This is the first list item.\n \n+ > 2.   This is the second list item.\n \n+ >\n \n+ > Here's some example code:\n \n+ >\n \n+ >     return shell_exec(\"echo $input | $markdown_script\");\n"
+                },
+                {
+                  "_type": "Paragraph",
+                  "content": "Any decent text editor should make email-style quoting easy. For\n"
+                }
+              ]
+            },
+            {
+              "_type": "Annotation"
+            }
+          ]
+        },
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Lists",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "Markdown supports ordered (numbered) and unordered (bulleted) lists.\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Unordered lists use asterisks, pluses, and hyphens -- interchangably\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "SubjectD",
+      "prefix": "####",
+      "name": {
+        "content": "Code Blocks",
+        "_type": "SubjectName"
+      },
+      "parenthetical": "",
+      "elaboration": [
+        {
+          "_type": "Paragraph",
+          "content": "Pre-formatted code blocks are used for writing about programming or\n \n+ markup source code. Rather than forming normal paragraphs, the lines\n \n+ of a code block are interpreted literally. Markdown wraps a code block\n \n+ in both `<pre>` and `<code>` tags.\n"
+        },
+        {
+          "_type": "Paragraph",
+          "content": "To produce a code block in Markdown, simply indent every line of the\n \n+ block by at least 4 spaces or 1 tab.\n"
+        }
+      ],
+      "annotations": [
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "This is a normal paragraph",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "This is a code block.\n"
+            }
+          ]
+        },
+        {
+          "_type": "Annotation",
+          "emoji": "",
+          "label": "Here is an example of AppleScript",
+          "content": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "tell application \"Foo\"\n \n+ beep\n \n+ end tell\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "A code block continues until it reaches a line that is not indented\n \n+ (or the end of the article).\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Within a code block, ampersands (`&`) and angle brackets (`<` and `>`)\n \n+ are automatically converted into HTML entities. This makes it very\n \n+ easy to include example HTML source code using Markdown -- just paste\n \n+ it and indent it, and Markdown will handle the hassle of encoding the\n \n+ ampersands and angle brackets. For example, this:\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "<div class=\"footer\">\n \n+ &copy; 2004 Foo Corporation\n \n+ </div>\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "Regular Markdown syntax is not processed within code blocks. E.g.,\n \n+ asterisks are just literal asterisks within a code block. This means\n \n+ it's also easy to use Markdown to write about Markdown's own syntax.\n"
+            },
+            {
+              "_type": "CodeBlock",
+              "content": "```\ntell application \"Foo\"\nbeep\nend tell\n```"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "SubjectC",
+      "prefix": "###",
+      "name": {
+        "content": "Span Elements",
+        "_type": "SubjectName"
+      },
+      "parenthetical": "",
+      "subjects": [
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Links",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "annotations": [
+            {
+              "_type": "Annotation",
+              "emoji": "",
+              "label": "Markdown supports two style of links",
+              "content": "*inline* and *reference*.",
+              "elaboration": [
+                {
+                  "_type": "Paragraph",
+                  "content": "In both styles, the link text is delimited by [square brackets].\n"
+                },
+                {
+                  "_type": "Paragraph",
+                  "content": "To create an inline link, use a set of regular parentheses immediately\n \n+ after the link text's closing square bracket. Inside the parentheses,\n \n+ put the URL where you want the link to point, along with an *optional*\n \n+ title for the link, surrounded in quotes. For example:\n"
+                },
+                {
+                  "_type": "Paragraph",
+                  "content": "This is [an example](http://example.com/) inline link.\n"
+                },
+                {
+                  "_type": "Paragraph",
+                  "content": "[This link](http://example.net/) has no title attribute.\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Emphasis",
+            "_type": "SubjectName"
+          },
+          "parenthetical": "",
+          "elaboration": [
+            {
+              "_type": "Paragraph",
+              "content": "Markdown treats asterisks (`*`) and underscores (`_`) as indicators of\n \n+ emphasis. Text wrapped with one `*` or `_` will be wrapped with an\n \n+ HTML `<em>` tag; double `*`'s or `_`'s will be wrapped with an HTML\n \n+ `<strong>` tag. E.g., this input:\n"
+            },
+            {
+              "_type": "Paragraph",
+              "content": "*single asterisks*\n"
+            }
+          ],
+          "classes": [
+            {
+              "_type": "Class",
+              "prefix": "_",
+              "name": {
+                "content": "SingleUnderscores",
+                "_type": "ClassName"
+              },
+              "parenthetical": "",
+              "elaboration": [
+                {
+                  "_type": "Paragraph",
+                  "content": "**double asterisks**\n"
+                }
+              ],
+              "attribute_sections": [
+                {
+                  "_type": "AttributeSection",
+                  "prefix": "__",
+                  "name": {
+                    "content": "double underscores",
+                    "_type": "AttributeSectionName"
+                  },
+                  "parenthetical": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "SubjectD",
+          "prefix": "####",
+          "name": {
+            "content": "Code",
+            "_type": "SubjectName"
+          },
+          "parenthetical": ""
+        }
+      ]
+    }
+  ]
+}

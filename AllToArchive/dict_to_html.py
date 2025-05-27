@@ -3,7 +3,6 @@ from pathlib import Path
 from utils.util_fmk import write_text
 from typing import Dict, List
 
-from bs4 import BeautifulSoup
 from Literate_01 import *
 
 # Perplexity on md to html
@@ -56,16 +55,6 @@ def is_headed(class_name: str) -> bool:
 def is_formula(class_name: str) -> bool:
     return class_name in FORMULA_CLASSES
 
-
-def create_dict_html(data, html_path):
-    all_dict_keys = all_keys(data)
-    print("All keys are: ")
-    for x in all_dict_keys:
-        print("\t", x)
-
-    css_path = "../../LiterateNew.css"
-    css_path = "../../Literate.css"
-    save_styled_dict(data, css_path, html_path)
 
 
 def all_keys(data) -> List[str]:
@@ -524,83 +513,4 @@ def add_classed_value_html(key, value, html):
     html.append(f' <span class="{key} value">{dict_to_html(value)}</span>')
 
 
-def save_styled_dict(data, css_path="styles.css", output_path="output.md"):
-    html = dict_to_html(data)
-    soup = BeautifulSoup(html, "html.parser")
-    pretty_html = soup.prettify()
 
-    html_content = f"""
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="{css_path}">
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    </script>
-</head>
-<body>
-{pretty_html}
-</body>
-</html>
-"""
-
-    Path(output_path).write_text(html_content, encoding="utf-8")
-    print(f"Saved styled dictionary to {output_path}")
-
-
-# Example CSS (save this as styles.css)
-example_css = """
-/* styles.css */
-div {
-    margin-left: 20px;
-    padding: 5px;
-    border-left: 1px solid #eee;
-}
-
-.key {
-    color: #2c3e50;
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.value {
-    color: #3498db;
-}
-
-.custom_type {
-    background-color: #f8f9fa;
-    padding: 8px;
-    border-radius: 4px;
-}
-
-.list {
-    color: #27ae60;
-}
-
-.user_profile {
-    border: 2px solid #e74c3c;
-    padding: 10px;
-}
-"""
-
-Path("styles.css").write_text(example_css)
-
-if __name__ == "__main__":
-    # Example usage
-    class CustomType:
-        def __init__(self, value):
-            self._type = "custom_type"
-            self.value = value
-
-    sample_data = {
-        "user": {
-            "name": "Alice",
-            "age": 30,
-            "preferences": CustomType(["reading", "hiking"]),
-            "_type": "user_profile",
-        },
-        "system": {"version": 2.4, "active": True, "modules": ["auth", "database"]},
-    }
-
-    # Save the styled output
-    save_styled_dict(sample_data)

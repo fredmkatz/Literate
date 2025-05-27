@@ -15,9 +15,7 @@ subjects:
 - _type: SubjectB
   one_liner:
     _type: OneLiner
-    content: 'the basic structure
-
-      of the model'
+    content: the basic structure of the model
   elaboration:
   - _type: Paragraph
     content: 'In Literate Data Modeling, the main components of interest are typically
@@ -3689,176 +3687,59 @@ subjects:
 
         '
     - _type: CodeBlock
-      content: '```typescript
-
-        interface AnnotationType {
-
-        label: string;
-
-        emoji: string;
-
-        emojiName: string;
-
-        emojiUnicode: string;
-
-        purpose: string;
-
-        }
-
-        // LINK: LiterateDataModel.annotationTypes
-
-        const annotationTypes: AnnotationType[] = [
-
-        {
-
-        label: "Error",
-
-        emoji: "",
-
-        emojiName: "cross_mark",
-
-        emojiUnicode: "U+274C",
-
-        purpose: "Indicates a critical error or failure in the model."
-
-        },
-
-        {
-
-        label: "Warning",
-
-        emoji: "",
-
-        emojiName: "warning",
-
-        emojiUnicode: "U+26A0",
-
-        purpose: "Indicates a potential issue or warning in the model."
-
-        },
-
-        {
-
-        label: "Note",
-
-        emoji: "",
-
-        emojiName: "blue_book",
-
-        emojiUnicode: "U+1F4D8",
-
-        purpose: "Provides additional context, explanations, or clarifications for
-        the annotated element."
-
-        },
-
-        {
-
-        label: "Issue",
-
-        emoji: "",
-
-        emojiName: "warning",
-
-        emojiUnicode: "U+26A0",
-
-        purpose: "Highlights a potential issue or error that needs to be addressed
-        or resolved."
-
-        },
-
-        {
-
-        label: "Question",
-
-        emoji: "",
-
-        emojiName: "question",
-
-        emojiUnicode: "U+2753",
-
-        purpose: "Raises a question or seeks further clarification about the annotated
-        element."
-
-        },
-
-        {
-
-        label: "Suggestion",
-
-        emoji: "",
-
-        emojiName: "bulb",
-
-        emojiUnicode: "U+1F4A1",
-
-        purpose: "Provides a suggestion or recommendation for improving the model
-        or the annotated element."
-
-        },
-
-        {
-
-        label: "Info",
-
-        emoji: "",
-
-        emojiName: "information_source",
-
-        emojiUnicode: "U+2139",
-
-        purpose: "Offers relevant information, facts, or details about the annotated
-        element."
-
-        },
-
-        {
-
-        label: "Todo",
-
-        emoji: "",
-
-        emojiName: "pushpin",
-
-        emojiUnicode: "U+1F4CC",
-
-        purpose: "Indicates a pending task, action item, or future work related to
-        the annotated element."
-
-        },
-
-        {
-
-        label: "Reference",
-
-        emoji: "",
-
-        emojiName: "globe_with_meridians",
-
-        emojiUnicode: "U+1F310",
-
-        purpose: "Provides a reference or link to an external resource or documentation."
-
-        },
-
-        {
-
-        label: "See",
-
-        emoji: "",
-
-        emojiName: "mag",
-
-        emojiUnicode: "U+1F50D",
-
-        purpose: "Indicates a cross-reference to another relevant element within the
-        model."
-
-        }
-
-        ];
-
-        ```'
+      content: "```puml\n@startjson\n\n[\n{\n\"label\": \"Error\",\n\"emoji\": \"\u274C\
+        \",\n\"emojiName\": \"cross_mark\",\n\"emojiUnicode\": \"U+274C\",\n\"purpose\"\
+        : \"Indicates a critical error or failure in the model.\"\n},\n{\n\"label\"\
+        : \"Warning\",\n\"emoji\": \"\u26A0\uFE0F\",\n\"emojiName\": \"warning\",\n\
+        \"emojiUnicode\": \"U+26A0\",\n\"purpose\": \"Indicates a potential issue\
+        \ or warning in the model.\"\n},\n{\n\"label\": \"Note\",\n\"emoji\": \"\U0001F4D8\
+        \",\n\"emojiName\": \"blue_book\",\n\"emojiUnicode\": \"U+1F4D8\",\n\"purpose\"\
+        : \"Provides additional context, explanations, or clarifications for the annotated\
+        \ element.\"\n},\n{\n\"label\": \"Issue\",\n\"emoji\": \"\u26A0\uFE0F\",\n\
+        \"emojiName\": \"warning\",\n\"emojiUnicode\": \"U+26A0\",\n\"purpose\": \"\
+        Highlights a potential issue or error that needs to be addressed or resolved.\"\
+        \n},\n{\n\"label\": \"Question\",\n\"emoji\": \"\u2753\",\n\"emojiName\":\
+        \ \"question\",\n\"emojiUnicode\": \"U+2753\",\n\"purpose\": \"Raises a question\
+        \ or seeks further clarification about the annotated element.\"\n},\n{\n\"\
+        label\": \"Suggestion\",\n\"emoji\": \"\U0001F4A1\",\n\"emojiName\": \"bulb\"\
+        ,\n\"emojiUnicode\": \"U+1F4A1\",\n\"purpose\": \"Provides a suggestion or\
+        \ recommendation for improving the model or the annotated element.\"\n},\n\
+        {\n\"label\": \"Info\",\n\"emoji\": \"\u2139\uFE0F\",\n\"emojiName\": \"information_source\"\
+        ,\n\"emojiUnicode\": \"U+2139\",\n\"purpose\": \"Offers relevant information,\
+        \ facts, or details about the annotated element.\"\n},\n{\n\"label\": \"Todo\"\
+        ,\n\"emoji\": \"\U0001F4CC\",\n\"emojiName\": \"pushpin\",\n\"emojiUnicode\"\
+        : \"U+1F4CC\",\n\"purpose\": \"Indicates a pending task, action item, or future\
+        \ work related to the annotated element.\"\n},\n{\n\"label\": \"Reference\"\
+        ,\n\"emoji\": \"\U0001F310\",\n\"emojiName\": \"globe_with_meridians\",\n\"\
+        emojiUnicode\": \"U+1F310\",\n\"purpose\": \"Provides a reference or link\
+        \ to an external resource or documentation.\"\n},\n{\n\"label\": \"See\",\n\
+        \"emoji\": \"\U0001F50D\",\n\"emojiName\": \"mag\",\n\"emojiUnicode\": \"\
+        U+1F50D\",\n\"purpose\": \"Indicates a cross-reference to another relevant\
+        \ element within the model.\"\n}\n]\n@endjson\n\n```"
+    is_embellishment: false
+    prefix: '###'
+    name:
+      _type: SubjectName
+      content: Annotation Types Used
+    parenthetical: ''
+  - _type: SubjectC
+    elaboration:
+    - _type: CodeBlock
+      content: "``` csv\nlabel,emoji,emojiName,emojiUnicode,purpose\nError,\u274C\
+        ,cross_mark,U+274C,Indicates a critical error or failure in the model.\nWarning,\u26A0\
+        \uFE0F,warning,U+26A0,Indicates a potential issue or warning in the model.\n\
+        Note,,blue_book,U+1F4D8,\"Provides additional context, explanations, or clarifications\
+        \ for the annotated element.\"\nIssue,,warning,U+26A0,Highlights a potential\
+        \ issue or error that needs to be addressed or resolved.\nQuestion,\u2753\
+        ,question,U+2753,Raises a question or seeks further clarification about the\
+        \ annotated element.\nSuggestion,\U0001F4A1,bulb,U+1F4A1,Provides a suggestion\
+        \ or recommendation for improving the model or the annotated element.\nInfo,\u2139\
+        \uFE0F,information_source,U+2139,\"Offers relevant information, facts, or\
+        \ details about the annotated element.\"\nTodo,\U0001F4CC,pushpin,U+1F4CC,\"\
+        Indicates a pending task, action item, or future work related to the annotated\
+        \ element.\"\nReference,\U0001F310,globe_with_meridians,U+1F310,Provides a\
+        \ reference or link to an external resource or documentation.\nSee,,mag,U+1F50D,Indicates\
+        \ a cross-reference to another relevant element within the model.\n\n```"
     - _type: Paragraph
       content: '===
 
@@ -3867,7 +3748,7 @@ subjects:
     prefix: '###'
     name:
       _type: SubjectName
-      content: Annotation Types Used
+      content: Annotation types as CSV
     parenthetical: ''
 - _type: SubjectB
   elaboration:

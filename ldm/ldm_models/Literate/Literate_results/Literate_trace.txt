@@ -1,4 +1,8 @@
+
+Phase: Parsing model: ldm/ldm_models/Literate/Literate.md
 PARSING ldm/ldm_models/Literate/Literate.md
+
+Phase: Deriving dict for model
 adding name value. one_liner -.  name
 
 adding name value. one_liner -.  false
@@ -247,6 +251,8 @@ Class map is
     'SubtypingName': <class 'ldm.Literate_01.SubtypingName'>,
     'UpperCamel': <class 'utils.class_casing.UpperCamel'>,
     'ValueType': <class 'ldm.Literate_01.ValueType'>}
+
+Phase: Creating model from dictionary: ldm/ldm_models/Literate/Literate_results/Literate.dict.yaml
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'Component', '_type': 'ClassName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'An element or building block of the literate data model'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'normalName', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'the name of the component, not in camel case'}, 'parenthetical': '*String*', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'String', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'name', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'The name of the component'}, 'parenthetical': 'CamelName', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'CamelName', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'qualifiedName', '_type': 'AttributeName'}, 'parenthetical': '*QualifiedCamel*', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'QualifiedCamel', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'abbreviatedName', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': "a short form of the component's name, used for cross references and improved readability."}, 'parenthetical': '*CamelName*', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'CamelName', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'default': {'_type': 'Default', 'one_liner': OneLiner(_type='OneLiner', content=' name\n')}, 'annotations': [{'_type': 'Annotation', 'emoji': '', 'label': 'Example', 'content': '"LDM" is the short form of "Literate Data Model".'}]}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'oneLiner', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _'}, 'parenthetical': 'RichLine', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'RichLine', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'elaboration', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'A more detailed explanation or discussion of the component _'}, 'parenthetical': 'RichText', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'RichText', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}], 'attribute_sections': [{'_type': 'AttributeSection', 'prefix': '__', 'name': {'content': 'For Machinery', '_type': 'AttributeSectionName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'mechanical attributes'}, 'parenthetical': '', 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'isEmbellishment', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'Indicates whether this component is an embellishment added during post-parsing processing _'}, 'parenthetical': 'Boolean', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Boolean', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'default': {'_type': 'Default', 'one_liner': OneLiner(_type='OneLiner', content=' false\n')}, 'annotations': [{'_type': 'Annotation', 'emoji': '', 'label': 'Note', 'content': 'This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.'}]}]}]} 
 In AttSection post-init for For Machinery, is_optional = None
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'AnnotationType', '_type': 'ClassName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'a kind of note, or aside, used to call attention to additional information about some Component.'}, 'parenthetical': '', 'based_on': [ClassName(content='LiterateDataModel', _type='ClassName')], 'annotations': [{'_type': 'Annotation', 'emoji': '', 'label': 'Note', 'content': 'Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.'}], 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'emoji', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'an emoji'}, 'parenthetical': 'Emoji', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Emoji', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'emojiName', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'an emoji'}, 'parenthetical': 'String', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'String', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'emojiUnicode', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'the Unicode for the emoji'}, 'parenthetical': 'Unicode', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'Unicode', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'label', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'A short label to indicate the purpose of the annotation _'}, 'parenthetical': 'CamelName', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'CamelName', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'plural', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'the plural form of the label'}, 'parenthetical': '*UpperCamel*', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'UpperCamel', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'default': {'_type': 'Default', 'one_liner': OneLiner(_type='OneLiner', content=' based on label\n')}}, {'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'purpose', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'the intended reason for the annotation.'}, 'parenthetical': ''}]} 
@@ -289,9 +295,13 @@ Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict 
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'RichLine', '_type': 'ClassName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'String with markup for line level formatting.'}, 'parenthetical': '', 'subtype_of': [(ClassName(content='RichText', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))], 'attributes': [{'_type': 'Attribute', 'prefix': '-', 'name': {'content': 'value', '_type': 'AttributeName'}, 'one_liner': {'_type': 'OneLiner', 'content': 'the string content'}, 'parenthetical': 'string', 'data_type_clause': {'data_type': {'_type': 'BaseDataType', 'class_name': {'content': 'String', '_type': 'ClassName'}, 'as_value_type': {'t_value': False, '_type': 'AsValue'}}, 'is_optional_lit': {'t_value': False, '_type': 'IsOptional'}, '_type': 'DataTypeClause'}, 'constraints': [{'_type': 'Constraint', 'one_liner': [OneLiner(_type='OneLiner', content=' must not containa line break or new line character\n')]}]}]} 
 Tracing Class - type is <class 'dict'> to <class 'ldm.Literate_01.Class'>, dict = {'_type': 'Class', 'prefix': '_', 'name': {'content': 'PrimitiveType', '_type': 'ClassName'}, 'parenthetical': '', 'subtype_of': [(ClassName(content='ValueTypeABasic', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName')), (ClassName(content='BuiltInDataType', _type='ClassName'), SubtypingName(content='subtypes', _type='SubtypingName'))], 'annotations': [{'_type': 'Annotation', 'emoji': '', 'label': 'Values', 'content': '', 'elaboration': [{'_type': 'Paragraph', 'content': '===\n'}]}]} 
 Created model: <class 'ldm.Literate_01.LiterateModel'>
+
+Phase: Validating model
 Validating references...
 Validation errors: 56
-{"Validation Error in Attribute: Required field 'data_type_clause' is missing": 16, "Validation Error in Class: For field 'based_on' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 6, "Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 8, "Validation Error in Constraint: For field 'one_liner' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'list'>": 5, "Validation Error in Class: For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got <class 'str'>": 1, "Validation Error in Class: For field 'subtype_of' - expected typing.Optional[typing.Dict[ldm.Literate_01.ClassName, ldm.Literate_01.SubtypingName]], but got <class 'list'>": 17, "Validation Error in Class: For field 'dependent_of' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 1, "Validation Error in Class: For field 'where' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'str'>": 3, "Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 2, "Validation Error in Attribute: Required field 'name' is missing": 7}
+
+Phase: counting errors
+{"Validation Error in Attribute: Required field 'data_type_clause' is missing": 16, "Validation Error in Class: For field 'based_on' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 6, "Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 8, "Validation Error in Constraint: For field 'one_liner' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'list'>": 5, "Validation Error in Class: For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got <class 'str'>": 1, "Validation Error in Class: For field 'subtype_of' - expected typing.Optional[typing.Dict[ldm.Literate_01.ClassName, ldm.Literate_01.SubtypingName]], but got <class 'list'>": 17, "Validation Error in Class: For field 'dependent_of' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>": 1, "Validation Error in Class: For field 'where' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'str'>": 3, "Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>": 3, "Validation Error in Attribute: Required field 'name' is missing": 7}
 16 	 Validation Error in Attribute: Required field 'data_type_clause' is missing
 6 	 Validation Error in Class: For field 'based_on' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>
 8 	 Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
@@ -300,11 +310,15 @@ Validation errors: 56
 17 	 Validation Error in Class: For field 'subtype_of' - expected typing.Optional[typing.Dict[ldm.Literate_01.ClassName, ldm.Literate_01.SubtypingName]], but got <class 'list'>
 1 	 Validation Error in Class: For field 'dependent_of' - expected typing.Optional[typing.List[ldm.Literate_01.ClassName]], but got <class 'list'>
 3 	 Validation Error in Class: For field 'where' - expected typing.Optional[ldm.Literate_01.OneLiner], but got <class 'str'>
-2 	 Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
+3 	 Validation Error in SubjectC: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'ldm.Literate_01.SubjectName'>
 7 	 Validation Error in Attribute: Required field 'name' is missing
+
+Phase: Serialing model ...
 Model serialized to ldm/ldm_models/Literate/Literate_results/Literate.model.json
 Model serialized to ldm/ldm_models/Literate/Literate_results/Literate.model.yaml
 ..Created model files: ldm/ldm_models/Literate/Literate_results/Literate.model.json and ldm/ldm_models/Literate/Literate_results/Literate.model.yaml
+
+Phase: Rendering back to markdown
 8  subjects coming in model
 WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
 WARNING: No render for type <class 'Literate_01.ClassName'>
@@ -322,584 +336,716 @@ WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
 WARNING: No render for type <class 'utils.class_pom_token.IsOptional'>
 WARNING: No render for type <class 'Literate_01.ClassName'>
 WARNING: No render for type <class 'Literate_01.ClassName'>
+
+Phase: Creating HTML from model dict
 All keys are: 
+	 parenthetical
+	 constraints
+	 derivation
+	 content
+	 annotations
+	 data_type_clause
+	 is_optional_lit
+	 emoji
+	 element_type
+	 where
+	 abbreviation
+	 attributes
+	 inverse
+	 dependent_of
+	 name
+	 one_liner
 	 subjects
-	 attribute_sections
+	 based_on
 	 default
 	 elaboration
+	 class_name
 	 prefix
-	 element_type
-	 plural
-	 abbreviation
-	 constraints
-	 is_optional_lit
-	 data_type
-	 emoji
-	 parenthetical
-	 annotations
-	 classes
-	 one_liner
-	 t_value
-	 attributes
-	 overrides
-	 derivation
 	 _type
 	 attribute_name
-	 dependent_of
-	 data_type_clause
-	 class_name
-	 where
-	 inverse
-	 based_on
-	 as_value_type
-	 name
+	 t_value
+	 data_type
 	 label
+	 as_value_type
 	 subtype_of
-	 content
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="Preliminaries">
-  Preliminaries
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the basic structure
-of the model
-  </p>
- </div>
-</div>
-
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="Component">
-  Component
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   An element or building block of the literate data model
-  </p>
- </div>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="normalName">
-  normalName
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the name of the component, not in camel case
-  </p>
- </div>
- <span class="parenthetical value">
-  *String*
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#String">
-    String
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="name">
-  name
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   The name of the component
-  </p>
- </div>
- <span class="parenthetical value">
-  CamelName
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#CamelName">
-    CamelName
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="qualifiedName">
-  qualifiedName
- </a>
- <span class="parenthetical value">
-  *QualifiedCamel*
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#QualifiedCamel">
-    QualifiedCamel
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="abbreviatedName">
-  abbreviatedName
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   a short form of the component's name, used for cross references and improved readability.
-  </p>
- </div>
- <span class="parenthetical value">
-  *CamelName*
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#CamelName">
-    CamelName
-   </a>
-   value
-  </span>
- </span>
-</div>
-
+	 overrides
+	 attribute_sections
+	 classes
+	 plural
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   name
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="oneLiner">
-  oneLiner
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _
-  </p>
- </div>
- <span class="parenthetical value">
-  RichLine
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#RichLine">
-    RichLine
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="elaboration">
-  elaboration
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   A more detailed explanation or discussion of the component _
-  </p>
- </div>
- <span class="parenthetical value">
-  RichText
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#RichText">
-    RichText
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-AttributeSection header is <div class="AttributeSection_header header">
- <span class="prefix value">
-  __
- </span>
- <a class="AttributeSectionName name" id="For Machinery">
-  For Machinery
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   mechanical attributes
-  </p>
- </div>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="isEmbellishment">
-  isEmbellishment
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   Indicates whether this component is an embellishment added during post-parsing processing _
-  </p>
- </div>
- <span class="parenthetical value">
-  Boolean
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Boolean">
-    Boolean
-   </a>
-   value
-  </span>
- </span>
-</div>
 
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   false
 
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="AnnotationType">
-  AnnotationType
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   a kind of note, or aside, used to call attention to additional information about some Component.
-  </p>
- </div>
-</div>
-
 Orphaned list:  [ClassName(content='LiterateDataModel', _type='ClassName')]
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="emoji">
-  emoji
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   an emoji
-  </p>
- </div>
- <span class="parenthetical value">
-  Emoji
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Emoji">
-    Emoji
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="emojiName">
-  emojiName
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   an emoji
-  </p>
- </div>
- <span class="parenthetical value">
-  String
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#String">
-    String
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="emojiUnicode">
-  emojiUnicode
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the Unicode for the emoji
-  </p>
- </div>
- <span class="parenthetical value">
-  Unicode
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Unicode">
-    Unicode
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="label">
-  label
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   A short label to indicate the purpose of the annotation _
-  </p>
- </div>
- <span class="parenthetical value">
-  CamelName
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#CamelName">
-    CamelName
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="plural">
-  plural
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the plural form of the label
-  </p>
- </div>
- <span class="parenthetical value">
-  *UpperCamel*
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#UpperCamel">
-    UpperCamel
-   </a>
-   value
-  </span>
- </span>
-</div>
-
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   based on label
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="purpose">
-  purpose
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   the intended reason for the annotation.
-  </p>
- </div>
-</div>
-
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement">
-  ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
- </a>
-</div>
-
 Orphaned list:  [ClassName(content='Component', _type='ClassName')]
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="annotationType">
-  annotationType
- </a>
- <span class="parenthetical value">
-  optional Annotation Type
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#AnnotationType">
-    AnnotationType
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="label">
-  label
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   A short label to indicate the purpose of the annotation _
-  </p>
- </div>
- <span class="parenthetical value">
-  CamelName
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#CamelName">
-    CamelName
-   </a>
-   value
-  </span>
- </span>
-</div>
-
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   from annotationType
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="emoji">
-  emoji
- </a>
- <span class="parenthetical value">
-  optional Emoji
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Emoji">
-    Emoji
-   </a>
-   value
-  </span>
- </span>
-</div>
 
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   from annotation type
 
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="content">
-  content
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   The content or body of the annotation
-  </p>
- </div>
- <span class="parenthetical value">
-  *RichText*
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#RichText">
-    RichText
-   </a>
-   value
-  </span>
- </span>
-</div>
-
-AttributeSection header is <div class="AttributeSection_header header">
- <span class="prefix value">
-  __
- </span>
- <a class="AttributeSectionName name" id="For Machinery">
-  For Machinery
- </a>
-</div>
-
-Attribute header is <div class="Attribute_header header">
- <span class="prefix value">
-  -
- </span>
- <a class="AttributeName name" id="isEmbellishment">
-  isEmbellishment
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   Indicates whether this annotation is an embellishment added during post-parsing processing _
-  </p>
- </div>
- <span class="parenthetical value">
-  Boolean
- </span>
- <span class="data_type_clause value">
-  <span class="base_data_type">
-   <a class="base_class" href="#Boolean">
-    Boolean
-   </a>
-   value
-  </span>
- </span>
-</div>
-
 Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   false
 
-Subject header is <div class="Subject_header header">
- <span class="prefix value">
-  ##
- </span>
- <a class="SubjectName name" id="The Model and its Subjects">
-  The Model and its Subjects
- </a>
-</div>
-
-Class header is <div class="Class_header header">
- <span class="prefix value">
-  _
- </span>
- <a class="ClassName name" id="LiterateDataModel">
-  LiterateDataModel
- </a>
- <div class="OneLiner mdhtml">
-  <p>
-   A representation of a domain's entities, attributes, and relationships,
-along with explanatory text and examples
-  </p>
- </div>
-</div>
-
 Orphaned dict:  abbreviation
-Directory 'ldm/ldm_models/Biblio/Biblio_results' and its contents have been removed.
-Model dir:  ldm/ldm_models/Biblio
-Model name:  Biblio
-Model doc:  Biblio.md
-Model name:  Biblio
-Model doc path:  ldm/ldm_models/Biblio/Biblio.md
-Results dir:  ldm/ldm_models/Biblio/Biblio_results
-Trace path:  ldm/ldm_models/Biblio/Biblio_results/Biblio_trace.txt
-Rediirecting to:  ldm/ldm_models/Biblio/Biblio_results/Biblio_trace.txt
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('abbreviation', 'LDM', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="LiterateDataModel">LiterateDataModel</a><div class="OneLiner mdhtml"><div><p>A representation of a domain's entities, attributes, and relationships,
+along with explanatory text and examples</p></div></div></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' LiterateDataModels\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="LiterateDataModel">LiterateDataModel</a><div class="OneLiner mdhtml"><div><p>A representation of a domain's entities, attributes, and relationships,
+along with explanatory text and examples</p></div></div></div></div><div class="str"><span class="key">abbreviation:</span></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   gathering s.allSubjects over s in subjectAreas
+
+Orphaned list:  [OneLiner(_type='OneLiner', content=' Subject names must be unique across the model.\n')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   Subject names must be unique across the model.
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   gathering s.allClasses over s in allSubjects.
+
+Orphaned list:  [OneLiner(_type='OneLiner', content=' Class names must be unique across the model.\n')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   Class names must be unique across the model.
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   OCL
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   Handlebars
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   ['aiEnglishPlural()']
+
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' Subjects\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="SubjectASpecificTopicOrThemeWithinTheModel">SubjectASpecificTopicOrThemeWithinTheModel</a></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned list:  [ClassName(content='LiterateDataModel', _type='ClassName')]
+Orphaned dict:  inverse
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('inverse', {'_type': 'AttributeReference', 'class_name': ClassName(content='Subject', _type='ClassName'), 'attribute_name': AttributeName(content='parentSubject', _type='AttributeName')}, FluentTag(<html><div class="Attribute"><div class="Attribute_header header"><span class="prefix value">-</span><a class="AttributeName name" id="childSubjects">childSubjects</a><div class="OneLiner mdhtml"><div><p>Any child subjects nested under this subject, in the order in which they should be presented _</p></div></div><span class="parenthetical value">ListOf Subjects</span><span class="data_type_clause value"><span class="list_data_type">List of<span class="base_data_type"><a class="base_class" href="#Subjects">Subjects-es</a>value_es</span></span></span></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="dict">
+</div>
+
+Orphaned dict:  class_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('class_name', ClassName(content='Subject', _type='ClassName'), FluentTag(<html><div class="AttributeReference"></div></html>)) {}
+ADD_KEY_VALUE
+<div class="ClassName">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+Orphaned dict:  attribute_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('attribute_name', AttributeName(content='parentSubject', _type='AttributeName'), FluentTag(<html><div class="AttributeReference"></div><div class="ClassName"><span class="key">class_name:</span></div></html>)) {}
+ADD_KEY_VALUE
+<div class="AttributeName">
+</div>
+
+Orphaned ? <class 'Literate_01.AttributeName'> :  parentSubject
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' SubjectAreas\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses">SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses</a></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  where
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('where', ' parentSubject is absent\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses">SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses</a></div></div><div class="str"><span class="key">plural:</span></div><div class="subtype_of_clause"><span class="clause_label">subtype_of</span><div class="subtype_pairs"></div><div class="subtype_pair"><span class="class_name_link" href="#Subject">Subject</span>bySomething</div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' Classes\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="Class">Class</a><div class="OneLiner mdhtml"><div><p>A key entity or object type in the model, often corresponding to a real-world concept</p></div></div></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned list:  [OneLiner(_type='OneLiner', content=' Within each Class, attribute names must be unique.\n')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   Within each Class, attribute names must be unique.
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   the regular plural, formed by adding "s" or "es".
+
+Orphaned dict:  inverse
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('inverse', {'_type': 'AttributeReference', 'class_name': ClassName(content='Class', _type='ClassName'), 'attribute_name': AttributeName(content='basedOn', _type='AttributeName')}, FluentTag(<html><div class="Attribute"><div class="Attribute_header header"><span class="prefix value">-</span><a class="AttributeName name" id="dependents">dependents</a><div class="OneLiner mdhtml"><div><p>the Classes which are basedOn this Class</p></div></div><span class="parenthetical value">optional SetOf Classes</span><span class="data_type_clause value"><span class="set_data_type">Set of<span class="base_data_type"><a class="base_class" href="#Classes">Classes-es</a>value_es</span></span></span></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="dict">
+</div>
+
+Orphaned dict:  class_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('class_name', ClassName(content='Class', _type='ClassName'), FluentTag(<html><div class="AttributeReference"></div></html>)) {}
+ADD_KEY_VALUE
+<div class="ClassName">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+Orphaned dict:  attribute_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('attribute_name', AttributeName(content='basedOn', _type='AttributeName'), FluentTag(<html><div class="AttributeReference"></div><div class="ClassName"><span class="key">class_name:</span></div></html>)) {}
+ADD_KEY_VALUE
+<div class="AttributeName">
+</div>
+
+Orphaned ? <class 'Literate_01.AttributeName'> :  basedOn
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  inverse
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('inverse', {'_type': 'AttributeReference', 'class_name': ClassName(content='UniqueKey', _type='ClassName'), 'attribute_name': AttributeName(content='basedOn', _type='AttributeName')}, FluentTag(<html><div class="Attribute"><div class="Attribute_header header"><span class="prefix value">-</span><a class="AttributeName name" id="uniqueKeys">uniqueKeys</a><span class="parenthetical value">optional Set of UniqueKeys</span><span class="data_type_clause value"><span class="set_data_type">Set of<span class="base_data_type"><a class="base_class" href="#UniqueKeys">UniqueKeys-es</a>value_es</span></span></span></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="dict">
+</div>
+
+Orphaned dict:  class_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('class_name', ClassName(content='UniqueKey', _type='ClassName'), FluentTag(<html><div class="AttributeReference"></div></html>)) {}
+ADD_KEY_VALUE
+<div class="ClassName">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+Orphaned dict:  attribute_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('attribute_name', AttributeName(content='basedOn', _type='AttributeName'), FluentTag(<html><div class="AttributeReference"></div><div class="ClassName"><span class="key">class_name:</span></div></html>)) {}
+ADD_KEY_VALUE
+<div class="AttributeName">
+</div>
+
+Orphaned ? <class 'Literate_01.AttributeName'> :  basedOn
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned list:  [ClassName(content='Class', _type='ClassName')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   true
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   true
+
+Orphaned list:  [ClassName(content='Class', _type='ClassName')]
+Orphaned list:  [OneLiner(_type='OneLiner', content=' each attribute must be a direct or inherited of the base class.\n')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   each attribute must be a direct or inherited of the base class.
+
+Orphaned list:  [OneLiner(_type='OneLiner', content=' no repetitions allowed in keyAttributes\n> 👍 **Issue**: introduce PureLists?')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   no repetitions allowed in keyAttributes
+> 👍 **Issue**: introduce PureLists?
+Orphaned list:  [ClassName(content='Class', _type='ClassName')]
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' Attributes\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="AttributeAPropertyOrCharacteristicOfAClass">AttributeAPropertyOrCharacteristicOfAClass</a></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned list:  [ClassName(content='AttributeSection', _type='ClassName')]
+Orphaned dict:  overrides
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('overrides', {'_type': 'AttributeReference', 'class_name': 'CamelName', 'attribute_name': ''}, FluentTag(<html><div class="Attribute"><div class="Attribute_header header"><span class="prefix value">-</span><a class="AttributeName name" id="name">name</a><span class="parenthetical value">Lower Camel</span><span class="data_type_clause value"><span class="base_data_type"><a class="base_class" href="#LowerCamel">LowerCamel</a>value</span></span></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="dict">
+</div>
+
+Orphaned dict:  class_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('class_name', 'CamelName', FluentTag(<html><div class="AttributeReference"></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+Orphaned dict:  attribute_name
+[ldm_to_html.py:235 -                  add_key_value_html()] . <  Called by dict_to_html with args ('attribute_name', '', FluentTag(<html><div class="AttributeReference"></div><div class="str"><span class="key">class_name:</span></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] . >  Returned None
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :  *** False
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :  ***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.
+For a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   true if the data type is a class or a simple collection of members of a class.
+
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   from the data type. Null unless arrribute is invertible.
+
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' Derivations\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute">ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute</a></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' Constraints\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel">ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel</a></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned list:  [ClassName(content='Class', _type='ClassName')]
+Orphaned list:  [ClassName(content='Attribute', _type='ClassName')]
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' Methods\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="MethodABehaviorOrOperationAssociatedWithAClass">MethodABehaviorOrOperationAssociatedWithAClass</a></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  plural
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('plural', ' Parameters\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="ParameterAnInputToAMethod">ParameterAnInputToAMethod</a></div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned list:  [OneLiner(_type='OneLiner', content=' Must follow the camel case naming convention and not be empty.\n')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   Must follow the camel case naming convention and not be empty.
+
+Orphaned dict:  where
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('where', ' content begins with an upper case letter.\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="UpperCamel">UpperCamel</a><div class="OneLiner mdhtml"><div><p>a CamelName that begins with a capital letter</p></div></div></div></div><div class="subtype_of_clause"><span class="clause_label">subtype_of</span><div class="subtype_pairs"></div><div class="subtype_pair"><span class="class_name_link" href="#CamelName">CamelName</span>bySomething</div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned dict:  where
+[ldm_to_html.py:235 -                  add_key_value_html()] <  Called by dict_to_html with args ('where', ' content begins with a lower case letter.\n', FluentTag(<html><div class="Class"><div class="Class_header header"><span class="prefix value">_</span><a class="ClassName name" id="LowerCamel">LowerCamel</a><div class="OneLiner mdhtml"><div><p>a CamelName that begins with a lower case letter</p></div></div></div></div><div class="subtype_of_clause"><span class="clause_label">subtype_of</span><div class="subtype_pairs"></div><div class="subtype_pair"><span class="class_name_link" href="#CamelName">CamelName</span>bySomething</div></div></html>)) {}
+ADD_KEY_VALUE
+<div class="str">
+</div>
+
+[ldm_to_html.py:235 -                  add_key_value_html()] >  Returned None
+Orphaned list:  [OneLiner(_type='OneLiner', content=' content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.\n')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.
+
+Orphaned list:  [OneLiner(_type='OneLiner', content=' must not containa line break or new line character\n')]
+Orphaned ? <class 'ldm.Literate_01.OneLiner'> :   must not containa line break or new line character
+
+Starting codeblock
+<code class="language-puml">
+ @startjson
+
+[
+{
+"label": "Error",
+"emoji": "❌",
+"emojiName": "cross_mark",
+"emojiUnicode": "U+274C",
+"purpose": "Indicates a critical error or failure in the model."
+},
+{
+"label": "Warning",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Indicates a potential issue or warning in the model."
+},
+{
+"label": "Note",
+"emoji": "📘",
+"emojiName": "blue_book",
+"emojiUnicode": "U+1F4D8",
+"purpose": "Provides additional context, explanations, or clarifications for the annotated element."
+},
+{
+"label": "Issue",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Highlights a potential issue or error that needs to be addressed or resolved."
+},
+{
+"label": "Question",
+"emoji": "❓",
+"emojiName": "question",
+"emojiUnicode": "U+2753",
+"purpose": "Raises a question or seeks further clarification about the annotated element."
+},
+{
+"label": "Suggestion",
+"emoji": "💡",
+"emojiName": "bulb",
+"emojiUnicode": "U+1F4A1",
+"purpose": "Provides a suggestion or recommendation for improving the model or the annotated element."
+},
+{
+"label": "Info",
+"emoji": "ℹ️",
+"emojiName": "information_source",
+"emojiUnicode": "U+2139",
+"purpose": "Offers relevant information, facts, or details about the annotated element."
+},
+{
+"label": "Todo",
+"emoji": "📌",
+"emojiName": "pushpin",
+"emojiUnicode": "U+1F4CC",
+"purpose": "Indicates a pending task, action item, or future work related to the annotated element."
+},
+{
+"label": "Reference",
+"emoji": "🌐",
+"emojiName": "globe_with_meridians",
+"emojiUnicode": "U+1F310",
+"purpose": "Provides a reference or link to an external resource or documentation."
+},
+{
+"label": "See",
+"emoji": "🔍",
+"emojiName": "mag",
+"emojiUnicode": "U+1F50D",
+"purpose": "Indicates a cross-reference to another relevant element within the model."
+}
+]
+@endjson
+</code>
+
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x000001C82A634900>
+creating png in ldm/ldm_models/Literate/Literate_results/assets/diagram1.png
+PUML png file saved to: ldm/ldm_models/Literate/Literate_results/assets/diagram1.png
+creating svg in ldm/ldm_models/Literate/Literate_results/assets/diagram1.svg
+PUML svg file saved to: ldm/ldm_models/Literate/Literate_results/assets/diagram1.svg
+SVG div for PUML
+<div class="diagram svg puml" string="SVG Diagram">
+ <img src="assets/diagram1.svg"/>
+</div>
+
+Finished codeblock for PUML
+<code class="language-puml">
+ @startjson
+
+[
+{
+"label": "Error",
+"emoji": "❌",
+"emojiName": "cross_mark",
+"emojiUnicode": "U+274C",
+"purpose": "Indicates a critical error or failure in the model."
+},
+{
+"label": "Warning",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Indicates a potential issue or warning in the model."
+},
+{
+"label": "Note",
+"emoji": "📘",
+"emojiName": "blue_book",
+"emojiUnicode": "U+1F4D8",
+"purpose": "Provides additional context, explanations, or clarifications for the annotated element."
+},
+{
+"label": "Issue",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Highlights a potential issue or error that needs to be addressed or resolved."
+},
+{
+"label": "Question",
+"emoji": "❓",
+"emojiName": "question",
+"emojiUnicode": "U+2753",
+"purpose": "Raises a question or seeks further clarification about the annotated element."
+},
+{
+"label": "Suggestion",
+"emoji": "💡",
+"emojiName": "bulb",
+"emojiUnicode": "U+1F4A1",
+"purpose": "Provides a suggestion or recommendation for improving the model or the annotated element."
+},
+{
+"label": "Info",
+"emoji": "ℹ️",
+"emojiName": "information_source",
+"emojiUnicode": "U+2139",
+"purpose": "Offers relevant information, facts, or details about the annotated element."
+},
+{
+"label": "Todo",
+"emoji": "📌",
+"emojiName": "pushpin",
+"emojiUnicode": "U+1F4CC",
+"purpose": "Indicates a pending task, action item, or future work related to the annotated element."
+},
+{
+"label": "Reference",
+"emoji": "🌐",
+"emojiName": "globe_with_meridians",
+"emojiUnicode": "U+1F310",
+"purpose": "Provides a reference or link to an external resource or documentation."
+},
+{
+"label": "See",
+"emoji": "🔍",
+"emojiName": "mag",
+"emojiUnicode": "U+1F50D",
+"purpose": "Indicates a cross-reference to another relevant element within the model."
+}
+]
+@endjson
+ <div class="diagram svg puml" string="SVG Diagram">
+  <img src="assets/diagram1.svg"/>
+ </div>
+ <div class="diagram png puml" string="PNG Diagram">
+  <img src="assets/diagram1.png"/>
+ </div>
+</code>
+
+and Finished codeblock parent for PUML
+<function FluentTag.__getattr__.<locals>.wrapped at 0x000001C82A48FEC0>
+Starting codeblock
+<code class="language-csv">
+ label,emoji,emojiName,emojiUnicode,purpose
+Error,❌,cross_mark,U+274C,Indicates a critical error or failure in the model.
+Warning,⚠️,warning,U+26A0,Indicates a potential issue or warning in the model.
+Note,,blue_book,U+1F4D8,"Provides additional context, explanations, or clarifications for the annotated element."
+Issue,,warning,U+26A0,Highlights a potential issue or error that needs to be addressed or resolved.
+Question,❓,question,U+2753,Raises a question or seeks further clarification about the annotated element.
+Suggestion,💡,bulb,U+1F4A1,Provides a suggestion or recommendation for improving the model or the annotated element.
+Info,ℹ️,information_source,U+2139,"Offers relevant information, facts, or details about the annotated element."
+Todo,📌,pushpin,U+1F4CC,"Indicates a pending task, action item, or future work related to the annotated element."
+Reference,🌐,globe_with_meridians,U+1F310,Provides a reference or link to an external resource or documentation.
+See,,mag,U+1F50D,Indicates a cross-reference to another relevant element within the model.
+</code>
+
+and Starting codeblock parent for
+<function FluentTag.__getattr__.<locals>.wrapped at 0x000001C82A6342C0>
+table follows <div class="codes-table">
+ <table border="1" class="dataframe">
+  <thead>
+   <tr style="text-align: right;">
+    <th>
+    </th>
+    <th>
+     label
+    </th>
+    <th>
+     emoji
+    </th>
+    <th>
+     emojiName
+    </th>
+    <th>
+     emojiUnicode
+    </th>
+    <th>
+     purpose
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <th>
+     0
+    </th>
+    <td>
+     Error
+    </td>
+    <td>
+     ❌
+    </td>
+    <td>
+     cross_mark
+    </td>
+    <td>
+     U+274C
+    </td>
+    <td>
+     Indicates a critical error or failure in the model.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     1
+    </th>
+    <td>
+     Warning
+    </td>
+    <td>
+     ⚠️
+    </td>
+    <td>
+     warning
+    </td>
+    <td>
+     U+26A0
+    </td>
+    <td>
+     Indicates a potential issue or warning in the model.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     2
+    </th>
+    <td>
+     Note
+    </td>
+    <td>
+     NaN
+    </td>
+    <td>
+     blue_book
+    </td>
+    <td>
+     U+1F4D8
+    </td>
+    <td>
+     Provides additional context, explanations, or clarifications for the annotated element.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     3
+    </th>
+    <td>
+     Issue
+    </td>
+    <td>
+     NaN
+    </td>
+    <td>
+     warning
+    </td>
+    <td>
+     U+26A0
+    </td>
+    <td>
+     Highlights a potential issue or error that needs to be addressed or resolved.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     4
+    </th>
+    <td>
+     Question
+    </td>
+    <td>
+     ❓
+    </td>
+    <td>
+     question
+    </td>
+    <td>
+     U+2753
+    </td>
+    <td>
+     Raises a question or seeks further clarification about the annotated element.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     5
+    </th>
+    <td>
+     Suggestion
+    </td>
+    <td>
+     💡
+    </td>
+    <td>
+     bulb
+    </td>
+    <td>
+     U+1F4A1
+    </td>
+    <td>
+     Provides a suggestion or recommendation for improving the model or the annotated element.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     6
+    </th>
+    <td>
+     Info
+    </td>
+    <td>
+     ℹ️
+    </td>
+    <td>
+     information_source
+    </td>
+    <td>
+     U+2139
+    </td>
+    <td>
+     Offers relevant information, facts, or details about the annotated element.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     7
+    </th>
+    <td>
+     Todo
+    </td>
+    <td>
+     📌
+    </td>
+    <td>
+     pushpin
+    </td>
+    <td>
+     U+1F4CC
+    </td>
+    <td>
+     Indicates a pending task, action item, or future work related to the annotated element.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     8
+    </th>
+    <td>
+     Reference
+    </td>
+    <td>
+     🌐
+    </td>
+    <td>
+     globe_with_meridians
+    </td>
+    <td>
+     U+1F310
+    </td>
+    <td>
+     Provides a reference or link to an external resource or documentation.
+    </td>
+   </tr>
+   <tr>
+    <th>
+     9
+    </th>
+    <td>
+     See
+    </td>
+    <td>
+     NaN
+    </td>
+    <td>
+     mag
+    </td>
+    <td>
+     U+1F50D
+    </td>
+    <td>
+     Indicates a cross-reference to another relevant element within the model.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+
+Body classes are None
+Saved styled dictionary to ldm/ldm_models/Literate/Literate_results/Literate.html
+Body classes are ['reviewing']
+Saved styled dictionary (for review) to ldm/ldm_models/Literate/Literate_results/Literate.review.html
+
+Phase: Skipping PDF creation

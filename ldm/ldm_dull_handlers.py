@@ -439,6 +439,16 @@ class ParseHeader(ParseHandler):
         return parse_header(input_str)
 
     def render(self, head_dict: Dict) -> str:
+        """Renders a header dictionary to a string.
+
+        Constructs a header string from a dictionary containing header components.
+
+        Args:
+            head_dict: A dictionary containing header information.
+
+        Returns:
+            A formatted header string.
+        """
         return render_header(head_dict)
 
     def validate(self, head_dict: Dict) -> Tuple[bool, Optional[str]]:
@@ -581,6 +591,16 @@ def parse_data_type(phrase) -> DataType:
 
 
 def render_header(head_dict: Dict) -> str:
+    """Renders a header string from a dictionary.
+
+    Constructs a header string using components provided in a dictionary, using default values if components are missing.
+
+    Args:
+        head_dict: A dictionary containing header components: 'prefix', 'name', 'one_liner', and 'parenthetical'.
+
+    Returns:
+        The formatted header string.
+    """
     prefix = head_dict.get("prefix", "PREFIX?")
     name = head_dict.get("name", None)
     one_liner = head_dict.get("one_liner", None)

@@ -1,10 +1,16 @@
+
+Phase: Parsing model: ldm/ldm_models/Biblio/Biblio.md
 PARSING ldm/ldm_models/Biblio/Biblio.md
-Directory 'ldm/ldm_models/LiterateTester/LiterateTester_results' and its contents have been removed.
-Model dir:  ldm/ldm_models/LiterateTester
-Model name:  LiterateTester
-Model doc:  LiterateTester.md
-Model name:  LiterateTester
-Model doc path:  ldm/ldm_models/LiterateTester/LiterateTester.md
-Results dir:  ldm/ldm_models/LiterateTester/LiterateTester_results
-Trace path:  ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester_trace.txt
-Rediirecting to:  ldm/ldm_models/LiterateTester/LiterateTester_results/LiterateTester_trace.txt
+Printing stack trace using traceback.print_exc():
+Traceback (most recent call last):
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\do_build_ldm.py", line 375, in <module>
+    build_dull_dsl(ldm_dull_specs)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\dull_dsl\dull_build.py", line 79, in build_dull_dsl
+    doc_part = parse_model_doc(dull_specs, model_doc_path)
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\dull_dsl\dull_parser.py", line 49, in parse_model_doc
+    lines = read_lines(model_doc_path)
+  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\utils\util_fmk.py", line 21, in read_lines
+    with open(path, "r", encoding="utf-8") as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'ldm/ldm_models/Biblio/Biblio.md'
