@@ -1,3 +1,6 @@
+
 {
-    "livePreview.defaultPreviewPath": "/ldm/ldm_models/LiterateTester_results/LiterateTester.html"
+    "terminal.integrated.shellArgs.windows": [
+        "-NoExit"
+    ]
 }

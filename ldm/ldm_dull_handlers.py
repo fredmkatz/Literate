@@ -6,7 +6,7 @@ from abc import ABC
 from typing import Any, List, Dict, Tuple, Optional
 from utils.util_json import clean_dict
 
-from Literate_01 import (
+from ldm.Literate_01 import (
     ClassName,
     AttributeName,
     Label,

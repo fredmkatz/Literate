@@ -8,6 +8,7 @@
         }
     ],
     "settings": {
-        "markdown-editor.useVscodeThemeColor": false
+        "markdown-editor.useVscodeThemeColor": false,
+        "powershell.cwd": "Presentable"
     }
 }

@@ -505,7 +505,7 @@ PROJECT_NAME={{ name }}
 
 	</summary>
 ```
-# PYTHONPATH=C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects
+# PYTHONPATH=C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects
 PYTHONPATH=.
 ```
 
@@ -1222,7 +1222,7 @@ FMKUtilities module docstring here.
 ::: ai_document_mgr
 
 
-C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\ProjectTemplate\docs\api.md.j2
+C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects\ProjectTemplate\docs\api.md.j2
 ```
 
 </details>
@@ -1348,7 +1348,7 @@ This is the documentation for FMK Utilities.
             "request": "launch",
             "program": "${file}",
             "env": {
-                "PYTHONPATH": "${workspaceFolder};C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects;${env:PYTHONPATH}"
+                "PYTHONPATH": "${workspaceFolder};C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects;${env:PYTHONPATH}"
             }
         }
     ]

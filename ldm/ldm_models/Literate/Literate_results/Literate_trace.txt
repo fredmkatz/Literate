@@ -778,15 +778,15 @@ Created model: <class 'ldm.Literate_01.LiterateModel'>
 Phase: Using pydantic to create model
 Printing stack trace using traceback.print_exc():
 Traceback (most recent call last):
-  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\do_build_ldm.py", line 375, in <module>
+  File "C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects\Presentable\ldm\do_build_ldm.py", line 375, in <module>
     build_dull_dsl(ldm_dull_specs)
     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\dull_dsl\dull_build.py", line 96, in build_dull_dsl
+  File "C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects\Presentable\dull_dsl\dull_build.py", line 96, in build_dull_dsl
     the_ldm_model_py = LiterateModel.model_validate(the_ldm_dict)
-  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\utils\util_pydantic.py", line 17, in model_validate
+  File "C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects\Presentable\utils\util_pydantic.py", line 17, in model_validate
     return adapter.validate_python(data)
            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\.venv\Lib\site-packages\pydantic\type_adapter.py", line 421, in validate_python
+  File "C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects\Presentable\.venv\Lib\site-packages\pydantic\type_adapter.py", line 421, in validate_python
     return self.validator.validate_python(
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
         object,
@@ -796,7 +796,7 @@ Traceback (most recent call last):
         ^^^^^^^^^^^^^^^^
     )
     ^
-  File "C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\Presentable\utils\class_casing.py", line 75, in validate_and_process
+  File "C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects\Presentable\utils\class_casing.py", line 75, in validate_and_process
     self.as_entered = self.content
                       ^^^^^^^^^^^^
 AttributeError: 'CamelCase' object has no attribute 'content'. Did you mean: 'convert'?

@@ -2,7 +2,7 @@
 27/10/2024 17:39:33
 ## Python Information
 Version: 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)]
-Path: C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects\.venv\Scripts\python.exe
+Path: C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects\.venv\Scripts\python.exe
 
 ## Project-Specific Packages
 - fmk_spreadsheets==0.1.0
@@ -64,40 +64,40 @@ LOCALAPPDATA => C:\Users\fmkat\AppData\Local
 LOGONSERVER => \\FMKSURF110624
 MAVEN_HOME => C:\Program Files\apache-maven-3.9.8
 NUMBER_OF_PROCESSORS => 12
-ONEDRIVE => C:\Users\fmkat\OneDrive
-ONEDRIVECONSUMER => C:\Users\fmkat\OneDrive
+Dropbox => C:\Users\fmkat\Dropbox
+DropboxCONSUMER => C:\Users\fmkat\Dropbox
 ORIGINAL_XDG_CURRENT_DESKTOP => undefined
 OS => Windows_NT
 PATH => [
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\.venv\\Scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\fmk_tool_scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\meta_mappings",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\GooglePhotosMod",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\FlickrMod",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\meta_mappings",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\images",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\exif_lib",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\LiterateDataModels\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\LiterateDataModels\\literate_models",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\GPhotosNavigator\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\GPhotosNavigator\\gphotos_navigator",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator\\flickr",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\tests",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\src\\fmk_utilities",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\fmk_spreads",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\AIDocumentMgr\\src\\ai_document_mgr",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\.venv\\Scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\fmk_tool_scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\meta_mappings",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\GooglePhotosMod",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\FlickrMod",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\meta_mappings",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\images",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\exif_lib",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\LiterateDataModels\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\LiterateDataModels\\literate_models",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\GPhotosNavigator\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\GPhotosNavigator\\gphotos_navigator",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator\\flickr",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\tests",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\src\\fmk_utilities",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\fmk_spreads",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\AIDocumentMgr\\src\\ai_document_mgr",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects",
   "C:\\Program Files\\PowerShell\\7",
   "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath",
   "C:\\Windows\\system32",
@@ -132,9 +132,9 @@ PROGRAMFILES => C:\Program Files
 PROGRAMFILES(ARM) => C:\Program Files (Arm)
 PROGRAMFILES(X86) => C:\Program Files (x86)
 PROGRAMW6432 => C:\Program Files
-PROJECT_ROOT => C:\Users\fmkat\OneDrive\AllFMKFIles\AllVSCode\FMKProjects
+PROJECT_ROOT => C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects
 PSMODULEPATH => [
-  "C:\\Users\\fmkat\\OneDrive\\Documents\\PowerShell\\Modules",
+  "C:\\Users\\fmkat\\Dropbox\\Documents\\PowerShell\\Modules",
   "C:\\Program Files\\PowerShell\\Modules",
   "c:\\program files\\powershell\\7\\Modules",
   "C:\\Program Files\\WindowsPowerShell\\Modules",
@@ -142,29 +142,29 @@ PSMODULEPATH => [
 ]
 PUBLIC => C:\Users\Public
 PYTHONPATH => [
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\AIDocumentMgr\\src\\ai_document_mgr",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\fmk_spreads",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\scripts",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\src\\fmk_utilities",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\tests",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator\\flickr",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\GPhotosNavigator\\gphotos_navigator",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\LiterateDataModels\\literate_models",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\exif_lib",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\images",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\meta_mappings",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\FlickrMod",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\GooglePhotosMod",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\meta_mappings",
-  "C:\\Users\\fmkat\\OneDrive\\AllFMKFIles\\AllVSCode\\FMKProjects\\fmk_tool_scripts"
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\AIDocumentMgr\\src\\ai_document_mgr",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\fmk_spreads",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\scripts",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\src\\fmk_utilities",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\tests",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator\\flickr",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\GPhotosNavigator\\gphotos_navigator",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\LiterateDataModels\\literate_models",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\exif_lib",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\images",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\meta_mappings",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\FlickrMod",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\GooglePhotosMod",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\meta_mappings",
+  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\fmk_tool_scripts"
 ]
 SESSIONNAME => Console
 SYSTEMDRIVE => C:
