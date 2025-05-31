@@ -1,16 +1,10 @@
 import re
-from pydantic.dataclasses import dataclass
-
+from dataclasses import dataclass
 from typing import Set, List
-# from pom.class_field_type import  field_terminals, field_name_literals
+from pom.class_field_type import to_terminal_name, field_terminals, field_name_literals
 from utils.util_flogging import flogger, trace_method, trace_decorator
 
-# stubs to avoid imports from class_field_type
-field_terminals = []
-field_name_literals = []
-named_pmarks = {}
-pmark_named = {}
-punctuation_terminals = []
+
 def literal_name(word: str) -> str:
     """
     Convert a word to a literal name for use in grammar rules.
@@ -28,7 +22,16 @@ def literal_name(word: str) -> str:
 
 @dataclass
 class PomTemplate:
-    template: str
+
+    def __init__(self, template):
+        """
+        Initialize the PomTemplate with a template string .
+
+        Args:
+            template: Template string
+        """
+
+        self.template = template
 
     def __str__(self):
         return self.template
@@ -56,11 +59,11 @@ class PomTemplate:
             LowerCamel,
             NTCase,
         )  # To avoid circular import
-        # from pom_config import (
-        #     named_pmarks,
-        #     pmark_named,
-        #)  # Import named punctuation marks
-        # from pom.class_field_type import punctuation_terminals
+        from pom_config import (
+            named_pmarks,
+            pmark_named,
+        )  # Import named punctuation marks
+        from pom.class_field_type import punctuation_terminals
 
         # First, capture all field references
         all_field_refs = {}

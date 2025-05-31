@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field    ## ToPydantic
 from typing import Optional, List
 from utils.class_casing import NTCase, TokenCase
 

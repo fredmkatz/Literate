@@ -115,7 +115,7 @@ class Clause(LineType):
         if not self.attribute_name:
             self.attribute_name = self.word
 
-        self.attribute_name = str(SnakeCase(self.attribute_name))
+        # self.attribute_name = str(SnakeCase(self.attribute_name))
 
         if not self.plural:
             if self.is_list:  # assume that the name is already plural
@@ -192,7 +192,7 @@ class ClauseLine(TypedLine):
         # print("Using handlers: ", handlers)
 
         att_name = self.line_Type.attribute_name
-        # print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
+        print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
         if att_name == "constraint":
             att_name = "one_liner"
             print(f"Patched att_name is {att_name} for {self.line_Type} is {att_name}")

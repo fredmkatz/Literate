@@ -17,7 +17,7 @@ from dull_dsl.dull_parser_classes import (
 )
 from utils.class_casing import LowerCamel, SnakeCase, UpperCamel
 
-from ldm.Literate_01 import ClassName, AttributeName
+from ldm.Literate_01 import ClassName, AttributeName, OneLiner
 
 
 all_clauses_by_priority = None
@@ -154,7 +154,8 @@ class DocPart:
                     # the_dict["full_annotation"] = full_annotation
                     # print("Annotation dict: ", annotation_dict)
                     annotation_dict.pop("line_type", None)
-                    annotation_dict["content"] = annotation_dict.pop("value", None)
+                    # annotation_dict["content"] = annotation_dict.pop("value", None)
+                    annotation_dict["content"] = OneLiner(annotation_dict.pop("value", None))
                     # print(".. revised Annotation dict: ", annotation_dict)
 
                     # print("the dict: ", the_dict)
@@ -178,10 +179,12 @@ class DocPart:
                     for keyword, value in clause_dict.items():
                         # for the real value, we need clause spec
 
-                        att_name = str(SnakeCase(keyword))
-                        # if att_name != keyword:
-                        # print(f"Using ATT_NAME  {att_name} for {keyword}")
-                        # print(f"Adding value in ddforpart. {att_name} -. {value}")
+                        att_name = SnakeCase(keyword).content
+                        sc = SnakeCase(keyword)
+                        # print(f"Keyword = {keyword}. attname = {att_name}, sc = {sc}")
+                        if att_name != keyword:
+                            print(f"Using ATT_NAME  {att_name} for {keyword}")
+                            print(f"Adding value in ddforpart. {att_name} -. {value}")
                         the_dict = absorb_into(
                             the_dict,
                             att_name,
@@ -208,12 +211,12 @@ class DocPart:
 
                 is_cum = part_type in listed_parts
                 if is_cum:
-                    att_name_for_part = str(SnakeCase(plural)).lower()
-                    # print("Using plural atttribute name: ", att_name_for_part)
+                    att_name_for_part = SnakeCase(plural).content.lower()
+                    print("Using plural atttribute name: ", att_name_for_part)
 
                 else:
-                    att_name_for_part = str(SnakeCase(part_type))
-                    # print("Using singular atttribute name: ", att_name_for_part)
+                    att_name_for_part = SnakeCase(part_type).content
+                    print("Using singular atttribute name: ", att_name_for_part)
                 if att_name_for_part.lower().startswith("subject"):
                     att_name_for_part = "subjects"
                 if att_name_for_part.lower() == "code_types":
@@ -221,6 +224,7 @@ class DocPart:
                 if att_name_for_part.lower() == "value_types":
                     att_name_for_part = "classes"
                 att_name_for_part = att_name_for_part.replace("'", "")
+                print(f"att_name_for_part is {att_name_for_part}")
                 the_dict = absorb_into(
                     the_dict, att_name_for_part, part_dict, is_list=False, is_cum=is_cum
                 )

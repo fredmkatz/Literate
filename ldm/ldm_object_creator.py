@@ -74,9 +74,9 @@ class GenericObjectCreator:
         Returns:
             Instantiated object of the specified type or the original dictionary if creation fails
         """
-        tracing = []
 
         tracing = [
+            "LiterateModel",
             "BaseDataType",
             "DataType",
             "ClassName",
@@ -85,6 +85,7 @@ class GenericObjectCreator:
             "Class",
         ]
         tracing = ["Class", "CodeType", "ValueType"]
+        tracing = []
 
         # Handle None or empty dictionary case
         if data_dict is None or not data_dict:

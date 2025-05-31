@@ -1,14 +1,22 @@
 import os
 import shutil
+from typing import Dict, Any
 
 import datetime
 import glob
 import inspect
 import yaml
-from typing import Dict, Any
 
 from utils.util_flogging import flogger
 from utils.util_json import clean_dict
+
+
+def write_text(file, text):
+    """
+    Writes a whole text file (UTF-8 encoded).
+    """
+    with open(file, mode="w", encoding="utf-8") as f:
+        f.write(text)
 
 
 def read_text(path: str) -> str:
@@ -75,9 +83,25 @@ def debug():
     pass
 
 
-import os
-import shutil
 
+def create_fresh_directory(dir_path):
+    """Creates a fresh directory at the given path.
+    Removes the directory first if it exists.
+    """
+    if os.path.exists(dir_path):
+        try:
+            shutil.rmtree(
+                dir_path, ignore_errors=True
+            )  # Remove existing directory and its contents
+            print(f"Directory '{dir_path}' and its contents have been removed.")
+        except FileNotFoundError:
+            print(f"Directory '{dir_path}' not found.")
+        except PermissionError:
+            print(f"Permission denied: Unable to remove '{dir_path}'.")
+        except OSError as e:
+            print(f"Error removing '{dir_path}': {e}")
+
+    os.makedirs(dir_path)  # Create the directory (and any necessary parent directories)
 
 def remove_directory_if_exists(dir_path):
     """Removes a directory and its contents if it exists.
@@ -103,68 +127,13 @@ def get_caller_name():
     caller_frame = stack[2]  # Index 0 is current, 1 is this function, 2 is the caller
     return caller_frame.function
 
+import sys
+import traceback
+def tell_me(message):
+    print("\n", file=sys.stderr)
+    print("\n", file=sys.stdout)
+    print(message, file=sys.stderr)
+    print(message, file=sys.stdout)
+    traceback.print_stack(file=sys.stdout)
+    traceback.print_stack(file=sys.stderr)
 
-def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
-    """
-    Read a YAML file and return its contents as a dictionary.
-
-    Args:
-        yaml_path: Path to the YAML file
-
-    Returns:
-        Dictionary with file contents, or empty dict if file not found
-    """
-    if os.path.exists(yaml_path):
-        try:
-            with open(yaml_path, "r", encoding="utf-8") as f:
-                return yaml.safe_load(f) or {}
-        except Exception as e:
-            flogger.warningf(f"Error reading YAML file {yaml_path}: {e}")
-            return {}
-    return {}
-
-
-def as_yaml(the_dict: Dict) -> str:
-    return yaml.dump(
-        clean_dict(the_dict), indent=4, default_flow_style=False, sort_keys=False
-    )
-
-
-def write_yaml(the_dict: Dict, file_path: str):
-    """
-    Write a dictionary to a YAML file.
-
-    Args:
-        the_dict: Dictionary to write
-        file_path: Path to write the YAML file
-    """
-    with open(file_path, "w", encoding="utf-8") as f:
-        yaml.dump(clean_dict(the_dict), f, default_flow_style=False, sort_keys=False)
-
-
-def write_text(file, text):
-    """
-    Writes a whole text file (UTF-8 encoded).
-    """
-    with open(file, mode="w", encoding="utf-8") as f:
-        f.write(text)
-
-
-def create_fresh_directory(dir_path):
-    """Creates a fresh directory at the given path.
-    Removes the directory first if it exists.
-    """
-    if os.path.exists(dir_path):
-        try:
-            shutil.rmtree(
-                dir_path, ignore_errors=True
-            )  # Remove existing directory and its contents
-            print(f"Directory '{dir_path}' and its contents have been removed.")
-        except FileNotFoundError:
-            print(f"Directory '{dir_path}' not found.")
-        except PermissionError:
-            print(f"Permission denied: Unable to remove '{dir_path}'.")
-        except OSError as e:
-            print(f"Error removing '{dir_path}': {e}")
-
-    os.makedirs(dir_path)  # Create the directory (and any necessary parent directories)

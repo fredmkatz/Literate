@@ -1,7 +1,7 @@
 import random
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Tuple, List
-from utils.util_json import tidy_empties
+from utils.util_json import clean_dict
 
 
 def keyword_pattern(word: str) -> str:
@@ -303,7 +303,7 @@ def parse_header(header: str) -> dict:
     if parenthetical_match:
         result["parenthetical"] = parenthetical_match.group(1).strip()
 
-    return tidy_empties(result)
+    return clean_dict(result)
 
 
 def render_header(head_dict: Dict) -> str:
@@ -391,7 +391,7 @@ def parse_input_line2(input_str: str) -> dict:
 def parse_annotation(input_str: str) -> dict:
     the_dict = parse_input_line(input_str)
     the_dict.pop("line_type", None)
-    return tidy_empties(the_dict)
+    return clean_dict(the_dict)
     # return the_dict
 
 

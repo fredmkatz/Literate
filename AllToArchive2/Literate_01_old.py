@@ -1,27 +1,10 @@
 # Version: 2025-02-22_222609
 
 from __future__ import annotations
-
-from pydantic.dataclasses import dataclass, Field
-
-field = Field
-from utils.debug_pydantic import debug_dataclass_creation
-from utils.util_pydantic import PydanticMixin
-from utils.class_casing import *
-
-# from dataclasses import dataclass, field
+from dataclasses import dataclass, field
 from typing import List, Optional, Tuple, Dict, Any, Union
-
-# from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod
 import json
-
-
-# First, let's create a Pydantic-compatible block_list_field
-def block_list_field(default_factory=list, **kwargs):
-    """Pydantic version of block_list_field with metadata support"""
-    metadata = kwargs.pop("metadata", {})
-    return Field(default_factory=default_factory, json_schema_extra=metadata, **kwargs)
-
 
 # import ldm_renderers
 # Import the casing classes
@@ -34,7 +17,7 @@ from utils.class_pom_token import (
     AsValue,
     IsExhaustive,
     IsExclusive,
-    # MarkedText,
+    MarkedText,
     Emoji,
 )
 
@@ -47,7 +30,7 @@ __model_imports__ = [
     AsValue,
     IsExhaustive,
     IsExclusive,
-    # MarkedText,
+    MarkedText,
     Emoji,
 ]
 
@@ -88,7 +71,7 @@ def block_list_field(*args, **kwargs):
 
 
 @dataclass
-class Natural(PydanticMixin):
+class Natural(ABC):
     _type: str = field(default="Natural", init=False)
     content: str = ""
 
@@ -103,7 +86,6 @@ class Natural(PydanticMixin):
         presentable_template = "{content}"
 
 
-# @debug_dataclass_creation
 @dataclass
 class OneLiner(Natural):
     _type: str = field(default="OneLiner", init=False)
@@ -219,7 +201,7 @@ class Diagnostic:
 
 
 @dataclass
-class MinorComponent(PydanticMixin):  # TO DO: Change to subtype of Component, or vv
+class MinorComponent(ABC):  # TO DO: Change to subtype of Component, or vv
     one_liner: Optional[OneLiner] = None
     elaboration: Optional[List[Union[Paragraph, CodeBlock]]] = block_list_field(
         default_factory=list
@@ -367,7 +349,7 @@ class LiterateModel(SubjectB):
     def from_dict(cls, data_dict):
         """Create a model instance from a dictionary representation"""
         from ldm_object_creator import GenericObjectCreator
-        import ldm.Literate_01 as Literate_01
+        import trials.Literate_01 as Literate_01
 
         creator = GenericObjectCreator(Literate_01)
         # print(f"Creating model from dictionary: {data_dict}")
@@ -384,7 +366,7 @@ Subject = SubjectB
 
 
 @dataclass
-class DataType(PydanticMixin):
+class DataType(ABC):
     """A simple or complex data type"""
 
     _type: str = field(default="DataType", init=False)
@@ -413,15 +395,19 @@ class BaseDataType(DataType):
         presentable_template = "{class_name} {? - {is_value}}"
 
     def __str__(self):
-        return f"{self.as_value_type} {self.class_name}"
+        ref_or_value = "reference"
+        if self.as_value_type.t_value:
+            ref_or_value = "value"
+        return f"{ref_or_value} {self.class_name}"
 
 
 @dataclass
 class ListDataType(DataType):
     element_type: DataType  # What's inside the list
-    _type: str = field(default="ListDataType", init=False)
 
-
+    def __post_init__(self):
+        super().__post_init__()
+        self._type = "ListDataType"
 
     class Meta:
         presentable_template = "List of {element_type}"
@@ -433,8 +419,10 @@ class ListDataType(DataType):
 @dataclass
 class SetDataType(DataType):
     element_type: DataType  # What's inside the set
-    _type: str = field(default="SetDataType", init=False)
 
+    def __post_init__(self):
+        super().__post_init__()
+        self._type = "SetDataType"
 
     class Meta:
         presentable_template = "Set of {element_type}"
@@ -447,8 +435,10 @@ class SetDataType(DataType):
 class MappingDataType(DataType):
     domain_type: DataType  # Mapping from this
     range_type: DataType  # Mapping to this
-    _type: str = field(default="MappingDataType", init=False)
 
+    def __post_init__(self):
+        super().__post_init__()
+        self._type = "MappingDataType"
 
     class Meta:
         presentable_template = "Mapping from {domain_type} TO {range_type}"
@@ -473,6 +463,10 @@ class DataTypeClause:
     cardinality: Optional[str] = None
     _type: str = field(default="DataTypeClause", init=False)
 
+    def __post_init__(self):
+        if self._type is None:
+            self._type = "DataTypeClause"
+        self.is_optional_lit = IsOptional(False)
 
     class Meta:
         presentable_template = "{is_optional_lit} {data_type}{? {cardinality}}"
@@ -485,8 +479,11 @@ class DataTypeClause:
 @dataclass
 class FormulaCoding:
     content: str
-    _type: str = field(default="FormulaClause", init=False)
+    _type: str = field(default=None, init=False)
 
+    def __post_init__(self):
+        if self._type is None:
+            self._type = "FormulaClause"
 
 
 @dataclass
@@ -494,7 +491,7 @@ class Formula(MinorComponent):
     english: Optional[Paragraph] = None
     code: Optional[FormulaCoding] = None
 
-    _type: str = field(default="Formula", init=False)
+    _type: str = field(default=None, init=False)
 
     def __post_init__(self):
         if self._type is None:
@@ -507,24 +504,26 @@ class Formula(MinorComponent):
 class Constraint(Formula):
     message: Optional[Paragraph] = None
     severity: Optional[str] = None
-    _type: str = field(default="Constraint", init=False)
 
     def __post_init__(self):
         super().__post_init__()
+        self._type = "Constraint"
         if self.message is None:
             self.message = Paragraph("")
 
 
 @dataclass
 class Derivation(Formula):
-    _type: str = field(default="Derivation", init=False)
-
+    def __post_init__(self):
+        super().__post_init__()
+        self._type = "Derivation"
 
 
 @dataclass
 class Default(Formula):
-    _type: str = field(default="Default", init=False)
-
+    def __post_init__(self):
+        super().__post_init__()
+        self._type = "Default"
 
 
 @dataclass
@@ -567,11 +566,10 @@ Class_ = Class
 
 @dataclass
 class ValueType(Class):
-    _type: str = field(default="ValueType", init=False)
-
     def __post_init__(self):
         super().__post_init__()
         self.is_value_type = True
+        self._type = "ValueType"
 
     class Meta:
         presentable_header = "_  ValueType : {name}{? - {one_liner}} NEWLINE"
@@ -579,11 +577,10 @@ class ValueType(Class):
 
 @dataclass
 class CodeType(ValueType):
-    _type: str = field(default="CodeType", init=False)
-
     def __post_init__(self):
         super().__post_init__()
         self.is_value_type = True
+        self._type = "CodeType"
 
     class Meta:
         presentable_header = "_  CodeType : {name}{? - {one_liner}} NEWLINE"
@@ -761,6 +758,6 @@ AllLDMClasses = [
     PresentableToken,
     IsOptional,
     AsValue,
-    # MarkedText,
+    MarkedText,
     Emoji,
 ]

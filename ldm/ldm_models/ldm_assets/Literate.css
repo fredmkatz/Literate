@@ -18,8 +18,8 @@
   }
 
   .OneLiner{
-    color: red;
-    font-weight: bold ;
+    /* color: red;
+    font-weight: bold ; */
   }
   .header .parenthetical{
     color: navy;
@@ -57,7 +57,7 @@
   }
 
   .Annotation .content {
-    color: orange;
+    color: navy;
   }
 
 }
@@ -110,6 +110,7 @@ body {
   .clause_label ,
   .AttributeName,
   .Annotation .label,
+  .Diagnostic .severity,
   .key{
     /* display: inline; */
     display: block;
@@ -201,7 +202,6 @@ body {
   }
   .OneLiner{
 
-    /* display: table-cell; */
     font-weight: normal;
     color: #333;
     vertical-align: top;
@@ -233,7 +233,7 @@ body {
     display: none;
   
   }
-  .header .DataTypeClause{ 
+  .header .data_type_clause{ 
     
     font-style: italic;
     float: right; /* at end of last line of OneLiner */
@@ -242,10 +242,10 @@ body {
 
   }
 
-  .header .DataTypeClause::before{
+  .header .data_type_clause::before{
     content: '(';
   }
-  .header .DataTypeClause::after{
+  .header .data_type_clause::after{
     content: ')';
   }
   .class_names {
@@ -301,6 +301,26 @@ body {
     margin: 0.25rem 0;
   }
   
+  .Diagnostic {
+    display: block;
+    clear: both;
+
+    .severity {
+      font-weight: bold;
+      color: red;
+      text-align: right;
+
+      ::before{
+        content: "!!!";
+      }
+    }
+
+    .message {
+      font-weight: bold;
+      color: red;
+
+    }
+  }
   /* Annotations */
   .Annotation .label {
     font-weight: bold;
@@ -349,6 +369,7 @@ body {
     margin-left: 0.25rem;
     font-style: italic;
     color: #777;
+    float: right;
   }
   
   /* Subtypes and based_on */

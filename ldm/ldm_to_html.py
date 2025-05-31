@@ -5,6 +5,7 @@ from typing import Dict, List
 from bs4 import BeautifulSoup
 from Literate_01 import *
 from utils.class_fluent_html import  FluentTag
+from utils.util_json import as_yaml, clean_dict
 
 HEADER_KEYS = [
     "prefix",
@@ -16,7 +17,7 @@ HEADER_KEYS = [
     "content",
 ]
 HEADED_CLASSES = [
-    "LDM",
+    "LiterateModel",
     "Subject",
     "Class",
     "AttributeSection",
@@ -30,6 +31,7 @@ USELESS_LIST_KEYS = [
     "attributes",
     "annotations",
     "subjects",
+    "diagnostics",
     "elaboration",
 ]
 
@@ -46,6 +48,10 @@ SIMPLE_CONTENT_TYPES = [
     "CodeBlock",
 ]
 
+from dataclasses import is_dataclass
+
+def is_dataclass_instance(obj):
+    return is_dataclass(obj) and not isinstance(obj, type)
 
 def is_headed(class_name: str) -> bool:
     return class_name in HEADED_CLASSES or class_name.startswith("Subject")
@@ -83,17 +89,28 @@ def dict_to_html(data):
     else:
         type_label = getattr(data, "_type", "NoNonDictTypeLabel")
         # print("htmling Python type  ", python_type, "; type_label is ", type_label)
+    if type_label == "Diagnostic":
+        object_type = spanned_value(data, "object_type")
+        object_name = spanned_value(data, "object_name")
+        severity = spanned_value(data, "severity")
+        message = spanned_value(data, "message")
+        return div_custom("Diagnostic", [severity, message, " on ", object_type])
+
 
     if type_label == "ClassName":
         return class_name_link(data)
+    
+    if is_dataclass_instance(data):
+        data = clean_dict(data)
 
-    if isinstance(data, dict):
+    if isinstance(data, dict) :
 
         obj_type = "DICT"
         for key, value in data.items():
             if key == "_type":
                 obj_type = value
                 break
+        # print("Object type is ", obj_type)
         if obj_type in SIMPLE_CONTENT_TYPES:
             add_html_simple_content(obj_type, data, html_h)
 
@@ -130,6 +147,7 @@ def dict_to_html(data):
                 return ""
             return span_custom("as_value", [as_value])
         if obj_type == "IsOptional":
+            return span_custom("is_optional", "Optional??")
             opt_value = str(IsOptional(data["t_value"])).strip()
             # print("opt value is ", opt_value)
             if not opt_value:
@@ -169,10 +187,19 @@ def dict_to_html(data):
             object_h.append(header_h)
 
             # add header attributes
-            for key, value in data.items():
-                if key == "_type":
-                    continue
-                if key not in HEADER_KEYS:
+# HEADER_KEYS = [
+#     "prefix",
+#     "name",
+#     "parenthetical",
+#     "data_type_clause",
+#     "is_optional",
+#     "one_liner",
+
+#     "content",
+# ]
+            for key in HEADER_KEYS:
+                value = data.get(key, None)
+                if value is None:
                     continue
                 # print("kv is ", key, value)
                 if str(value).strip() == "":
@@ -231,7 +258,12 @@ def dict_to_html(data):
             if key == "severity":
                 add_html_clause(key, value, html_h)
                 continue
-            print("Orphaned dict: ", key)
+            if key == "is_embellishment":
+                if value == False:
+                    continue
+                add_html_clause(key, value, html_h)
+                continue
+            print("Orphaned dictkey: ", key)
             add_key_value_html(key, value, html_h)
 
     elif isinstance(data, list):
@@ -336,9 +368,12 @@ def mdt_as_html(data_type, as_plural: bool = False) -> str:
 
 
 def spanned_value(data, attribute):
-    value = data.get(attribute).strip()
+    value = data.get(attribute)
     if not value:
         return ""
+
+    if isinstance(value, str):
+        value = value.strip()
     return span(value, class_=attribute)
 
 
@@ -440,6 +475,7 @@ def add_html_clause_label(key, html_h):
 
 
 def add_headless_list_html(key, value, html_h):
+    # print("Adding headless list: ", key)
     list_h = div()
     list_h["class"] = [key, "list"]
 
@@ -462,7 +498,7 @@ def add_anchor_html(key_name, value, html_h):
 import traceback
 import sys
 def add_html_simple_content(obj_type, obj, html_h):
-    from ldm.do_md_parse import as_prose_html
+    from ldm.ldm_to_html_prose import as_prose_html
 
     # print(f"Adding simple: {obj_type} ")
     content = ""
@@ -485,13 +521,13 @@ def add_html_simple_content(obj_type, obj, html_h):
         traceback.print_exc(file=sys.stdout)
         traceback.print_exc(file=sys.stderr)
 
-@trace_decorator
+# @trace_decorator
 def add_key_value_html(key, value, html_h):
 
     value_type = getattr(value, "_type", type(value).__name__)
     div_h = div(class_=value_type)
-    print("ADD_KEY_VALUE")
-    print(div_h)
+    # print("ADD_KEY_VALUE")
+    # print(div_h)
     
     span1_h = span(f"{key}:", class_="key")
     div_h.append(span1_h)

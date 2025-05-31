@@ -4,8 +4,8 @@ from abc import ABC
 import re
 
 import os
-from utils.util_fmk import write_text, write_yaml
-from utils.util_json import as_json
+from utils.util_fmk import write_text
+from utils.util_json import as_json, write_yaml
 from utils.util_fmk import create_fresh_directory
 
 from emoji import emoji_list, replace_emoji

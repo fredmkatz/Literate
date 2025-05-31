@@ -1,5 +1,5 @@
 from __future__ import annotations
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field  ## ToPydantic
 from typing import List, Optional, Dict, Any, Type, Union, ClassVar, Set
 from abc import ABC, abstractmethod
 

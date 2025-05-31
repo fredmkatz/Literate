@@ -10,7 +10,7 @@ Casing has
 - token_pattern_str - a common pattern for recognizing any or all of these,
 possible separated by spaces (but not by tabs or newlines)
 - words - the input string, split into a list of words (strs)
-- as_entered - the string passed into init on construction
+- input - the string passed into init on construction
 - content - the words, xlated to the proper casing
 
 The str() function should return the value of content
@@ -25,31 +25,27 @@ from __future__ import annotations
 
 import re
 import json
-from pydantic.dataclasses import dataclass, Field
-# from dataclasses import dataclass, field  ## ToPydantic????
-field = Field
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from typing import List, Optional
 
-from dataclasses import InitVar
+from dataclasses import is_dataclass, fields, field
 
-from typing import List, Any
+from utils.util_json import as_json
+ from utils.class_pom_token import PresentableToken
+ from utils.class_templates import PomTemplate
 
-from utils.class_pom_token import PresentableToken
-from utils.class_templates import PomTemplate
-from pydantic import model_validator
 
 @dataclass
 class Casing(PresentableToken):
-
-    content: Any
+    content: str = ""
     _type: str = field(default="Casing", init=False)
-    # words: List[str] = field( default_factory=list)
-    as_entered: str = ""
 
     """
     Abstract base class for different casing styles.
 
     Attributes:
-        as_entered (str): The original input string.
+        input (str): The original input string.
         words (list): The input string split into a list of words.
         output (str): The words translated to the proper casing.
     """
@@ -63,25 +59,15 @@ class Casing(PresentableToken):
     # Full pattern for one or more IDENTIFIERS separated by spaces
     token_pattern_str = rf"/(?:{IDENTIFIER})(?:\s+(?:{IDENTIFIER}))*/"
     # token_pattern_str = f"/{IDENTIFIER}/"
-    
 
-    # def __post_init__(self, *args, **kwargs):
-    
-    @model_validator(mode='after')
-    def validate_and_process(self):
-        # print("In post_init for ", self.__class__)
-        # if isinstance(self.content, list):
-        #     self.content = " ".join(str(item) for item in self.content)
-        self.as_entered = self.content
-        self.words = self.split_to_words(self.as_entered)
+    def __post_init__(self):
+        if isinstance(self.content, list):
+            self.content = " ".join(str(item) for item in self.content)
+        self.argument = self.content
+        self.input = self.content
+        self.words = self.split_to_words(self.content)
         self.content = self.convert()
         self._type = type(self).__name__
-        print("\t", "content: ", self.content)
-        print("\t", "_type: ", self._type)
-        print(f"after post init for {self._type}: {self}")
-        return self
-
-
 
     def value(self) -> str:
         return self.content
@@ -123,17 +109,17 @@ class Casing(PresentableToken):
         """
         return re.findall(r"[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)", input_string)
 
-
+    @abstractmethod
     def convert(self):
         """
         Abstract method to convert words to the desired casing.
         """
-        return ""
+        pass
 
-    # def __str__(self):
-    #     return self.content
+    def __str__(self):
+        return self.content
         # def __repr__(self):
-        # return type(self).__name__ + "(" + self.content + ")"
+        return type(self).__name__ + "(" + self.content + ")"
 
     def __json__(self):
         return str(self)
@@ -183,6 +169,8 @@ class NormalCase(Casing):
 class CamelCase(Casing):
     _type: str = field(default="CamelCase", init=False)
 
+    # def __post_init__(self):
+    #     super().__post_init__()
 
     def convert(self):
         return "".join(word.capitalize() for word in self.words)
@@ -209,6 +197,8 @@ class LowerCamel(CamelCase):
     """
     Converts words to lowerCamelCase.
     """
+    # def __post_init__(self):
+    #     super().__post_init__()
 
     def convert(self):
         if not self.words:
@@ -219,7 +209,7 @@ class LowerCamel(CamelCase):
         # print(f" LowerCamel for {self.words} = {lower}")
         return lower
 
-import utils.util_all_fmk as fmk
+
 @dataclass
 class SnakeCase(Casing):
     _type: str = field(default="SnakeCase", init=False)
@@ -231,8 +221,6 @@ class SnakeCase(Casing):
     def convert(self):
         snake = "_".join(word.lower() for word in self.words)
         # print(f"Snake for {self.words} = {snake}")
-        if "snake" in snake:
-            fmk.tell_me("SnakeCase returning: " + snake)
         return snake
 
 

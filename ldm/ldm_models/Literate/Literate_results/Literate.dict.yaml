@@ -1,17 +1,19 @@
 _type: Document
-literate_models:
+literatemodels:
 - _type: LiterateModel
   prefix: '#'
   name:
-    content: Literate Data Model
     _type: SubjectName
+    content: Literate Data Model
+    as_entered: ''
   parenthetical: ''
   subjects:
   - _type: SubjectB
     prefix: '##'
     name:
-      content: Preliminaries
       _type: SubjectName
+      content: Preliminaries
+      as_entered: ''
     one_liner:
       _type: OneLiner
       content: the basic structure of the model
@@ -37,8 +39,9 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: Component
         _type: ClassName
+        content: Component
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: An element or building block of the literate data model
@@ -47,90 +50,106 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: normalName
           _type: AttributeName
+          content: normalName
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the name of the component, not in camel case
         parenthetical: '*String*'
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: String
               _type: ClassName
+              content: String
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: name
           _type: AttributeName
+          content: name
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The name of the component
         parenthetical: CamelName
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: CamelName
               _type: ClassName
+              content: CamelName
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: qualifiedName
           _type: AttributeName
+          content: qualifiedName
+          as_entered: ''
         parenthetical: '*QualifiedCamel*'
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: QualifiedCamel
               _type: ClassName
+              content: QualifiedCamel
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: abbreviatedName
           _type: AttributeName
+          content: abbreviatedName
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: a short form of the component's name, used for cross references
             and improved readability.
         parenthetical: '*CamelName*'
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: CamelName
               _type: ClassName
+              content: CamelName
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
-        default:
+            content: false
+            as_entered: Required
+        Default:
           _type: Default
           one_liner:
             _type: OneLiner
@@ -141,58 +160,69 @@ literate_models:
         - _type: Annotation
           emoji: ''
           label: Example
-          content: '"LDM" is the short form of "Literate Data Model".'
+          content:
+            _type: OneLiner
+            content: '"LDM" is the short form of "Literate Data Model".'
       - _type: Attribute
         prefix: '-'
         name:
-          content: oneLiner
           _type: AttributeName
+          content: oneLiner
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: A brief, one-line definition or description of the component, suitable
             for use in a descriptive table of contents. _
         parenthetical: RichLine
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: RichLine
               _type: ClassName
+              content: RichLine
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: elaboration
           _type: AttributeName
+          content: elaboration
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: A more detailed explanation or discussion of the component _
         parenthetical: RichText
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: RichText
               _type: ClassName
+              content: RichText
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
-      attribute_sections:
+            content: false
+            as_entered: Required
+      attributesections:
       - _type: AttributeSection
         prefix: __
         name:
-          content: For Machinery
           _type: AttributeSectionName
+          content: For Machinery
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: mechanical attributes
@@ -201,27 +231,31 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: isEmbellishment
             _type: AttributeName
+            content: isEmbellishment
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: Indicates whether this component is an embellishment added during
               post-parsing processing _
           parenthetical: Boolean
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Boolean
                 _type: ClassName
+                content: Boolean
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -232,143 +266,169 @@ literate_models:
           - _type: Annotation
             emoji: ''
             label: Note
-            content: This attribute is set to true for components that are automatically
-              generated or added during the fleshing out, review, or rendering processes,
-              such as implied attributes or suggested model elements. It helps distinguish
-              embellishments from the core model elements defined in the original
-              LDM source.
+            content:
+              _type: OneLiner
+              content: This attribute is set to true for components that are automatically
+                generated or added during the fleshing out, review, or rendering processes,
+                such as implied attributes or suggested model elements. It helps distinguish
+                embellishments from the core model elements defined in the original
+                LDM source.
     - _type: Class
       prefix: _
       name:
-        content: AnnotationType
         _type: ClassName
+        content: AnnotationType
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: a kind of note, or aside, used to call attention to additional information
           about some Component.
       parenthetical: ''
-      based_on:
-      - content: LiterateDataModel
+      based on:
+      - content: Literate Data Model
         _type: ClassName
+        as_entered: ''
       annotations:
       - _type: Annotation
         emoji: ''
         label: Note
-        content: Each LDM declares a set of Annotation Types, with defined labels,
-          emojis, and clearly documented purposes. These are *recognized* or *registered*
-          Annotation Types.
+        content:
+          _type: OneLiner
+          content: Each LDM declares a set of Annotation Types, with defined labels,
+            emojis, and clearly documented purposes. These are *recognized* or *registered*
+            Annotation Types.
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: emoji
           _type: AttributeName
+          content: emoji
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: an emoji
         parenthetical: Emoji
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Emoji
               _type: ClassName
+              content: Emoji
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: emojiName
           _type: AttributeName
+          content: emojiName
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: an emoji
         parenthetical: String
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: String
               _type: ClassName
+              content: String
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: emojiUnicode
           _type: AttributeName
+          content: emojiUnicode
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the Unicode for the emoji
         parenthetical: Unicode
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Unicode
               _type: ClassName
+              content: Unicode
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: label
           _type: AttributeName
+          content: label
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: A short label to indicate the purpose of the annotation _
         parenthetical: CamelName
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: CamelName
               _type: ClassName
+              content: CamelName
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: plural
           _type: AttributeName
+          content: plural
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the plural form of the label
         parenthetical: '*UpperCamel*'
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: UpperCamel
               _type: ClassName
+              content: UpperCamel
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
-        default:
+            content: false
+            as_entered: Required
+        Default:
           _type: Default
           one_liner:
             _type: OneLiner
@@ -378,8 +438,9 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: purpose
           _type: AttributeName
+          content: Purpose
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the intended reason for the annotation.
@@ -387,66 +448,80 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
         _type: ClassName
+        content: 'ValueType Annotation
+
+          A note or comment associated with a model element'
+        as_entered: ''
       parenthetical: ''
-      based_on:
+      based on:
       - content: Component
         _type: ClassName
+        as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: annotationType
           _type: AttributeName
+          content: annotationType
+          as_entered: ''
         parenthetical: optional Annotation Type
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: AnnotationType
               _type: ClassName
+              content: Annotation Type
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         annotations:
         - _type: Annotation
           emoji: ''
           label: Note
-          content: An Annotation is considered to *recognized* if the label is associated
-            with an Annotation Type. otherwise it is *ad hoc*.
+          content:
+            _type: OneLiner
+            content: An Annotation is considered to *recognized* if the label is associated
+              with an Annotation Type. otherwise it is *ad hoc*.
       - _type: Attribute
         prefix: '-'
         name:
-          content: label
           _type: AttributeName
+          content: label
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: A short label to indicate the purpose of the annotation _
         parenthetical: CamelName
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: CamelName
               _type: ClassName
+              content: CamelName
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         elaboration:
         - _type: Paragraph
           content: 'But any short label is valid.
 
             '
-        default:
+        Default:
           _type: Default
           one_liner:
             _type: OneLiner
@@ -456,23 +531,27 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: emoji
           _type: AttributeName
+          content: Emoji
+          as_entered: ''
         parenthetical: optional Emoji
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Emoji
               _type: ClassName
+              content: Emoji
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
-        default:
+            content: false
+            as_entered: Required
+        Default:
           _type: Default
           one_liner:
             _type: OneLiner
@@ -482,57 +561,66 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: content
           _type: AttributeName
+          content: content
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The content or body of the annotation
         parenthetical: '*RichText*'
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: RichText
               _type: ClassName
+              content: RichText
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
-      attribute_sections:
+            content: false
+            as_entered: Required
+      attributesections:
       - _type: AttributeSection
         prefix: __
         name:
-          content: For Machinery
           _type: AttributeSectionName
+          content: For Machinery
+          as_entered: ''
         parenthetical: ''
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: isEmbellishment
             _type: AttributeName
+            content: isEmbellishment
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: Indicates whether this annotation is an embellishment added during
               post-parsing processing _
           parenthetical: Boolean
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Boolean
                 _type: ClassName
+                content: Boolean
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -543,23 +631,27 @@ literate_models:
           - _type: Annotation
             emoji: ''
             label: Note
-            content: This attribute is set to true for annotations that are automatically
-              generated or added during the fleshing out, review, or rendering processes,
-              such as suggestions, issues, or diagnostic messages. It helps distinguish
-              embellishment annotations from the annotations defined in the original
-              LDM source.
+            content:
+              _type: OneLiner
+              content: This attribute is set to true for annotations that are automatically
+                generated or added during the fleshing out, review, or rendering processes,
+                such as suggestions, issues, or diagnostic messages. It helps distinguish
+                embellishment annotations from the annotations defined in the original
+                LDM source.
   - _type: SubjectB
     prefix: '##'
     name:
-      content: The Model and its Subjects
       _type: SubjectName
+      content: The Model and its Subjects
+      as_entered: ''
     parenthetical: ''
     classes:
     - _type: Class
       prefix: _
       name:
-        content: LiterateDataModel
         _type: ClassName
+        content: LiterateDataModel
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: 'A representation of a domain''s entities, attributes, and relationships,
@@ -570,33 +662,43 @@ literate_models:
       plural: ' LiterateDataModels
 
         '
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: Component
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: name
           _type: AttributeName
+          content: name
+          as_entered: ''
         parenthetical: UpperCamel
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: UpperCamel
               _type: ClassName
+              content: UpperCamel
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: allSubjects
           _type: AttributeName
+          content: allSubjects
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: 'list of all classes in the model, as ordered in the
@@ -604,21 +706,24 @@ literate_models:
             definition of the model.'
         parenthetical: List of Classes
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: ListDataType
             element_type:
               _type: BaseDataType
               class_name:
-                content: Classes
                 _type: ClassName
+                content: Classes
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
-        derivation:
+            content: false
+            as_entered: Required
+        Derivation:
           _type: Derivation
           one_liner:
             _type: OneLiner
@@ -635,29 +740,33 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: allClasses
           _type: AttributeName
+          content: allClasses
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: list of all classes in the model, as ordered in the definition
             of the model.
         parenthetical: List of Classes
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: ListDataType
             element_type:
               _type: BaseDataType
               class_name:
-                content: Classes
                 _type: ClassName
+                content: Classes
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
-        derivation:
+            content: false
+            as_entered: Required
+        Derivation:
           _type: Derivation
           one_liner:
             _type: OneLiner
@@ -671,59 +780,68 @@ literate_models:
             content: ' Class names must be unique across the model.
 
               '
-      attribute_sections:
+      attributesections:
       - _type: AttributeSection
         prefix: __
         name:
-          content: Modeling Configuration
           _type: AttributeSectionName
+          content: Modeling Configuration
+          as_entered: ''
         parenthetical: ''
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: annotationTypes
             _type: AttributeName
+            content: annotationTypes
+            as_entered: ''
           parenthetical: List of AnnotationTypes
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: AnnotationTypes
                   _type: ClassName
+                  content: AnnotationTypes
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: preferredCodingLanguage
             _type: AttributeName
+            content: Preferred Coding Language
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the recommended lanquage  for expressing derivation, defaults,
               and constraints
           parenthetical: Coding Language
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: CodingLanguage
                 _type: ClassName
+                content: Coding Language
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -733,48 +851,56 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: alternateCodingLanguages
             _type: AttributeName
+            content: alternate Coding Languages
+            as_entered: ''
           parenthetical: optional List of Coding Languages
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: CodingLanguages
                   _type: ClassName
+                  content: Coding Languages
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: preferredTemplateLanguage
             _type: AttributeName
+            content: Preferred Template Language
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the recommended lanquage  for expressing derivation, defaults,
               and constraints
           parenthetical: Template Language
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: TemplateLanguage
                 _type: ClassName
+                content: Template Language
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -784,50 +910,58 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: alternateTemplateLanguages
             _type: AttributeName
+            content: alternate Template Languages
+            as_entered: ''
           parenthetical: optional List of Template Languages
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: TemplateLanguages
                   _type: ClassName
+                  content: Template Languages
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: aiFunctions
             _type: AttributeName
+            content: aiFunctions
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: A list of functions that require sophisticated AI-powered implementation
               *
           parenthetical: List of String
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: String
                   _type: ClassName
+                  content: String
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          derivation:
+              content: false
+              as_entered: Required
+          Derivation:
             _type: Derivation
             one_liner:
               _type: OneLiner
@@ -837,17 +971,26 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: SubjectASpecificTopicOrThemeWithinTheModel
         _type: ClassName
+        content: 'Subject
+
+          A specific topic or theme within the model'
+        as_entered: ''
       parenthetical: ''
       plural: ' Subjects
 
         '
-      subtype_of:
-      - UnserializablePiece
-      dependent_of:
+      subtype of:
+      - - content: Component
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
+      dependent of:
       - content: LiterateDataModel
         _type: ClassName
+        as_entered: ''
       elaboration:
       - _type: Paragraph
         content: "Subjects are the chapters an sections of the model.\n \n+ A subject\
@@ -856,120 +999,143 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: name
           _type: AttributeName
+          content: name
+          as_entered: ''
         parenthetical: UpperCamel
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: UpperCamel
               _type: ClassName
+              content: UpperCamel
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: parentSubject
           _type: AttributeName
+          content: parentSubject
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The parent subject, if any, under which this subject is nested
             _
         parenthetical: optional Subject
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Subject
               _type: ClassName
+              content: Subject
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: classes
           _type: AttributeName
+          content: Classes
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The major classes related to this subject, in the order in which
             they should be presented _
         parenthetical: ListOf Classes
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: ListDataType
             element_type:
               _type: BaseDataType
               class_name:
-                content: Classes
                 _type: ClassName
+                content: Classes
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         annotations:
         - _type: Annotation
           emoji: ''
           label: Issue
-          content: define chapter, section, subsection as levels?
+          content:
+            _type: OneLiner
+            content: define chapter, section, subsection as levels?
       - _type: Attribute
         prefix: '-'
         name:
-          content: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
           _type: AttributeName
+          content: Each Class should be followed first by the classes that are dependent
+            on it, and then
+          as_entered: ''
         parenthetical: ''
       - _type: Attribute
         prefix: '-'
         name:
-          content: byItsSubtypeClasses
           _type: AttributeName
+          content: By its subtype classes.
+          as_entered: ''
         parenthetical: ''
       - _type: Attribute
         prefix: '-'
         name:
+          _type: AttributeName
           content: childSubjects
-          _type: AttributeName
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: Any child subjects nested under this subject, in the order in which
             they should be presented _
         parenthetical: ListOf Subjects
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: ListDataType
             element_type:
               _type: BaseDataType
               class_name:
-                content: Subjects
                 _type: ClassName
+                content: Subjects
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         inverse:
           _type: AttributeReference
           class_name:
             content: Subject
             _type: ClassName
+            as_entered: ''
           attribute_name:
-            content: parentSubject
+            content: parentSubject.
             _type: AttributeName
+            as_entered: ''
         elaboration:
         - _type: Paragraph
           content: '***DSL***:  the Classes within a Subject are always displayed
@@ -979,14 +1145,23 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
         _type: ClassName
+        content: 'SubjectArea
+
+          A main topic or area of focus within the model, containing related subjects
+          and classes'
+        as_entered: ''
       parenthetical: ''
       plural: ' SubjectAreas
 
         '
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: Subject
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       where: ' parentSubject is absent
 
         '
@@ -994,15 +1169,17 @@ literate_models:
     - _type: SubjectC
       prefix: '###'
       name:
-        content: Classes
         _type: SubjectName
+        content: Classes
+        as_entered: ''
       parenthetical: ''
       classes:
       - _type: Class
         prefix: _
         name:
-          content: Class
           _type: ClassName
+          content: Class
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: A key entity or object type in the model, often corresponding to
@@ -1011,8 +1188,13 @@ literate_models:
         plural: ' Classes
 
           '
-        subtype_of:
-        - UnserializablePiece
+        subtype of:
+        - - content: Component
+            _type: ClassName
+            as_entered: ''
+          - content: Subtypes
+            _type: SubtypingName
+            as_entered: ''
         constraints:
         - _type: Constraint
           one_liner:
@@ -1024,25 +1206,29 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: pluralForm
             _type: AttributeName
+            content: pluralForm
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the normal English plural form of the name of the Class
           parenthetical: UpperName
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: UpperName
                 _type: ClassName
+                content: UpperName
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           elaboration:
           - _type: Paragraph
             content: "Might be Books for the Book class or other regular plurals.\n\
@@ -1051,15 +1237,17 @@ literate_models:
           - _type: Annotation
             emoji: ''
             label: Note
-            content: When inputting a model, you will rarely need to specify the plural
-              form. The input program will just look it up.
+            content:
+              _type: OneLiner
+              content: When inputting a model, you will rarely need to specify the
+                plural form. The input program will just look it up.
             elaboration:
             - _type: Paragraph
               content: 'The exception is when a common noun has two plural forms,
                 like People and Persons. But this is unusual.
 
                 '
-          default:
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -1069,27 +1257,31 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: basedOn
             _type: AttributeName
+            content: basedOn
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the Class or Classes on which this class is dependent
           parenthetical: SetOf Classes
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: SetDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Classes
                   _type: ClassName
+                  content: Classes
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           elaboration:
           - _type: Paragraph
             content: 'This is solely based on **Existence Dependency**. A true dependent
@@ -1103,320 +1295,379 @@ literate_models:
           - _type: Annotation
             emoji: ''
             label: Note
-            content: that basedOn and dependentOf are being used synonymousle in this
-              metamodel.
+            content:
+              _type: OneLiner
+              content: that basedOn and dependentOf are being used synonymousle in
+                this metamodel.
         - _type: Attribute
           prefix: '-'
           name:
-            content: supertypes
             _type: AttributeName
+            content: supertypes
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: The parent class
           parenthetical: es
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Es
                 _type: ClassName
+                content: es
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: subtypings
             _type: AttributeName
+            content: subtypings
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the criteria, or dimensions, by which the class can be divided
               into subtypes
           parenthetical: list of Subtypings
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Subtypings
                   _type: ClassName
+                  content: Subtypings
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           annotations:
           - _type: Annotation
             emoji: ''
             label: Example
-            content: in a library model, the `Book` class could have subtypings based
-              on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback),
-              or subject (e.g., Science, History).
+            content:
+              _type: OneLiner
+              content: in a library model, the `Book` class could have subtypings
+                based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover,
+                Paperback), or subject (e.g., Science, History).
         - _type: Attribute
           prefix: '-'
           name:
-            content: subtypes
             _type: AttributeName
+            content: subtypes
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: "Any subtypes or specializations of this class based on it\u2019\
               s subtypings. _"
           parenthetical: ListOf Classes
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Classes
                   _type: ClassName
+                  content: Classes
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           annotations:
           - _type: Annotation
             emoji: ''
             label: Example
-            content: For instance, using the `Book` example, the subtypes could include
-              `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`,
-              `ScienceBook`, and `HistoryBook`.
+            content:
+              _type: OneLiner
+              content: For instance, using the `Book` example, the subtypes could
+                include `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`,
+                `ScienceBook`, and `HistoryBook`.
         - _type: Attribute
           prefix: '-'
           name:
-            content: attributes
             _type: AttributeName
+            content: attributes
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: The attributes or properties of the class, in the order in which
               they should be presented _
           parenthetical: ListOf Attributes
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Attributes
                   _type: ClassName
+                  content: Attributes
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: attributeSections
             _type: AttributeName
+            content: attributeSections
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: additional attributes or properties of the class, grouped for
               clarity and elaboration.  _
           parenthetical: ListOf AttributeSections
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: AttributeSections
                   _type: ClassName
+                  content: AttributeSections
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: constraints
             _type: AttributeName
+            content: constraints
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: Any constraints, rules, or validations specific to this class
               _
           parenthetical: ListOf Constraints
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Constraints
                   _type: ClassName
+                  content: Constraints
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           annotations:
           - _type: Annotation
             emoji: ''
             label: Note
-            content: Constraints may be expressed on either the Class or the Attribute.
-              Always?
+            content:
+              _type: OneLiner
+              content: Constraints may be expressed on either the Class or the Attribute.
+                Always?
         - _type: Attribute
           prefix: '-'
           name:
-            content: methods
             _type: AttributeName
+            content: methods
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: Any behaviors or operations associated with this class _
           parenthetical: ListOf Methods
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Methods
                   _type: ClassName
+                  content: Methods
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-        attribute_sections:
+              content: false
+              as_entered: Required
+        attributesections:
         - _type: AttributeSection
           prefix: __
           name:
-            content: Implied Attributes
             _type: AttributeSectionName
+            content: Implied Attributes
+            as_entered: ''
           parenthetical: ''
           attributes:
           - _type: Attribute
             prefix: '-'
             name:
-              content: dependents
               _type: AttributeName
+              content: dependents
+              as_entered: ''
             one_liner:
               _type: OneLiner
               content: the Classes which are basedOn this Class
             parenthetical: optional SetOf Classes
             data_type_clause:
+              _type: DataTypeClause
               data_type:
                 _type: SetDataType
                 element_type:
                   _type: BaseDataType
                   class_name:
-                    content: Classes
                     _type: ClassName
+                    content: Classes
+                    as_entered: ''
                   as_value_type:
-                    t_value: false
                     _type: AsValue
+                    content: true
+                    as_entered: reference
               is_optional_lit:
-                t_value: false
                 _type: IsOptional
-              _type: DataTypeClause
+                content: false
+                as_entered: Required
             inverse:
               _type: AttributeReference
               class_name:
                 content: Class
                 _type: ClassName
+                as_entered: ''
               attribute_name:
                 content: basedOn
                 _type: AttributeName
+                as_entered: ''
           - _type: Attribute
             prefix: '-'
             name:
-              content: uniqueKeys
               _type: AttributeName
+              content: UniqueKeys
+              as_entered: ''
             parenthetical: optional Set of UniqueKeys
             data_type_clause:
+              _type: DataTypeClause
               data_type:
                 _type: SetDataType
                 element_type:
                   _type: BaseDataType
                   class_name:
-                    content: UniqueKeys
                     _type: ClassName
+                    content: UniqueKeys
+                    as_entered: ''
                   as_value_type:
-                    t_value: false
                     _type: AsValue
+                    content: true
+                    as_entered: reference
               is_optional_lit:
-                t_value: false
                 _type: IsOptional
-              _type: DataTypeClause
+                content: false
+                as_entered: Required
             inverse:
               _type: AttributeReference
               class_name:
                 content: UniqueKey
                 _type: ClassName
+                as_entered: ''
               attribute_name:
                 content: basedOn
                 _type: AttributeName
+                as_entered: ''
       - _type: Class
         prefix: _
         name:
-          content: Subtyping
           _type: ClassName
+          content: Subtyping
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: a way in which subtypes of a Class may be classified
         parenthetical: Subtype of Component
-        dependent_of:
+        dependent of:
         - content: Class
           _type: ClassName
+          as_entered: ''
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: name
             _type: AttributeName
+            content: name
+            as_entered: ''
           parenthetical: Upper Name
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: UpperName
                 _type: ClassName
+                content: Upper Name
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: isExclusive
             _type: AttributeName
+            content: is exclusive
+            as_entered: ''
           parenthetical: Boolean
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Boolean
                 _type: ClassName
+                content: Boolean
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -1426,23 +1677,27 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: isExhaustive
             _type: AttributeName
+            content: is exhaustive
+            as_entered: ''
           parenthetical: Boolean
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Boolean
                 _type: ClassName
+                content: Boolean
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -1452,24 +1707,28 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
+            _type: AttributeName
             content: classes
-            _type: AttributeName
+            as_entered: ''
           parenthetical: List of Classes
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Classes
                   _type: ClassName
+                  content: Classes
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           elaboration:
           - _type: Paragraph
             content: "***DSL***:  Shown in the DSL as\n \n+ > Subbtypes: byBrand -\
@@ -1480,169 +1739,223 @@ literate_models:
           - _type: Annotation
             emoji: ''
             label: Note
-            content: every class can have an unnamed subtyping.
+            content:
+              _type: OneLiner
+              content: every class can have an unnamed subtyping.
       - _type: Class
         prefix: _
         name:
+          _type: ClassName
           content: ValueType
-          _type: ClassName
+          as_entered: ''
         parenthetical: ''
-        subtype_of:
-        - UnserializablePiece
+        subtype of:
+        - - content: Class.
+            _type: ClassName
+            as_entered: ''
+          - content: Subtypes
+            _type: SubtypingName
+            as_entered: ''
       - _type: Class
         prefix: _
         name:
-          content: ReferenceType
           _type: ClassName
+          content: Reference Type
+          as_entered: ''
         parenthetical: ''
-        subtype_of:
-        - UnserializablePiece
+        subtype of:
+        - - content: Class.
+            _type: ClassName
+            as_entered: ''
+          - content: Subtypes
+            _type: SubtypingName
+            as_entered: ''
       - _type: Class
         prefix: _
         name:
-          content: CodeTypeADataTypeOrEnumerationUsedInTheModel
           _type: ClassName
+          content: 'CodeType
+
+            A data type or enumeration used in the model'
+          as_entered: ''
         parenthetical: ''
-        subtype_of:
-        - UnserializablePiece
+        subtype of:
+        - - content: ValueType.
+            _type: ClassName
+            as_entered: ''
+          - content: Subtypes
+            _type: SubtypingName
+            as_entered: ''
         annotations:
         - _type: Annotation
           emoji: ''
           label: Note
-          content: 'Often, a CodeType will be assigned to just one attribute in the
-            model.  In such cases, there''s no need to declare a new Code Type and
-            invent a name for it.  Instead:'
+          content:
+            _type: OneLiner
+            content: 'Often, a CodeType will be assigned to just one attribute in
+              the model.  In such cases, there''s no need to declare a new Code Type
+              and invent a name for it.  Instead:'
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFormCodeDescription
             _type: AttributeName
+            content: "List the code values as a bulletted list inside the description\
+              \ of the attribute in the form\n\u2018code description\u2019"
+            as_entered: ''
           parenthetical: ''
         - _type: Attribute
           prefix: '-'
           name:
-            content: aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedThatCodeTypeWillBeMarkedAsIsCaptive
             _type: AttributeName
+            content: A Code Type will be created with the name [class][attribute]Code
+              and the code values listed. That CodeType will be marked as isCaptive.
+            as_entered: ''
           parenthetical: ''
         - _type: Attribute
           prefix: '-'
           name:
+            _type: AttributeName
             content: isCaptive
-            _type: AttributeName
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the code type was implied by use in an attribute and is only
               used for that attribute
           parenthetical: Boolean
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Boolean
                 _type: ClassName
+                content: Boolean
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
       - _type: Class
         prefix: _
         name:
-          content: CodeValue
           _type: ClassName
+          content: Code Value
+          as_entered: ''
         parenthetical: ''
         annotations:
         - _type: Annotation
           emoji: ''
           label: A possible value for an enumerated data class  DependentOf
-          content: CodeType
+          content:
+            _type: OneLiner
+            content: CodeType
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: code
             _type: AttributeName
+            content: code
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: A short code or abbreviationi for the value _
           parenthetical: NameString
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: NameString
                 _type: ClassName
+                content: NameString
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: description
             _type: AttributeName
+            content: description
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: an explanation of what the code means
           parenthetical: '*RichText*'
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: RichText
                 _type: ClassName
+                content: RichText
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
       - _type: Class
         prefix: _
         name:
-          content: Key
           _type: ClassName
+          content: Key
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: a list of attributes of a class
         parenthetical: ''
-        subtype_of:
-        - UnserializablePiece
-        dependent_of:
+        subtype of:
+        - - content: Component
+            _type: ClassName
+            as_entered: ''
+          - content: Subtypes
+            _type: SubtypingName
+            as_entered: ''
+        dependent of:
         - content: Class
           _type: ClassName
+          as_entered: ''
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: keyAttributes
             _type: AttributeName
+            content: keyAttributes
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the attributes of the base Class.
           parenthetical: List of Attributes
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: ListDataType
               element_type:
                 _type: BaseDataType
                 class_name:
-                  content: Attributes
                   _type: ClassName
+                  content: Attributes
+                  as_entered: ''
                 as_value_type:
-                  t_value: false
                   _type: AsValue
+                  content: true
+                  as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           constraints:
           - _type: Constraint
             one_liner:
@@ -1660,68 +1973,91 @@ literate_models:
           - _type: Annotation
             emoji: ''
             label: Issue
-            content: need ascending descending to support index keys or ordering keys.
+            content:
+              _type: OneLiner
+              content: need ascending descending to support index keys or ordering
+                keys.
       - _type: Class
         prefix: _
         name:
-          content: UniqueKey
           _type: ClassName
+          content: UniqueKey
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: a list of attributes on which instances of the base class may be
             keyed.
         parenthetical: ''
-        subtype_of:
-        - UnserializablePiece
+        subtype of:
+        - - content: Key
+            _type: ClassName
+            as_entered: ''
+          - content: Subtypes
+            _type: SubtypingName
+            as_entered: ''
         annotations:
         - _type: Annotation
           emoji: ''
           label: Note
-          content: order unimportant for Unique Keys.
+          content:
+            _type: OneLiner
+            content: order unimportant for Unique Keys.
   - _type: SubjectB
     prefix: '##'
     name:
-      content: Attributes
       _type: SubjectName
+      content: Attributes
+      as_entered: ''
     parenthetical: ''
     classes:
     - _type: Class
       prefix: _
       name:
-        content: AttributeSection
         _type: ClassName
+        content: Attribute Section
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: a group of attributes for a class that merit a shared explanation.
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
-      based_on:
+      subtype of:
+      - - content: Component.
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
+      based on:
       - content: Class
         _type: ClassName
+        as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: isOptional
           _type: AttributeName
+          content: isOptional
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: whether the attributes in this section, taken together, are optional.
         parenthetical: Boolean
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Boolean
               _type: ClassName
+              content: Boolean
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         elaboration:
         - _type: Paragraph
           content: "If the Attribute Section is required,then each Attribute within\
@@ -1731,37 +2067,50 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: AttributeAPropertyOrCharacteristicOfAClass
         _type: ClassName
+        content: 'Attribute
+
+          A property or characteristic of a class'
+        as_entered: ''
       parenthetical: ''
       plural: ' Attributes
 
         '
-      subtype_of:
-      - UnserializablePiece
-      based_on:
+      subtype of:
+      - - content: Component
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
+      based on:
       - content: AttributeSection
         _type: ClassName
+        as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: name
           _type: AttributeName
+          content: name
+          as_entered: ''
         parenthetical: Lower Camel
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: LowerCamel
               _type: ClassName
+              content: Lower Camel
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         overrides:
           _type: AttributeReference
           class_name: CamelName
@@ -1769,85 +2118,77 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: dataType
           _type: AttributeName
+          content: dataType
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The kind of object to which the attribute refers.  _
         parenthetical: DataType
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: DataType
               _type: ClassName
+              content: DataType
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         elaboration:
         - _type: Paragraph
-          content: 'But,
-
-            '
-      - _type: Attribute
-        prefix: '-'
-        name:
-          content: listOfEditions
-          _type: AttributeName
-        parenthetical: ''
-      - _type: Attribute
-        prefix: '-'
-        name:
-          content: setOfEdition
-          _type: AttributeName
-        parenthetical: ''
-      - _type: Attribute
-        prefix: '-'
-        name:
-          content: andMoreComplicatedCases
-          _type: AttributeName
-        parenthetical: ''
+          content: "But,\n \n+ * List of Editions\n \n+ * Set of Edition\n \n+ * ...\
+            \ and more complicated cases.\n"
         annotations:
         - _type: Annotation
           emoji: ''
           label: See
-          content: the section below on Data Type Specifiers.
-      attribute_sections:
+          content:
+            _type: OneLiner
+            content: the section below on Data Type Specifiers.
+      attributesections:
       - _type: AttributeSection
         prefix: __
         name:
-          content: Cardinalities
           _type: AttributeSectionName
+          content: Cardinalities.
+          as_entered: ''
         parenthetical: ''
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: isOptional
             _type: AttributeName
+            content: isOptional
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: Indicates whether the attribute must have a value for every instance
               of the class _
           parenthetical: Boolean
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Boolean
                 _type: ClassName
+                content: Boolean
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -1857,27 +2198,31 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: cardinality
             _type: AttributeName
+            content: cardinality
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: The cardinality of the relationship represented by the attribute
               _
           parenthetical: CardinalityCode
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: CardinalityCode
                 _type: ClassName
+                content: CardinalityCode
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          default:
+              content: false
+              as_entered: Required
+          Default:
             _type: Default
             one_liner:
               _type: OneLiner
@@ -1897,77 +2242,94 @@ literate_models:
           - _type: Annotation
             emoji: ''
             label: For example
-            content: ''
+            content:
+              _type: OneLiner
+              content: ''
         - _type: Attribute
           prefix: '-'
           name:
-            content: author
             _type: AttributeName
+            content: author
+            as_entered: ''
           parenthetical: 1:1 Author
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: InventedName
                 _type: ClassName
+                content: Invented Name
+                as_entered: ''
               as_value_type:
-                t_value: true
                 _type: AsValue
+                content: false
+                as_entered: value
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: books
             _type: AttributeName
+            content: books
+            as_entered: ''
           parenthetical: optional N:M Set of Books
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: InventedName
                 _type: ClassName
+                content: Invented Name
+                as_entered: ''
               as_value_type:
-                t_value: true
                 _type: AsValue
+                content: false
+                as_entered: value
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
           annotations:
           - _type: Annotation
             emoji: ''
             label: Note
-            content: how this works with optionality
+            content:
+              _type: OneLiner
+              content: how this works with optionality
       - _type: AttributeSection
         prefix: __
         name:
-          content: Inverse Attributes
           _type: AttributeSectionName
+          content: Inverse Attributes
+          as_entered: ''
         parenthetical: ''
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: isInvertible
             _type: AttributeName
+            content: isInvertible
+            as_entered: ''
           parenthetical: Boolean
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Boolean
                 _type: ClassName
+                content: Boolean
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          derivation:
+              content: false
+              as_entered: Required
+          Derivation:
             _type: Derivation
             one_liner:
               _type: OneLiner
@@ -1978,26 +2340,30 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: inverseClass
             _type: AttributeName
+            content: inverseClass
+            as_entered: ''
           one_liner:
             _type: OneLiner
             content: the class which contains, or would contain the inverse attribute
           parenthetical: optional Class
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Class
                 _type: ClassName
+                content: Class
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
-          derivation:
+              content: false
+              as_entered: Required
+          Derivation:
             _type: Derivation
             one_liner:
               _type: OneLiner
@@ -2007,53 +2373,63 @@ literate_models:
         - _type: Attribute
           prefix: '-'
           name:
-            content: inverseAttribute
             _type: AttributeName
+            content: inverseAttribute
+            as_entered: ''
           parenthetical: optional Attribute
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Attribute
                 _type: ClassName
+                content: Attribute
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
         - _type: Attribute
           prefix: '-'
           name:
-            content: inverseIsOptional
             _type: AttributeName
+            content: inverseIsOptional
+            as_entered: ''
           parenthetical: optional Attribute
           data_type_clause:
+            _type: DataTypeClause
             data_type:
               _type: BaseDataType
               class_name:
-                content: Attribute
                 _type: ClassName
+                content: Attribute
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
             is_optional_lit:
-              t_value: false
               _type: IsOptional
-            _type: DataTypeClause
+              content: false
+              as_entered: Required
     - _type: Class
       prefix: _
       name:
-        content: Formulas
         _type: ClassName
+        content: Formulas
+        as_entered: ''
       parenthetical: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: default
           _type: AttributeName
+          content: default
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: 'The rule or formula for calculating the value, if no value is
@@ -2062,25 +2438,30 @@ literate_models:
             Now running to a second line with the parenthentical on yet a third line'
         parenthetical: optional Derivation
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Derivation
               _type: ClassName
+              content: Derivation
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         annotations:
         - _type: Annotation
           emoji: ''
           label: Note
-          content: "even when an Attribute has a default derivation, there\u2019s\
-            \ no guarantee that every instance will have an assigned value. Example\
-            \ needed."
+          content:
+            _type: OneLiner
+            content: "even when an Attribute has a default derivation, there\u2019\
+              s no guarantee that every instance will have an assigned value. Example\
+              \ needed."
           elaboration:
           - _type: Paragraph
             content: 'Yes, it handled extra lines.  Let''s see about additional paras
@@ -2094,79 +2475,96 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: derivation
           _type: AttributeName
+          content: derivation
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: For derived attributes, the rule or formula for calculating the
             value _
         parenthetical: optional Derivation
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Derivation
               _type: ClassName
+              content: Derivation
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         annotations:
         - _type: Annotation
           emoji: ''
           label: Issue
-          content: on insert vs on access?
+          content:
+            _type: OneLiner
+            content: on insert vs on access?
       - _type: Attribute
         prefix: '-'
         name:
-          content: constraints
           _type: AttributeName
+          content: constraints
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: Any validation rules specific to this attribute _
         parenthetical: ListOf Constraints
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: ListDataType
             element_type:
               _type: BaseDataType
               class_name:
-                content: Constraints
                 _type: ClassName
+                content: Constraints
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         annotations:
         - _type: Annotation
           emoji: ''
           label: Note
-          content: from Class.constraints
-      attribute_sections:
+          content:
+            _type: OneLiner
+            content: from Class.constraints
+      attributesections:
       - _type: AttributeSection
         prefix: __
         name:
-          content: Override Tracking
           _type: AttributeSectionName
+          content: Override Tracking
+          as_entered: ''
         parenthetical: ''
         attributes:
         - _type: Attribute
           prefix: '-'
           name:
-            content: overrides
             _type: AttributeName
+            content: Overrides
+            as_entered: ''
           parenthetical: ''
     - _type: Class
       prefix: _
       name:
-        content: ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
         _type: ClassName
+        content: 'ValueType Derivation
+
+          A rule or formula for deriving the value of an attribute'
+        as_entered: ''
       parenthetical: ''
       plural: ' Derivations
 
@@ -2175,123 +2573,151 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: statement
           _type: AttributeName
+          content: statement
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: An English language statement of the derivation rule _
         parenthetical: RichText
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: RichText
               _type: ClassName
+              content: RichText
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: expression
           _type: AttributeName
+          content: expression
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The formal expression of the derivation in a programming language
             _
         parenthetical: CodeExpression
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: CodeExpression
               _type: ClassName
+              content: CodeExpression
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
     - _type: Class
       prefix: _
       name:
-        content: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
         _type: ClassName
+        content: 'ValueType Constraint
+
+          A rule, condition, or validation that must be satisfied by the model'
+        as_entered: ''
       parenthetical: ''
       plural: ' Constraints
 
         '
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: Component
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: statement
           _type: AttributeName
+          content: statement
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: An English language statement of the constraint _
         parenthetical: RichText
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: RichText
               _type: ClassName
+              content: RichText
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: expression
           _type: AttributeName
+          content: expression
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The formal expression of the constraint in a programming language
         parenthetical: e.g., OCL _(CodeExpression
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: InventedName
               _type: ClassName
+              content: Invented Name
+              as_entered: ''
             as_value_type:
-              t_value: true
               _type: AsValue
+              content: false
+              as_entered: value
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: severity
           _type: AttributeName
+          content: severity
+          as_entered: ''
         parenthetical: Code
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Code
               _type: ClassName
+              content: Code
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         one_liner:
@@ -2307,73 +2733,96 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: message
           _type: AttributeName
+          content: Message
+          as_entered: ''
         parenthetical: Template
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Template
               _type: ClassName
+              content: Template
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
     - _type: Class
       prefix: _
       name:
-        content: ClassConstraint
         _type: ClassName
+        content: Class Constraint
+        as_entered: ''
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
-      based_on:
-      - content: Class
+      subtype of:
+      - - content: Constraint
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
+      based on:
+      - content: Class.
         _type: ClassName
+        as_entered: ''
     - _type: Class
       prefix: _
       name:
-        content: AttributeConstraint
         _type: ClassName
+        content: Attribute Constraint
+        as_entered: ''
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
-      based_on:
+      subtype of:
+      - - content: Constraint
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
+      based on:
       - content: Attribute
         _type: ClassName
+        as_entered: ''
     - _type: Class
       prefix: _
       name:
-        content: CodeExpression
         _type: ClassName
+        content: CodeExpression
+        as_entered: ''
       parenthetical: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: language
           _type: AttributeName
+          content: Language
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the programming language
         parenthetical: Code
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Code
               _type: ClassName
+              content: Code
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         one_liner:
@@ -2389,148 +2838,186 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: expression
           _type: AttributeName
+          content: Expression
+          as_entered: ''
         parenthetical: String
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: String
               _type: ClassName
+              content: String
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
   - _type: SubjectB
     prefix: '##'
     name:
-      content: Methods
       _type: SubjectName
+      content: Methods
+      as_entered: ''
     parenthetical: ''
     classes:
     - _type: Class
       prefix: _
       name:
-        content: MethodABehaviorOrOperationAssociatedWithAClass
         _type: ClassName
+        content: 'Method
+
+          A behavior or operation associated with a class'
+        as_entered: ''
       parenthetical: ''
       plural: ' Methods
 
         '
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: Component
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: parameters
           _type: AttributeName
+          content: parameters
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The input parameters of the method _
         parenthetical: ListOf Parameters
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: ListDataType
             element_type:
               _type: BaseDataType
               class_name:
-                content: Parameters
                 _type: ClassName
+                content: Parameters
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: returnType
           _type: AttributeName
+          content: returnType
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The data type of the value returned by the method _
         parenthetical: DataType
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: DataType
               _type: ClassName
+              content: DataType
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
     - _type: Class
       prefix: _
       name:
-        content: ParameterAnInputToAMethod
         _type: ClassName
+        content: 'Parameter
+
+          An input to a method'
+        as_entered: ''
       parenthetical: ''
       plural: ' Parameters
 
         '
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: Component
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: type
           _type: AttributeName
+          content: type
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The data type of the parameter _
         parenthetical: DataType
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: DataType
               _type: ClassName
+              content: DataType
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: cardinality
           _type: AttributeName
+          content: cardinality
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: The cardinality of the parameter
         parenthetical: e.g., optional, required
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: InventedName
               _type: ClassName
+              content: Invented Name
+              as_entered: ''
             as_value_type:
-              t_value: true
               _type: AsValue
+              content: false
+              as_entered: value
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
   - _type: SubjectB
     prefix: '##'
     name:
-      content: Data Types
       _type: SubjectName
+      content: Data Types
+      as_entered: ''
     parenthetical: ''
     elaboration:
     - _type: Paragraph
@@ -2541,102 +3028,123 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: SimpleDataTypeSubtpeOfDataType
         _type: ClassName
+        content: 'Simple Data Type
+
+          SubtpeOf DataType'
+        as_entered: ''
       parenthetical: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: coreClass
           _type: AttributeName
+          content: coreClass
+          as_entered: ''
         parenthetical: Class
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Class
               _type: ClassName
+              content: Class
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
     - _type: Class
       prefix: _
       name:
-        content: ComplexDataType
         _type: ClassName
+        content: Complex Data Type
+        as_entered: ''
       parenthetical: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: aggregation
           _type: AttributeName
+          content: aggregation
+          as_entered: ''
         parenthetical: Aggregating Operator
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: AggregatingOperator
               _type: ClassName
+              content: Aggregating Operator
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: aggregatedTypes
           _type: AttributeName
+          content: aggregatedTypes
+          as_entered: ''
         parenthetical: List of DataTypes
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: ListDataType
             element_type:
               _type: BaseDataType
               class_name:
-                content: DataTypes
                 _type: ClassName
+                content: DataTypes
+                as_entered: ''
               as_value_type:
-                t_value: false
                 _type: AsValue
+                content: true
+                as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
     - _type: Class
       prefix: _
       name:
-        content: AggregatingOperator
         _type: ClassName
+        content: Aggregating Operator
+        as_entered: ''
       parenthetical: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: name
           _type: AttributeName
+          content: Name
+          as_entered: ''
         parenthetical: Code
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Code
               _type: ClassName
+              content: Code
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         one_liner:
@@ -2658,46 +3166,55 @@ literate_models:
       - _type: Attribute
         prefix: '-'
         name:
-          content: arity
           _type: AttributeName
+          content: arity
+          as_entered: ''
         parenthetical: Integer
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Integer
               _type: ClassName
+              content: Integer
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: spelling
           _type: AttributeName
+          content: spelling
+          as_entered: ''
         parenthetical: Template
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Template
               _type: ClassName
+              content: Template
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
   - _type: SubjectB
     prefix: '##'
     name:
-      content: Low level Data Types
       _type: SubjectName
+      content: Low level Data Types
+      as_entered: ''
     parenthetical: ''
     elaboration:
     - _type: Paragraph
@@ -2708,8 +3225,9 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: ValueTypeCamelName
         _type: ClassName
+        content: ValueType CamelName
+        as_entered: ''
       parenthetical: ''
       elaboration:
       - _type: Paragraph
@@ -2717,28 +3235,37 @@ literate_models:
           labels, or identifiers and presented in camel case.
 
           '
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: String
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: valueTheString
           _type: AttributeName
+          content: value the string
+          as_entered: ''
         parenthetical: String
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: String
               _type: ClassName
+              content: String
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         constraints:
         - _type: Constraint
           one_liner:
@@ -2750,7 +3277,9 @@ literate_models:
         - _type: Annotation
           emoji: ''
           label: Example
-          content: '"firstName", "orderDate", "customerID"'
+          content:
+            _type: OneLiner
+            content: '"firstName", "orderDate", "customerID"'
           elaboration:
           - _type: Paragraph
             content: "> \U0001F4DD ***ModelingNote***: Putting the non-empty constraint\
@@ -2761,20 +3290,28 @@ literate_models:
         - _type: Annotation
           emoji: ''
           label: ModelingNote
-          content: '* *CamelName* is presented here, just after its first usage by
-            another class (Component), to provide context and understanding before
-            it is used further in the model.'
+          content:
+            _type: OneLiner
+            content: '* *CamelName* is presented here, just after its first usage
+              by another class (Component), to provide context and understanding before
+              it is used further in the model.'
     - _type: Class
       prefix: _
       name:
-        content: UpperCamel
         _type: ClassName
+        content: UpperCamel
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: a CamelName that begins with a capital letter
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: CamelName
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       where: ' content begins with an upper case letter.
 
         '
@@ -2782,18 +3319,26 @@ literate_models:
       - _type: Annotation
         emoji: ''
         label: Example
-        content: _ "Customer", "ProductCategory", "PaymentMethod"
+        content:
+          _type: OneLiner
+          content: _ "Customer", "ProductCategory", "PaymentMethod"
     - _type: Class
       prefix: _
       name:
-        content: LowerCamel
         _type: ClassName
+        content: LowerCamel
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: a CamelName that begins with a lower case letter
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: CamelName
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       where: ' content begins with a lower case letter.
 
         '
@@ -2801,18 +3346,26 @@ literate_models:
       - _type: Annotation
         emoji: ''
         label: Example
-        content: '"firstName", "orderTotal", "shippingAddress"'
+        content:
+          _type: OneLiner
+          content: '"firstName", "orderTotal", "shippingAddress"'
     - _type: Class
       prefix: _
       name:
-        content: QualifiedCamel
         _type: ClassName
+        content: Qualified Camel
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: an expression consisting of Camel Names separated by periods
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: String
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       constraints:
       - _type: Constraint
         one_liner:
@@ -2824,102 +3377,128 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: RichTextAStringWithMarkupForBlockLevelFormatting
         _type: ClassName
+        content: RichText.  A string with markup for block level formatting.
+        as_entered: ''
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: String
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: value
           _type: AttributeName
+          content: value
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the string content
         parenthetical: string
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: String
               _type: ClassName
+              content: string
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: format
           _type: AttributeName
+          content: format
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the rich text coding language used
         parenthetical: Code
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: Code
               _type: ClassName
+              content: Code
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
       - _type: Attribute
         prefix: '-'
         name:
-          content: html
           _type: AttributeName
+          content: HTML
+          as_entered: ''
         parenthetical: ''
       - _type: Attribute
         prefix: '-'
         name:
-          content: markDown
           _type: AttributeName
+          content: MarkDown
+          as_entered: ''
         parenthetical: ''
     - _type: Class
       prefix: _
       name:
-        content: RichLine
         _type: ClassName
+        content: RichLine
+        as_entered: ''
       one_liner:
         _type: OneLiner
         content: String with markup for line level formatting.
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
+      subtype of:
+      - - content: RichText
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       attributes:
       - _type: Attribute
         prefix: '-'
         name:
-          content: value
           _type: AttributeName
+          content: value
+          as_entered: ''
         one_liner:
           _type: OneLiner
           content: the string content
         parenthetical: string
         data_type_clause:
+          _type: DataTypeClause
           data_type:
             _type: BaseDataType
             class_name:
-              content: String
               _type: ClassName
+              content: string
+              as_entered: ''
             as_value_type:
-              t_value: false
               _type: AsValue
+              content: true
+              as_entered: reference
           is_optional_lit:
-            t_value: false
             _type: IsOptional
-          _type: DataTypeClause
+            content: false
+            as_entered: Required
         constraints:
         - _type: Constraint
           one_liner:
@@ -2930,17 +3509,32 @@ literate_models:
     - _type: Class
       prefix: _
       name:
-        content: PrimitiveType
         _type: ClassName
+        content: PrimitiveType
+        as_entered: ''
       parenthetical: ''
-      subtype_of:
-      - UnserializablePiece
-      - UnserializablePiece
+      subtype of:
+      - - content: 'ValueType
+
+            A basic'
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
+      - - content: built-in data type
+          _type: ClassName
+          as_entered: ''
+        - content: Subtypes
+          _type: SubtypingName
+          as_entered: ''
       annotations:
       - _type: Annotation
         emoji: ''
         label: Values
-        content: ''
+        content:
+          _type: OneLiner
+          content: ''
         elaboration:
         - _type: Paragraph
           content: '===
@@ -2949,16 +3543,27 @@ literate_models:
   - _type: SubjectB
     prefix: '##'
     name:
-      content: Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro
-        md Insert OCL md Insert Camel Case md
       _type: SubjectName
+      content: 'Appendices
+
+        Insert More Sidebars.md
+
+        Insert Overrides.md
+
+        insert LDM Intro.md
+
+        Insert OCL.md
+
+        Insert Camel Case.md'
+      as_entered: ''
     parenthetical: ''
     subjects:
     - _type: SubjectC
       prefix: '###'
       name:
-        content: Annotation Types Used
         _type: SubjectName
+        content: Annotation Types Used
+        as_entered: ''
       parenthetical: ''
       elaboration:
       - _type: Paragraph
@@ -3004,8 +3609,9 @@ literate_models:
     - _type: SubjectC
       prefix: '###'
       name:
-        content: Annotation types as CSV
         _type: SubjectName
+        content: Annotation types as CSV
+        as_entered: ''
       parenthetical: ''
       elaboration:
       - _type: CodeBlock
@@ -3031,9 +3637,19 @@ literate_models:
   - _type: SubjectB
     prefix: '##'
     name:
-      content: Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro
-        md Insert OCL md Insert Camel Case md
       _type: SubjectName
+      content: 'Appendices
+
+        Insert More Sidebars.md
+
+        Insert Overrides.md
+
+        insert LDM Intro.md
+
+        Insert OCL.md
+
+        Insert Camel Case.md'
+      as_entered: ''
     parenthetical: ''
     elaboration:
     - _type: Paragraph
@@ -3044,18 +3660,21 @@ attributes:
 - _type: Attribute
   prefix: '-'
   name:
-    content: minorComponent
     _type: AttributeName
+    content: minor component
+    as_entered: ''
   parenthetical: ''
 - _type: Attribute
   prefix: '-'
   name:
+    _type: AttributeName
     content: embellishment
-    _type: AttributeName
+    as_entered: ''
   parenthetical: ''
 - _type: Attribute
   prefix: '-'
   name:
-    content: wordsAndPhrases
     _type: AttributeName
+    content: words and phrases
+    as_entered: ''
   parenthetical: ''

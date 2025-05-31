@@ -5,7 +5,7 @@ This module provides classes for tracking and reporting errors,
 warnings, and other diagnostics during parsing and object construction.
 """
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field  ## ToPydantic
 from enum import Enum
 from typing import Optional, List, Any, Dict
 import weakref

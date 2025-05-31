@@ -4,7 +4,7 @@ from abc import ABC
 
 # from typing import Any, List, Dict, Tuple, Union, Callable, Optional
 from typing import Any, List, Dict, Tuple, Optional
-from utils.util_json import tidy_empties
+from utils.util_json import clean_dict
 
 from Literate_01 import (
     ClassName,
@@ -262,7 +262,7 @@ class ParseSubtypeOf(ParseHandler):
             else:
                 subtyping_name = "Subtypes"
             class_name = ClassName(parse_name(class_name0))
-            result.append((class_name, SubtypingName(subtyping_name)))
+            result.append([class_name, SubtypingName(subtyping_name)])
         print("SubtypeOf result is ", result)
 
         return result
@@ -537,7 +537,7 @@ def parse_header(header: str) -> dict:
 
     # print(f"ParsingHeader result: {result}\n===\n")
 
-    return tidy_empties(result)
+    return clean_dict(result)
 
 
 from utils.util_json import as_json
@@ -551,9 +551,12 @@ def parse_data_type_clause(parenthetical: str) -> DataTypeClause:
         phrase = phrase.replace("optional ", "")
         is_optional = True
 
+    is_optional_str = "optional"
+    if not is_optional:
+        is_optional_str = "required"
     # now parse the rest as a mere data type
     dt = parse_data_type(phrase)
-    dtc = DataTypeClause(data_type=dt, is_optional_lit=IsOptional(is_optional))
+    dtc = DataTypeClause(data_type=dt, is_optional_lit=IsOptional(is_optional_str))
     # print("Crreated dtc", as_json(dtc))
     return dtc
 
@@ -581,12 +584,12 @@ def parse_data_type(phrase) -> DataType:
         return dt
 
     if is_name(phrase):
-        dt = BaseDataType(class_name=phrase, as_value_type=AsValue(False))
+        dt = BaseDataType(class_name=phrase, as_value_type=AsValue("reference"))
         return dt
 
     print("Inventing name for: ", phrase)
     phrase = "Invented Name"
-    dt = BaseDataType(class_name=phrase, as_value_type=AsValue(True))
+    dt = BaseDataType(class_name=phrase, as_value_type=AsValue("value"))
     return dt
 
 
@@ -709,7 +712,7 @@ class ParseAnnotation(ParseHandler):
 def parse_annotation(input_str: str) -> dict:
     the_dict = parse_input_line(input_str)
     the_dict.pop("line_type", None)
-    return tidy_empties(the_dict)
+    return clean_dict(the_dict)
     # return the_dict
 
 

@@ -209,21 +209,6 @@ def is_primitive_type(type_name: str) -> bool:
     }
     return type_name.lower() in primitives
 
-def clean_dict(d: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Clean a dictionary by removing None values.
-    
-    Args:
-        d: Dictionary to clean
-        
-    Returns:
-        Cleaned dictionary
-    """
-    if not isinstance(d, dict):
-        return d
-        
-    return {k: clean_dict(v) if isinstance(v, dict) else v
-            for k, v in d.items() if v is not None}
 
 def normalize_name(name: str, case: str = 'snake') -> str:
     """

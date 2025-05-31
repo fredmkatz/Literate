@@ -1,60 +1,55 @@
 from __future__ import annotations
 
+import re
+import json
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from typing import Any
 
-from pydantic.dataclasses import dataclass, Field
-from utils.util_pydantic import PydanticMixin
 
-from typing import Any, Union
+from dataclasses import is_dataclass, fields
 
-from utils.debug_pydantic import debug_dataclass_creation
+from utils.util_json import as_json
 
 from utils.class_templates import PomTemplate
-def raise_error(message):
-    print(message)
 
-# @debug_dataclass_creation
-@dataclass
-class PresentableToken(PydanticMixin):
+
+class PresentableToken(ABC):
     """
     Abstract base class for token types.
 
     Attributes:
-        content (str): The original input string.
+        input (str): The original input string.
         output (str): The words translated to the proper casing.
     """
 
-    content: str 
-    _type: str = Field(default="PresentableToken", init=False)
-
+    input: str = None  # The original input string, as recognized by the parser.
 
     def __init_subclass__(cls):
         return super().__init_subclass__()
 
-    # @abstractmethod
+    @abstractmethod
     def token_pattern(self) -> str:
         """
         Returns the regex pattern, or other rule for this token type.
         So: PomToken: token_pattern - will appear in the grammar rule.
 
         """
-        return ""
 
-    # @abstractmethod
+    @abstractmethod
     def value(self) -> Any:
         """
         Returns the template format for this token type.
         Different subclasses will have different values types.
         """
-        return ""
 
-    # @abstractmethod
+    @abstractmethod
     def rendering_template(self) -> PomTemplate:
         """
         Returns the template format for this token type, in simpified format
         """
-        return ""
 
-    # @abstractmethod
+    @abstractmethod
     def handlebars_template(self) -> str:
         """
         Returns the template format for this token type, in Handlebars format
@@ -65,17 +60,15 @@ class PresentableToken(PydanticMixin):
         # It can be used to render the value in a more complex way, if needed.
         # For example, it can include conditionals or loops.
         # The rendering template is used for the final output, while the Handlebars template is used for intermediate steps.
-        return ""
+        return
 
 
-#@debug_dataclass_creation
 @dataclass
-class PresentableBoolean(PresentableToken):
-    content: Union[str, bool] 
-
-    # Accept initial value through dataclass mechanism
-    as_entered : Union[str, bool]  = Field(default="", init=False)
-    _type: str = Field(default="PresentableBoolean", init=False)
+class PresentableBoolean(PresentableToken, ABC):
+    t_value: bool = field(
+        default=False, init=True
+    )  # Accept initial value through dataclass mechanism
+    _type: str = field(default="PresentableBoolean", init=False)
 
     # Class attributes that should be overridden by subclasses
     true_word = None
@@ -89,64 +82,52 @@ class PresentableBoolean(PresentableToken):
     token_pattern_str = None
 
     def __post_init__(self):
-        # print("content on entry is ", self.content)
-        # save as_entered; content will be set to the determined value, if one is found
-        self.as_entered = self.content
-
         # Initialize word lists
         if self.true_word is None or self.false_word is None:
-            raise NotImplementedError("Subclasses of PresentableBoolean must define true_word and false_word")
+            raise NotImplementedError("Subclasses must define true_word and false_word")
 
         # Initialize words lists if not already set
-        # always accept true/yes, false/no
         if self.true_words is None:
             self.true_words = [self.true_word.lower(), "true", "yes"]
         if self.false_words is None:
             self.false_words = [self.false_word.lower(), "false", "no"]
 
+        # Process the input value
+        if isinstance(self.t_value, str):
+            # Normalize to lowercase for comparison
+            normalized_value = self.t_value.lower()
+            if normalized_value in self.true_words:
+                self.t_value = True
+            elif normalized_value in self.false_words:
+                self.t_value = False
+            else:
+                print(
+                    f"Invalid boolean value: {self.t_value} - should be {self.true_word} or {self.false_word}"
+                )
+                self.t_value = False
+        elif not isinstance(self.t_value, bool):
+            raise TypeError(f"Expected string or boolean, got {type(self.t_value)}")
+
         # Generate the token pattern
         all_words = [f'"{word}"i' for word in self.true_words + self.false_words]
         self.token_pattern_str = " | ".join(all_words)
-        
-        # above should be done for class definition?
-        
-        self.content = False    # establish False as default, in case of errors
 
-        # make sure the argument is either a string or a boolean
-        if not isinstance(self.as_entered, str) and not isinstance(self.as_entered, bool):
-            raise_error(f"Expected string or boolean, got {type(self.content)} {self.content}")
-
-        # Process the input value (now in as_entered)
-        if isinstance(self.as_entered, str):
-            # Normalize to lowercase for comparison
-            normalized_value = self.as_entered.lower()
-            if normalized_value in self.true_words:
-                self.content = True
-            elif normalized_value in self.false_words:
-                self.content = False
-            else:
-                raise_error(
-                    f"Invalid boolean value for {type(self).__name__}: {self.as_entered} - should be in:\n\t   {self.true_words}\n\tor {self.false_words}"
-                )
-                self.content = False
-        else:
-            # already know that as_entered is a bool. 
-            self.content = self.as_entered
-
+    # Rest of your methods would remain the same
+    def toJSON(self):
+        return {"_type": self._type, "value": self.t_value}
 
     def __str__(self):
         """String representation based on the value and settings."""
-        val = self.content  # will be book for a constructed intance
-
-        if val is None:
-            return "NoValue"
-
+        val = self.t_value
 
         # If not explicit and value matches default, return empty string
         if not self.is_explicit and val == self.default_value:
             return ""
 
         # Otherwise return appropriate word
+        if val is None:
+            return "NoValue"
+
         return self.true_word if val else self.false_word
 
     @classmethod
@@ -205,12 +186,11 @@ def create_boolean_type(
     )
 
 
-#@debug_dataclass_creation
 @dataclass
 class IsOptional(PresentableBoolean):
     """Class representing a boolean token for "is required"."""
 
-    _type: str = Field(default="IsOptional", init=False)
+    _type: str = field(default="IsOptional", init=False)
 
     # Class attributes - no need for __init__ or __post_init__ override
     true_word = "Optional"
@@ -220,7 +200,7 @@ class IsOptional(PresentableBoolean):
     default_value = False
     is_explicit = False
 
-#@debug_dataclass_creation
+
 @dataclass
 class IsExclusive(PresentableBoolean):
     """
@@ -231,18 +211,17 @@ class IsExclusive(PresentableBoolean):
 
     """
 
-    _type: str = Field(default="IsExclusive", init=False)
+    _type: str = field(default="IsExclusive", init=False)
 
     true_word = "exclusive"
     true_words = ["exclusive"]
 
-    false_word = "noexclusive"
-    false_words = ["nonexclusive"]
+    false_word = "nonExclusive"
+    false_words = ["nonExclusive"]
     default_value = True
     is_explicit = False
 
 
-#@debug_dataclass_creation
 @dataclass
 class IsExhaustive(PresentableBoolean):
     """
@@ -253,7 +232,7 @@ class IsExhaustive(PresentableBoolean):
 
     """
 
-    _type: str = Field(default="IsExhaustive", init=False)
+    _type: str = field(default="IsExhaustive", init=False)
 
     true_word = "exhaustive"
     true_words = ["exhaustive"]
@@ -263,7 +242,7 @@ class IsExhaustive(PresentableBoolean):
     default_value = True
     is_explicit = False
 
-#@debug_dataclass_creation
+
 @dataclass
 class AsValue(PresentableBoolean):
     """
@@ -275,7 +254,7 @@ class AsValue(PresentableBoolean):
 
     """
 
-    _type: str = Field(default="AsValue", init=False)
+    _type: str = field(default="AsValue", init=False)
 
     true_word = "reference"
     true_words = ["reference"]
@@ -285,21 +264,45 @@ class AsValue(PresentableBoolean):
     is_explicit = False
 
 
-#@debug_dataclass_creation
+class MarkedText(PresentableToken):
+    token_pattern_str = '"<<<" + /.*?/ + ">>>"'
+
+    def __init__(self, input_string):
+        self.input = input_string
+        self.content = input_string.replace("<<<", "").replace(">>>", "")
+
+    def value(self) -> str:
+        return self.content
+    
+    def __str__(self):
+        return self.content
+
+    @classmethod
+    def token_pattern(cls) -> str:
+        return cls.token_pattern_str
+
+    def rendering_template(self) -> PomTemplate:
+        return PomTemplate("{value}")
+
+    def handlebars_template(self) -> str:
+        return "{{value}}"
+
 
 @dataclass
 class Emoji(PresentableToken):
-    as_entered: str = Field(default="", init=True)
-    _type: str = Field(default="Emoji", init=False)
+    as_entered: str = field(
+        default=False, init=""
+    )  # Accept initial value through dataclass mechanism
+    _type: str = field(default="Emoji", init=False)
 
     token_pattern_str = r"/\d+(.*?)[\u263a-\U0001f645]/"
     # regex = re.compile(r'\d+(.*?)[\u263a-\U0001f645]')
 
-    def __post_init__(self, input_string):
-        self.as_entered = as_entered
-        self.smile = as_entered
-        self.unicode = as_entered
-        self.symbol = as_entered
+    def __init__(self, input_string):
+        self.as_entered = input_string
+        self.smile = input_string
+        self.unicode = input_string
+        self.symbol = input_string
 
     @classmethod
     def token_pattern(cls) -> str:

@@ -272,13 +272,7 @@ _ _ _ _ _ OVERRIDES: Overrides: CamelName
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **dataType** - The kind of object to which the attribute refers.  _(DataType)_H 
 + In the simplest cases, the data type will be a class. And the specifier is the just the name of that class.
-_ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='But,', extra_text=[])], extra_text=[])]
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - List of Editions
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - Set of Edition
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - ... and more complicated cases.
+_ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='But,', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='* List of Editions', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='* Set of Edition', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='* ... and more complicated cases.', extra_text=[])], extra_text=[])]
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ SEE: ***See***: the section below on Data Type Specifiers.
 . . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 

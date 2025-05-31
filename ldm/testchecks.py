@@ -1,5 +1,5 @@
 from typing import List, Optional
-from ldm.Literate_01 import (
+from ldm.Literate_01.py import (
     Diagnostic,
     Annotation,
     DataType,

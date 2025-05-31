@@ -149,6 +149,6 @@ def lark_to_yaml_pretty(tree, indent=2):
     Returns:
         Pretty-printed JSON string representation of the parse tree
     """
-    from utils.util_fmk import as_yaml
+    from utils.util_json import as_yaml
 
     return as_yaml(lark_to_dict(tree))

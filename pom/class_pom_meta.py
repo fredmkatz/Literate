@@ -2,7 +2,7 @@ import os
 import yaml
 import json
 
-from dataclasses import dataclass, field, fields
+from dataclasses import dataclass, field, fields  ## ToPydantic
 from typing import Dict, Any, Optional, List
 import importlib.resources as pkg_resources
 from dataclasses import fields, is_dataclass

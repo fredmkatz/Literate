@@ -274,9 +274,9 @@ Subtype of: Component
      In the simplest cases, the data type will be a class. And the specifier is the just the name of that class.   
   
      But,
-     - List of Editions
-     - Set of Edition
-     - ... and more complicated cases.  
+    * List of Editions
+    * Set of Edition
+    * ... and more complicated cases.  
     ***See***: the section below on Data Type Specifiers.  
     
 __ **Cardinalities**.   
