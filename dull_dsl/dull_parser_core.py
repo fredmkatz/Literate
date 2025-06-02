@@ -1,5 +1,5 @@
 # import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 # from typing import Any, List, Dict, Tuple, Union, Callable, Optional
 from typing import Any, List, Dict, Union
@@ -155,7 +155,7 @@ class DocPart:
                     # print("Annotation dict: ", annotation_dict)
                     annotation_dict.pop("line_type", None)
                     # annotation_dict["content"] = annotation_dict.pop("value", None)
-                    annotation_dict["content"] = OneLiner(annotation_dict.pop("value", None))
+                    annotation_dict["content"] = asdict(OneLiner(annotation_dict.pop("value", None)))
                     # print(".. revised Annotation dict: ", annotation_dict)
 
                     # print("the dict: ", the_dict)
@@ -212,11 +212,11 @@ class DocPart:
                 is_cum = part_type in listed_parts
                 if is_cum:
                     att_name_for_part = SnakeCase(plural).content.lower()
-                    print("Using plural atttribute name: ", att_name_for_part)
+                    # print("Using plural atttribute name: ", att_name_for_part)
 
                 else:
                     att_name_for_part = SnakeCase(part_type).content
-                    print("Using singular atttribute name: ", att_name_for_part)
+                    # print("Using singular atttribute name: ", att_name_for_part)
                 if att_name_for_part.lower().startswith("subject"):
                     att_name_for_part = "subjects"
                 if att_name_for_part.lower() == "code_types":
@@ -224,7 +224,7 @@ class DocPart:
                 if att_name_for_part.lower() == "value_types":
                     att_name_for_part = "classes"
                 att_name_for_part = att_name_for_part.replace("'", "")
-                print(f"att_name_for_part is {att_name_for_part}")
+                # print(f"att_name_for_part is {att_name_for_part}")
                 the_dict = absorb_into(
                     the_dict, att_name_for_part, part_dict, is_list=False, is_cum=is_cum
                 )

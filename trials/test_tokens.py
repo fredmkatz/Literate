@@ -1,6 +1,32 @@
 from utils.class_pom_token import *
 from utils.class_casing import *
 
+
+def test_casings():
+    samples = [
+        UpperCamel("Gone with the Wind"),
+        LowerCamel("Gone with the Wind"),
+        SnakeCase("Gone with the Wind"),
+    ]
+
+    for sample in samples:
+        test_casing(sample)
+
+
+
+def test_casing(sample: Casing):
+    the_type = type(sample)
+    the_type_name = the_type.__name__
+    print(f"\nTesting: {the_type_name}({sample.as_entered})")
+    print(f"\t       str: {sample}")
+    print(f"\tmodel dump: {sample.model_dump()}")
+    print(f"\t      repr: {sample.repr()}")
+    print(f"\t  __repr__: {sample.__repr__()}")
+    print(f"\t    content: {sample.content}")
+    # print(f"\t      asdict: {sample.as_dict}")
+
+
+
 def test_booleans():
     tests = [
         IsExclusive("nonexclusive"),
@@ -28,3 +54,4 @@ def test_booleans():
 
 if __name__ == "__main__":
     test_booleans()
+    test_casings()

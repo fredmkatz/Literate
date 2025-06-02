@@ -1,10 +1,6 @@
 $defs:
     Annotation:
         properties:
-            _type:
-                default: Annotation
-                title: Type
-                type: string
             label:
                 $ref: '#/$defs/Label'
             content:
@@ -29,9 +25,6 @@ $defs:
         type: object
     Attribute:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -111,28 +104,20 @@ $defs:
         title: Attribute
         type: object
     AttributeName:
-        description: 'AttributeName(content: ''str'')'
         properties:
             _type:
-                default: AttributeName
                 title: Type
                 type: string
             content:
-                title: Content
-            as_entered:
                 default: ''
-                title: As Entered
+                title: Content
                 type: string
         required:
-        - content
+        - _type
         title: AttributeName
         type: object
     AttributeReference:
         properties:
-            _type:
-                default: AttributeReference
-                title: Type
-                type: string
             class_name:
                 $ref: '#/$defs/ClassName'
             attribute_name:
@@ -141,9 +126,6 @@ $defs:
         type: object
     AttributeSection:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -201,44 +183,33 @@ $defs:
         title: AttributeSection
         type: object
     AttributeSectionName:
-        description: 'AttributeSectionName(content: ''str'')'
         properties:
             _type:
-                default: AttributeSectionName
                 title: Type
                 type: string
             content:
-                title: Content
-            as_entered:
                 default: ''
-                title: As Entered
+                title: Content
                 type: string
         required:
-        - content
+        - _type
         title: AttributeSectionName
         type: object
     CamelCase:
-        description: 'CamelCase(content: ''str'')'
         properties:
             _type:
-                default: CamelCase
                 title: Type
                 type: string
             content:
-                title: Content
-            as_entered:
                 default: ''
-                title: As Entered
+                title: Content
                 type: string
         required:
-        - content
+        - _type
         title: CamelCase
         type: object
     Class:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -365,28 +336,19 @@ $defs:
         title: Class
         type: object
     ClassName:
-        description: 'ClassName(content: ''str'')'
         properties:
             _type:
-                default: ClassName
                 title: Type
                 type: string
             content:
-                title: Content
-            as_entered:
                 default: ''
-                title: As Entered
-                type: string
+                title: Content
         required:
-        - content
+        - _type
         title: ClassName
         type: object
     CodeBlock:
         properties:
-            _type:
-                default: CodeBlock
-                title: Type
-                type: string
             content:
                 title: Content
                 type: string
@@ -394,9 +356,6 @@ $defs:
         type: object
     Constraint:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -448,19 +407,15 @@ $defs:
         title: Constraint
         type: object
     DataType:
-        properties:
-            _type:
-                default: DataType
-                title: Type
-                type: string
+        description: A simple or complex data type
         title: DataType
         type: object
     DataTypeClause:
+        description: "Represents the type information for an attribute.\n\nAttributes:\n\
+            \    data_type: The data type\n    is_optional: Whether the attribute\
+            \ is optional (default: False)\n    cardinality: Optional cardinality\
+            \ constraint (e.g., \"0..1\", \"1..*\")"
         properties:
-            _type:
-                default: DataTypeClause
-                title: Type
-                type: string
             data_type:
                 $ref: '#/$defs/DataType'
             is_optional_lit:
@@ -476,9 +431,6 @@ $defs:
         type: object
     Default:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -522,9 +474,6 @@ $defs:
         type: object
     Derivation:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -568,14 +517,6 @@ $defs:
         type: object
     Diagnostic:
         properties:
-            _type:
-                default: Diagnostic
-                title: Type
-                type: string
-            object_type:
-                default: ''
-                title: Object Type
-                type: string
             object_name:
                 default: ''
                 title: Object Name
@@ -595,10 +536,10 @@ $defs:
     Emoji:
         properties:
             _type:
-                default: Emoji
                 title: Type
                 type: string
             content:
+                default: ''
                 title: Content
                 type: string
             as_entered:
@@ -606,14 +547,11 @@ $defs:
                 title: As Entered
                 type: string
         required:
-        - content
+        - _type
         title: Emoji
         type: object
     FormulaCoding:
         properties:
-            _type:
-                title: Type
-                type: string
             content:
                 title: Content
                 type: string
@@ -626,22 +564,16 @@ $defs:
             Attributes:\n    value (bool): The boolean value."
         properties:
             _type:
-                default: IsExclusive
                 title: Type
                 type: string
             content:
                 anyOf:
                 -   type: string
                 -   type: boolean
-                title: Content
-            as_entered:
-                anyOf:
-                -   type: string
-                -   type: boolean
                 default: ''
-                title: As Entered
+                title: Content
         required:
-        - content
+        - _type
         title: IsExclusive
         type: object
     IsExhaustive:
@@ -649,69 +581,49 @@ $defs:
             Attributes:\n    value (bool): The boolean value."
         properties:
             _type:
-                default: IsExhaustive
                 title: Type
                 type: string
             content:
                 anyOf:
                 -   type: string
                 -   type: boolean
-                title: Content
-            as_entered:
-                anyOf:
-                -   type: string
-                -   type: boolean
                 default: ''
-                title: As Entered
+                title: Content
         required:
-        - content
+        - _type
         title: IsExhaustive
         type: object
     IsOptional:
         description: Class representing a boolean token for "is required".
         properties:
             _type:
-                default: IsOptional
                 title: Type
                 type: string
             content:
                 anyOf:
                 -   type: string
                 -   type: boolean
-                title: Content
-            as_entered:
-                anyOf:
-                -   type: string
-                -   type: boolean
                 default: ''
-                title: As Entered
+                title: Content
         required:
-        - content
+        - _type
         title: IsOptional
         type: object
     Label:
-        description: 'Label(content: ''str'')'
         properties:
             _type:
-                default: Label
                 title: Type
                 type: string
             content:
-                title: Content
-            as_entered:
                 default: ''
-                title: As Entered
+                title: Content
                 type: string
         required:
-        - content
+        - _type
         title: Label
         type: object
     OneLiner:
         properties:
-            _type:
-                default: Natural
-                title: Type
-                type: string
             content:
                 default: ''
                 title: Content
@@ -720,10 +632,6 @@ $defs:
         type: object
     Paragraph:
         properties:
-            _type:
-                default: Paragraph
-                title: Type
-                type: string
             content:
                 default: ''
                 title: Content
@@ -732,9 +640,6 @@ $defs:
         type: object
     SubjectC:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -795,9 +700,6 @@ $defs:
         type: object
     SubjectD:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -858,9 +760,6 @@ $defs:
         type: object
     SubjectE:
         properties:
-            _type:
-                title: Type
-                type: string
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -933,27 +832,19 @@ $defs:
         title: Subtyping
         type: object
     SubtypingName:
-        description: 'SubtypingName(content: ''str'')'
         properties:
             _type:
-                default: SubtypingName
                 title: Type
                 type: string
             content:
-                title: Content
-            as_entered:
                 default: ''
-                title: As Entered
+                title: Content
                 type: string
         required:
-        - content
+        - _type
         title: SubtypingName
         type: object
 properties:
-    _type:
-        default: LiterateModel
-        title: Type
-        type: string
     one_liner:
         anyOf:
         -   $ref: '#/$defs/OneLiner'

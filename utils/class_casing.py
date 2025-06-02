@@ -25,9 +25,8 @@ from __future__ import annotations
 
 import re
 import json
-from pydantic.dataclasses import dataclass, Field
-# from dataclasses import dataclass, field  ## ToPydantic????
-field = Field
+
+
 
 from dataclasses import InitVar
 
@@ -35,52 +34,28 @@ from typing import List, Any
 
 from utils.class_pom_token import PresentableToken
 from utils.class_templates import PomTemplate
-from pydantic import model_validator
+from utils.util_pydantic import dataclass, field
+
+
 
 @dataclass
-class Casing(PresentableToken):
-
-    content: Any
-    _type: str = field(default="Casing", init=False)
-    # words: List[str] = field( default_factory=list)
-    as_entered: str = ""
-
-    """
-    Abstract base class for different casing styles.
-
-    Attributes:
-        as_entered (str): The original input string.
-        words (list): The input string split into a list of words.
-        output (str): The words translated to the proper casing.
-    """
-
-    # Partial patterns
-    SYLLABLE = r"[A-Za-z][A-Za-z0-9]*"
-    IDENTIFIER = rf"{SYLLABLE}(?:[-_.]{SYLLABLE})*"
-    IDENTIFIER = rf"{SYLLABLE}(?:[ ]{SYLLABLE})*"
-    IDENTIFIER = rf"{SYLLABLE}"
-
-    # Full pattern for one or more IDENTIFIERS separated by spaces
-    token_pattern_str = rf"/(?:{IDENTIFIER})(?:\s+(?:{IDENTIFIER}))*/"
-    # token_pattern_str = f"/{IDENTIFIER}/"
+class Casing(PresentableToken):     # Note. PresentableToken now includes PydanticCompatMixin
     
-
-    # def __post_init__(self, *args, **kwargs):
+    # declared here - so that it shows up in model_dump, repr, etc
+    # as_entered: str = field(default="asENTERED", init=False)
     
-    @model_validator(mode='after')
-    def validate_and_process(self):
-        # print("In post_init for ", self.__class__)
+    # also keep these visible, while debugging
+    # using_normal: bool = False
+    # using_pydantic: bool = False
+    __field_order__ = ["_type", "content"]
+
+    def shared_post_init(self):
+        super().shared_post_init()
         # if isinstance(self.content, list):
         #     self.content = " ".join(str(item) for item in self.content)
         self.as_entered = self.content
         self.words = self.split_to_words(self.as_entered)
         self.content = self.convert()
-        self._type = type(self).__name__
-        print("\t", "content: ", self.content)
-        print("\t", "_type: ", self._type)
-        print(f"after post init for {self._type}: {self}")
-        return self
-
 
 
     def value(self) -> str:
@@ -135,22 +110,22 @@ class Casing(PresentableToken):
         # def __repr__(self):
         # return type(self).__name__ + "(" + self.content + ")"
 
-    def __json__(self):
-        return str(self)
+    # def __json__(self):
+    #     return str(self)
 
-    def __dict__(self):
-        return {"_type": self._type, "content": self.content}
+    # def __dict__(self):
+    #     return {"_type": self._type, "content": self.content}
 
-    def toJSON(self):
-        """Convert the object to a JSON string."""
-        return json.dumps(self.to_dict(), indent=2)
+    # def toJSON(self):
+    #     """Convert the object to a JSON string."""
+    #     return json.dumps(self.to_dict(), indent=2)
 
-    def to_dict(self):
-        """Simplified serialization with just type and input"""
-        return {
-            "_type": self._type,  # Your existing code already sets this correctly
-            "content": self.content,
-        }
+    # def to_dict(self):
+    #     """Simplified serialization with just type and input"""
+    #     return {
+    #         "_type": self._type,  # Your existing code already sets this correctly
+    #         "content": self.content,
+    #     }
 
     @classmethod
     def from_dict(cls, data):
@@ -160,38 +135,31 @@ class Casing(PresentableToken):
             return cls(content=content)
         return cls(content=str(data))
 
-    def __json__(self):
-        """Convert the object to a JSON string."""
-        return json.dumps(self.to_dict(), indent=2)
+    # def __json__(self):
+    #     """Convert the object to a JSON string."""
+    #     return json.dumps(self.to_dict(), indent=2)
 
-    def to_json(self):
-        """
-        Convert the object to a JSON string.
-        """
-        return json.dumps(self.to_dict(), indent=2)
+    # def to_json(self):
+    #     """
+    #     Convert the object to a JSON string.
+    #     """
+    #     return json.dumps(self.to_dict(), indent=2)
 
 
 @dataclass
 class NormalCase(Casing):
-    _type: str = field(default="NormalCase", init=False)
-
     def convert(self):
         return " ".join(str(word) for word in self.words)
 
 
 @dataclass
 class CamelCase(Casing):
-    _type: str = field(default="CamelCase", init=False)
-
-
     def convert(self):
         return "".join(word.capitalize() for word in self.words)
 
 
 @dataclass
 class UpperCamel(CamelCase):
-    _type: str = field(default="UpperCamel", init=False)
-
     """
     Converts words to UpperCamelCase.
     """
@@ -204,8 +172,6 @@ class UpperCamel(CamelCase):
 
 @dataclass
 class LowerCamel(CamelCase):
-    _type: str = field(default="LowerCamel", init=False)
-
     """
     Converts words to lowerCamelCase.
     """
@@ -222,8 +188,6 @@ class LowerCamel(CamelCase):
 import utils.util_all_fmk as fmk
 @dataclass
 class SnakeCase(Casing):
-    _type: str = field(default="SnakeCase", init=False)
-
     """
     Converts words to snake_case.
     """
@@ -242,8 +206,6 @@ class UpperSnake(Casing):
     Converts words to UPPER_SNAKE_CASE.
     """
 
-    _type: str = field(default="UpperSnake", init=False)
-
     def convert(self):
         return "_".join(word.upper() for word in self.words)
 
@@ -258,8 +220,6 @@ class Kebab(Casing):
     Converts words to kebab-case.
     """
 
-    _type: str = field(default="Kebab", init=False)
-
     def convert(self):
         return "-".join(word.lower() for word in self.words)
 
@@ -269,8 +229,6 @@ class PascalCase(Casing):
     """
     Converts words to PascalCase.
     """
-
-    _type: str = field(default="PascalCase", init=False)
 
     def convert(self):
         return "".join(word.capitalize() for word in self.words)
@@ -282,8 +240,6 @@ class DotCase(Casing):
     Converts words to dot.case.
     """
 
-    _type: str = field(default="DotCase", init=False)
-
     def convert(self):
         return ".".join(word.lower() for word in self.words)
 
@@ -293,8 +249,6 @@ class TrainCase(Casing):
     """
     Converts words to Train-Case.
     """
-
-    _type: str = field(default="TrainCase", init=False)
 
     def convert(self):
         return "-".join(word.capitalize() for word in self.words)

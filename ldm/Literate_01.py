@@ -2,14 +2,12 @@
 
 from __future__ import annotations
 
-from pydantic.dataclasses import dataclass, Field
 
-field = Field
+from utils.util_pydantic import PydanticMixin,  dataclass, field
+
 from utils.debug_pydantic import debug_dataclass_creation
-from utils.util_pydantic import PydanticMixin
 from utils.class_casing import *
 
-# from dataclasses import dataclass, field
 from typing import List, Optional, Tuple, Dict, Any, Union
 
 # from abc import ABC, abstractmethod
@@ -89,15 +87,10 @@ def block_list_field(*args, **kwargs):
 
 @dataclass
 class Natural(PydanticMixin):
-    _type: str = field(default="Natural", init=False)
     content: str = ""
 
     def __str__(self):
         return self.content
-
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "Natural"
 
     class Meta:
         presentable_template = "{content}"
@@ -106,32 +99,17 @@ class Natural(PydanticMixin):
 # @debug_dataclass_creation
 @dataclass
 class OneLiner(Natural):
-    _type: str = field(default="OneLiner", init=False)
 
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "OneLiner"
-
+    pass
 
 @dataclass
 class Paragraph(Natural):
-    _type: str = field(default="Paragraph", init=False)
-
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "Paragraph"
-
+    pass
 
 @dataclass
-class CodeBlock:
+class CodeBlock(PydanticMixin):
     content: str = None
-    _type: str = field(default="CodeBlock", init=False)
 
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "CodeBlock"
-        if self.content is None:
-            self.content = ""
 
     class Meta:
         presentable_template = "{content}"
@@ -139,59 +117,55 @@ class CodeBlock:
 
 @dataclass
 class OneLiner(Natural):
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "OneLiner"
+    pass
 
 
 @dataclass
 class ModelName(NormalCase):
-    _type: str = field(default="ModelName", init=False)
+    pass
 
 
 @dataclass
 class ClassName(UpperCamel):
-    _type: str = field(default="ClassName", init=False)
+    content: Any
+    pass
 
 
 @dataclass
 class SubjectName(NormalCase):
-    _type: str = field(default="SubjectName", init=False)
+    pass
 
 
 @dataclass
 class AttributeSectionName(NormalCase):
-    _type: str = field(default="AttributeSectionName", init=False)
+    pass
 
 
 @dataclass
 class AttributeName(LowerCamel):
-    _type: str = field(default="AttributeName", init=False)
+    pass
 
 
 @dataclass
 class SubtypingName(LowerCamel):
-    _type: str = field(default="SubtypingName", init=False)
+    pass
 
 
 @dataclass
 class Label(LowerCamel):
-    _type: str = field(default="Label", init=False)
+    pass
 
 
 @dataclass
-class Annotation:
+class Annotation(PydanticMixin):
     label: Label
     content: OneLiner
     emoji: Optional[Emoji] = None
     elaboration: Optional[List[Union[Paragraph, CodeBlock]]] = block_list_field(
         default_factory=list
     )
-    _type: str = field(default="Annotation", init=False)
 
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "Annotation"
+    def shared_post_init(self):
         if self.elaboration is None:
             self.elaboration = []
 
@@ -200,9 +174,7 @@ class Annotation:
 
 
 @dataclass
-class Diagnostic:
-    _type: str = field(default="Diagnostic", init=False)
-    object_type: str = ""
+class Diagnostic(PydanticMixin):
     object_name: str = ""
     message: Paragraph = None
 
@@ -212,8 +184,7 @@ class Diagnostic:
     def __str__(self):
         return f"{self.severity} on {self.object_type} named {self.object_name}: {self.message}"
 
-    def __post_init__(self):
-        self._type = "Diagnostic"
+    def shared_post_init(self):
         if self.message == None:
             self.message = Paragraph("")
 
@@ -227,14 +198,12 @@ class MinorComponent(PydanticMixin):  # TO DO: Change to subtype of Component, o
     annotations: Optional[List[Annotation]] = block_list_field(default_factory=list)
     diagnostics: Optional[List[Diagnostic]] = block_list_field(default_factory=list)
     is_embellishment: bool = False
-    _type: str = field(default=None, init=False)
 
     class Meta:
         is_abstract = True
 
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "MinorComponent"
+    def shared_post_init(self):
+        super().shared_post_init()
 
         # Ensure collections are initialized
         if self.annotations is None:
@@ -251,7 +220,6 @@ class Component(MinorComponent):
     name: CamelCase = None
     parenthetical: Optional[str] = None
     abbreviation: Optional[CamelCase] = None
-    _type: str = field(default=None, init=False)
 
     class Meta:
         is_abstract = True
@@ -263,11 +231,6 @@ class Component(MinorComponent):
     def __repr__(self):
         return f"{self._type.capitalize()}: {self.name} (repr)"
 
-    def __post_init__(self):
-        super().__post_init__()
-
-        if self._type is None:
-            self._type = "Component"
 
     def show_name(self):
         return f"I am a {self._type.capitalize()}: named {self.name} "
@@ -285,9 +248,8 @@ class SubjectE(Component):
     prefix: str = ""
     classes: List[Class] = block_list_field(default_factory=list)
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "SubjectE"
+    def shared_post_init(self):
+        super().shared_post_init()
         if isinstance(self.name, str):
             print("Fixing Subject name!")
             self.name = SubjectName(self.name)
@@ -300,9 +262,6 @@ class SubjectE(Component):
 class SubjectD(SubjectE):
     subjects: List[SubjectE] = block_list_field(default_factory=list)
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "SubjectD"
 
     class Meta:
         presentable_header = "####  {{name}{? - {one_liner}} NEWLINE"
@@ -312,9 +271,6 @@ class SubjectD(SubjectE):
 class SubjectC(SubjectD):
     subjects: List[SubjectD] = block_list_field(default_factory=list)
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "SubjectC"
 
     class Meta:
         presentable_header = "###  {{name}{? - {one_liner}} NEWLINE"
@@ -324,9 +280,6 @@ class SubjectC(SubjectD):
 class SubjectB(SubjectC):
     subjects: List[SubjectC] = block_list_field(default_factory=list)
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "SubjectB"
 
     class Meta:
         presentable_header = "##  {{name}{? - {one_liner}} NEWLINE"
@@ -334,7 +287,6 @@ class SubjectB(SubjectC):
 
 @dataclass
 class LiterateModel(SubjectB):
-    _type: str = field(default="LiterateModel", init=False)
 
     # def __init__(self, name=None, description=None, **kwargs):
     #     # Call the parent constructor
@@ -354,9 +306,8 @@ class LiterateModel(SubjectB):
     #     self.subjects = kwargs.get("subjects", [])
     #     self.classes = kwargs.get("classes", [])
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "LiterateModel"
+    def shared_post_init(self):
+        super().shared_post_init()
         if isinstance(self.name, str):
             print("Fixing LiterateModel name!")
             self.name = ModelName(self.name)
@@ -386,12 +337,12 @@ Subject = SubjectB
 @dataclass
 class DataType(PydanticMixin):
     """A simple or complex data type"""
+    
 
-    _type: str = field(default="DataType", init=False)
-
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "DataType"
+    def shared_post_init(self):
+        super().shared_post_init()
+        print("Data type type is ", self._type)
+        
 
     class Meta:
         is_abstract = True
@@ -399,27 +350,29 @@ class DataType(PydanticMixin):
 
 @dataclass
 class BaseDataType(DataType):
-    class_name: ClassName = field(default_factory=ClassName)
+    class_name: Any #ClassName = field(default_factory=ClassName)
     as_value_type: AsValue = field(default_factory=AsValue)
 
-    def __post_init__(self):
-        super().__post_init__()
+    def shared_post_init(self):
+        super().shared_post_init()
         if isinstance(self.class_name, str):
             self.class_name = ClassName(self.class_name)
-        self._type = "BaseDataType"
-        # print("Created BDT is ", self)
+        print("Created BDT is ", self)
+        print("Base Data type type is ", self._type)
+        print("Base Data type is (repr)", self.__repr__())
+        print("Base Data type is (model_dump)", self.model_dump())
+
 
     class Meta:
         presentable_template = "{class_name} {? - {is_value}}"
 
-    def __str__(self):
-        return f"{self.as_value_type} {self.class_name}"
+    # def __str__(self):
+    #     return f"{self.as_value_type} {self.class_name}"
 
 
 @dataclass
 class ListDataType(DataType):
     element_type: DataType  # What's inside the list
-    _type: str = field(default="ListDataType", init=False)
 
 
 
@@ -433,7 +386,6 @@ class ListDataType(DataType):
 @dataclass
 class SetDataType(DataType):
     element_type: DataType  # What's inside the set
-    _type: str = field(default="SetDataType", init=False)
 
 
     class Meta:
@@ -447,7 +399,6 @@ class SetDataType(DataType):
 class MappingDataType(DataType):
     domain_type: DataType  # Mapping from this
     range_type: DataType  # Mapping to this
-    _type: str = field(default="MappingDataType", init=False)
 
 
     class Meta:
@@ -458,7 +409,7 @@ class MappingDataType(DataType):
 
 
 @dataclass
-class DataTypeClause:
+class DataTypeClause(PydanticMixin):
     """
     Represents the type information for an attribute.
 
@@ -471,7 +422,6 @@ class DataTypeClause:
     data_type: DataType
     is_optional_lit: IsOptional = field(default_factory=IsOptional)
     cardinality: Optional[str] = None
-    _type: str = field(default="DataTypeClause", init=False)
 
 
     class Meta:
@@ -483,9 +433,8 @@ class DataTypeClause:
 
 
 @dataclass
-class FormulaCoding:
+class FormulaCoding(PydanticMixin):
     content: str
-    _type: str = field(default="FormulaClause", init=False)
 
 
 
@@ -494,11 +443,9 @@ class Formula(MinorComponent):
     english: Optional[Paragraph] = None
     code: Optional[FormulaCoding] = None
 
-    _type: str = field(default="Formula", init=False)
 
-    def __post_init__(self):
-        if self._type is None:
-            self._type = "Formula"
+    def shared_post_init(self):
+        super().shared_post_init()
         if self.english is None:
             self.english = Paragraph("")
 
@@ -507,23 +454,22 @@ class Formula(MinorComponent):
 class Constraint(Formula):
     message: Optional[Paragraph] = None
     severity: Optional[str] = None
-    _type: str = field(default="Constraint", init=False)
 
-    def __post_init__(self):
-        super().__post_init__()
+    def shared_post_init(self):
+        super().shared_post_init()
         if self.message is None:
             self.message = Paragraph("")
 
 
 @dataclass
 class Derivation(Formula):
-    _type: str = field(default="Derivation", init=False)
+    pass
 
 
 
 @dataclass
 class Default(Formula):
-    _type: str = field(default="Default", init=False)
+    pass
 
 
 
@@ -545,9 +491,8 @@ class Class(Component):
     attributes: List[Attribute] = block_list_field(default_factory=list)
     attribute_sections: List[AttributeSection] = block_list_field(default_factory=list)
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "Class"
+    def shared_post_init(self):
+        super().shared_post_init()
         if self.attributes is None:
             self.attributes = []
         if self.attribute_sections is None:
@@ -567,10 +512,9 @@ Class_ = Class
 
 @dataclass
 class ValueType(Class):
-    _type: str = field(default="ValueType", init=False)
 
-    def __post_init__(self):
-        super().__post_init__()
+    def shared_post_init(self):
+        super().shared_post_init()
         self.is_value_type = True
 
     class Meta:
@@ -579,11 +523,6 @@ class ValueType(Class):
 
 @dataclass
 class CodeType(ValueType):
-    _type: str = field(default="CodeType", init=False)
-
-    def __post_init__(self):
-        super().__post_init__()
-        self.is_value_type = True
 
     class Meta:
         presentable_header = "_  CodeType : {name}{? - {one_liner}} NEWLINE"
@@ -591,20 +530,18 @@ class CodeType(ValueType):
 
 @dataclass
 class ReferenceType(Class):
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "ReferenceType"
+    pass
 
 
 @dataclass
-class Subtyping:
+class Subtyping(PydanticMixin):
     name: SubtypingName = ""
     is_exclusive: IsExclusive = field(default_factory=IsExclusive)
     is_exhaustive: IsExhaustive = field(default_factory=IsExhaustive)
     subtypes: Optional[List[ClassName]] = field(default_factory=list)
 
-    def __post_init__(self):
-        self._type = "Subtyping"
+    def shared_post_init(self):
+        super().shared_post_init()
         self.is_exclusive = True
         self.is_exhaustive = True
 
@@ -616,9 +553,8 @@ class AttributeSection(Component):
     is_optional: IsOptional = None
     attributes: List[Attribute] = block_list_field(default_factory=list)
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "AttributeSection"
+    def shared_post_init(self):
+        super().shared_post_init()
         print(
             f"In AttSection post-init for {self.name}, is_optional = {self.is_optional}"
         )
@@ -650,9 +586,8 @@ class Attribute(Component):
     default: Optional[Default] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
 
-    def __post_init__(self):
-        super().__post_init__()
-        self._type = "Attribute"
+    def shared_post_init(self):
+        super().shared_post_init()
         if self.constraints is None:
             self.constraints = []
         if isinstance(self.name, str):
@@ -666,22 +601,10 @@ class Attribute(Component):
 
 
 @dataclass
-class AttributeReference:
+class AttributeReference(PydanticMixin):
     class_name: ClassName = None
     attribute_name: AttributeName = None
-    _type: str = field(default="AttributeReference", init=False)
 
-    # def __init__(
-    #     self, class_name: ClassName = None, attribute_name: AttributeName = None
-    # ):
-    #     self.class_name = ClassName(
-    #         str(class_name)
-    #     )  # so caller can user str() or UpperCamel
-    #     self.attribute_name = AttributeName(
-    #         str(attribute_name)
-    #     )  # so caller can user str() or UpperCamel
-    #     if self._type is None:
-    #         self._type = "AttributeReference"
 
     def __dict__(self):
         return self.to_dict()

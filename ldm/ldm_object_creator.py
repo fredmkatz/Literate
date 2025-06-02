@@ -129,7 +129,7 @@ class GenericObjectCreator:
                 # print("final object is ", ostring)
 
             return the_obj
-        except Exception as e:
+        except Exception as e:  # todo - fix as_entered and revive this code
             logger.error(f"Error creating {type_name}: {str(e)}", exc_info=True)
             logger.error(f"Using kwargs: {list(kwargs.keys())}")
             return data_dict

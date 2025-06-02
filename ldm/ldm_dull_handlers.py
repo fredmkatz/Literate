@@ -1,5 +1,5 @@
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from abc import ABC
 
 # from typing import Any, List, Dict, Tuple, Union, Callable, Optional
@@ -514,7 +514,8 @@ def parse_header(header: str) -> dict:
         rest = rest[1:].strip()  # Remove the dash
         one_liner_match = re.match(r"^([^\(]+)(?:\(|$)", rest)
         if one_liner_match:
-            result["one_liner"] = OneLiner(one_liner_match.group(1).strip())
+            content = one_liner_match.group(1).strip()
+            result["one_liner"]  = {"_type": "OneLiner", "content": content}
             rest = rest[len(one_liner_match.group(1)) :].strip()
 
     # Extract parenthetical
@@ -527,7 +528,9 @@ def parse_header(header: str) -> dict:
     if parenthetical:
         if prefix.strip() == "-":
             dtc = parse_data_type_clause(parenthetical)
-            result["data_type_clause"] = dtc
+            print("setting data_type_clause to model dump", dtc.model_dump())
+            print("or maybe asdict ", asdict(dtc))
+            result["data_type_clause"] = dtc.model_dump()
         if prefix.strip() == "__":  # Attribute Section
             is_optional = IsOptional(parenthetical)
             result["is_optional"] = is_optional
@@ -556,8 +559,9 @@ def parse_data_type_clause(parenthetical: str) -> DataTypeClause:
         is_optional_str = "required"
     # now parse the rest as a mere data type
     dt = parse_data_type(phrase)
+    print("Using dt for dtc: ", dt.model_dump())
     dtc = DataTypeClause(data_type=dt, is_optional_lit=IsOptional(is_optional_str))
-    # print("Crreated dtc", as_json(dtc))
+    print("Crreated dtc", dtc.model_dump())
     return dtc
 
 
@@ -584,12 +588,18 @@ def parse_data_type(phrase) -> DataType:
         return dt
 
     if is_name(phrase):
-        dt = BaseDataType(class_name=phrase, as_value_type=AsValue("reference"))
+        name_obj = ClassName(phrase)
+        print("Arg to basedata type is ", name_obj)
+        dt = BaseDataType(class_name=ClassName(phrase), as_value_type=AsValue("reference"))
+        print("DT returned = ", dt)
+        print("DT asdict = ", asdict(dt))
+        print("DT model_dump = ", dt.model_dump())
+        # return dt.model_dump()
         return dt
 
     print("Inventing name for: ", phrase)
     phrase = "Invented Name"
-    dt = BaseDataType(class_name=phrase, as_value_type=AsValue("value"))
+    dt = BaseDataType(class_name=ClassName(phrase), as_value_type=AsValue("value"))
     return dt
 
 

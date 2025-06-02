@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-
-from pydantic.dataclasses import dataclass, Field
-from utils.util_pydantic import PydanticMixin
+from utils.util_pydantic import PydanticMixin,  dataclass, field
 
 from typing import Any, Union
 
@@ -22,9 +20,21 @@ class PresentableToken(PydanticMixin):
         content (str): The original input string.
         output (str): The words translated to the proper casing.
     """
+    content: str = ""
+    _type: str = field(init=False)
+    # using_normal: bool = False
+    # using_pydantic: bool = False
+    # as_entered: str = field(default="", init=False)
+    
+    __field_order__ = ["_type", "content"]
 
-    content: str 
-    _type: str = Field(default="PresentableToken", init=False)
+
+    def shared_post_init(self):
+        super().shared_post_init()
+
+        self.as_entered = self.content
+
+
 
 
     def __init_subclass__(cls):
@@ -74,8 +84,7 @@ class PresentableBoolean(PresentableToken):
     content: Union[str, bool] 
 
     # Accept initial value through dataclass mechanism
-    as_entered : Union[str, bool]  = Field(default="", init=False)
-    _type: str = Field(default="PresentableBoolean", init=False)
+    # as_entered : Union[str, bool]  = field(default="", init=False)
 
     # Class attributes that should be overridden by subclasses
     true_word = None
@@ -88,7 +97,8 @@ class PresentableBoolean(PresentableToken):
     false_words = None
     token_pattern_str = None
 
-    def __post_init__(self):
+    def shared_post_init(self):
+        super().shared_post_init()
         # print("content on entry is ", self.content)
         # save as_entered; content will be set to the determined value, if one is found
         self.as_entered = self.content
@@ -210,7 +220,6 @@ def create_boolean_type(
 class IsOptional(PresentableBoolean):
     """Class representing a boolean token for "is required"."""
 
-    _type: str = Field(default="IsOptional", init=False)
 
     # Class attributes - no need for __init__ or __post_init__ override
     true_word = "Optional"
@@ -231,7 +240,6 @@ class IsExclusive(PresentableBoolean):
 
     """
 
-    _type: str = Field(default="IsExclusive", init=False)
 
     true_word = "exclusive"
     true_words = ["exclusive"]
@@ -253,7 +261,6 @@ class IsExhaustive(PresentableBoolean):
 
     """
 
-    _type: str = Field(default="IsExhaustive", init=False)
 
     true_word = "exhaustive"
     true_words = ["exhaustive"]
@@ -275,7 +282,6 @@ class AsValue(PresentableBoolean):
 
     """
 
-    _type: str = Field(default="AsValue", init=False)
 
     true_word = "reference"
     true_words = ["reference"]
@@ -289,13 +295,14 @@ class AsValue(PresentableBoolean):
 
 @dataclass
 class Emoji(PresentableToken):
-    as_entered: str = Field(default="", init=True)
-    _type: str = Field(default="Emoji", init=False)
+    as_entered: str = field(default="", init=True)
 
     token_pattern_str = r"/\d+(.*?)[\u263a-\U0001f645]/"
     # regex = re.compile(r'\d+(.*?)[\u263a-\U0001f645]')
 
-    def __post_init__(self, input_string):
+    def shared_post_init(self, input_string):
+        super().shared_post_init()
+
         self.as_entered = as_entered
         self.smile = as_entered
         self.unicode = as_entered

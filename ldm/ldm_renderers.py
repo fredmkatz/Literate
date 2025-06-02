@@ -201,6 +201,9 @@ def cleaned_paras(paras: list[Literate_01.Paragraph]) -> str:
 
 
 def render_ldm(self):
+    objtype = type(self)
+    named_type = "??" # self._type
+    print(f"Rendering LDM - {objtype} - {named_type}")
     result = render_component(self, prefix=self.prefix + " ")
 
     subjects = self.subjects

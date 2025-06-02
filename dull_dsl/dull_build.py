@@ -45,7 +45,6 @@ def build_dull_dsl(dull_specs: Dict):
     the_model_results_dir = results_dir
     global the_model_dir
     the_model_dir = model_dir
-    trace_path = f"{results_dir}/{model_name}_trace.txt"
     # print("Dull specs: ", as_json(dull_specs))
     show_phase("Warming up")
     print("Model dir: ", model_dir)
@@ -56,9 +55,10 @@ def build_dull_dsl(dull_specs: Dict):
     # print("Model module: ", model_module)
     # print("Model module path: ", model_module_path)
     print("Results dir: ", results_dir)
+
+    trace_path = f"{results_dir}/{model_name}_00_trace.txt"
     print("Trace path: ", trace_path)
 
-    trace_path = f"{results_dir}/{model_name}_trace.txt"
     print("Rediirecting to: ", trace_path)
     sys.stdout = open(trace_path, "w", encoding="utf-8")
     
@@ -71,54 +71,64 @@ def build_dull_dsl(dull_specs: Dict):
     doc_part = parse_model_doc(dull_specs, model_doc_path)
     displayed = doc_part.displayed()
 
-    write_text(f"{results_dir}/{model_name}.parsed.txt", displayed)
+    write_text(f"{results_dir}/{model_name}_01.parsed.txt", displayed)
 
     show_phase("Deriving dict for model")
     the_dict = doc_part.derive_dict_for_document(dull_specs)
-    yaml_dict_file = f"{results_dir}/{model_name}.dict.yaml"
+    yaml_dict_file = f"{results_dir}/{model_name}_02.dict.yaml"
     write_yaml(the_dict, yaml_dict_file)
     print(f".. full dict saved  in {yaml_dict_file}")
 
-    ldms = the_dict.get("literatemodels", [])
+    ldms = the_dict.get("literate_models", [])
     if not ldms:
         print("No LiterateModels found in the dictionary")
         return
     the_ldm_dict = ldms[0]
 
     creator = GenericObjectCreator(Literate_01)
-    show_phase(f"Creating model from dictionary: {yaml_dict_file}")
+    show_phase(f"Creating model from dictionary - with ObjectCreator: {yaml_dict_file}")
     the_ldm_model = creator.create(the_ldm_dict)
     # the_ldm_model.model_rebuild()
     print(f"Created model: {the_ldm_model.__class__}")
+    if isinstance(the_ldm_model, dict):
+        show_phase("ldm model is merely a dict - stopping!")
+        exit(0)
     
+    # show_phase("Using pydantic to create model")
+    # the_ldm_model_py = LiterateModel.model_validate(the_ldm_dict)
     
-    show_phase("Using pydantic to create model")
-    the_ldm_model_py = LiterateModel.model_validate(the_ldm_dict)
+    SERIALIZING_WITH_PYDANTIC = True
+    if SERIALIZING_WITH_PYDANTIC:
 
-    yaml_regenned_dict_file = f"{results_dir}/{model_name}.model_to_dict.yaml"
-    show_phase(f"Recreating dict from model : {yaml_regenned_dict_file}")
-    regenned_model_dict = the_ldm_model.model_dump()
-    # print(regenned_model_dict)
-    # write_yaml(yaml_regenned_dict_file, as_yaml(regenned_model_dict))
-    write_yaml(regenned_model_dict, yaml_regenned_dict_file)
+        yaml_regenned_dict_file = f"{results_dir}/{model_name}_03a.model_to_dict.yaml"
+        show_phase(f"Serializing dict from model with Pydantic: {yaml_regenned_dict_file}")
+        regenned_model_dict = the_ldm_model.model_dump()
+        # print(regenned_model_dict)
+        write_yaml(regenned_model_dict, yaml_regenned_dict_file)
+    else:
+        show_phase("SKIPPING - Pydantic serialization of model")
 
     # test_ldm_model(the_ldm_model)
 
-    show_phase("Validating model")
-    validate_model(the_ldm_model)
-    from validate_fields import all_validation_errors
+    VALIDATING = False
+    if VALIDATING:
+        show_phase("Validating model")
+        validate_model(the_ldm_model)
+        from validate_fields import all_validation_errors
 
-    show_phase("counting errors")
-    counts = count_strings(all_validation_errors)
-    print(counts)
-    for key, value in counts.items():
-        print(value, "\t", key)
+        show_phase("counting errors")
+        counts = count_strings(all_validation_errors)
+        print(counts)
+        for key, value in counts.items():
+            print(value, "\t", key)
+    else:
+        show_phase("SKIPPING Validation")
 
-    show_phase("Serialing model ...")
+    show_phase("Serialzinging model ...")
     # Serialize it to files
 
 
-    yaml_model_path = f"{results_dir}/{model_name}.model.yaml"
+    yaml_model_path = f"{results_dir}/{model_name}_03.model.yaml"
     
  
     write_yaml(the_ldm_model, yaml_model_path)
@@ -126,13 +136,13 @@ def build_dull_dsl(dull_specs: Dict):
 
     show_phase("Rendering back to markdown")  # Render
     # Render
-    render_path2 = f"{results_dir}/{model_name}.rendered.md"
+    render_path = f"{results_dir}/{model_name}_04.rendered.md"
     rendering = render_to_markdown(the_ldm_model)
-    write_text(render_path2, rendering)
+    write_text(render_path, rendering)
 
     # Create HTML
     show_phase("Creating HTML from model dict")
-    html_path = f"{results_dir}/{model_name}.html"
+    html_path = f"{results_dir}/{model_name}_05.html"
 
     create_model_html(the_ldm_model, html_path)
     show_phase("Skipping PDF creation")
