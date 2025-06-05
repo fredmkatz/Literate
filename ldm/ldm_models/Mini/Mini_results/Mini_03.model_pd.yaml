@@ -1,0 +1,429 @@
+_type: LiterateModel
+is_embellishment: false
+prefix: '#'
+name:
+  _type: SubjectName
+  content: Literate Data Model
+parenthetical: ''
+subjects:
+- _type: SubjectB
+  one_liner:
+    _type: OneLiner
+    content: the basic structure of the model
+  is_embellishment: false
+  prefix: '##'
+  name:
+    _type: SubjectName
+    content: Preliminaries
+  parenthetical: ''
+  classes:
+  - _type: Class
+    one_liner:
+      _type: OneLiner
+      content: An element or building block of the literate data model
+    is_embellishment: false
+    prefix: _
+    name:
+      _type: ClassName
+      content: Component
+    parenthetical: ''
+    subtype_of: UnserializablePiece
+    subtypes: UnserializablePiece
+    based_on: UnserializablePiece
+    dependent_of: UnserializablePiece
+    dependents: UnserializablePiece
+    is_value_type: false
+    attributes:
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: the name of the component, not in camel case
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: normalName
+      parenthetical: '*String*'
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: String
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: The name of the component
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: name
+      parenthetical: CamelName
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: CamelName
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: qualifiedName
+      parenthetical: '*QualifiedCamel*'
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: QualifiedCamel
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: a short form of the component's name, used for cross references and
+          improved readability.
+      annotations:
+      - _type: Annotation
+        label:
+          _type: Label
+          content: example
+        content:
+          _type: OneLiner
+          content: '"LDM" is the short form of "Literate Data Model".'
+        emoji:
+          _type: Emoji
+          content: ''
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: abbreviatedName
+      parenthetical: '*CamelName*'
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: CamelName
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+      default:
+        _type: Default
+        one_liner:
+          _type: OneLiner
+          content: ' name
+
+            '
+        is_embellishment: false
+        english:
+          _type: Paragraph
+          content: ''
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: A brief, one-line definition or description of the component, suitable
+          for use in a descriptive table of contents. _
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: oneLiner
+      parenthetical: RichLine
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: RichLine
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: A more detailed explanation or discussion of the component _
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: elaboration
+      parenthetical: RichText
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: RichText
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    attribute_sections:
+    - _type: AttributeSection
+      one_liner:
+        _type: OneLiner
+        content: mechanical attributes
+      is_embellishment: false
+      prefix: __
+      name:
+        _type: AttributeSectionName
+        content: For Machinery
+      parenthetical: ''
+      is_optional:
+        _type: IsOptional
+        content: false
+      attributes:
+      - _type: Attribute
+        one_liner:
+          _type: OneLiner
+          content: Indicates whether this component is an embellishment added during
+            post-parsing processing _
+        annotations:
+        - _type: Annotation
+          label:
+            _type: Label
+            content: note
+          content:
+            _type: OneLiner
+            content: This attribute is set to true for components that are automatically
+              generated or added during the fleshing out, review, or rendering processes,
+              such as implied attributes or suggested model elements. It helps distinguish
+              embellishments from the core model elements defined in the original
+              LDM source.
+          emoji:
+            _type: Emoji
+            content: ''
+        is_embellishment: false
+        prefix: '-'
+        name:
+          _type: AttributeName
+          content: isEmbellishment
+        parenthetical: Boolean
+        data_type_clause:
+          _type: DataTypeClause
+          data_type:
+            _type: BaseDataType
+            class_name:
+              _type: ClassName
+              content: Boolean
+            as_value_type:
+              _type: AsValue
+              content: true
+          is_optional_lit:
+            _type: IsOptional
+            content: false
+        default:
+          _type: Default
+          one_liner:
+            _type: OneLiner
+            content: ' false
+
+              '
+          is_embellishment: false
+          english:
+            _type: Paragraph
+            content: ''
+  - _type: Class
+    one_liner:
+      _type: OneLiner
+      content: a kind of note, or aside, used to call attention to additional information
+        about some Component.
+    annotations:
+    - _type: Annotation
+      label:
+        _type: Label
+        content: note
+      content:
+        _type: OneLiner
+        content: Each LDM declares a set of Annotation Types, with defined labels,
+          emojis, and clearly documented purposes. These are *recognized* or *registered*
+          Annotation Types.
+      emoji:
+        _type: Emoji
+        content: ''
+    is_embellishment: false
+    prefix: _
+    name:
+      _type: ClassName
+      content: AnnotationType
+    parenthetical: ''
+    subtype_of: UnserializablePiece
+    subtypes: UnserializablePiece
+    based_on:
+    - _type: ClassName
+      content: LiterateDataModel
+    dependent_of: UnserializablePiece
+    dependents: UnserializablePiece
+    is_value_type: false
+    attributes:
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: an emoji
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: emoji
+      parenthetical: Emoji
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: Emoji
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: an emoji
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: emojiName
+      parenthetical: String
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: String
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: the Unicode for the emoji
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: emojiUnicode
+      parenthetical: Unicode
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: Unicode
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: A short label to indicate the purpose of the annotation _
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: label
+      parenthetical: CamelName
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: CamelName
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: the plural form of the label
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: plural
+      parenthetical: '*UpperCamel*'
+      data_type_clause:
+        _type: DataTypeClause
+        data_type:
+          _type: BaseDataType
+          class_name:
+            _type: ClassName
+            content: UpperCamel
+          as_value_type:
+            _type: AsValue
+            content: true
+        is_optional_lit:
+          _type: IsOptional
+          content: false
+      default:
+        _type: Default
+        one_liner:
+          _type: OneLiner
+          content: ' based on label
+
+            '
+        is_embellishment: false
+        english:
+          _type: Paragraph
+          content: ''
+    - _type: Attribute
+      one_liner:
+        _type: OneLiner
+        content: the intended reason for the annotation.
+      is_embellishment: false
+      prefix: '-'
+      name:
+        _type: AttributeName
+        content: purpose
+      parenthetical: ''

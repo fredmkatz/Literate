@@ -1,0 +1,50 @@
+Document - <class 'dull_dsl.dull_parser_core.DocPart'> 
+. LiterateModel - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ LiterateModel_Head: # Literate Data Model
+. . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ SubjectB_Head: ## Preliminaries - the basic structure of the model
+. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ Class_Head: _ **Component** - An element or building block of the literate data model
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **normalName** - the name of the component, not in camel case (*String*)
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **name** - The name of the component (CamelName)
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **qualifiedName** - (*QualifiedCamel*)
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **abbreviatedName** - a short form of the component's name, used for cross references and improved readability. (*CamelName*)
+. . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ DEFAULT: ***Default***: name
+. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ EXAMPLE: ***Example***: "LDM" is the short form of "Literate Data Model".
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(RichLine)_
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **elaboration** - A more detailed explanation or discussion of the component _(RichText)_
+. . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ AttributeSection_Head: __  ***For Machinery*** - mechanical attributes
+. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ Attribute_Head: - **isEmbellishment** - Indicates whether this component is an embellishment added during post-parsing processing _(Boolean)_
+. . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ DEFAULT: ***Default***: false
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ NOTE: ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
+. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ Class_Head: _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component.
+_ _ _ _ BASED_ON: ***Based on*** : Literate Data Model
+. . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ NOTE: ***Note***: Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type.
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **emoji** - an emoji (Emoji)
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **emojiName** - an emoji (String)
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **emojiUnicode** - the Unicode for the emoji (Unicode)
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **label** - A short label to indicate the purpose of the annotation _(CamelName)_
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **plural** - the plural form of the label (*UpperCamel*).
+. . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ DEFAULT: Default: based on label
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **Purpose** - the intended reason for the annotation.

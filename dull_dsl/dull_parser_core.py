@@ -1,12 +1,12 @@
 # import re
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field
 
 # from typing import Any, List, Dict, Tuple, Union, Callable, Optional
 from typing import Any, List, Dict, Union
 
 # from ldm_parse_bits import parse_header
 # from utils.util_fmk_pom import as_yaml
-from utils.util_json import as_json
+from utils.util_json import as_json, clean_dict
 from utils.util_flogging import flogger, trace_method, trace_decorator
 from dull_dsl.dull_parser_classes import (
     TypedLine,
@@ -17,7 +17,7 @@ from dull_dsl.dull_parser_classes import (
 )
 from utils.class_casing import LowerCamel, SnakeCase, UpperCamel
 
-from ldm.Literate_01 import ClassName, AttributeName, OneLiner
+from ldm.Literate_01 import ClassName, AttributeName, OneLiner, Label, Emoji
 
 
 all_clauses_by_priority = None
@@ -154,9 +154,14 @@ class DocPart:
                     # the_dict["full_annotation"] = full_annotation
                     # print("Annotation dict: ", annotation_dict)
                     annotation_dict.pop("line_type", None)
-                    # annotation_dict["content"] = annotation_dict.pop("value", None)
-                    annotation_dict["content"] = asdict(OneLiner(annotation_dict.pop("value", None)))
+                    annotation_dict["content"] = OneLiner(annotation_dict.pop("value", None))
                     # print(".. revised Annotation dict: ", annotation_dict)
+                    
+                    label = annotation_dict["label"]
+                    annotation_dict["label"] = Label(label)
+                    
+                    emoji = annotation_dict["emoji"]
+                    annotation_dict["emoji"] = Emoji(emoji)
 
                     # print("the dict: ", the_dict)
                     the_dict.update(annotation_dict)
@@ -194,6 +199,15 @@ class DocPart:
                         )
                         # print("And the dict has;;;")
                         # print(as_json(the_dict))
+                    if (
+                        isinstance(item.line_Type, MajorClause)
+                        and item.line_Type.class_started in ["Default", "Derivation", "Constraint"]
+                        and False
+                    ):
+                        print("Dict for Formula", the_dict)
+                            
+                    
+
                     continue
 
             elif isinstance(item, DocPart):
@@ -234,7 +248,7 @@ class DocPart:
 
         displayables = ["AttributeSection"]
         displayables = ["Class"]
-        displayables = ["Default", "Derivation", "Attribute"]
+        displayables = ["Default", "Derivation", "Constraint"]
         displayables = []
         # ["Class", "Attribute", "Formula", "Default"]
         if self.part_type in displayables:
@@ -243,9 +257,10 @@ class DocPart:
             self.display(1)
             print("DerivedDict for Part: ", self.part_type)
             print(as_json(the_dict))
+            print(the_dict)
         # if the_dict.get("name", "") == "Component":
         #     exit(0)
-        return the_dict
+        return clean_dict(the_dict)
 
 
 # @trace_decorator

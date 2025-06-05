@@ -8,7 +8,6 @@ import inspect
 import yaml
 
 from utils.util_flogging import flogger
-from utils.util_json import clean_dict
 
 
 def write_text(file, text):

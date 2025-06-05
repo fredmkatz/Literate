@@ -365,6 +365,7 @@ if __name__ == "__main__":
     test_models = all_models
     test_models = ["Markdown"]
     test_models = ["Literate"]
+    test_models = ["Mini"]
 
     import traceback
     for model_name in test_models:

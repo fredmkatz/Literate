@@ -2,7 +2,9 @@ from typing import Dict, Any
 from dataclasses import asdict
 import json
 import yaml
+import os
 
+from utils.util_fmk import glob_files
 def update_nested_dict(original, updates):
     for key, value in updates.items():
         if isinstance(value, dict):
@@ -14,29 +16,46 @@ def update_nested_dict(original, updates):
 
 
 
-def clean_dict(obj):
+def clean_dict(obj, warnings: bool = False):
     """Convert dataclass instance to dict, excluding None values."""
+    # print("Clean dict, warnings =  ", warnings)
     if isinstance(obj, (str, int, float, bool)):
         return obj
     elif isinstance(obj, list):
-        return [clean_dict(item) for item in obj if item is not None]
+        return [clean_dict(item, warnings = warnings) for item in obj if item is not None]
     elif isinstance(obj, dict):
         # diagnostics = obj.get("diagnostics", None)
         # if diagnostics:
         #     print("Seeing diagnostics in dict: ", diagnostics)
             
         new_dict =  {
-            k: clean_dict(v)
+            k: clean_dict(v, warnings=warnings)
             for k, v in obj.items()
             if v is not None and not (isinstance(v, (list, dict)) and not v)
         }
+        if not new_dict.get("_type", None) and warnings:
+            print("CD WARNING2 - dict without _type attribute - ", new_dict)
         return front_key(new_dict, "_type") # make sure that _type - if present - is first entry
     elif hasattr(obj, "__dataclass_fields__"):  # Is a dataclass
-        return {
-            k: clean_dict(v)
+        objtype = type(obj).__name__
+
+        if warnings:
+            print(f"CD WARNING:  clean_dict found {objtype} dataclass; converting to dict")
+        dcvalue = {
+            k: clean_dict(v, warnings=warnings)
             for k, v in asdict(obj).items()
             if v is not None and not (isinstance(v, (list, dict)) and not v)
         }
+        dcdict = {"_type": objtype}
+        # dcdict = {"_type": objtype, "_pytype": type(obj)}
+        dcdict.update(dcvalue)
+        if warnings:
+            print("Converted DC to dict:", objtype)
+            print(repr(obj))
+            print("became...")
+            print(dcdict)
+            
+        return dcdict
     else:
         return "UnserializablePiece"
     return obj
@@ -56,8 +75,8 @@ def plop(d, key):
 # # {'b': 2, 'a': 1, 'c': 3}
 
 
-def as_json(obj):
-    return json.dumps(clean_dict(obj), indent=2)
+def as_json(obj, warnings: bool = False):
+    return json.dumps(clean_dict(obj, warnings=warnings), indent=2)
 
 def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
     """
@@ -79,16 +98,17 @@ def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
     return {}
 
 
-def as_yaml(the_dict: Dict) -> str:
+def as_yaml(the_dict: Dict, warnings: bool = False) -> str:
+    print("as yaml - warnings = ", warnings)
     return yaml.dump(
-        clean_dict(the_dict), indent=4, default_flow_style=False, sort_keys=False
+        clean_dict(the_dict, warnings=warnings), indent=4, default_flow_style=False, sort_keys=False
     )
 
-def write_json(the_dict: Dict, file_path: str):
+def write_json(the_dict: Dict, file_path: str, warnings: bool = False):
     import utils.util_all_fmk as fmk
 
-    fmk.write_text(file_path, as_json(the_dict))
-def write_yaml(the_dict: Dict, file_path: str):
+    write_text(file_path, as_json(the_dict, warnings=warnings))
+def write_yaml(the_dict: Dict, file_path: str, warnings: bool = False):
     """
     Write a dictionary to a YAML file.
 
@@ -97,7 +117,7 @@ def write_yaml(the_dict: Dict, file_path: str):
         file_path: Path to write the YAML file
     """
     with open(file_path, "w", encoding="utf-8") as f:
-        yaml.dump(clean_dict(the_dict), f, default_flow_style=False, sort_keys=False)
+        yaml.dump(clean_dict(the_dict, warnings= warnings), f, default_flow_style=False, sort_keys=False)
 
 
 def json_census(json_object):
@@ -155,8 +175,131 @@ def json_census(json_object):
 
     return counts, by_count
 
+from collections import defaultdict
+
+starters = ["Class", "Subject", "Attribute", "LiterateModel"]
+def count_key_paths(data, path=None, counts=None):
+    if path is None:
+        path = ""
+    if counts is None:
+        counts = defaultdict(int)
+
+    if isinstance(data, dict):
+        dtype = data.get("_type", None)
+        if dtype and dtype in starters:
+            print(f"Changing {path} to {dtype}")
+            path = dtype
+        for key, value in data.items():
+            current_path = path + "." + key
+            counts[current_path] += 1
+            count_key_paths(value, current_path, counts)
+    elif isinstance(data, list):
+        for item in data:
+            count_key_paths(item, path, counts)
+    return counts
+
+from typing import Dict
+
+def merge_counts(pieces: Dict[str, dict]) -> Dict:
+    """compare and combine count dictionaries
+
+    Args:
+        pieces (Dict[str, dict]): Each piece has a name and a dictionary of (str -> int)
+
+    Returns:
+        Dict: The result is a dictionary from the keys found in any of the pieces to
+        a "merged result".  The merged result itself is a dictionary from piece name to
+        count (for each piece which had a count for that key)
+        The exception: If all pieces had a value - and the same value for a key, then the 
+        merged result should just be {"All": common value}
+    """
+    if not pieces:
+        return {}
+    
+    # Collect all possible keys across all pieces
+    all_keys = set()
+    for piece_dict in pieces.values():
+        all_keys.update(piece_dict.keys())
+    
+    result = {}
+    
+    for key in all_keys:
+        # Collect values for this key from each piece that has it
+        key_values = {}
+        for piece_name, piece_dict in pieces.items():
+            if key in piece_dict:
+                key_values[piece_name] = piece_dict[key]
+        
+        # Check if all pieces have this key and they all have the same value
+        if len(key_values) == len(pieces):  # All pieces have this key
+            unique_values = set(key_values.values())
+            if len(unique_values) == 1:  # All values are the same
+                result[key] = {"All": list(unique_values)[0]}
+            else:
+                result[key] = key_values
+        else:
+            # Not all pieces have this key, so just store the pieces that do
+            result[key] = key_values
+    
+    return result
+
+
+def show_census(caption, census):
+    print("\nCensus: ", caption)
+    print(as_yaml(census))
+    
+
+
+
+
+def compare_dicts(base_path, model_name, result_suffix ="xxx.yaml"):
+    dict_paths = glob_files(f"{base_path}/*dict*.yaml", f"{base_path}/*.model*.yaml")
+    dict_paths = list(set(dict_paths))
+    dict_paths.sort()
+    first_path = dict_paths[0]
+    first_name = first_path.replace(base_path, "")
+    print("First name is ", first_name)
+    print(dict_paths)
+    short_pieces = {}
+    pieces = {}
+    for dict_path in dict_paths:
+        dict_name = dict_path.replace(base_path, "")
+        yaml = read_yaml_file(dict_path)
+        counts = json_census(yaml)
+        show_census(dict_name, counts[0])
+        short_pieces[dict_name] = counts[0]
+        
+        path_counts = dict(count_key_paths(yaml))
+        pieces[dict_name] = path_counts
+        show_census(dict_name + " PATHS", path_counts)
+
+    merger = merge_counts(pieces)
+    show_census("Merged results", merger)
+    
+    other_pieces = pieces
+    other_pieces.pop(first_name)
+    other_merger = merge_counts(other_pieces)
+
+    show_census("Other Merged results", other_merger)
+
+
+    short_merger = merge_counts(short_pieces)
+    show_census("Short Merged results", short_merger)
+
+
+    other_short_pieces = short_pieces
+    other_short_pieces.pop(first_name)
+    other_short_merger = merge_counts(other_short_pieces)
+
+    show_census("Other Short Merged results", other_short_merger)
 
 if __name__ == "__main__":
-    print(json_census({"a": 1, "b": [1, 2, {"c": 3}]}))
-    print(json_census([{"a": 1}, {"b": 2}]))
-    print(json_census({"a": [1, 2], "b": {"a": 1}}))
+    model_name = "Literate"
+    
+    # compare .dict.yaml to .model.yaml
+    results_path  = f"ldm/ldm_models/{model_name}/{model_name}_results"
+    
+
+    compare_dicts(results_path, model_name)
+
+    

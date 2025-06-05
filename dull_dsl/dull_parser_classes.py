@@ -192,10 +192,10 @@ class ClauseLine(TypedLine):
         # print("Using handlers: ", handlers)
 
         att_name = self.line_Type.attribute_name
-        print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
+        # print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
         if att_name == "constraint":
             att_name = "one_liner"
-            print(f"Patched att_name is {att_name} for {self.line_Type} is {att_name}")
+            # print(f"Patched att_name is {att_name} for {self.line_Type} is {att_name}")
 
         from ldm.Literate_01 import OneLiner
 
@@ -204,7 +204,7 @@ class ClauseLine(TypedLine):
             # get the attribute name from the type, not the label
             # (rtvalue, messages) = handlers.round_trip(rest_of_line)
             rtvalue = handlers.parse(rest_of_line)
-            print(f"adding name value. {att_name} -. {rtvalue}")
+            # print(f"adding name value. {att_name} -. {rtvalue}")
             # print_messages(messages)
             if att_name == "one_liner":
                 the_dict[att_name] = OneLiner(rtvalue)  # todo - This is a hack!

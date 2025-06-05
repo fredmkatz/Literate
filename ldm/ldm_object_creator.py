@@ -10,7 +10,7 @@ import pprint
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("ObjectCreator")
-from utils.util_json import as_json
+from utils.util_json import as_json, as_yaml
 
 
 class GenericObjectCreator:
@@ -85,7 +85,9 @@ class GenericObjectCreator:
             "Class",
         ]
         tracing = ["Class", "CodeType", "ValueType"]
-        tracing = []
+        tracing = ["OneLiner", "BaseDataType"]
+        tracing = ["Class"]
+        tracing = ["Attribute"]
 
         # Handle None or empty dictionary case
         if data_dict is None or not data_dict:
@@ -98,19 +100,19 @@ class GenericObjectCreator:
 
         # print(f"ObjectCreator Creating object of type: {type_name} - named {oname}")
         if not type_name:
-            logger.warning(f"No _type specified in dictionary: {data_dict}")
+            logger.warning(f"CREATOR No _type specified in dictionary: {data_dict}")
             return data_dict
 
         # Get the class for this type
         cls = self.class_map.get(type_name)
         if not cls:
             logger.warning(
-                f"Unknown type: {type_name}. Available types: {list(self.class_map.keys())}"
+                f"CREATOR Unknown type: {type_name}. Available types: {list(self.class_map.keys())}"
             )
             return data_dict
         if type_name in tracing:
             print(
-                f"Tracing {type_name} - type is {type(data_dict)} to {cls}, dict = {data_dict} "
+                f"CREATOR Tracing {type_name} - type is {type(data_dict)} to {cls},\n dict = {as_yaml(data_dict)} "
             )
 
         # Create kwargs for instantiation
@@ -122,16 +124,24 @@ class GenericObjectCreator:
         # Create the object
         try:
             the_obj = cls(**kwargs)
-            if type_name in tracing:
-                # print(f"...Createed object of type: {the_obj.__class__.__name__}")
-                # print(f"... = {the_obj}")
-                ostring = as_json(the_obj)
-                # print("final object is ", ostring)
+            finaltype = getattr(the_obj, "_type", "NoType")
+
+            if type_name in tracing or finaltype != type_name:
+                print(f"CREATOR ...Created object of type: {the_obj.__class__.__name__}")
+                print(f"CREATOR ... str= {the_obj}")
+                print("CREATOR ... model_dump= \n",  as_yaml(the_obj.model_dump()))
+                print("CREATOR type() is ", type(the_obj))
+                ostring = as_yaml(the_obj, warnings=True)
+                print("final object is...\n ", ostring)
+                
+                print("CREATOR _type = ", finaltype)
+                print("\n")
 
             return the_obj
         except Exception as e:  # todo - fix as_entered and revive this code
-            logger.error(f"Error creating {type_name}: {str(e)}", exc_info=True)
-            logger.error(f"Using kwargs: {list(kwargs.keys())}")
+            logger.error(f"CREATOR: Error creating {type_name}: {str(e)}", exc_info=True)
+            print("Source is ", data_dict)
+            logger.error(f"CREATOR: Using kwargs: {list(kwargs.keys())}")
             return data_dict
 
     def _prepare_kwargs(self, cls: Any, data_dict: Dict[str, Any]) -> Dict[str, Any]:

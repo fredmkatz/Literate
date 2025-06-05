@@ -209,7 +209,7 @@ class MinorComponent(PydanticMixin):  # TO DO: Change to subtype of Component, o
         if self.annotations is None:
             self.annotations = []
         if self.diagnostics is None:
-            self.diagnostics = List[Diagnostic] = []
+            self.diagnostics  = []
         if self.elaboration is None:
             self.elaboration = []
 
@@ -315,17 +315,17 @@ class LiterateModel(SubjectB):
     # Replace the from_dict method in LDM class in Literate_01.py
 
     @classmethod
-    def from_dict(cls, data_dict):
-        """Create a model instance from a dictionary representation"""
-        from ldm_object_creator import GenericObjectCreator
-        import ldm.Literate_01 as Literate_01
+    # def from_dict(cls, data_dict):
+    #     """Create a model instance from a dictionary representation"""
+    #     from ldm_object_creator import GenericObjectCreator
+    #     import ldm.Literate_01 as Literate_01
 
-        creator = GenericObjectCreator(Literate_01)
-        # print(f"Creating model from dictionary: {data_dict}")
-        model = creator.create(data_dict)
-        print(f"Created model: {model.__class__}")
+    #     creator = GenericObjectCreator(Literate_01)
+    #     # print(f"Creating model from dictionary: {data_dict}")
+    #     model = creator.create(data_dict)
+    #     print(f"Created model: {model.__class__}")
 
-        return model
+    #     return model
 
     class Meta:
         presentable_header = "#  {{name}{? - {one_liner}} NEWLINE"
@@ -341,7 +341,7 @@ class DataType(PydanticMixin):
 
     def shared_post_init(self):
         super().shared_post_init()
-        print("Data type type is ", self._type)
+        # print("Data type type is ", self._type)
         
 
     class Meta:
@@ -357,10 +357,10 @@ class BaseDataType(DataType):
         super().shared_post_init()
         if isinstance(self.class_name, str):
             self.class_name = ClassName(self.class_name)
-        print("Created BDT is ", self)
-        print("Base Data type type is ", self._type)
-        print("Base Data type is (repr)", self.__repr__())
-        print("Base Data type is (model_dump)", self.model_dump())
+        # print("Created BDT is ", self)
+        # print("Base Data type type is ", self._type)
+        # print("Base Data type is (repr)", self.__repr__())
+        # print("Base Data type is (to_typed_dict)", self.to_typed_dict())
 
 
     class Meta:
@@ -419,8 +419,10 @@ class DataTypeClause(PydanticMixin):
         cardinality: Optional cardinality constraint (e.g., "0..1", "1..*")
     """
 
-    data_type: DataType
-    is_optional_lit: IsOptional = field(default_factory=IsOptional)
+    data_type: Any
+    # is_optional_lit: Optional[IsOptional] = field(default="Required")
+    is_optional_lit: Optional[IsOptional] = field(default_factory=lambda: IsOptional(content=False))
+
     cardinality: Optional[str] = None
 
 
@@ -477,7 +479,7 @@ class Default(Formula):
 class Class(Component):
     name: ClassName = None
     plural: Optional[str] = None
-    subtype_of: Optional[Dict[ClassName, SubtypingName]] = field(default_factory=dict)
+    subtype_of: Optional[List[Dict[ClassName, SubtypingName]]] = field(default_factory=dict)
     subtypings: Optional[List[Subtyping]] = block_list_field(default_factory=list)
 
     subtypes: Optional[Dict[ClassName, SubtypingName]] = field(default_factory=dict)

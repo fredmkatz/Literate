@@ -300,13 +300,13 @@ class Emoji(PresentableToken):
     token_pattern_str = r"/\d+(.*?)[\u263a-\U0001f645]/"
     # regex = re.compile(r'\d+(.*?)[\u263a-\U0001f645]')
 
-    def shared_post_init(self, input_string):
+    def shared_post_init(self):
         super().shared_post_init()
 
-        self.as_entered = as_entered
-        self.smile = as_entered
-        self.unicode = as_entered
-        self.symbol = as_entered
+        self.as_entered = self.as_entered
+        self.smile = self.as_entered
+        self.unicode = self.as_entered
+        self.symbol = self.as_entered
 
     @classmethod
     def token_pattern(cls) -> str:
