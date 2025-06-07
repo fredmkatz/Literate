@@ -257,12 +257,18 @@ class ParseSubtypeOf(ParseHandler):
             class_name0 = pieces[0]
             if len(pieces) > 1:
                 subtyping_name0 = pieces[1]
-                subtyping_name = parse_name("by " + subtyping_name0)
+                subtyping_name0 = parse_name("by " + subtyping_name0)
 
             else:
-                subtyping_name = "Subtypes"
+                subtyping_name0 = "Subtypes"
             class_name = ClassName(parse_name(class_name0))
-            result.append([class_name, SubtypingName(subtyping_name)])
+            subtyping_name = SubtypingName(subtyping_name0)
+            subtype_of = {
+                "type": "_SubtypeBy",
+                "class_name": class_name,
+                "subtyping_name": subtyping_name
+            }
+            result.append(subtype_of)
         print("SubtypeOf result is ", result)
 
         return result

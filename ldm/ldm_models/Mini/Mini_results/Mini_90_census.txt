@@ -1,0 +1,443 @@
+First name is  Mini_02_DC.dict.yaml
+['ldm/ldm_models/Mini/Mini_results\\Mini_02_DC.dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_02_PD.dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_02a_DC.dict.clean.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_02a_PD.dict.clean.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_DC.model.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_DC.model_pd.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_PD.model.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_PD.model_pd.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03a_DC.model_to_dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03a_PD.model_to_dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_04_DC.v_model.yaml']
+Including:  Mini_02_DC.dict.yaml
+Including:  Mini_02_PD.dict.yaml
+Including:  Mini_02a_DC.dict.clean.yaml
+Including:  Mini_02a_PD.dict.clean.yaml
+Including:  Mini_03_DC.model.yaml
+Including:  Mini_03_DC.model_pd.yaml
+Including:  Mini_03_PD.model.yaml
+Including:  Mini_03_PD.model_pd.yaml
+Including:  Mini_03a_DC.model_to_dict.yaml
+Including:  Mini_03a_PD.model_to_dict.yaml
+Including:  Mini_04_DC.v_model.yaml
+
+Census:  Merged results
+Default._type:
+    All: 3
+Class.attributes:
+    All: 2
+Attribute.default:
+    All: 3
+Attribute._type:
+    All: 13
+Class.prefix:
+    All: 2
+Class.dependent_of:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+Document.literate_models:
+    Mini_02_DC.dict.yaml: 1
+    Mini_02_PD.dict.yaml: 1
+Class.one_liner:
+    All: 2
+Default.is_embellishment:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+Class.subtypes:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+Annotation._type:
+    All: 3
+LiterateModel.prefix:
+    All: 1
+Class.is_embellishment:
+    Mini_03_DC.model.yaml: 2
+    Mini_03_DC.model_pd.yaml: 2
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_DC.model_to_dict.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+    Mini_04_DC.v_model.yaml: 2
+Class.attribute_sections:
+    All: 1
+SubjectB.name:
+    All: 1
+AttributeSection.one_liner:
+    All: 1
+DataTypeClause.data_type:
+    All: 12
+AttributeSection.is_optional:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+Attribute.name:
+    All: 13
+BaseDataType._type:
+    All: 12
+AttributeName.content:
+    All: 13
+Default.one_liner:
+    All: 3
+Emoji.content:
+    All: 3
+Emoji.as_entered:
+    Mini_02_DC.dict.yaml: 3
+    Mini_02_PD.dict.yaml: 3
+    Mini_02a_DC.dict.clean.yaml: 3
+    Mini_02a_PD.dict.clean.yaml: 3
+DataTypeClause.is_optional_lit:
+    All: 12
+LiterateModel._type:
+    All: 1
+LiterateModel.name:
+    All: 1
+IsOptional._type:
+    Mini_02_DC.dict.yaml: 12
+    Mini_02_PD.dict.yaml: 12
+    Mini_02a_DC.dict.clean.yaml: 12
+    Mini_02a_PD.dict.clean.yaml: 12
+    Mini_03_DC.model.yaml: 13
+    Mini_03_DC.model_pd.yaml: 13
+    Mini_03_PD.model.yaml: 13
+    Mini_03_PD.model_pd.yaml: 13
+    Mini_03a_DC.model_to_dict.yaml: 13
+    Mini_03a_PD.model_to_dict.yaml: 13
+    Mini_04_DC.v_model.yaml: 13
+ClassName._type:
+    All: 15
+SubjectB.prefix:
+    All: 1
+Emoji._type:
+    All: 3
+Class.subtype_of:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+Attribute.prefix:
+    All: 13
+Label._type:
+    All: 3
+BaseDataType.as_value_type:
+    All: 12
+SubjectB.one_liner:
+    All: 1
+Class.based_on:
+    Mini_02_DC.dict.yaml: 1
+    Mini_02_PD.dict.yaml: 1
+    Mini_02a_DC.dict.clean.yaml: 1
+    Mini_02a_PD.dict.clean.yaml: 1
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 2
+    Mini_04_DC.v_model.yaml: 1
+Attribute.parenthetical:
+    All: 13
+AttributeSection.attributes:
+    All: 1
+DataTypeClause._type:
+    All: 12
+IsOptional.content:
+    Mini_02_DC.dict.yaml: 12
+    Mini_02_PD.dict.yaml: 12
+    Mini_02a_DC.dict.clean.yaml: 12
+    Mini_02a_PD.dict.clean.yaml: 12
+    Mini_03_DC.model.yaml: 13
+    Mini_03_DC.model_pd.yaml: 13
+    Mini_03_PD.model.yaml: 13
+    Mini_03_PD.model_pd.yaml: 13
+    Mini_03a_DC.model_to_dict.yaml: 13
+    Mini_03a_PD.model_to_dict.yaml: 13
+    Mini_04_DC.v_model.yaml: 13
+AttributeSectionName.content:
+    All: 1
+Attribute.one_liner:
+    All: 12
+LiterateModel.is_embellishment:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+Attribute.data_type_clause:
+    All: 12
+Annotation.label:
+    All: 3
+Class.annotations:
+    All: 1
+Class.parenthetical:
+    All: 2
+LiterateModel.subjects:
+    All: 1
+AttributeSection._type:
+    All: 1
+Attribute.annotations:
+    All: 2
+Class.dependents:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+AttributeSection.name:
+    All: 1
+Label.content:
+    All: 3
+AttributeSection.parenthetical:
+    All: 1
+LiterateModel.parenthetical:
+    All: 1
+AsValue.content:
+    All: 12
+AttributeName._type:
+    All: 13
+Attribute.is_embellishment:
+    Mini_03_DC.model.yaml: 13
+    Mini_03_DC.model_pd.yaml: 13
+    Mini_03_PD.model.yaml: 13
+    Mini_03_PD.model_pd.yaml: 13
+    Mini_03a_DC.model_to_dict.yaml: 13
+    Mini_03a_PD.model_to_dict.yaml: 13
+    Mini_04_DC.v_model.yaml: 13
+OneLiner.content:
+    All: 22
+AttributeSection.prefix:
+    All: 1
+Annotation.emoji:
+    All: 3
+AsValue._type:
+    All: 12
+AttributeSectionName._type:
+    All: 1
+SubjectB._type:
+    All: 1
+SubjectB.classes:
+    All: 1
+Document._type:
+    Mini_02_DC.dict.yaml: 1
+    Mini_02_PD.dict.yaml: 1
+Paragraph.content:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+SubjectB.parenthetical:
+    All: 1
+Class.is_value_type:
+    Mini_03_DC.model.yaml: 2
+    Mini_03_DC.model_pd.yaml: 2
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_DC.model_to_dict.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+    Mini_04_DC.v_model.yaml: 2
+AttributeSection.is_embellishment:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+SubjectName._type:
+    All: 2
+BaseDataType.class_name:
+    All: 12
+Default.english:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+ClassName.content:
+    All: 15
+SubjectB.is_embellishment:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+Annotation.content:
+    All: 3
+SubjectName.content:
+    All: 2
+OneLiner._type:
+    All: 22
+Class._type:
+    All: 2
+Paragraph._type:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+Class.name:
+    All: 2
+
+
+Census:  Trimmed Merged - 'All' cells deleted
+Class.dependent_of:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+Document.literate_models:
+    Mini_02_DC.dict.yaml: 1
+    Mini_02_PD.dict.yaml: 1
+Default.is_embellishment:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+Class.subtypes:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+Class.is_embellishment:
+    Mini_03_DC.model.yaml: 2
+    Mini_03_DC.model_pd.yaml: 2
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_DC.model_to_dict.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+    Mini_04_DC.v_model.yaml: 2
+AttributeSection.is_optional:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+Emoji.as_entered:
+    Mini_02_DC.dict.yaml: 3
+    Mini_02_PD.dict.yaml: 3
+    Mini_02a_DC.dict.clean.yaml: 3
+    Mini_02a_PD.dict.clean.yaml: 3
+IsOptional._type:
+    Mini_02_DC.dict.yaml: 12
+    Mini_02_PD.dict.yaml: 12
+    Mini_02a_DC.dict.clean.yaml: 12
+    Mini_02a_PD.dict.clean.yaml: 12
+    Mini_03_DC.model.yaml: 13
+    Mini_03_DC.model_pd.yaml: 13
+    Mini_03_PD.model.yaml: 13
+    Mini_03_PD.model_pd.yaml: 13
+    Mini_03a_DC.model_to_dict.yaml: 13
+    Mini_03a_PD.model_to_dict.yaml: 13
+    Mini_04_DC.v_model.yaml: 13
+Class.subtype_of:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+Class.based_on:
+    Mini_02_DC.dict.yaml: 1
+    Mini_02_PD.dict.yaml: 1
+    Mini_02a_DC.dict.clean.yaml: 1
+    Mini_02a_PD.dict.clean.yaml: 1
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 2
+    Mini_04_DC.v_model.yaml: 1
+IsOptional.content:
+    Mini_02_DC.dict.yaml: 12
+    Mini_02_PD.dict.yaml: 12
+    Mini_02a_DC.dict.clean.yaml: 12
+    Mini_02a_PD.dict.clean.yaml: 12
+    Mini_03_DC.model.yaml: 13
+    Mini_03_DC.model_pd.yaml: 13
+    Mini_03_PD.model.yaml: 13
+    Mini_03_PD.model_pd.yaml: 13
+    Mini_03a_DC.model_to_dict.yaml: 13
+    Mini_03a_PD.model_to_dict.yaml: 13
+    Mini_04_DC.v_model.yaml: 13
+LiterateModel.is_embellishment:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+Class.dependents:
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+Attribute.is_embellishment:
+    Mini_03_DC.model.yaml: 13
+    Mini_03_DC.model_pd.yaml: 13
+    Mini_03_PD.model.yaml: 13
+    Mini_03_PD.model_pd.yaml: 13
+    Mini_03a_DC.model_to_dict.yaml: 13
+    Mini_03a_PD.model_to_dict.yaml: 13
+    Mini_04_DC.v_model.yaml: 13
+Document._type:
+    Mini_02_DC.dict.yaml: 1
+    Mini_02_PD.dict.yaml: 1
+Paragraph.content:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+Class.is_value_type:
+    Mini_03_DC.model.yaml: 2
+    Mini_03_DC.model_pd.yaml: 2
+    Mini_03_PD.model.yaml: 2
+    Mini_03_PD.model_pd.yaml: 2
+    Mini_03a_DC.model_to_dict.yaml: 2
+    Mini_03a_PD.model_to_dict.yaml: 2
+    Mini_04_DC.v_model.yaml: 2
+AttributeSection.is_embellishment:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+Default.english:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+SubjectB.is_embellishment:
+    Mini_03_DC.model.yaml: 1
+    Mini_03_DC.model_pd.yaml: 1
+    Mini_03_PD.model.yaml: 1
+    Mini_03_PD.model_pd.yaml: 1
+    Mini_03a_DC.model_to_dict.yaml: 1
+    Mini_03a_PD.model_to_dict.yaml: 1
+    Mini_04_DC.v_model.yaml: 1
+Paragraph._type:
+    Mini_03_DC.model.yaml: 3
+    Mini_03_DC.model_pd.yaml: 3
+    Mini_03_PD.model.yaml: 3
+    Mini_03_PD.model_pd.yaml: 3
+    Mini_03a_DC.model_to_dict.yaml: 3
+    Mini_03a_PD.model_to_dict.yaml: 3
+    Mini_04_DC.v_model.yaml: 3
+

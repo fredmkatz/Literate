@@ -1,0 +1,724 @@
+
+Phase: Creating schema and survey of Literate_01
+Generate schema...
+as yaml - warnings =  False
+Annotation  Qualified:  <class 'ldm.Literate_01.Annotation'>
+Annotation  MRO:  ['Annotation', 'PydanticMixin', 'object']
+Any  Qualified:  typing.Any
+Any  MRO:  ['Any', 'object']
+AsValue  Qualified:  <class 'utils.class_pom_token.AsValue'>
+AsValue  MRO:  ['AsValue', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+Attribute  Qualified:  <class 'ldm.Literate_01.Attribute'>
+Attribute  MRO:  ['Attribute', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+AttributeName  Qualified:  <class 'ldm.Literate_01.AttributeName'>
+AttributeName  MRO:  ['AttributeName', 'LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+AttributeReference  Qualified:  <class 'ldm.Literate_01.AttributeReference'>
+AttributeReference  MRO:  ['AttributeReference', 'PydanticMixin', 'object']
+AttributeSection  Qualified:  <class 'ldm.Literate_01.AttributeSection'>
+AttributeSection  MRO:  ['AttributeSection', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+AttributeSectionName  Qualified:  <class 'ldm.Literate_01.AttributeSectionName'>
+AttributeSectionName  MRO:  ['AttributeSectionName', 'NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+BaseDataType  Qualified:  <class 'ldm.Literate_01.BaseDataType'>
+BaseDataType  MRO:  ['BaseDataType', 'DataType', 'PydanticMixin', 'object']
+CamelCase  Qualified:  <class 'utils.class_casing.CamelCase'>
+CamelCase  MRO:  ['CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Casing  Qualified:  <class 'utils.class_casing.Casing'>
+Casing  MRO:  ['Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Class  Qualified:  <class 'ldm.Literate_01.Class'>
+Class  MRO:  ['Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+ClassName  Qualified:  <class 'ldm.Literate_01.ClassName'>
+ClassName  MRO:  ['ClassName', 'UpperCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Class  Qualified:  <class 'ldm.Literate_01.Class'>
+Class  MRO:  ['Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+CodeBlock  Qualified:  <class 'ldm.Literate_01.CodeBlock'>
+CodeBlock  MRO:  ['CodeBlock', 'PydanticMixin', 'object']
+CodeType  Qualified:  <class 'ldm.Literate_01.CodeType'>
+CodeType  MRO:  ['CodeType', 'ValueType', 'Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+Component  Qualified:  <class 'ldm.Literate_01.Component'>
+Component  MRO:  ['Component', 'MinorComponent', 'PydanticMixin', 'object']
+Constraint  Qualified:  <class 'ldm.Literate_01.Constraint'>
+Constraint  MRO:  ['Constraint', 'Formula', 'MinorComponent', 'PydanticMixin', 'object']
+DataType  Qualified:  <class 'ldm.Literate_01.DataType'>
+DataType  MRO:  ['DataType', 'PydanticMixin', 'object']
+DataTypeClause  Qualified:  <class 'ldm.Literate_01.DataTypeClause'>
+DataTypeClause  MRO:  ['DataTypeClause', 'PydanticMixin', 'object']
+Default  Qualified:  <class 'ldm.Literate_01.Default'>
+Default  MRO:  ['Default', 'Formula', 'MinorComponent', 'PydanticMixin', 'object']
+Derivation  Qualified:  <class 'ldm.Literate_01.Derivation'>
+Derivation  MRO:  ['Derivation', 'Formula', 'MinorComponent', 'PydanticMixin', 'object']
+Diagnostic  Qualified:  <class 'ldm.Literate_01.Diagnostic'>
+Diagnostic  MRO:  ['Diagnostic', 'PydanticMixin', 'object']
+DotCase  Qualified:  <class 'utils.class_casing.DotCase'>
+DotCase  MRO:  ['DotCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Emoji  Qualified:  <class 'utils.class_pom_token.Emoji'>
+Emoji  MRO:  ['Emoji', 'PresentableToken', 'PydanticMixin', 'object']
+Formula  Qualified:  <class 'ldm.Literate_01.Formula'>
+Formula  MRO:  ['Formula', 'MinorComponent', 'PydanticMixin', 'object']
+FormulaCoding  Qualified:  <class 'ldm.Literate_01.FormulaCoding'>
+FormulaCoding  MRO:  ['FormulaCoding', 'PydanticMixin', 'object']
+InitVar  Qualified:  <class 'dataclasses.InitVar'>
+InitVar  MRO:  ['InitVar', 'object']
+IsExclusive  Qualified:  <class 'utils.class_pom_token.IsExclusive'>
+IsExclusive  MRO:  ['IsExclusive', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+IsExhaustive  Qualified:  <class 'utils.class_pom_token.IsExhaustive'>
+IsExhaustive  MRO:  ['IsExhaustive', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+IsOptional  Qualified:  <class 'utils.class_pom_token.IsOptional'>
+IsOptional  MRO:  ['IsOptional', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+Kebab  Qualified:  <class 'utils.class_casing.Kebab'>
+Kebab  MRO:  ['Kebab', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Label  Qualified:  <class 'ldm.Literate_01.Label'>
+Label  MRO:  ['Label', 'LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+ListDataType  Qualified:  <class 'ldm.Literate_01.ListDataType'>
+ListDataType  MRO:  ['ListDataType', 'DataType', 'PydanticMixin', 'object']
+LiterateModel  Qualified:  <class 'ldm.Literate_01.LiterateModel'>
+LiterateModel  MRO:  ['LiterateModel', 'SubjectB', 'SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+LowerCamel  Qualified:  <class 'utils.class_casing.LowerCamel'>
+LowerCamel  MRO:  ['LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+MappingDataType  Qualified:  <class 'ldm.Literate_01.MappingDataType'>
+MappingDataType  MRO:  ['MappingDataType', 'DataType', 'PydanticMixin', 'object']
+MinorComponent  Qualified:  <class 'ldm.Literate_01.MinorComponent'>
+MinorComponent  MRO:  ['MinorComponent', 'PydanticMixin', 'object']
+ModelName  Qualified:  <class 'ldm.Literate_01.ModelName'>
+ModelName  MRO:  ['ModelName', 'NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+SnakeCase  Qualified:  <class 'utils.class_casing.SnakeCase'>
+SnakeCase  MRO:  ['SnakeCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Natural  Qualified:  <class 'ldm.Literate_01.Natural'>
+Natural  MRO:  ['Natural', 'PydanticMixin', 'object']
+NormalCase  Qualified:  <class 'utils.class_casing.NormalCase'>
+NormalCase  MRO:  ['NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+OneLiner  Qualified:  <class 'ldm.Literate_01.OneLiner'>
+OneLiner  MRO:  ['OneLiner', 'Natural', 'PydanticMixin', 'object']
+Paragraph  Qualified:  <class 'ldm.Literate_01.Paragraph'>
+Paragraph  MRO:  ['Paragraph', 'Natural', 'PydanticMixin', 'object']
+PascalCase  Qualified:  <class 'utils.class_casing.PascalCase'>
+PascalCase  MRO:  ['PascalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+PomTemplate  Qualified:  <class 'utils.class_templates.PomTemplate'>
+PomTemplate  MRO:  ['PomTemplate', 'object']
+PresentableBoolean  Qualified:  <class 'utils.class_pom_token.PresentableBoolean'>
+PresentableBoolean  MRO:  ['PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+PresentableToken  Qualified:  <class 'utils.class_pom_token.PresentableToken'>
+PresentableToken  MRO:  ['PresentableToken', 'PydanticMixin', 'object']
+PydanticMixin  Qualified:  <class 'utils.util_pydantic.PydanticMixin'>
+PydanticMixin  MRO:  ['PydanticMixin', 'object']
+ReferenceType  Qualified:  <class 'ldm.Literate_01.ReferenceType'>
+ReferenceType  MRO:  ['ReferenceType', 'Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SetDataType  Qualified:  <class 'ldm.Literate_01.SetDataType'>
+SetDataType  MRO:  ['SetDataType', 'DataType', 'PydanticMixin', 'object']
+SnakeCase  Qualified:  <class 'utils.class_casing.SnakeCase'>
+SnakeCase  MRO:  ['SnakeCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+SubjectB  Qualified:  <class 'ldm.Literate_01.SubjectB'>
+SubjectB  MRO:  ['SubjectB', 'SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectB  Qualified:  <class 'ldm.Literate_01.SubjectB'>
+SubjectB  MRO:  ['SubjectB', 'SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectC  Qualified:  <class 'ldm.Literate_01.SubjectC'>
+SubjectC  MRO:  ['SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectD  Qualified:  <class 'ldm.Literate_01.SubjectD'>
+SubjectD  MRO:  ['SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectE  Qualified:  <class 'ldm.Literate_01.SubjectE'>
+SubjectE  MRO:  ['SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectName  Qualified:  <class 'ldm.Literate_01.SubjectName'>
+SubjectName  MRO:  ['SubjectName', 'NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+SubtypeBy  Qualified:  <class 'ldm.Literate_01.SubtypeBy'>
+SubtypeBy  MRO:  ['SubtypeBy', 'PydanticMixin', 'object']
+Subtyping  Qualified:  <class 'ldm.Literate_01.Subtyping'>
+Subtyping  MRO:  ['Subtyping', 'PydanticMixin', 'object']
+SubtypingName  Qualified:  <class 'ldm.Literate_01.SubtypingName'>
+SubtypingName  MRO:  ['SubtypingName', 'LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperSnake  Qualified:  <class 'utils.class_casing.UpperSnake'>
+UpperSnake  MRO:  ['UpperSnake', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+TrainCase  Qualified:  <class 'utils.class_casing.TrainCase'>
+TrainCase  MRO:  ['TrainCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperSnake  Qualified:  <class 'utils.class_casing.UpperSnake'>
+UpperSnake  MRO:  ['UpperSnake', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperCamel  Qualified:  <class 'utils.class_casing.UpperCamel'>
+UpperCamel  MRO:  ['UpperCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperCamel  Qualified:  <class 'utils.class_casing.UpperCamel'>
+UpperCamel  MRO:  ['UpperCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperSnake  Qualified:  <class 'utils.class_casing.UpperSnake'>
+UpperSnake  MRO:  ['UpperSnake', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+ValueType  Qualified:  <class 'ldm.Literate_01.ValueType'>
+ValueType  MRO:  ['ValueType', 'Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+DotCase  Qualified:  <class 'utils.class_casing.DotCase'>
+DotCase  MRO:  ['DotCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Kebab  Qualified:  <class 'utils.class_casing.Kebab'>
+Kebab  MRO:  ['Kebab', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+LowerCamel  Qualified:  <class 'utils.class_casing.LowerCamel'>
+LowerCamel  MRO:  ['LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+PascalCase  Qualified:  <class 'utils.class_casing.PascalCase'>
+PascalCase  MRO:  ['PascalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+SnakeCase  Qualified:  <class 'utils.class_casing.SnakeCase'>
+SnakeCase  MRO:  ['SnakeCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+TrainCase  Qualified:  <class 'utils.class_casing.TrainCase'>
+TrainCase  MRO:  ['TrainCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+as yaml - warnings =  False
+
+Phase: Parsing model: ldm/ldm_models/Literate/Literate.md
+PARSING ldm/ldm_models/Literate/Literate.md
+
+Phase: Deriving dict from parse => {yaml_dict_file}
+Using ATT_NAME  based_on for based on
+Adding value in ddforpart. based_on -. [ClassName(_type='ClassName', content='LiterateDataModel')]
+Using ATT_NAME  based_on for based on
+Adding value in ddforpart. based_on -. [ClassName(_type='ClassName', content='Component')]
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  dependent_of for dependent of
+Adding value in ddforpart. dependent_of -. [ClassName(_type='ClassName', content='LiterateDataModel')]
+parsing subtypeOfs:   Subject
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Subject'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Subject'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  dependent_of for dependent of
+Adding value in ddforpart. dependent_of -. [ClassName(_type='ClassName', content='Class')]
+parsing subtypeOfs:   Class.
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Class'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Class'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   Class.
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Class'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Class'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   ValueType.
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='ValueType'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='ValueType'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  dependent_of for dependent of
+Adding value in ddforpart. dependent_of -. [ClassName(_type='ClassName', content='Class')]
+parsing subtypeOfs:   Key
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Key'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Key'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   Component.
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  based_on for based on
+Adding value in ddforpart. based_on -. [ClassName(_type='ClassName', content='Class')]
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  based_on for based on
+Adding value in ddforpart. based_on -. [ClassName(_type='ClassName', content='AttributeSection')]
+Inventing name for:  1:1 Author
+Inventing name for:  N:M Set of Books
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Inventing name for:  e.g., OCL _(CodeExpression
+parsing subtypeOfs:   Constraint
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Constraint'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Constraint'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  based_on for based on
+Adding value in ddforpart. based_on -. [ClassName(_type='ClassName', content='Class')]
+parsing subtypeOfs:   Constraint
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Constraint'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Constraint'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  based_on for based on
+Adding value in ddforpart. based_on -. [ClassName(_type='ClassName', content='Attribute')]
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   Component
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='Component'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Inventing name for:  e.g., optional, required
+parsing subtypeOfs:   String
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='String'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='String'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   CamelName
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='CamelName'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='CamelName'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   CamelName
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='CamelName'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='CamelName'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   String
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='String'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='String'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   String
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='String'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='String'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   RichText
+
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='RichText'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='RichText'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+parsing subtypeOfs:   ValueType
+A basic, built-in data type
+SubtypeOf result is  [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='ValueTypeABasic'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}, {'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='BuiltInDataType'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+Using ATT_NAME  subtype_of for subtype of
+Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='ValueTypeABasic'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}, {'type': '_SubtypeBy', 'class_name': ClassName(_type='ClassName', content='BuiltInDataType'), 'subtyping_name': SubtypingName(_type='SubtypingName', content='subtypes')}]
+as yaml - warnings =  False
+
+Phase: .. full dict saved  in ldm/ldm_models/Literate/Literate_results/Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+
+Phase: Creating model with from_typed_dict() => to_typed_dict() => ldm/ldm_models/Literate/Literate_results/Literate_DC_03.model.yaml
+Calling LiterateModel.from_typed_dict ...
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='For Machinery'), is_optional = None
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='For Machinery'), is_optional = None
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Modeling Configuration'), is_optional = None
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Implied Attributes'), is_optional = None
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Cardinalities'), is_optional = None
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Inverse Attributes'), is_optional = None
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Override Tracking'), is_optional = None
+
+Phase: have py  model from dict
+
+Phase: Creating model_dict from model => ldm/ldm_models/Literate/Literate_results/Literate_DC_03.model.yaml
+as yaml - warnings =  False
+as yaml - warnings =  False
+
+Phase: Validating model tp ldm/ldm_models/Literate/Literate_results/Literate_DC_04.v_model.yaml
+oname for diagnostic is  SubjectName(_type='SubjectName', content='Literate Data Model')
+oname_str for diag is  Literate Data Model
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Preliminaries')
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='The Model and its Subjects')
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Attributes')
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Methods')
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Data Types')
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Low level Data Types')
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md')
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md')
+Validating references...
+Validation errors: 1
+as yaml - warnings =  False
+as yaml - warnings =  False
+..Created dict for validated model: ldm/ldm_models/Literate/Literate_results/Literate_DC_04.v_model.yaml
+
+Phase: counting errors
+{"Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>": 8}
+8 	 Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+pattern is ldm/ldm_models/Literate/Literate_results/*dict*.yaml
+pattern is ldm/ldm_models/Literate/Literate_results/*model*.yaml
+Dict names are:  ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml', 'Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml', 'Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml', 'Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+All combos are:
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
+['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
+['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
+['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_03.model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_02.dict.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_04.v_model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_03.model.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_03.model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_PD_02.dict.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_02.dict.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_DC_03.model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_04.v_model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_PD_03.model.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_03.model.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+
+Phase: SKIPPING - Pydantic serialization of model
+
+Phase: Comparing counts
+pattern is ldm/ldm_models/Literate/Literate_results/*dict*.yaml
+pattern is ldm/ldm_models/Literate/Literate_results/*model*.yaml
+Dict names are:  ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml', 'Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml', 'Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml', 'Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+All combos are:
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
+['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
+['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
+['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
+['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+Including:  Literate_DC_02.dict.tidy.yaml
+Including:  Literate_DC_03.model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_02.dict.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+Including:  Literate_DC_03.model.tidy.yaml
+Including:  Literate_DC_04.v_model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_03.model.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_DC_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_DC_02.dict.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
+Including:  Literate_PD_02.dict.tidy.yaml
+Including:  Literate_PD_03.model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
+Including:  Literate_PD_02.dict.yaml
+Including:  Literate_DC_02.dict.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_02.dict.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_DC_03.model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
+Including:  Literate_PD_03.model.tidy.yaml
+Including:  Literate_PD_04.v_model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
+Including:  Literate_PD_03.model.yaml
+Including:  Literate_DC_03.model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_03.model.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_DC_04.v_model.tidy.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.tidy.yaml
+Including:  Literate_PD_04.v_model.yaml
+as yaml - warnings =  False
+Combo is: ['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
+Including:  Literate_PD_04.v_model.yaml
+Including:  Literate_DC_04.v_model.yaml
+as yaml - warnings =  False
+
+Phase: Skipping Render to Markdown
+
+Phase: Skipping Render to HTML
+
+Phase: Skipping PDF creation

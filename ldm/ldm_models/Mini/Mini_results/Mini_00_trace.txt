@@ -1,1045 +1,251 @@
 
+Phase: Creating schema and survey of Literate_01
+Generate schema...
+as yaml - warnings =  False
+Annotation  Qualified:  <class 'ldm.Literate_01.Annotation'>
+Annotation  MRO:  ['Annotation', 'PydanticMixin', 'object']
+Any  Qualified:  typing.Any
+Any  MRO:  ['Any', 'object']
+AsValue  Qualified:  <class 'utils.class_pom_token.AsValue'>
+AsValue  MRO:  ['AsValue', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+Attribute  Qualified:  <class 'ldm.Literate_01.Attribute'>
+Attribute  MRO:  ['Attribute', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+AttributeName  Qualified:  <class 'ldm.Literate_01.AttributeName'>
+AttributeName  MRO:  ['AttributeName', 'LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+AttributeReference  Qualified:  <class 'ldm.Literate_01.AttributeReference'>
+AttributeReference  MRO:  ['AttributeReference', 'PydanticMixin', 'object']
+AttributeSection  Qualified:  <class 'ldm.Literate_01.AttributeSection'>
+AttributeSection  MRO:  ['AttributeSection', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+AttributeSectionName  Qualified:  <class 'ldm.Literate_01.AttributeSectionName'>
+AttributeSectionName  MRO:  ['AttributeSectionName', 'NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+BaseDataType  Qualified:  <class 'ldm.Literate_01.BaseDataType'>
+BaseDataType  MRO:  ['BaseDataType', 'DataType', 'PydanticMixin', 'object']
+CamelCase  Qualified:  <class 'utils.class_casing.CamelCase'>
+CamelCase  MRO:  ['CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Casing  Qualified:  <class 'utils.class_casing.Casing'>
+Casing  MRO:  ['Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Class  Qualified:  <class 'ldm.Literate_01.Class'>
+Class  MRO:  ['Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+ClassName  Qualified:  <class 'ldm.Literate_01.ClassName'>
+ClassName  MRO:  ['ClassName', 'UpperCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Class  Qualified:  <class 'ldm.Literate_01.Class'>
+Class  MRO:  ['Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+CodeBlock  Qualified:  <class 'ldm.Literate_01.CodeBlock'>
+CodeBlock  MRO:  ['CodeBlock', 'PydanticMixin', 'object']
+CodeType  Qualified:  <class 'ldm.Literate_01.CodeType'>
+CodeType  MRO:  ['CodeType', 'ValueType', 'Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+Component  Qualified:  <class 'ldm.Literate_01.Component'>
+Component  MRO:  ['Component', 'MinorComponent', 'PydanticMixin', 'object']
+Constraint  Qualified:  <class 'ldm.Literate_01.Constraint'>
+Constraint  MRO:  ['Constraint', 'Formula', 'MinorComponent', 'PydanticMixin', 'object']
+DataType  Qualified:  <class 'ldm.Literate_01.DataType'>
+DataType  MRO:  ['DataType', 'PydanticMixin', 'object']
+DataTypeClause  Qualified:  <class 'ldm.Literate_01.DataTypeClause'>
+DataTypeClause  MRO:  ['DataTypeClause', 'PydanticMixin', 'object']
+Default  Qualified:  <class 'ldm.Literate_01.Default'>
+Default  MRO:  ['Default', 'Formula', 'MinorComponent', 'PydanticMixin', 'object']
+Derivation  Qualified:  <class 'ldm.Literate_01.Derivation'>
+Derivation  MRO:  ['Derivation', 'Formula', 'MinorComponent', 'PydanticMixin', 'object']
+Diagnostic  Qualified:  <class 'ldm.Literate_01.Diagnostic'>
+Diagnostic  MRO:  ['Diagnostic', 'PydanticMixin', 'object']
+DotCase  Qualified:  <class 'utils.class_casing.DotCase'>
+DotCase  MRO:  ['DotCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Emoji  Qualified:  <class 'utils.class_pom_token.Emoji'>
+Emoji  MRO:  ['Emoji', 'PresentableToken', 'PydanticMixin', 'object']
+Formula  Qualified:  <class 'ldm.Literate_01.Formula'>
+Formula  MRO:  ['Formula', 'MinorComponent', 'PydanticMixin', 'object']
+FormulaCoding  Qualified:  <class 'ldm.Literate_01.FormulaCoding'>
+FormulaCoding  MRO:  ['FormulaCoding', 'PydanticMixin', 'object']
+InitVar  Qualified:  <class 'dataclasses.InitVar'>
+InitVar  MRO:  ['InitVar', 'object']
+IsExclusive  Qualified:  <class 'utils.class_pom_token.IsExclusive'>
+IsExclusive  MRO:  ['IsExclusive', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+IsExhaustive  Qualified:  <class 'utils.class_pom_token.IsExhaustive'>
+IsExhaustive  MRO:  ['IsExhaustive', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+IsOptional  Qualified:  <class 'utils.class_pom_token.IsOptional'>
+IsOptional  MRO:  ['IsOptional', 'PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+Kebab  Qualified:  <class 'utils.class_casing.Kebab'>
+Kebab  MRO:  ['Kebab', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Label  Qualified:  <class 'ldm.Literate_01.Label'>
+Label  MRO:  ['Label', 'LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+ListDataType  Qualified:  <class 'ldm.Literate_01.ListDataType'>
+ListDataType  MRO:  ['ListDataType', 'DataType', 'PydanticMixin', 'object']
+LiterateModel  Qualified:  <class 'ldm.Literate_01.LiterateModel'>
+LiterateModel  MRO:  ['LiterateModel', 'SubjectB', 'SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+LowerCamel  Qualified:  <class 'utils.class_casing.LowerCamel'>
+LowerCamel  MRO:  ['LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+MappingDataType  Qualified:  <class 'ldm.Literate_01.MappingDataType'>
+MappingDataType  MRO:  ['MappingDataType', 'DataType', 'PydanticMixin', 'object']
+MinorComponent  Qualified:  <class 'ldm.Literate_01.MinorComponent'>
+MinorComponent  MRO:  ['MinorComponent', 'PydanticMixin', 'object']
+ModelName  Qualified:  <class 'ldm.Literate_01.ModelName'>
+ModelName  MRO:  ['ModelName', 'NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+SnakeCase  Qualified:  <class 'utils.class_casing.SnakeCase'>
+SnakeCase  MRO:  ['SnakeCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Natural  Qualified:  <class 'ldm.Literate_01.Natural'>
+Natural  MRO:  ['Natural', 'PydanticMixin', 'object']
+NormalCase  Qualified:  <class 'utils.class_casing.NormalCase'>
+NormalCase  MRO:  ['NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+OneLiner  Qualified:  <class 'ldm.Literate_01.OneLiner'>
+OneLiner  MRO:  ['OneLiner', 'Natural', 'PydanticMixin', 'object']
+Paragraph  Qualified:  <class 'ldm.Literate_01.Paragraph'>
+Paragraph  MRO:  ['Paragraph', 'Natural', 'PydanticMixin', 'object']
+PascalCase  Qualified:  <class 'utils.class_casing.PascalCase'>
+PascalCase  MRO:  ['PascalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+PomTemplate  Qualified:  <class 'utils.class_templates.PomTemplate'>
+PomTemplate  MRO:  ['PomTemplate', 'object']
+PresentableBoolean  Qualified:  <class 'utils.class_pom_token.PresentableBoolean'>
+PresentableBoolean  MRO:  ['PresentableBoolean', 'PresentableToken', 'PydanticMixin', 'object']
+PresentableToken  Qualified:  <class 'utils.class_pom_token.PresentableToken'>
+PresentableToken  MRO:  ['PresentableToken', 'PydanticMixin', 'object']
+PydanticMixin  Qualified:  <class 'utils.util_pydantic.PydanticMixin'>
+PydanticMixin  MRO:  ['PydanticMixin', 'object']
+ReferenceType  Qualified:  <class 'ldm.Literate_01.ReferenceType'>
+ReferenceType  MRO:  ['ReferenceType', 'Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SetDataType  Qualified:  <class 'ldm.Literate_01.SetDataType'>
+SetDataType  MRO:  ['SetDataType', 'DataType', 'PydanticMixin', 'object']
+SnakeCase  Qualified:  <class 'utils.class_casing.SnakeCase'>
+SnakeCase  MRO:  ['SnakeCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+SubjectB  Qualified:  <class 'ldm.Literate_01.SubjectB'>
+SubjectB  MRO:  ['SubjectB', 'SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectB  Qualified:  <class 'ldm.Literate_01.SubjectB'>
+SubjectB  MRO:  ['SubjectB', 'SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectC  Qualified:  <class 'ldm.Literate_01.SubjectC'>
+SubjectC  MRO:  ['SubjectC', 'SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectD  Qualified:  <class 'ldm.Literate_01.SubjectD'>
+SubjectD  MRO:  ['SubjectD', 'SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectE  Qualified:  <class 'ldm.Literate_01.SubjectE'>
+SubjectE  MRO:  ['SubjectE', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+SubjectName  Qualified:  <class 'ldm.Literate_01.SubjectName'>
+SubjectName  MRO:  ['SubjectName', 'NormalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Subtyping  Qualified:  <class 'ldm.Literate_01.Subtyping'>
+Subtyping  MRO:  ['Subtyping', 'PydanticMixin', 'object']
+SubtypingName  Qualified:  <class 'ldm.Literate_01.SubtypingName'>
+SubtypingName  MRO:  ['SubtypingName', 'LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperSnake  Qualified:  <class 'utils.class_casing.UpperSnake'>
+UpperSnake  MRO:  ['UpperSnake', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+TrainCase  Qualified:  <class 'utils.class_casing.TrainCase'>
+TrainCase  MRO:  ['TrainCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperSnake  Qualified:  <class 'utils.class_casing.UpperSnake'>
+UpperSnake  MRO:  ['UpperSnake', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperCamel  Qualified:  <class 'utils.class_casing.UpperCamel'>
+UpperCamel  MRO:  ['UpperCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperCamel  Qualified:  <class 'utils.class_casing.UpperCamel'>
+UpperCamel  MRO:  ['UpperCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+UpperSnake  Qualified:  <class 'utils.class_casing.UpperSnake'>
+UpperSnake  MRO:  ['UpperSnake', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+ValueType  Qualified:  <class 'ldm.Literate_01.ValueType'>
+ValueType  MRO:  ['ValueType', 'Class', 'Component', 'MinorComponent', 'PydanticMixin', 'object']
+DotCase  Qualified:  <class 'utils.class_casing.DotCase'>
+DotCase  MRO:  ['DotCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+Kebab  Qualified:  <class 'utils.class_casing.Kebab'>
+Kebab  MRO:  ['Kebab', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+LowerCamel  Qualified:  <class 'utils.class_casing.LowerCamel'>
+LowerCamel  MRO:  ['LowerCamel', 'CamelCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+PascalCase  Qualified:  <class 'utils.class_casing.PascalCase'>
+PascalCase  MRO:  ['PascalCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+SnakeCase  Qualified:  <class 'utils.class_casing.SnakeCase'>
+SnakeCase  MRO:  ['SnakeCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+TrainCase  Qualified:  <class 'utils.class_casing.TrainCase'>
+TrainCase  MRO:  ['TrainCase', 'Casing', 'PresentableToken', 'PydanticMixin', 'object']
+
 Phase: Parsing model: ldm/ldm_models/Mini/Mini.md
 PARSING ldm/ldm_models/Mini/Mini.md
 
-Phase: Deriving dict for model
+Phase: Deriving dict from parse => {yaml_dict_file}
 Using ATT_NAME  based_on for based on
-Adding value in ddforpart. based_on -. [ClassName(content='LiterateDataModel', _type='ClassName')]
-.. full dict saved  in ldm/ldm_models/Mini/Mini_results/Mini_02.dict.yaml
-.. full clean dict saved  in ldm/ldm_models/Mini/Mini_results/Mini_02a.dict.clean.yaml
+Adding value in ddforpart. based_on -. [ClassName(_type='ClassName', content='LiterateDataModel')]
+.. full dict saved  in ldm/ldm_models/Mini/Mini_results/Mini_02_DC.dict.yaml
 
-Phase: Using pydantic to create model from dict
+Phase: Saving clean dict   => ldm/ldm_models/Mini/Mini_results/Mini_02a_DC.dict.clean.yaml
+.. full clean dict saved  in ldm/ldm_models/Mini/Mini_results/Mini_02a_DC.dict.clean.yaml
+
+Phase: Creating model with from_typed_dict() => to_typed_dict() => ldm/ldm_models/Mini/Mini_results/Mini_03_DC.model_pd.yaml
 Calling LiterateModel.from_typed_dict ...
-In AttSection post-init for AttributeSectionName(content='For Machinery', _type='AttributeSectionName'.), is_optional = None
+In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='For Machinery'), is_optional = None
 
 Phase: have py  model from dict
-..Created pydantic model file: ldm/ldm_models/Mini/Mini_results/Mini_03.model_pd.yaml
+..Created pydantic model file: ldm/ldm_models/Mini/Mini_results/Mini_03_DC.model_pd.yaml
+
+Phase: Validating model tp ldm/ldm_models/Mini/Mini_results/Mini_04_DC.v_model.yaml
+... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Preliminaries')
+Validating references...
+No validation errors found.
+..Created dict for validated model: ldm/ldm_models/Mini/Mini_results/Mini_04_DC.v_model.yaml
+
+Phase: counting errors
+{"Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>": 1}
+1 	 Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+
+Phase: Serializing dict from model with Pydantic: ldm/ldm_models/Mini/Mini_results/Mini_03a_DC.model_to_dict.yaml
+
+Phase: Comparing counts
 pattern is ldm/ldm_models/Mini/Mini_results/*dict*.yaml
-pattern is ldm/ldm_models/Mini/Mini_results/*.model*.yaml
-First name is  \Mini_02.dict.yaml
-['ldm/ldm_models/Mini/Mini_results\\Mini_02.dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_02a.dict.clean.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03.model_pd.yaml']
-
-Census:  \Mini_02.dict.yaml
+pattern is ldm/ldm_models/Mini/Mini_results/*model*.yaml
+First name is  Mini_02_DC.dict.yaml
+['ldm/ldm_models/Mini/Mini_results\\Mini_02_DC.dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_02_PD.dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_02a_DC.dict.clean.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_02a_PD.dict.clean.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_DC.model.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_DC.model_pd.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_PD.model.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03_PD.model_pd.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03a_DC.model_to_dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_03a_PD.model_to_dict.yaml', 'ldm/ldm_models/Mini/Mini_results\\Mini_04_DC.v_model.yaml']
+Including:  Mini_02_DC.dict.yaml
+Including:  Mini_02_PD.dict.yaml
+Including:  Mini_02a_DC.dict.clean.yaml
+Including:  Mini_02a_PD.dict.clean.yaml
+Including:  Mini_03_DC.model.yaml
+Including:  Mini_03_DC.model_pd.yaml
+Including:  Mini_03_PD.model.yaml
+Including:  Mini_03_PD.model_pd.yaml
+Including:  Mini_03a_DC.model_to_dict.yaml
+Including:  Mini_03a_PD.model_to_dict.yaml
+Including:  Mini_04_DC.v_model.yaml
 as yaml - warnings =  False
-_type: 132
-literate_models: 1
-prefix: 18
-name: 18
-content: 86
-parenthetical: 18
-subjects: 1
-one_liner: 19
-classes: 2
-attributes: 13
-data_type_clause: 12
-data_type: 12
-class_name: 12
-as_value_type: 12
-is_optional_lit: 12
-default: 3
-annotations: 3
-emoji: 3
-as_entered: 3
-label: 3
-attribute_sections: 1
-based_on: 1
-
-Changing .literate_models to LiterateModel
-Changing LiterateModel.subjects.classes to Class
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attribute_sections.attributes to Attribute
-Changing LiterateModel.subjects.classes to Class
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-
-Census:  \Mini_02.dict.yaml PATHS
 as yaml - warnings =  False
-._type: 1
-.literate_models: 1
-LiterateModel._type: 1
-LiterateModel.prefix: 1
-LiterateModel.name: 1
-LiterateModel.name._type: 1
-LiterateModel.name.content: 1
-LiterateModel.parenthetical: 1
-LiterateModel.subjects: 1
-LiterateModel.subjects._type: 1
-LiterateModel.subjects.prefix: 1
-LiterateModel.subjects.name: 1
-LiterateModel.subjects.name._type: 1
-LiterateModel.subjects.name.content: 1
-LiterateModel.subjects.one_liner: 1
-LiterateModel.subjects.one_liner._type: 1
-LiterateModel.subjects.one_liner.content: 1
-LiterateModel.subjects.parenthetical: 1
-LiterateModel.subjects.classes: 1
-Class._type: 2
-Class.prefix: 2
-Class.name: 2
-Class.name._type: 2
-Class.name.content: 2
-Class.one_liner: 2
-Class.one_liner._type: 2
-Class.one_liner.content: 2
-Class.parenthetical: 2
-Class.attributes: 2
-Attribute._type: 13
-Attribute.prefix: 13
-Attribute.name: 13
-Attribute.name._type: 13
-Attribute.name.content: 13
-Attribute.one_liner: 12
-Attribute.one_liner._type: 12
-Attribute.one_liner.content: 12
-Attribute.parenthetical: 13
-Attribute.data_type_clause: 12
-Attribute.data_type_clause._type: 12
-Attribute.data_type_clause.data_type: 12
-Attribute.data_type_clause.data_type._type: 12
-Attribute.data_type_clause.data_type.class_name: 12
-Attribute.data_type_clause.data_type.class_name._type: 12
-Attribute.data_type_clause.data_type.class_name.content: 12
-Attribute.data_type_clause.data_type.as_value_type: 12
-Attribute.data_type_clause.data_type.as_value_type._type: 12
-Attribute.data_type_clause.data_type.as_value_type.content: 12
-Attribute.data_type_clause.is_optional_lit: 12
-Attribute.data_type_clause.is_optional_lit._type: 12
-Attribute.data_type_clause.is_optional_lit.content: 12
-Attribute.default: 3
-Attribute.default._type: 3
-Attribute.default.one_liner: 3
-Attribute.default.one_liner._type: 3
-Attribute.default.one_liner.content: 3
-Attribute.annotations: 2
-Attribute.annotations._type: 2
-Attribute.annotations.emoji: 2
-Attribute.annotations.emoji._type: 2
-Attribute.annotations.emoji.content: 2
-Attribute.annotations.emoji.as_entered: 2
-Attribute.annotations.label: 2
-Attribute.annotations.label._type: 2
-Attribute.annotations.label.content: 2
-Attribute.annotations.content: 2
-Attribute.annotations.content._type: 2
-Attribute.annotations.content.content: 2
-Class.attribute_sections: 1
-Class.attribute_sections._type: 1
-Class.attribute_sections.prefix: 1
-Class.attribute_sections.name: 1
-Class.attribute_sections.name._type: 1
-Class.attribute_sections.name.content: 1
-Class.attribute_sections.one_liner: 1
-Class.attribute_sections.one_liner._type: 1
-Class.attribute_sections.one_liner.content: 1
-Class.attribute_sections.parenthetical: 1
-Class.attribute_sections.attributes: 1
-Class.based_on: 1
-Class.based_on._type: 1
-Class.based_on.content: 1
-Class.annotations: 1
-Class.annotations._type: 1
-Class.annotations.emoji: 1
-Class.annotations.emoji._type: 1
-Class.annotations.emoji.content: 1
-Class.annotations.emoji.as_entered: 1
-Class.annotations.label: 1
-Class.annotations.label._type: 1
-Class.annotations.label.content: 1
-Class.annotations.content: 1
-Class.annotations.content._type: 1
-Class.annotations.content.content: 1
 
+Phase: Rendering back to markdown => ldm/ldm_models/Mini/Mini_results/Mini_05_DC.rendered.md
+Rendering LDM - <class 'ldm.Literate_01.LiterateModel'> - ??
+1  subjects coming in model
+WARNING: No render for type <class 'Literate_01.OneLiner'>
+WARNING: No render for type <class 'Literate_01.Class'>
+WARNING: No render for type <class 'Literate_01.Class'>
 
-Census:  \Mini_02a.dict.clean.yaml
-as yaml - warnings =  False
-_type: 131
-prefix: 18
-name: 18
-content: 86
-parenthetical: 18
-subjects: 1
-one_liner: 19
-classes: 2
-attributes: 13
-data_type_clause: 12
-data_type: 12
-class_name: 12
-as_value_type: 12
-is_optional_lit: 12
-default: 3
-annotations: 3
-emoji: 3
-as_entered: 3
-label: 3
-attribute_sections: 1
-based_on: 1
-
-Changing  to LiterateModel
-Changing LiterateModel.subjects.classes to Class
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attribute_sections.attributes to Attribute
-Changing LiterateModel.subjects.classes to Class
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-
-Census:  \Mini_02a.dict.clean.yaml PATHS
-as yaml - warnings =  False
-LiterateModel._type: 1
-LiterateModel.prefix: 1
-LiterateModel.name: 1
-LiterateModel.name._type: 1
-LiterateModel.name.content: 1
-LiterateModel.parenthetical: 1
-LiterateModel.subjects: 1
-LiterateModel.subjects._type: 1
-LiterateModel.subjects.prefix: 1
-LiterateModel.subjects.name: 1
-LiterateModel.subjects.name._type: 1
-LiterateModel.subjects.name.content: 1
-LiterateModel.subjects.one_liner: 1
-LiterateModel.subjects.one_liner._type: 1
-LiterateModel.subjects.one_liner.content: 1
-LiterateModel.subjects.parenthetical: 1
-LiterateModel.subjects.classes: 1
-Class._type: 2
-Class.prefix: 2
-Class.name: 2
-Class.name._type: 2
-Class.name.content: 2
-Class.one_liner: 2
-Class.one_liner._type: 2
-Class.one_liner.content: 2
-Class.parenthetical: 2
-Class.attributes: 2
-Attribute._type: 13
-Attribute.prefix: 13
-Attribute.name: 13
-Attribute.name._type: 13
-Attribute.name.content: 13
-Attribute.one_liner: 12
-Attribute.one_liner._type: 12
-Attribute.one_liner.content: 12
-Attribute.parenthetical: 13
-Attribute.data_type_clause: 12
-Attribute.data_type_clause._type: 12
-Attribute.data_type_clause.data_type: 12
-Attribute.data_type_clause.data_type._type: 12
-Attribute.data_type_clause.data_type.class_name: 12
-Attribute.data_type_clause.data_type.class_name._type: 12
-Attribute.data_type_clause.data_type.class_name.content: 12
-Attribute.data_type_clause.data_type.as_value_type: 12
-Attribute.data_type_clause.data_type.as_value_type._type: 12
-Attribute.data_type_clause.data_type.as_value_type.content: 12
-Attribute.data_type_clause.is_optional_lit: 12
-Attribute.data_type_clause.is_optional_lit._type: 12
-Attribute.data_type_clause.is_optional_lit.content: 12
-Attribute.default: 3
-Attribute.default._type: 3
-Attribute.default.one_liner: 3
-Attribute.default.one_liner._type: 3
-Attribute.default.one_liner.content: 3
-Attribute.annotations: 2
-Attribute.annotations._type: 2
-Attribute.annotations.emoji: 2
-Attribute.annotations.emoji._type: 2
-Attribute.annotations.emoji.content: 2
-Attribute.annotations.emoji.as_entered: 2
-Attribute.annotations.label: 2
-Attribute.annotations.label._type: 2
-Attribute.annotations.label.content: 2
-Attribute.annotations.content: 2
-Attribute.annotations.content._type: 2
-Attribute.annotations.content.content: 2
-Class.attribute_sections: 1
-Class.attribute_sections._type: 1
-Class.attribute_sections.prefix: 1
-Class.attribute_sections.name: 1
-Class.attribute_sections.name._type: 1
-Class.attribute_sections.name.content: 1
-Class.attribute_sections.one_liner: 1
-Class.attribute_sections.one_liner._type: 1
-Class.attribute_sections.one_liner.content: 1
-Class.attribute_sections.parenthetical: 1
-Class.attribute_sections.attributes: 1
-Class.based_on: 1
-Class.based_on._type: 1
-Class.based_on.content: 1
-Class.annotations: 1
-Class.annotations._type: 1
-Class.annotations.emoji: 1
-Class.annotations.emoji._type: 1
-Class.annotations.emoji.content: 1
-Class.annotations.emoji.as_entered: 1
-Class.annotations.label: 1
-Class.annotations.label._type: 1
-Class.annotations.label.content: 1
-Class.annotations.content: 1
-Class.annotations.content._type: 1
-Class.annotations.content.content: 1
-
-
-Census:  \Mini_03.model_pd.yaml
-as yaml - warnings =  False
-_type: 135
-is_embellishment: 21
-prefix: 18
-name: 18
-content: 90
-parenthetical: 18
-subjects: 1
-one_liner: 19
-classes: 2
-subtype_of: 2
-subtypes: 2
-based_on: 2
-dependent_of: 2
-dependents: 2
-is_value_type: 2
-attributes: 13
-data_type_clause: 12
-data_type: 12
-class_name: 12
-as_value_type: 12
-is_optional_lit: 12
-annotations: 3
-label: 3
-emoji: 3
-default: 3
-english: 3
-attribute_sections: 1
-is_optional: 1
-
-Changing  to LiterateModel
-Changing LiterateModel.subjects.classes to Class
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attribute_sections.attributes to Attribute
-Changing LiterateModel.subjects.classes to Class
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-Changing Class.attributes to Attribute
-
-Census:  \Mini_03.model_pd.yaml PATHS
-as yaml - warnings =  False
-LiterateModel._type: 1
-LiterateModel.is_embellishment: 1
-LiterateModel.prefix: 1
-LiterateModel.name: 1
-LiterateModel.name._type: 1
-LiterateModel.name.content: 1
-LiterateModel.parenthetical: 1
-LiterateModel.subjects: 1
-LiterateModel.subjects._type: 1
-LiterateModel.subjects.one_liner: 1
-LiterateModel.subjects.one_liner._type: 1
-LiterateModel.subjects.one_liner.content: 1
-LiterateModel.subjects.is_embellishment: 1
-LiterateModel.subjects.prefix: 1
-LiterateModel.subjects.name: 1
-LiterateModel.subjects.name._type: 1
-LiterateModel.subjects.name.content: 1
-LiterateModel.subjects.parenthetical: 1
-LiterateModel.subjects.classes: 1
-Class._type: 2
-Class.one_liner: 2
-Class.one_liner._type: 2
-Class.one_liner.content: 2
-Class.is_embellishment: 2
-Class.prefix: 2
-Class.name: 2
-Class.name._type: 2
-Class.name.content: 2
-Class.parenthetical: 2
-Class.subtype_of: 2
-Class.subtypes: 2
-Class.based_on: 2
-Class.dependent_of: 2
-Class.dependents: 2
-Class.is_value_type: 2
-Class.attributes: 2
-Attribute._type: 13
-Attribute.one_liner: 12
-Attribute.one_liner._type: 12
-Attribute.one_liner.content: 12
-Attribute.is_embellishment: 13
-Attribute.prefix: 13
-Attribute.name: 13
-Attribute.name._type: 13
-Attribute.name.content: 13
-Attribute.parenthetical: 13
-Attribute.data_type_clause: 12
-Attribute.data_type_clause._type: 12
-Attribute.data_type_clause.data_type: 12
-Attribute.data_type_clause.data_type._type: 12
-Attribute.data_type_clause.data_type.class_name: 12
-Attribute.data_type_clause.data_type.class_name._type: 12
-Attribute.data_type_clause.data_type.class_name.content: 12
-Attribute.data_type_clause.data_type.as_value_type: 12
-Attribute.data_type_clause.data_type.as_value_type._type: 12
-Attribute.data_type_clause.data_type.as_value_type.content: 12
-Attribute.data_type_clause.is_optional_lit: 12
-Attribute.data_type_clause.is_optional_lit._type: 12
-Attribute.data_type_clause.is_optional_lit.content: 12
-Attribute.annotations: 2
-Attribute.annotations._type: 2
-Attribute.annotations.label: 2
-Attribute.annotations.label._type: 2
-Attribute.annotations.label.content: 2
-Attribute.annotations.content: 2
-Attribute.annotations.content._type: 2
-Attribute.annotations.content.content: 2
-Attribute.annotations.emoji: 2
-Attribute.annotations.emoji._type: 2
-Attribute.annotations.emoji.content: 2
-Attribute.default: 3
-Attribute.default._type: 3
-Attribute.default.one_liner: 3
-Attribute.default.one_liner._type: 3
-Attribute.default.one_liner.content: 3
-Attribute.default.is_embellishment: 3
-Attribute.default.english: 3
-Attribute.default.english._type: 3
-Attribute.default.english.content: 3
-Class.attribute_sections: 1
-Class.attribute_sections._type: 1
-Class.attribute_sections.one_liner: 1
-Class.attribute_sections.one_liner._type: 1
-Class.attribute_sections.one_liner.content: 1
-Class.attribute_sections.is_embellishment: 1
-Class.attribute_sections.prefix: 1
-Class.attribute_sections.name: 1
-Class.attribute_sections.name._type: 1
-Class.attribute_sections.name.content: 1
-Class.attribute_sections.parenthetical: 1
-Class.attribute_sections.is_optional: 1
-Class.attribute_sections.is_optional._type: 1
-Class.attribute_sections.is_optional.content: 1
-Class.attribute_sections.attributes: 1
-Class.annotations: 1
-Class.annotations._type: 1
-Class.annotations.label: 1
-Class.annotations.label._type: 1
-Class.annotations.label.content: 1
-Class.annotations.content: 1
-Class.annotations.content._type: 1
-Class.annotations.content.content: 1
-Class.annotations.emoji: 1
-Class.annotations.emoji._type: 1
-Class.annotations.emoji.content: 1
-Class.based_on._type: 1
-Class.based_on.content: 1
-
-
-Census:  Merged results
-as yaml - warnings =  False
-Attribute.data_type_clause.is_optional_lit.content:
-    All: 12
-Class.attribute_sections.name.content:
-    All: 1
-Attribute.data_type_clause.data_type.as_value_type._type:
-    All: 12
-Class.parenthetical:
-    All: 2
-Class.annotations.emoji._type:
-    All: 1
-Class.dependent_of:
-    \Mini_03.model_pd.yaml: 2
-LiterateModel.name._type:
-    All: 1
-Class.prefix:
-    All: 2
-Attribute.one_liner._type:
-    All: 12
-Class.attribute_sections.prefix:
-    All: 1
-Class.attribute_sections.is_optional._type:
-    \Mini_03.model_pd.yaml: 1
-Class.one_liner:
-    All: 2
-Attribute.name.content:
-    All: 13
-Class.attribute_sections.name._type:
-    All: 1
-LiterateModel.subjects.one_liner:
-    All: 1
-Class.attribute_sections.one_liner:
-    All: 1
-Attribute.default._type:
-    All: 3
-Class.annotations.label.content:
-    All: 1
-Attribute.default.is_embellishment:
-    \Mini_03.model_pd.yaml: 3
-Attribute.data_type_clause.data_type._type:
-    All: 12
-Attribute.default.one_liner:
-    All: 3
-Attribute.default.one_liner.content:
-    All: 3
-Attribute.data_type_clause.is_optional_lit._type:
-    All: 12
-Class.annotations.emoji.as_entered:
-    \Mini_02.dict.yaml: 1
-    \Mini_02a.dict.clean.yaml: 1
-Attribute.annotations.emoji:
-    All: 2
-Attribute.data_type_clause.is_optional_lit:
-    All: 12
-LiterateModel.subjects.parenthetical:
-    All: 1
-Attribute.data_type_clause.data_type.as_value_type.content:
-    All: 12
-Class.dependents:
-    \Mini_03.model_pd.yaml: 2
-Attribute._type:
-    All: 13
-LiterateModel._type:
-    All: 1
-LiterateModel.subjects.name.content:
-    All: 1
-Class.name._type:
-    All: 2
-Attribute.name:
-    All: 13
-Attribute.annotations.emoji._type:
-    All: 2
-Class.attribute_sections.is_optional:
-    \Mini_03.model_pd.yaml: 1
-LiterateModel.subjects.is_embellishment:
-    \Mini_03.model_pd.yaml: 1
-Class.one_liner.content:
-    All: 2
-LiterateModel.is_embellishment:
-    \Mini_03.model_pd.yaml: 1
-Class.attribute_sections.parenthetical:
-    All: 1
-Class.based_on.content:
-    All: 1
-Attribute.annotations.emoji.as_entered:
-    \Mini_02.dict.yaml: 2
-    \Mini_02a.dict.clean.yaml: 2
-Attribute.annotations.content:
-    All: 2
-Attribute.annotations.emoji.content:
-    All: 2
-Attribute.prefix:
-    All: 13
-Attribute.default:
-    All: 3
-Class.subtype_of:
-    \Mini_03.model_pd.yaml: 2
-LiterateModel.subjects.one_liner._type:
-    All: 1
-Class.is_embellishment:
-    \Mini_03.model_pd.yaml: 2
-Attribute.annotations.content._type:
-    All: 2
-Attribute.data_type_clause._type:
-    All: 12
-Class._type:
-    All: 2
-Class.one_liner._type:
-    All: 2
-Attribute.annotations.label:
-    All: 2
-LiterateModel.subjects.classes:
-    All: 1
-Class.attribute_sections.is_embellishment:
-    \Mini_03.model_pd.yaml: 1
-Attribute.annotations._type:
-    All: 2
-Class.attribute_sections.name:
-    All: 1
-LiterateModel.subjects.name:
-    All: 1
-Class.name.content:
-    All: 2
-Class.annotations.content.content:
-    All: 1
-Class.based_on:
-    \Mini_02.dict.yaml: 1
-    \Mini_02a.dict.clean.yaml: 1
-    \Mini_03.model_pd.yaml: 2
-Attribute.annotations:
-    All: 2
-Attribute.data_type_clause.data_type:
-    All: 12
-Attribute.name._type:
-    All: 13
-LiterateModel.subjects.prefix:
-    All: 1
-Attribute.annotations.content.content:
-    All: 2
-Class.annotations.emoji.content:
-    All: 1
-Attribute.is_embellishment:
-    \Mini_03.model_pd.yaml: 13
-Attribute.one_liner.content:
-    All: 12
-.literate_models:
-    \Mini_02.dict.yaml: 1
-Class.name:
-    All: 2
-Class.subtypes:
-    \Mini_03.model_pd.yaml: 2
-Class.attribute_sections.is_optional.content:
-    \Mini_03.model_pd.yaml: 1
-Attribute.data_type_clause.data_type.class_name._type:
-    All: 12
-LiterateModel.name.content:
-    All: 1
-Class.attributes:
-    All: 2
-Attribute.data_type_clause:
-    All: 12
-LiterateModel.subjects:
-    All: 1
-Class.annotations:
-    All: 1
-Class.attribute_sections:
-    All: 1
-Attribute.default.one_liner._type:
-    All: 3
-LiterateModel.subjects.name._type:
-    All: 1
-Class.attribute_sections.attributes:
-    All: 1
-Class.annotations.emoji:
-    All: 1
-LiterateModel.parenthetical:
-    All: 1
-LiterateModel.prefix:
-    All: 1
-LiterateModel.subjects._type:
-    All: 1
-Class.based_on._type:
-    All: 1
-Class.is_value_type:
-    \Mini_03.model_pd.yaml: 2
-LiterateModel.subjects.one_liner.content:
-    All: 1
-._type:
-    \Mini_02.dict.yaml: 1
-Attribute.annotations.label._type:
-    All: 2
-Attribute.data_type_clause.data_type.as_value_type:
-    All: 12
-Attribute.one_liner:
-    All: 12
-LiterateModel.name:
-    All: 1
-Class.annotations.label:
-    All: 1
-Class.attribute_sections._type:
-    All: 1
-Attribute.default.english.content:
-    \Mini_03.model_pd.yaml: 3
-Class.annotations.content._type:
-    All: 1
-Attribute.data_type_clause.data_type.class_name.content:
-    All: 12
-Attribute.default.english._type:
-    \Mini_03.model_pd.yaml: 3
-Class.attribute_sections.one_liner._type:
-    All: 1
-Attribute.annotations.label.content:
-    All: 2
-Attribute.data_type_clause.data_type.class_name:
-    All: 12
-Class.attribute_sections.one_liner.content:
-    All: 1
-Class.annotations.content:
-    All: 1
-Attribute.parenthetical:
-    All: 13
-Class.annotations._type:
-    All: 1
-Class.annotations.label._type:
-    All: 1
-Attribute.default.english:
-    \Mini_03.model_pd.yaml: 3
-
-
-Census:  Other Merged results
-as yaml - warnings =  False
-Attribute.data_type_clause.is_optional_lit.content:
-    All: 12
-Class.attribute_sections.name.content:
-    All: 1
-Attribute.data_type_clause.data_type.as_value_type._type:
-    All: 12
-Class.parenthetical:
-    All: 2
-Class.annotations.emoji._type:
-    All: 1
-Class.dependent_of:
-    \Mini_03.model_pd.yaml: 2
-LiterateModel.name._type:
-    All: 1
-Class.prefix:
-    All: 2
-Attribute.one_liner._type:
-    All: 12
-Class.attribute_sections.prefix:
-    All: 1
-Class.attribute_sections.is_optional._type:
-    \Mini_03.model_pd.yaml: 1
-Class.one_liner:
-    All: 2
-Attribute.name.content:
-    All: 13
-Class.attribute_sections.name._type:
-    All: 1
-LiterateModel.subjects.one_liner:
-    All: 1
-Class.attribute_sections.one_liner:
-    All: 1
-Attribute.default._type:
-    All: 3
-Class.annotations.label.content:
-    All: 1
-Attribute.default.is_embellishment:
-    \Mini_03.model_pd.yaml: 3
-Attribute.data_type_clause.data_type._type:
-    All: 12
-Attribute.default.one_liner:
-    All: 3
-Attribute.default.one_liner.content:
-    All: 3
-Attribute.data_type_clause.is_optional_lit._type:
-    All: 12
-Class.annotations.emoji.as_entered:
-    \Mini_02a.dict.clean.yaml: 1
-Attribute.annotations.emoji:
-    All: 2
-Attribute.data_type_clause.is_optional_lit:
-    All: 12
-LiterateModel.subjects.parenthetical:
-    All: 1
-Attribute.data_type_clause.data_type.as_value_type.content:
-    All: 12
-Class.dependents:
-    \Mini_03.model_pd.yaml: 2
-Attribute._type:
-    All: 13
-LiterateModel._type:
-    All: 1
-LiterateModel.subjects.name.content:
-    All: 1
-Class.name._type:
-    All: 2
-Attribute.name:
-    All: 13
-Attribute.annotations.emoji._type:
-    All: 2
-Class.attribute_sections.is_optional:
-    \Mini_03.model_pd.yaml: 1
-LiterateModel.subjects.is_embellishment:
-    \Mini_03.model_pd.yaml: 1
-Class.one_liner.content:
-    All: 2
-LiterateModel.is_embellishment:
-    \Mini_03.model_pd.yaml: 1
-Class.attribute_sections.parenthetical:
-    All: 1
-Class.based_on.content:
-    All: 1
-Attribute.annotations.emoji.as_entered:
-    \Mini_02a.dict.clean.yaml: 2
-Attribute.annotations.content:
-    All: 2
-Attribute.annotations.emoji.content:
-    All: 2
-Attribute.prefix:
-    All: 13
-Attribute.default:
-    All: 3
-Class.subtype_of:
-    \Mini_03.model_pd.yaml: 2
-LiterateModel.subjects.one_liner._type:
-    All: 1
-Class.is_embellishment:
-    \Mini_03.model_pd.yaml: 2
-Attribute.annotations.content._type:
-    All: 2
-Attribute.data_type_clause._type:
-    All: 12
-Class._type:
-    All: 2
-Class.one_liner._type:
-    All: 2
-Attribute.annotations.label:
-    All: 2
-LiterateModel.subjects.classes:
-    All: 1
-Class.attribute_sections.is_embellishment:
-    \Mini_03.model_pd.yaml: 1
-Attribute.annotations._type:
-    All: 2
-Class.attribute_sections.name:
-    All: 1
-LiterateModel.subjects.name:
-    All: 1
-Class.name.content:
-    All: 2
-Class.annotations.content.content:
-    All: 1
-Class.based_on:
-    \Mini_02a.dict.clean.yaml: 1
-    \Mini_03.model_pd.yaml: 2
-Attribute.annotations:
-    All: 2
-Attribute.data_type_clause.data_type:
-    All: 12
-Attribute.name._type:
-    All: 13
-LiterateModel.subjects.prefix:
-    All: 1
-Attribute.annotations.content.content:
-    All: 2
-Class.annotations.emoji.content:
-    All: 1
-Attribute.is_embellishment:
-    \Mini_03.model_pd.yaml: 13
-Attribute.one_liner.content:
-    All: 12
-Class.name:
-    All: 2
-Class.subtypes:
-    \Mini_03.model_pd.yaml: 2
-Class.attribute_sections.is_optional.content:
-    \Mini_03.model_pd.yaml: 1
-Attribute.data_type_clause.data_type.class_name._type:
-    All: 12
-LiterateModel.name.content:
-    All: 1
-Class.attributes:
-    All: 2
-Attribute.data_type_clause:
-    All: 12
-LiterateModel.subjects:
-    All: 1
-Class.annotations:
-    All: 1
-Class.attribute_sections:
-    All: 1
-Attribute.default.one_liner._type:
-    All: 3
-LiterateModel.subjects.name._type:
-    All: 1
-Class.attribute_sections.attributes:
-    All: 1
-Class.annotations.emoji:
-    All: 1
-LiterateModel.parenthetical:
-    All: 1
-LiterateModel.prefix:
-    All: 1
-LiterateModel.subjects._type:
-    All: 1
-Class.based_on._type:
-    All: 1
-Class.is_value_type:
-    \Mini_03.model_pd.yaml: 2
-LiterateModel.subjects.one_liner.content:
-    All: 1
-Attribute.annotations.label._type:
-    All: 2
-Attribute.data_type_clause.data_type.as_value_type:
-    All: 12
-Attribute.one_liner:
-    All: 12
-LiterateModel.name:
-    All: 1
-Class.annotations.label:
-    All: 1
-Class.attribute_sections._type:
-    All: 1
-Attribute.default.english.content:
-    \Mini_03.model_pd.yaml: 3
-Class.annotations.content._type:
-    All: 1
-Attribute.data_type_clause.data_type.class_name.content:
-    All: 12
-Attribute.default.english._type:
-    \Mini_03.model_pd.yaml: 3
-Class.attribute_sections.one_liner._type:
-    All: 1
-Attribute.annotations.label.content:
-    All: 2
-Attribute.data_type_clause.data_type.class_name:
-    All: 12
-Class.attribute_sections.one_liner.content:
-    All: 1
-Class.annotations.content:
-    All: 1
-Attribute.parenthetical:
-    All: 13
-Class.annotations._type:
-    All: 1
-Class.annotations.label._type:
-    All: 1
-Attribute.default.english:
-    \Mini_03.model_pd.yaml: 3
-
-
-Census:  Short Merged results
-as yaml - warnings =  False
-_type:
-    \Mini_02.dict.yaml: 132
-    \Mini_02a.dict.clean.yaml: 131
-    \Mini_03.model_pd.yaml: 135
-is_optional:
-    \Mini_03.model_pd.yaml: 1
-annotations:
-    All: 3
-subtype_of:
-    \Mini_03.model_pd.yaml: 2
-as_value_type:
-    All: 12
-based_on:
-    \Mini_02.dict.yaml: 1
-    \Mini_02a.dict.clean.yaml: 1
-    \Mini_03.model_pd.yaml: 2
-is_value_type:
-    \Mini_03.model_pd.yaml: 2
-attribute_sections:
-    All: 1
-is_optional_lit:
-    All: 12
-data_type_clause:
-    All: 12
-subtypes:
-    \Mini_03.model_pd.yaml: 2
-is_embellishment:
-    \Mini_03.model_pd.yaml: 21
-prefix:
-    All: 18
-classes:
-    All: 2
-parenthetical:
-    All: 18
-one_liner:
-    All: 19
-name:
-    All: 18
-attributes:
-    All: 13
-label:
-    All: 3
-default:
-    All: 3
-data_type:
-    All: 12
-literate_models:
-    \Mini_02.dict.yaml: 1
-class_name:
-    All: 12
-subjects:
-    All: 1
-english:
-    \Mini_03.model_pd.yaml: 3
-emoji:
-    All: 3
-as_entered:
-    \Mini_02.dict.yaml: 3
-    \Mini_02a.dict.clean.yaml: 3
-dependents:
-    \Mini_03.model_pd.yaml: 2
-dependent_of:
-    \Mini_03.model_pd.yaml: 2
-content:
-    \Mini_02.dict.yaml: 86
-    \Mini_02a.dict.clean.yaml: 86
-    \Mini_03.model_pd.yaml: 90
-
-
-Census:  Other Short Merged results
-as yaml - warnings =  False
-_type:
-    \Mini_02a.dict.clean.yaml: 131
-    \Mini_03.model_pd.yaml: 135
-is_optional:
-    \Mini_03.model_pd.yaml: 1
-annotations:
-    All: 3
-subtype_of:
-    \Mini_03.model_pd.yaml: 2
-as_value_type:
-    All: 12
-based_on:
-    \Mini_02a.dict.clean.yaml: 1
-    \Mini_03.model_pd.yaml: 2
-is_value_type:
-    \Mini_03.model_pd.yaml: 2
-attribute_sections:
-    All: 1
-is_optional_lit:
-    All: 12
-data_type_clause:
-    All: 12
-subtypes:
-    \Mini_03.model_pd.yaml: 2
-is_embellishment:
-    \Mini_03.model_pd.yaml: 21
-prefix:
-    All: 18
-classes:
-    All: 2
-parenthetical:
-    All: 18
-one_liner:
-    All: 19
-name:
-    All: 18
-attributes:
-    All: 13
-label:
-    All: 3
-default:
-    All: 3
-data_type:
-    All: 12
-class_name:
-    All: 12
-subjects:
-    All: 1
-english:
-    \Mini_03.model_pd.yaml: 3
-emoji:
-    All: 3
-as_entered:
-    \Mini_02a.dict.clean.yaml: 3
-dependents:
-    \Mini_03.model_pd.yaml: 2
-dependent_of:
-    \Mini_03.model_pd.yaml: 2
-content:
-    \Mini_02a.dict.clean.yaml: 86
-    \Mini_03.model_pd.yaml: 90
-
+Phase: Creating HTML from model dict
+All keys are: 
+Orphaned dictkey:  is_value_type
+Orphaned ? <class 'bool'> :  False
+Orphaned dictkey:  label
+Orphaned dictkey:  emoji
+Orphaned dictkey:  as_entered
+Orphaned dictkey:  english
+Orphaned dictkey:  label
+Orphaned dictkey:  emoji
+Orphaned dictkey:  as_entered
+Orphaned dictkey:  english
+Orphaned dictkey:  label
+Orphaned dictkey:  emoji
+Orphaned dictkey:  as_entered
+Orphaned list:  [{'_type': 'ClassName', 'content': 'LiterateDataModel'}]
+Orphaned dictkey:  is_value_type
+Orphaned ? <class 'bool'> :  False
+Orphaned dictkey:  english
+Body classes are None
+Printing stack trace using traceback.print_exc():
+Traceback (most recent call last):
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\do_build_ldm.py", line 376, in <module>
+    build_dull_dsl(ldm_dull_specs)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\dull_dsl\dull_build.py", line 231, in build_dull_dsl
+    create_model_html(the_ldm_model_py, html_path)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_to_html.py", line 567, in create_model_html
+    save_model_html(data, css_path, html_path)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_to_html.py", line 592, in save_model_html
+    Path(output_path).write_text(html_content, encoding="utf-8")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 555, in write_text
+    return PathBase.write_text(self, data, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 651, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'ldm\\ldm_models\\Mini\\Mini_results\\Mini\\Mini_06_DC.html'

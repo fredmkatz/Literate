@@ -48,6 +48,8 @@ import utils.util_all_fmk as fmk
 
 USING_PYDANTIC = False
 USING_PYDANTIC = True
+USING_PYDANTIC = True
+USING_PYDANTIC = False
 
 print("### USING_PYDANTIC =", USING_PYDANTIC)
 
@@ -126,6 +128,7 @@ class PydanticMixin:
         return self
 
     def get_field_order(self):
+        # print("get_field_order for ", self)   ## TODO - Causes look
         return getattr(self, "__field_order__", list(self.__dict__.keys()))
 
     def __repr__(self):
@@ -147,7 +150,7 @@ class PydanticMixin:
                 return {k: convert(v) for k, v in val.items()}
             return val
         # print(f"{using()} to_typed_dict: {typing_of(self)}")
-        # field_names = self.get_field_order()
+        field_names = self.get_field_order()
         # print(f"\t{typing_of(self)} field names are: ", field_names)
 
         output = {"_type": getattr(self, "_type", type(self).__name__)}
@@ -232,6 +235,8 @@ def object_from_typed_dict(data):
     if cls is None:
         raise ValueError(f"Unknown type: {data['_type']}")
     return cls.from_typed_dict(data)
+
+
 
 
 # =============================================================================

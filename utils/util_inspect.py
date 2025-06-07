@@ -2,12 +2,12 @@ from pydantic.dataclasses import dataclass
 import dataclasses
 import inspect
 
-from utils.util_all_fmk import as_yaml
+import utils.util_all_fmk as fmk
 
 def get_classes_in_module(module):
     return [obj for name, obj in inspect.getmembers(module) if inspect.isclass(obj)]
 
-def inspect_module(module):
+def inspect_module(module, outfile_name, outfile_dir):
     all_classes =  get_classes_in_module(module)
     class_dict = {}
     for cls in all_classes:
@@ -30,6 +30,6 @@ def inspect_module(module):
         # if dataclasses.is_dataclass(cls):
             # print(cls.__name__, " fields: ", [f.name for f in cls.__fields__])
         # print(cls.__name__, " to_typed_dict: ", cls.vars())
-    print(as_yaml(class_dict))
+    fmk.write_yaml(class_dict, f"{outfile_dir}/{outfile_name}")
     
 

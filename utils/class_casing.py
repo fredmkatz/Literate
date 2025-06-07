@@ -105,27 +105,6 @@ class Casing(PresentableToken):     # Note. PresentableToken now includes Pydant
         """
         return ""
 
-    # def __str__(self):
-    #     return self.content
-        # def __repr__(self):
-        # return type(self).__name__ + "(" + self.content + ")"
-
-    # def __json__(self):
-    #     return str(self)
-
-    # def __dict__(self):
-    #     return {"_type": self._type, "content": self.content}
-
-    # def toJSON(self):
-    #     """Convert the object to a JSON string."""
-    #     return json.dumps(self.to_dict(), indent=2)
-
-    # def to_dict(self):
-    #     """Simplified serialization with just type and input"""
-    #     return {
-    #         "_type": self._type,  # Your existing code already sets this correctly
-    #         "content": self.content,
-    #     }
 
     @classmethod
     def from_dict(cls, data):
@@ -134,16 +113,6 @@ class Casing(PresentableToken):     # Note. PresentableToken now includes Pydant
             content = data.get("content", "")
             return cls(content=content)
         return cls(content=str(data))
-
-    # def __json__(self):
-    #     """Convert the object to a JSON string."""
-    #     return json.dumps(self.to_dict(), indent=2)
-
-    # def to_json(self):
-    #     """
-    #     Convert the object to a JSON string.
-    #     """
-    #     return json.dumps(self.to_dict(), indent=2)
 
 
 @dataclass

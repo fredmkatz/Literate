@@ -15,7 +15,7 @@ from typing import (
 from dataclasses import fields, is_dataclass
 
 import ldm.Literate_01 as Literate_01
-from ldm.Literate_01 import Diagnostic
+from ldm.Literate_01 import Diagnostic, OneLiner, Paragraph
 
 
 def createError(obj, message) -> Diagnostic:
@@ -27,10 +27,14 @@ def createWarning(obj, message) -> Diagnostic:
 
 
 def createDiagnostic(obj, message, severity="Error") -> Diagnostic:
-    oname = ""
-    oname = getattr(obj, "name", "anon")
+    oname_str = ""
+    oname = getattr(obj, "name", None)
+    if oname:
+        print("oname for diagnostic is ", oname)
+        oname_str = oname.content
+    print("oname_str for diag is ", oname_str)
     d = Diagnostic(
-        severity=severity, message=message, object_type=obj._type, object_name=oname
+        severity=severity, message=Paragraph(message), object_type=obj._type, object_name=oname_str
     )
     obj.diagnostics.append(d)
     # print(d)
@@ -80,10 +84,10 @@ def validate_component(component) -> List[str]:
         All_Errors.append(d)
 
     one_liner = component.one_liner
-    # if not one_liner:
-    #     All_Errors.append(
-    #         createError(component, "Missing oneLiner")
-    #     )
+    if not one_liner:
+        All_Errors.append(
+            createError(component, "Missing oneLiner")
+        )
     if one_liner and len(str(one_liner)) > 90:
         All_Errors.append(
             createWarning(

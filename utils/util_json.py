@@ -4,7 +4,7 @@ import json
 import yaml
 import os
 
-from utils.util_fmk import glob_files
+from utils.util_fmk import glob_files, insure_home_for, write_text
 def update_nested_dict(original, updates):
     for key, value in updates.items():
         if isinstance(value, dict):
@@ -21,12 +21,11 @@ def clean_dict(obj, warnings: bool = False):
     # print("Clean dict, warnings =  ", warnings)
     if isinstance(obj, (str, int, float, bool)):
         return obj
+    elif not obj:
+        return None
     elif isinstance(obj, list):
         return [clean_dict(item, warnings = warnings) for item in obj if item is not None]
     elif isinstance(obj, dict):
-        # diagnostics = obj.get("diagnostics", None)
-        # if diagnostics:
-        #     print("Seeing diagnostics in dict: ", diagnostics)
             
         new_dict =  {
             k: clean_dict(v, warnings=warnings)
@@ -57,8 +56,57 @@ def clean_dict(obj, warnings: bool = False):
             
         return dcdict
     else:
+        objtype = type(obj).__name__
+
+        print(f"clean_dict WARNING: Cannot serialize {objtype} {obj} = \n\t***\t{repr(obj)}")
         return "UnserializablePiece"
     return obj
+
+def make_tidy_yaml(src_yaml_path):
+    
+    the_dict = read_yaml_file(src_yaml_path)
+    tidied = tidy_dict(the_dict, warnings=True)
+    tidy_path = src_yaml_path.replace(".yaml", ".tidy.yaml")
+    write_yaml(tidied, tidy_path)
+
+def tidy_dict(src_dict, warnings: bool = False):
+    """Convert a pure dict to one w/o nulls, "", [] or {}."""
+    # print("Clean dict, warnings =  ", warnings)
+    
+    if isinstance(src_dict, (str, int, float, bool)):
+        if src_dict == "":
+            return None
+        return src_dict
+
+    elif not src_dict:
+        return None
+
+    elif isinstance(src_dict, list):
+        # Process each item and filter out None results
+        items = []
+        for item in src_dict:
+            cleaned_item = tidy_dict(item, warnings=warnings)
+            if cleaned_item is not None:
+                items.append(cleaned_item)
+        
+        if not items:
+            return None
+        return items
+    elif isinstance(src_dict, dict):
+        new_dict = {}
+        for k, v in src_dict.items():
+            cleaned_v = tidy_dict(v, warnings=warnings)
+            if cleaned_v is not None:
+                new_dict[k] = cleaned_v
+
+        if not new_dict:
+            return None
+        return new_dict
+            
+    objtype = type(src_dict).__name__
+    if warnings:
+        print(f"tidy_dict WARNING: Cannot serialize - type = {objtype}; src_dict = \n\t***\t{repr(src_dict)}")
+    return "UnserializablePiece"
 
 def front_key(d: Dict, key) -> Dict:
     if not d.get(key, None):
@@ -76,7 +124,9 @@ def plop(d, key):
 
 
 def as_json(obj, warnings: bool = False):
-    return json.dumps(clean_dict(obj, warnings=warnings), indent=2)
+    # the_dict = clean_dict(obj, warnings)
+    the_dict = obj
+    return json.dumps(the_dict, indent=2)
 
 def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
     """
@@ -100,14 +150,15 @@ def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
 
 def as_yaml(the_dict: Dict, warnings: bool = False) -> str:
     print("as yaml - warnings = ", warnings)
-    return yaml.dump(
-        clean_dict(the_dict, warnings=warnings), indent=4, default_flow_style=False, sort_keys=False
-    )
+    
+    # the_dict = clean_dict(the_dict, warnings)
+
+    return yaml.dump(the_dict,  indent=4, default_flow_style=False, sort_keys=False)
 
 def write_json(the_dict: Dict, file_path: str, warnings: bool = False):
-    import utils.util_all_fmk as fmk
 
     write_text(file_path, as_json(the_dict, warnings=warnings))
+    
 def write_yaml(the_dict: Dict, file_path: str, warnings: bool = False):
     """
     Write a dictionary to a YAML file.
@@ -116,8 +167,8 @@ def write_yaml(the_dict: Dict, file_path: str, warnings: bool = False):
         the_dict: Dictionary to write
         file_path: Path to write the YAML file
     """
-    with open(file_path, "w", encoding="utf-8") as f:
-        yaml.dump(clean_dict(the_dict, warnings= warnings), f, default_flow_style=False, sort_keys=False)
+    insure_home_for(file_path)
+    write_text(file_path, as_yaml(the_dict, warnings=warnings))
 
 
 def json_census(json_object):
@@ -186,8 +237,8 @@ def count_key_paths(data, path=None, counts=None):
 
     if isinstance(data, dict):
         dtype = data.get("_type", None)
-        if dtype and dtype in starters:
-            print(f"Changing {path} to {dtype}")
+        if dtype : #and dtype in starters:
+            # print(f"Changing {path} to {dtype}")
             path = dtype
         for key, value in data.items():
             current_path = path + "." + key
@@ -196,6 +247,9 @@ def count_key_paths(data, path=None, counts=None):
     elif isinstance(data, list):
         for item in data:
             count_key_paths(item, path, counts)
+
+    counts = dict(sorted(counts.items()))
+
     return counts
 
 from typing import Dict
@@ -242,56 +296,85 @@ def merge_counts(pieces: Dict[str, dict]) -> Dict:
             result[key] = key_values
     
     return result
+def show_census(fd, caption, census):
+    print("\nCensus: ", caption, file = fd)
+    print(as_yaml(census), file = fd)
 
 
-def show_census(caption, census):
-    print("\nCensus: ", caption)
-    print(as_yaml(census))
+COMBO_PAIRS = [
+    ["PD", "DC"],
+    ["02.dict", "03.model"],
+    ["03.model", "04.v_model"],
+    ["04.v_model", "05.r_model"],
+    ["_a", ""],
+    [".tidy", ""],
+    ["02", "02a"],
+    ["02_PD.dict", "03_PD,model_pd"],
     
+]
+
+def find_combos(dict_names):
+    combos = []
+    for name1 in dict_names:
+        for name2 in dict_names:
+            if name1 == name2:
+                continue
+            for cpair in COMBO_PAIRS:
+                word1 = cpair[0]
+                word2 = cpair[1]
+                if not word1 in name1:
+                    continue
+                if name1.replace(word1, word2) == name2:
+                    combos.append([name1, name2])
+                if name1.replace(".tidy", "") == name2:
+                    combos.append([name1, name2])
+    return combos
 
 
-
-
-def compare_dicts(base_path, model_name, result_suffix ="xxx.yaml"):
-    dict_paths = glob_files(f"{base_path}/*dict*.yaml", f"{base_path}/*.model*.yaml")
+def compare_dicts(base_path, model_name, result_suffix ="90_census.txt"):
+    output_path = f"{base_path}/{model_name}_{result_suffix}.txt"
+    fd = open(output_path, mode="w", encoding="utf-8")
+    dict_paths = glob_files(f"{base_path}/*dict*.yaml", f"{base_path}/*model*.yaml")
     dict_paths = list(set(dict_paths))
     dict_paths.sort()
-    first_path = dict_paths[0]
-    first_name = first_path.replace(base_path, "")
-    print("First name is ", first_name)
-    print(dict_paths)
-    short_pieces = {}
-    pieces = {}
-    for dict_path in dict_paths:
-        dict_name = dict_path.replace(base_path, "")
-        yaml = read_yaml_file(dict_path)
-        counts = json_census(yaml)
-        show_census(dict_name, counts[0])
-        short_pieces[dict_name] = counts[0]
-        
-        path_counts = dict(count_key_paths(yaml))
-        pieces[dict_name] = path_counts
-        show_census(dict_name + " PATHS", path_counts)
-
-    merger = merge_counts(pieces)
-    show_census("Merged results", merger)
+    print(dict_paths,file = fd)
     
-    other_pieces = pieces
-    other_pieces.pop(first_name)
-    other_merger = merge_counts(other_pieces)
+    dict_names = [os.path.basename(p) for p in dict_paths]
+    print("Dict names are: ", dict_names)
+    
+    combos = find_combos(dict_names)
+    print("All combos are:")
+    for combo in combos:
+        print(combo)
+    for combo in combos:
+        print(f"Combo is: {combo}")
+    
+        # short_pieces = {}
+        pieces = {}
+        for dict_name in combo:
+            dict_path = f"{base_path}/{dict_name}"
+            print("Including: ", dict_name)
+            print("Including: ", dict_name, file = fd)
+            the_dict = read_yaml_file(dict_path)
+            
+            path_counts = dict(count_key_paths(the_dict))
+            pieces[dict_name] = path_counts
+            # show_census(fd, dict_name + " PATHS", path_counts)
 
-    show_census("Other Merged results", other_merger)
+        merger = merge_counts(pieces)
+        # show_census(fd, f"Merged results for {pieces.keys()}", merger)
+        
+        trimmed_merger = {}
+        for k, v in merger.items():
+            if v.get("All", None):
+                continue
+            trimmed_merger[k] = v
+        show_census(fd, f"Trimmed Merged  for {pieces.keys()}- 'All' cells deleted", trimmed_merger)
+
+    
+    fd.close()
 
 
-    short_merger = merge_counts(short_pieces)
-    show_census("Short Merged results", short_merger)
-
-
-    other_short_pieces = short_pieces
-    other_short_pieces.pop(first_name)
-    other_short_merger = merge_counts(other_short_pieces)
-
-    show_census("Other Short Merged results", other_short_merger)
 
 if __name__ == "__main__":
     model_name = "Literate"

@@ -1,0 +1,846 @@
+$defs:
+    Annotation:
+        properties:
+            label:
+                $ref: '#/$defs/Label'
+            content:
+                $ref: '#/$defs/OneLiner'
+            emoji:
+                anyOf:
+                -   $ref: '#/$defs/Emoji'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+        required:
+        - label
+        - content
+        title: Annotation
+        type: object
+    Attribute:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            prefix:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Prefix
+            name:
+                $ref: '#/$defs/AttributeName'
+            parenthetical:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Parenthetical
+            abbreviation:
+                anyOf:
+                -   $ref: '#/$defs/CamelCase'
+                -   type: 'null'
+            data_type_clause:
+                $ref: '#/$defs/DataTypeClause'
+            overrides:
+                anyOf:
+                -   $ref: '#/$defs/AttributeReference'
+                -   type: 'null'
+            inverse:
+                anyOf:
+                -   $ref: '#/$defs/AttributeReference'
+                -   type: 'null'
+            inverse_of:
+                anyOf:
+                -   $ref: '#/$defs/AttributeReference'
+                -   type: 'null'
+            derivation:
+                anyOf:
+                -   $ref: '#/$defs/Derivation'
+                -   type: 'null'
+            default:
+                anyOf:
+                -   $ref: '#/$defs/Default'
+                -   type: 'null'
+            constraints:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Constraint'
+                    type: array
+                -   type: 'null'
+                title: Constraints
+        title: Attribute
+        type: object
+    AttributeName:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+        title: AttributeName
+        type: object
+    AttributeReference:
+        properties:
+            class_name:
+                $ref: '#/$defs/ClassName'
+            attribute_name:
+                $ref: '#/$defs/AttributeName'
+        title: AttributeReference
+        type: object
+    AttributeSection:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            prefix:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Prefix
+            name:
+                $ref: '#/$defs/AttributeSectionName'
+            parenthetical:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Parenthetical
+            abbreviation:
+                anyOf:
+                -   $ref: '#/$defs/CamelCase'
+                -   type: 'null'
+            is_optional:
+                $ref: '#/$defs/IsOptional'
+            attributes:
+                items:
+                    $ref: '#/$defs/Attribute'
+                title: Attributes
+                type: array
+        title: AttributeSection
+        type: object
+    AttributeSectionName:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+        title: AttributeSectionName
+        type: object
+    CamelCase:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+        title: CamelCase
+        type: object
+    Class:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            prefix:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Prefix
+            name:
+                $ref: '#/$defs/ClassName'
+            parenthetical:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Parenthetical
+            abbreviation:
+                anyOf:
+                -   $ref: '#/$defs/CamelCase'
+                -   type: 'null'
+            plural:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Plural
+            subtype_of:
+                anyOf:
+                -   items:
+                        additionalProperties:
+                            $ref: '#/$defs/SubtypingName'
+                        propertyNames:
+                            $ref: '#/$defs/ClassName'
+                        type: object
+                    type: array
+                -   type: 'null'
+                title: Subtype Of
+            subtypings:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Subtyping'
+                    type: array
+                -   type: 'null'
+                title: Subtypings
+            subtypes:
+                anyOf:
+                -   additionalProperties:
+                        $ref: '#/$defs/SubtypingName'
+                    propertyNames:
+                        $ref: '#/$defs/ClassName'
+                    type: object
+                -   type: 'null'
+                title: Subtypes
+            based_on:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/ClassName'
+                    type: array
+                -   type: 'null'
+                title: Based On
+            dependent_of:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/ClassName'
+                    type: array
+                -   type: 'null'
+                title: Dependent Of
+            dependents:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/ClassName'
+                    type: array
+                -   type: 'null'
+                title: Dependents
+            is_value_type:
+                default: false
+                title: Is Value Type
+                type: boolean
+            where:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            constraints:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Constraint'
+                    type: array
+                -   type: 'null'
+                title: Constraints
+            attributes:
+                items:
+                    $ref: '#/$defs/Attribute'
+                title: Attributes
+                type: array
+            attribute_sections:
+                items:
+                    $ref: '#/$defs/AttributeSection'
+                title: Attribute Sections
+                type: array
+        title: Class
+        type: object
+    ClassName:
+        properties:
+            content:
+                default: ''
+                title: Content
+        title: ClassName
+        type: object
+    CodeBlock:
+        properties:
+            content:
+                title: Content
+                type: string
+        title: CodeBlock
+        type: object
+    Constraint:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            english:
+                anyOf:
+                -   $ref: '#/$defs/Paragraph'
+                -   type: 'null'
+            code:
+                anyOf:
+                -   $ref: '#/$defs/FormulaCoding'
+                -   type: 'null'
+            message:
+                anyOf:
+                -   $ref: '#/$defs/Paragraph'
+                -   type: 'null'
+            severity:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Severity
+        title: Constraint
+        type: object
+    DataTypeClause:
+        properties:
+            data_type:
+                title: Data Type
+            is_optional_lit:
+                anyOf:
+                -   $ref: '#/$defs/IsOptional'
+                -   type: 'null'
+            cardinality:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Cardinality
+        required:
+        - data_type
+        title: DataTypeClause
+        type: object
+    Default:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            english:
+                anyOf:
+                -   $ref: '#/$defs/Paragraph'
+                -   type: 'null'
+            code:
+                anyOf:
+                -   $ref: '#/$defs/FormulaCoding'
+                -   type: 'null'
+        title: Default
+        type: object
+    Derivation:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            english:
+                anyOf:
+                -   $ref: '#/$defs/Paragraph'
+                -   type: 'null'
+            code:
+                anyOf:
+                -   $ref: '#/$defs/FormulaCoding'
+                -   type: 'null'
+        title: Derivation
+        type: object
+    Diagnostic:
+        properties:
+            object_name:
+                default: ''
+                title: Object Name
+                type: string
+            message:
+                $ref: '#/$defs/Paragraph'
+            severity:
+                default: Error
+                title: Severity
+                type: string
+            constraint_name:
+                default: ''
+                title: Constraint Name
+                type: string
+        title: Diagnostic
+        type: object
+    Emoji:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+            as_entered:
+                default: ''
+                title: As Entered
+                type: string
+        title: Emoji
+        type: object
+    FormulaCoding:
+        properties:
+            content:
+                title: Content
+                type: string
+        required:
+        - content
+        title: FormulaCoding
+        type: object
+    IsExclusive:
+        properties:
+            content:
+                anyOf:
+                -   type: string
+                -   type: boolean
+                default: ''
+                title: Content
+        title: IsExclusive
+        type: object
+    IsExhaustive:
+        properties:
+            content:
+                anyOf:
+                -   type: string
+                -   type: boolean
+                default: ''
+                title: Content
+        title: IsExhaustive
+        type: object
+    IsOptional:
+        properties:
+            content:
+                anyOf:
+                -   type: string
+                -   type: boolean
+                default: ''
+                title: Content
+        title: IsOptional
+        type: object
+    Label:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+        title: Label
+        type: object
+    OneLiner:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+        title: OneLiner
+        type: object
+    Paragraph:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+        title: Paragraph
+        type: object
+    SubjectC:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            prefix:
+                default: ''
+                title: Prefix
+                type: string
+            name:
+                $ref: '#/$defs/CamelCase'
+            parenthetical:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Parenthetical
+            abbreviation:
+                anyOf:
+                -   $ref: '#/$defs/CamelCase'
+                -   type: 'null'
+            classes:
+                items:
+                    $ref: '#/$defs/Class'
+                title: Classes
+                type: array
+            subjects:
+                items:
+                    $ref: '#/$defs/SubjectD'
+                title: Subjects
+                type: array
+        title: SubjectC
+        type: object
+    SubjectD:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            prefix:
+                default: ''
+                title: Prefix
+                type: string
+            name:
+                $ref: '#/$defs/CamelCase'
+            parenthetical:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Parenthetical
+            abbreviation:
+                anyOf:
+                -   $ref: '#/$defs/CamelCase'
+                -   type: 'null'
+            classes:
+                items:
+                    $ref: '#/$defs/Class'
+                title: Classes
+                type: array
+            subjects:
+                items:
+                    $ref: '#/$defs/SubjectE'
+                title: Subjects
+                type: array
+        title: SubjectD
+        type: object
+    SubjectE:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            prefix:
+                default: ''
+                title: Prefix
+                type: string
+            name:
+                $ref: '#/$defs/CamelCase'
+            parenthetical:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                title: Parenthetical
+            abbreviation:
+                anyOf:
+                -   $ref: '#/$defs/CamelCase'
+                -   type: 'null'
+            classes:
+                items:
+                    $ref: '#/$defs/Class'
+                title: Classes
+                type: array
+        title: SubjectE
+        type: object
+    Subtyping:
+        properties:
+            name:
+                $ref: '#/$defs/SubtypingName'
+                default: ''
+            is_exclusive:
+                $ref: '#/$defs/IsExclusive'
+            is_exhaustive:
+                $ref: '#/$defs/IsExhaustive'
+            subtypes:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/ClassName'
+                    type: array
+                -   type: 'null'
+                title: Subtypes
+        title: Subtyping
+        type: object
+    SubtypingName:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+        title: SubtypingName
+        type: object
+properties:
+    one_liner:
+        anyOf:
+        -   $ref: '#/$defs/OneLiner'
+        -   type: 'null'
+    elaboration:
+        anyOf:
+        -   items:
+                anyOf:
+                -   $ref: '#/$defs/Paragraph'
+                -   $ref: '#/$defs/CodeBlock'
+            type: array
+        -   type: 'null'
+        title: Elaboration
+    annotations:
+        anyOf:
+        -   items:
+                $ref: '#/$defs/Annotation'
+            type: array
+        -   type: 'null'
+        title: Annotations
+    diagnostics:
+        anyOf:
+        -   items:
+                $ref: '#/$defs/Diagnostic'
+            type: array
+        -   type: 'null'
+        title: Diagnostics
+    is_embellishment:
+        default: false
+        title: Is Embellishment
+        type: boolean
+    prefix:
+        default: ''
+        title: Prefix
+        type: string
+    name:
+        $ref: '#/$defs/CamelCase'
+    parenthetical:
+        anyOf:
+        -   type: string
+        -   type: 'null'
+        title: Parenthetical
+    abbreviation:
+        anyOf:
+        -   $ref: '#/$defs/CamelCase'
+        -   type: 'null'
+    classes:
+        items:
+            $ref: '#/$defs/Class'
+        title: Classes
+        type: array
+    subjects:
+        items:
+            $ref: '#/$defs/SubjectC'
+        title: Subjects
+        type: array
+title: LiterateModel
+type: object

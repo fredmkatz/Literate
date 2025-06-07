@@ -30,7 +30,8 @@ def render(obj) -> str:
 def render_each(obj_list):
     """Render each object in the list, if it has a render method."""
     result = ""
-
+    if not obj_list:
+        return ""
     for obj in obj_list:
         if hasattr(obj, "render"):
             result += render(obj)

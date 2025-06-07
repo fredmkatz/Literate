@@ -1,6 +1,7 @@
 # Version: 2025-02-22_222609
 
 from __future__ import annotations
+from typing import List, Optional, Dict, Any, Union
 
 
 from utils.util_pydantic import PydanticMixin,  dataclass, field
@@ -8,7 +9,6 @@ from utils.util_pydantic import PydanticMixin,  dataclass, field
 from utils.debug_pydantic import debug_dataclass_creation
 from utils.class_casing import *
 
-from typing import List, Optional, Tuple, Dict, Any, Union
 
 # from abc import ABC, abstractmethod
 import json
@@ -18,7 +18,7 @@ import json
 def block_list_field(default_factory=list, **kwargs):
     """Pydantic version of block_list_field with metadata support"""
     metadata = kwargs.pop("metadata", {})
-    return Field(default_factory=default_factory, json_schema_extra=metadata, **kwargs)
+    return field(default_factory=default_factory, json_schema_extra=metadata, **kwargs)
 
 
 # import ldm_renderers
@@ -176,6 +176,7 @@ class Annotation(PydanticMixin):
 @dataclass
 class Diagnostic(PydanticMixin):
     object_name: str = ""
+    object_type: str = ""
     message: Paragraph = None
 
     severity: str = "Error"
@@ -473,19 +474,24 @@ class Derivation(Formula):
 class Default(Formula):
     pass
 
+@dataclass
+class SubtypeBy(PydanticMixin):
+    class_name: ClassName = None
+    subtyping_name: SubtypingName = None
 
 
+# to do: why do all of the field declarations make trouble for serializaing
 @dataclass
 class Class(Component):
     name: ClassName = None
     plural: Optional[str] = None
-    subtype_of: Optional[List[Dict[ClassName, SubtypingName]]] = field(default_factory=dict)
+    subtype_of: Optional[List[SubtypeBy]] =  None # field(default_factory=list)
     subtypings: Optional[List[Subtyping]] = block_list_field(default_factory=list)
 
-    subtypes: Optional[Dict[ClassName, SubtypingName]] = field(default_factory=dict)
-    based_on: Optional[List[ClassName]] = field(default_factory=list)
-    dependent_of: Optional[List[ClassName]] = field(default_factory=list)
-    dependents: Optional[List[ClassName]] = field(default_factory=list)
+    subtypes: Optional[List[SubtypeBy]]  = None # field(default_factory=list)
+    based_on: Optional[List[ClassName]] =  None # field(default_factory=list)
+    dependent_of: Optional[List[ClassName]] =  None # field(default_factory=list)
+    dependents: Optional[List[ClassName]] =  None # field(default_factory=list)
     is_value_type: bool = False
     where: Optional[OneLiner] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
@@ -604,30 +610,15 @@ class Attribute(Component):
 
 @dataclass
 class AttributeReference(PydanticMixin):
-    class_name: ClassName = None
+    class_name: ClassName =  None 
     attribute_name: AttributeName = None
 
 
-    def __dict__(self):
-        return self.to_dict()
+    # Note. With this in, to_typed_dict fails, but why?
+    # def __str__(self):
+    #     """Convert the object to a string."""
+    #     return f"{self.class_name.content}.{self.attribute_name.content}"
 
-    def to_dict(self):
-        """Specialized serialization for AttributeReference"""
-        return {
-            "_type": self._type,
-            "class_name": self.class_name.to_dict() if self.class_name else None,
-            "attribute_name": (
-                self.attribute_name.to_dict() if self.attribute_name else None
-            ),
-        }
-
-    def __str__(self):
-        """Convert the object to a string."""
-        return f"{self.class_name}.{self.attribute_name}"
-
-    def __json__(self):
-        """Convert the object to a JSON string."""
-        return json.dumps(self.to_dict(), indent=2)
 
     @classmethod
     def from_dict(cls, data):
@@ -646,11 +637,6 @@ class AttributeReference(PydanticMixin):
         )
         return cls(class_name=class_name, attribute_name=attribute_name)
 
-    def to_json(self):
-        """
-        Convert the object to a JSON string.
-        """
-        return json.dumps(self.to_dict(), indent=2)
 
     class Meta:
         presentable_template = "{name} ({class_name})"

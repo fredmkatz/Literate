@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from Literate_01 import *
 from utils.class_fluent_html import  FluentTag
 from utils.util_json import as_yaml, clean_dict
-
+import utils.util_all_fmk as fmk
 HEADER_KEYS = [
     "prefix",
     "name",
@@ -432,16 +432,12 @@ def add_subtype_of_clause(key, pairs, html_h):
     add_html_clause_label(key, clause_h)
     clause_h.append(div_custom("subtype_pairs"))
     for pair in pairs:
-        # print("Subtyping pair is: ", pair)
-        class_name_h = dict_to_html(pair[0])
-        subtyping_element = pair[1]
+        print("Subtyping pair is: ", pair)
+        class_name_h = dict_to_html(pair.get("class_name"))
+        subtyping_name_h = dict_to_html(pair.get("subtyping_name"))
         # print("Class name element is : ", class_name_h)
         # print("Subtyping element is : ", subtyping_element)
-        subtyping_name = "bySomething"
-        if subtyping_name != "subtypes":
-            pair_h = div_custom("subtype_pair", [class_name_h, subtyping_name])
-        else:
-            pair_h = div_custom("subtype_pair", [class_name_h])
+        pair_h = div_custom("subtype_pair", [class_name_h, subtyping_name_h])
 
         clause_h.append(pair_h)
     html_h.append(clause_h)
@@ -589,7 +585,8 @@ def save_model_html(data, css_path, output_path):
     print("Body classes are", body_classes)
     # print("Body is: ", the_body)
     html_content = f"{html_h}"
-    Path(output_path).write_text(html_content, encoding="utf-8")
+    # Path(output_path).write_text(html_content, encoding="utf-8")
+    fmk.write_text(output_path, html_content)
     print(f"Saved styled dictionary to {output_path}")
 
     html_h.find("body").add_class("reviewing")

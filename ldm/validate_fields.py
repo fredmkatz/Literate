@@ -10,6 +10,10 @@ def create_error(obj, message):
     print(error)
     all_validation_errors.append(error)
     
+    from ldm.ldm_validators import createDiagnostic
+    message2 = "Field validation! " + message
+    createDiagnostic(obj, message2, "FieldValidation")
+    
 
 def validate_fields(obj: Any):
     """

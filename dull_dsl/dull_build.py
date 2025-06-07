@@ -1,6 +1,6 @@
 import sys
 from utils.util_fmk import write_text
-from utils.util_json import as_json, write_yaml, write_json, as_yaml
+from utils.util_json import as_json, write_yaml, write_json, as_yaml, make_tidy_yaml
 from utils.util_fmk import create_fresh_directory
 
 import utils.do_weasy_pdf as weasy
@@ -26,7 +26,7 @@ all_clauses_by_priority = None
 part_plurals = None
 part_parts = None
 
-from utils.util_pydantic import TYPE_REGISTRY, dataclass
+from utils.util_pydantic import TYPE_REGISTRY, dataclass, USING_PYDANTIC
 from ldm.Literate_01 import  *
 
 from utils.util_inspect import inspect_module
@@ -43,7 +43,13 @@ def build_dull_dsl(dull_specs: Dict):
     # model_module_path = f"{model_dir}/{model_module}"
     results_dir = f"{model_dir}/{model_name}_results"
     assets_dir = f"{results_dir}/assets"
-    create_fresh_directory(results_dir)
+    
+    pd_or_not = "DC"
+    if USING_PYDANTIC:
+        pd_or_not = "PD"
+
+    if USING_PYDANTIC:
+        create_fresh_directory(results_dir)
     create_fresh_directory(assets_dir)
 
     global the_model_assets_dir
@@ -69,12 +75,17 @@ def build_dull_dsl(dull_specs: Dict):
     print("Rediirecting to: ", trace_path)
     sys.stdout = open(trace_path, "w", encoding="utf-8")
     
-    # start by capturing the schema
-    # gen_schema(LiterateModel, "LiterateMetaModel_01", results_dir)
+#    start by capturing the schema
+    show_phase("Creating schema and survey of Literate_01")
+    gen_schema(LiterateModel, "LiterateMetaModel_01", f"{results_dir}/LiterateMeta")
     
-    # inspect_module(Literate_01)
+    inspect_module(Literate_01, "LiterateMetaModel_survey.txt", f"{results_dir}/LiterateMeta")
     
-    
+    yaml_dict_path = f"{results_dir}/{model_name}_{pd_or_not}_02.dict.yaml"
+    yaml_model_path = f"{results_dir}/{model_name}_{pd_or_not}_03.model.yaml"
+    valid_model_path = f"{results_dir}/{model_name}_{pd_or_not}_04.v_model.yaml"
+    regenned_model_path = f"{results_dir}/{model_name}_{pd_or_not}_05.r_model.yaml"
+
 
     if False:
         print("TYPE REGISTRY IS")
@@ -87,81 +98,46 @@ def build_dull_dsl(dull_specs: Dict):
 
     write_text(f"{results_dir}/{model_name}_01.parsed.txt", displayed)
 
-    show_phase("Deriving dict for model")
+    show_phase("Deriving dict from parse => {yaml_dict_file}")
     the_dict = doc_part.derive_dict_for_document(dull_specs)
-    yaml_dict_file = f"{results_dir}/{model_name}_02.dict.yaml"
-    write_yaml(the_dict, yaml_dict_file)
-    print(f".. full dict saved  in {yaml_dict_file}")
-    
     ldms = the_dict.get("literate_models", [])
     if not ldms:
         print("No LiterateModels found in the dictionary")
         return
     the_ldm_dict = ldms[0]
+
     
-    # the_clean_ldm_dict = fmk.clean_dict(the_ldm_dict)
-    the_clean_ldm_dict = the_ldm_dict
-    clean_yaml_dict_file = f"{results_dir}/{model_name}_02a.dict.clean.yaml"
-    write_yaml(the_clean_ldm_dict, clean_yaml_dict_file)
-    print(f".. full clean dict saved  in {clean_yaml_dict_file}")
-    
-
-
-    # CREATING_WITH_CREATOR = False
-    # if CREATING_WITH_CREATOR:
-
-    #     creator = GenericObjectCreator(Literate_01)
-    #     show_phase(f"Creating model from dictionary - with ObjectCreator: {yaml_dict_file}")
-    #     the_ldm_model = creator.create(the_clean_ldm_dict)
-    #     # the_ldm_model.model_rebuild()
-    #     print(f"Created model: {the_ldm_model.__class__}")
-    #     yaml_model_path = f"{results_dir}/{model_name}_03.model.yaml"
-        
-    #     write_yaml(the_ldm_model, yaml_model_path)
-    #     print(f"..Created model file: {yaml_model_path}")
-
-    #     if isinstance(the_ldm_model, dict):
-    #         show_phase("ldm model is merely a dict - stopping!")
-    #         exit(0)
-    # else:
-    #     show_phase("Skipping Object Creator")
-    # # exit(0)
-    
+    write_yaml(the_ldm_dict, yaml_dict_path)    # _01_
+    show_phase(f".. full dict saved  in {yaml_dict_path}")
+    make_tidy_yaml(yaml_dict_path)
+            
     the_ldm_model_py: LiterateModel = None
     CREATING_WITH_PYDANTIC = True
     if CREATING_WITH_PYDANTIC:
-        show_phase("Using pydantic to create model from dict")
+        show_phase(f"Creating model with from_typed_dict() => to_typed_dict() => {yaml_model_path}")
         print("Calling LiterateModel.from_typed_dict ...")
-        the_ldm_model_py = LiterateModel.from_typed_dict(the_clean_ldm_dict)
+        the_ldm_model_py = LiterateModel.from_typed_dict(the_ldm_dict)
         show_phase("have py  model from dict")
-        # show_phase("Serializing model ... the_ldm_model_py.to_typed_dict()")
-     
-        pd_yaml_model_path = f"{results_dir}/{model_name}_03.model_pd.yaml"
         
+        show_phase(f"Creating model_dict from model => {yaml_model_path}") # _03_
         model_dict = the_ldm_model_py.to_typed_dict()
-        
-        # print("Pretty print serialized model....")
-        # import pprint
-        # pp = pprint.PrettyPrinter(indent=1)
-        # pp.pprint(model_dict)
-
-        # print("Now as yaml.....")
-        # print(as_yaml(model_dict))
-        write_yaml(model_dict, pd_yaml_model_path)
-        print(f"..Created pydantic model file: {pd_yaml_model_path}")
-
-
-
+        write_yaml(model_dict, yaml_model_path)     
+        make_tidy_yaml(yaml_model_path)
 
     else:
         show_phase("Skipping Pydantic model creation from dict")
-    fmk.compare_dicts(results_dir, model_name=model_name)
-    exit(0)
 
-    VALIDATING = False
+    VALIDATING = True
     if VALIDATING:
-        show_phase("Validating model")
-        validate_model(the_ldm_model)
+
+        show_phase(f"Validating model tp {valid_model_path}")
+        validate_model(the_ldm_model_py)
+        valid_model_dict = the_ldm_model_py.to_typed_dict()
+
+        write_yaml(valid_model_dict, valid_model_path)
+        make_tidy_yaml(valid_model_path)
+        print(f"..Created dict for validated model: {valid_model_path}") # _04_
+
         from validate_fields import all_validation_errors
 
         show_phase("counting errors")
@@ -172,34 +148,19 @@ def build_dull_dsl(dull_specs: Dict):
     else:
         show_phase("SKIPPING Validation")
         
+    fmk.compare_dicts(results_dir, model_name=model_name, result_suffix="90_census")
+    # exit(0)
 
-    # Serialize it to files
- 
-    show_phase("Serializing model ... the_ldm_model_py.to_typed_dict()")
-
-    yaml_model_path = f"{results_dir}/{model_name}_03.model.yaml"
-    
-    model_dict = the_ldm_model_py.to_typed_dict()
-
-    import pprint
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(model_dict)
-
-    write_yaml(model_dict, yaml_model_path)
-    print(f"..Created model file: {yaml_model_path}")
 
     
-    SERIALIZING_WITH_PYDANTIC = True
+    SERIALIZING_WITH_PYDANTIC = False
     if SERIALIZING_WITH_PYDANTIC:
 
-        yaml_regenned_dict_file = f"{results_dir}/{model_name}_03a.model_to_dict.yaml"
-        show_phase(f"Serializing dict from model with Pydantic: {yaml_regenned_dict_file}")
+        show_phase(f"Serializing dict from model with Pydantic: {regenned_model_path}")
         regenned_model_dict = the_ldm_model_py.to_typed_dict()
         # print(regenned_model_dict)
-        write_yaml(regenned_model_dict, yaml_regenned_dict_file)
-        
-        # print(regenned_model_dict)
-        write_yaml(regenned_model_dict, yaml_regenned_dict_file)
+        write_yaml(regenned_model_dict, regenned_model_path)
+        make_tidy_yaml(regenned_model_path)
 
     else:
         show_phase("SKIPPING - Pydantic serialization of model")
@@ -213,7 +174,7 @@ def build_dull_dsl(dull_specs: Dict):
     if REGENNING:
 
         creator2 = GenericObjectCreator(Literate_01)
-        show_phase(f"Re Creating model from dumped model - with ObjectCreator: {yaml_regenned_dict_file}")
+        show_phase(f"Re Creating model from dumped model - with ObjectCreator: {regenned_model_path}")
         the_ldm_model2 = creator2.create(regenned_model_dict)
         # the_ldm_model.model_rebuild()
         print(f"Created model: {the_ldm_model2.__class__}")
@@ -223,28 +184,37 @@ def build_dull_dsl(dull_specs: Dict):
             
         show_phase(" And re serializing the regenned model")
         regenned_model_dict_model_dict = the_ldm_model2.to_typed_dict()
-        yaml_regenned_dict_file2 = f"{results_dir}/{model_name}_03aa.remodel_to_dict.yaml"
         write_yaml(regenned_model_dict_model_dict, yaml_regenned_dict_file2)
     show_phase("Comparing counts")
-    fmk.compare_dicts(results_dir, model_name=model_name)
+    fmk.compare_dicts(results_dir, model_name=model_name, result_suffix="90_census")
 
-    show_phase("Rendering back to markdown")  # Render
-    # Render
-    render_path = f"{results_dir}/{model_name}_04.rendered.md"
-    rendering = render_to_markdown(the_ldm_model_py)
-    write_text(render_path, rendering)
+    RENDER_MD = False
+    if RENDER_MD:
+        render_path = f"{results_dir}/{model_name}_{pd_or_not}_05.rendered.md"
+        show_phase(f"Rendering back to markdown => {render_path}")  # Render
+
+        rendering = render_to_markdown(the_ldm_model_py)
+        write_text(render_path, rendering)
+    else:
+        show_phase("Skipping Render to Markdown")
 
     # Create HTML
-    show_phase("Creating HTML from model dict")
-    html_path = f"{results_dir}/{model_name}_05.html"
+    CREATE_HTML = False
+    if CREATE_HTML:
+        show_phase("Creating HTML from model dict")
+        html_path = f"{results_dir}/{model_name}_{pd_or_not}_06.html"
 
-    create_model_html(the_ldm_model_py, html_path)
+        create_model_html(the_ldm_model_py, html_path)
+    else:
+        show_phase("Skipping Render to HTML")
+
     show_phase("Skipping PDF creation")
 
     # show_phase("Creating PDF from html and css")
     # css_path = "ldm/Literate.css"
-    # pdf_path = f"{results_dir}/{model_name}.pdf"
+    # pdf_path = f"{results_dir}/{model_name}_{pd_or_not}_07.pdf"
     # weasy.generate_weasy_pdf(html_path, css_path=css_path, output_path=pdf_path)
+
 
 
 def show_phase(caption: str):

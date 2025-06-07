@@ -6,6 +6,7 @@ import datetime
 import glob
 import inspect
 import yaml
+from pathlib import Path
 
 from utils.util_flogging import flogger
 
@@ -14,6 +15,7 @@ def write_text(file, text):
     """
     Writes a whole text file (UTF-8 encoded).
     """
+    insure_home_for(file)
     with open(file, mode="w", encoding="utf-8") as f:
         f.write(text)
 
@@ -83,6 +85,11 @@ def debug():
 
 
 
+def insure_home_for(file_path):
+    directory_path = os.path.dirname(file_path)
+
+    Path(directory_path).mkdir(parents=True, exist_ok=True)
+
 def create_fresh_directory(dir_path):
     """Creates a fresh directory at the given path.
     Removes the directory first if it exists.
@@ -100,7 +107,7 @@ def create_fresh_directory(dir_path):
         except OSError as e:
             print(f"Error removing '{dir_path}': {e}")
 
-    os.makedirs(dir_path)  # Create the directory (and any necessary parent directories)
+    os.makedirs(dir_path, exist_ok=True)  # Create the directory (and any necessary parent directories)
 
 def remove_directory_if_exists(dir_path):
     """Removes a directory and its contents if it exists.
