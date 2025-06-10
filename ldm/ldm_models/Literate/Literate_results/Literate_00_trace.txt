@@ -296,429 +296,2781 @@ Adding value in ddforpart. subtype_of -. [{'type': '_SubtypeBy', 'class_name': C
 as yaml - warnings =  False
 
 Phase: .. full dict saved  in ldm/ldm_models/Literate/Literate_results/Literate_DC_02.dict.yaml
-as yaml - warnings =  False
 
 Phase: Creating model with from_typed_dict() => to_typed_dict() => ldm/ldm_models/Literate/Literate_results/Literate_DC_03.model.yaml
 Calling LiterateModel.from_typed_dict ...
-In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='For Machinery'), is_optional = None
-In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='For Machinery'), is_optional = None
-In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Modeling Configuration'), is_optional = None
-In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Implied Attributes'), is_optional = None
-In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Cardinalities'), is_optional = None
-In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Inverse Attributes'), is_optional = None
-In AttSection post-init for AttributeSectionName(_type='AttributeSectionName', content='Override Tracking'), is_optional = None
+In AttSection post-init for For Machinery, is_optional = None
+In AttSection post-init for For Machinery, is_optional = None
+In AttSection post-init for Modeling Configuration, is_optional = None
+In AttSection post-init for Implied Attributes, is_optional = None
+In AttSection post-init for Cardinalities, is_optional = None
+In AttSection post-init for Inverse Attributes, is_optional = None
+In AttSection post-init for Override Tracking, is_optional = None
 
 Phase: have py  model from dict
 
 Phase: Creating model_dict from model => ldm/ldm_models/Literate/Literate_results/Literate_DC_03.model.yaml
 as yaml - warnings =  False
-as yaml - warnings =  False
 
 Phase: Validating model tp ldm/ldm_models/Literate/Literate_results/Literate_DC_04.v_model.yaml
-oname for diagnostic is  SubjectName(_type='SubjectName', content='Literate Data Model')
+Found Literate_01 module as: ldm.Literate_01
+Found Literate_01 module as: Literate_01
+Patching module: ldm.Literate_01
+  Attached validate method to ldm.Literate_01.Component
+  Attached validate method to ldm.Literate_01.Subject
+  Attached validate method to ldm.Literate_01.SubjectB
+  Attached validate method to ldm.Literate_01.Class
+  Attached validate method to ldm.Literate_01.AttributeSection
+  Attached validate method to ldm.Literate_01.Attribute
+  Attached validate method to ldm.Literate_01.Formula
+  Attached validate method to ldm.Literate_01.Constraint
+  Attached validate method to ldm.Literate_01.DataTypeClause
+Patching module: Literate_01
+  Attached validate method to Literate_01.Component
+  Attached validate method to Literate_01.Subject
+  Attached validate method to Literate_01.SubjectB
+  Attached validate method to Literate_01.Class
+  Attached validate method to Literate_01.AttributeSection
+  Attached validate method to Literate_01.Attribute
+  Attached validate method to Literate_01.Formula
+  Attached validate method to Literate_01.Constraint
+  Attached validate method to Literate_01.DataTypeClause
+oname for diagnostic is  Literate Data Model
 oname_str for diag is  Literate Data Model
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Preliminaries')
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='The Model and its Subjects')
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Attributes')
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Methods')
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Data Types')
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Low level Data Types')
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md')
-... no validate method attached for SubjectB SubjectName(_type='SubjectName', content='Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md')
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == Preliminaries
+... found validate method! - validate_subject
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == Component
+... found validate method! - validate_class
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == normalName
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == name
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == qualifiedName
+... found validate method! - validate_attribute
+oname for diagnostic is  qualifiedName
+oname_str for diag is  qualifiedName
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == abbreviatedName
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == oneLiner
+... found validate method! - validate_attribute
+oname for diagnostic is  oneLiner
+oname_str for diag is  oneLiner
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == elaboration
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: AttributeSection Py: <class 'Literate_01.AttributeSection'>, PyName: AttributeSection == For Machinery
+... found validate method! - validate_attribute_section
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == isEmbellishment
+... found validate method! - validate_attribute
+oname for diagnostic is  isEmbellishment
+oname_str for diag is  isEmbellishment
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == AnnotationType
+... found validate method! - validate_class
+oname for diagnostic is  AnnotationType
+oname_str for diag is  AnnotationType
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == emoji
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == emojiName
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == emojiUnicode
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == label
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == plural
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == purpose
+... found validate method! - validate_attribute
+oname for diagnostic is  purpose
+oname_str for diag is  purpose
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  purpose
+oname_str for diag is  purpose
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
+... found validate method! - validate_class
+oname for diagnostic is  ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
+oname_str for diag is  ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == annotationType
+... found validate method! - validate_attribute
+oname for diagnostic is  annotationType
+oname_str for diag is  annotationType
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == label
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == emoji
+... found validate method! - validate_attribute
+oname for diagnostic is  emoji
+oname_str for diag is  emoji
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == content
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: AttributeSection Py: <class 'Literate_01.AttributeSection'>, PyName: AttributeSection == For Machinery
+... found validate method! - validate_attribute_section
+oname for diagnostic is  For Machinery
+oname_str for diag is  For Machinery
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == isEmbellishment
+... found validate method! - validate_attribute
+oname for diagnostic is  isEmbellishment
+oname_str for diag is  isEmbellishment
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Preliminaries
+oname_str for diag is  Preliminaries
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == The Model and its Subjects
+... found validate method! - validate_subject
+oname for diagnostic is  The Model and its Subjects
+oname_str for diag is  The Model and its Subjects
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == LiterateDataModel
+... found validate method! - validate_class
+oname for diagnostic is  LiterateDataModel
+oname_str for diag is  LiterateDataModel
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == name
+... found validate method! - validate_attribute
+oname for diagnostic is  name
+oname_str for diag is  name
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == allSubjects
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Derivation Py: <class 'Literate_01.Derivation'>, PyName: Derivation == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Constraint Py: <class 'Literate_01.Constraint'>, PyName: Constraint == NoName?
+... found validate method! - validate_constraint
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == allClasses
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Derivation Py: <class 'Literate_01.Derivation'>, PyName: Derivation == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Constraint Py: <class 'Literate_01.Constraint'>, PyName: Constraint == NoName?
+... found validate method! - validate_constraint
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: AttributeSection Py: <class 'Literate_01.AttributeSection'>, PyName: AttributeSection == Modeling Configuration
+... found validate method! - validate_attribute_section
+oname for diagnostic is  Modeling Configuration
+oname_str for diag is  Modeling Configuration
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == annotationTypes
+... found validate method! - validate_attribute
+oname for diagnostic is  annotationTypes
+oname_str for diag is  annotationTypes
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == preferredCodingLanguage
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == alternateCodingLanguages
+... found validate method! - validate_attribute
+oname for diagnostic is  alternateCodingLanguages
+oname_str for diag is  alternateCodingLanguages
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == preferredTemplateLanguage
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == alternateTemplateLanguages
+... found validate method! - validate_attribute
+oname for diagnostic is  alternateTemplateLanguages
+oname_str for diag is  alternateTemplateLanguages
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == aiFunctions
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Derivation Py: <class 'Literate_01.Derivation'>, PyName: Derivation == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  LiterateDataModel
+oname_str for diag is  LiterateDataModel
+oname for diagnostic is  LiterateDataModel
+oname_str for diag is  LiterateDataModel
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == SubjectASpecificTopicOrThemeWithinTheModel
+... found validate method! - validate_class
+oname for diagnostic is  SubjectASpecificTopicOrThemeWithinTheModel
+oname_str for diag is  SubjectASpecificTopicOrThemeWithinTheModel
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == name
+... found validate method! - validate_attribute
+oname for diagnostic is  name
+oname_str for diag is  name
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == parentSubject
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == classes
+... found validate method! - validate_attribute
+oname for diagnostic is  classes
+oname_str for diag is  classes
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
+... found validate method! - validate_attribute
+oname for diagnostic is  eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
+oname_str for diag is  eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
+oname for diagnostic is  eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
+oname_str for diag is  eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
+oname_str for diag is  eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == byItsSubtypeClasses
+... found validate method! - validate_attribute
+oname for diagnostic is  byItsSubtypeClasses
+oname_str for diag is  byItsSubtypeClasses
+oname for diagnostic is  byItsSubtypeClasses
+oname_str for diag is  byItsSubtypeClasses
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  byItsSubtypeClasses
+oname_str for diag is  byItsSubtypeClasses
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == childSubjects
+... found validate method! - validate_attribute
+oname for diagnostic is  childSubjects
+oname_str for diag is  childSubjects
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  SubjectASpecificTopicOrThemeWithinTheModel
+oname_str for diag is  SubjectASpecificTopicOrThemeWithinTheModel
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+... found validate method! - validate_class
+oname for diagnostic is  SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+oname_str for diag is  SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+oname_str for diag is  SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+oname for diagnostic is  SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+oname_str for diag is  SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+Validating object: SubjectC Py: <class 'Literate_01.SubjectC'>, PyName: SubjectC == Classes
+... found validate method! - validate_component
+oname for diagnostic is  Classes
+oname_str for diag is  Classes
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Classes
+oname_str for diag is  Classes
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  The Model and its Subjects
+oname_str for diag is  The Model and its Subjects
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == Attributes
+... found validate method! - validate_subject
+oname for diagnostic is  Attributes
+oname_str for diag is  Attributes
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == AttributeSection
+... found validate method! - validate_class
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == isOptional
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+oname for diagnostic is  AttributeSection
+oname_str for diag is  AttributeSection
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == AttributeAPropertyOrCharacteristicOfAClass
+... found validate method! - validate_class
+oname for diagnostic is  AttributeAPropertyOrCharacteristicOfAClass
+oname_str for diag is  AttributeAPropertyOrCharacteristicOfAClass
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == name
+... found validate method! - validate_attribute
+oname for diagnostic is  name
+oname_str for diag is  name
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == dataType
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: AttributeSection Py: <class 'Literate_01.AttributeSection'>, PyName: AttributeSection == Cardinalities
+... found validate method! - validate_attribute_section
+oname for diagnostic is  Cardinalities
+oname_str for diag is  Cardinalities
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == isOptional
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == cardinality
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Default Py: <class 'Literate_01.Default'>, PyName: Default == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == author
+... found validate method! - validate_attribute
+oname for diagnostic is  author
+oname_str for diag is  author
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == books
+... found validate method! - validate_attribute
+oname for diagnostic is  books
+oname_str for diag is  books
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: AttributeSection Py: <class 'Literate_01.AttributeSection'>, PyName: AttributeSection == Inverse Attributes
+... found validate method! - validate_attribute_section
+oname for diagnostic is  Inverse Attributes
+oname_str for diag is  Inverse Attributes
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == isInvertible
+... found validate method! - validate_attribute
+oname for diagnostic is  isInvertible
+oname_str for diag is  isInvertible
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Derivation Py: <class 'Literate_01.Derivation'>, PyName: Derivation == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == inverseClass
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Derivation Py: <class 'Literate_01.Derivation'>, PyName: Derivation == NoName?
+... found validate method! - validate_formula
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == inverseAttribute
+... found validate method! - validate_attribute
+oname for diagnostic is  inverseAttribute
+oname_str for diag is  inverseAttribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == inverseIsOptional
+... found validate method! - validate_attribute
+oname for diagnostic is  inverseIsOptional
+oname_str for diag is  inverseIsOptional
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  AttributeAPropertyOrCharacteristicOfAClass
+oname_str for diag is  AttributeAPropertyOrCharacteristicOfAClass
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == Formulas
+... found validate method! - validate_class
+oname for diagnostic is  Formulas
+oname_str for diag is  Formulas
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == default
+... found validate method! - validate_attribute
+oname for diagnostic is  default
+oname_str for diag is  default
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == derivation
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == constraints
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: AttributeSection Py: <class 'Literate_01.AttributeSection'>, PyName: AttributeSection == Override Tracking
+... found validate method! - validate_attribute_section
+oname for diagnostic is  Override Tracking
+oname_str for diag is  Override Tracking
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == overrides
+... found validate method! - validate_attribute
+oname for diagnostic is  overrides
+oname_str for diag is  overrides
+oname for diagnostic is  overrides
+oname_str for diag is  overrides
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  overrides
+oname_str for diag is  overrides
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
+... found validate method! - validate_class
+oname for diagnostic is  ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
+oname_str for diag is  ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == statement
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == expression
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
+... found validate method! - validate_class
+oname for diagnostic is  ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
+oname_str for diag is  ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == statement
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == expression
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == severity
+... found validate method! - validate_attribute
+oname for diagnostic is  severity
+oname_str for diag is  severity
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == None
+... found validate method! - validate_attribute
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname_str for diag is  
+oname_str for diag is  
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == None
+... found validate method! - validate_attribute
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname_str for diag is  
+oname_str for diag is  
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == message
+... found validate method! - validate_attribute
+oname for diagnostic is  message
+oname_str for diag is  message
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
+oname_str for diag is  ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == ClassConstraint
+... found validate method! - validate_class
+oname for diagnostic is  ClassConstraint
+oname_str for diag is  ClassConstraint
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  ClassConstraint
+oname_str for diag is  ClassConstraint
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == AttributeConstraint
+... found validate method! - validate_class
+oname for diagnostic is  AttributeConstraint
+oname_str for diag is  AttributeConstraint
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  AttributeConstraint
+oname_str for diag is  AttributeConstraint
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == CodeExpression
+... found validate method! - validate_class
+oname for diagnostic is  CodeExpression
+oname_str for diag is  CodeExpression
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == language
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == None
+... found validate method! - validate_attribute
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname_str for diag is  
+oname_str for diag is  
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == None
+... found validate method! - validate_attribute
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname_str for diag is  
+oname_str for diag is  
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == expression
+... found validate method! - validate_attribute
+oname for diagnostic is  expression
+oname_str for diag is  expression
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Attributes
+oname_str for diag is  Attributes
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == Methods
+... found validate method! - validate_subject
+oname for diagnostic is  Methods
+oname_str for diag is  Methods
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == MethodABehaviorOrOperationAssociatedWithAClass
+... found validate method! - validate_class
+oname for diagnostic is  MethodABehaviorOrOperationAssociatedWithAClass
+oname_str for diag is  MethodABehaviorOrOperationAssociatedWithAClass
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == parameters
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == returnType
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  MethodABehaviorOrOperationAssociatedWithAClass
+oname_str for diag is  MethodABehaviorOrOperationAssociatedWithAClass
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == ParameterAnInputToAMethod
+... found validate method! - validate_class
+oname for diagnostic is  ParameterAnInputToAMethod
+oname_str for diag is  ParameterAnInputToAMethod
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == type
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == cardinality
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  ParameterAnInputToAMethod
+oname_str for diag is  ParameterAnInputToAMethod
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Methods
+oname_str for diag is  Methods
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == Data Types
+... found validate method! - validate_subject
+oname for diagnostic is  Data Types
+oname_str for diag is  Data Types
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == SimpleDataTypeSubtpeOfDataType
+... found validate method! - validate_class
+oname for diagnostic is  SimpleDataTypeSubtpeOfDataType
+oname_str for diag is  SimpleDataTypeSubtpeOfDataType
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == coreClass
+... found validate method! - validate_attribute
+oname for diagnostic is  coreClass
+oname_str for diag is  coreClass
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == ComplexDataType
+... found validate method! - validate_class
+oname for diagnostic is  ComplexDataType
+oname_str for diag is  ComplexDataType
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == aggregation
+... found validate method! - validate_attribute
+oname for diagnostic is  aggregation
+oname_str for diag is  aggregation
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == aggregatedTypes
+... found validate method! - validate_attribute
+oname for diagnostic is  aggregatedTypes
+oname_str for diag is  aggregatedTypes
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == AggregatingOperator
+... found validate method! - validate_class
+oname for diagnostic is  AggregatingOperator
+oname_str for diag is  AggregatingOperator
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == name
+... found validate method! - validate_attribute
+oname for diagnostic is  name
+oname_str for diag is  name
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == None
+... found validate method! - validate_attribute
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname_str for diag is  
+oname_str for diag is  
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == None
+... found validate method! - validate_attribute
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname_str for diag is  
+oname_str for diag is  
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == None
+... found validate method! - validate_attribute
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname_str for diag is  
+oname_str for diag is  
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == arity
+... found validate method! - validate_attribute
+oname for diagnostic is  arity
+oname_str for diag is  arity
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == spelling
+... found validate method! - validate_attribute
+oname for diagnostic is  spelling
+oname_str for diag is  spelling
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Data Types
+oname_str for diag is  Data Types
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == Low level Data Types
+... found validate method! - validate_subject
+oname for diagnostic is  Low level Data Types
+oname_str for diag is  Low level Data Types
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == ValueTypeCamelName
+... found validate method! - validate_class
+oname for diagnostic is  ValueTypeCamelName
+oname_str for diag is  ValueTypeCamelName
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == valueTheString
+... found validate method! - validate_attribute
+oname for diagnostic is  valueTheString
+oname_str for diag is  valueTheString
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Constraint Py: <class 'Literate_01.Constraint'>, PyName: Constraint == NoName?
+... found validate method! - validate_constraint
+oname_str for diag is  
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  ValueTypeCamelName
+oname_str for diag is  ValueTypeCamelName
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == UpperCamel
+... found validate method! - validate_class
+oname for diagnostic is  UpperCamel
+oname_str for diag is  UpperCamel
+oname for diagnostic is  UpperCamel
+oname_str for diag is  UpperCamel
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == LowerCamel
+... found validate method! - validate_class
+oname for diagnostic is  LowerCamel
+oname_str for diag is  LowerCamel
+oname for diagnostic is  LowerCamel
+oname_str for diag is  LowerCamel
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == QualifiedCamel
+... found validate method! - validate_class
+Validating object: Constraint Py: <class 'Literate_01.Constraint'>, PyName: Constraint == NoName?
+... found validate method! - validate_constraint
+oname_str for diag is  
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  QualifiedCamel
+oname_str for diag is  QualifiedCamel
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == RichTextAStringWithMarkupForBlockLevelFormatting
+... found validate method! - validate_class
+oname for diagnostic is  RichTextAStringWithMarkupForBlockLevelFormatting
+oname_str for diag is  RichTextAStringWithMarkupForBlockLevelFormatting
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == value
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == format
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == html
+... found validate method! - validate_attribute
+oname for diagnostic is  html
+oname_str for diag is  html
+oname for diagnostic is  html
+oname_str for diag is  html
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  html
+oname_str for diag is  html
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == markDown
+... found validate method! - validate_attribute
+oname for diagnostic is  markDown
+oname_str for diag is  markDown
+oname for diagnostic is  markDown
+oname_str for diag is  markDown
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  markDown
+oname_str for diag is  markDown
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  RichTextAStringWithMarkupForBlockLevelFormatting
+oname_str for diag is  RichTextAStringWithMarkupForBlockLevelFormatting
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == RichLine
+... found validate method! - validate_class
+Validating object: Attribute Py: <class 'Literate_01.Attribute'>, PyName: Attribute == value
+... found validate method! - validate_attribute
+Validating object: DataTypeClause Py: <class 'Literate_01.DataTypeClause'>, PyName: DataTypeClause == NoName?
+... found validate method! - validate_data_type_clause
+Validating object: Constraint Py: <class 'Literate_01.Constraint'>, PyName: Constraint == NoName?
+... found validate method! - validate_constraint
+oname_str for diag is  
+oname_str for diag is  
+oname_str for diag is  
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  RichLine
+oname_str for diag is  RichLine
+Validating object: Class Py: <class 'Literate_01.Class'>, PyName: Class == PrimitiveType
+... found validate method! - validate_class
+oname for diagnostic is  PrimitiveType
+oname_str for diag is  PrimitiveType
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  PrimitiveType
+oname_str for diag is  PrimitiveType
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Low level Data Types
+oname_str for diag is  Low level Data Types
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+... found validate method! - validate_subject
+oname for diagnostic is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+oname_str for diag is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+Validating object: SubjectC Py: <class 'Literate_01.SubjectC'>, PyName: SubjectC == Annotation Types Used
+... found validate method! - validate_component
+oname for diagnostic is  Annotation Types Used
+oname_str for diag is  Annotation Types Used
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Annotation Types Used
+oname_str for diag is  Annotation Types Used
+Validating object: SubjectC Py: <class 'Literate_01.SubjectC'>, PyName: SubjectC == Annotation types as CSV
+... found validate method! - validate_component
+oname for diagnostic is  Annotation types as CSV
+oname_str for diag is  Annotation types as CSV
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Annotation types as CSV
+oname_str for diag is  Annotation types as CSV
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+oname_str for diag is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+Validating object: SubjectB Py: <class 'Literate_01.SubjectB'>, PyName: SubjectB == Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+... found validate method! - validate_subject
+oname for diagnostic is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+oname_str for diag is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+Type name match: Diagnostic == Diagnostic (different modules)
+oname for diagnostic is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
+oname_str for diag is  Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md
 Validating references...
-Validation errors: 1
-as yaml - warnings =  False
+Validation diagnostics: 172
+- Error (Missing field) on LiterateModel named Literate Data Model: Missing oneLiner
+- Error (Missing field) on Attribute named qualifiedName: Missing oneLiner
+- Error (No presence) on Default named : No value for code
+- Warning (Style) on Attribute named oneLiner: oneLiner is too long. (116 chars).
+- Warning (Style) on Attribute named isEmbellishment: oneLiner is too long. (91 chars).
+- Error (No presence) on Default named : No value for code
+- Warning (Style) on Class named AnnotationType: oneLiner is too long. (96 chars).
+- Error (No presence) on Default named : No value for code
+- Error (No presence) on Attribute named purpose: No value for data_type_clause
+- Error (Field Error) on Attribute named purpose: Required field 'data_type_clause' is missing
+- Error (Missing field) on Class named ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement: Missing oneLiner
+- Error (Missing field) on Attribute named annotationType: Missing oneLiner
+- Error (No presence) on Default named : No value for code
+- Error (Missing field) on Attribute named emoji: Missing oneLiner
+- Error (No presence) on Default named : No value for code
+- Error (Missing field) on AttributeSection named For Machinery: Missing oneLiner
+- Warning (Style) on Attribute named isEmbellishment: oneLiner is too long. (92 chars).
+- Error (No presence) on Default named : No value for code
+- Error (Field Error) on SubjectB named Preliminaries: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectB named The Model and its Subjects: Missing oneLiner
+- Warning (Style) on Class named LiterateDataModel: oneLiner is too long. (112 chars).
+- Error (Missing field) on Attribute named name: Missing oneLiner
+- Error (No presence) on Derivation named : No value for code
+- Error (No presence) on Constraint named : No value for code
+- Error (Field Error) on Constraint named : For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got <class 'list'>
+- Error (No presence) on Derivation named : No value for code
+- Error (No presence) on Constraint named : No value for code
+- Error (Field Error) on Constraint named : For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got <class 'list'>
+- Error (Missing field) on AttributeSection named Modeling Configuration: Missing oneLiner
+- Error (Missing field) on Attribute named annotationTypes: Missing oneLiner
+- Error (No presence) on Default named : No value for code
+- Error (Missing field) on Attribute named alternateCodingLanguages: Missing oneLiner
+- Error (No presence) on Default named : No value for code
+- Error (Missing field) on Attribute named alternateTemplateLanguages: Missing oneLiner
+- Error (No presence) on Derivation named : No value for code
+- Error (Field Error) on Class named LiterateDataModel: For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got <class 'str'>
+- Error (Field Error) on Class named LiterateDataModel: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named SubjectASpecificTopicOrThemeWithinTheModel: Missing oneLiner
+- Error (Missing field) on Attribute named name: Missing oneLiner
+- Warning (Style) on Attribute named classes: oneLiner is too long. (91 chars).
+- Error (Missing field) on Attribute named eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen: Missing oneLiner
+- Error (No presence) on Attribute named eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen: No value for data_type_clause
+- Error (Field Error) on Attribute named eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen: Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named byItsSubtypeClasses: Missing oneLiner
+- Error (No presence) on Attribute named byItsSubtypeClasses: No value for data_type_clause
+- Error (Field Error) on Attribute named byItsSubtypeClasses: Required field 'data_type_clause' is missing
+- Warning (Style) on Attribute named childSubjects: oneLiner is too long. (94 chars).
+- Error (Field Error) on Class named SubjectASpecificTopicOrThemeWithinTheModel: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses: Missing oneLiner
+- Error (Field Error) on Class named SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Field Error) on Class named SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses: For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got <class 'str'>
+- Error (Missing field) on SubjectC named Classes: Missing oneLiner
+- Error (Field Error) on SubjectC named Classes: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Field Error) on SubjectB named The Model and its Subjects: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectB named Attributes: Missing oneLiner
+- Error (Field Error) on Class named AttributeSection: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named AttributeAPropertyOrCharacteristicOfAClass: Missing oneLiner
+- Error (Missing field) on Attribute named name: Missing oneLiner
+- Error (Missing field) on AttributeSection named Cardinalities: Missing oneLiner
+- Error (No presence) on Default named : No value for code
+- Error (Style) on Default named : Formula one_liner is too long (220 chars)
+- Error (No presence) on Default named : No value for code
+- Error (Missing field) on Attribute named author: Missing oneLiner
+- Error (Missing field) on Attribute named books: Missing oneLiner
+- Error (Missing field) on AttributeSection named Inverse Attributes: Missing oneLiner
+- Error (Missing field) on Attribute named isInvertible: Missing oneLiner
+- Error (No presence) on Derivation named : No value for code
+- Error (No presence) on Derivation named : No value for code
+- Error (Missing field) on Attribute named inverseAttribute: Missing oneLiner
+- Error (Missing field) on Attribute named inverseIsOptional: Missing oneLiner
+- Error (Field Error) on Class named AttributeAPropertyOrCharacteristicOfAClass: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named Formulas: Missing oneLiner
+- Warning (Style) on Attribute named default: oneLiner is too long. (143 chars).
+- Error (Missing field) on AttributeSection named Override Tracking: Missing oneLiner
+- Error (Missing field) on Attribute named overrides: Missing oneLiner
+- Error (No presence) on Attribute named overrides: No value for data_type_clause
+- Error (Field Error) on Attribute named overrides: Required field 'data_type_clause' is missing
+- Error (Missing field) on Class named ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute: Missing oneLiner
+- Error (Missing field) on Class named ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel: Missing oneLiner
+- Error (Missing field) on Attribute named severity: Missing oneLiner
+- Error (Missing field) on Attribute named : Name is missing
+- Error (No presence) on Attribute named : No value for data_type_clause
+- Error (Field Error) on Attribute named : Required field 'name' is missing
+- Error (Field Error) on Attribute named : Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named : Name is missing
+- Error (No presence) on Attribute named : No value for data_type_clause
+- Error (Field Error) on Attribute named : Required field 'name' is missing
+- Error (Field Error) on Attribute named : Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named message: Missing oneLiner
+- Error (Field Error) on Class named ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named ClassConstraint: Missing oneLiner
+- Error (Field Error) on Class named ClassConstraint: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named AttributeConstraint: Missing oneLiner
+- Error (Field Error) on Class named AttributeConstraint: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named CodeExpression: Missing oneLiner
+- Error (Missing field) on Attribute named : Name is missing
+- Error (No presence) on Attribute named : No value for data_type_clause
+- Error (Field Error) on Attribute named : Required field 'name' is missing
+- Error (Field Error) on Attribute named : Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named : Name is missing
+- Error (No presence) on Attribute named : No value for data_type_clause
+- Error (Field Error) on Attribute named : Required field 'name' is missing
+- Error (Field Error) on Attribute named : Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named expression: Missing oneLiner
+- Error (Field Error) on SubjectB named Attributes: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectB named Methods: Missing oneLiner
+- Error (Missing field) on Class named MethodABehaviorOrOperationAssociatedWithAClass: Missing oneLiner
+- Error (Field Error) on Class named MethodABehaviorOrOperationAssociatedWithAClass: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named ParameterAnInputToAMethod: Missing oneLiner
+- Error (Field Error) on Class named ParameterAnInputToAMethod: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Field Error) on SubjectB named Methods: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectB named Data Types: Missing oneLiner
+- Error (Missing field) on Class named SimpleDataTypeSubtpeOfDataType: Missing oneLiner
+- Error (Missing field) on Attribute named coreClass: Missing oneLiner
+- Error (Missing field) on Class named ComplexDataType: Missing oneLiner
+- Error (Missing field) on Attribute named aggregation: Missing oneLiner
+- Error (Missing field) on Attribute named aggregatedTypes: Missing oneLiner
+- Error (Missing field) on Class named AggregatingOperator: Missing oneLiner
+- Error (Missing field) on Attribute named name: Missing oneLiner
+- Error (Missing field) on Attribute named : Name is missing
+- Error (No presence) on Attribute named : No value for data_type_clause
+- Error (Field Error) on Attribute named : Required field 'name' is missing
+- Error (Field Error) on Attribute named : Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named : Name is missing
+- Error (No presence) on Attribute named : No value for data_type_clause
+- Error (Field Error) on Attribute named : Required field 'name' is missing
+- Error (Field Error) on Attribute named : Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named : Name is missing
+- Error (No presence) on Attribute named : No value for data_type_clause
+- Error (Field Error) on Attribute named : Required field 'name' is missing
+- Error (Field Error) on Attribute named : Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named arity: Missing oneLiner
+- Error (Missing field) on Attribute named spelling: Missing oneLiner
+- Error (Field Error) on SubjectB named Data Types: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectB named Low level Data Types: Missing oneLiner
+- Error (Missing field) on Class named ValueTypeCamelName: Missing oneLiner
+- Error (Missing field) on Attribute named valueTheString: Missing oneLiner
+- Error (Style) on Constraint named : Formula one_liner is too long (105 chars)
+- Error (No presence) on Constraint named : No value for code
+- Error (Field Error) on Constraint named : For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got <class 'list'>
+- Error (Field Error) on Class named ValueTypeCamelName: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Field Error) on Class named UpperCamel: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Field Error) on Class named UpperCamel: For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got <class 'str'>
+- Error (Field Error) on Class named LowerCamel: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Field Error) on Class named LowerCamel: For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got <class 'str'>
+- Error (Style) on Constraint named : Formula one_liner is too long (170 chars)
+- Error (No presence) on Constraint named : No value for code
+- Error (Field Error) on Constraint named : For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got <class 'list'>
+- Error (Field Error) on Class named QualifiedCamel: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named RichTextAStringWithMarkupForBlockLevelFormatting: Missing oneLiner
+- Error (Missing field) on Attribute named html: Missing oneLiner
+- Error (No presence) on Attribute named html: No value for data_type_clause
+- Error (Field Error) on Attribute named html: Required field 'data_type_clause' is missing
+- Error (Missing field) on Attribute named markDown: Missing oneLiner
+- Error (No presence) on Attribute named markDown: No value for data_type_clause
+- Error (Field Error) on Attribute named markDown: Required field 'data_type_clause' is missing
+- Error (Field Error) on Class named RichTextAStringWithMarkupForBlockLevelFormatting: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Style) on Constraint named : Formula one_liner is too long (93 chars)
+- Error (No presence) on Constraint named : No value for code
+- Error (Field Error) on Constraint named : For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got <class 'list'>
+- Error (Field Error) on Class named RichLine: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Missing field) on Class named PrimitiveType: Missing oneLiner
+- Error (Field Error) on Class named PrimitiveType: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got <class 'list'>
+- Error (Field Error) on SubjectB named Low level Data Types: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectB named Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md: Missing oneLiner
+- Error (Missing field) on SubjectC named Annotation Types Used: Missing oneLiner
+- Error (Field Error) on SubjectC named Annotation Types Used: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectC named Annotation types as CSV: Missing oneLiner
+- Error (Field Error) on SubjectC named Annotation types as CSV: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Field Error) on SubjectB named Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+- Error (Missing field) on SubjectB named Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md: Missing oneLiner
+- Error (Field Error) on SubjectB named Appendices Insert More Sidebars md Insert Overrides md insert LDM Intro md Insert OCL md Insert Camel Case md: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
 as yaml - warnings =  False
 ..Created dict for validated model: ldm/ldm_models/Literate/Literate_results/Literate_DC_04.v_model.yaml
 
-Phase: counting errors
-{"Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>": 8}
-8 	 Validation Error in SubjectB: For field 'name' - expected <class 'utils.class_casing.CamelCase'>, but got <class 'Literate_01.SubjectName'>
+Phase: counting diagnostics
+{'Error - Missing field': 70, 'Error - No presence': 33, 'Warning - Style': 8, 'Error - Field Error': 57, 'Error - Style': 4}
+70 	 Error - Missing field
+33 	 Error - No presence
+8 	 Warning - Style
+57 	 Error - Field Error
+4 	 Error - Style
 pattern is ldm/ldm_models/Literate/Literate_results/*dict*.yaml
 pattern is ldm/ldm_models/Literate/Literate_results/*model*.yaml
-Dict names are:  ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml', 'Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml', 'Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml', 'Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
+Dict names are:  ['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
 All combos are:
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
 ['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
 ['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
-['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
-['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
-['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_03.model.tidy.yaml
-as yaml - warnings =  False
 Combo is: ['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
 Including:  Literate_DC_02.dict.yaml
 Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_04.v_model.tidy.yaml
 as yaml - warnings =  False
 Combo is: ['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
 Including:  Literate_DC_03.model.yaml
 Including:  Literate_DC_04.v_model.yaml
 as yaml - warnings =  False
-Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_DC_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_DC_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_DC_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_03.model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_PD_02.dict.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_02.dict.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_DC_03.model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_04.v_model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_PD_03.model.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_03.model.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
 
-Phase: SKIPPING - Pydantic serialization of model
+Phase: Rendering back to markdown => ldm/ldm_models/Literate/Literate_results/Literate_DC_05.rendered.md
+Rendering LDM - <class 'ldm.Literate_01.LiterateModel'> - ??
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+8  subjects coming in model
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+3  classes in subject
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for AttributeSection == <class 'Literate_01.AttributeSection'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for IsOptional == <class 'utils.class_pom_token.IsOptional'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for AttributeSection == <class 'Literate_01.AttributeSection'>
+RenderValue for IsOptional == <class 'utils.class_pom_token.IsOptional'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+3  classes in subject
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for AttributeSection == <class 'Literate_01.AttributeSection'>
+RenderValue for IsOptional == <class 'utils.class_pom_token.IsOptional'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for AttributeReference == <class 'Literate_01.AttributeReference'>
+RenderValue for ClassName == <class 'Literate_01.ClassName'>
+RenderValue for AttributeName == <class 'Literate_01.AttributeName'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for SubjectC == <class 'Literate_01.SubjectC'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+8  classes in subject
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Constraint == <class 'Literate_01.Constraint'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Paragraph == <class 'Literate_01.Paragraph'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for AttributeSection == <class 'Literate_01.AttributeSection'>
+RenderValue for IsOptional == <class 'utils.class_pom_token.IsOptional'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for AttributeReference == <class 'Literate_01.AttributeReference'>
+RenderValue for ClassName == <class 'Literate_01.ClassName'>
+RenderValue for AttributeName == <class 'Literate_01.AttributeName'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for AttributeReference == <class 'Literate_01.AttributeReference'>
+RenderValue for ClassName == <class 'Literate_01.ClassName'>
+RenderValue for AttributeName == <class 'Literate_01.AttributeName'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+8  classes in subject
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for AttributeReference == <class 'Literate_01.AttributeReference'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for AttributeSection == <class 'Literate_01.AttributeSection'>
+RenderValue for IsOptional == <class 'utils.class_pom_token.IsOptional'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for AttributeSection == <class 'Literate_01.AttributeSection'>
+RenderValue for IsOptional == <class 'utils.class_pom_token.IsOptional'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for AttributeSection == <class 'Literate_01.AttributeSection'>
+RenderValue for IsOptional == <class 'utils.class_pom_token.IsOptional'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+2  classes in subject
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+3  classes in subject
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+7  classes in subject
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Constraint == <class 'Literate_01.Constraint'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Paragraph == <class 'Literate_01.Paragraph'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Attribute == <class 'Literate_01.Attribute'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for DataTypeClause == <class 'Literate_01.DataTypeClause'>
+RenderValue for Class == <class 'Literate_01.Class'>
+RenderValue for Annotation == <class 'Literate_01.Annotation'>
+RenderValue for Label == <class 'Literate_01.Label'>
+RenderValue for OneLiner == <class 'Literate_01.OneLiner'>
+RenderValue for Emoji == <class 'utils.class_pom_token.Emoji'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+0  classes in subject
+RenderValue for SubjectC == <class 'Literate_01.SubjectC'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+0  classes in subject
+RenderValue for SubjectC == <class 'Literate_01.SubjectC'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+0  classes in subject
+RenderValue for SubjectB == <class 'Literate_01.SubjectB'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
+0  classes in subject
 
-Phase: Comparing counts
-pattern is ldm/ldm_models/Literate/Literate_results/*dict*.yaml
-pattern is ldm/ldm_models/Literate/Literate_results/*model*.yaml
-Dict names are:  ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml', 'Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml', 'Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml', 'Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-All combos are:
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
-['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
-['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
-['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
-['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
-['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
-['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
-Including:  Literate_DC_02.dict.tidy.yaml
-Including:  Literate_DC_03.model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_02.dict.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_DC_02.dict.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
-Including:  Literate_DC_03.model.tidy.yaml
-Including:  Literate_DC_04.v_model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_03.model.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_DC_03.model.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_DC_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_DC_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_DC_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_DC_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_DC_02.dict.tidy.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_DC_02.dict.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_02.dict.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.tidy.yaml', 'Literate_PD_03.model.tidy.yaml']
-Including:  Literate_PD_02.dict.tidy.yaml
-Including:  Literate_PD_03.model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.yaml', 'Literate_DC_02.dict.yaml']
-Including:  Literate_PD_02.dict.yaml
-Including:  Literate_DC_02.dict.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_02.dict.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_DC_03.model.tidy.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_DC_03.model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_03.model.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.tidy.yaml', 'Literate_PD_04.v_model.tidy.yaml']
-Including:  Literate_PD_03.model.tidy.yaml
-Including:  Literate_PD_04.v_model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.yaml', 'Literate_DC_03.model.yaml']
-Including:  Literate_PD_03.model.yaml
-Including:  Literate_DC_03.model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_03.model.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_DC_04.v_model.tidy.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_DC_04.v_model.tidy.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.tidy.yaml', 'Literate_PD_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.tidy.yaml
-Including:  Literate_PD_04.v_model.yaml
-as yaml - warnings =  False
-Combo is: ['Literate_PD_04.v_model.yaml', 'Literate_DC_04.v_model.yaml']
-Including:  Literate_PD_04.v_model.yaml
-Including:  Literate_DC_04.v_model.yaml
-as yaml - warnings =  False
-
-Phase: Skipping Render to Markdown
-
-Phase: Skipping Render to HTML
+Phase: Creating HTML from model dict
+All keys are: 
+	 object_name
+	 class_name
+	 elaboration
+	 is_optional_lit
+	 classes
+	 object_type
+	 english
+	 name
+	 subtype_of
+	 dependent_of
+	 category
+	 data_type_clause
+	 where
+	 is_embellishment
+	 label
+	 parenthetical
+	 attribute_sections
+	 attributes
+	 _type
+	 severity
+	 as_value_type
+	 subtyping_name
+	 attribute_name
+	 abbreviation
+	 constraints
+	 default
+	 prefix
+	 overrides
+	 is_optional
+	 emoji
+	 inverse
+	 one_liner
+	 subjects
+	 type
+	 based_on
+	 data_type
+	 plural
+	 diagnostics
+	 content
+	 derivation
+	 element_type
+	 message
+	 annotations
+	 is_value_type
+htmling Python type   <class 'utils.typed_dict_tools_diff.TypedDict'> ; type_label is  LiterateModel
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  subjects
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  classes
+htmling Python type   <class 'dict'> ; type_label is  Class
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  attribute_sections
+htmling Python type   <class 'dict'> ; type_label is  AttributeSection
+htmling Python type   <class 'dict'> ; type_label is  IsOptional
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned list:  [{'_type': 'ClassName', 'content': 'LiterateDataModel'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned list:  [{'_type': 'ClassName', 'content': 'Component'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  attribute_sections
+htmling Python type   <class 'dict'> ; type_label is  AttributeSection
+htmling Python type   <class 'dict'> ; type_label is  IsOptional
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  classes
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  abbreviation
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Derivation
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  constraints
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' Subject names must be unique across the model.\n'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Derivation
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  constraints
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' Class names must be unique across the model.\n'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  attribute_sections
+htmling Python type   <class 'dict'> ; type_label is  AttributeSection
+htmling Python type   <class 'dict'> ; type_label is  IsOptional
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Derivation
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned list:  [{'_type': 'ClassName', 'content': 'LiterateDataModel'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  inverse
+htmling Python type   <class 'dict'> ; type_label is  AttributeReference
+Orphaned dictkey:  class_name
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  attribute_name
+htmling Python type   <class 'dict'> ; type_label is  AttributeName
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Subject'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Orphaned dictkey:  where
+Adding headless list:  subjects
+htmling Python type   <class 'dict'> ; type_label is  SubjectC
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  classes
+htmling Python type   <class 'dict'> ; type_label is  Class
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  constraints
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' Within each Class, attribute names must be unique.\n'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  attribute_sections
+htmling Python type   <class 'dict'> ; type_label is  AttributeSection
+htmling Python type   <class 'dict'> ; type_label is  IsOptional
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Orphaned dictkey:  inverse
+htmling Python type   <class 'dict'> ; type_label is  AttributeReference
+Orphaned dictkey:  class_name
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  attribute_name
+htmling Python type   <class 'dict'> ; type_label is  AttributeName
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Orphaned dictkey:  inverse
+htmling Python type   <class 'dict'> ; type_label is  AttributeReference
+Orphaned dictkey:  class_name
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  attribute_name
+htmling Python type   <class 'dict'> ; type_label is  AttributeName
+htmling Python type   <class 'dict'> ; type_label is  Class
+Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Class
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Class'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+htmling Python type   <class 'dict'> ; type_label is  Class
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Class'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'ValueType'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Class
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  constraints
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' each attribute must be a direct or inherited of the base class.\n'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' no repetitions allowed in keyAttributes\n> 👍 **Issue**: introduce PureLists?'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Key'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  classes
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned list:  [{'_type': 'ClassName', 'content': 'AttributeSection'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  overrides
+htmling Python type   <class 'dict'> ; type_label is  AttributeReference
+Orphaned dictkey:  class_name
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  attribute_sections
+htmling Python type   <class 'dict'> ; type_label is  AttributeSection
+htmling Python type   <class 'dict'> ; type_label is  IsOptional
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Default
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  AttributeSection
+htmling Python type   <class 'dict'> ; type_label is  IsOptional
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Derivation
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Derivation
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  attribute_sections
+htmling Python type   <class 'dict'> ; type_label is  AttributeSection
+htmling Python type   <class 'dict'> ; type_label is  IsOptional
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  plural
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Constraint'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Constraint'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned list:  [{'_type': 'ClassName', 'content': 'Attribute'}]
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+Orphaned dictkey:  is_value_type
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  classes
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  plural
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  classes
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  classes
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  constraints
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' Must follow the camel case naming convention and not be empty.\n'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'CamelName'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Orphaned dictkey:  where
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'CamelName'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Orphaned dictkey:  where
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  constraints
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.\n'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'RichText'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+Adding headless list:  attributes
+htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+Adding headless list:  constraints
+htmling Python type   <class 'dict'> ; type_label is  Constraint
+Orphaned list:  [{'_type': 'OneLiner', 'content': ' must not containa line break or new line character\n'}]
+htmling Python type   <class 'dict'> ; type_label is  OneLiner
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Orphaned dictkey:  english
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Class
+Adding headless list:  annotations
+htmling Python type   <class 'dict'> ; type_label is  Annotation
+Orphaned dictkey:  label
+htmling Python type   <class 'dict'> ; type_label is  Label
+Orphaned dictkey:  emoji
+htmling Python type   <class 'dict'> ; type_label is  Emoji
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'ValueTypeABasic'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'BuiltInDataType'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
+htmling Python type   <class 'dict'> ; type_label is  ClassName
+htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+Orphaned dictkey:  is_value_type
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Adding headless list:  subjects
+htmling Python type   <class 'dict'> ; type_label is  SubjectC
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling Python type   <class 'dict'> ; type_label is  CodeBlock
+PUML png file saved to: ldm/ldm_models/Literate/Literate_results/assets/diagram1.png
+PUML svg file saved to: ldm/ldm_models/Literate/Literate_results/assets/diagram1.svg
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  SubjectC
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  CodeBlock
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  SubjectB
+Adding headless list:  elaboration
+htmling Python type   <class 'dict'> ; type_label is  Paragraph
+Adding headless list:  diagnostics
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+Body classes are None
+Saved styled dictionary to ldm/ldm_models/Literate/Literate_results/Literate_DC_06.html
+Body classes are ['reviewing']
+Saved styled dictionary (for review) to ldm/ldm_models/Literate/Literate_results/Literate_DC_06.review.html
 
 Phase: Skipping PDF creation

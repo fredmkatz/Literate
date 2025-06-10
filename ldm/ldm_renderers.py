@@ -1,5 +1,6 @@
 # Direct method attachment
 import ldm.Literate_01 as Literate_01
+import ldm
 from utils.util_flogging import trace_decorator
 
 import textwrap
@@ -36,7 +37,10 @@ def render_each(obj_list):
         if hasattr(obj, "render"):
             result += render(obj)
         else:
-            result += render_value(obj)
+            rv = render_value(obj)
+            if not rv:
+                rv = ""
+            result += rv
     return result
 
 
@@ -61,59 +65,73 @@ def render(obj, attribute_name):
 def render_value(value):
     """Render the value, if it has a render method."""
     vtype = getattr(value, "_type", None)
+    pytype = type(value)
     if not vtype:
         return str(value)
 
     if isinstance(value, str):
         return value
 
-    # print(f"RenderValue for {vtype}")
+    print(f"RenderValue for {vtype} == {pytype}")
     if isinstance(value, list):
         return "\n".join([render_value(x) for x in value])
-    elif "Subject" in vtype:
+    
+    if "Subject" in vtype:
         return render_subject(value)
-    elif isinstance(value, Literate_01.Class):
-        return render_class(value)
-    elif isinstance(value, Literate_01.Attribute):
-        return render_attribute(value)
-    elif isinstance(value, Literate_01.Annotation):
-        return render_annotation(value)
-    elif isinstance(value, Literate_01.Diagnostic):
-        return render_diagnostic(value)
-    elif vtype == "Diagnostic":
-        return render_diagnostic(value)
+    
+    match vtype:
+        case 'Class':
+            return render_class(value)
+        
+        case 'Attribute':
+            return render_attribute(value)
+        
+        case 'Annotation':
+            return render_annotation(value)
+        
+        case 'Diagnostic':
+            return render_diagnostic(value)
+        
+        case 'CodeBlock':
+            return render_codeblock(value)
+        
+        case 'Paragraph':
+            return render_paragraph(value)
+        
+        case 'AttributeSection':
+            return render_attribute_section(value)
+        
+        case 'AttributeReference':
+            return render_attribute_reference(value)
+        
+        case 'LiterateModel':
+            return render_ldm(value)
+        
+        case 'DataTypeClause':
+            return render_data_type_clause(value)
+        
+        case 'OneLiner':
+          return str(value)
+        
+        case 'ClassName':
+            return render_class_name(value)
+        
+        case 'AttributeName':
+          return str(value)
+        case 'Constraint' | 'Default' | 'Derivation':
+            return render_formula(value)
 
-    elif isinstance(value, Literate_01.CodeBlock):
-        return render_codeblock(value)
-    elif isinstance(value, Literate_01.Paragraph):
-        return render_paragraph(value)
-    elif isinstance(value, Literate_01.AttributeSection):
-        return render_attribute_section(value)
-    elif isinstance(value, Literate_01.AttributeReference):
-        return render_attribute_reference(value)
-    elif isinstance(value, Literate_01.Formula):
-        return render_formula(value)
-    elif isinstance(value, Literate_01.LiterateModel):
-        return render_ldm(value)
-    elif isinstance(value, Literate_01.DataTypeClause):
-        return render_data_type_clause(value)
-    elif isinstance(value, Literate_01.ClassName):
-        return render_class_name(value)
-    elif isinstance(value, Literate_01.OneLiner):
-        return str(value)
-    elif isinstance(value, Literate_01.AttributeName):
-        return str(value)
-    else:
-        print(f"WARNING: No render for type {type(value)}")
-        return str(value)
+        case '_':
+            print(f"WARNING: No render for type {vtype} - {type(value)}")
+            return str(value)
 
 
 def render_class_name(name) -> str:
     display_name = str(name)
     if style_names:
-        display_name = f"_{name}_"
+        display_name = f"_{display_name}_"
     if add_links:
-        display_name = f"[{display_name}]({name})"
+        display_name = f"[{display_name}]({display_name})"
     return display_name
 
 
@@ -217,6 +235,10 @@ def render_ldm(self):
 def render_subject(self):
 
     result = render_component(self, prefix=self.prefix + " ")
+    
+    classes = getattr(self, 'classes', [])
+    print(len(classes), " classes in subject")
+    
 
     # Render classes
     result += render_each(self.classes)
@@ -273,7 +295,6 @@ def render_header(self, prefix: str, parenthetical: str = None) -> str:
         headline, width=para_width, initial_indent="", subsequent_indent=para_indent
     )
 
-    result += "\n\n"
     return result
 
 
@@ -306,7 +327,7 @@ def render_field(self, field_name: str, label: str = "") -> str:
 
 def render_component(self, prefix: str = "", parenthetical: str = "") -> str:
     """Render the component with the specified prefix."""
-    result = render_header(self, prefix, parenthetical)
+    result = "\n" + render_header(self, prefix, parenthetical)
 
     # Render elaboration and annotations if present
 
@@ -337,18 +358,19 @@ def render_class(self):
     # fields
 
     result += render_field(self, "plural")
-    result += render_field(self, "subtype_of")
-    result += render_field(self, "subtypes")
-    result += render_field(self, "based_on")
-    result += render_field(self, "dependent_of")
-    result += render_field(self, "dependents")
-    result += render_field(self, "is_value_type")
+    # result += render_field(self, "subtype_of")
+    # result += render_field(self, "subtypes")
+    # result += render_field(self, "based_on")
+    # result += render_field(self, "dependent_of")
+    # result += render_field(self, "dependents")
+    # result += render_field(self, "is_value_type")
     result += render_field(self, "where")
     result += render_each(self.constraints)
 
     # Render attributes
     result += render_each(self.attributes)
     result += render_each(self.attribute_sections)
+    
 
     return result
 

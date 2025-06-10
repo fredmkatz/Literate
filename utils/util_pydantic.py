@@ -102,6 +102,10 @@ def using():
     if USING_PYDANTIC:
         return "UsingPydantic - "
     return "NOT UsingPydantic - "
+
+    
+    
+    
 class PydanticMixin:
     _type: str = ""  # auto-set to class name
 
@@ -248,6 +252,8 @@ def gen_schema(the_model, model_name, schema_dir):
     class_schema = the_model.model_json_schema()
     schema_yaml = fmk.as_yaml(class_schema, warnings=False)
     fmk.write_text(f"{schema_dir}/{model_name}_schema.yaml", schema_yaml)
+
+
 
 
 # =============================================================================

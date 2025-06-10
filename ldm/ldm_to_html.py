@@ -16,6 +16,7 @@ HEADER_KEYS = [
     "is_optional",
     "content",
 ]
+
 HEADED_CLASSES = [
     "LiterateModel",
     "Subject",
@@ -46,6 +47,13 @@ SIMPLE_CONTENT_TYPES = [
     "Paragraph",
     "OneLiner",
     "CodeBlock",
+    "Label",
+    "Emoji",
+]
+BARE_FIELDS = [
+    "label",
+    "content",
+    "class_name",
 ]
 
 from dataclasses import is_dataclass
@@ -74,211 +82,226 @@ def all_keys(data) -> List[str]:
 
 
 def dict_to_html(data):
-    html_h = html()
 
     # print(f"htmling {data}")
 
-    if isinstance(data, str):
-        return data
-
     python_type = type(data)
     type_label = "NA"
+
+    if isinstance(data, str):
+        return data
+    elif isinstance(data, bool):
+        return data
+    elif isinstance(data, int):
+        return data
+    elif isinstance(data, list):
+        print("Orphaned list: ", data)
+        
+        items_h = []
+
+        for item in data:
+            items_h. append ( dict_to_html(item))
+        return div_custom("list", items_h)
     if isinstance(data, dict):
         type_label = data.get("_type", "NoDictTypeLabel")
         # print("htmling dict with _type = ", type_label)
+
     else:
-        type_label = getattr(data, "_type", "NoNonDictTypeLabel")
-        # print("htmling Python type  ", python_type, "; type_label is ", type_label)
+        print("Orphaned ?", type(data), ": ", data, ". Should be str, int, bool, list, or dict")
+        return f"{data}"
+
+    # Now, we have a dict, with a _type and python_type
+    obj_type = type_label
+    print("htmling Python type  ", python_type, "; type_label is ", type_label)
     if type_label == "Diagnostic":
         object_type = spanned_value(data, "object_type")
         object_name = spanned_value(data, "object_name")
+        category = spanned_value(data, "category")
         severity = spanned_value(data, "severity")
         message = spanned_value(data, "message")
-        return div_custom("Diagnostic", [severity, message, " on ", object_type])
+        return div_custom("Diagnostic", [severity, category, message, " on ", object_type])
 
 
     if type_label == "ClassName":
         return class_name_link(data)
     
-    if is_dataclass_instance(data):
-        data = clean_dict(data)
 
-    if isinstance(data, dict) :
+    if obj_type in SIMPLE_CONTENT_TYPES:
+        return html_simple_content(obj_type, data)
 
-        obj_type = "DICT"
-        for key, value in data.items():
-            if key == "_type":
-                obj_type = value
-                break
-        # print("Object type is ", obj_type)
-        if obj_type in SIMPLE_CONTENT_TYPES:
-            add_html_simple_content(obj_type, data, html_h)
+    if obj_type == "DataTypeClause":
+        # return as_html(data)
+        return dt_as_html(data)
+    if obj_type == "BaseDataType":
+        # print("bdt. dict is ", data)
+        # print("bdt. classname is ", data.get("class_name"))
 
-            return html_h
-        if obj_type == "DataTypeClause":
-            return dt_as_html(data)
-        if obj_type == "BaseDataType":
-            # print("bdt. dict is ", data)
-            # print("bdt. classname is ", data.get("class_name"))
+        bdt_html2 = span_div(data, "BaseDataType", "class_name", "as_value_type")
+        return bdt_html2
+    if obj_type == "MappingDataType":
+        # print("mdt. dict is ", data)
+        # print("mdt. domain_type is ", data.get("domain_type"))
+        # print("mdt. range_type is ", data.get("range_type"))
 
-            bdt_html2 = span_div(data, "BaseDataType", "class_name", "as_value_type")
-            return bdt_html2
-        if obj_type == "MappingDataType":
-            # print("mdt. dict is ", data)
-            # print("mdt. domain_type is ", data.get("domain_type"))
-            # print("mdt. range_type is ", data.get("range_type"))
+        mdt_html2 = span_div(data, "MappingDataType", "domain_type", "range_type")
+        return mdt_html2
+    if obj_type == "ListDataType":
+        # print("ldt. dict is ", data)
+        # print("ldt. element_type is ", data.get("element_type"))
 
-            mdt_html2 = span_div(data, "MappingDataType", "domain_type", "range_type")
-            return mdt_html2
-        if obj_type == "ListDataType":
-            # print("ldt. dict is ", data)
-            # print("ldt. element_type is ", data.get("element_type"))
+        ldt_html2 = span_div(data, "ListDataType", "element_type")
+        return ldt_html2
+    if obj_type == "DataTypeClause":
+        return span_div(data, "DataTypeClause", "is_optional_lit", "data_type")
+    if obj_type == "ClassName":
+        return class_name_link(data)
+    if obj_type == "AsValue":
+    #       print("Found ASVALUE dict", data)
+        as_value = AsValue(data["t_value"])
+        if not as_value:
+            return ""
+        return span_custom("as_value", [as_value])
+    if obj_type == "IsOptional":
+        opt_value = str(IsOptional(data["content"])).strip()
+        # print("opt value is ", opt_value)
+        if not opt_value:
+            return ""
+        # print("using opt value is ", opt_value)
+        return span_custom("is_optional", [opt_value])
 
-            ldt_html2 = span_div(data, "ListDataType", "element_type")
-            return ldt_html2
-        if obj_type == "DataTypeClause":
-            return span_div(data, "DataTypeClause", "is_optional_lit", "data_type")
-        if obj_type == "ClassName":
-            return class_name_link(data)
-        if obj_type == "AsValue":
-     #       print("Found ASVALUE dict", data)
-            as_value = AsValue(data["t_value"])
-            if not as_value:
-                return ""
-            return span_custom("as_value", [as_value])
-        if obj_type == "IsOptional":
-            return span_custom("is_optional", "Optional??")
-            opt_value = str(IsOptional(data["t_value"])).strip()
-            # print("opt value is ", opt_value)
-            if not opt_value:
-                return ""
-            # print("using opt value is ", opt_value)
-            return span_custom("is_optional", [opt_value])
 
-        if obj_type == "Annotation":
-            emoji = spanned_value(data, "emoji")
-            label = spanned_value(data, "label")
-            content = spanned_value(data, "content")
-            return div_custom("Annotation", [emoji, label, content])
+    # if obj_type in ["Formula", "Constraint", "Derivation", "Default"]:
+    #     content = dict_div(data, "content")
+    #     message = dict_div(data, "message")
+    #     code = dict_div(data, "code")
+    #     severity = dict_div(data, "severity")
+    #     notes = dict_div(data, "annotations")
+    #     return div(obj_type, [content, code, message, severity, notes])
 
-        # if obj_type in ["Formula", "Constraint", "Derivation", "Default"]:
-        #     content = dict_div(data, "content")
-        #     message = dict_div(data, "message")
-        #     code = dict_div(data, "code")
-        #     severity = dict_div(data, "severity")
-        #     notes = dict_div(data, "annotations")
-        #     return div(obj_type, [content, code, message, severity, notes])
+    obj_classes = obj_type
 
-        obj_classes = obj_type
+    # Simplify SubjectB, etc
+    if obj_type.startswith("Subject"):
+        obj_classes = "Subject " + obj_type
 
-        # Simplify SubjectB, etc
-        if obj_type.startswith("Subject"):
-            obj_classes = "Subject " + obj_type
+        obj_type = "Subject"
+    # print("Object type is ", obj_type)
+    
+    html_h = html()
 
-            obj_type = "Subject"
-        # print("Object type is ", obj_type)
-        object_h = div_custom(obj_classes)
-        html_h.append(object_h)
+    object_h = div_custom(obj_classes)
+    html_h.append(object_h)
 
-        # Gather into header: Prefix, name, oneliner, parenthetical
-        if is_headed(obj_type):
-            # Start the header
-            header_h = div_custom(f"{obj_type}_header header")
-            object_h.append(header_h)
+    # Gather into header: Prefix, name, oneliner, parenthetical
+    if is_headed(obj_type):
+        # Start the header
+        header_h = div_custom(f"{obj_type}_header header")
+        object_h.append(header_h)
 
-            # add header attributes
-# HEADER_KEYS = [
-#     "prefix",
-#     "name",
-#     "parenthetical",
-#     "data_type_clause",
-#     "is_optional",
-#     "one_liner",
-
-#     "content",
-# ]
-            for key in HEADER_KEYS:
-                value = data.get(key, None)
-                if value is None:
-                    continue
-                # print("kv is ", key, value)
-                if str(value).strip() == "":
-                    continue
-                if key == "name":
-                    add_anchor_html(key, value, header_h)
-                    continue
-                if key == "one_liner":
-                    add_html_simple_content("OneLiner", value, header_h)
-                    continue
-
-                else:
-                    add_classed_value_html(key, value, header_h)
-
-            # end the header
-            # print(f"{obj_type} header is", header_h)
-        if is_formula(obj_type):
-            one_liner = data.get("one_liner", "")
-            add_html_clause(obj_type, one_liner, html_h)
-            # formula class is open. Leave it so
-            # collect all the details (code, english, etc)
-            # "header" all in the clause above
-
-        for key, value in data.items():
-
-            if key == "_type":
+        # add header attributes
+        for key in HEADER_KEYS:
+            value = data.get(key, None)
+            if value is None:
                 continue
-            if key in HEADER_KEYS:
+            # print("kv is ", key, value)
+            if str(value).strip() == "":
                 continue
-            if key in USELESS_LIST_KEYS:
-                add_headless_list_html(key, value, html_h)
+            if key == "name":
+                add_anchor_html(key, value, header_h)
                 continue
-            if key == "subtype_of":
-                add_subtype_of_clause(key, value, html_h)
-                continue
-            if key == "data_type":
-                add_data_type_clause("dataType", value, html_h)
+            if key == "one_liner":
+                header_h.append(html_simple_content("OneLiner", value))
                 continue
 
-            if key in CLASS_LIST_KEYS:
-                add_anchored_class_names_clause(key, value, html_h)
-                continue
+            else:
+                add_classed_value_html(key, value, header_h)
 
-            # Defaults and Derivations need special treatment
-            if key in ["default", "derivation"]:
-                html_h.append(dict_to_html(value))
-                continue
-            # subclauses of Formulas
+    if is_formula(obj_type):
+        one_liner = data.get("one_liner", "")
+        add_html_clause(obj_type, one_liner, html_h)
+        # formula class is open. Leave it so
+        # collect all the details (code, english, etc)
+        # "header" all in the clause above
 
-            if key == "code":
-                add_html_clause(key, value, html_h)
-                continue
-            if key == "message":
-                add_html_clause(key, value, html_h)
-                continue
-            if key == "severity":
-                add_html_clause(key, value, html_h)
-                continue
-            if key == "is_embellishment":
-                if value == False:
-                    continue
-                add_html_clause(key, value, html_h)
-                continue
-            print("Orphaned dictkey: ", key)
-            add_key_value_html(key, value, html_h)
+    for key, value in data.items():
 
-    elif isinstance(data, list):
-        print("Orphaned list: ", data)
+        if key == "_type":
+            continue
+        if key in HEADER_KEYS:
+            continue
+        if key in USELESS_LIST_KEYS:
+            add_headless_list_html(key, value, html_h)
+            continue
+        if key == "subtype_of":
+            add_subtype_of_clause(key, value, html_h)
+            continue
+        if key == "data_type":
+            add_data_type_clause("dataType", value, html_h)
+            continue
 
-        html_h.append(div_custom("list"))
-        for item in data:
-            html_h.append(dict_to_html(item))
-    else:
-        print("Orphaned ?", type(data), ": ", data)
-        return f"{data}"
+        if key in CLASS_LIST_KEYS:
+            add_anchored_class_names_clause(key, value, html_h)
+            continue
+
+        # Defaults and Derivations need special treatment
+        if key in ["default", "derivation"]:
+            html_h.append(dict_to_html(value))
+            continue
+        # subclauses of Formulas
+
+        if key == "code":
+            add_html_clause(key, value, html_h)
+            continue
+        if key == "message":
+            add_html_clause(key, value, html_h)
+            continue
+        if key == "severity":
+            add_html_clause(key, value, html_h)
+            continue
+        if key == "is_embellishment":
+            if value == False:
+                continue
+            add_html_clause(key, value, html_h)
+            continue
+        print("Orphaned dictkey: ", key)
+        add_key_value_html(key, value, html_h)
+
 
     return html_h
 
+def as_html(obj):
+    if isinstance(obj, str):
+        return obj
+    
+    if isinstance(obj, dict):
+        the_type = obj.get("_type", "AS_DICT")
+        
+        html = div(class_ = the_type)
+        if the_type in SIMPLE_CONTENT_TYPES:
+            the_content = obj.get("content", None)
+            if not the_content:
+                return None
+            return span(the_content, class_ = the_type)
+        
+        for k, v  in obj.items():
+            if k == "_type":
+                continue
+            key_html = span(k, class_ = f"field_name {k}")
+            
+            value_html0 = as_html(v)
+            if not value_html0:     # if no value for field, skip entirely
+                continue
+            value_html = div(value_html0, class_ = f"field_value {k}")
 
+            if k in BARE_FIELDS:
+                field_html = div(value_html, class_ = f'field {k}')
+            else:
+                field_html = div(key_html, value_html, class_ = f'field {k}')
+            html.append(field_html)
+        
+        return html
+    return str(obj)
+        
 from utils.util_flogging import trace_decorator
 
 
@@ -431,6 +454,9 @@ def add_subtype_of_clause(key, pairs, html_h):
     clause_h = div_custom(f"{key}_clause")
     add_html_clause_label(key, clause_h)
     clause_h.append(div_custom("subtype_pairs"))
+    if not pairs:
+        html_h.append(clause_h)
+        return
     for pair in pairs:
         print("Subtyping pair is: ", pair)
         class_name_h = dict_to_html(pair.get("class_name"))
@@ -471,7 +497,7 @@ def add_html_clause_label(key, html_h):
 
 
 def add_headless_list_html(key, value, html_h):
-    # print("Adding headless list: ", key)
+    print("Adding headless list: ", key)
     list_h = div()
     list_h["class"] = [key, "list"]
 
@@ -493,15 +519,13 @@ def add_anchor_html(key_name, value, html_h):
 
 import traceback
 import sys
-def add_html_simple_content(obj_type, obj, html_h):
+def html_simple_content(obj_type, obj):
     from ldm.ldm_to_html_prose import as_prose_html
 
     # print(f"Adding simple: {obj_type} ")
-    content = ""
+    content = "SimpleContent?"
     if isinstance(obj, dict):
         content = obj.get("content", "No content found")
-    else:
-        content = getattr(obj, "content", "No object content found")
 
     # print(" SIMPLE CONTENT")
     # print(content)
@@ -509,7 +533,7 @@ def add_html_simple_content(obj_type, obj, html_h):
     try:
         content_h = as_prose_html(content)
         # print(f"Adding simple: {obj_type} with {content_h}")
-        html_h.append(div(content_h, class_=f"{obj_type} mdhtml"))
+        return div(content_h, class_=f"{obj_type} mdhtml")
     except Exception:
         print(
             f"failed on simple content: obj type is {obj_type}, content is...\n{content}"

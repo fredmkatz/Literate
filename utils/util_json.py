@@ -68,6 +68,7 @@ def make_tidy_yaml(src_yaml_path):
     tidied = tidy_dict(the_dict, warnings=True)
     tidy_path = src_yaml_path.replace(".yaml", ".tidy.yaml")
     write_yaml(tidied, tidy_path)
+    return tidied
 
 def tidy_dict(src_dict, warnings: bool = False):
     """Convert a pure dict to one w/o nulls, "", [] or {}."""
@@ -151,8 +152,11 @@ def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
 def as_yaml(the_dict: Dict, warnings: bool = False) -> str:
     print("as yaml - warnings = ", warnings)
     
-    # the_dict = clean_dict(the_dict, warnings)
-
+    yaml.emitter.Emitter.prepare_tag = lambda self, tag: ''
+    ditems = the_dict.get("dictitems", None)
+    if ditems:
+        print("AVOIDING dictitems?")
+        the_dict = ditems[0]
     return yaml.dump(the_dict,  indent=4, default_flow_style=False, sort_keys=False)
 
 def write_json(the_dict: Dict, file_path: str, warnings: bool = False):
@@ -228,7 +232,6 @@ def json_census(json_object):
 
 from collections import defaultdict
 
-starters = ["Class", "Subject", "Attribute", "LiterateModel"]
 def count_key_paths(data, path=None, counts=None):
     if path is None:
         path = ""
@@ -237,8 +240,7 @@ def count_key_paths(data, path=None, counts=None):
 
     if isinstance(data, dict):
         dtype = data.get("_type", None)
-        if dtype : #and dtype in starters:
-            # print(f"Changing {path} to {dtype}")
+        if dtype : 
             path = dtype
         for key, value in data.items():
             current_path = path + "." + key
@@ -249,7 +251,6 @@ def count_key_paths(data, path=None, counts=None):
             count_key_paths(item, path, counts)
 
     counts = dict(sorted(counts.items()))
-
     return counts
 
 from typing import Dict
@@ -306,13 +307,8 @@ COMBO_PAIRS = [
     ["02.dict", "03.model"],
     ["03.model", "04.v_model"],
     ["04.v_model", "05.r_model"],
-    ["_a", ""],
-    [".tidy", ""],
-    ["02", "02a"],
-    ["02_PD.dict", "03_PD,model_pd"],
     
 ]
-
 def find_combos(dict_names):
     combos = []
     for name1 in dict_names:
@@ -357,13 +353,15 @@ def compare_dicts(base_path, model_name, result_suffix ="90_census.txt"):
             print("Including: ", dict_name, file = fd)
             the_dict = read_yaml_file(dict_path)
             
-            path_counts = dict(count_key_paths(the_dict))
+            path_counts = count_key_paths(the_dict)
             pieces[dict_name] = path_counts
             # show_census(fd, dict_name + " PATHS", path_counts)
 
         merger = merge_counts(pieces)
         # show_census(fd, f"Merged results for {pieces.keys()}", merger)
         
+        merger = dict(sorted(merger.items()))
+
         trimmed_merger = {}
         for k, v in merger.items():
             if v.get("All", None):

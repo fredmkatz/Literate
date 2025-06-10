@@ -302,7 +302,6 @@ $defs:
                         $ref: '#/$defs/ClassName'
                     type: array
                 -   type: 'null'
-                default: null
                 title: Based On
             dependent_of:
                 anyOf:
@@ -310,7 +309,6 @@ $defs:
                         $ref: '#/$defs/ClassName'
                     type: array
                 -   type: 'null'
-                default: null
                 title: Dependent Of
             dependents:
                 anyOf:
@@ -318,7 +316,6 @@ $defs:
                         $ref: '#/$defs/ClassName'
                     type: array
                 -   type: 'null'
-                default: null
                 title: Dependents
             is_value_type:
                 default: false
@@ -539,6 +536,10 @@ $defs:
             object_type:
                 default: ''
                 title: Object Type
+                type: string
+            category:
+                default: ''
+                title: Category
                 type: string
             message:
                 $ref: '#/$defs/Paragraph'

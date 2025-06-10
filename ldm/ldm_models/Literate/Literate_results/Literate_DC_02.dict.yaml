@@ -3,7 +3,6 @@ prefix: '#'
 name:
     _type: SubjectName
     content: Literate Data Model
-parenthetical: ''
 subjects:
 -   _type: SubjectB
     prefix: '##'
@@ -13,7 +12,6 @@ subjects:
     one_liner:
         _type: OneLiner
         content: the basic structure of the model
-    parenthetical: ''
     elaboration:
     -   _type: Paragraph
         content: 'In Literate Data Modeling, the main components of interest are typically
@@ -40,7 +38,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: An element or building block of the literate data model
-        parenthetical: ''
         attributes:
         -   _type: Attribute
             prefix: '-'
@@ -139,8 +136,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: example
@@ -202,7 +197,6 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: mechanical attributes
-            parenthetical: ''
             attributes:
             -   _type: Attribute
                 prefix: '-'
@@ -238,8 +232,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: note
@@ -260,7 +252,6 @@ subjects:
             _type: OneLiner
             content: a kind of note, or aside, used to call attention to additional
                 information about some Component.
-        parenthetical: ''
         based_on:
         -   _type: ClassName
             content: LiterateDataModel
@@ -268,8 +259,6 @@ subjects:
         -   _type: Annotation
             emoji:
                 _type: Emoji
-                content: ''
-                as_entered: ''
             label:
                 _type: Label
                 content: note
@@ -404,13 +393,11 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: the intended reason for the annotation.
-            parenthetical: ''
     -   _type: Class
         prefix: _
         name:
             _type: ClassName
             content: ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
-        parenthetical: ''
         based_on:
         -   _type: ClassName
             content: Component
@@ -438,8 +425,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: note
@@ -536,7 +521,6 @@ subjects:
             name:
                 _type: AttributeSectionName
                 content: For Machinery
-            parenthetical: ''
             attributes:
             -   _type: Attribute
                 prefix: '-'
@@ -572,8 +556,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: note
@@ -590,7 +572,6 @@ subjects:
     name:
         _type: SubjectName
         content: The Model and its Subjects
-    parenthetical: ''
     classes:
     -   _type: Class
         prefix: _
@@ -602,7 +583,6 @@ subjects:
             content: 'A representation of a domain''s entities, attributes, and relationships,
 
                 along with explanatory text and examples'
-        parenthetical: ''
         abbreviation: LDM
         plural: ' LiterateDataModels
 
@@ -720,7 +700,6 @@ subjects:
             name:
                 _type: AttributeSectionName
                 content: Modeling Configuration
-            parenthetical: ''
             attributes:
             -   _type: Attribute
                 prefix: '-'
@@ -882,7 +861,6 @@ subjects:
         name:
             _type: ClassName
             content: SubjectASpecificTopicOrThemeWithinTheModel
-        parenthetical: ''
         plural: ' Subjects
 
             '
@@ -973,8 +951,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: issue
@@ -986,13 +962,11 @@ subjects:
             name:
                 _type: AttributeName
                 content: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             name:
                 _type: AttributeName
                 content: byItsSubtypeClasses
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             name:
@@ -1037,7 +1011,6 @@ subjects:
         name:
             _type: ClassName
             content: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
-        parenthetical: ''
         plural: ' SubjectAreas
 
             '
@@ -1058,7 +1031,6 @@ subjects:
         name:
             _type: SubjectName
             content: Classes
-        parenthetical: ''
         classes:
         -   _type: Class
             prefix: _
@@ -1069,7 +1041,6 @@ subjects:
                 _type: OneLiner
                 content: A key entity or object type in the model, often corresponding
                     to a real-world concept
-            parenthetical: ''
             plural: ' Classes
 
                 '
@@ -1119,8 +1090,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: note
@@ -1178,8 +1147,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: note
@@ -1238,8 +1205,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: example
@@ -1277,8 +1242,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: example
@@ -1366,8 +1329,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: note
@@ -1406,7 +1367,6 @@ subjects:
                 name:
                     _type: AttributeSectionName
                     content: Implied Attributes
-                parenthetical: ''
                 attributes:
                 -   _type: Attribute
                     prefix: '-'
@@ -1584,8 +1544,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: note
@@ -1597,7 +1555,6 @@ subjects:
             name:
                 _type: ClassName
                 content: ValueType
-            parenthetical: ''
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -1611,7 +1568,6 @@ subjects:
             name:
                 _type: ClassName
                 content: ReferenceType
-            parenthetical: ''
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -1625,7 +1581,6 @@ subjects:
             name:
                 _type: ClassName
                 content: CodeTypeADataTypeOrEnumerationUsedInTheModel
-            parenthetical: ''
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -1638,8 +1593,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: note
@@ -1654,13 +1607,11 @@ subjects:
                 name:
                     _type: AttributeName
                     content: listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFormCodeDescription
-                parenthetical: ''
             -   _type: Attribute
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedThatCodeTypeWillBeMarkedAsIsCaptive
-                parenthetical: ''
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -1689,13 +1640,10 @@ subjects:
             name:
                 _type: ClassName
                 content: CodeValue
-            parenthetical: ''
             annotations:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: aPossibleValueForAnEnumeratedDataClassDependentOf
@@ -1755,7 +1703,6 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: a list of attributes of a class
-            parenthetical: ''
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -1809,8 +1756,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: issue
@@ -1827,7 +1772,6 @@ subjects:
                 _type: OneLiner
                 content: a list of attributes on which instances of the base class
                     may be keyed.
-            parenthetical: ''
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -1840,8 +1784,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: note
@@ -1853,7 +1795,6 @@ subjects:
     name:
         _type: SubjectName
         content: Attributes
-    parenthetical: ''
     classes:
     -   _type: Class
         prefix: _
@@ -1863,7 +1804,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: a group of attributes for a class that merit a shared explanation.
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -1911,7 +1851,6 @@ subjects:
         name:
             _type: ClassName
             content: AttributeAPropertyOrCharacteristicOfAClass
-        parenthetical: ''
         plural: ' Attributes
 
             '
@@ -1949,7 +1888,6 @@ subjects:
             overrides:
                 _type: AttributeReference
                 class_name: CamelName
-                attribute_name: ''
         -   _type: Attribute
             prefix: '-'
             name:
@@ -1980,8 +1918,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: see
@@ -1994,7 +1930,6 @@ subjects:
             name:
                 _type: AttributeSectionName
                 content: Cardinalities
-            parenthetical: ''
             attributes:
             -   _type: Attribute
                 prefix: '-'
@@ -2070,14 +2005,11 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: forExample
                     content:
                         _type: OneLiner
-                        content: ''
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -2120,8 +2052,6 @@ subjects:
                 -   _type: Annotation
                     emoji:
                         _type: Emoji
-                        content: ''
-                        as_entered: ''
                     label:
                         _type: Label
                         content: note
@@ -2133,7 +2063,6 @@ subjects:
             name:
                 _type: AttributeSectionName
                 content: Inverse Attributes
-            parenthetical: ''
             attributes:
             -   _type: Attribute
                 prefix: '-'
@@ -2235,7 +2164,6 @@ subjects:
         name:
             _type: ClassName
             content: Formulas
-        parenthetical: ''
         attributes:
         -   _type: Attribute
             prefix: '-'
@@ -2267,8 +2195,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: note
@@ -2314,8 +2240,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: issue
@@ -2350,8 +2274,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: note
@@ -2364,20 +2286,17 @@ subjects:
             name:
                 _type: AttributeSectionName
                 content: Override Tracking
-            parenthetical: ''
             attributes:
             -   _type: Attribute
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: overrides
-                parenthetical: ''
     -   _type: Class
         prefix: _
         name:
             _type: ClassName
             content: ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
-        parenthetical: ''
         plural: ' Derivations
 
             '
@@ -2432,7 +2351,6 @@ subjects:
         name:
             _type: ClassName
             content: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
-        parenthetical: ''
         plural: ' Constraints
 
             '
@@ -2514,13 +2432,11 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: '**Warning** - nothing fatal; just a caution'
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             one_liner:
                 _type: OneLiner
                 content: '**Error** - serious. Fix now'
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2545,7 +2461,6 @@ subjects:
         name:
             _type: ClassName
             content: ClassConstraint
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -2562,7 +2477,6 @@ subjects:
         name:
             _type: ClassName
             content: AttributeConstraint
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -2579,7 +2493,6 @@ subjects:
         name:
             _type: ClassName
             content: CodeExpression
-        parenthetical: ''
         attributes:
         -   _type: Attribute
             prefix: '-'
@@ -2608,13 +2521,11 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: 'OCL: Object Constraint Language'
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             one_liner:
                 _type: OneLiner
                 content: 'Java: Java'
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2639,14 +2550,12 @@ subjects:
     name:
         _type: SubjectName
         content: Methods
-    parenthetical: ''
     classes:
     -   _type: Class
         prefix: _
         name:
             _type: ClassName
             content: MethodABehaviorOrOperationAssociatedWithAClass
-        parenthetical: ''
         plural: ' Methods
 
             '
@@ -2710,7 +2619,6 @@ subjects:
         name:
             _type: ClassName
             content: ParameterAnInputToAMethod
-        parenthetical: ''
         plural: ' Parameters
 
             '
@@ -2772,7 +2680,6 @@ subjects:
     name:
         _type: SubjectName
         content: Data Types
-    parenthetical: ''
     elaboration:
     -   _type: Paragraph
         content: '*ValueType*:**Data Type**
@@ -2784,7 +2691,6 @@ subjects:
         name:
             _type: ClassName
             content: SimpleDataTypeSubtpeOfDataType
-        parenthetical: ''
         attributes:
         -   _type: Attribute
             prefix: '-'
@@ -2810,7 +2716,6 @@ subjects:
         name:
             _type: ClassName
             content: ComplexDataType
-        parenthetical: ''
         attributes:
         -   _type: Attribute
             prefix: '-'
@@ -2857,7 +2762,6 @@ subjects:
         name:
             _type: ClassName
             content: AggregatingOperator
-        parenthetical: ''
         attributes:
         -   _type: Attribute
             prefix: '-'
@@ -2883,19 +2787,16 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: '**SetOf**'
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             one_liner:
                 _type: OneLiner
                 content: '**ListOf**'
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             one_liner:
                 _type: OneLiner
                 content: '**Mapping**'
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2939,7 +2840,6 @@ subjects:
     name:
         _type: SubjectName
         content: Low level Data Types
-    parenthetical: ''
     elaboration:
     -   _type: Paragraph
         content: 'insert Camel Case.md
@@ -2951,7 +2851,6 @@ subjects:
         name:
             _type: ClassName
             content: ValueTypeCamelName
-        parenthetical: ''
         elaboration:
         -   _type: Paragraph
             content: 'A short string without punctuation or spaces, suitable for names,
@@ -2998,8 +2897,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: example
@@ -3016,8 +2913,6 @@ subjects:
             -   _type: Annotation
                 emoji:
                     _type: Emoji
-                    content: ''
-                    as_entered: ''
                 label:
                     _type: Label
                     content: modelingNote
@@ -3034,7 +2929,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a capital letter
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -3050,8 +2944,6 @@ subjects:
         -   _type: Annotation
             emoji:
                 _type: Emoji
-                content: ''
-                as_entered: ''
             label:
                 _type: Label
                 content: example
@@ -3066,7 +2958,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a lower case letter
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -3082,8 +2973,6 @@ subjects:
         -   _type: Annotation
             emoji:
                 _type: Emoji
-                content: ''
-                as_entered: ''
             label:
                 _type: Label
                 content: example
@@ -3098,7 +2987,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: an expression consisting of Camel Names separated by periods
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -3120,7 +3008,6 @@ subjects:
         name:
             _type: ClassName
             content: RichTextAStringWithMarkupForBlockLevelFormatting
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -3179,13 +3066,11 @@ subjects:
             name:
                 _type: AttributeName
                 content: html
-            parenthetical: ''
         -   _type: Attribute
             prefix: '-'
             name:
                 _type: AttributeName
                 content: markDown
-            parenthetical: ''
     -   _type: Class
         prefix: _
         name:
@@ -3194,7 +3079,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: String with markup for line level formatting.
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -3238,7 +3122,6 @@ subjects:
         name:
             _type: ClassName
             content: PrimitiveType
-        parenthetical: ''
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -3258,14 +3141,11 @@ subjects:
         -   _type: Annotation
             emoji:
                 _type: Emoji
-                content: ''
-                as_entered: ''
             label:
                 _type: Label
                 content: values
             content:
                 _type: OneLiner
-                content: ''
             elaboration:
             -   _type: Paragraph
                 content: '===
@@ -3277,14 +3157,12 @@ subjects:
         _type: SubjectName
         content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
             Intro md Insert OCL md Insert Camel Case md
-    parenthetical: ''
     subjects:
     -   _type: SubjectC
         prefix: '###'
         name:
             _type: SubjectName
             content: Annotation Types Used
-        parenthetical: ''
         elaboration:
         -   _type: Paragraph
             content: 'These are the recognized Annotation Types for the LDM model.
@@ -3333,7 +3211,6 @@ subjects:
         name:
             _type: SubjectName
             content: Annotation types as CSV
-        parenthetical: ''
         elaboration:
         -   _type: CodeBlock
             content: "``` csv\nlabel,emoji,emojiName,emojiUnicode,purpose\nError,\u274C\
@@ -3363,7 +3240,6 @@ subjects:
         _type: SubjectName
         content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
             Intro md Insert OCL md Insert Camel Case md
-    parenthetical: ''
     elaboration:
     -   _type: Paragraph
         content: '== content to add

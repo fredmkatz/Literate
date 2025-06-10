@@ -1,32 +1,21 @@
 # ldm_validators.py
-from typing import List, Dict, Any, Tuple
-from dataclasses import dataclass, field
+from typing import List, Any
 
-from typing import (
-    Any,
-    get_type_hints,
-    get_origin,
-    get_args,
-    Optional,
-    Union,
-    Literal,
-    Callable,
-)
-from dataclasses import fields, is_dataclass
-
+from ldm.ldm_validators_generic import validate_fields
 import ldm.Literate_01 as Literate_01
-from ldm.Literate_01 import Diagnostic, OneLiner, Paragraph
+from ldm.Literate_01 import Diagnostic, OneLiner, Paragraph, SubjectB
+
+All_Diagnostics = []
+
+def createError(obj, category, message) -> Diagnostic:
+    return createDiagnostic(obj, category,  message, severity="Error")
 
 
-def createError(obj, message) -> Diagnostic:
-    return createDiagnostic(obj, message, severity="Error")
+def createWarning(obj, category, message) -> Diagnostic:
+    return createDiagnostic(obj, category, message, severity="Warning")
 
 
-def createWarning(obj, message) -> Diagnostic:
-    return createDiagnostic(obj, message, severity="Warning")
-
-
-def createDiagnostic(obj, message, severity="Error") -> Diagnostic:
+def createDiagnostic(obj, category, message, severity="Error") -> Diagnostic:
     oname_str = ""
     oname = getattr(obj, "name", None)
     if oname:
@@ -34,44 +23,51 @@ def createDiagnostic(obj, message, severity="Error") -> Diagnostic:
         oname_str = oname.content
     print("oname_str for diag is ", oname_str)
     d = Diagnostic(
-        severity=severity, message=Paragraph(message), object_type=obj._type, object_name=oname_str
+        severity=severity, category = category, message=Paragraph(message), object_type=obj._type, object_name=oname_str
     )
     obj.diagnostics.append(d)
+    All_Diagnostics.append(d)
     # print(d)
     return d
 
 
-def validate_references(model) -> List[str]:
+# to do for validate_references
+#   - navigate to lower level subjects to get all classes
+#   - change assumption that subtypes are sinple class names
+#   - add other clauses
+#   - add check to field types refering to class, too
+#   - attribute references
+
+ClassListAttributes = [
+    "based_on",
+    "dependent_of",
+    "dependents",
+]
+
+def validate_references(model) :
     """Validate all references within a model."""
-    return []
-    class_names = set()
-
-    # First pass: collect all class names
-    for subject in model.subjects:
-        for cls in subject.classes:
-            if cls.name in class_names:
-                All_Errors.append(
-                    createError(model, f"Duplicate class name: {cls.name}")
-                )
-            class_names.add(cls.name)
-
+    all_classes = get_all_classes(model)
+    class_names = set(str(c.name) for c in all_classes)
+    print("All class names are", class_names)
+    
     # Second pass: validate references
-    for subject in model.subjects:
-        for cls in subject.classes:
-            # Check subtype_of references
-            for ref in cls.subtype_of or []:
-                if ref not in class_names:
-                    All_Errors.append(
-                        createError(cls, f"Invalid reference to '{ref}' in subtype_of")
-                    )
+    for c in all_classes:
+        for att in ClassListAttributes:
+            attrefs = getattr(c, att, [])
+            # print("Refs for ", att, " are ", attrefs)
+            for ref in attrefs:
+                ref_name = str(ref)
 
-            # Check based_on references
-            for ref in cls.based_on or []:
-                if ref not in class_names:
-                    All_Errors.append(
-                        createError(cls, f"Invalid reference to '{ref}' in based_on")
-                    )
-    return All_Errors
+                if ref_name not in class_names:
+                    createError(c, "Invalid class reference", f"Invalid reference to '{ref}' in {att}")
+                    
+
+def get_all_classes(subject: Literate_01.SubjectB) -> List[Literate_01.Class]:
+    all_classes = subject.classes
+
+    for subject in subject.subjects:
+        all_classes.extend(get_all_classes(subject))
+    return all_classes
 
 
 def validate_component(component) -> List[str]:
@@ -80,20 +76,17 @@ def validate_component(component) -> List[str]:
     component_type = component._type
     name = component.name
     if not name:
-        d = createError(component, "Name is missing")
-        All_Errors.append(d)
+        d = createError(component, "Missing field", "Name is missing")
 
     one_liner = component.one_liner
     if not one_liner:
-        All_Errors.append(
-            createError(component, "Missing oneLiner")
-        )
+        createError(component, "Missing field", "Missing oneLiner")
+        
     if one_liner and len(str(one_liner)) > 90:
-        All_Errors.append(
-            createWarning(
-                component, f"oneLiner is too long. ({len(str(one_liner))} chars)."
-            )
+        createWarning(
+            component, "Style", f"oneLiner is too long. ({len(str(one_liner))} chars)."
         )
+        
 
 
 def validate_subject(self) -> List[str]:
@@ -109,9 +102,8 @@ def validate_attribute_section(self) -> List[str]:
 
     # Check that the attributes list is present
     if not hasattr(self, "attributes") or self.attributes is None:
-        All_Errors.append(
-            createError(self, "Missing list of Attributes", severity="ERROR")
-        )
+        createError(self, "Empty AttributeSection", "Missing list of Attributes", severity="ERROR")
+        
 
     # Validate each attribute
     validate_each(self.attributes)
@@ -149,10 +141,8 @@ def validate_formula(formula):
 
     one_liner = getattr(formula, "one_liner", "")
     if len(str(one_liner)) > 90:
-        All_Errors.append(
-            createError(
-                formula, f"Formula one_liner is too long ({len(str(one_liner))} chars)"
-            )
+        createError(
+                formula, "Style", f"Formula one_liner is too long ({len(str(one_liner))} chars)"
         )
 
     validate_presence(formula, "code")
@@ -162,25 +152,10 @@ def validate_constraint(constraint):
     validate_formula(constraint)
 
 
-# Then attach the methods to the classes
-Literate_01.Component.validate = validate_component
-Literate_01.Subject.validate = validate_subject
-Literate_01.Class.validate = validate_class
-
-Literate_01.AttributeSection.validate = validate_attribute_section
-Literate_01.Attribute.validate = validate_attribute
-Literate_01.Formula.validate = validate_formula
-Literate_01.Constraint.validate = validate_constraint
-Literate_01.DataTypeClause.validate = validate_data_type_clause
-# ... and so on for other classes
-
-All_Errors = []
-
-
 def validate_presence(obj, attname):
     value = getattr(obj, attname, None)
     if value == None:
-        All_Errors.append(createError(obj, f"No value for {attname}"))
+        createError(obj, "No presence", f"No value for {attname}")
 
 
 def validate_each(objects: List):
@@ -188,164 +163,112 @@ def validate_each(objects: List):
         validate_object(obj)
 
 
-def validate_object(obj: Any):
-    if not obj:
-        # print("Null object in validate_object")
-        return
-
-    otype = getattr(obj, "_type", "No type?")
-    oname = getattr(obj, "name", "NoName?")
-    # print(f"Validating object: {otype} - {oname}")
-
-    if hasattr(obj, "validate"):
-        # print(f"... found validate method! - {obj.validate.__name__}")
-
-        obj.validate()
-    else:
-        print(f"... no validate method attached for {otype} {oname}")
-
-    # But in all cases, do deep field valiation
-    validate_fields(obj)
-
-
-from validate_fields import all_validation_errors
-
-
-def create_error(obj, message):
-    """
-    Helper function to log or handle validation errors.
-    """
-    e = f"Validation Error in {getattr(obj, '_type', 'Unknown Type')}: {message}"
-    # global all_validation_errors
-    all_validation_errors.append(e)
-
-
-def validate_fields(obj: Any):
-    """
-    Validate whether the values of fields in the object have the proper types,
-    including deep type checking for generics like List[X].
-    """
-    if not obj:
-        print("Null object in validate_object")
-        return
-
-    otype = getattr(obj, "_type", "No type?")
-    oname = getattr(obj, "name", "NoName?")
-    # print(f"Validating object: {otype} - {oname}")
-
-    # Get the class of the object
-    cls = obj.__class__
-
-    # Ensure the object is a dataclass
-    if not is_dataclass(cls):
-        create_error(obj, "Object is not a dataclass")
-        return
-
-    # Get the list of fields in the class
-    flds = fields(cls)
-
-    for fld in flds:
-        # Get the value of the field in the object
-        value = getattr(obj, fld.name, None)
-
-        # Get the expected type of the field
-        field_type = get_type_hints(cls).get(fld.name, None)
-
-        # Check if the field is optional
-        is_optional = is_optional_type(field_type)
-        # if not is_optional:
-        #     print("Required field?", fld)
-
-        # If the value is None and the field is not optional, create an error
-        if value is None:
-            if not is_optional:
-                create_error(obj, f"Required field '{fld.name}' is missing")
-            continue
-
-        # Perform deep type checking
-        if not check_type(value, field_type):
-            # print("check_type(value) - value is ", value)
-            create_error(
-                obj,
-                f"For field '{fld.name}' - expected {field_type}, but got {type(value)}",
-            )
-
-
-def is_optional_type(field_type):
-    """
-    Check if a field type is Optional (i.e., Union[..., None]).
-    """
-    origin = get_origin(field_type)
-    args = get_args(field_type)
-    return origin is Union and type(None) in args
-
-
-def check_type(value: Any, expected_type: Any) -> bool:
-    """
-    Recursively check if the value matches the expected type, including generics.
-    """
-    # print(f"Checking value: {value}, Expected type: {expected_type}")
-
-    if expected_type is None:
-        return True
-
-    origin = get_origin(expected_type)
-    args = get_args(expected_type)
-
-    # If no origin, it's a simple type
-    if origin is None:
-        return isinstance(value, expected_type)
-
-    # Handle Optional (Union[..., None])
-    if origin is Union and type(None) in args:
-        # Allow None or validate against the other type in the Union
-        non_none_args = [arg for arg in args if arg is not type(None)]
-        return value is None or any(check_type(value, arg) for arg in non_none_args)
-
-    # Handle generic types
-    if origin in {list, set}:
-        if not isinstance(value, origin):
-            return False
-        if args:
-            # Validate all elements in the list or set
-            return all(check_type(item, args[0]) for item in value)
-
-    if origin is dict:
-        if not isinstance(value, dict):
-            return False
-        if args:
-            key_type, value_type = args
-            # Validate all keys and values in the dictionary
-            return all(
-                check_type(k, key_type) and check_type(v, value_type)
-                for k, v in value.items()
-            )
-
-    if origin is tuple:
-        if not isinstance(value, tuple):
-            return False
-        if len(args) == 2 and args[1] is Ellipsis:  # Tuple[X, ...]
-            # Validate all elements in the tuple
-            return all(check_type(item, args[0]) for item in value)
-        # Validate fixed-length tuples
-        return len(value) == len(args) and all(
-            check_type(item, arg) for item, arg in zip(value, args)
-        )
-
-    if origin is Callable:
-        return callable(value)
-
-    if expected_type is Any:
-        return True
-
-    # Add more cases for other generic types if needed
-    return isinstance(value, expected_type)
 
 
 # Helper function to validate entire model
-def validate_model(model):
+def validate_model(the_model):
+# Call this function after all imports are complete
+    attach_validation_methods()
+    # attach_validation_methods_alternative()
     """Validate an entire LDM model."""
-    validate_component(model)
-    validate_each(model.subjects)
+    validate_component(the_model)
+    validate_each(the_model.subjects)
+    
+    print("Validating references...")
 
-    return All_Errors
+    return All_Diagnostics
+
+classes_to_patch = {
+    'Component': validate_component,
+    'Subject': validate_subject,
+    'SubjectB': validate_subject,
+    'Class': validate_class,
+    'AttributeSection': validate_attribute_section,
+    'Attribute': validate_attribute,
+    'Formula': validate_formula,
+    'Constraint': validate_constraint,
+    'DataTypeClause': validate_data_type_clause,
+}
+
+def attach_validation_methods():
+    """Attach validation methods to classes - handle different import paths."""
+    import sys
+    
+    # Find all possible ways the Literate_01 module might be imported
+    possible_modules = []
+    
+    for module_name in sys.modules:
+        if 'Literate_01' in module_name:
+            module = sys.modules[module_name]
+            if hasattr(module, 'SubjectB'):
+                possible_modules.append((module_name, module))
+                print(f"Found Literate_01 module as: {module_name}")
+    
+    if not possible_modules:
+        print("ERROR: No Literate_01 modules found!")
+        return
+    
+    # Patch all possible modules
+    
+    for module_name, module in possible_modules:
+        print(f"Patching module: {module_name}")
+        for class_name, validation_func in classes_to_patch.items():
+            cls = getattr(module, class_name, None)
+            if cls:
+                setattr(cls, 'validate', validation_func)
+                print(f"  Attached validate method to {module_name}.{class_name}")
+            else:
+                print(f"  WARNING: Class {class_name} not found in {module_name}")
+
+
+def validate_object(obj: Any):
+    """Modified validate_object that patches on-the-fly if needed."""
+    if not obj:
+        return
+
+    otype = getattr(obj, "_type", "No type?")
+    pytype = type(obj)
+    pytype_name = pytype.__name__
+    oname = getattr(obj, "name", "NoName?")
+    print(f"Validating object: {otype} Py: {pytype}, PyName: {pytype_name} == {oname}")
+
+    # Check if object has validate method
+    if hasattr(obj, "validate"):
+        print(f"... found validate method! - {obj.validate.__name__}")
+        obj.validate()
+    else:
+        print(f"... no validate method attached for {otype} {oname}")
+        
+        # Try to attach the method on-the-fly
+        validation_func = get_validation_function_for_type(pytype_name)
+        if validation_func:
+            print(f"... attempting to attach {validation_func.__name__} to {pytype}")
+            setattr(pytype, 'validate', validation_func)
+            
+            # Now try again
+            if hasattr(obj, "validate"):
+                print(f"... successfully attached! Calling validate...")
+                obj.validate()
+            else:
+                print(f"... failed to attach method")
+
+    # But in all cases, do deep field validation
+    validate_fields(obj)
+
+def get_validation_function_for_type(type_name):
+    """Return the appropriate validation function for a given type name."""
+    
+    return classes_to_patch.get(type_name)
+    # type_to_func_map = {
+    #     'Component': validate_component,
+    #     'Subject': validate_subject,
+    #     'SubjectB': validate_subject,
+    #     'Class': validate_class,
+    #     'AttributeSection': validate_attribute_section,
+    #     'Attribute': validate_attribute,
+    #     'Formula': validate_formula,
+    #     'Constraint': validate_constraint,
+    #     'DataTypeClause': validate_data_type_clause,
+    # }
+    # return type_to_func_map.get(type_name)
+

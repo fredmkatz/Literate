@@ -114,6 +114,8 @@ class Casing(PresentableToken):     # Note. PresentableToken now includes Pydant
             return cls(content=content)
         return cls(content=str(data))
 
+    def __str__(self):
+        return self.content
 
 @dataclass
 class NormalCase(Casing):

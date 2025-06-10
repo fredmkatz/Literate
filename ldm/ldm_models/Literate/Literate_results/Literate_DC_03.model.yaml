@@ -1,16 +1,9 @@
 _type: LiterateModel
-one_liner: null
-elaboration: []
-annotations: []
-diagnostics: []
 is_embellishment: false
 prefix: '#'
 name:
     _type: SubjectName
     content: Literate Data Model
-parenthetical: ''
-abbreviation: null
-classes: []
 subjects:
 -   _type: SubjectB
     one_liner:
@@ -33,55 +26,33 @@ subjects:
             before delving into the specifics of each specialized component.
 
             '
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Preliminaries
-    parenthetical: ''
-    abbreviation: null
     classes:
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: An element or building block of the literate data model
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: Component
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the name of the component, not in camel case
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: normalName
             parenthetical: '*String*'
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -95,27 +66,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The name of the component
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: name
             parenthetical: CamelName
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -129,25 +89,13 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: qualifiedName
             parenthetical: '*QualifiedCamel*'
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -161,19 +109,11 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: a short form of the component's name, used for cross references
                     and improved readability.
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -184,16 +124,12 @@ subjects:
                     content: '"LDM" is the short form of "Literate Data Model".'
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: abbreviatedName
             parenthetical: '*CamelName*'
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -207,11 +143,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
             default:
                 _type: Default
                 one_liner:
@@ -219,30 +150,20 @@ subjects:
                     content: ' name
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: A brief, one-line definition or description of the component,
                     suitable for use in a descriptive table of contents. _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: oneLiner
             parenthetical: RichLine
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -256,28 +177,17 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: A more detailed explanation or discussion of the component
                     _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: elaboration
             parenthetical: RichText
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -291,28 +201,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         attribute_sections:
         -   _type: AttributeSection
             one_liner:
                 _type: OneLiner
                 content: mechanical attributes
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: __
             name:
                 _type: AttributeSectionName
                 content: For Machinery
-            parenthetical: ''
-            abbreviation: null
             is_optional:
                 _type: IsOptional
                 content: false
@@ -322,7 +220,6 @@ subjects:
                     _type: OneLiner
                     content: Indicates whether this component is an embellishment
                         added during post-parsing processing _
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -338,16 +235,12 @@ subjects:
                             source.
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: isEmbellishment
                 parenthetical: Boolean
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -361,11 +254,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -373,21 +261,14 @@ subjects:
                         content: ' false
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: a kind of note, or aside, used to call attention to additional
                 information about some Component.
-        elaboration: []
         annotations:
         -   _type: Annotation
             label:
@@ -400,43 +281,26 @@ subjects:
                     or *registered* Annotation Types.
             emoji:
                 _type: Emoji
-                content: ''
-            elaboration: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: AnnotationType
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
         based_on:
         -   _type: ClassName
             content: LiterateDataModel
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: an emoji
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: emoji
             parenthetical: Emoji
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -450,27 +314,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: an emoji
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: emojiName
             parenthetical: String
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -484,27 +337,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the Unicode for the emoji
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: emojiUnicode
             parenthetical: Unicode
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -518,27 +360,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: A short label to indicate the purpose of the annotation _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: label
             parenthetical: CamelName
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -552,27 +383,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the plural form of the label
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: plural
             parenthetical: '*UpperCamel*'
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -586,11 +406,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
             default:
                 _type: Default
                 one_liner:
@@ -598,65 +413,30 @@ subjects:
                     content: ' based on label
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the intended reason for the annotation.
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: purpose
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
         based_on:
         -   _type: ClassName
             content: Component
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -669,16 +449,12 @@ subjects:
                         hoc*.
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: annotationType
             parenthetical: optional Annotation Type
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -692,13 +468,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -708,15 +477,12 @@ subjects:
                 content: 'But any short label is valid.
 
                     '
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: label
             parenthetical: CamelName
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -730,11 +496,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
             default:
                 _type: Default
                 one_liner:
@@ -742,27 +503,16 @@ subjects:
                     content: ' from annotationType
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: emoji
             parenthetical: optional Emoji
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -776,11 +526,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
             default:
                 _type: Default
                 one_liner:
@@ -788,29 +533,19 @@ subjects:
                     content: ' from annotation type
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The content or body of the annotation
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: content
             parenthetical: '*RichText*'
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -824,26 +559,13 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         attribute_sections:
         -   _type: AttributeSection
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: __
             name:
                 _type: AttributeSectionName
                 content: For Machinery
-            parenthetical: ''
-            abbreviation: null
             is_optional:
                 _type: IsOptional
                 content: false
@@ -853,7 +575,6 @@ subjects:
                     _type: OneLiner
                     content: Indicates whether this annotation is an embellishment
                         added during post-parsing processing _
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -869,16 +590,12 @@ subjects:
                             LDM source.
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: isEmbellishment
                 parenthetical: Boolean
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -892,11 +609,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -904,28 +616,15 @@ subjects:
                         content: ' false
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
-    subjects: []
 -   _type: SubjectB
-    one_liner: null
-    elaboration: []
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: The Model and its Subjects
-    parenthetical: ''
-    abbreviation: null
     classes:
     -   _type: Class
         one_liner:
@@ -933,15 +632,11 @@ subjects:
             content: 'A representation of a domain''s entities, attributes, and relationships,
 
                 along with explanatory text and examples'
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: LiterateDataModel
-        parenthetical: ''
         abbreviation: LDM
         plural: ' LiterateDataModels
 
@@ -954,27 +649,15 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: name
             parenthetical: UpperCamel
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -988,29 +671,18 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: 'list of all classes in the model, as ordered in the
 
                     definition of the model.'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: allSubjects
             parenthetical: List of Classes
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1026,10 +698,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
             derivation:
                 _type: Derivation
                 one_liner:
@@ -1037,15 +705,9 @@ subjects:
                     content: ' gathering s.allSubjects over s in subjectAreas
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
-            default: null
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -1053,33 +715,22 @@ subjects:
                     content: ' Subject names must be unique across the model.
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
                 message:
                     _type: Paragraph
-                    content: ''
-                severity: null
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: list of all classes in the model, as ordered in the definition
                     of the model.
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: allClasses
             parenthetical: List of Classes
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1095,10 +746,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
             derivation:
                 _type: Derivation
                 one_liner:
@@ -1106,15 +753,9 @@ subjects:
                     content: ' gathering s.allClasses over s in allSubjects.
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
-            default: null
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -1122,47 +763,29 @@ subjects:
                     content: ' Class names must be unique across the model.
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
                 message:
                     _type: Paragraph
-                    content: ''
-                severity: null
         attribute_sections:
         -   _type: AttributeSection
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: __
             name:
                 _type: AttributeSectionName
                 content: Modeling Configuration
-            parenthetical: ''
-            abbreviation: null
             is_optional:
                 _type: IsOptional
                 content: false
             attributes:
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: annotationTypes
                 parenthetical: List of AnnotationTypes
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1178,28 +801,17 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: the recommended lanquage  for expressing derivation,
                         defaults, and constraints
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: preferredCodingLanguage
                 parenthetical: Coding Language
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1213,11 +825,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -1225,27 +832,16 @@ subjects:
                         content: ' OCL
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: alternateCodingLanguages
                 parenthetical: optional List of Coding Languages
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1261,28 +857,17 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: the recommended lanquage  for expressing derivation,
                         defaults, and constraints
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: preferredTemplateLanguage
                 parenthetical: Template Language
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1296,11 +881,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -1308,27 +888,16 @@ subjects:
                         content: ' Handlebars
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: alternateTemplateLanguages
                 parenthetical: optional List of Template Languages
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1344,28 +913,17 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: A list of functions that require sophisticated AI-powered
                         implementation *
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: aiFunctions
                 parenthetical: List of String
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1381,10 +939,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -1392,31 +946,19 @@ subjects:
                         content: ' [''aiEnglishPlural()'']
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                default: null
-                constraints: []
     -   _type: Class
-        one_liner: null
         elaboration:
         -   _type: Paragraph
             content: "Subjects are the chapters an sections of the model.\n \n+ A\
                 \ subject need not contain any Classes if it\u2019s just expository.\n"
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: SubjectASpecificTopicOrThemeWithinTheModel
-        parenthetical: ''
-        abbreviation: null
         plural: ' Subjects
 
             '
@@ -1428,29 +970,18 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
         dependent_of:
         -   _type: ClassName
             content: LiterateDataModel
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: name
             parenthetical: UpperCamel
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1464,28 +995,17 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The parent subject, if any, under which this subject is nested
                     _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: parentSubject
             parenthetical: optional Subject
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1499,19 +1019,11 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The major classes related to this subject, in the order in
                     which they should be presented _
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -1522,16 +1034,12 @@ subjects:
                     content: define chapter, section, subsection as levels?
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: classes
             parenthetical: ListOf Classes
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1547,51 +1055,18 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: byItsSubtypeClasses
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1603,15 +1078,12 @@ subjects:
                     before the childSubjects.
 
                     '
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: childSubjects
             parenthetical: ListOf Subjects
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1627,8 +1099,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
             inverse:
                 _type: AttributeReference
                 class_name:
@@ -1637,23 +1107,12 @@ subjects:
                 attribute_name:
                     _type: AttributeName
                     content: parentSubject
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
-        parenthetical: ''
-        abbreviation: null
         plural: ' SubjectAreas
 
             '
@@ -1665,47 +1124,28 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
         where: ' parentSubject is absent
 
             '
-        constraints: []
-        attributes: []
-        attribute_sections: []
     subjects:
     -   _type: SubjectC
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: '###'
         name:
             _type: SubjectName
             content: Classes
-        parenthetical: ''
-        abbreviation: null
         classes:
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: A key entity or object type in the model, often corresponding
                     to a real-world concept
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: Class
-            parenthetical: ''
-            abbreviation: null
             plural: ' Classes
 
                 '
@@ -1717,13 +1157,7 @@ subjects:
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            subtypings: []
-            subtypes: null
-            based_on: null
-            dependent_of: null
-            dependents: null
             is_value_type: false
-            where: null
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -1731,18 +1165,11 @@ subjects:
                     content: ' Within each Class, attribute names must be unique.
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
                 message:
                     _type: Paragraph
-                    content: ''
-                severity: null
             attributes:
             -   _type: Attribute
                 one_liner:
@@ -1763,21 +1190,18 @@ subjects:
                             the plural form. The input program will just look it up.
                     emoji:
                         _type: Emoji
-                        content: ''
                     elaboration:
                     -   _type: Paragraph
                         content: 'The exception is when a common noun has two plural
                             forms, like People and Persons. But this is unusual.
 
                             '
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: pluralForm
                 parenthetical: UpperName
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1791,11 +1215,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -1803,15 +1222,9 @@ subjects:
                         content: ' the regular plural, formed by adding "s" or "es".
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1836,16 +1249,12 @@ subjects:
                             in this metamodel.
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: basedOn
                 parenthetical: SetOf Classes
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1861,27 +1270,16 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: The parent class
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: supertypes
                 parenthetical: es
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1895,19 +1293,11 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: the criteria, or dimensions, by which the class can be
                         divided into subtypes
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -1920,16 +1310,12 @@ subjects:
                             Hardcover, Paperback), or subject (e.g., Science, History).
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: subtypings
                 parenthetical: list of Subtypings
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1945,19 +1331,11 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: "Any subtypes or specializations of this class based\
                         \ on it\u2019s subtypings. _"
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -1970,16 +1348,12 @@ subjects:
                             `PaperbackBook`, `ScienceBook`, and `HistoryBook`.
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: subtypes
                 parenthetical: ListOf Classes
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1995,28 +1369,17 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: The attributes or properties of the class, in the order
                         in which they should be presented _
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: attributes
                 parenthetical: ListOf Attributes
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2032,28 +1395,17 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: additional attributes or properties of the class, grouped
                         for clarity and elaboration.  _
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: attributeSections
                 parenthetical: ListOf AttributeSections
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2069,19 +1421,11 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: Any constraints, rules, or validations specific to this
                         class _
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -2093,16 +1437,12 @@ subjects:
                             or the Attribute. Always?
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: constraints
                 parenthetical: ListOf Constraints
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2118,28 +1458,17 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: Any behaviors or operations associated with this class
                         _
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: methods
                 parenthetical: ListOf Methods
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2155,26 +1484,13 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             attribute_sections:
             -   _type: AttributeSection
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: __
                 name:
                     _type: AttributeSectionName
                     content: Implied Attributes
-                parenthetical: ''
-                abbreviation: null
                 is_optional:
                     _type: IsOptional
                     content: false
@@ -2183,16 +1499,12 @@ subjects:
                     one_liner:
                         _type: OneLiner
                         content: the Classes which are basedOn this Class
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     prefix: '-'
                     name:
                         _type: AttributeName
                         content: dependents
                     parenthetical: optional SetOf Classes
-                    abbreviation: null
                     data_type_clause:
                         _type: DataTypeClause
                         data_type:
@@ -2208,8 +1520,6 @@ subjects:
                         is_optional_lit:
                             _type: IsOptional
                             content: true
-                        cardinality: null
-                    overrides: null
                     inverse:
                         _type: AttributeReference
                         class_name:
@@ -2218,22 +1528,13 @@ subjects:
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
-                    inverse_of: null
-                    derivation: null
-                    default: null
-                    constraints: []
                 -   _type: Attribute
-                    one_liner: null
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     prefix: '-'
                     name:
                         _type: AttributeName
                         content: uniqueKeys
                     parenthetical: optional Set of UniqueKeys
-                    abbreviation: null
                     data_type_clause:
                         _type: DataTypeClause
                         data_type:
@@ -2249,8 +1550,6 @@ subjects:
                         is_optional_lit:
                             _type: IsOptional
                             content: true
-                        cardinality: null
-                    overrides: null
                     inverse:
                         _type: AttributeReference
                         class_name:
@@ -2259,49 +1558,28 @@ subjects:
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
-                    inverse_of: null
-                    derivation: null
-                    default: null
-                    constraints: []
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: a way in which subtypes of a Class may be classified
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: Subtyping
             parenthetical: Subtype of Component
-            abbreviation: null
-            plural: null
-            subtype_of: null
-            subtypings: []
-            subtypes: null
-            based_on: null
             dependent_of:
             -   _type: ClassName
                 content: Class
-            dependents: null
             is_value_type: false
-            where: null
-            constraints: []
             attributes:
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: name
                 parenthetical: Upper Name
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2315,25 +1593,13 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: isExclusive
                 parenthetical: Boolean
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2347,11 +1613,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -2359,27 +1620,16 @@ subjects:
                         content: ' true
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: isExhaustive
                 parenthetical: Boolean
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2393,11 +1643,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -2405,17 +1650,10 @@ subjects:
                         content: ' true
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
                 elaboration:
                 -   _type: Paragraph
                     content: "***DSL***:  Shown in the DSL as\n \n+ > Subbtypes: byBrand\
@@ -2432,16 +1670,12 @@ subjects:
                         content: every class can have an unnamed subtyping.
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: classes
                 parenthetical: List of Classes
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2457,27 +1691,12 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
-            attribute_sections: []
         -   _type: Class
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: ValueType
-            parenthetical: ''
-            abbreviation: null
-            plural: null
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -2486,29 +1705,13 @@ subjects:
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            subtypings: []
-            subtypes: null
-            based_on: null
-            dependent_of: null
-            dependents: null
             is_value_type: false
-            where: null
-            constraints: []
-            attributes: []
-            attribute_sections: []
         -   _type: Class
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: ReferenceType
-            parenthetical: ''
-            abbreviation: null
-            plural: null
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -2517,19 +1720,8 @@ subjects:
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            subtypings: []
-            subtypes: null
-            based_on: null
-            dependent_of: null
-            dependents: null
             is_value_type: false
-            where: null
-            constraints: []
-            attributes: []
-            attribute_sections: []
         -   _type: Class
-            one_liner: null
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -2542,17 +1734,11 @@ subjects:
                         a new Code Type and invent a name for it.  Instead:'
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: CodeTypeADataTypeOrEnumerationUsedInTheModel
-            parenthetical: ''
-            abbreviation: null
-            plural: null
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -2561,68 +1747,31 @@ subjects:
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            subtypings: []
-            subtypes: null
-            based_on: null
-            dependent_of: null
-            dependents: null
             is_value_type: false
-            where: null
-            constraints: []
             attributes:
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFormCodeDescription
-                parenthetical: ''
-                abbreviation: null
-                data_type_clause: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedThatCodeTypeWillBeMarkedAsIsCaptive
-                parenthetical: ''
-                abbreviation: null
-                data_type_clause: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: the code type was implied by use in an attribute and
                         is only used for that attribute
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: isCaptive
                 parenthetical: Boolean
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2636,17 +1785,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
-            attribute_sections: []
         -   _type: Class
-            one_liner: null
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -2657,41 +1796,23 @@ subjects:
                     content: CodeType
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: CodeValue
-            parenthetical: ''
-            abbreviation: null
-            plural: null
-            subtype_of: null
-            subtypings: []
-            subtypes: null
-            based_on: null
-            dependent_of: null
-            dependents: null
             is_value_type: false
-            where: null
-            constraints: []
             attributes:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: A short code or abbreviationi for the value _
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: code
                 parenthetical: NameString
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2705,27 +1826,16 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: an explanation of what the code means
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: description
                 parenthetical: '*RichText*'
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2739,29 +1849,15 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
-            attribute_sections: []
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: a list of attributes of a class
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: Key
-            parenthetical: ''
-            abbreviation: null
-            plural: null
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -2770,22 +1866,15 @@ subjects:
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            subtypings: []
-            subtypes: null
-            based_on: null
             dependent_of:
             -   _type: ClassName
                 content: Class
-            dependents: null
             is_value_type: false
-            where: null
-            constraints: []
             attributes:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: the attributes of the base Class.
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -2797,16 +1886,12 @@ subjects:
                             ordering keys.
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: keyAttributes
                 parenthetical: List of Attributes
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2822,12 +1907,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
                 constraints:
                 -   _type: Constraint
                     one_liner:
@@ -2836,42 +1915,26 @@ subjects:
                             the base class.
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
                     message:
                         _type: Paragraph
-                        content: ''
-                    severity: null
                 -   _type: Constraint
                     one_liner:
                     -   _type: OneLiner
                         content: " no repetitions allowed in keyAttributes\n> \U0001F44D\
                             \ **Issue**: introduce PureLists?"
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
                     message:
                         _type: Paragraph
-                        content: ''
-                    severity: null
-            attribute_sections: []
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: a list of attributes on which instances of the base class
                     may be keyed.
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -2882,17 +1945,11 @@ subjects:
                     content: order unimportant for Unique Keys.
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: _
             name:
                 _type: ClassName
                 content: UniqueKey
-            parenthetical: ''
-            abbreviation: null
-            plural: null
             subtype_of:
             -   type: _SubtypeBy
                 class_name:
@@ -2901,45 +1958,23 @@ subjects:
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            subtypings: []
-            subtypes: null
-            based_on: null
-            dependent_of: null
-            dependents: null
             is_value_type: false
-            where: null
-            constraints: []
-            attributes: []
-            attribute_sections: []
-        subjects: []
 -   _type: SubjectB
-    one_liner: null
-    elaboration: []
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Attributes
-    parenthetical: ''
-    abbreviation: null
     classes:
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: a group of attributes for a class that merit a shared explanation.
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: AttributeSection
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -2948,16 +1983,10 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
         based_on:
         -   _type: ClassName
             content: Class
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
@@ -2971,15 +2000,12 @@ subjects:
                     \ it is marked.\n \n+ &nbsp;\n \n+ But if the Arrribute Section\
                     \ is optional each attribute in the section is only required if\
                     \ any attribute in the section is ptresent.\n"
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: isOptional
             parenthetical: Boolean
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2993,26 +2019,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: AttributeAPropertyOrCharacteristicOfAClass
-        parenthetical: ''
-        abbreviation: null
         plural: ' Attributes
 
             '
@@ -3024,29 +2036,18 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
         based_on:
         -   _type: ClassName
             content: AttributeSection
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: name
             parenthetical: Lower Camel
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3060,16 +2061,9 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
             overrides:
                 _type: AttributeReference
                 class_name: CamelName
-                attribute_name: ''
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -3088,16 +2082,12 @@ subjects:
                     content: the section below on Data Type Specifiers.
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: dataType
             parenthetical: DataType
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3111,26 +2101,13 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         attribute_sections:
         -   _type: AttributeSection
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: __
             name:
                 _type: AttributeSectionName
                 content: Cardinalities
-            parenthetical: ''
-            abbreviation: null
             is_optional:
                 _type: IsOptional
                 content: false
@@ -3140,16 +2117,12 @@ subjects:
                     _type: OneLiner
                     content: Indicates whether the attribute must have a value for
                         every instance of the class _
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: isOptional
                 parenthetical: Boolean
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3163,11 +2136,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -3175,21 +2143,14 @@ subjects:
                         content: '*** False
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: The cardinality of the relationship represented by the
                         attribute _
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -3197,19 +2158,14 @@ subjects:
                         content: forExample
                     content:
                         _type: OneLiner
-                        content: ''
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: cardinality
                 parenthetical: CardinalityCode
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3223,11 +2179,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
                 default:
                     _type: Default
                     one_liner:
@@ -3245,26 +2196,16 @@ subjects:
                             one-liner.
 
                             '
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: author
                 parenthetical: 1:1 Author
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3278,16 +2219,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
                 annotations:
                 -   _type: Annotation
                     label:
@@ -3298,16 +2230,12 @@ subjects:
                         content: how this works with optionality
                     emoji:
                         _type: Emoji
-                        content: ''
-                    elaboration: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: books
                 parenthetical: optional N:M Set of Books
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3321,41 +2249,23 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
         -   _type: AttributeSection
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: __
             name:
                 _type: AttributeSectionName
                 content: Inverse Attributes
-            parenthetical: ''
-            abbreviation: null
             is_optional:
                 _type: IsOptional
                 content: false
             attributes:
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: isInvertible
                 parenthetical: Boolean
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3369,10 +2279,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -3381,31 +2287,20 @@ subjects:
                             of members of a class.
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                default: null
-                constraints: []
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: the class which contains, or would contain the inverse
                         attribute
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: inverseClass
                 parenthetical: optional Class
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3419,10 +2314,6 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -3430,28 +2321,16 @@ subjects:
                         content: ' from the data type. Null unless arrribute is invertible.
 
                             '
-                    elaboration: []
-                    annotations: []
-                    diagnostics: []
                     is_embellishment: false
                     english:
                         _type: Paragraph
-                        content: ''
-                    code: null
-                default: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: inverseAttribute
                 parenthetical: optional Attribute
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3465,25 +2344,13 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: inverseIsOptional
                 parenthetical: optional Attribute
-                abbreviation: null
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -3497,35 +2364,13 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                    cardinality: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: Formulas
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
@@ -3535,7 +2380,6 @@ subjects:
 
                     Now running to a second line with the parenthentical on yet a
                     third line'
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -3548,7 +2392,6 @@ subjects:
                         \ Example needed."
                 emoji:
                     _type: Emoji
-                    content: ''
                 elaboration:
                 -   _type: Paragraph
                     content: 'Yes, it handled extra lines.  Let''s see about additional
@@ -3559,14 +2402,12 @@ subjects:
                     content: 'Last paragraph here
 
                         '
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: default
             parenthetical: optional Derivation
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3580,19 +2421,11 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: For derived attributes, the rule or formula for calculating
                     the value _
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -3603,16 +2436,12 @@ subjects:
                     content: on insert vs on access?
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: derivation
             parenthetical: optional Derivation
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3626,18 +2455,10 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: Any validation rules specific to this attribute _
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -3648,16 +2469,12 @@ subjects:
                     content: from Class.constraints
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: constraints
             parenthetical: ListOf Constraints
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3673,88 +2490,44 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         attribute_sections:
         -   _type: AttributeSection
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: __
             name:
                 _type: AttributeSectionName
                 content: Override Tracking
-            parenthetical: ''
-            abbreviation: null
             is_optional:
                 _type: IsOptional
                 content: false
             attributes:
             -   _type: Attribute
-                one_liner: null
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: overrides
-                parenthetical: ''
-                abbreviation: null
-                data_type_clause: null
-                overrides: null
-                inverse: null
-                inverse_of: null
-                derivation: null
-                default: null
-                constraints: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
-        parenthetical: ''
-        abbreviation: null
         plural: ' Derivations
 
             '
-        subtype_of: null
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: An English language statement of the derivation rule _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: statement
             parenthetical: RichText
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3768,28 +2541,17 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The formal expression of the derivation in a programming
                     language _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: expression
             parenthetical: CodeExpression
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3803,26 +2565,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
-        parenthetical: ''
-        abbreviation: null
         plural: ' Constraints
 
             '
@@ -3834,29 +2582,18 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: An English language statement of the constraint _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: statement
             parenthetical: RichText
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3870,28 +2607,17 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The formal expression of the constraint in a programming
                     language
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: expression
             parenthetical: e.g., OCL _(CodeExpression
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3905,25 +2631,13 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: severity
             parenthetical: Code
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3937,63 +2651,25 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: '**Warning** - nothing fatal; just a caution'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
-            name: null
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: '**Error** - serious. Fix now'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
-            name: null
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: message
             parenthetical: Template
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4007,27 +2683,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: ClassConstraint
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -4036,31 +2697,16 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
         based_on:
         -   _type: ClassName
             content: Class
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
-        attributes: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: AttributeConstraint
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -4069,55 +2715,28 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
         based_on:
         -   _type: ClassName
             content: Attribute
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
-        attributes: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: CodeExpression
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the programming language
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: language
             parenthetical: Code
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4131,63 +2750,25 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: 'OCL: Object Constraint Language'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
-            name: null
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: 'Java: Java'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
-            name: null
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: expression
             parenthetical: String
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4201,40 +2782,19 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
-    subjects: []
 -   _type: SubjectB
-    one_liner: null
-    elaboration: []
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Methods
-    parenthetical: ''
-    abbreviation: null
     classes:
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: MethodABehaviorOrOperationAssociatedWithAClass
-        parenthetical: ''
-        abbreviation: null
         plural: ' Methods
 
             '
@@ -4246,29 +2806,18 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The input parameters of the method _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: parameters
             parenthetical: ListOf Parameters
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4284,27 +2833,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The data type of the value returned by the method _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: returnType
             parenthetical: DataType
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4318,26 +2856,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: ParameterAnInputToAMethod
-        parenthetical: ''
-        abbreviation: null
         plural: ' Parameters
 
             '
@@ -4349,29 +2873,18 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The data type of the parameter _
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: type
             parenthetical: DataType
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4385,27 +2898,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: The cardinality of the parameter
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: cardinality
             parenthetical: e.g., optional, required
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4419,67 +2921,33 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
-    subjects: []
 -   _type: SubjectB
-    one_liner: null
     elaboration:
     -   _type: Paragraph
         content: '*ValueType*:**Data Type**
 
             '
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Data Types
-    parenthetical: ''
-    abbreviation: null
     classes:
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: SimpleDataTypeSubtpeOfDataType
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: coreClass
             parenthetical: Class
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4493,49 +2961,21 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: ComplexDataType
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: aggregation
             parenthetical: Aggregating Operator
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4549,25 +2989,13 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: aggregatedTypes
             parenthetical: List of DataTypes
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4583,49 +3011,21 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: AggregatingOperator
-        parenthetical: ''
-        abbreviation: null
-        plural: null
-        subtype_of: null
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: name
             parenthetical: Code
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4639,82 +3039,31 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: '**SetOf**'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
-            name: null
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: '**ListOf**'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
-            name: null
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: '**Mapping**'
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
-            name: null
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: arity
             parenthetical: Integer
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4728,25 +3077,13 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: spelling
             parenthetical: Template
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4760,50 +3097,30 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
-    subjects: []
 -   _type: SubjectB
-    one_liner: null
     elaboration:
     -   _type: Paragraph
         content: 'insert Camel Case.md
 
             '
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Low level Data Types
-    parenthetical: ''
-    abbreviation: null
     classes:
     -   _type: Class
-        one_liner: null
         elaboration:
         -   _type: Paragraph
             content: 'A short string without punctuation or spaces, suitable for names,
                 labels, or identifiers and presented in camel case.
 
                 '
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: ValueTypeCamelName
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -4812,18 +3129,9 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
             annotations:
             -   _type: Annotation
                 label:
@@ -4834,7 +3142,6 @@ subjects:
                     content: '"firstName", "orderDate", "customerID"'
                 emoji:
                     _type: Emoji
-                    content: ''
                 elaboration:
                 -   _type: Paragraph
                     content: "> \U0001F4DD ***ModelingNote***: Putting the non-empty\
@@ -4853,16 +3160,12 @@ subjects:
                         understanding before it is used further in the model.'
                 emoji:
                     _type: Emoji
-                    content: ''
-                elaboration: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: valueTheString
             parenthetical: String
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -4876,12 +3179,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -4890,24 +3187,15 @@ subjects:
                         be empty.
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
                 message:
                     _type: Paragraph
-                    content: ''
-                severity: null
-        attribute_sections: []
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a capital letter
-        elaboration: []
         annotations:
         -   _type: Annotation
             label:
@@ -4918,17 +3206,11 @@ subjects:
                 content: _ "Customer", "ProductCategory", "PaymentMethod"
             emoji:
                 _type: Emoji
-                content: ''
-            elaboration: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: UpperCamel
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -4937,23 +3219,14 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
         where: ' content begins with an upper case letter.
 
             '
-        constraints: []
-        attributes: []
-        attribute_sections: []
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a lower case letter
-        elaboration: []
         annotations:
         -   _type: Annotation
             label:
@@ -4964,17 +3237,11 @@ subjects:
                 content: '"firstName", "orderTotal", "shippingAddress"'
             emoji:
                 _type: Emoji
-                content: ''
-            elaboration: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: LowerCamel
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -4983,33 +3250,19 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
         where: ' content begins with a lower case letter.
 
             '
-        constraints: []
-        attributes: []
-        attribute_sections: []
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: an expression consisting of Camel Names separated by periods
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: QualifiedCamel
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -5018,13 +3271,7 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
         constraints:
         -   _type: Constraint
             one_liner:
@@ -5033,33 +3280,17 @@ subjects:
                     of the camel names must be Upper Camel except, possibly, the first.
 
                     '
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             english:
                 _type: Paragraph
-                content: ''
-            code: null
             message:
                 _type: Paragraph
-                content: ''
-            severity: null
-        attributes: []
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: RichTextAStringWithMarkupForBlockLevelFormatting
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -5068,29 +3299,18 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the string content
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: value
             parenthetical: string
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -5104,27 +3324,16 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the rich text coding language used
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: format
             parenthetical: Code
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -5138,67 +3347,27 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: html
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
         -   _type: Attribute
-            one_liner: null
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: markDown
-            parenthetical: ''
-            abbreviation: null
-            data_type_clause: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
-            constraints: []
-        attribute_sections: []
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: String with markup for line level formatting.
-        elaboration: []
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: RichLine
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -5207,29 +3376,18 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the string content
-            elaboration: []
-            annotations: []
-            diagnostics: []
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: value
             parenthetical: string
-            abbreviation: null
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -5243,12 +3401,6 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-                cardinality: null
-            overrides: null
-            inverse: null
-            inverse_of: null
-            derivation: null
-            default: null
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -5256,22 +3408,12 @@ subjects:
                     content: ' must not containa line break or new line character
 
                         '
-                elaboration: []
-                annotations: []
-                diagnostics: []
                 is_embellishment: false
                 english:
                     _type: Paragraph
-                    content: ''
-                code: null
                 message:
                     _type: Paragraph
-                    content: ''
-                severity: null
-        attribute_sections: []
     -   _type: Class
-        one_liner: null
-        elaboration: []
         annotations:
         -   _type: Annotation
             label:
@@ -5279,24 +3421,18 @@ subjects:
                 content: values
             content:
                 _type: OneLiner
-                content: ''
             emoji:
                 _type: Emoji
-                content: ''
             elaboration:
             -   _type: Paragraph
                 content: '===
 
                     '
-        diagnostics: []
         is_embellishment: false
         prefix: _
         name:
             _type: ClassName
             content: PrimitiveType
-        parenthetical: ''
-        abbreviation: null
-        plural: null
         subtype_of:
         -   type: _SubtypeBy
             class_name:
@@ -5312,34 +3448,16 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        subtypings: []
-        subtypes: null
-        based_on: null
-        dependent_of: null
-        dependents: null
         is_value_type: false
-        where: null
-        constraints: []
-        attributes: []
-        attribute_sections: []
-    subjects: []
 -   _type: SubjectB
-    one_liner: null
-    elaboration: []
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
             Intro md Insert OCL md Insert Camel Case md
-    parenthetical: ''
-    abbreviation: null
-    classes: []
     subjects:
     -   _type: SubjectC
-        one_liner: null
         elaboration:
         -   _type: Paragraph
             content: 'These are the recognized Annotation Types for the LDM model.
@@ -5383,19 +3501,12 @@ subjects:
                 \",\n\"emojiName\": \"mag\",\n\"emojiUnicode\": \"U+1F50D\",\n\"purpose\"\
                 : \"Indicates a cross-reference to another relevant element within\
                 \ the model.\"\n}\n]\n@endjson\n\n```"
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: '###'
         name:
             _type: SubjectName
             content: Annotation Types Used
-        parenthetical: ''
-        abbreviation: null
-        classes: []
-        subjects: []
     -   _type: SubjectC
-        one_liner: null
         elaboration:
         -   _type: CodeBlock
             content: "``` csv\nlabel,emoji,emojiName,emojiUnicode,purpose\nError,\u274C\
@@ -5419,33 +3530,20 @@ subjects:
             content: '===
 
                 '
-        annotations: []
-        diagnostics: []
         is_embellishment: false
         prefix: '###'
         name:
             _type: SubjectName
             content: Annotation types as CSV
-        parenthetical: ''
-        abbreviation: null
-        classes: []
-        subjects: []
 -   _type: SubjectB
-    one_liner: null
     elaboration:
     -   _type: Paragraph
         content: '== content to add
 
             '
-    annotations: []
-    diagnostics: []
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
             Intro md Insert OCL md Insert Camel Case md
-    parenthetical: ''
-    abbreviation: null
-    classes: []
-    subjects: []

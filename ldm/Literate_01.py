@@ -177,13 +177,14 @@ class Annotation(PydanticMixin):
 class Diagnostic(PydanticMixin):
     object_name: str = ""
     object_type: str = ""
+    category: str = ""
     message: Paragraph = None
 
     severity: str = "Error"
     constraint_name: str = ""
 
     def __str__(self):
-        return f"{self.severity} on {self.object_type} named {self.object_name}: {self.message}"
+        return f"{self.severity} ({self.category}) on {self.object_type} named {self.object_name}: {self.message}"
 
     def shared_post_init(self):
         if self.message == None:
@@ -367,8 +368,8 @@ class BaseDataType(DataType):
     class Meta:
         presentable_template = "{class_name} {? - {is_value}}"
 
-    # def __str__(self):
-    #     return f"{self.as_value_type} {self.class_name}"
+    def __str__(self):
+        return f"{self.as_value_type} {self.class_name}"
 
 
 @dataclass
@@ -489,9 +490,9 @@ class Class(Component):
     subtypings: Optional[List[Subtyping]] = block_list_field(default_factory=list)
 
     subtypes: Optional[List[SubtypeBy]]  = None # field(default_factory=list)
-    based_on: Optional[List[ClassName]] =  None # field(default_factory=list)
-    dependent_of: Optional[List[ClassName]] =  None # field(default_factory=list)
-    dependents: Optional[List[ClassName]] =  None # field(default_factory=list)
+    based_on: Optional[List[ClassName]] =  field(default_factory=list)
+    dependent_of: Optional[List[ClassName]] = field(default_factory=list)
+    dependents: Optional[List[ClassName]] =  field(default_factory=list)
     is_value_type: bool = False
     where: Optional[OneLiner] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
