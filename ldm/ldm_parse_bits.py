@@ -51,7 +51,6 @@ keywords = [
     # for Components
     Keyword("abbreviation"),
     Keyword("name"),
-    Keyword("plural"),
     Keyword("note"),
     Keyword("issue"),
     Keyword("example"),

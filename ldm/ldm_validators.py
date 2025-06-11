@@ -259,16 +259,4 @@ def get_validation_function_for_type(type_name):
     """Return the appropriate validation function for a given type name."""
     
     return classes_to_patch.get(type_name)
-    # type_to_func_map = {
-    #     'Component': validate_component,
-    #     'Subject': validate_subject,
-    #     'SubjectB': validate_subject,
-    #     'Class': validate_class,
-    #     'AttributeSection': validate_attribute_section,
-    #     'Attribute': validate_attribute,
-    #     'Formula': validate_formula,
-    #     'Constraint': validate_constraint,
-    #     'DataTypeClause': validate_data_type_clause,
-    # }
-    # return type_to_func_map.get(type_name)
 

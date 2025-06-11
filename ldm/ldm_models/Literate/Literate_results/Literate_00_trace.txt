@@ -1960,1117 +1960,2766 @@ RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
 RenderValue for Diagnostic == <class 'ldm.Literate_01.Diagnostic'>
 0  classes in subject
 
-Phase: Creating HTML from model dict
+Phase: Skipping Render to HTML
+
+Phase: Creating HTML ASfrom model dict
 All keys are: 
-	 object_name
-	 class_name
-	 elaboration
-	 is_optional_lit
-	 classes
-	 object_type
-	 english
-	 name
-	 subtype_of
-	 dependent_of
-	 category
-	 data_type_clause
-	 where
-	 is_embellishment
-	 label
-	 parenthetical
-	 attribute_sections
-	 attributes
-	 _type
 	 severity
-	 as_value_type
-	 subtyping_name
-	 attribute_name
-	 abbreviation
-	 constraints
+	 classes
+	 class_name
 	 default
-	 prefix
-	 overrides
-	 is_optional
-	 emoji
-	 inverse
-	 one_liner
-	 subjects
 	 type
-	 based_on
-	 data_type
 	 plural
-	 diagnostics
+	 inverse
+	 emoji
+	 where
+	 is_optional_lit
+	 data_type_clause
 	 content
-	 derivation
-	 element_type
+	 is_optional
 	 message
+	 data_type
+	 object_type
+	 dependent_of
+	 constraints
+	 _type
+	 parenthetical
+	 object_name
+	 as_value_type
+	 subtype_of
+	 elaboration
+	 prefix
+	 name
+	 attribute_name
+	 derivation
 	 annotations
+	 category
+	 english
+	 based_on
+	 one_liner
+	 diagnostics
+	 overrides
+	 attributes
+	 abbreviation
+	 subtyping_name
 	 is_value_type
-htmling Python type   <class 'utils.typed_dict_tools_diff.TypedDict'> ; type_label is  LiterateModel
+	 subjects
+	 attribute_sections
+	 label
+	 is_embellishment
+	 element_type
+htmling object   LiterateModel
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  subjects
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   SubjectB
+htmling object   OneLiner
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  classes
-htmling Python type   <class 'dict'> ; type_label is  Class
-Orphaned dictkey:  is_value_type
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  example
+ </span>
+ <span class="OneLiner content">
+  "LDM" is the short form of "Literate Data Model".
+ </span>
+ None
+</div>
+
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (116 chars).
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  attribute_sections
-htmling Python type   <class 'dict'> ; type_label is  AttributeSection
-htmling Python type   <class 'dict'> ; type_label is  IsOptional
+htmling object   AttributeSection
+htmling object   OneLiner
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (91 chars).
+</span>
+
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types.
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (96 chars).
+</span>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'LiterateDataModel'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'Component'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Paragraph
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  attribute_sections
-htmling Python type   <class 'dict'> ; type_label is  AttributeSection
-htmling Python type   <class 'dict'> ; type_label is  IsOptional
+htmling object   AttributeSection
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (92 chars).
+</span>
+
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   SubjectB
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  classes
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  abbreviation
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (112 chars).
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got &lt;class 'str'&gt;
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Derivation
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Derivation
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
 Adding headless list:  constraints
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' Subject names must be unique across the model.\n'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Constraint
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Derivation
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Paragraph
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Derivation
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
 Adding headless list:  constraints
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' Class names must be unique across the model.\n'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Constraint
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Paragraph
+htmling object   Paragraph
 Adding headless list:  attribute_sections
-htmling Python type   <class 'dict'> ; type_label is  AttributeSection
-htmling Python type   <class 'dict'> ; type_label is  IsOptional
+htmling object   AttributeSection
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Derivation
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Derivation
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Class
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'LiterateDataModel'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  issue
+ </span>
+ <span class="OneLiner content">
+  define chapter, section, subsection as levels?
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (91 chars).
+</span>
+
+htmling object   Attribute
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  inverse
-htmling Python type   <class 'dict'> ; type_label is  AttributeReference
-Orphaned dictkey:  class_name
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  attribute_name
-htmling Python type   <class 'dict'> ; type_label is  AttributeName
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (94 chars).
+</span>
+
+htmling object   AttributeReference
+htmling object   ClassName
+htmling object   AttributeName
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Subject'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
-Orphaned dictkey:  where
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'str'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Subject'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  subjects
-htmling Python type   <class 'dict'> ; type_label is  SubjectC
+htmling object   SubjectC
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  classes
-htmling Python type   <class 'dict'> ; type_label is  Class
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Class
+htmling object   OneLiner
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  constraints
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' Within each Class, attribute names must be unique.\n'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Constraint
+htmling object   Paragraph
+htmling object   Paragraph
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Orphaned list:  [{'_type': 'Paragraph', 'content': 'The exception is when a common noun has two plural forms, like People and Persons. But this is unusual.\n'}]
+htmling object   Paragraph
+listh <div class="orphaned list">
+ <span class="Paragraph">
+  The exception is when a common noun has two plural forms, like People and Persons. But this is unusual.
+ </span>
+</div>
+
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  When inputting a model, you will rarely need to specify the plural form. The input program will just look it up.
+ </span>
+ None
+ <div class="orphaned list elaboration">
+  <span class="Paragraph">
+   The exception is when a common noun has two plural forms, like People and Persons. But this is unusual.
+  </span>
+ </div>
+</div>
+
+htmling object   Default
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  that basedOn and dependentOf are being used synonymousle in this metamodel.
+ </span>
+ None
+</div>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  example
+ </span>
+ <span class="OneLiner content">
+  in a library model, the `Book` class could have subtypings based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback), or subject (e.g., Science, History).
+ </span>
+ None
+</div>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  example
+ </span>
+ <span class="OneLiner content">
+  For instance, using the `Book` example, the subtypes could include `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`, `ScienceBook`, and `HistoryBook`.
+ </span>
+ None
+</div>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  Constraints may be expressed on either the Class or the Attribute. Always?
+ </span>
+ None
+</div>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  attribute_sections
-htmling Python type   <class 'dict'> ; type_label is  AttributeSection
-htmling Python type   <class 'dict'> ; type_label is  IsOptional
+htmling object   AttributeSection
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-Orphaned dictkey:  inverse
-htmling Python type   <class 'dict'> ; type_label is  AttributeReference
-Orphaned dictkey:  class_name
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  attribute_name
-htmling Python type   <class 'dict'> ; type_label is  AttributeName
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-Orphaned dictkey:  inverse
-htmling Python type   <class 'dict'> ; type_label is  AttributeReference
-Orphaned dictkey:  class_name
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  attribute_name
-htmling Python type   <class 'dict'> ; type_label is  AttributeName
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   AttributeReference
+htmling object   ClassName
+htmling object   AttributeName
+htmling object   Attribute
+htmling object   DataTypeClause
+htmling object   AttributeReference
+htmling object   ClassName
+htmling object   AttributeName
+htmling object   Class
+htmling object   OneLiner
 Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
+htmling object   Default
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   DataTypeClause
+htmling object   Default
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Class
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Class'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
-htmling Python type   <class 'dict'> ; type_label is  Class
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Class'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  every class can have an unnamed subtyping.
+ </span>
+ None
+</div>
+
+htmling object   Class
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Class'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
+htmling object   Class
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Class'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
+htmling object   Class
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'ValueType'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
+ </span>
+ None
+</div>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'ValueType'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Attribute
+htmling object   Attribute
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Class
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-Orphaned dictkey:  is_value_type
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  aPossibleValueForAnEnumeratedDataClassDependentOf
+ </span>
+ <span class="OneLiner content">
+  CodeType
+ </span>
+ None
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Class
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Class
+htmling object   OneLiner
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  issue
+ </span>
+ <span class="OneLiner content">
+  need ascending descending to support index keys or ordering keys.
+ </span>
+ None
+</div>
+
 Adding headless list:  constraints
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' each attribute must be a direct or inherited of the base class.\n'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' no repetitions allowed in keyAttributes\n> 👍 **Issue**: introduce PureLists?'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Constraint
+htmling object   Paragraph
+htmling object   Paragraph
+htmling object   Constraint
+htmling object   Paragraph
+htmling object   Paragraph
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Key'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  order unimportant for Unique Keys.
+ </span>
+ None
+</div>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Key'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
+htmling object   SubjectB
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  classes
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Paragraph
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'AttributeSection'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  overrides
-htmling Python type   <class 'dict'> ; type_label is  AttributeReference
-Orphaned dictkey:  class_name
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   AttributeReference
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  see
+ </span>
+ <span class="OneLiner content">
+  the section below on Data Type Specifiers.
+ </span>
+ None
+</div>
+
 Adding headless list:  attribute_sections
-htmling Python type   <class 'dict'> ; type_label is  AttributeSection
-htmling Python type   <class 'dict'> ; type_label is  IsOptional
+htmling object   AttributeSection
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Default
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Default
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  forExample
+ </span>
+ None
+ None
+</div>
+
+htmling object   Default
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Formula one_liner is too long (220 chars)
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  how this works with optionality
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  AttributeSection
-htmling Python type   <class 'dict'> ; type_label is  IsOptional
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   AttributeSection
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Derivation
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Derivation
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Derivation
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Derivation
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Paragraph
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Orphaned list:  [{'_type': 'Paragraph', 'content': "Yes, it handled extra lines.  Let's see about additional paras for an annotation\n"}, {'_type': 'Paragraph', 'content': 'Last paragraph here\n'}]
+htmling object   Paragraph
+htmling object   Paragraph
+listh <div class="orphaned list">
+ <span class="Paragraph">
+  Yes, it handled extra lines.  Let's see about additional paras for an annotation
+ </span>
+ <span class="Paragraph">
+  Last paragraph here
+ </span>
+</div>
+
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed.
+ </span>
+ None
+ <div class="orphaned list elaboration">
+  <span class="Paragraph">
+   Yes, it handled extra lines.  Let's see about additional paras for an annotation
+  </span>
+  <span class="Paragraph">
+   Last paragraph here
+  </span>
+ </div>
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ oneLiner is too long. (143 chars).
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  issue
+ </span>
+ <span class="OneLiner content">
+  on insert vs on access?
+ </span>
+ None
+</div>
+
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  note
+ </span>
+ <span class="OneLiner content">
+  from Class.constraints
+ </span>
+ None
+</div>
+
 Adding headless list:  attribute_sections
-htmling Python type   <class 'dict'> ; type_label is  AttributeSection
-htmling Python type   <class 'dict'> ; type_label is  IsOptional
+htmling object   AttributeSection
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Attribute
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  plural
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Name is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'name' is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Name is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'name' is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Constraint'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Constraint'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'Class'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Constraint'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Constraint'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Orphaned list:  [{'_type': 'ClassName', 'content': 'Attribute'}]
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-Orphaned dictkey:  is_value_type
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   ClassName
+listh <div class="orphaned list">
+ <div class="ClassName">
+ </div>
+</div>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Name is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'name' is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Name is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'name' is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   SubjectB
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  classes
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  plural
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'Component'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   SubjectB
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  classes
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Name is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'name' is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Name is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'name' is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Name is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'name' is missing
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   SubjectB
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  classes
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Class
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   DataTypeClause
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Orphaned list:  [{'_type': 'Paragraph', 'content': '> 📝 ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute.\n'}]
+htmling object   Paragraph
+listh <div class="orphaned list">
+ <span class="Paragraph">
+  &gt; 📝 ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute.
+ </span>
+</div>
+
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  example
+ </span>
+ <span class="OneLiner content">
+  "firstName", "orderDate", "customerID"
+ </span>
+ None
+ <div class="orphaned list elaboration">
+  <span class="Paragraph">
+   &gt; 📝 ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute.
+  </span>
+ </div>
+</div>
+
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  modelingNote
+ </span>
+ <span class="OneLiner content">
+  * *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
 Adding headless list:  constraints
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' Must follow the camel case naming convention and not be empty.\n'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Constraint
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Formula one_liner is too long (105 chars)
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Paragraph
+htmling object   Paragraph
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  example
+ </span>
+ <span class="OneLiner content">
+  _ "Customer", "ProductCategory", "PaymentMethod"
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'CamelName'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
-Orphaned dictkey:  where
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'str'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'CamelName'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  example
+ </span>
+ <span class="OneLiner content">
+  "firstName", "orderTotal", "shippingAddress"
+ </span>
+ None
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'CamelName'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
-Orphaned dictkey:  where
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'str'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'CamelName'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  constraints
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.\n'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Constraint
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Formula one_liner is too long (170 chars)
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Paragraph
+htmling object   Paragraph
+htmling object   Class
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'String'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
+htmling object   Attribute
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Attribute
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Attribute
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for data_type_clause
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Required field 'data_type_clause' is missing
+</span>
+
+htmling object   Class
+htmling object   OneLiner
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'RichText'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'RichText'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
 Adding headless list:  attributes
-htmling Python type   <class 'dict'> ; type_label is  Attribute
-htmling Python type   <class 'dict'> ; type_label is  DataTypeClause
+htmling object   Attribute
+htmling object   OneLiner
+htmling object   DataTypeClause
 Adding headless list:  constraints
-htmling Python type   <class 'dict'> ; type_label is  Constraint
-Orphaned list:  [{'_type': 'OneLiner', 'content': ' must not containa line break or new line character\n'}]
-htmling Python type   <class 'dict'> ; type_label is  OneLiner
+htmling object   Constraint
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Orphaned dictkey:  english
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Class
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Formula one_liner is too long (93 chars)
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ No value for code
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got &lt;class 'list'&gt;
+</span>
+
+htmling object   Paragraph
+htmling object   Paragraph
+htmling object   Class
 Adding headless list:  annotations
-htmling Python type   <class 'dict'> ; type_label is  Annotation
-Orphaned dictkey:  label
-htmling Python type   <class 'dict'> ; type_label is  Label
-Orphaned dictkey:  emoji
-htmling Python type   <class 'dict'> ; type_label is  Emoji
-Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Annotation
+Special special for  Annotation
+htmling object   Label
+htmling object   OneLiner
+htmling object   Emoji
+Orphaned list:  [{'_type': 'Paragraph', 'content': '===\n'}]
+htmling object   Paragraph
+listh <div class="orphaned list">
+ <span class="Paragraph">
+  ===
+ </span>
+</div>
+
+Special Annotation becomes:
+ <div class="Annotation">
+ <span class="Label label">
+  values
+ </span>
+ None
+ None
+ <div class="orphaned list elaboration">
+  <span class="Paragraph">
+   ===
+  </span>
+ </div>
+</div>
+
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'ValueTypeABasic'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Subtyping pair is:  {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'BuiltInDataType'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}
-htmling Python type   <class 'dict'> ; type_label is  ClassName
-htmling Python type   <class 'dict'> ; type_label is  SubtypingName
-Orphaned dictkey:  is_value_type
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]], but got &lt;class 'list'&gt;
+</span>
+
+Orphaned list:  [{'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'ValueTypeABasic'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}, {'type': '_SubtypeBy', 'class_name': {'_type': 'ClassName', 'content': 'BuiltInDataType'}, 'subtyping_name': {'_type': 'SubtypingName', 'content': 'subtypes'}}]
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+htmling object   NoDictTypeLabel
+htmling object   ClassName
+htmling object   SubtypingName
+listh <div class="orphaned list">
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+ <div class="NoDictTypeLabel">
+  <div class="clause type_clause">
+   <span class="key type">
+    type
+   </span>
+   _SubtypeBy
+  </div>
+  <div class="clause class_name_clause">
+   <span class="key class_name">
+    class_name
+   </span>
+   <div class="ClassName">
+   </div>
+  </div>
+  <div class="clause subtyping_name_clause">
+   <span class="key subtyping_name">
+    subtyping_name
+   </span>
+   <div class="SubtypingName">
+   </div>
+  </div>
+ </div>
+</div>
+
+htmling object   SubjectB
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Adding headless list:  subjects
-htmling Python type   <class 'dict'> ; type_label is  SubjectC
+htmling object   SubjectC
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
-htmling Python type   <class 'dict'> ; type_label is  CodeBlock
-PUML png file saved to: ldm/ldm_models/Literate/Literate_results/assets/diagram1.png
-PUML svg file saved to: ldm/ldm_models/Literate/Literate_results/assets/diagram1.svg
+htmling object   Paragraph
+htmling object   Paragraph
+htmling object   CodeBlock
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  SubjectC
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
+htmling object   SubjectC
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  CodeBlock
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   CodeBlock
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  SubjectB
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
+htmling object   SubjectB
 Adding headless list:  elaboration
-htmling Python type   <class 'dict'> ; type_label is  Paragraph
+htmling object   Paragraph
 Adding headless list:  diagnostics
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
-htmling Python type   <class 'dict'> ; type_label is  Diagnostic
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ Missing oneLiner
+</span>
+
+htmling object   Diagnostic
+Diagnostic message is  <span class="message">
+ For field 'name' - expected &lt;class 'utils.class_casing.CamelCase'&gt;, but got &lt;class 'Literate_01.SubjectName'&gt;
+</span>
+
 Body classes are None
-Saved styled dictionary to ldm/ldm_models/Literate/Literate_results/Literate_DC_06.html
+Saved styled dictionary to ldm/ldm_models/Literate/Literate_results/Literate_DC_06_as.html
 Body classes are ['reviewing']
-Saved styled dictionary (for review) to ldm/ldm_models/Literate/Literate_results/Literate_DC_06.review.html
+Saved styled dictionary (for review) to ldm/ldm_models/Literate/Literate_results/Literate_DC_06_as.review.html
 
 Phase: Skipping PDF creation

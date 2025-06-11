@@ -1,5 +1,6 @@
 # fluent_html.py
 from bs4 import BeautifulSoup, Tag
+import bs4
 import builtins
 
 # Patch global __str__ for all bs4.Tag instances
@@ -188,6 +189,9 @@ class FluentTag:
         return key in self.tag
 
     def append(self, item, warn_on_retarget=True):
+        if not isinstance(item, FluentTag):
+            self.tag.append(bs4.NavigableString(str(item)))
+            return self
         if isinstance(item, FluentTag):
             item = item.tag
         if isinstance(item, Tag):
@@ -205,6 +209,8 @@ class FluentTag:
 
     def add_class(self, classname):
         currents = self.get("class", [])
+        if isinstance(currents, str):
+            currents = [currents]
         clean_classes = list(set(currents + [classname]))
         self["class"] = clean_classes
 # def create_html_fragment(html_text):

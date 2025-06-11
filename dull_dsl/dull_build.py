@@ -6,6 +6,7 @@ from utils.util_fmk import create_fresh_directory
 from utils.typed_dict_tools_diff import TypedDict
 import utils.do_weasy_pdf as weasy
 from ldm_to_html import create_model_html
+from ldm_as_html import create_model_html_as
 
 import ldm.ldm_renderers as ldm_renderers
 import utils.util_all_fmk as fmk
@@ -185,7 +186,7 @@ def build_dull_dsl(dull_specs: Dict):
         show_phase("Skipping Render to Markdown")
 
     # Create HTML
-    CREATE_HTML = True
+    CREATE_HTML = False
     if CREATE_HTML:
         show_phase("Creating HTML from model dict")
         html_path = f"{results_dir}/{model_name}_{pd_or_not}_06.html"
@@ -193,6 +194,15 @@ def build_dull_dsl(dull_specs: Dict):
         create_model_html(the_ldm_dict, html_path)
     else:
         show_phase("Skipping Render to HTML")
+
+    CREATE_HTML_AS = True
+    if CREATE_HTML_AS:
+        show_phase("Creating HTML ASfrom model dict")
+        html_path = f"{results_dir}/{model_name}_{pd_or_not}_06_as.html"
+
+        create_model_html_as(the_ldm_dict, html_path)
+    else:
+        show_phase("Skipping Render to HTML AS")
 
     show_phase("Skipping PDF creation")
 

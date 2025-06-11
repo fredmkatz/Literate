@@ -120,6 +120,16 @@ body {
     clear: left;
     justify-self: right;
   }
+
+  .header .name{
+    display: block;
+    margin-left: -1.5in;
+    width: 1.25in;
+    float: left;
+    clear: left;
+    justify-self: right;
+  }
+
   .AttributeName {
     font-weight: bold;
   }
@@ -188,6 +198,20 @@ body {
     font-weight: bold;
     font-size: 110%;
   }
+
+  .Attribute_header .name{
+    font-weight: bold;
+    vertical-align: top;
+    color: black;
+    margin-left: -1.5in;
+    text-align: right;
+
+  }
+
+  .Attribute_header .name{
+    font-weight: normal;
+    font-style: italic;
+  }
   
   .header .ClassName {
     font-weight: bold;
@@ -198,7 +222,7 @@ body {
     font-weight: normal;
     color: #333;
     vertical-align: top;
-    color: yellow;
+    color: black;
   }
   .OneLiner{
 
@@ -255,7 +279,6 @@ body {
   /* Key-value pairs */
   
   .key {
-    /* display: table-cell; */
     width: 12rem;
     text-align: right;
     padding-right: 1rem;
