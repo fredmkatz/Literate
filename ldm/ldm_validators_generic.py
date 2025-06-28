@@ -18,8 +18,8 @@ def create_field_error(obj, message):
     Helper function to log or handle validation errors.
     """
     
-    from ldm.ldm_validators import createError
-    createError(obj, "Field Error",  message)
+    from ldm.ldm_validators_v3 import createBug
+    createBug(obj, "Field Error",  message)
 
 
 def check_type(value: Any, expected_type: Any) -> bool:
@@ -104,7 +104,7 @@ def check_simple_type(value: Any, expected_type: Any) -> bool:
         
         if expected_name == actual_name:
             # Same class name - probably same class from different imports
-            print(f"Type name match: {expected_name} == {actual_name} (different modules)")
+            # print(f"Type name match: {expected_name} == {actual_name} (different modules)")
             return True
         
         # Check if it's a subclass relationship

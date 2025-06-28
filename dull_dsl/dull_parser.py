@@ -245,7 +245,8 @@ def assess_line(line: str) -> TypedLine:
 
             # but put the line with original emojis into the result
             # TODO. retreated to bare until emojis work ok
-            typed_line = ClauseLine(lineType.line_label, lineType, trimmed_bare)
+            # typed_line = ClauseLine(lineType.line_label, lineType, trimmed_bare)
+            typed_line = ClauseLine(lineType.line_label, lineType, trimmed)
 
             # print(f"assess() returning {repr(typed_line)}")
             return typed_line

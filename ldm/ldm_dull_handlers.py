@@ -8,6 +8,7 @@ from utils.util_json import clean_dict
 
 from ldm.Literate_01 import (
     ClassName,
+    ClassReference,
     AttributeName,
     Label,
     SubjectName,
@@ -63,8 +64,8 @@ line_starts = [
     LineStart("__", "AttributeSection"),
     LineStart("_", "Class"),
     LineStart("Class", "Class"),
-    LineStart("Code Type:", "CodeType"),
-    LineStart("Value Type:", "ValueType"),
+    LineStart("CodeType:", "CodeType"),
+    LineStart("ValueType:", "ValueType"),
     LineStart("-", "Attribute"),
     LineStart("#####", "Section5"),
     LineStart("####", "Section4"),
@@ -100,7 +101,7 @@ keywords = [
     Keyword("Default"),
     # for Formulas
     Keyword("code"),
-    Keyword("english"),
+    Keyword("ocl"),
     Keyword("message"),
     Keyword("severity"),
     # TBD
@@ -247,7 +248,7 @@ class ParseSubtypeOf(ParseHandler):
     #   Concept: byColor
     # }
     # if the byPhrase is omitted, "Subtypes" is used instead
-    def parse(self, input_str) -> List[Tuple[ClassName, SubtypingName]]:
+    def parse(self, input_str) -> List[Tuple[ClassReference, SubtypingName]]:
         print("parsing subtypeOfs: ", input_str)
         pairs = input_str.split(",")
         result = []
@@ -260,10 +261,10 @@ class ParseSubtypeOf(ParseHandler):
 
             else:
                 subtyping_name0 = "Subtypes"
-            class_name = ClassName(parse_name(class_name0))
+            class_name = ClassReference(parse_name(class_name0))
             subtyping_name = SubtypingName(subtyping_name0)
             subtype_of = {
-                "type": "_SubtypeBy",
+                "_type": "SubtypeBy",
                 "class_name": class_name,
                 "subtyping_name": subtyping_name
             }
@@ -272,7 +273,7 @@ class ParseSubtypeOf(ParseHandler):
 
         return result
 
-    def render(self, pairs: List[Tuple[ClassName, SubtypingName]]) -> str:
+    def render(self, pairs: List[Tuple[ClassReference, SubtypingName]]) -> str:
         pair_strs = []
         for cname, stname in pairs:
             if stname == "subtypes":
@@ -282,14 +283,15 @@ class ParseSubtypeOf(ParseHandler):
             pair_strs.append(pair_str)
         return ", ".join(pair_strs)
 
-    def validate(self, names: List[ClassName]) -> Tuple[bool, Optional[str]]:
+    def validate(self, names: List[ClassReference]) -> Tuple[bool, Optional[str]]:
         return True, None
 
+from utils.util_flogging import trace_method, flogger
 
 @dataclass
 class ParseNameList(ParseHandler):
-
-    def parse(self, input_str: str) -> list[ClassName]:
+    
+    def parse(self, input_str: str) -> list[ClassReference]:
         """Parse a comma-separated list of names with potential markdown formatting."""
         # print(f"parse_name_list: {input_str}")
         if not input_str:
@@ -301,13 +303,15 @@ class ParseNameList(ParseHandler):
         # Clean each part
         cleaned_names = [parse_name(part) for part in parts]
 
-        # Filter out empty strings - and create ClassNames
-        return [ClassName(name) for name in cleaned_names if name]
+        # Filter out empty strings - and create ClassReferences
+        the_list =  [ClassReference(name) for name in cleaned_names if name]
+        print("ParseNameList returning: ", the_list)
+        return the_list
 
-    def render(self, names: List[ClassName]) -> str:
+    def render(self, names: List[ClassReference]) -> str:
         return ", ".join(names)
 
-    def validate(self, names: List[ClassName]) -> Tuple[bool, Optional[str]]:
+    def validate(self, names: List[ClassReference]) -> Tuple[bool, Optional[str]]:
         # print("validating name list: ", names)
         if not isinstance(names, List):
             return False, f"NameList doesn't seem to be a list at all: {names}"
@@ -321,7 +325,7 @@ class ParseNameList(ParseHandler):
 @dataclass
 class ParseAttributeReference(ParseHandler):
     def parse(self, input_str: str) -> dict:
-        """Parse a reference in the form ClassName.AttributeName."""
+        """Parse a reference in the form ClassReference.AttributeName."""
         if not input_str:
             return {
                 "_type": "AttributeReference",
@@ -334,7 +338,7 @@ class ParseAttributeReference(ParseHandler):
 
         # Split by dot
         parts = re.split(r"\.\s*", str(cleaned), 1)
-        class_name = ClassName(parts[0].strip())
+        class_name = ClassReference(parts[0].strip())
         attribute_name = AttributeName(parts[1].strip()) if len(parts) > 1 else ""
 
         if len(parts) == 2:
@@ -352,8 +356,8 @@ class ParseAttributeReference(ParseHandler):
             }
 
     def render(self, ar_dict: Dict) -> str:
-        """Render the attribute reference as ClassName.AttributeName."""
-        class_name = ar_dict.get("class_name", "NoClassName")
+        """Render the attribute reference as ClassReference.AttributeName."""
+        class_name = ar_dict.get("class_name", "NoClassReference")
         attribute_name = ar_dict.get("attribute_name", "NoAttributeName")
         return f"{class_name}.{attribute_name}"
 
@@ -409,13 +413,13 @@ def parse_input_line(input_str: str) -> dict:
     # Check for emoji followed by label and colon
     emoji_match = re.match(r"^([\U0001F300-\U0001F9FF]+)\s+([^:]+):(.*)", line)
     if emoji_match:
+        print("Found emoji match in parse_input_line")
         return {
             "line_type": "labeled_value",
             "emoji": emoji_match.group(1),
             "label": parse_name(emoji_match.group(2)),
             "value": emoji_match.group(3).strip(),
         }
-
     # Check for label and colon
     label_match = re.match(r"^([^:]+):(.*)", line)
     if label_match:
@@ -469,13 +473,13 @@ def parse_header(header: str) -> dict:
     - one_liner: The one-liner description (if present)
     - parenthetical: The content in parentheses (if present)
     """
-    # print(f"\n\n===\nParsingHeader header: {header}")
+    print(f"\n\n===\nParsingHeader header: {header}")
 
     result = {"prefix": "", "name": None, "one_liner": None, "parenthetical": ""}
 
     # First, identify the line type and get the rest of the line
     parsed = parse_input_line(header)
-    # print("PARSED AS INPUT LINE ", parsed)
+    print("PARSED AS INPUT LINE ", parsed)
     if "rest_of_line" not in parsed:
         print("No rest of line")
         return result
@@ -595,14 +599,14 @@ def parse_data_type(phrase) -> DataType:
         return dt
 
     if is_name(phrase):
-        name_obj = ClassName(phrase)
+        name_obj = ClassReference(phrase)
         # print("Arg to basedata type is ", name_obj)
-        dt = BaseDataType(class_name=ClassName(phrase), as_value_type=AsValue("reference"))
+        dt = BaseDataType(class_name=ClassReference(phrase), as_value_type=AsValue("reference"))
         return dt
 
     print("Inventing name for: ", phrase)
     phrase = "Invented Name"
-    dt = BaseDataType(class_name=ClassName(phrase), as_value_type=AsValue("value"))
+    dt = BaseDataType(class_name=ClassReference(phrase), as_value_type=AsValue("value"))
     return dt
 
 
@@ -709,8 +713,11 @@ class ParseAnnotation(ParseHandler):
         - label: The extracted label
         - value: The content after the label
         """
+        
+        print("Parsing annotation: ", input_str)
         parsed = parse_input_line(input_str)
         if parsed.get("line_type") == "labeled_value":
+            print("Returning parsed from ParseAnnotaion", parsed)
             return parsed
         else:
             return {"line_type": "text", "content": input_str}
@@ -768,8 +775,8 @@ def test_parsers():
 
     # Test parse_attribute_reference
     att_ref_parser = ParseAttributeReference()
-    assert att_ref_parser.parse("ClassName.AttributeName") == {
-        "class_name": "ClassName",
+    assert att_ref_parser.parse("ClassReference.AttributeName") == {
+        "class_name": "ClassReference",
         "attribute_name": "AttributeName",
     }
 

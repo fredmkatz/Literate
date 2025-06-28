@@ -39,7 +39,7 @@ USELESS_LIST_KEYS = [
 
 CLASS_LIST_KEYS = [
     "based_on",
-    "dependent_of",
+    "dependents",
     "subtype_of",
     "subtypes",
 ]

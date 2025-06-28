@@ -113,6 +113,11 @@ $defs:
                     type: array
                 -   type: 'null'
                 title: Constraints
+            _html_id:
+                title: Html Id
+                type: string
+        required:
+        - _html_id
         title: Attribute
         type: object
     AttributeName:
@@ -121,12 +126,21 @@ $defs:
                 default: ''
                 title: Content
                 type: string
+            _type:
+                title: Type
+                type: string
+            _html_id:
+                default: ''
+                title: Html Id
+                type: string
+        required:
+        - _type
         title: AttributeName
         type: object
     AttributeReference:
         properties:
             class_name:
-                $ref: '#/$defs/ClassName'
+                $ref: '#/$defs/ClassReference'
                 default: null
             attribute_name:
                 $ref: '#/$defs/AttributeName'
@@ -203,6 +217,11 @@ $defs:
                 default: ''
                 title: Content
                 type: string
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: AttributeSectionName
         type: object
     CamelCase:
@@ -211,6 +230,11 @@ $defs:
                 default: ''
                 title: Content
                 type: string
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: CamelCase
         type: object
     Class:
@@ -268,11 +292,13 @@ $defs:
                 -   type: 'null'
                 default: null
             plural:
-                anyOf:
-                -   type: string
-                -   type: 'null'
                 default: null
                 title: Plural
+                type: string
+            presumed_plural:
+                default: null
+                title: Presumed Plural
+                type: string
             subtype_of:
                 anyOf:
                 -   items:
@@ -299,23 +325,18 @@ $defs:
             based_on:
                 anyOf:
                 -   items:
-                        $ref: '#/$defs/ClassName'
+                        $ref: '#/$defs/ClassReference'
                     type: array
                 -   type: 'null'
+                default: null
                 title: Based On
-            dependent_of:
-                anyOf:
-                -   items:
-                        $ref: '#/$defs/ClassName'
-                    type: array
-                -   type: 'null'
-                title: Dependent Of
             dependents:
                 anyOf:
                 -   items:
-                        $ref: '#/$defs/ClassName'
+                        $ref: '#/$defs/ClassReference'
                     type: array
                 -   type: 'null'
+                default: null
                 title: Dependents
             is_value_type:
                 default: false
@@ -350,7 +371,24 @@ $defs:
             content:
                 default: ''
                 title: Content
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: ClassName
+        type: object
+    ClassReference:
+        properties:
+            content:
+                default: ''
+                title: Content
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
+        title: ClassReference
         type: object
     CodeBlock:
         properties:
@@ -394,16 +432,12 @@ $defs:
                 default: false
                 title: Is Embellishment
                 type: boolean
-            english:
+            ocl:
                 anyOf:
-                -   $ref: '#/$defs/Paragraph'
+                -   type: string
                 -   type: 'null'
-                default: null
-            code:
-                anyOf:
-                -   $ref: '#/$defs/FormulaCoding'
-                -   type: 'null'
-                default: null
+                default: ''
+                title: Ocl
             message:
                 anyOf:
                 -   $ref: '#/$defs/Paragraph'
@@ -418,6 +452,10 @@ $defs:
         title: Constraint
         type: object
     DataTypeClause:
+        description: "Represents the type information for an attribute.\n\nAttributes:\n\
+            \    data_type: The data type\n    is_optional: Whether the attribute\
+            \ is optional (default: False)\n    cardinality: Optional cardinality\
+            \ constraint (e.g., \"0..1\", \"1..*\")"
         properties:
             data_type:
                 title: Data Type
@@ -469,16 +507,12 @@ $defs:
                 default: false
                 title: Is Embellishment
                 type: boolean
-            english:
+            ocl:
                 anyOf:
-                -   $ref: '#/$defs/Paragraph'
+                -   type: string
                 -   type: 'null'
-                default: null
-            code:
-                anyOf:
-                -   $ref: '#/$defs/FormulaCoding'
-                -   type: 'null'
-                default: null
+                default: ''
+                title: Ocl
         title: Default
         type: object
     Derivation:
@@ -515,16 +549,12 @@ $defs:
                 default: false
                 title: Is Embellishment
                 type: boolean
-            english:
+            ocl:
                 anyOf:
-                -   $ref: '#/$defs/Paragraph'
+                -   type: string
                 -   type: 'null'
-                default: null
-            code:
-                anyOf:
-                -   $ref: '#/$defs/FormulaCoding'
-                -   type: 'null'
-                default: null
+                default: ''
+                title: Ocl
         title: Derivation
         type: object
     Diagnostic:
@@ -542,7 +572,9 @@ $defs:
                 title: Category
                 type: string
             message:
-                $ref: '#/$defs/Paragraph'
+                anyOf:
+                -   $ref: '#/$defs/Paragraph'
+                -   type: 'null'
                 default: null
             severity:
                 default: Error
@@ -560,22 +592,20 @@ $defs:
                 default: ''
                 title: Content
                 type: string
+            _type:
+                title: Type
+                type: string
             as_entered:
                 default: ''
                 title: As Entered
                 type: string
+        required:
+        - _type
         title: Emoji
         type: object
-    FormulaCoding:
-        properties:
-            content:
-                title: Content
-                type: string
-        required:
-        - content
-        title: FormulaCoding
-        type: object
     IsExclusive:
+        description: "Class representing a boolean token for \"is exclusive\".\n\n\
+            Attributes:\n    value (bool): The boolean value."
         properties:
             content:
                 anyOf:
@@ -583,9 +613,16 @@ $defs:
                 -   type: boolean
                 default: ''
                 title: Content
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: IsExclusive
         type: object
     IsExhaustive:
+        description: "Class representing a boolean token for \"is exhaustive\".\n\n\
+            Attributes:\n    value (bool): The boolean value."
         properties:
             content:
                 anyOf:
@@ -593,9 +630,15 @@ $defs:
                 -   type: boolean
                 default: ''
                 title: Content
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: IsExhaustive
         type: object
     IsOptional:
+        description: Class representing a boolean token for "is required".
         properties:
             content:
                 anyOf:
@@ -603,6 +646,11 @@ $defs:
                 -   type: boolean
                 default: ''
                 title: Content
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: IsOptional
         type: object
     Label:
@@ -611,6 +659,11 @@ $defs:
                 default: ''
                 title: Content
                 type: string
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: Label
         type: object
     OneLiner:
@@ -628,6 +681,70 @@ $defs:
                 title: Content
                 type: string
         title: Paragraph
+        type: object
+    SubjectB:
+        properties:
+            one_liner:
+                anyOf:
+                -   $ref: '#/$defs/OneLiner'
+                -   type: 'null'
+                default: null
+            elaboration:
+                anyOf:
+                -   items:
+                        anyOf:
+                        -   $ref: '#/$defs/Paragraph'
+                        -   $ref: '#/$defs/CodeBlock'
+                    type: array
+                -   type: 'null'
+                title: Elaboration
+            annotations:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Annotation'
+                    type: array
+                -   type: 'null'
+                title: Annotations
+            diagnostics:
+                anyOf:
+                -   items:
+                        $ref: '#/$defs/Diagnostic'
+                    type: array
+                -   type: 'null'
+                title: Diagnostics
+            is_embellishment:
+                default: false
+                title: Is Embellishment
+                type: boolean
+            prefix:
+                default: ''
+                title: Prefix
+                type: string
+            name:
+                $ref: '#/$defs/SubjectName'
+                default: null
+            parenthetical:
+                anyOf:
+                -   type: string
+                -   type: 'null'
+                default: null
+                title: Parenthetical
+            abbreviation:
+                anyOf:
+                -   $ref: '#/$defs/CamelCase'
+                -   type: 'null'
+                default: null
+            classes:
+                items:
+                    $ref: '#/$defs/Class'
+                title: Classes
+                type: array
+            subjects:
+                items:
+                    $ref: '#/$defs/SubjectC'
+                title: Subjects
+                type: array
+        title: SubjectB
         type: object
     SubjectC:
         properties:
@@ -668,7 +785,7 @@ $defs:
                 title: Prefix
                 type: string
             name:
-                $ref: '#/$defs/CamelCase'
+                $ref: '#/$defs/SubjectName'
                 default: null
             parenthetical:
                 anyOf:
@@ -732,7 +849,7 @@ $defs:
                 title: Prefix
                 type: string
             name:
-                $ref: '#/$defs/CamelCase'
+                $ref: '#/$defs/SubjectName'
                 default: null
             parenthetical:
                 anyOf:
@@ -796,7 +913,7 @@ $defs:
                 title: Prefix
                 type: string
             name:
-                $ref: '#/$defs/CamelCase'
+                $ref: '#/$defs/SubjectName'
                 default: null
             parenthetical:
                 anyOf:
@@ -816,10 +933,23 @@ $defs:
                 type: array
         title: SubjectE
         type: object
+    SubjectName:
+        properties:
+            content:
+                default: ''
+                title: Content
+                type: string
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
+        title: SubjectName
+        type: object
     SubtypeBy:
         properties:
             class_name:
-                $ref: '#/$defs/ClassName'
+                $ref: '#/$defs/ClassReference'
                 default: null
             subtyping_name:
                 $ref: '#/$defs/SubtypingName'
@@ -838,7 +968,7 @@ $defs:
             subtypes:
                 anyOf:
                 -   items:
-                        $ref: '#/$defs/ClassName'
+                        $ref: '#/$defs/ClassReference'
                     type: array
                 -   type: 'null'
                 title: Subtypes
@@ -850,6 +980,11 @@ $defs:
                 default: ''
                 title: Content
                 type: string
+            _type:
+                title: Type
+                type: string
+        required:
+        - _type
         title: SubtypingName
         type: object
 properties:
@@ -890,7 +1025,7 @@ properties:
         title: Prefix
         type: string
     name:
-        $ref: '#/$defs/CamelCase'
+        $ref: '#/$defs/SubjectName'
         default: null
     parenthetical:
         anyOf:
@@ -910,7 +1045,7 @@ properties:
         type: array
     subjects:
         items:
-            $ref: '#/$defs/SubjectC'
+            $ref: '#/$defs/SubjectB'
         title: Subjects
         type: array
 title: LiterateModel

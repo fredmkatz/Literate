@@ -72,6 +72,13 @@ ClassName:
         ''PydanticMixin'', ''object'']'
     rmro: '[''object'', ''PydanticMixin'', ''PresentableToken'', ''Casing'', ''CamelCase'',
         ''UpperCamel'', ''ClassName'']'
+ClassReference:
+    name: ClassReference
+    qualified: <class 'ldm.Literate_01.ClassReference'>
+    mro: '[''ClassReference'', ''ClassName'', ''UpperCamel'', ''CamelCase'', ''Casing'',
+        ''PresentableToken'', ''PydanticMixin'', ''object'']'
+    rmro: '[''object'', ''PydanticMixin'', ''PresentableToken'', ''Casing'', ''CamelCase'',
+        ''UpperCamel'', ''ClassName'', ''ClassReference'']'
 CodeBlock:
     name: CodeBlock
     qualified: <class 'ldm.Literate_01.CodeBlock'>

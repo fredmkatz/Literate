@@ -4,37 +4,29 @@
     background-color: blanchedalmond ;
   }
 
-  .Subject_header{
-    background: yellow;
-  }
 
-  .Subject_header .SubjectName{
-    background: black;
-    color: white;
-  }
+
   .header .ClassName {
     color: #222;
     background-color: pink;
   }
 
-  .OneLiner{
-    /* color: red;
-    font-weight: bold ; */
-  }
   .header .parenthetical{
     color: navy;
     background-color: orange;
     margin-right: 10px;
     display: inline;
+    display: none;
   
   }
   .AttributeSection {
-    background-color: pink;
+    /* background-color: pink; */
+    border-right: 2px solid black;
 
   }
   .Attribute .header {
-    background-color: lightcoral;
-    border: 1px solid black;
+    /* background-color: lightcoral; */
+    /* border: 1px solid black; */
   
     .DataTypeClause{ 
       color: darkred;
@@ -52,7 +44,7 @@
 
 
   .Annotation .label {
-    background-color: yellow;
+    /* background-color: yellow; */
 
   }
 
@@ -71,9 +63,6 @@ body {
     margin-left: 2in;
     font-size: 90%;
 
-  }
-  .prefix {
-    display: none ;
   }
 [title]::before {
   content: attr(title);
@@ -100,17 +89,12 @@ body {
   .header {
     clear: left;
   }
-  .AttributeSectionName {
-    font-weight: bold;
-    font-style: italic;
-    color: navy;
-  }
   /* For the left column */
-  .AttributeSectionName,
   .clause_label ,
   .AttributeName,
   .Annotation .label,
   .Diagnostic .severity,
+  .clause .key,
   .key{
     /* display: inline; */
     display: block;
@@ -121,18 +105,163 @@ body {
     justify-self: right;
   }
 
-  .header .name{
-    display: block;
+.Annotation .Emoji{
+  margin-left: -1.5in;
+  justify-self: right;
+  font-size: 155%;
+
+}
+
+.LiterateModel_header{
+    margin-left: 0;
+    text-align: center;
+
+  .prefix {
+    display: none;
+  }
+  .name{
+    font-weight: bold;
+    font-size: 140%;
+  }
+
+}
+
+.Subject.header{
+  /* background: black;
+  color: white */
+  margin-top: 2em;
+  font-weight: bold;
+
+  .name{
+    font-weight: bold;
+    font-size: 110%;
+
+    background: black;
+    color: white;
+  }
+}
+
+.Subject_header::before {
+    content: " \25A0\25A0\25A0 ";
+  }
+
+
+
+.Subject.header .prefix{
+  background: yellow;
+  font-size: 140%;
+
+  display: inline;
+  margin-left: -1.5in;
+  float: left;
+  font-weight: bold;
+  ::after {
+    content: " \25A0 ";
+  }
+
+}
+
+.Subject .header .OneLiner {
+  display: block;
+}
+
+.SubjectC  .Subject_header{
+  font-size: 120%;
+  ::before {
+    content: " \25A0\25A0 ";
+  }
+}
+
+.SubjectD  .Subject_header{
+  font-size: 115%;
+  ::before {
+    content: " \25A0\25A0\25A0 ";
+  }
+}
+
+.SubjectE  .Subject_header{
+  font-size: 110%;
+  ::before {
+    content: " \25A0\25A0\25A0\25A0 ";
+  }
+}
+
+.ValueType_header .name,
+.CodeType_header .name,
+.Class_header .name{
+    margin-left: 0;
+    background: gray;
+    color: white;
+    font-weight: bold;
+
+    ::before{
+      content: "Class";
+      margin-left: -1.5in;
+    }
+}
+
+
+.ValueType_header .prefix,
+.CodeType_header .prefix,
+.Class_header .prefix {
+    display: inline;
+    margin-left: -1.5in;
+    float: left;
+    font-weight: bold;
+    content: "Class";
+    ::before {
+      content: "Class";
+    }
+}
+
+
+.AttributeSection_header{
+
+  .name {
+    display: inline-block;
     margin-left: -1.5in;
     width: 1.25in;
     float: left;
     clear: left;
     justify-self: right;
+    vertical-align: top;
+    text-align: left;
+
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    background: navy;
+  }
+  .prefix {
+    display: none;
+  }
+}
+
+.AttributeSection {
+  /* border-left: 1px solid black; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.Attribute_header .name{
+    display: inline-block;
+    margin-left: -1.5in;
+    width: 1.25in;
+    float: left;
+    clear: left;
+    justify-self: right;
+    vertical-align: top;
+    text-align: right;
+
+    color: navy;
+    background: white;
+    font-style: italic;
+    font-weight: bold;
+
+  }
+  .Attribute_header .prefix {
+    display: none;
   }
 
-  .AttributeName {
-    font-weight: bold;
-  }
 
   .clause_label  {
     text-align: right;
@@ -159,59 +288,12 @@ body {
     margin-top: .5em;
   }
 
-  .Constraint, .Default, .Derivation {
-    border: 1px dotted black;
-  }
   .header .Constraint {
     background: red;
   }
 
-.SubjectB  .Subject_header{
-  font-size: 140%;
-  ::before {
-    content: " \25A0 ";
-  }
-}
-.SubjectC  .Subject_header{
-  font-size: 120%;
-  ::before {
-    content: " \25A0\25A0 ";
-  }
-}
 
-.SubjectD  .Subject_header{
-  font-size: 115%;
-  ::before {
-    content: " \25A0\25A0\25A0 ";
-  }
-}
 
-.SubjectE  .Subject_header{
-  font-size: 110%;
-  ::before {
-    content: " \25A0\25A0\25A0\25A0 ";
-  }
-}
-
-  /* Right column header names */
-  .Subject_header .SubjectName{
-    font-weight: bold;
-    font-size: 110%;
-  }
-
-  .Attribute_header .name{
-    font-weight: bold;
-    vertical-align: top;
-    color: black;
-    margin-left: -1.5in;
-    text-align: right;
-
-  }
-
-  .Attribute_header .name{
-    font-weight: normal;
-    font-style: italic;
-  }
   
   .header .ClassName {
     font-weight: bold;
@@ -224,13 +306,6 @@ body {
     vertical-align: top;
     color: black;
   }
-  .OneLiner{
-
-    font-weight: normal;
-    color: #333;
-    vertical-align: top;
-
-  }
 
   .Constraint .clause_label {
     font-variant:small-caps;
@@ -241,42 +316,81 @@ body {
   .Default .clause_label {
     font-variant:small-caps;
   }
+
+  .clause .Annotation,
+  .clause .Diagnostic,
+  .clause .clause{
+    /* background: orange; */
+    font-size: 92%;
+    .key{
+      font-weight: normal;
+      /* background: pink; */
+    }
+  }
   /* Make the oneliner in the header inline-block so that any 
   parenthetical will go on the same line. */
-  .header .OneLiner{
-    display: inline-block; 
-  }
+.OneLiner{
+  font-weight: normal;
+  color: #333;
+  vertical-align: top;
+
+
+  display: inline-block; 
+  p{display: inline;}
+}
+
   /* Keep the class and subject names on their own lines */
-  .Subject .header .OneLiner {
-    display: block;
-  }
   .Class .header .OneLiner {
     display: block;
   }
-  .header .parenthetical{
-    display: none;
-  
-  }
-  .header .data_type_clause{ 
-    
+
+
+/* Safe approach without overflow:hidden on content */
+
+.header {
+    clear: left;
+    /* Remove overflow: hidden */
+}
+
+.header .data_type_clause {
+    float: right;
     font-style: italic;
-    float: right; /* at end of last line of OneLiner */
-    display: inline ;
+    margin-left: 0.5em;
+    white-space: nowrap; /* Keep the clause on one line */
+    clear: right; /* Stack multiple right-floated elements */
+}
 
-
-  }
-
-  .header .data_type_clause::before{
+.header .data_type_clause::before{
     content: '(';
-  }
-  .header .data_type_clause::after{
+}
+.header .data_type_clause::after{
     content: ')';
-  }
+}
+
+/* Add a clearfix only to contain the floated elements without hiding content */
+.header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 
+/* Ensure the main content doesn't wrap under the floated element */
+.header .OneLiner {
+    margin-right: 2em; /* Adjust based on your needs */
+}
+
+
+
   .class_names {
     /* display: table-cell; */
     vertical-align: top;
   }
   /* Key-value pairs */
+
+  .clause .key{
+    font-variant: small-caps;
+  }
   
   .key {
     width: 12rem;
@@ -343,6 +457,16 @@ body {
       color: red;
 
     }
+    .category {
+      display: inline;
+      float: right;
+      font-style: italic;
+      color: red;
+    }
+
+    .object_type, .object_name {
+      display: none;
+    }
   }
   /* Annotations */
   .Annotation .label {
@@ -395,7 +519,7 @@ body {
     float: right;
   }
   
-  /* Subtypes and based_on */
+  /* Subtypes and based_on
   .subtypes, .based_on {
     /* display: table-cell; */
     width: 12rem;
@@ -404,7 +528,7 @@ body {
     font-weight: bold;
     color: #444;
     vertical-align: top;
-  }
+  } */
 
 /* Subtypes and based_on et al*/
 .class_name_list .class_names {

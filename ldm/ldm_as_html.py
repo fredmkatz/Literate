@@ -1,12 +1,12 @@
-from utils.util_flogging import trace_decorator
-import json
-from pathlib import Path
-from typing import Dict, List
+from typing import List
 
-from bs4 import BeautifulSoup, NavigableString
-from Literate_01 import *
-from utils.class_fluent_html import  FluentTag
+from utils.util_flogging import trace_decorator
+
+from utils.util_html_helpers import *
+
+from utils.class_fluent_html import FluentTag
 import utils.util_all_fmk as fmk
+
 HEADER_KEYS = [
     "prefix",
     "name",
@@ -39,18 +39,21 @@ USELESS_LIST_KEYS = [
 
 CLASS_LIST_KEYS = [
     "based_on",
-    "dependent_of",
     "subtype_of",
     "subtypes",
 ]
 
 SIMPLE_CONTENT_TYPES = [
+    # "Paragraph",
+    # "OneLiner",
+    # "CodeBlock",
+    "Label",
+    "Emoji",
+]
+PROSE_CONTENT_TYPES = [
     "Paragraph",
     "OneLiner",
     "CodeBlock",
-    "Label",
-    "Emoji",
-    
 ]
 BARE_FIELDS = [
     "label",
@@ -59,8 +62,8 @@ BARE_FIELDS = [
     "attribute_name",
 ]
 
-SPECIAL_TYPES = [ 
-    "DataTypeClause", 
+SPECIAL_TYPES = [
+    "DataTypeClause",
     "BaseDataType",
     "ListDataType",
     "MappingDataType",
@@ -68,8 +71,10 @@ SPECIAL_TYPES = [
     "IsOptional",
     "Diagnostic",
     "Annotation",
-    
-    ]
+    "SubtypeBy",
+    "ClassName",
+] + FORMULA_CLASSES
+
 
 def is_headed(class_name: str) -> bool:
     return class_name in HEADED_CLASSES or class_name.startswith("Subject")
@@ -77,6 +82,7 @@ def is_headed(class_name: str) -> bool:
 
 def is_formula(class_name: str) -> bool:
     return class_name in FORMULA_CLASSES
+
 
 # as_html:
 #   scalar: return string
@@ -87,46 +93,56 @@ def is_formula(class_name: str) -> bool:
 #           except for headless lists - then just attach htmls of each element
 #       and maybe special cases, which are like headers (ie. attach all field values without key spans)
 
-def as_html(obj):
-    if isinstance(obj, str):
-        return obj
-    
-    type_label = "NA"
 
-    if isinstance(obj, str):
-        return obj
-    elif isinstance(obj, bool):
-        return obj
-    elif isinstance(obj, int):
-        return obj
-    elif isinstance(obj, list):
-        print("Orphaned list: ", obj)
+def as_html(obj):
+    if obj is None:
+        return None
+
+    if isinstance(obj, (int, float, bool, str)):
+        str_value = str(obj).strip()
+        if str_value == "":
+            return None
         
+        return span(str_value)
+
+
+    obj_type = "NA"
+
+    if isinstance(obj, list):
+        print("Orphaned list: ", obj)
+
         items_h = []
 
         for item in obj:
-            items_h. append ( as_html(item))
-        list_h =  div_custom("orphaned list", items_h)
+            items_h.append(as_html(item))
+        list_h = div_custom("orphaned list", items_h)
         print("listh", list_h)
         return list_h
-    
+
     if isinstance(obj, dict):
-        type_label = obj.get("_type", "NoDictTypeLabel")
-        # print("htmling dict with _type = ", type_label)
+        obj_type = obj.get("_type", "NoDictTypeLabel")
 
     else:
-        print("Orphaned ?", type(obj), ": ", obj, ". Should be str, int, bool, list, or dict")
+        print(
+            "Orphaned ?",
+            type(obj),
+            ": ",
+            obj,
+            ". Should be str, int, bool, list, or dict",
+        )
         return f"{obj}"
 
     # Now, we have a dict, with a _type and python_type
-    obj_type = type_label
-    print("htmling object  ", type_label)
+    # print("htmling object  ", obj_type)
 
     if obj_type in SIMPLE_CONTENT_TYPES:
         the_content = obj.get("content", None)
         if not the_content:
             return None
-        return span(the_content, class_ = obj_type)
+        return span(the_content, class_=obj_type)
+
+    if obj_type in PROSE_CONTENT_TYPES:
+        return html_prose_content(obj_type, obj)
 
     obj_classes = obj_type
 
@@ -136,19 +152,18 @@ def as_html(obj):
 
         obj_type = "Subject"
     # print("Object type is ", obj_type)
-    
-    # Handle special types - ie where all fields are just 
+
+    # Handle special types - ie where all fields are just
     # collected and reformatted
     if obj_type in SPECIAL_TYPES:
         return handle_special(obj_type, obj)
-    
 
     # set up an html container, based on the type
     object_h = div_custom(obj_classes)
-    
-    # if the object has a header, create one and collect the 
+
+    # if the object has a header, create one and collect the
     # header attributes into it
-    
+
     if is_headed(obj_type):
         # Start the header
         header_h = div_custom(f"{obj_type}_header header")
@@ -174,21 +189,17 @@ def as_html(obj):
                 continue
 
             # but mostly just put the value into the header, as html
-            value_h = as_html(value)
-            if not isinstance(value_h, FluentTag):
-                value_h = NavigableString(str(value_h))
-            else:
-                value_h.add_class(key)
+            value_h = field_value_html(key, value)
             header_h.append(value_h)
         # and add header to object
         object_h.append(header_h)
-    
+
     # then add the other fields to to object html
     for key, value in obj.items():
         if key == "_type":
             continue
-        
-        if key  in HEADER_KEYS: # already have these
+
+        if key in HEADER_KEYS:  # already have these
             continue
         if not value:
             continue
@@ -203,7 +214,18 @@ def as_html(obj):
         object_h.append(clause_h)
     return object_h
 
+
 def handle_special(obj_type, data):
+
+    if obj_type == "ClassName":
+        return class_anchor(data)
+    if obj_type == "SubtypeBy":
+        return as_html(data.get("class_name"))
+        # return None
+        sby_h = dict_div(data, "SubtypeBy", "class_name", "subtyping_name")
+
+        print("SubtypingBy ", data, " =>\n", sby_h)
+        return sby_h
     if obj_type == "DataTypeClause":
         # return as_html(data)
         return dt_as_html(data)
@@ -227,9 +249,10 @@ def handle_special(obj_type, data):
         ldt_html2 = span_div(data, "ListDataType", "element_type")
         return ldt_html2
     if obj_type == "DataTypeClause":
+        print("SPANDIV for DTC")
         return span_div(data, "DataTypeClause", "is_optional_lit", "data_type")
     if obj_type == "AsValue":
-    #       print("Found ASVALUE dict", data)
+        #       print("Found ASVALUE dict", data)
         as_value = AsValue(data["t_value"])
         if not as_value:
             return ""
@@ -242,36 +265,67 @@ def handle_special(obj_type, data):
         # print("using opt value is ", opt_value)
         return span_custom("is_optional", [opt_value])
     if obj_type == "Diagnostic":
-        object_type = spanned_value(data, "object_type")
-        object_name = spanned_value(data, "object_name")
-        category = spanned_value(data, "category")
-        severity = spanned_value(data, "severity")
-        
+        object_type = spanned_dict_entry(data, "object_type")
+        object_name = spanned_dict_entry(data, "object_name")
+        category = spanned_dict_entry(data, "category")
+        severity = spanned_dict_entry(data, "severity")
+
         message = ""
         message_obj = data.get("message", None)
         if message_obj:
             message = message_obj.get("content")
         message = span_custom("message", [message])
         print("Diagnostic message is ", message)
-        return div_custom("Diagnostic", [severity, category, message, " on ", object_type])
-    
-    # If nothing list, then just pile all attributes into a div
-    print("Special special for ", obj_type)
-    special_h = div(class_ = obj_type)
+        return div_custom(
+            "Diagnostic", [severity, category, message, " on ", object_type]
+        )
+
+    if obj_type in FORMULA_CLASSES:
+        formula_h = dict_div(
+            data,
+            obj_type,
+            "one_liner",
+            "english",
+            "code",
+            "message",
+            "severity",
+            "annotations",
+        )
+        print("Formula data ", data)
+        print("Formula html: \n", formula_h)
+        return formula_h
+
+    # If nothing listed, then just pile all attributes into a div
+    # print("Special special for ", obj_type)
+    special_h = div(class_=obj_type)
     for key, value in data.items():
         if key == "_type":
+            # print(f"Skipping _type for {obj_type}.{key}")
+
             continue
-        special_h.append( field_value_html(key, value))
-    print(f"Special {obj_type} becomes:\n", special_h)
+        if value is None:
+            print(f"Skipping None value for {obj_type}.{key}")
+
+        fv_h = field_value_html(key, value)
+        if fv_h is None:
+            print(f"NOT Skipping Non html for {obj_type}.{key}")
+            # continue
+        special_h.append(fv_h)
+    # print(f"Special {obj_type} becomes:\n", special_h)
     return special_h
-        
+
 
 def field_value_html(field_name, value):
+    if value is None:
+        return None
     value_h = as_html(value)
+    if value_h is None:
+        print("fvh returning None1 for ", field_name)
+        return None
+
     if not isinstance(value_h, FluentTag):
-        value_h = NavigableString(str(value_h))
-    else:
-        value_h.add_class(field_name)
+        value_h = span(str(value_h))
+    value_h.add_class(field_name)
     return value_h
 
 
@@ -291,10 +345,12 @@ def dt_as_html(data_type, as_plural: bool = False) -> str:
     print(f"DT_AS_HTML called for dtype = {dtype}")
     return str(data_type)
 
+
 def plural_of(name):
     if isinstance(name, dict):
         return name["content"] + "-es"
     return str(name) + "_es"
+
 
 def bdt_as_html(data_type, as_plural: bool = False) -> str:
     class_name = data_type["class_name"]
@@ -315,6 +371,18 @@ def bdt_as_html(data_type, as_plural: bool = False) -> str:
         ref_or_value += "_es"
 
     return span_custom("base_data_type", [class_anchor, ref_or_value])
+
+
+def class_anchor(class_name, as_plural: bool = False):
+
+    anchored_name = class_name["content"]
+    displayed_name = class_name["content"]
+    if as_plural:
+        displayed_name = plural_of(class_name)
+
+    # print(f"BDT anchored name is {anchored_name}, display name is {displayed_name}")
+    class_anchor = link_html("base_class", displayed_name, anchored_name)
+    return class_anchor
 
 
 def ldt_as_html(data_type, as_plural: bool = False) -> str:
@@ -348,8 +416,9 @@ def mdt_as_html(data_type, as_plural: bool = False) -> str:
         prefix = "Mappings from"
     return span_custom("mapping_data_type", [prefix, domain_html, " to ", range_html])
 
+
 def add_headless_list_html(key, value, html_h):
-    print("Adding headless list: ", key)
+    # print("Adding headless list: ", key)
     list_h = div()
     list_h["class"] = [key, "list"]
 
@@ -357,65 +426,60 @@ def add_headless_list_html(key, value, html_h):
         list_h.append(as_html(item))
     html_h.append(list_h)
 
-def div_custom(css_class, pieces=[]):
-    div_h = div(class_=css_class)
-    for piece in pieces:
-        div_h.append(piece)
-    return div_h
-
-def spanned_value(data, attribute):
-    value = data.get(attribute)
-    if attribute == "message":
-        print("message value is ", value)
-    if not value:
-        return ""
-
-    if isinstance(value, str):
-        value = value.strip()
-    return span(value, class_=attribute)
-
-def span_custom(css_class, pieces):
-    html_h = span()
-    html_h["class"] = css_class
-    # print("span Pieces are: ", pieces)
-    for piece in pieces:
-        html_h.append(piece)
-
-    # print("span returning: ", html_h)
-    return html_h
 
 def clause_html(key, value_h):
-    key_h = span(key, class_ = f"key {key}")
-    clause_h = div(key_h, value_h, class_ = f"clause {key}_clause")
+    if value_h is None:
+        return None
+    if not isinstance(value_h, FluentTag):
+        value_h = span(value_h)
+    key_h = span(key, class_=f"key {key}")
+    value_h.add_class(f"{key} value")
+    clause_h = div(key_h, value_h, class_=f"clause {key}_clause")
     return clause_h
 
-def anchor_html(css_class, display_name, anchor_name = ""):
-    if not anchor_name:
-        anchor_name = display_name
-    anchor_h = a(display_name, class_=css_class, id=f"{anchor_name}")
-    return anchor_h
 
-def link_html(css_class, display_name, anchor_name = ""):
-    if not anchor_name:
-        anchor_name = display_name
-    anchor_h = a(display_name, class_=css_class, href=f"#{anchor_name}")
-    return anchor_h
-
-    
-# def anchor_html(key_name, value):
-
-#     the_name = str(value)
-#     name_class = ""
-#     if isinstance(value, dict):
-#         the_name = value["content"]
-#         name_class = value["_type"]
-#     # print(f"add anchor called for key_name = {key_name}, value = {value} the_name = {the_name}")
-#     anchor_h = a(the_name, id=the_name, class_=f"{name_class} {key_name}")
-#     return anchor_h
+def dict_div(data, css_class, *attributes):
+    at_htmls = []
+    for attribute in attributes:
+        at_html = as_html(data.get(attribute))
+        at_htmls.append(at_html)
+    # print("htmls are: ", at_htmls)
+    return div_custom(css_class, at_htmls)
 
 
-def create_model_html_as(data, html_path):
-    all_dict_keys = all_keys(data)
+import traceback
+import sys
+
+
+def html_prose_content(obj_type, obj):
+    from ldm.ldm_to_html_prose import as_prose_html
+
+    # print(f"Adding simple: {obj_type} ")
+    content = "SimpleContent?"
+    if isinstance(obj, dict):
+        content = obj.get("content", None)
+        if not content:
+            return None
+
+    # print(" SIMPLE CONTENT")
+    # print(content)
+
+    try:
+        content_h = as_prose_html(content)
+        # print(f"Adding simple: {obj_type} with {content_h}")
+        return div(content_h, class_=f"{obj_type} mdhtml")
+    except Exception:
+        print(
+            f"failed on simple content: obj type is {obj_type}, content is...\n{content}"
+        )
+        traceback.print_exc(file=sys.stdout)
+        traceback.print_exc(file=sys.stderr)
+
+
+
+
+def create_model_html_as(model_dict, html_path):
+    all_dict_keys = all_keys(model_dict)
     print("All keys are: ")
     for x in all_dict_keys:
         print("\t", x)
@@ -425,43 +489,48 @@ def create_model_html_as(data, html_path):
 
     # and css is in ldm/ldm_models/ldm_assets
     css_path = "../../ldm_assets/Literate.css"
-    save_model_html_as(data, css_path, html_path)
+    save_model_html_as(model_dict, css_path, html_path)
 
-from utils.class_fluent_html import create_html_root, wrap_deep
-def save_model_html_as(data, css_path, output_path):
-    model_h = as_html(data)
-    
+
+from utils.class_fluent_html import create_html_root
+
+
+def save_model_html_as(model_dict, css_path, output_path):
+    model_h = as_html(model_dict)
+
     html_h = create_html_root()
     head_h = head()
     html_h.append(head_h)
 
-    head_h.append( link(rel="stylesheet", href=css_path))
-    head_h.append( script(
-                "import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'",
-                type="module",
-            ))
+    head_h.append(link(rel="stylesheet", href=css_path))
+    head_h.append(
+        script(
+            "import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'",
+            type="module",
+        )
+    )
     body_h = body()
     html_h.append(body_h)
-    
+
     body_h.append(model_h)
-    
-    body_classes = html_h.find('body').get("class")
-    the_body = html_h.find('body')
+
+    body_classes = html_h.find("body").get("class")
     print("Body classes are", body_classes)
-    # print("Body is: ", the_body)
+
     html_content = f"{html_h}"
-    # Path(output_path).write_text(html_content, encoding="utf-8")
     fmk.write_text(output_path, html_content)
     print(f"Saved styled dictionary to {output_path}")
 
     html_h.find("body").add_class("reviewing")
-    body_classes = html_h.find('body').get("class")
+    body_classes = html_h.find("body").get("class")
     print("Body classes are", body_classes)
     html_content = f"{html_h}"
 
     review_output_path = output_path.replace(".html", ".review.html")
-    Path(review_output_path).write_text(html_content, encoding="utf-8")
+    fmk.write_text(review_output_path, html_content)
+
     print(f"Saved styled dictionary (for review) to {review_output_path}")
+
 
 def all_keys(data) -> List[str]:
     keys = set()

@@ -48,8 +48,8 @@ import utils.util_all_fmk as fmk
 
 USING_PYDANTIC = False
 USING_PYDANTIC = True
-USING_PYDANTIC = True
 USING_PYDANTIC = False
+USING_PYDANTIC = True
 
 print("### USING_PYDANTIC =", USING_PYDANTIC)
 
@@ -151,6 +151,7 @@ class PydanticMixin:
             elif isinstance(val, list):
                 return [convert(v) for v in val]
             elif isinstance(val, dict):
+                
                 return {k: convert(v) for k, v in val.items()}
             return val
         # print(f"{using()} to_typed_dict: {typing_of(self)}")
@@ -162,6 +163,7 @@ class PydanticMixin:
         output.update({
             k: convert(getattr(self, k, None)) for k in self.get_field_order()
         })
+        
         return output
 
     
@@ -213,6 +215,8 @@ class PydanticMixin:
             return instance
 
         else:
+            # print("Converted data is: ")
+            # print(fmk.as_yaml(converted_data))
             result =  cls(**converted_data)
             outtype = getattr(result, "_type",  "NO_TYPE")
             # print(f'\tOutgoing type for {intype} result is... ', typing_of(result))

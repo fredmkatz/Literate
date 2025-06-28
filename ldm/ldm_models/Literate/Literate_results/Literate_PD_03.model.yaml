@@ -37,7 +37,7 @@ subjects:
             _type: OneLiner
             content: An element or building block of the literate data model
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: Component
@@ -47,6 +47,14 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: the name of the component, not in camel case
+            annotations:
+            -   _type: Annotation
+                label:
+                    _type: Label
+                    content: warning
+                content:
+                    _type: OneLiner
+                    content: This is a warning with emoji
             is_embellishment: false
             prefix: '-'
             name:
@@ -58,7 +66,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -66,6 +74,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__normalName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -81,7 +90,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -89,6 +98,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__name
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -101,7 +111,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: QualifiedCamel
                     as_value_type:
                         _type: AsValue
@@ -109,6 +119,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__qualifiedName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -122,8 +133,6 @@ subjects:
                 content:
                     _type: OneLiner
                     content: '"LDM" is the short form of "Literate Data Model".'
-                emoji:
-                    _type: Emoji
             is_embellishment: false
             prefix: '-'
             name:
@@ -135,7 +144,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -147,12 +156,41 @@ subjects:
                 _type: Default
                 one_liner:
                     _type: OneLiner
-                    content: ' name
+                    content: ' name -  how do you say name in english?
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+                ocl: ' x.name == y
+
+                    '
+            constraints:
+            -   _type: Constraint
+                one_liner:
+                -   _type: OneLiner
+                    content: ' the abbreviated name should be shorter than the actual
+                        name
+
+                        '
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: Does this annotation find it's way to the Constraint?
+                            YES! It's fixed!
+                is_embellishment: false
+                ocl: ' len(abbreviatedName) < len(name)
+
+                    '
+                message: '  Why have an abbreviation longer than the name?
+
+                    '
+                severity: ' Warning
+
+                    '
+            _html_id: Component__abbreviatedName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -163,20 +201,21 @@ subjects:
             name:
                 _type: AttributeName
                 content: oneLiner
-            parenthetical: RichLine
+            parenthetical: OneLiner
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
-                        content: RichLine
+                        _type: ClassReference
+                        content: OneLiner
                     as_value_type:
                         _type: AsValue
                         content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__oneLiner
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -193,7 +232,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -201,6 +240,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__elaboration
         attribute_sections:
         -   _type: AttributeSection
             one_liner:
@@ -220,21 +260,6 @@ subjects:
                     _type: OneLiner
                     content: Indicates whether this component is an embellishment
                         added during post-parsing processing _
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -246,7 +271,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -261,9 +286,21 @@ subjects:
                         content: ' false
 
                             '
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: note
+                        content:
+                            _type: OneLiner
+                            content: This attribute is set to true for components
+                                that are automatically generated or added during the
+                                fleshing out, review, or rendering processes, such
+                                as implied attributes or suggested model elements.
+                                It helps distinguish embellishments from the core
+                                model elements defined in the original LDM source.
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Component__isEmbellishment
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -279,15 +316,13 @@ subjects:
                 content: Each LDM declares a set of Annotation Types, with defined
                     labels, emojis, and clearly documented purposes. These are *recognized*
                     or *registered* Annotation Types.
-            emoji:
-                _type: Emoji
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: AnnotationType
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: LiterateDataModel
         is_value_type: false
         attributes:
@@ -306,7 +341,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Emoji
                     as_value_type:
                         _type: AsValue
@@ -314,6 +349,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__emoji
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -329,7 +365,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -337,6 +373,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__emojiName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -352,7 +389,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Unicode
                     as_value_type:
                         _type: AsValue
@@ -360,6 +397,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__emojiUnicode
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -375,7 +413,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -383,6 +421,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__label
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -398,7 +437,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: UpperCamel
                     as_value_type:
                         _type: AsValue
@@ -414,8 +453,7 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+            _html_id: AnnotationType__plural
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -425,14 +463,32 @@ subjects:
             name:
                 _type: AttributeName
                 content: purpose
+            parenthetical: OneLiner
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: OneLiner
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+            _html_id: AnnotationType__purpose
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A note or comment associated with a model element
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
+            content: Annotation
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Component
         is_value_type: false
         attributes:
@@ -447,8 +503,13 @@ subjects:
                     content: An Annotation is considered to *recognized* if the label
                         is associated with an Annotation Type. otherwise it is *ad
                         hoc*.
-                emoji:
-                    _type: Emoji
+            -   _type: Annotation
+                label:
+                    _type: Label
+                    content: note
+                content:
+                    _type: OneLiner
+                    content: Should be a Value  Type
             is_embellishment: false
             prefix: '-'
             name:
@@ -460,7 +521,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: AnnotationType
                     as_value_type:
                         _type: AsValue
@@ -468,6 +529,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+            _html_id: Annotation__annotationType
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -488,7 +550,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -504,8 +566,7 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+            _html_id: Annotation__label
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -518,7 +579,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Emoji
                     as_value_type:
                         _type: AsValue
@@ -534,8 +595,7 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+            _html_id: Annotation__emoji
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -551,7 +611,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -559,6 +619,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Annotation__content
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -575,21 +636,6 @@ subjects:
                     _type: OneLiner
                     content: Indicates whether this annotation is an embellishment
                         added during post-parsing processing _
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for annotations that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as suggestions,
-                            issues, or diagnostic messages. It helps distinguish embellishment
-                            annotations from the annotations defined in the original
-                            LDM source.
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -601,7 +647,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -616,9 +662,21 @@ subjects:
                         content: ' false
 
                             '
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: note
+                        content:
+                            _type: OneLiner
+                            content: This attribute is set to true for annotations
+                                that are automatically generated or added during the
+                                fleshing out, review, or rendering processes, such
+                                as suggestions, issues, or diagnostic messages. It
+                                helps distinguish embellishment annotations from the
+                                annotations defined in the original LDM source.
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Annotation__isEmbellishment
 -   _type: SubjectB
     is_embellishment: false
     prefix: '##'
@@ -633,7 +691,7 @@ subjects:
 
                 along with explanatory text and examples'
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: LiterateDataModel
@@ -642,9 +700,9 @@ subjects:
 
             '
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
@@ -663,7 +721,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: UpperCamel
                     as_value_type:
                         _type: AsValue
@@ -671,6 +729,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: LiterateDataModel__name
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -690,7 +749,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Classes
                         as_value_type:
                             _type: AsValue
@@ -706,8 +765,6 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -716,10 +773,9 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
+            _html_id: LiterateDataModel__allSubjects
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -738,7 +794,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Classes
                         as_value_type:
                             _type: AsValue
@@ -754,8 +810,6 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -764,10 +818,9 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
+            _html_id: LiterateDataModel__allClasses
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -793,7 +846,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: AnnotationTypes
                             as_value_type:
                                 _type: AsValue
@@ -801,6 +854,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: LiterateDataModel__annotationTypes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -817,7 +871,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: CodingLanguage
                         as_value_type:
                             _type: AsValue
@@ -833,8 +887,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: LiterateDataModel__preferredCodingLanguage
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -849,7 +902,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: CodingLanguages
                             as_value_type:
                                 _type: AsValue
@@ -857,6 +910,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: LiterateDataModel__alternateCodingLanguages
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -873,7 +927,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: TemplateLanguage
                         as_value_type:
                             _type: AsValue
@@ -889,8 +943,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: LiterateDataModel__preferredTemplateLanguage
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -905,7 +958,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: TemplateLanguages
                             as_value_type:
                                 _type: AsValue
@@ -913,6 +966,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: LiterateDataModel__alternateTemplateLanguages
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -931,7 +985,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: String
                             as_value_type:
                                 _type: AsValue
@@ -947,31 +1001,33 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: LiterateDataModel__aiFunctions
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A specific topic or theme within the model
         elaboration:
         -   _type: Paragraph
             content: "Subjects are the chapters an sections of the model.\n \n+ A\
                 \ subject need not contain any Classes if it\u2019s just expository.\n"
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: SubjectASpecificTopicOrThemeWithinTheModel
+            content: Subject
         plural: ' Subjects
 
             '
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        dependent_of:
-        -   _type: ClassName
+        based_on:
+        -   _type: ClassReference
             content: LiterateDataModel
         is_value_type: false
         attributes:
@@ -987,7 +1043,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: UpperCamel
                     as_value_type:
                         _type: AsValue
@@ -995,6 +1051,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Subject__name
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1011,7 +1068,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Subject
                     as_value_type:
                         _type: AsValue
@@ -1019,6 +1076,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+            _html_id: Subject__parentSubject
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1032,8 +1090,6 @@ subjects:
                 content:
                     _type: OneLiner
                     content: define chapter, section, subsection as levels?
-                emoji:
-                    _type: Emoji
             is_embellishment: false
             prefix: '-'
             name:
@@ -1047,7 +1103,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Classes
                         as_value_type:
                             _type: AsValue
@@ -1055,18 +1111,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
-        -   _type: Attribute
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: byItsSubtypeClasses
+            _html_id: Subject__classes
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1091,7 +1136,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Subjects
                         as_value_type:
                             _type: AsValue
@@ -1102,28 +1147,38 @@ subjects:
             inverse:
                 _type: AttributeReference
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Subject
                 attribute_name:
                     _type: AttributeName
                     content: parentSubject
+            _html_id: Subject__childSubjects
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A main topic or area of focus within the model, containing related
+                subjects and classes
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+            content: SubjectArea
         plural: ' SubjectAreas
 
             '
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Subject
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
+        based_on:
+        -   _type: ClassReference
+            content: LiterateModel
+        -   _type: ClassReference
+            content: Xyz
         is_value_type: false
         where: ' parentSubject is absent
 
@@ -1142,7 +1197,7 @@ subjects:
                 content: A key entity or object type in the model, often corresponding
                     to a real-world concept
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: Class
@@ -1150,9 +1205,9 @@ subjects:
 
                 '
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Component
                 subtyping_name:
                     _type: SubtypingName
@@ -1166,8 +1221,6 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
             attributes:
@@ -1188,8 +1241,6 @@ subjects:
                         _type: OneLiner
                         content: When inputting a model, you will rarely need to specify
                             the plural form. The input program will just look it up.
-                    emoji:
-                        _type: Emoji
                     elaboration:
                     -   _type: Paragraph
                         content: 'The exception is when a common noun has two plural
@@ -1207,7 +1258,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: UpperName
                         as_value_type:
                             _type: AsValue
@@ -1223,8 +1274,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Class__pluralForm
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1247,8 +1297,6 @@ subjects:
                         _type: OneLiner
                         content: that basedOn and dependentOf are being used synonymousle
                             in this metamodel.
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1262,7 +1310,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Classes
                             as_value_type:
                                 _type: AsValue
@@ -1270,6 +1318,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__basedOn
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1285,7 +1334,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Es
                         as_value_type:
                             _type: AsValue
@@ -1293,6 +1342,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__supertypes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1308,8 +1358,6 @@ subjects:
                         content: in a library model, the `Book` class could have subtypings
                             based on genre (e.g., Fiction, Non-fiction), format (e.g.,
                             Hardcover, Paperback), or subject (e.g., Science, History).
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1323,7 +1371,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Subtypings
                             as_value_type:
                                 _type: AsValue
@@ -1331,6 +1379,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__subtypings
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1346,8 +1395,6 @@ subjects:
                         content: For instance, using the `Book` example, the subtypes
                             could include `FictionBook`, `Non-fictionBook`, `HardcoverBook`,
                             `PaperbackBook`, `ScienceBook`, and `HistoryBook`.
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1361,7 +1408,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Classes
                             as_value_type:
                                 _type: AsValue
@@ -1369,6 +1416,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__subtypes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1387,7 +1435,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Attributes
                             as_value_type:
                                 _type: AsValue
@@ -1395,6 +1443,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__attributes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1413,7 +1462,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: AttributeSections
                             as_value_type:
                                 _type: AsValue
@@ -1421,6 +1470,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__attributeSections
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1435,8 +1485,6 @@ subjects:
                         _type: OneLiner
                         content: Constraints may be expressed on either the Class
                             or the Attribute. Always?
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1450,7 +1498,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Constraints
                             as_value_type:
                                 _type: AsValue
@@ -1458,6 +1506,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__constraints
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1476,7 +1525,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Methods
                             as_value_type:
                                 _type: AsValue
@@ -1484,6 +1533,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__methods
             attribute_sections:
             -   _type: AttributeSection
                 is_embellishment: false
@@ -1512,7 +1562,7 @@ subjects:
                             element_type:
                                 _type: BaseDataType
                                 class_name:
-                                    _type: ClassName
+                                    _type: ClassReference
                                     content: Classes
                                 as_value_type:
                                     _type: AsValue
@@ -1523,11 +1573,12 @@ subjects:
                     inverse:
                         _type: AttributeReference
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Class
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
+                    _html_id: Class__dependents
                 -   _type: Attribute
                     is_embellishment: false
                     prefix: '-'
@@ -1542,7 +1593,7 @@ subjects:
                             element_type:
                                 _type: BaseDataType
                                 class_name:
-                                    _type: ClassName
+                                    _type: ClassReference
                                     content: UniqueKeys
                                 as_value_type:
                                     _type: AsValue
@@ -1553,23 +1604,24 @@ subjects:
                     inverse:
                         _type: AttributeReference
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: UniqueKey
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
+                    _html_id: Class__uniqueKeys
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: a way in which subtypes of a Class may be classified
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: Subtyping
             parenthetical: Subtype of Component
-            dependent_of:
-            -   _type: ClassName
+            based_on:
+            -   _type: ClassReference
                 content: Class
             is_value_type: false
             attributes:
@@ -1585,7 +1637,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: UpperName
                         as_value_type:
                             _type: AsValue
@@ -1593,6 +1645,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Subtyping__name
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -1605,7 +1658,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -1621,8 +1674,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Subtyping__isExclusive
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -1635,7 +1687,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -1651,8 +1703,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Subtyping__isExhaustive
             -   _type: Attribute
                 elaboration:
                 -   _type: Paragraph
@@ -1668,8 +1719,12 @@ subjects:
                     content:
                         _type: OneLiner
                         content: every class can have an unnamed subtyping.
-                    emoji:
-                        _type: Emoji
+                    elaboration:
+                    -   _type: Paragraph
+                        content: 'ValueType - A class that is presumed to be used
+                            a value, rather than a reference
+
+                            '
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1683,7 +1738,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Classes
                             as_value_type:
                                 _type: AsValue
@@ -1691,76 +1746,37 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Subtyping__classes
         -   _type: Class
+            one_liner:
+                _type: OneLiner
+                content: A class that is presumed to be used as a reference, rather
+                    than a value
             is_embellishment: false
-            prefix: _
-            name:
-                _type: ClassName
-                content: ValueType
-            subtype_of:
-            -   type: _SubtypeBy
-                class_name:
-                    _type: ClassName
-                    content: Class
-                subtyping_name:
-                    _type: SubtypingName
-                    content: subtypes
-            is_value_type: false
-        -   _type: Class
-            is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: ReferenceType
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Class
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
             is_value_type: false
-        -   _type: Class
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: note
-                content:
-                    _type: OneLiner
-                    content: 'Often, a CodeType will be assigned to just one attribute
-                        in the model.  In such cases, there''s no need to declare
-                        a new Code Type and invent a name for it.  Instead:'
-                emoji:
-                    _type: Emoji
+        -   _type: ValueType
+            one_liner:
+                _type: OneLiner
+                content: A data type or enumeration used in the model
             is_embellishment: false
-            prefix: _
+            prefix: Value Type
             name:
                 _type: ClassName
-                content: CodeTypeADataTypeOrEnumerationUsedInTheModel
-            subtype_of:
-            -   type: _SubtypeBy
-                class_name:
-                    _type: ClassName
-                    content: ValueType
-                subtyping_name:
-                    _type: SubtypingName
-                    content: subtypes
-            is_value_type: false
+                content: CodeType
+            is_value_type: true
             attributes:
-            -   _type: Attribute
-                is_embellishment: false
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFormCodeDescription
-            -   _type: Attribute
-                is_embellishment: false
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedThatCodeTypeWillBeMarkedAsIsCaptive
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1777,7 +1793,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -1785,23 +1801,20 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-        -   _type: Class
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: aPossibleValueForAnEnumeratedDataClassDependentOf
-                content:
-                    _type: OneLiner
-                    content: CodeType
-                emoji:
-                    _type: Emoji
+                _html_id: CodeType__isCaptive
+        -   _type: ValueType
+            one_liner:
+                _type: OneLiner
+                content: A possible value for an enumerated data class
             is_embellishment: false
-            prefix: _
+            prefix: Value Type
             name:
                 _type: ClassName
                 content: CodeValue
-            is_value_type: false
+            based_on:
+            -   _type: ClassReference
+                content: CodeType
+            is_value_type: true
             attributes:
             -   _type: Attribute
                 one_liner:
@@ -1818,7 +1831,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: NameString
                         as_value_type:
                             _type: AsValue
@@ -1826,10 +1839,21 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: CodeValue__code
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: an explanation of what the code means
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: 'Often, a CodeType will be assigned to just one attribute
+                            in the model.  In such cases, there''s no need to declare
+                            a new Code Type and invent a name for it.  Instead:'
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1841,7 +1865,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: RichText
                         as_value_type:
                             _type: AsValue
@@ -1849,25 +1873,26 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: CodeValue__description
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: a list of attributes of a class
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: Key
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Component
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            dependent_of:
-            -   _type: ClassName
+            based_on:
+            -   _type: ClassReference
                 content: Class
             is_value_type: false
             attributes:
@@ -1875,17 +1900,6 @@ subjects:
                 one_liner:
                     _type: OneLiner
                     content: the attributes of the base Class.
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: issue
-                    content:
-                        _type: OneLiner
-                        content: need ascending descending to support index keys or
-                            ordering keys.
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1899,7 +1913,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Attributes
                             as_value_type:
                                 _type: AsValue
@@ -1916,8 +1930,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
                     message:
                         _type: Paragraph
                 -   _type: Constraint
@@ -1925,11 +1937,19 @@ subjects:
                     -   _type: OneLiner
                         content: " no repetitions allowed in keyAttributes\n> \U0001F44D\
                             \ **Issue**: introduce PureLists?"
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: issue
+                        content:
+                            _type: OneLiner
+                            content: need ascending descending to support index keys
+                                or ordering keys.
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
                     message:
                         _type: Paragraph
+                _html_id: Key__keyAttributes
         -   _type: Class
             one_liner:
                 _type: OneLiner
@@ -1943,17 +1963,15 @@ subjects:
                 content:
                     _type: OneLiner
                     content: order unimportant for Unique Keys.
-                emoji:
-                    _type: Emoji
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: UniqueKey
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Key
                 subtyping_name:
                     _type: SubtypingName
@@ -1971,20 +1989,20 @@ subjects:
             _type: OneLiner
             content: a group of attributes for a class that merit a shared explanation.
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: AttributeSection
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Class
         is_value_type: false
         attributes:
@@ -2011,7 +2029,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Boolean
                     as_value_type:
                         _type: AsValue
@@ -2019,25 +2037,29 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AttributeSection__isOptional
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A property or characteristic of a class
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: AttributeAPropertyOrCharacteristicOfAClass
+            content: Attribute
         plural: ' Attributes
 
             '
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: AttributeSection
         is_value_type: false
         attributes:
@@ -2053,7 +2075,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: LowerCamel
                     as_value_type:
                         _type: AsValue
@@ -2064,6 +2086,7 @@ subjects:
             overrides:
                 _type: AttributeReference
                 class_name: CamelName
+            _html_id: Attribute__name
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2080,8 +2103,6 @@ subjects:
                 content:
                     _type: OneLiner
                     content: the section below on Data Type Specifiers.
-                emoji:
-                    _type: Emoji
             is_embellishment: false
             prefix: '-'
             name:
@@ -2093,7 +2114,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: DataType
                     as_value_type:
                         _type: AsValue
@@ -2101,6 +2122,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Attribute__dataType
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -2128,7 +2150,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -2144,22 +2166,12 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__isOptional
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: The cardinality of the relationship represented by the
                         attribute _
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: forExample
-                    content:
-                        _type: OneLiner
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2171,7 +2183,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: CardinalityCode
                         as_value_type:
                             _type: AsValue
@@ -2196,9 +2208,15 @@ subjects:
                             one-liner.
 
                             '
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: forExample
+                        content:
+                            _type: OneLiner
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__cardinality
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2211,7 +2229,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: InventedName
                         as_value_type:
                             _type: AsValue
@@ -2219,6 +2237,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Attribute__author
             -   _type: Attribute
                 annotations:
                 -   _type: Annotation
@@ -2228,8 +2247,6 @@ subjects:
                     content:
                         _type: OneLiner
                         content: how this works with optionality
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2241,7 +2258,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: InventedName
                         as_value_type:
                             _type: AsValue
@@ -2249,6 +2266,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: Attribute__books
         -   _type: AttributeSection
             is_embellishment: false
             prefix: __
@@ -2271,7 +2289,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -2288,8 +2306,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__isInvertible
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -2306,7 +2323,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Class
                         as_value_type:
                             _type: AsValue
@@ -2322,8 +2339,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__inverseClass
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2336,7 +2352,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Attribute
                         as_value_type:
                             _type: AsValue
@@ -2344,6 +2360,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: Attribute__inverseAttribute
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2356,7 +2373,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Attribute
                         as_value_type:
                             _type: AsValue
@@ -2364,133 +2381,132 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-    -   _type: Class
-        is_embellishment: false
-        prefix: _
-        name:
-            _type: ClassName
-            content: Formulas
-        is_value_type: false
-        attributes:
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: 'The rule or formula for calculating the value, if no value
-                    is supplied
-
-                    Now running to a second line with the parenthentical on yet a
-                    third line'
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: note
-                content:
-                    _type: OneLiner
-                    content: "even when an Attribute has a default derivation, there\u2019\
-                        s no guarantee that every instance will have an assigned value.\
-                        \ Example needed."
-                emoji:
-                    _type: Emoji
-                elaboration:
-                -   _type: Paragraph
-                    content: 'Yes, it handled extra lines.  Let''s see about additional
-                        paras for an annotation
-
-                        '
-                -   _type: Paragraph
-                    content: 'Last paragraph here
-
-                        '
+                _html_id: Attribute__inverseIsOptional
+        -   _type: AttributeSection
             is_embellishment: false
-            prefix: '-'
+            prefix: __
             name:
-                _type: AttributeName
-                content: default
-            parenthetical: optional Derivation
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassName
-                        content: Derivation
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: true
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: For derived attributes, the rule or formula for calculating
-                    the value _
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: issue
-                content:
+                _type: AttributeSectionName
+                content: Formulas
+            is_optional:
+                _type: IsOptional
+                content: false
+            attributes:
+            -   _type: Attribute
+                one_liner:
                     _type: OneLiner
-                    content: on insert vs on access?
-                emoji:
-                    _type: Emoji
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: derivation
-            parenthetical: optional Derivation
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassName
-                        content: Derivation
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: true
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Any validation rules specific to this attribute _
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: note
-                content:
-                    _type: OneLiner
-                    content: from Class.constraints
-                emoji:
-                    _type: Emoji
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: constraints
-            parenthetical: ListOf Constraints
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: ListDataType
-                    element_type:
+                    content: 'The rule or formula for calculating the value, if no
+                        value is supplied
+
+                        Now running to a second line with the parenthentical on yet
+                        a third line'
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: "even when an Attribute has a default derivation,\
+                            \ there\u2019s no guarantee that every instance will have\
+                            \ an assigned value. Example needed."
+                    elaboration:
+                    -   _type: Paragraph
+                        content: 'Yes, it handled extra lines.  Let''s see about additional
+                            paras for an annotation
+
+                            '
+                    -   _type: Paragraph
+                        content: 'Last paragraph here
+
+                            '
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: default
+                parenthetical: optional Derivation
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
-                            content: Constraints
+                            _type: ClassReference
+                            content: Derivation
                         as_value_type:
                             _type: AsValue
                             content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-        attribute_sections:
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: true
+                _html_id: Attribute__default
+            -   _type: Attribute
+                one_liner:
+                    _type: OneLiner
+                    content: For derived attributes, the rule or formula for calculating
+                        the value _
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: issue
+                    content:
+                        _type: OneLiner
+                        content: on insert vs on access?
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: derivation
+                parenthetical: optional Derivation
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: Derivation
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: true
+                _html_id: Attribute__derivation
+            -   _type: Attribute
+                one_liner:
+                    _type: OneLiner
+                    content: Any validation rules specific to this attribute _
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: from Class.constraints
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: constraints
+                parenthetical: ListOf Constraints
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: ListDataType
+                        element_type:
+                            _type: BaseDataType
+                            class_name:
+                                _type: ClassReference
+                                content: Constraints
+                            as_value_type:
+                                _type: AsValue
+                                content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: false
+                _html_id: Attribute__constraints
         -   _type: AttributeSection
             is_embellishment: false
             prefix: __
@@ -2507,16 +2523,20 @@ subjects:
                 name:
                     _type: AttributeName
                     content: overrides
-    -   _type: Class
+                _html_id: Attribute__overrides
+    -   _type: ValueType
+        one_liner:
+            _type: OneLiner
+            content: A rule or formula for deriving the value of an attribute
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
+            content: Derivation
         plural: ' Derivations
 
             '
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
@@ -2533,7 +2553,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -2541,6 +2561,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Derivation__statement
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2557,7 +2578,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CodeExpression
                     as_value_type:
                         _type: AsValue
@@ -2565,24 +2586,29 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-    -   _type: Class
+            _html_id: Derivation__expression
+    -   _type: ValueType
+        one_liner:
+            _type: OneLiner
+            content: A rule, condition, or validation that must be satisfied by the
+                model
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
+            content: Constraint
         plural: ' Constraints
 
             '
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
@@ -2599,7 +2625,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -2607,6 +2633,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Constraint__statement
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2623,7 +2650,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: InventedName
                     as_value_type:
                         _type: AsValue
@@ -2631,7 +2658,17 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Constraint__expression
         -   _type: Attribute
+            elaboration:
+            -   _type: CodeBlock
+                content: '```codes
+
+                    Warning, nothing fatal; just a caution
+
+                    Error, serious. Fix now
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -2643,7 +2680,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -2651,86 +2688,72 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**Warning** - nothing fatal; just a caution'
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**Error** - serious. Fix now'
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: message
-            parenthetical: Template
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassName
-                        content: Template
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-    -   _type: Class
+            _html_id: Constraint__severity
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Message
+        parenthetical: Template
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
         name:
             _type: ClassName
             content: ClassConstraint
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Constraint
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Class
-        is_value_type: false
-    -   _type: Class
+        is_value_type: true
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: AttributeConstraint
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Constraint
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Attribute
-        is_value_type: false
-    -   _type: Class
+        is_value_type: true
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: CodeExpression
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the programming language
+            elaboration:
+            -   _type: CodeBlock
+                content: '``` code
+
+                    OCL, Object Constraint Language
+
+                    Java, Java
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -2742,7 +2765,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -2750,18 +2773,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: 'OCL: Object Constraint Language'
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: 'Java: Java'
-            is_embellishment: false
-            prefix: '-'
+            _html_id: CodeExpression__language
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -2774,7 +2786,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -2782,6 +2794,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: CodeExpression__expression
 -   _type: SubjectB
     is_embellishment: false
     prefix: '##'
@@ -2790,18 +2803,21 @@ subjects:
         content: Methods
     classes:
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A behavior or operation associated with a class
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: MethodABehaviorOrOperationAssociatedWithAClass
+            content: Method
         plural: ' Methods
 
             '
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
@@ -2825,7 +2841,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Parameters
                         as_value_type:
                             _type: AsValue
@@ -2833,6 +2849,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Method__parameters
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2848,7 +2865,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: DataType
                     as_value_type:
                         _type: AsValue
@@ -2856,9 +2873,10 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Method__returnType
     -   _type: Class
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: ParameterAnInputToAMethod
@@ -2866,9 +2884,9 @@ subjects:
 
             '
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
@@ -2890,7 +2908,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: DataType
                     as_value_type:
                         _type: AsValue
@@ -2898,6 +2916,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: ParameterAnInputToAMethod__type
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2913,7 +2932,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: InventedName
                     as_value_type:
                         _type: AsValue
@@ -2921,25 +2940,28 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: ParameterAnInputToAMethod__cardinality
 -   _type: SubjectB
-    elaboration:
-    -   _type: Paragraph
-        content: '*ValueType*:**Data Type**
-
-            '
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Data Types
     classes:
-    -   _type: Class
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: DataType
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
         name:
             _type: ClassName
             content: SimpleDataTypeSubtpeOfDataType
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
             is_embellishment: false
@@ -2953,7 +2975,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Class
                     as_value_type:
                         _type: AsValue
@@ -2961,13 +2983,14 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-    -   _type: Class
+            _html_id: SimpleDataTypeSubtpeOfDataType__coreClass
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: ComplexDataType
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
             is_embellishment: false
@@ -2981,7 +3004,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: AggregatingOperator
                     as_value_type:
                         _type: AsValue
@@ -2989,6 +3012,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: ComplexDataType__aggregation
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -3003,7 +3027,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: DataTypes
                         as_value_type:
                             _type: AsValue
@@ -3011,15 +3035,27 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-    -   _type: Class
+            _html_id: ComplexDataType__aggregatedTypes
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: AggregatingOperator
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
+            elaboration:
+            -   _type: CodeBlock
+                content: '``` code
+
+                    SetOf
+
+                    ListOf
+
+                    Mapping
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -3031,7 +3067,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -3039,24 +3075,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**SetOf**'
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**ListOf**'
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**Mapping**'
-            is_embellishment: false
-            prefix: '-'
+            _html_id: AggregatingOperator__name
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -3069,7 +3088,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Integer
                     as_value_type:
                         _type: AsValue
@@ -3077,6 +3096,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AggregatingOperator__arity
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -3089,7 +3109,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Template
                     as_value_type:
                         _type: AsValue
@@ -3097,6 +3117,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AggregatingOperator__spelling
 -   _type: SubjectB
     elaboration:
     -   _type: Paragraph
@@ -3109,7 +3130,21 @@ subjects:
         _type: SubjectName
         content: Low level Data Types
     classes:
-    -   _type: Class
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Emoji
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: String
+        is_value_type: true
+    -   _type: ValueType
         elaboration:
         -   _type: Paragraph
             content: 'A short string without punctuation or spaces, suitable for names,
@@ -3117,49 +3152,21 @@ subjects:
 
                 '
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: ValueTypeCamelName
+            content: CamelName
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: String
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: example
-                content:
-                    _type: OneLiner
-                    content: '"firstName", "orderDate", "customerID"'
-                emoji:
-                    _type: Emoji
-                elaboration:
-                -   _type: Paragraph
-                    content: "> \U0001F4DD ***ModelingNote***: Putting the non-empty\
-                        \ constraint on the CamelName value type is effective because\
-                        \ it automatically applies to all attributes that use CamelName\
-                        \ as their type. This ensures consistency and avoids the need\
-                        \ to define the constraint separately for each attribute.\n"
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: modelingNote
-                content:
-                    _type: OneLiner
-                    content: '* *CamelName* is presented here, just after its first
-                        usage by another class (Component), to provide context and
-                        understanding before it is used further in the model.'
-                emoji:
-                    _type: Emoji
             is_embellishment: false
             prefix: '-'
             name:
@@ -3171,7 +3178,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -3187,12 +3194,36 @@ subjects:
                         be empty.
 
                         '
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: example
+                    content:
+                        _type: OneLiner
+                        content: '"firstName", "orderDate", "customerID"'
+                    elaboration:
+                    -   _type: Paragraph
+                        content: "> \U0001F4DD ***ModelingNote***: Putting the non-empty\
+                            \ constraint on the CamelName value type is effective\
+                            \ because it automatically applies to all attributes that\
+                            \ use CamelName as their type. This ensures consistency\
+                            \ and avoids the need to define the constraint separately\
+                            \ for each attribute.\n"
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: modelingNote
+                    content:
+                        _type: OneLiner
+                        content: '* *CamelName* is presented here, just after its
+                            first usage by another class (Component), to provide context
+                            and understanding before it is used further in the model.'
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
-    -   _type: Class
+            _html_id: CamelName__valueTheString
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a capital letter
@@ -3204,26 +3235,24 @@ subjects:
             content:
                 _type: OneLiner
                 content: _ "Customer", "ProductCategory", "PaymentMethod"
-            emoji:
-                _type: Emoji
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: UpperCamel
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: CamelName
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         where: ' content begins with an upper case letter.
 
             '
-    -   _type: Class
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a lower case letter
@@ -3235,43 +3264,41 @@ subjects:
             content:
                 _type: OneLiner
                 content: '"firstName", "orderTotal", "shippingAddress"'
-            emoji:
-                _type: Emoji
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: LowerCamel
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: CamelName
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         where: ' content begins with a lower case letter.
 
             '
-    -   _type: Class
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: an expression consisting of Camel Names separated by periods
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: QualifiedCamel
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: String
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         constraints:
         -   _type: Constraint
             one_liner:
@@ -3281,20 +3308,21 @@ subjects:
 
                     '
             is_embellishment: false
-            english:
-                _type: Paragraph
             message:
                 _type: Paragraph
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A string with markup for block level formatting.
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: RichTextAStringWithMarkupForBlockLevelFormatting
+            content: RichText
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: String
             subtyping_name:
                 _type: SubtypingName
@@ -3316,7 +3344,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -3324,10 +3352,20 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: RichText__value
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the rich text coding language used
+            elaboration:
+            -   _type: CodeBlock
+                content: '```code
+
+                    HTML
+
+                    MarkDown
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -3339,7 +3377,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -3347,36 +3385,25 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: html
-        -   _type: Attribute
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: markDown
-    -   _type: Class
+            _html_id: RichText__format
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: String with markup for line level formatting.
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: RichLine
+            content: OneLiner
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: RichText
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
@@ -3393,7 +3420,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -3409,53 +3436,125 @@ subjects:
 
                         '
                 is_embellishment: false
-                english:
-                    _type: Paragraph
-                message:
-                    _type: Paragraph
-    -   _type: Class
-        annotations:
-        -   _type: Annotation
-            label:
-                _type: Label
-                content: values
-            content:
-                _type: OneLiner
-            emoji:
-                _type: Emoji
-            elaboration:
-            -   _type: Paragraph
-                content: '===
+                message: ' A line can''t span two lines
 
                     '
+            _html_id: OneLiner__value
+    -   _type: ValueType
+        one_liner:
+            _type: OneLiner
+            content: A basic, built-in data type
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: PrimitiveType
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: String
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
-                content: ValueTypeABasic
+                _type: ClassReference
+                content: PrimitiveType
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        -   type: _SubtypeBy
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Integer
+        subtype_of:
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
-                content: BuiltInDataType
+                _type: ClassReference
+                content: PrimitiveType
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
--   _type: SubjectB
-    is_embellishment: false
-    prefix: '##'
-    name:
-        _type: SubjectName
-        content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
-            Intro md Insert OCL md Insert Camel Case md
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Decimal
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Boolean
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Date
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Time
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: DateTime
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
     subjects:
     -   _type: SubjectC
         elaboration:
@@ -3512,30 +3611,40 @@ subjects:
             content: "``` csv\nlabel,emoji,emojiName,emojiUnicode,purpose\nError,\u274C\
                 ,cross_mark,U+274C,Indicates a critical error or failure in the model.\n\
                 Warning,\u26A0\uFE0F,warning,U+26A0,Indicates a potential issue or\
-                \ warning in the model.\nNote,,blue_book,U+1F4D8,\"Provides additional\
-                \ context, explanations, or clarifications for the annotated element.\"\
-                \nIssue,,warning,U+26A0,Highlights a potential issue or error that\
-                \ needs to be addressed or resolved.\nQuestion,\u2753,question,U+2753,Raises\
-                \ a question or seeks further clarification about the annotated element.\n\
-                Suggestion,\U0001F4A1,bulb,U+1F4A1,Provides a suggestion or recommendation\
-                \ for improving the model or the annotated element.\nInfo,\u2139\uFE0F\
-                ,information_source,U+2139,\"Offers relevant information, facts, or\
-                \ details about the annotated element.\"\nTodo,\U0001F4CC,pushpin,U+1F4CC,\"\
-                Indicates a pending task, action item, or future work related to the\
-                \ annotated element.\"\nReference,\U0001F310,globe_with_meridians,U+1F310,Provides\
-                \ a reference or link to an external resource or documentation.\n\
-                See,,mag,U+1F50D,Indicates a cross-reference to another relevant element\
-                \ within the model.\n\n```"
-        -   _type: Paragraph
-            content: '===
-
-                '
+                \ warning in the model.\nNote,\U0001F4D8,blue_book,U+1F4D8,\"Provides\
+                \ additional context, explanations, or clarifications for the annotated\
+                \ element.\"\nIssue,\u26A0\uFE0F,warning,U+26A0,Highlights a potential\
+                \ issue or error that needs to be addressed or resolved.\nQuestion,\u2753\
+                ,question,U+2753,Raises a question or seeks further clarification\
+                \ about the annotated element.\nSuggestion,\U0001F4A1,bulb,U+1F4A1,Provides\
+                \ a suggestion or recommendation for improving the model or the annotated\
+                \ element.\nInfo,\u2139\uFE0F,information_source,U+2139,\"Offers relevant\
+                \ information, facts, or details about the annotated element.\"\n\
+                Todo,\U0001F4CC,pushpin,U+1F4CC,\"Indicates a pending task, action\
+                \ item, or future work related to the annotated element.\"\nReference,\U0001F310\
+                ,globe_with_meridians,U+1F310,Provides a reference or link to an external\
+                \ resource or documentation.\nSee,\U0001F50D,mag,U+1F50D,Indicates\
+                \ a cross-reference to another relevant element within the model.\n\
+                \n```"
         is_embellishment: false
         prefix: '###'
         name:
             _type: SubjectName
             content: Annotation types as CSV
 -   _type: SubjectB
+    one_liner:
+        _type: OneLiner
+        content: 'various sidebars to include
+
+            Insert More Sidebars.md
+
+            Insert Overrides.md
+
+            insert LDM Intro.md
+
+            Insert OCL.md
+
+            Insert Camel Case.md'
     elaboration:
     -   _type: Paragraph
         content: '== content to add
@@ -3545,5 +3654,4 @@ subjects:
     prefix: '##'
     name:
         _type: SubjectName
-        content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
-            Intro md Insert OCL md Insert Camel Case md
+        content: Appendices

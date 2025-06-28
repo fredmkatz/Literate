@@ -1,13 +1,4 @@
 _type: LiterateModel
-diagnostics:
--   _type: Diagnostic
-    object_name: Literate Data Model
-    object_type: LiterateModel
-    category: Missing field
-    message:
-        _type: Paragraph
-        content: Missing oneLiner
-    severity: Error
 is_embellishment: false
 prefix: '#'
 name:
@@ -35,16 +26,6 @@ subjects:
             before delving into the specifics of each specialized component.
 
             '
-    diagnostics:
-    -   _type: Diagnostic
-        object_name: Preliminaries
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
     is_embellishment: false
     prefix: '##'
     name:
@@ -56,16 +37,62 @@ subjects:
             _type: OneLiner
             content: An element or building block of the literate data model
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: Component
+        plural: Components
+        presumed_plural: Components
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: LiterateDataModel
+            -   _type: ClassReference
+                content: Subject
+            -   _type: ClassReference
+                content: Class
+            -   _type: ClassReference
+                content: Key
+            -   _type: ClassReference
+                content: AttributeSection
+            -   _type: ClassReference
+                content: Attribute
+            -   _type: ClassReference
+                content: Constraint
+            -   _type: ClassReference
+                content: Method
+            -   _type: ClassReference
+                content: ParameterAnInputToAMethod
+        dependents:
+        -   _type: ClassReference
+            content: Annotation
         is_value_type: false
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the name of the component, not in camel case
+            annotations:
+            -   _type: Annotation
+                label:
+                    _type: Label
+                    content: warning
+                content:
+                    _type: OneLiner
+                    content: This is a warning with emoji
+                emoji:
+                    _type: Emoji
+                    content: "\u26A0\uFE0F"
             is_embellishment: false
             prefix: '-'
             name:
@@ -77,7 +104,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -85,6 +112,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__normalName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -100,7 +128,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -108,16 +136,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__name
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: qualifiedName
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -129,7 +149,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: QualifiedCamel
                     as_value_type:
                         _type: AsValue
@@ -137,6 +157,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__qualifiedName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -152,6 +173,7 @@ subjects:
                     content: '"LDM" is the short form of "Literate Data Model".'
                 emoji:
                     _type: Emoji
+                    content: "\U0001F523"
             is_embellishment: false
             prefix: '-'
             name:
@@ -163,7 +185,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -175,20 +197,65 @@ subjects:
                 _type: Default
                 one_liner:
                     _type: OneLiner
-                    content: ' name
+                    content: ' name -  how do you say name in english?
 
                         '
+                is_embellishment: false
+                ocl: ' x.name == y
+
+                    '
+            constraints:
+            -   _type: Constraint
+                one_liner:
+                -   _type: OneLiner
+                    content: ' the abbreviated name should be shorter than the actual
+                        name
+
+                        '
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: Does this annotation find it's way to the Constraint?
+                            YES! It's fixed!
                 diagnostics:
                 -   _type: Diagnostic
-                    object_type: Default
-                    category: No presence
+                    object_type: Constraint
+                    category: Tester
                     message:
                         _type: Paragraph
-                        content: No value for code
+                        content: Let's see how Constraints handle diagnostics
                     severity: Error
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: Field Error
+                    message:
+                        _type: Paragraph
+                        content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
+                            but got <class 'list'>
+                    severity: Bug
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: Field Error
+                    message:
+                        _type: Paragraph
+                        content: For field 'message' - expected typing.Optional[Literate_01.Paragraph],
+                            but got <class 'str'>
+                    severity: Bug
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+                ocl: ' len(abbreviatedName) < len(name)
+
+                    '
+                message: '  Why have an abbreviation longer than the name?
+
+                    '
+                severity: ' Warning
+
+                    '
+            _html_id: Component__abbreviatedName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -208,20 +275,21 @@ subjects:
             name:
                 _type: AttributeName
                 content: oneLiner
-            parenthetical: RichLine
+            parenthetical: OneLiner
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
-                        content: RichLine
+                        _type: ClassReference
+                        content: OneLiner
                     as_value_type:
                         _type: AsValue
                         content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__oneLiner
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -238,7 +306,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -246,6 +314,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Component__elaboration
         attribute_sections:
         -   _type: AttributeSection
             one_liner:
@@ -265,21 +334,6 @@ subjects:
                     _type: OneLiner
                     content: Indicates whether this component is an embellishment
                         added during post-parsing processing _
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                    emoji:
-                        _type: Emoji
                 diagnostics:
                 -   _type: Diagnostic
                     object_name: isEmbellishment
@@ -300,7 +354,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -315,17 +369,21 @@ subjects:
                         content: ' false
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Default
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: note
+                        content:
+                            _type: OneLiner
+                            content: This attribute is set to true for components
+                                that are automatically generated or added during the
+                                fleshing out, review, or rendering processes, such
+                                as implied attributes or suggested model elements.
+                                It helps distinguish embellishments from the core
+                                model elements defined in the original LDM source.
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Component__isEmbellishment
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -343,6 +401,7 @@ subjects:
                     or *registered* Annotation Types.
             emoji:
                 _type: Emoji
+                content: "\U0001F5C9"
         diagnostics:
         -   _type: Diagnostic
             object_name: AnnotationType
@@ -353,12 +412,14 @@ subjects:
                 content: oneLiner is too long. (96 chars).
             severity: Warning
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: AnnotationType
+        plural: AnnotationTypes
+        presumed_plural: AnnotationTypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: LiterateDataModel
         is_value_type: false
         attributes:
@@ -377,7 +438,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Emoji
                     as_value_type:
                         _type: AsValue
@@ -385,6 +446,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__emoji
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -400,7 +462,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -408,6 +470,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__emojiName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -423,7 +486,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Unicode
                     as_value_type:
                         _type: AsValue
@@ -431,6 +494,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__emojiUnicode
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -446,7 +510,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -454,6 +518,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AnnotationType__label
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -469,7 +534,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: UpperCamel
                     as_value_type:
                         _type: AsValue
@@ -484,60 +549,45 @@ subjects:
                     content: ' based on label
 
                         '
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: Default
-                    category: No presence
-                    message:
-                        _type: Paragraph
-                        content: No value for code
-                    severity: Error
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+            _html_id: AnnotationType__plural
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the intended reason for the annotation.
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: purpose
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_name: purpose
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: purpose
+            parenthetical: OneLiner
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: OneLiner
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+            _html_id: AnnotationType__purpose
     -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
+        one_liner:
+            _type: OneLiner
+            content: A note or comment associated with a model element
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: ValueTypeAnnotationANoteOrCommentAssociatedWithAModelElement
+            content: Annotation
+        plural: Annotations
+        presumed_plural: Annotations
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Component
         is_value_type: false
         attributes:
@@ -554,15 +604,17 @@ subjects:
                         hoc*.
                 emoji:
                     _type: Emoji
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: annotationType
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
+                    content: "\U0001F5C9"
+            -   _type: Annotation
+                label:
+                    _type: Label
+                    content: note
+                content:
+                    _type: OneLiner
+                    content: Should be a Value  Type
+                emoji:
+                    _type: Emoji
+                    content: "\U0001F5C9"
             is_embellishment: false
             prefix: '-'
             name:
@@ -574,7 +626,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: AnnotationType
                     as_value_type:
                         _type: AsValue
@@ -582,6 +634,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+            _html_id: Annotation__annotationType
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -602,7 +655,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CamelName
                     as_value_type:
                         _type: AsValue
@@ -617,27 +670,9 @@ subjects:
                     content: ' from annotationType
 
                         '
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: Default
-                    category: No presence
-                    message:
-                        _type: Paragraph
-                        content: No value for code
-                    severity: Error
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+            _html_id: Annotation__label
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: emoji
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -649,7 +684,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Emoji
                     as_value_type:
                         _type: AsValue
@@ -664,17 +699,8 @@ subjects:
                     content: ' from annotation type
 
                         '
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: Default
-                    category: No presence
-                    message:
-                        _type: Paragraph
-                        content: No value for code
-                    severity: Error
                 is_embellishment: false
-                english:
-                    _type: Paragraph
+            _html_id: Annotation__emoji
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -690,7 +716,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -698,17 +724,9 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Annotation__content
         attribute_sections:
         -   _type: AttributeSection
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: For Machinery
-                object_type: AttributeSection
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: __
             name:
@@ -723,21 +741,6 @@ subjects:
                     _type: OneLiner
                     content: Indicates whether this annotation is an embellishment
                         added during post-parsing processing _
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for annotations that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as suggestions,
-                            issues, or diagnostic messages. It helps distinguish embellishment
-                            annotations from the annotations defined in the original
-                            LDM source.
-                    emoji:
-                        _type: Emoji
                 diagnostics:
                 -   _type: Diagnostic
                     object_name: isEmbellishment
@@ -758,7 +761,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -773,36 +776,22 @@ subjects:
                         content: ' false
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Default
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: note
+                        content:
+                            _type: OneLiner
+                            content: This attribute is set to true for annotations
+                                that are automatically generated or added during the
+                                fleshing out, review, or rendering processes, such
+                                as suggestions, issues, or diagnostic messages. It
+                                helps distinguish embellishment annotations from the
+                                annotations defined in the original LDM source.
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Annotation__isEmbellishment
 -   _type: SubjectB
-    diagnostics:
-    -   _type: Diagnostic
-        object_name: The Model and its Subjects
-        object_type: SubjectB
-        category: Missing field
-        message:
-            _type: Paragraph
-            content: Missing oneLiner
-        severity: Error
-    -   _type: Diagnostic
-        object_name: The Model and its Subjects
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
     is_embellishment: false
     prefix: '##'
     name:
@@ -832,45 +821,31 @@ subjects:
                 _type: Paragraph
                 content: For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase],
                     but got <class 'str'>
-            severity: Error
-        -   _type: Diagnostic
-            object_name: LiterateDataModel
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+            severity: Bug
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: LiterateDataModel
         abbreviation: LDM
-        plural: ' LiterateDataModels
-
-            '
+        plural: LiterateDataModels
+        presumed_plural: LiterateDataModels
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
+        dependents:
+        -   _type: ClassReference
+            content: AnnotationType
+        -   _type: ClassReference
+            content: Subject
         is_value_type: false
         attributes:
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: name
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -882,7 +857,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: UpperCamel
                     as_value_type:
                         _type: AsValue
@@ -890,6 +865,15 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            overrides:
+                _type: AttributeReference
+                class_name:
+                    _type: ClassReference
+                    content: Component
+                attribute_name:
+                    _type: AttributeName
+                    content: name
+            _html_id: LiterateDataModel__name
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -909,7 +893,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Classes
                         as_value_type:
                             _type: AsValue
@@ -924,17 +908,7 @@ subjects:
                     content: ' gathering s.allSubjects over s in subjectAreas
 
                         '
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: Derivation
-                    category: No presence
-                    message:
-                        _type: Paragraph
-                        content: No value for code
-                    severity: Error
                 is_embellishment: false
-                english:
-                    _type: Paragraph
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -945,10 +919,17 @@ subjects:
                 diagnostics:
                 -   _type: Diagnostic
                     object_type: Constraint
-                    category: No presence
+                    category: Tester
                     message:
                         _type: Paragraph
-                        content: No value for code
+                        content: Let's see how Constraints handle diagnostics
+                    severity: Error
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: NonPresence
+                    message:
+                        _type: Paragraph
+                        content: 'Missing value for required field: ''ocl'''
                     severity: Error
                 -   _type: Diagnostic
                     object_type: Constraint
@@ -957,12 +938,11 @@ subjects:
                         _type: Paragraph
                         content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
                             but got <class 'list'>
-                    severity: Error
+                    severity: Bug
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
+            _html_id: LiterateDataModel__allSubjects
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -981,7 +961,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Classes
                         as_value_type:
                             _type: AsValue
@@ -996,17 +976,7 @@ subjects:
                     content: ' gathering s.allClasses over s in allSubjects.
 
                         '
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: Derivation
-                    category: No presence
-                    message:
-                        _type: Paragraph
-                        content: No value for code
-                    severity: Error
                 is_embellishment: false
-                english:
-                    _type: Paragraph
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -1017,10 +987,17 @@ subjects:
                 diagnostics:
                 -   _type: Diagnostic
                     object_type: Constraint
-                    category: No presence
+                    category: Tester
                     message:
                         _type: Paragraph
-                        content: No value for code
+                        content: Let's see how Constraints handle diagnostics
+                    severity: Error
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: NonPresence
+                    message:
+                        _type: Paragraph
+                        content: 'Missing value for required field: ''ocl'''
                     severity: Error
                 -   _type: Diagnostic
                     object_type: Constraint
@@ -1029,23 +1006,13 @@ subjects:
                         _type: Paragraph
                         content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
                             but got <class 'list'>
-                    severity: Error
+                    severity: Bug
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
+            _html_id: LiterateDataModel__allClasses
         attribute_sections:
         -   _type: AttributeSection
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: Modeling Configuration
-                object_type: AttributeSection
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: __
             name:
@@ -1056,15 +1023,6 @@ subjects:
                 content: false
             attributes:
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: annotationTypes
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1078,7 +1036,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: AnnotationTypes
                             as_value_type:
                                 _type: AsValue
@@ -1086,6 +1044,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: LiterateDataModel__annotationTypes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1102,7 +1061,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: CodingLanguage
                         as_value_type:
                             _type: AsValue
@@ -1117,27 +1076,9 @@ subjects:
                         content: ' OCL
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Default
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: LiterateDataModel__preferredCodingLanguage
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: alternateCodingLanguages
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1151,7 +1092,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: CodingLanguages
                             as_value_type:
                                 _type: AsValue
@@ -1159,6 +1100,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: LiterateDataModel__alternateCodingLanguages
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1175,7 +1117,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: TemplateLanguage
                         as_value_type:
                             _type: AsValue
@@ -1190,27 +1132,9 @@ subjects:
                         content: ' Handlebars
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Default
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: LiterateDataModel__preferredTemplateLanguage
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: alternateTemplateLanguages
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1224,7 +1148,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: TemplateLanguages
                             as_value_type:
                                 _type: AsValue
@@ -1232,6 +1156,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: LiterateDataModel__alternateTemplateLanguages
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1250,7 +1175,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: String
                             as_value_type:
                                 _type: AsValue
@@ -1265,71 +1190,51 @@ subjects:
                         content: ' [''aiEnglishPlural()'']
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Derivation
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: LiterateDataModel__aiFunctions
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A specific topic or theme within the model
         elaboration:
         -   _type: Paragraph
             content: "Subjects are the chapters an sections of the model.\n \n+ A\
                 \ subject need not contain any Classes if it\u2019s just expository.\n"
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: SubjectASpecificTopicOrThemeWithinTheModel
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: SubjectASpecificTopicOrThemeWithinTheModel
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: SubjectASpecificTopicOrThemeWithinTheModel
-        plural: ' Subjects
-
-            '
+            content: Subject
+        plural: Subjects
+        presumed_plural: Subjects
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        dependent_of:
-        -   _type: ClassName
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: SubjectArea
+        based_on:
+        -   _type: ClassReference
             content: LiterateDataModel
         is_value_type: false
         attributes:
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: name
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -1341,7 +1246,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: UpperCamel
                     as_value_type:
                         _type: AsValue
@@ -1349,6 +1254,15 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            overrides:
+                _type: AttributeReference
+                class_name:
+                    _type: ClassReference
+                    content: Component
+                attribute_name:
+                    _type: AttributeName
+                    content: name
+            _html_id: Subject__name
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1365,7 +1279,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Subject
                     as_value_type:
                         _type: AsValue
@@ -1373,6 +1287,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+            _html_id: Subject__parentSubject
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1388,6 +1303,7 @@ subjects:
                     content: define chapter, section, subsection as levels?
                 emoji:
                     _type: Emoji
+                    content: "\U0001F914"
             diagnostics:
             -   _type: Diagnostic
                 object_name: classes
@@ -1410,7 +1326,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Classes
                         as_value_type:
                             _type: AsValue
@@ -1418,68 +1334,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
-            -   _type: Diagnostic
-                object_name: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_name: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: eachClassShouldBeFollowedFirstByTheClassesThatAreDependentOnItAndThen
-        -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: byItsSubtypeClasses
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
-            -   _type: Diagnostic
-                object_name: byItsSubtypeClasses
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_name: byItsSubtypeClasses
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: byItsSubtypeClasses
+            _html_id: Subject__classes
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1513,7 +1368,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Subjects
                         as_value_type:
                             _type: AsValue
@@ -1524,79 +1379,69 @@ subjects:
             inverse:
                 _type: AttributeReference
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Subject
                 attribute_name:
                     _type: AttributeName
                     content: parentSubject
+            _html_id: Subject__childSubjects
     -   _type: Class
+        one_liner:
+            _type: OneLiner
+            content: A main topic or area of focus within the model, containing related
+                subjects and classes
         diagnostics:
         -   _type: Diagnostic
-            object_name: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
-        -   _type: Diagnostic
-            object_name: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
+            object_name: SubjectArea
             object_type: Class
             category: Field Error
             message:
                 _type: Paragraph
                 content: For field 'where' - expected typing.Optional[Literate_01.OneLiner],
                     but got <class 'str'>
+            severity: Bug
+        -   _type: Diagnostic
+            object_name: SubjectArea
+            object_type: Class
+            category: Invalid class reference
+            message:
+                _type: Paragraph
+                content: Invalid reference to 'LiterateModel' in based_on
+            severity: Error
+        -   _type: Diagnostic
+            object_name: SubjectArea
+            object_type: Class
+            category: Invalid class reference
+            message:
+                _type: Paragraph
+                content: Invalid reference to 'Xyz' in based_on
             severity: Error
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: SubjectAreaAMainTopicOrAreaOfFocusWithinTheModelContainingRelatedSubjectsAndClasses
-        plural: ' SubjectAreas
-
-            '
+            content: SubjectArea
+        plural: SubjectAreas
+        presumed_plural: SubjectAreas
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Subject
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
+        based_on:
+        -   _type: ClassReference
+            content: LiterateModel
+        -   _type: ClassReference
+            content: Xyz
         is_value_type: false
         where: ' parentSubject is absent
 
             '
     subjects:
     -   _type: SubjectC
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Classes
-            object_type: SubjectC
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: Classes
-            object_type: SubjectC
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                    but got <class 'Literate_01.SubjectName'>
-            severity: Error
         is_embellishment: false
         prefix: '###'
         name:
@@ -1609,21 +1454,43 @@ subjects:
                 content: A key entity or object type in the model, often corresponding
                     to a real-world concept
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: Class
-            plural: ' Classes
-
-                '
+            plural: Classes
+            presumed_plural: Classes
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Component
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
+            subtypings:
+            -   _type: Subtyping
+                name:
+                    _type: SubtypingName
+                    content: subtypes
+                is_exclusive:
+                    _type: IsExclusive
+                    content: true
+                is_exhaustive:
+                    _type: IsExclusive
+                    content: false
+                subtypes:
+                -   _type: ClassReference
+                    content: ReferenceType
+            dependents:
+            -   _type: ClassReference
+                content: Subtyping
+            -   _type: ClassReference
+                content: Key
+            -   _type: ClassReference
+                content: AttributeSection
+            -   _type: ClassReference
+                content: ClassConstraint
             is_value_type: false
             constraints:
             -   _type: Constraint
@@ -1632,9 +1499,30 @@ subjects:
                     content: ' Within each Class, attribute names must be unique.
 
                         '
+                diagnostics:
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: Tester
+                    message:
+                        _type: Paragraph
+                        content: Let's see how Constraints handle diagnostics
+                    severity: Error
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: NonPresence
+                    message:
+                        _type: Paragraph
+                        content: 'Missing value for required field: ''ocl'''
+                    severity: Error
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: Field Error
+                    message:
+                        _type: Paragraph
+                        content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
+                            but got <class 'list'>
+                    severity: Bug
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
             attributes:
@@ -1657,6 +1545,7 @@ subjects:
                             the plural form. The input program will just look it up.
                     emoji:
                         _type: Emoji
+                        content: "\U0001F5C9"
                     elaboration:
                     -   _type: Paragraph
                         content: 'The exception is when a common noun has two plural
@@ -1674,7 +1563,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: UpperName
                         as_value_type:
                             _type: AsValue
@@ -1690,8 +1579,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Class__pluralForm
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1716,6 +1604,7 @@ subjects:
                             in this metamodel.
                     emoji:
                         _type: Emoji
+                        content: "\U0001F5C9"
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1729,7 +1618,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Classes
                             as_value_type:
                                 _type: AsValue
@@ -1737,6 +1626,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__basedOn
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1752,7 +1642,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Es
                         as_value_type:
                             _type: AsValue
@@ -1760,6 +1650,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__supertypes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1777,6 +1668,7 @@ subjects:
                             Hardcover, Paperback), or subject (e.g., Science, History).
                     emoji:
                         _type: Emoji
+                        content: "\U0001F523"
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1790,7 +1682,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Subtypings
                             as_value_type:
                                 _type: AsValue
@@ -1798,6 +1690,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__subtypings
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1815,6 +1708,7 @@ subjects:
                             `PaperbackBook`, `ScienceBook`, and `HistoryBook`.
                     emoji:
                         _type: Emoji
+                        content: "\U0001F523"
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1828,7 +1722,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Classes
                             as_value_type:
                                 _type: AsValue
@@ -1836,11 +1730,21 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__subtypes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: The attributes or properties of the class, in the order
                         in which they should be presented _
+                diagnostics:
+                -   _type: Diagnostic
+                    object_name: attributes
+                    object_type: Attribute
+                    category: Style
+                    message:
+                        _type: Paragraph
+                        content: oneLiner is too long. (91 chars).
+                    severity: Warning
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1854,7 +1758,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Attributes
                             as_value_type:
                                 _type: AsValue
@@ -1862,6 +1766,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__attributes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1880,7 +1785,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: AttributeSections
                             as_value_type:
                                 _type: AsValue
@@ -1888,6 +1793,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__attributeSections
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1904,6 +1810,7 @@ subjects:
                             or the Attribute. Always?
                     emoji:
                         _type: Emoji
+                        content: "\U0001F5C9"
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -1917,7 +1824,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Constraints
                             as_value_type:
                                 _type: AsValue
@@ -1925,6 +1832,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__constraints
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1943,7 +1851,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Methods
                             as_value_type:
                                 _type: AsValue
@@ -1951,6 +1859,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Class__methods
             attribute_sections:
             -   _type: AttributeSection
                 is_embellishment: false
@@ -1979,7 +1888,7 @@ subjects:
                             element_type:
                                 _type: BaseDataType
                                 class_name:
-                                    _type: ClassName
+                                    _type: ClassReference
                                     content: Classes
                                 as_value_type:
                                     _type: AsValue
@@ -1990,11 +1899,12 @@ subjects:
                     inverse:
                         _type: AttributeReference
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Class
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
+                    _html_id: Class__dependents
                 -   _type: Attribute
                     is_embellishment: false
                     prefix: '-'
@@ -2009,7 +1919,7 @@ subjects:
                             element_type:
                                 _type: BaseDataType
                                 class_name:
-                                    _type: ClassName
+                                    _type: ClassReference
                                     content: UniqueKeys
                                 as_value_type:
                                     _type: AsValue
@@ -2020,23 +1930,26 @@ subjects:
                     inverse:
                         _type: AttributeReference
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: UniqueKey
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
+                    _html_id: Class__uniqueKeys
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: a way in which subtypes of a Class may be classified
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: Subtyping
             parenthetical: Subtype of Component
-            dependent_of:
-            -   _type: ClassName
+            plural: Subtypings
+            presumed_plural: Subtypings
+            based_on:
+            -   _type: ClassReference
                 content: Class
             is_value_type: false
             attributes:
@@ -2052,7 +1965,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: UpperName
                         as_value_type:
                             _type: AsValue
@@ -2060,6 +1973,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Subtyping__name
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2072,7 +1986,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -2088,8 +2002,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Subtyping__isExclusive
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2102,7 +2015,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -2118,8 +2031,7 @@ subjects:
 
                             '
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Subtyping__isExhaustive
             -   _type: Attribute
                 elaboration:
                 -   _type: Paragraph
@@ -2137,6 +2049,13 @@ subjects:
                         content: every class can have an unnamed subtyping.
                     emoji:
                         _type: Emoji
+                        content: "\U0001F5C9"
+                    elaboration:
+                    -   _type: Paragraph
+                        content: 'ValueType - A class that is presumed to be used
+                            a value, rather than a reference
+
+                            '
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2150,7 +2069,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Classes
                             as_value_type:
                                 _type: AsValue
@@ -2158,76 +2077,44 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Subtyping__classes
         -   _type: Class
+            one_liner:
+                _type: OneLiner
+                content: A class that is presumed to be used as a reference, rather
+                    than a value
             is_embellishment: false
-            prefix: _
-            name:
-                _type: ClassName
-                content: ValueType
-            subtype_of:
-            -   type: _SubtypeBy
-                class_name:
-                    _type: ClassName
-                    content: Class
-                subtyping_name:
-                    _type: SubtypingName
-                    content: subtypes
-            is_value_type: false
-        -   _type: Class
-            is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: ReferenceType
+            plural: ReferenceTypes
+            presumed_plural: ReferenceTypes
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Class
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
             is_value_type: false
-        -   _type: Class
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: note
-                content:
-                    _type: OneLiner
-                    content: 'Often, a CodeType will be assigned to just one attribute
-                        in the model.  In such cases, there''s no need to declare
-                        a new Code Type and invent a name for it.  Instead:'
-                emoji:
-                    _type: Emoji
+        -   _type: ValueType
+            one_liner:
+                _type: OneLiner
+                content: A data type or enumeration used in the model
             is_embellishment: false
-            prefix: _
+            prefix: Value Type
             name:
                 _type: ClassName
-                content: CodeTypeADataTypeOrEnumerationUsedInTheModel
-            subtype_of:
-            -   type: _SubtypeBy
-                class_name:
-                    _type: ClassName
-                    content: ValueType
-                subtyping_name:
-                    _type: SubtypingName
-                    content: subtypes
-            is_value_type: false
+                content: CodeType
+            plural: CodeTypes
+            presumed_plural: CodeTypes
+            dependents:
+            -   _type: ClassReference
+                content: CodeValue
+            is_value_type: true
             attributes:
-            -   _type: Attribute
-                is_embellishment: false
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: listTheCodeValuesAsABullettedListInsideTheDescriptionOfTheAttributeInTheFormCodeDescription
-            -   _type: Attribute
-                is_embellishment: false
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: aCodeTypeWillBeCreatedWithTheNameClassAttributeCodeAndTheCodeValuesListedThatCodeTypeWillBeMarkedAsIsCaptive
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -2244,7 +2131,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -2252,23 +2139,22 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-        -   _type: Class
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: aPossibleValueForAnEnumeratedDataClassDependentOf
-                content:
-                    _type: OneLiner
-                    content: CodeType
-                emoji:
-                    _type: Emoji
+                _html_id: CodeType__isCaptive
+        -   _type: ValueType
+            one_liner:
+                _type: OneLiner
+                content: A possible value for an enumerated data class
             is_embellishment: false
-            prefix: _
+            prefix: Value Type
             name:
                 _type: ClassName
                 content: CodeValue
-            is_value_type: false
+            plural: CodeValues
+            presumed_plural: CodeValues
+            based_on:
+            -   _type: ClassReference
+                content: CodeType
+            is_value_type: true
             attributes:
             -   _type: Attribute
                 one_liner:
@@ -2285,7 +2171,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: NameString
                         as_value_type:
                             _type: AsValue
@@ -2293,10 +2179,24 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: CodeValue__code
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: an explanation of what the code means
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: 'Often, a CodeType will be assigned to just one attribute
+                            in the model.  In such cases, there''s no need to declare
+                            a new Code Type and invent a name for it.  Instead:'
+                    emoji:
+                        _type: Emoji
+                        content: "\U0001F5C9"
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2308,7 +2208,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: RichText
                         as_value_type:
                             _type: AsValue
@@ -2316,25 +2216,42 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: CodeValue__description
         -   _type: Class
             one_liner:
                 _type: OneLiner
                 content: a list of attributes of a class
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: Key
+            plural: Keys
+            presumed_plural: Keys
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Component
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
-            dependent_of:
-            -   _type: ClassName
+            subtypings:
+            -   _type: Subtyping
+                name:
+                    _type: SubtypingName
+                    content: subtypes
+                is_exclusive:
+                    _type: IsExclusive
+                    content: true
+                is_exhaustive:
+                    _type: IsExclusive
+                    content: false
+                subtypes:
+                -   _type: ClassReference
+                    content: UniqueKey
+            based_on:
+            -   _type: ClassReference
                 content: Class
             is_value_type: false
             attributes:
@@ -2342,17 +2259,6 @@ subjects:
                 one_liner:
                     _type: OneLiner
                     content: the attributes of the base Class.
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: issue
-                    content:
-                        _type: OneLiner
-                        content: need ascending descending to support index keys or
-                            ordering keys.
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2366,7 +2272,7 @@ subjects:
                         element_type:
                             _type: BaseDataType
                             class_name:
-                                _type: ClassName
+                                _type: ClassReference
                                 content: Attributes
                             as_value_type:
                                 _type: AsValue
@@ -2382,9 +2288,30 @@ subjects:
                             the base class.
 
                             '
+                    diagnostics:
+                    -   _type: Diagnostic
+                        object_type: Constraint
+                        category: Tester
+                        message:
+                            _type: Paragraph
+                            content: Let's see how Constraints handle diagnostics
+                        severity: Error
+                    -   _type: Diagnostic
+                        object_type: Constraint
+                        category: NonPresence
+                        message:
+                            _type: Paragraph
+                            content: 'Missing value for required field: ''ocl'''
+                        severity: Error
+                    -   _type: Diagnostic
+                        object_type: Constraint
+                        category: Field Error
+                        message:
+                            _type: Paragraph
+                            content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
+                                but got <class 'list'>
+                        severity: Bug
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
                     message:
                         _type: Paragraph
                 -   _type: Constraint
@@ -2392,11 +2319,49 @@ subjects:
                     -   _type: OneLiner
                         content: " no repetitions allowed in keyAttributes\n> \U0001F44D\
                             \ **Issue**: introduce PureLists?"
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: issue
+                        content:
+                            _type: OneLiner
+                            content: need ascending descending to support index keys
+                                or ordering keys.
+                    diagnostics:
+                    -   _type: Diagnostic
+                        object_type: Constraint
+                        category: Style
+                        message:
+                            _type: Paragraph
+                            content: Formula one_liner is too long (99 chars)
+                        severity: Warning
+                    -   _type: Diagnostic
+                        object_type: Constraint
+                        category: Tester
+                        message:
+                            _type: Paragraph
+                            content: Let's see how Constraints handle diagnostics
+                        severity: Error
+                    -   _type: Diagnostic
+                        object_type: Constraint
+                        category: NonPresence
+                        message:
+                            _type: Paragraph
+                            content: 'Missing value for required field: ''ocl'''
+                        severity: Error
+                    -   _type: Diagnostic
+                        object_type: Constraint
+                        category: Field Error
+                        message:
+                            _type: Paragraph
+                            content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
+                                but got <class 'list'>
+                        severity: Bug
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
                     message:
                         _type: Paragraph
+                _html_id: Key__keyAttributes
         -   _type: Class
             one_liner:
                 _type: OneLiner
@@ -2412,39 +2377,24 @@ subjects:
                     content: order unimportant for Unique Keys.
                 emoji:
                     _type: Emoji
+                    content: "\U0001F5C9"
             is_embellishment: false
-            prefix: _
+            prefix: Class
             name:
                 _type: ClassName
                 content: UniqueKey
+            plural: UniqueKeys
+            presumed_plural: UniqueKeys
             subtype_of:
-            -   type: _SubtypeBy
+            -   _type: SubtypeBy
                 class_name:
-                    _type: ClassName
+                    _type: ClassReference
                     content: Key
                 subtyping_name:
                     _type: SubtypingName
                     content: subtypes
             is_value_type: false
 -   _type: SubjectB
-    diagnostics:
-    -   _type: Diagnostic
-        object_name: Attributes
-        object_type: SubjectB
-        category: Missing field
-        message:
-            _type: Paragraph
-            content: Missing oneLiner
-        severity: Error
-    -   _type: Diagnostic
-        object_name: Attributes
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
     is_embellishment: false
     prefix: '##'
     name:
@@ -2455,32 +2405,27 @@ subjects:
         one_liner:
             _type: OneLiner
             content: a group of attributes for a class that merit a shared explanation.
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: AttributeSection
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: AttributeSection
+        plural: AttributeSections
+        presumed_plural: AttributeSections
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Class
+        dependents:
+        -   _type: ClassReference
+            content: Attribute
         is_value_type: false
         attributes:
         -   _type: Attribute
@@ -2506,7 +2451,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Boolean
                     as_value_type:
                         _type: AsValue
@@ -2514,56 +2459,35 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AttributeSection__isOptional
     -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: AttributeAPropertyOrCharacteristicOfAClass
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: AttributeAPropertyOrCharacteristicOfAClass
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+        one_liner:
+            _type: OneLiner
+            content: A property or characteristic of a class
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: AttributeAPropertyOrCharacteristicOfAClass
-        plural: ' Attributes
-
-            '
+            content: Attribute
+        plural: Attributes
+        presumed_plural: Attributes
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: AttributeSection
+        dependents:
+        -   _type: ClassReference
+            content: AttributeConstraint
         is_value_type: false
         attributes:
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: name
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -2575,7 +2499,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: LowerCamel
                     as_value_type:
                         _type: AsValue
@@ -2585,7 +2509,13 @@ subjects:
                     content: false
             overrides:
                 _type: AttributeReference
-                class_name: CamelName
+                class_name:
+                    _type: ClassReference
+                    content: Component
+                attribute_name:
+                    _type: AttributeName
+                    content: name
+            _html_id: Attribute__name
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2604,6 +2534,7 @@ subjects:
                     content: the section below on Data Type Specifiers.
                 emoji:
                     _type: Emoji
+                    content: "\U0001F440"
             is_embellishment: false
             prefix: '-'
             name:
@@ -2615,7 +2546,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: DataType
                     as_value_type:
                         _type: AsValue
@@ -2623,17 +2554,9 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Attribute__dataType
         attribute_sections:
         -   _type: AttributeSection
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: Cardinalities
-                object_type: AttributeSection
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: __
             name:
@@ -2659,7 +2582,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -2674,31 +2597,13 @@ subjects:
                         content: '*** False
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Default
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__isOptional
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: The cardinality of the relationship represented by the
                         attribute _
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: forExample
-                    content:
-                        _type: OneLiner
-                    emoji:
-                        _type: Emoji
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2710,7 +2615,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: CardinalityCode
                         as_value_type:
                             _type: AsValue
@@ -2735,6 +2640,13 @@ subjects:
                             one-liner.
 
                             '
+                    annotations:
+                    -   _type: Annotation
+                        label:
+                            _type: Label
+                            content: forExample
+                        content:
+                            _type: OneLiner
                     diagnostics:
                     -   _type: Diagnostic
                         object_type: Default
@@ -2742,27 +2654,10 @@ subjects:
                         message:
                             _type: Paragraph
                             content: Formula one_liner is too long (220 chars)
-                        severity: Error
-                    -   _type: Diagnostic
-                        object_type: Default
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
+                        severity: Warning
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__cardinality
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: author
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2774,7 +2669,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: InventedName
                         as_value_type:
                             _type: AsValue
@@ -2782,6 +2677,7 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                _html_id: Attribute__author
             -   _type: Attribute
                 annotations:
                 -   _type: Annotation
@@ -2793,15 +2689,7 @@ subjects:
                         content: how this works with optionality
                     emoji:
                         _type: Emoji
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: books
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
+                        content: "\U0001F5C9"
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2813,7 +2701,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: InventedName
                         as_value_type:
                             _type: AsValue
@@ -2821,16 +2709,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: Attribute__books
         -   _type: AttributeSection
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: Inverse Attributes
-                object_type: AttributeSection
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: __
             name:
@@ -2841,15 +2721,6 @@ subjects:
                 content: false
             attributes:
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: isInvertible
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2861,7 +2732,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Boolean
                         as_value_type:
                             _type: AsValue
@@ -2877,17 +2748,8 @@ subjects:
                             of members of a class.
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Derivation
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__isInvertible
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -2904,7 +2766,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Class
                         as_value_type:
                             _type: AsValue
@@ -2919,27 +2781,9 @@ subjects:
                         content: ' from the data type. Null unless arrribute is invertible.
 
                             '
-                    diagnostics:
-                    -   _type: Diagnostic
-                        object_type: Derivation
-                        category: No presence
-                        message:
-                            _type: Paragraph
-                            content: No value for code
-                        severity: Error
                     is_embellishment: false
-                    english:
-                        _type: Paragraph
+                _html_id: Attribute__inverseClass
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: inverseAttribute
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2951,7 +2795,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Attribute
                         as_value_type:
                             _type: AsValue
@@ -2959,16 +2803,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                _html_id: Attribute__inverseAttribute
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_name: inverseIsOptional
-                    object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2980,7 +2816,7 @@ subjects:
                     data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Attribute
                         as_value_type:
                             _type: AsValue
@@ -2988,161 +2824,151 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Formulas
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        is_embellishment: false
-        prefix: _
-        name:
-            _type: ClassName
-            content: Formulas
-        is_value_type: false
-        attributes:
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: 'The rule or formula for calculating the value, if no value
-                    is supplied
-
-                    Now running to a second line with the parenthentical on yet a
-                    third line'
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: note
-                content:
-                    _type: OneLiner
-                    content: "even when an Attribute has a default derivation, there\u2019\
-                        s no guarantee that every instance will have an assigned value.\
-                        \ Example needed."
-                emoji:
-                    _type: Emoji
-                elaboration:
-                -   _type: Paragraph
-                    content: 'Yes, it handled extra lines.  Let''s see about additional
-                        paras for an annotation
-
-                        '
-                -   _type: Paragraph
-                    content: 'Last paragraph here
-
-                        '
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: default
-                object_type: Attribute
-                category: Style
-                message:
-                    _type: Paragraph
-                    content: oneLiner is too long. (143 chars).
-                severity: Warning
+                _html_id: Attribute__inverseIsOptional
+        -   _type: AttributeSection
             is_embellishment: false
-            prefix: '-'
+            prefix: __
             name:
-                _type: AttributeName
-                content: default
-            parenthetical: optional Derivation
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassName
-                        content: Derivation
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: true
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: For derived attributes, the rule or formula for calculating
-                    the value _
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: issue
-                content:
+                _type: AttributeSectionName
+                content: Formulas
+            is_optional:
+                _type: IsOptional
+                content: false
+            attributes:
+            -   _type: Attribute
+                one_liner:
                     _type: OneLiner
-                    content: on insert vs on access?
-                emoji:
-                    _type: Emoji
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: derivation
-            parenthetical: optional Derivation
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassName
-                        content: Derivation
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: true
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Any validation rules specific to this attribute _
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: note
-                content:
-                    _type: OneLiner
-                    content: from Class.constraints
-                emoji:
-                    _type: Emoji
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: constraints
-            parenthetical: ListOf Constraints
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: ListDataType
-                    element_type:
+                    content: 'The rule or formula for calculating the value, if no
+                        value is supplied
+
+                        Now running to a second line with the parenthentical on yet
+                        a third line'
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: "even when an Attribute has a default derivation,\
+                            \ there\u2019s no guarantee that every instance will have\
+                            \ an assigned value. Example needed."
+                    emoji:
+                        _type: Emoji
+                        content: "\U0001F5C9"
+                    elaboration:
+                    -   _type: Paragraph
+                        content: 'Yes, it handled extra lines.  Let''s see about additional
+                            paras for an annotation
+
+                            '
+                    -   _type: Paragraph
+                        content: 'Last paragraph here
+
+                            '
+                diagnostics:
+                -   _type: Diagnostic
+                    object_name: default
+                    object_type: Attribute
+                    category: Style
+                    message:
+                        _type: Paragraph
+                        content: oneLiner is too long. (143 chars).
+                    severity: Warning
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: default
+                parenthetical: optional Derivation
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
-                            content: Constraints
+                            _type: ClassReference
+                            content: Derivation
                         as_value_type:
                             _type: AsValue
                             content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-        attribute_sections:
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: true
+                _html_id: Attribute__default
+            -   _type: Attribute
+                one_liner:
+                    _type: OneLiner
+                    content: For derived attributes, the rule or formula for calculating
+                        the value _
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: issue
+                    content:
+                        _type: OneLiner
+                        content: on insert vs on access?
+                    emoji:
+                        _type: Emoji
+                        content: "\U0001F914"
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: derivation
+                parenthetical: optional Derivation
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: Derivation
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: true
+                _html_id: Attribute__derivation
+            -   _type: Attribute
+                one_liner:
+                    _type: OneLiner
+                    content: Any validation rules specific to this attribute _
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: from Class.constraints
+                    emoji:
+                        _type: Emoji
+                        content: "\U0001F5C9"
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: constraints
+                parenthetical: ListOf Constraints
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: ListDataType
+                        element_type:
+                            _type: BaseDataType
+                            class_name:
+                                _type: ClassReference
+                                content: Constraints
+                            as_value_type:
+                                _type: AsValue
+                                content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: false
+                _html_id: Attribute__constraints
         -   _type: AttributeSection
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: Override Tracking
-                object_type: AttributeSection
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: __
             name:
@@ -3157,51 +2983,29 @@ subjects:
                 -   _type: Diagnostic
                     object_name: overrides
                     object_type: Attribute
-                    category: Missing field
-                    message:
-                        _type: Paragraph
-                        content: Missing oneLiner
-                    severity: Error
-                -   _type: Diagnostic
-                    object_name: overrides
-                    object_type: Attribute
-                    category: No presence
-                    message:
-                        _type: Paragraph
-                        content: No value for data_type_clause
-                    severity: Error
-                -   _type: Diagnostic
-                    object_name: overrides
-                    object_type: Attribute
                     category: Field Error
                     message:
                         _type: Paragraph
                         content: Required field 'data_type_clause' is missing
-                    severity: Error
+                    severity: Bug
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: overrides
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
+                _html_id: Attribute__overrides
+    -   _type: ValueType
+        one_liner:
+            _type: OneLiner
+            content: A rule or formula for deriving the value of an attribute
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: ValueTypeDerivationARuleOrFormulaForDerivingTheValueOfAnAttribute
-        plural: ' Derivations
-
-            '
-        is_value_type: false
+            content: Derivation
+        plural: Derivations
+        presumed_plural: Derivations
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
@@ -3218,7 +3022,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -3226,6 +3030,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Derivation__statement
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -3242,7 +3047,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: CodeExpression
                     as_value_type:
                         _type: AsValue
@@ -3250,42 +3055,44 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+            _html_id: Derivation__expression
+    -   _type: ValueType
+        one_liner:
+            _type: OneLiner
+            content: A rule, condition, or validation that must be satisfied by the
+                model
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: ValueTypeConstraintARuleConditionOrValidationThatMustBeSatisfiedByTheModel
-        plural: ' Constraints
-
-            '
+            content: Constraint
+        plural: Constraints
+        presumed_plural: Constraints
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: ClassConstraint
+            -   _type: ClassReference
+                content: AttributeConstraint
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
@@ -3302,7 +3109,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: RichText
                     as_value_type:
                         _type: AsValue
@@ -3310,6 +3117,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Constraint__statement
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -3326,7 +3134,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: InventedName
                     as_value_type:
                         _type: AsValue
@@ -3334,16 +3142,17 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Constraint__expression
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: severity
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
+            elaboration:
+            -   _type: CodeBlock
+                content: '```codes
+
+                    Warning, nothing fatal; just a caution
+
+                    Error, serious. Fix now
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -3355,7 +3164,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -3363,198 +3172,80 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**Warning** - nothing fatal; just a caution'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Name is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'name' is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**Error** - serious. Fix now'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Name is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'name' is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: message
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: message
-            parenthetical: Template
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassName
-                        content: Template
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: ClassConstraint
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: ClassConstraint
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+            _html_id: Constraint__severity
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Message
+        parenthetical: Template
+        plural: Messages
+        presumed_plural: Messages
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
         name:
             _type: ClassName
             content: ClassConstraint
+        plural: ClassConstraints
+        presumed_plural: ClassConstraints
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Constraint
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Class
-        is_value_type: false
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: AttributeConstraint
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: AttributeConstraint
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+        is_value_type: true
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: AttributeConstraint
+        plural: AttributeConstraints
+        presumed_plural: AttributeConstraints
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Constraint
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
         based_on:
-        -   _type: ClassName
+        -   _type: ClassReference
             content: Attribute
-        is_value_type: false
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: CodeExpression
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
+        is_value_type: true
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: CodeExpression
-        is_value_type: false
+        plural: CodeExpressions
+        presumed_plural: CodeExpressions
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the programming language
+            elaboration:
+            -   _type: CodeBlock
+                content: '``` code
+
+                    OCL, Object Constraint Language
+
+                    Java, Java
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -3566,7 +3257,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -3574,86 +3265,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: CodeExpression__language
         -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: 'OCL: Object Constraint Language'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Name is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'name' is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: 'Java: Java'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Name is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'name' is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: expression
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -3665,7 +3278,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -3673,25 +3286,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: CodeExpression__expression
 -   _type: SubjectB
-    diagnostics:
-    -   _type: Diagnostic
-        object_name: Methods
-        object_type: SubjectB
-        category: Missing field
-        message:
-            _type: Paragraph
-            content: Missing oneLiner
-        severity: Error
-    -   _type: Diagnostic
-        object_name: Methods
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
     is_embellishment: false
     prefix: '##'
     name:
@@ -3699,36 +3295,20 @@ subjects:
         content: Methods
     classes:
     -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: MethodABehaviorOrOperationAssociatedWithAClass
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: MethodABehaviorOrOperationAssociatedWithAClass
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+        one_liner:
+            _type: OneLiner
+            content: A behavior or operation associated with a class
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: MethodABehaviorOrOperationAssociatedWithAClass
-        plural: ' Methods
-
-            '
+            content: Method
+        plural: Methods
+        presumed_plural: Methods
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
@@ -3752,7 +3332,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: Parameters
                         as_value_type:
                             _type: AsValue
@@ -3760,6 +3340,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Method__parameters
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -3775,7 +3356,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: DataType
                     as_value_type:
                         _type: AsValue
@@ -3783,37 +3364,19 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: Method__returnType
     -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: ParameterAnInputToAMethod
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: ParameterAnInputToAMethod
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
             content: ParameterAnInputToAMethod
-        plural: ' Parameters
-
-            '
+        plural: Parameters
+        presumed_plural: ParameterAnInputToAMethods
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: Component
             subtyping_name:
                 _type: SubtypingName
@@ -3835,7 +3398,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: DataType
                     as_value_type:
                         _type: AsValue
@@ -3843,6 +3406,7 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: ParameterAnInputToAMethod__type
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -3858,7 +3422,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: InventedName
                     as_value_type:
                         _type: AsValue
@@ -3866,63 +3430,34 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: ParameterAnInputToAMethod__cardinality
 -   _type: SubjectB
-    elaboration:
-    -   _type: Paragraph
-        content: '*ValueType*:**Data Type**
-
-            '
-    diagnostics:
-    -   _type: Diagnostic
-        object_name: Data Types
-        object_type: SubjectB
-        category: Missing field
-        message:
-            _type: Paragraph
-            content: Missing oneLiner
-        severity: Error
-    -   _type: Diagnostic
-        object_name: Data Types
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Data Types
     classes:
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: SimpleDataTypeSubtpeOfDataType
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: DataType
+        plural: DataTypes
+        presumed_plural: DataTypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
         name:
             _type: ClassName
             content: SimpleDataTypeSubtpeOfDataType
-        is_value_type: false
+        plural: SimpleDataTypeSubtpeOfDataTypes
+        presumed_plural: SimpleDataTypeSubtpeOfDataTypes
+        is_value_type: true
         attributes:
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: coreClass
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -3934,7 +3469,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Class
                     as_value_type:
                         _type: AsValue
@@ -3942,33 +3477,18 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: ComplexDataType
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
+            _html_id: SimpleDataTypeSubtpeOfDataType__coreClass
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: ComplexDataType
-        is_value_type: false
+        plural: ComplexDataTypes
+        presumed_plural: ComplexDataTypes
+        is_value_type: true
         attributes:
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: aggregation
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -3980,7 +3500,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: AggregatingOperator
                     as_value_type:
                         _type: AsValue
@@ -3988,16 +3508,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: ComplexDataType__aggregation
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: aggregatedTypes
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -4011,7 +3523,7 @@ subjects:
                     element_type:
                         _type: BaseDataType
                         class_name:
-                            _type: ClassName
+                            _type: ClassReference
                             content: DataTypes
                         as_value_type:
                             _type: AsValue
@@ -4019,33 +3531,29 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-    -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: AggregatingOperator
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
+            _html_id: ComplexDataType__aggregatedTypes
+    -   _type: ValueType
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: AggregatingOperator
-        is_value_type: false
+        plural: AggregatingOperators
+        presumed_plural: AggregatingOperators
+        is_value_type: true
         attributes:
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: name
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
+            elaboration:
+            -   _type: CodeBlock
+                content: '``` code
+
+                    SetOf
+
+                    ListOf
+
+                    Mapping
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -4057,7 +3565,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -4065,121 +3573,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AggregatingOperator__name
         -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**SetOf**'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Name is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'name' is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**ListOf**'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Name is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'name' is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: '**Mapping**'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Name is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'name' is missing
-                severity: Error
-            -   _type: Diagnostic
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-        -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: arity
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -4191,7 +3586,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Integer
                     as_value_type:
                         _type: AsValue
@@ -4199,16 +3594,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AggregatingOperator__arity
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: spelling
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -4220,7 +3607,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Template
                     as_value_type:
                         _type: AsValue
@@ -4228,114 +3615,78 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: AggregatingOperator__spelling
 -   _type: SubjectB
     elaboration:
     -   _type: Paragraph
         content: 'insert Camel Case.md
 
             '
-    diagnostics:
-    -   _type: Diagnostic
-        object_name: Low level Data Types
-        object_type: SubjectB
-        category: Missing field
-        message:
-            _type: Paragraph
-            content: Missing oneLiner
-        severity: Error
-    -   _type: Diagnostic
-        object_name: Low level Data Types
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
         content: Low level Data Types
     classes:
-    -   _type: Class
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Emoji
+        plural: Emojis
+        presumed_plural: Emojis
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: String
+        plural: Strings
+        presumed_plural: Strings
+        is_value_type: true
+    -   _type: ValueType
         elaboration:
         -   _type: Paragraph
             content: 'A short string without punctuation or spaces, suitable for names,
                 labels, or identifiers and presented in camel case.
 
                 '
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: ValueTypeCamelName
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: ValueTypeCamelName
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: ValueTypeCamelName
+            content: CamelName
+        plural: CamelNames
+        presumed_plural: CamelNames
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: String
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: UpperCamel
+            -   _type: ClassReference
+                content: LowerCamel
+        is_value_type: true
         attributes:
         -   _type: Attribute
-            annotations:
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: example
-                content:
-                    _type: OneLiner
-                    content: '"firstName", "orderDate", "customerID"'
-                emoji:
-                    _type: Emoji
-                elaboration:
-                -   _type: Paragraph
-                    content: "> \U0001F4DD ***ModelingNote***: Putting the non-empty\
-                        \ constraint on the CamelName value type is effective because\
-                        \ it automatically applies to all attributes that use CamelName\
-                        \ as their type. This ensures consistency and avoids the need\
-                        \ to define the constraint separately for each attribute.\n"
-            -   _type: Annotation
-                label:
-                    _type: Label
-                    content: modelingNote
-                content:
-                    _type: OneLiner
-                    content: '* *CamelName* is presented here, just after its first
-                        usage by another class (Component), to provide context and
-                        understanding before it is used further in the model.'
-                emoji:
-                    _type: Emoji
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: valueTheString
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
             is_embellishment: false
             prefix: '-'
             name:
@@ -4347,7 +3698,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -4363,20 +3714,45 @@ subjects:
                         be empty.
 
                         '
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: example
+                    content:
+                        _type: OneLiner
+                        content: '"firstName", "orderDate", "customerID"'
+                    elaboration:
+                    -   _type: Paragraph
+                        content: "> \U0001F4DD ***ModelingNote***: Putting the non-empty\
+                            \ constraint on the CamelName value type is effective\
+                            \ because it automatically applies to all attributes that\
+                            \ use CamelName as their type. This ensures consistency\
+                            \ and avoids the need to define the constraint separately\
+                            \ for each attribute.\n"
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: modelingNote
+                    content:
+                        _type: OneLiner
+                        content: '* *CamelName* is presented here, just after its
+                            first usage by another class (Component), to provide context
+                            and understanding before it is used further in the model.'
                 diagnostics:
                 -   _type: Diagnostic
                     object_type: Constraint
-                    category: Style
+                    category: Tester
                     message:
                         _type: Paragraph
-                        content: Formula one_liner is too long (105 chars)
+                        content: Let's see how Constraints handle diagnostics
                     severity: Error
                 -   _type: Diagnostic
                     object_type: Constraint
-                    category: No presence
+                    category: NonPresence
                     message:
                         _type: Paragraph
-                        content: No value for code
+                        content: 'Missing value for required field: ''ocl'''
                     severity: Error
                 -   _type: Diagnostic
                     object_type: Constraint
@@ -4385,13 +3761,12 @@ subjects:
                         _type: Paragraph
                         content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
                             but got <class 'list'>
-                    severity: Error
+                    severity: Bug
                 is_embellishment: false
-                english:
-                    _type: Paragraph
                 message:
                     _type: Paragraph
-    -   _type: Class
+            _html_id: CamelName__valueTheString
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a capital letter
@@ -4405,43 +3780,37 @@ subjects:
                 content: _ "Customer", "ProductCategory", "PaymentMethod"
             emoji:
                 _type: Emoji
+                content: "\U0001F523"
         diagnostics:
         -   _type: Diagnostic
             object_name: UpperCamel
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
-        -   _type: Diagnostic
-            object_name: UpperCamel
-            object_type: Class
+            object_type: ValueType
             category: Field Error
             message:
                 _type: Paragraph
                 content: For field 'where' - expected typing.Optional[Literate_01.OneLiner],
                     but got <class 'str'>
-            severity: Error
+            severity: Bug
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: UpperCamel
+        plural: UpperCamels
+        presumed_plural: UpperCamels
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: CamelName
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         where: ' content begins with an upper case letter.
 
             '
-    -   _type: Class
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: a CamelName that begins with a lower case letter
@@ -4455,70 +3824,56 @@ subjects:
                 content: '"firstName", "orderTotal", "shippingAddress"'
             emoji:
                 _type: Emoji
+                content: "\U0001F523"
         diagnostics:
         -   _type: Diagnostic
             object_name: LowerCamel
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
-        -   _type: Diagnostic
-            object_name: LowerCamel
-            object_type: Class
+            object_type: ValueType
             category: Field Error
             message:
                 _type: Paragraph
                 content: For field 'where' - expected typing.Optional[Literate_01.OneLiner],
                     but got <class 'str'>
-            severity: Error
+            severity: Bug
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: LowerCamel
+        plural: LowerCamels
+        presumed_plural: LowerCamels
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: CamelName
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         where: ' content begins with a lower case letter.
 
             '
-    -   _type: Class
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: an expression consisting of Camel Names separated by periods
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: QualifiedCamel
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: QualifiedCamel
+        plural: QualifiedCamels
+        presumed_plural: QualifiedCamels
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: String
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         constraints:
         -   _type: Constraint
             one_liner:
@@ -4533,14 +3888,21 @@ subjects:
                 category: Style
                 message:
                     _type: Paragraph
-                    content: Formula one_liner is too long (170 chars)
+                    content: Formula one_liner is too long (152 chars)
+                severity: Warning
+            -   _type: Diagnostic
+                object_type: Constraint
+                category: Tester
+                message:
+                    _type: Paragraph
+                    content: Let's see how Constraints handle diagnostics
                 severity: Error
             -   _type: Diagnostic
                 object_type: Constraint
-                category: No presence
+                category: NonPresence
                 message:
                     _type: Paragraph
-                    content: No value for code
+                    content: 'Missing value for required field: ''ocl'''
                 severity: Error
             -   _type: Diagnostic
                 object_type: Constraint
@@ -4549,44 +3911,43 @@ subjects:
                     _type: Paragraph
                     content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
                         but got <class 'list'>
-                severity: Error
+                severity: Bug
             is_embellishment: false
-            english:
-                _type: Paragraph
             message:
                 _type: Paragraph
     -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: RichTextAStringWithMarkupForBlockLevelFormatting
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: RichTextAStringWithMarkupForBlockLevelFormatting
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+        one_liner:
+            _type: OneLiner
+            content: A string with markup for block level formatting.
         is_embellishment: false
-        prefix: _
+        prefix: Class
         name:
             _type: ClassName
-            content: RichTextAStringWithMarkupForBlockLevelFormatting
+            content: RichText
+        plural: RichTexts
+        presumed_plural: RichTexts
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: String
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: OneLiner
         is_value_type: false
         attributes:
         -   _type: Attribute
@@ -4604,7 +3965,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -4612,10 +3973,20 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            _html_id: RichText__value
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
                 content: the rich text coding language used
+            elaboration:
+            -   _type: CodeBlock
+                content: '```code
+
+                    HTML
+
+                    MarkDown
+
+                    ```'
             is_embellishment: false
             prefix: '-'
             name:
@@ -4627,7 +3998,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: Code
                     as_value_type:
                         _type: AsValue
@@ -4635,96 +4006,27 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-        -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: html
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
-            -   _type: Diagnostic
-                object_name: html
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_name: html
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: html
-        -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: markDown
-                object_type: Attribute
-                category: Missing field
-                message:
-                    _type: Paragraph
-                    content: Missing oneLiner
-                severity: Error
-            -   _type: Diagnostic
-                object_name: markDown
-                object_type: Attribute
-                category: No presence
-                message:
-                    _type: Paragraph
-                    content: No value for data_type_clause
-                severity: Error
-            -   _type: Diagnostic
-                object_name: markDown
-                object_type: Attribute
-                category: Field Error
-                message:
-                    _type: Paragraph
-                    content: Required field 'data_type_clause' is missing
-                severity: Error
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: markDown
-    -   _type: Class
+            _html_id: RichText__format
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: String with markup for line level formatting.
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: RichLine
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
-            content: RichLine
+            content: OneLiner
+        plural: OneLiners
+        presumed_plural: OneLiners
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
+                _type: ClassReference
                 content: RichText
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
@@ -4741,7 +4043,7 @@ subjects:
                 data_type:
                     _type: BaseDataType
                     class_name:
-                        _type: ClassName
+                        _type: ClassReference
                         content: String
                     as_value_type:
                         _type: AsValue
@@ -4749,6 +4051,14 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+            overrides:
+                _type: AttributeReference
+                class_name:
+                    _type: ClassReference
+                    content: RichText
+                attribute_name:
+                    _type: AttributeName
+                    content: value
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -4759,17 +4069,17 @@ subjects:
                 diagnostics:
                 -   _type: Diagnostic
                     object_type: Constraint
-                    category: Style
+                    category: Tester
                     message:
                         _type: Paragraph
-                        content: Formula one_liner is too long (93 chars)
+                        content: Let's see how Constraints handle diagnostics
                     severity: Error
                 -   _type: Diagnostic
                     object_type: Constraint
-                    category: No presence
+                    category: NonPresence
                     message:
                         _type: Paragraph
-                        content: No value for code
+                        content: 'Missing value for required field: ''ocl'''
                     severity: Error
                 -   _type: Diagnostic
                     object_type: Constraint
@@ -4778,93 +4088,195 @@ subjects:
                         _type: Paragraph
                         content: For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner],
                             but got <class 'list'>
-                    severity: Error
+                    severity: Bug
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: Field Error
+                    message:
+                        _type: Paragraph
+                        content: For field 'message' - expected typing.Optional[Literate_01.Paragraph],
+                            but got <class 'str'>
+                    severity: Bug
                 is_embellishment: false
-                english:
-                    _type: Paragraph
-                message:
-                    _type: Paragraph
-    -   _type: Class
-        annotations:
-        -   _type: Annotation
-            label:
-                _type: Label
-                content: values
-            content:
-                _type: OneLiner
-            emoji:
-                _type: Emoji
-            elaboration:
-            -   _type: Paragraph
-                content: '===
+                message: ' A line can''t span two lines
 
                     '
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: PrimitiveType
-            object_type: Class
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: PrimitiveType
-            object_type: Class
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'subtype_of' - expected typing.Optional[typing.List[Literate_01.SubtypeBy]],
-                    but got <class 'list'>
-            severity: Error
+            _html_id: OneLiner__value
+    -   _type: ValueType
+        one_liner:
+            _type: OneLiner
+            content: A basic, built-in data type
         is_embellishment: false
-        prefix: _
+        prefix: Value Type
         name:
             _type: ClassName
             content: PrimitiveType
+        plural: PrimitiveTypes
+        presumed_plural: PrimitiveTypes
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: String
+            -   _type: ClassReference
+                content: Integer
+            -   _type: ClassReference
+                content: Decimal
+            -   _type: ClassReference
+                content: Boolean
+            -   _type: ClassReference
+                content: Date
+            -   _type: ClassReference
+                content: Time
+            -   _type: ClassReference
+                content: DateTime
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: String
+        plural: Strings
+        presumed_plural: Strings
         subtype_of:
-        -   type: _SubtypeBy
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
-                content: ValueTypeABasic
+                _type: ClassReference
+                content: PrimitiveType
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        -   type: _SubtypeBy
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: CamelName
+            -   _type: ClassReference
+                content: QualifiedCamel
+            -   _type: ClassReference
+                content: RichText
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Integer
+        plural: Integers
+        presumed_plural: Integers
+        subtype_of:
+        -   _type: SubtypeBy
             class_name:
-                _type: ClassName
-                content: BuiltInDataType
+                _type: ClassReference
+                content: PrimitiveType
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
--   _type: SubjectB
-    diagnostics:
-    -   _type: Diagnostic
-        object_name: Appendices Insert More Sidebars md Insert Overrides md insert
-            LDM Intro md Insert OCL md Insert Camel Case md
-        object_type: SubjectB
-        category: Missing field
-        message:
-            _type: Paragraph
-            content: Missing oneLiner
-        severity: Error
-    -   _type: Diagnostic
-        object_name: Appendices Insert More Sidebars md Insert Overrides md insert
-            LDM Intro md Insert OCL md Insert Camel Case md
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
-    is_embellishment: false
-    prefix: '##'
-    name:
-        _type: SubjectName
-        content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
-            Intro md Insert OCL md Insert Camel Case md
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Decimal
+        plural: Decimals
+        presumed_plural: Decimals
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Boolean
+        plural: Booleans
+        presumed_plural: Booleans
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Date
+        plural: Dates
+        presumed_plural: Dates
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Time
+        plural: Times
+        presumed_plural: Times
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: DateTime
+        plural: DateTimes
+        presumed_plural: DateTimes
+        subtype_of:
+        -   _type: SubtypeBy
+            class_name:
+                _type: ClassReference
+                content: PrimitiveType
+            subtyping_name:
+                _type: SubtypingName
+                content: subtypes
+        is_value_type: true
     subjects:
     -   _type: SubjectC
         elaboration:
@@ -4910,24 +4322,6 @@ subjects:
                 \",\n\"emojiName\": \"mag\",\n\"emojiUnicode\": \"U+1F50D\",\n\"purpose\"\
                 : \"Indicates a cross-reference to another relevant element within\
                 \ the model.\"\n}\n]\n@endjson\n\n```"
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Annotation Types Used
-            object_type: SubjectC
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: Annotation Types Used
-            object_type: SubjectC
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                    but got <class 'Literate_01.SubjectName'>
-            severity: Error
         is_embellishment: false
         prefix: '###'
         name:
@@ -4939,48 +4333,40 @@ subjects:
             content: "``` csv\nlabel,emoji,emojiName,emojiUnicode,purpose\nError,\u274C\
                 ,cross_mark,U+274C,Indicates a critical error or failure in the model.\n\
                 Warning,\u26A0\uFE0F,warning,U+26A0,Indicates a potential issue or\
-                \ warning in the model.\nNote,,blue_book,U+1F4D8,\"Provides additional\
-                \ context, explanations, or clarifications for the annotated element.\"\
-                \nIssue,,warning,U+26A0,Highlights a potential issue or error that\
-                \ needs to be addressed or resolved.\nQuestion,\u2753,question,U+2753,Raises\
-                \ a question or seeks further clarification about the annotated element.\n\
-                Suggestion,\U0001F4A1,bulb,U+1F4A1,Provides a suggestion or recommendation\
-                \ for improving the model or the annotated element.\nInfo,\u2139\uFE0F\
-                ,information_source,U+2139,\"Offers relevant information, facts, or\
-                \ details about the annotated element.\"\nTodo,\U0001F4CC,pushpin,U+1F4CC,\"\
-                Indicates a pending task, action item, or future work related to the\
-                \ annotated element.\"\nReference,\U0001F310,globe_with_meridians,U+1F310,Provides\
-                \ a reference or link to an external resource or documentation.\n\
-                See,,mag,U+1F50D,Indicates a cross-reference to another relevant element\
-                \ within the model.\n\n```"
-        -   _type: Paragraph
-            content: '===
-
-                '
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Annotation types as CSV
-            object_type: SubjectC
-            category: Missing field
-            message:
-                _type: Paragraph
-                content: Missing oneLiner
-            severity: Error
-        -   _type: Diagnostic
-            object_name: Annotation types as CSV
-            object_type: SubjectC
-            category: Field Error
-            message:
-                _type: Paragraph
-                content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                    but got <class 'Literate_01.SubjectName'>
-            severity: Error
+                \ warning in the model.\nNote,\U0001F4D8,blue_book,U+1F4D8,\"Provides\
+                \ additional context, explanations, or clarifications for the annotated\
+                \ element.\"\nIssue,\u26A0\uFE0F,warning,U+26A0,Highlights a potential\
+                \ issue or error that needs to be addressed or resolved.\nQuestion,\u2753\
+                ,question,U+2753,Raises a question or seeks further clarification\
+                \ about the annotated element.\nSuggestion,\U0001F4A1,bulb,U+1F4A1,Provides\
+                \ a suggestion or recommendation for improving the model or the annotated\
+                \ element.\nInfo,\u2139\uFE0F,information_source,U+2139,\"Offers relevant\
+                \ information, facts, or details about the annotated element.\"\n\
+                Todo,\U0001F4CC,pushpin,U+1F4CC,\"Indicates a pending task, action\
+                \ item, or future work related to the annotated element.\"\nReference,\U0001F310\
+                ,globe_with_meridians,U+1F310,Provides a reference or link to an external\
+                \ resource or documentation.\nSee,\U0001F50D,mag,U+1F50D,Indicates\
+                \ a cross-reference to another relevant element within the model.\n\
+                \n```"
         is_embellishment: false
         prefix: '###'
         name:
             _type: SubjectName
             content: Annotation types as CSV
 -   _type: SubjectB
+    one_liner:
+        _type: OneLiner
+        content: 'various sidebars to include
+
+            Insert More Sidebars.md
+
+            Insert Overrides.md
+
+            insert LDM Intro.md
+
+            Insert OCL.md
+
+            Insert Camel Case.md'
     elaboration:
     -   _type: Paragraph
         content: '== content to add
@@ -4988,27 +4374,16 @@ subjects:
             '
     diagnostics:
     -   _type: Diagnostic
-        object_name: Appendices Insert More Sidebars md Insert Overrides md insert
-            LDM Intro md Insert OCL md Insert Camel Case md
+        object_name: Appendices
         object_type: SubjectB
-        category: Missing field
+        category: Style
         message:
             _type: Paragraph
-            content: Missing oneLiner
-        severity: Error
-    -   _type: Diagnostic
-        object_name: Appendices Insert More Sidebars md Insert Overrides md insert
-            LDM Intro md Insert OCL md Insert Camel Case md
-        object_type: SubjectB
-        category: Field Error
-        message:
-            _type: Paragraph
-            content: For field 'name' - expected <class 'utils.class_casing.CamelCase'>,
-                but got <class 'Literate_01.SubjectName'>
-        severity: Error
+            content: oneLiner is too long. (126 chars).
+        severity: Warning
     is_embellishment: false
     prefix: '##'
     name:
         _type: SubjectName
-        content: Appendices Insert More Sidebars md Insert Overrides md insert LDM
-            Intro md Insert OCL md Insert Camel Case md
+        content: Appendices
+hello: Hello

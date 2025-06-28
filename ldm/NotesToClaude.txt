@@ -1,0 +1,74 @@
+Hi.  Taking a step back and another forward:
+* I want to retain the feature of all the validation methods having the same name
+* And this feature of patching methods:  If I patch something to Component, and then say validate(anAttribute), without patching anything to Attribute, the Component validator kicks in.
+* And: the ability to call super().validate - to go from the Attribute validator - or others - to the  Component validator - without knowing that Component is the next step up in the hierarchy.
+I have a version that meets the first two criteria, but not the third.  And it needs some other improvements, but those can wait.  Attaching the code
+
+You'll notice:
+* it doesn't really patch anything - at least, it's not trying to use those patches.   It just registers the various validation methods by the simple class names.  Then validate_object() uses that mapping to apply the right method.
+* It navigates the mro to meet the second condition above.
+* I need some help to satisfy the third feature
+
+Edit
+Looking at your code, I can see you've made good progress! You have the patching registration working and the MRO-based method resolution. The missing piece is getting super().validate() to work properly within the patched methods.
+
+The challenge is that when you call a patched function directly (not as a method), super() doesn't know what class context it's in. Here's a solution that will enable proper super().validate() calls:
+
+
+Enhanced Validators with Super() Support
+Code 
+However, I realize there's an even better approach that will give you true super().validate() support. Let me create an alternative that actually patches the methods properly so super() works naturally:
+
+
+Validators with True Super() Support
+Code 
+The key insight is that for super().validate() to work properly, the methods need to be actually patched onto the classes as real methods, not just stored in a registry and called manually.
+
+Here are the two approaches I've provided:
+
+Approach 1: Helper Function for Super Calls
+Uses call_super_validate(self, 'ClassName') instead of super().validate()
+Works with your current patching system
+Manually walks the MRO to find the next validator
+Approach 2: True Method Patching (Recommended)
+Actually patches methods onto classes so super().validate() works naturally
+Requires updating your patch_on decorator in faculty_base.py
+More elegant and closer to what you want
+For Approach 2 to work, you'd need to update your faculty_base.py patch_on decorator to actually set the method on the class:
+
+python
+def patch_on(target_class: Type):
+    """Decorator to immediately patch a method onto a specific class."""
+    def decorator(func):
+        method_name = "validate"
+        
+        # Create a proper bound method that supports super()
+        def create_method(original_func):
+            def method(instance_self):
+                return original_func(instance_self)
+            method.__name__ = method_name
+            method.__doc__ = original_func.__doc__
+            method.__qualname__ = f"{target_class.__name__}.{method_name}"
+            return method
+        
+        # Actually patch it onto the class
+        patched_method = create_method(func)
+        setattr(target_class, method_name, patched_method)
+        
+        # Keep registry for debugging
+        All_Patches_ByName[target_class.__name__] = func
+        
+        print(f"Immediately patched {method_name} onto {target_class.__name__}")
+        return func
+    return decorator
+With this change, your validation methods can use super().validate() naturally, and the MRO will handle finding the right parent method automatically.
+
+Which approach would you prefer to pursue?
+
+
+
+My reply...
+I look forward to approach 2.  But we've had a lot of trouble with "actual patching" We always seem to miss applying the patches to the classes actually being used.  
+I have some ideas about why and how to fix that - but first I'm going to try your first call_super approach and see if I can get at least one solution locked down.
+Will try that and then come back for refinements. And then Approach 2
+

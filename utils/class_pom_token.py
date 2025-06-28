@@ -34,6 +34,14 @@ class PresentableToken(PydanticMixin):
 
         self.as_entered = self.content
 
+    def full_display(self) -> dict:
+        return { "_type": self._type,
+                "as_entered": self.as_entered,
+                "content": self.content,
+                "repr": repr(self),
+                "str": str(self)
+                }
+        
 
 
 
@@ -56,6 +64,8 @@ class PresentableToken(PydanticMixin):
         Different subclasses will have different values types.
         """
         return ""
+    def __str__(self):
+        return self.content if self.content else "NoToeknContent"
 
     # @abstractmethod
     def rendering_template(self) -> PomTemplate:
@@ -143,6 +153,12 @@ class PresentableBoolean(PresentableToken):
             # already know that as_entered is a bool. 
             self.content = self.as_entered
 
+    def full_display(self):
+        display =  super().full_display()   
+        display["true_words"] = self.true_words
+        display["false_words"] = self.false_words
+        display["is_explicit"] = self.is_explicit
+        return display
 
     def __str__(self):
         """String representation based on the value and settings."""
@@ -241,11 +257,11 @@ class IsExclusive(PresentableBoolean):
     """
 
 
-    true_word = "exclusive"
-    true_words = ["exclusive"]
+    true_word = "Exclusive"
+    true_words = ["Exclusive"]
 
-    false_word = "noexclusive"
-    false_words = ["nonexclusive"]
+    false_word = "non Exclusive"
+    false_words = ["non Exclusive", "nonexclusive"]
     default_value = True
     is_explicit = False
 
@@ -292,7 +308,7 @@ class AsValue(PresentableBoolean):
 
 
 #@debug_dataclass_creation
-
+import emoji
 @dataclass
 class Emoji(PresentableToken):
     as_entered: str = field(default="", init=True)
@@ -303,10 +319,14 @@ class Emoji(PresentableToken):
     def shared_post_init(self):
         super().shared_post_init()
 
-        self.as_entered = self.as_entered
-        self.smile = self.as_entered
-        self.unicode = self.as_entered
+        self.shortcode = self.as_entered
         self.symbol = self.as_entered
+        
+        if self.as_entered.startswith(":"):
+            self.symbol = emoji.emojize(self.shortcode)
+        else:
+            self.shortcode = emoji.demojize(self.symbol)
+
 
     @classmethod
     def token_pattern(cls) -> str:
@@ -321,11 +341,20 @@ class Emoji(PresentableToken):
     def handlebars_template(self) -> str:
         return "{{value}}"
 
-    def as_smile(self):
-        return self.smile
+    def as_shortcode(self):
+        return self.shortcode
     
-    def as_unicode(self):
-        return self.unicode
     
     def as_symbol(self):
         return self.symbol
+
+    def __str__(self):
+        if self.symbol:
+            return self.symbol
+        return "NoEmojiSupplied"
+    
+    def full_display(self):
+        display =  super().full_display()
+        display['shortcode'] = self.shortcode
+        display['symbol'] = self.symbol
+        return display

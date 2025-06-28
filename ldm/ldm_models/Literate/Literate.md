@@ -12,18 +12,26 @@ We present the Component class first because it is a best practice in modeling t
 
 _ **Component** - An element or building block of the literate data model 
 - **normalName** - the name of the component, not in camel case (*String*)
-
+⚠️ Warning: This is a warning with emoji
 - **name** - The name of the component (CamelName)
 
 
 
 - **qualifiedName** - (*QualifiedCamel*)
 - **abbreviatedName** - a short form of the component's name, used for cross references and improved readability. (*CamelName*)
-
-	***Default***: name
 	***Example***: "LDM" is the short form of "Literate Data Model".
 
-- **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(RichLine)_  
+	***Default***: name -  how do you say name in english?
+  ocl: x.name == y
+
+  constraint: the abbreviated name should be shorter than the actual name
+  ocl: len(abbreviatedName) < len(name)
+  severity: Warning
+  message:  Why have an abbreviation longer than the name?
+  Note: Does this annotation find it's way to the Constraint? YES! It's fixed!
+
+
+- **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(OneLiner)_  
 
 - **elaboration** - A more detailed explanation or discussion of the component _(RichText)_  
 
@@ -43,16 +51,18 @@ But, if none of these fit, you can  introduce an Annotation with any label. It w
 - **label** - A short label to indicate the purpose of the annotation _(CamelName)_  
 - **plural** - the plural form of the label (*UpperCamel*).  
     Default: based on label
- - **Purpose** - the intended reason for the annotation.
+ - **Purpose** - the intended reason for the annotation. (OneLiner)
 
 
 
-_ ValueType: **Annotation**  
-A note or comment associated with a model element  
+_ **Annotation**  - A note or comment associated with a model element  
 ***Based on***: Component 
 - **annotationType** - (optional Annotation Type) 
 Note: An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.  
+Note: Should be a Value  Type
+
 - **label** - A short label to indicate the purpose of the annotation _(CamelName)_  
+
      
      But any short label is valid. 
    Default: from annotationType
@@ -103,11 +113,10 @@ __ 	***Modeling Configuration***
   Derivation: ['aiEnglishPlural()']
   
 	
-_ **Subject**  
-A specific topic or theme within the model  
+_ **Subject**  - A specific topic or theme within the model  
 Plural: Subjects  
 Subtype of: Component  
-Dependent of: LiterateDataModel
+based on: LiterateDataModel
 
 Subjects are the chapters an sections of the model. 
 A subject need not contain any Classes if it’s just expository.  
@@ -117,9 +126,9 @@ A subject need not contain any Classes if it’s just expository.
 
 - **Classes** - The major classes related to this subject, in the order in which they should be presented _(ListOf Classes)_  
   ***Issue***: define chapter, section, subsection as levels?  
-	***DSL***: Generally, it is best to present the classes within a Subject in top down order:
-	- Each Class should be followed first by the classes that are dependent on it, and then
-	- By its subtype classes.
+	***DSL***: Generally, it is best to present the classes within a Subject in top down order...
+    * Each Class should be followed first by the classes that are dependent on it, and then
+    * By its subtype classes.
 
     
 - **childSubjects** - Any child subjects nested under this subject, in the order in which they should be presented _(ListOf Subjects)_  
@@ -128,11 +137,11 @@ A subject need not contain any Classes if it’s just expository.
     ***DSL***:  the Classes within a Subject are always displayed before the childSubjects.  
 
 	
-_ **SubjectArea**  
-A main topic or area of focus within the model, containing related subjects and classes  
+_ **SubjectArea**  - A main topic or area of focus within the model, containing related subjects and classes  
 Plural: SubjectAreas  
 Subtype of: Subject  
 Where: parentSubject is absent
+based on: Literate Model, XYZ
 
 
 ### Classes
@@ -194,7 +203,7 @@ __  ***Implied Attributes***
   
 
 _ **Subtyping** - a way in which subtypes of a Class may be classified (Subtype of Component).  
-    ***Dependent of:*** Class
+    ***based on:*** Class
 - **name** (Upper Name). 
     Usually ByThis or ByThat
 - **is exclusive** (Boolean).  
@@ -212,30 +221,31 @@ _ **Subtyping** - a way in which subtypes of a Class may be classified (Subtype 
 	Note: every class can have an unnamed subtyping.
 	Also,  each subtyping is by default Exclusive and  Exhaustive. So those stipulations may be omitted.
 
-_ **ValueType** - 
-Subtype of: Class. 
-	
-_ **Reference Type**:
-Subtype of: Class. 
+ValueType - A class that is presumed to be used a value, rather than a reference
 
-_ **CodeType**  
-A data type or enumeration used in the model  
-Subtype of: ValueType.  
-   Note: Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
-   - List the code values as a bulletted list inside the description of the attribute in the form: 
-	   ‘**code**: description’
-   - A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive. 
-- isCaptive - the code type was implied by use in an attribute and is only used for that attribute (Boolean) as
-_ **Code Value**
-A possible value for an enumerated data class  DependentOf: CodeType
+Subtype of: Class
+	
+_ **Reference Type** - A class that is presumed to be used as a reference, rather than a value
+Subtype of: Class
+
+ValueType:  **CodeType**   - A data type or enumeration used in the model  
+
+- isCaptive - the code type was implied by use in an attribute and is only used for that attribute (Boolean)
+
+ValueType:  **Code Value** - A possible value for an enumerated data class  
+based on: CodeType
 
 - **code** - A short code or abbreviationi for the value _(NameString)_
 - **description** - an explanation of what the code means (*RichText*)
+Note: Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
+   * List the code values as a bulletted list inside the description of the attribute in the form
+	   ‘**code**: description’
+   * A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive. 
 
 
 _ **Key** - a list of attributes of a class
 Subtype of: Component 
-DependentOf: Class
+basedOn: Class
 - keyAttributes - the attributes of the base Class. (List of Attributes ).  
 
 Constraint: each attribute must be a direct or inherited of the base class.  
@@ -262,8 +272,7 @@ _ **Attribute Section** - a group of attributes for a class that merit a shared 
 	But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.
 
 
-_ **Attribute**  
-A property or characteristic of a class  
+_ **Attribute**  - A property or characteristic of a class  
 Plural: Attributes  
 Subtype of: Component  
 *Based on*: AttributeSection
@@ -306,7 +315,7 @@ __  ***Inverse Attributes***
 - **inverseAttribute** - (optional Attribute)
 - **inverseIsOptional** - (optional Attribute)
 
-_ ***Formulas*** 
+__ ***Formulas*** 
 
 - **default** - The rule or formula for calculating the value, if no value is supplied 
     Now running to a second line with the parenthentical on yet a third line 
@@ -329,42 +338,43 @@ __ Override Tracking
 
 
 
-_ ***ValueType:*** **Derivation**  
-A rule or formula for deriving the value of an attribute  
+ValueType:   **Derivation**  - A rule or formula for deriving the value of an attribute  
 Plural: Derivations  
 - **statement** - An English language statement of the derivation rule _(RichText)_  
-- **expression** - The formal expression of the derivation in a programming language _(CodeExpression)_  
+- **expression** - The formal expression of the derivation in a programming language _(CodeExpression)_
 
 
   
 
-_ ***ValueType:*** **Constraint**  
-A rule, condition, or validation that must be satisfied by the model  
+ValueType:    **Constraint**  - A rule, condition, or validation that must be satisfied by the model  
 Plural: Constraints  
 Subtype of: Component  
 - **statement** - An English language statement of the constraint _(RichText)_  
 - **expression** - The formal expression of the constraint in a programming language (e.g., OCL _(CodeExpression)_  
 - **severity** -  (Code)
-- - **Warning** - nothing fatal; just a caution
-- - **Error** - serious. Fix now
-- **Message** - (Template)
+```codes
+Warning, nothing fatal; just a caution
+Error, serious. Fix now
+```
+ValueType:  **Message** - (Template)
 
-_ **Class Constraint**  
+ValueType:   **Class Constraint**  
 **Subtype of**: Constraint  
 ***Based on***: Class. 
 
-_ **Attribute Constraint** 
+ValueType:   **Attribute Constraint** 
 ***Subtype of***: Constraint 
 ***Based on***: Attribute
 
-_ **CodeExpression**
+ValueType:   **CodeExpression**
 - **Language** - the programming language (Code)
-- - OCL: Object Constraint Language
-- - Java: Java 
+``` code
+OCL, Object Constraint Language
+Java, Java 
+```
 - **Expression** (String)
 ## Methods 
-_ **Method**  
-A behavior or operation associated with a class  
+_ **Method**  - A behavior or operation associated with a class  
 Plural: Methods  
 Subtype of: Component  
 - **parameters** - The input parameters of the method _(ListOf Parameters)_  
@@ -379,23 +389,25 @@ Subtype of: Component
 
 ## Data Types
 
-*ValueType*:**Data Type**
+ValueType: **Data Type**
 
-_ **Simple Data Type** 
+ValueType:   **Simple Data Type** 
 ***SubtpeOf***: DataType
 - **coreClass** - (Class)
 
 
-_ **Complex Data Type**  
+ValueType:   **Complex Data Type**  
 - **aggregation** (Aggregating Operator)
 - **aggregatedTypes** (List of DataTypes)
 
-_ **Aggregating Operator**
+ValueType:   **Aggregating Operator**
 
 - **Name**- (Code)
-- - **SetOf**
-- - **ListOf**
-- - **Mapping**
+``` code
+SetOf
+ListOf
+Mapping
+```
 - **arity** - (Integer)
 - **spelling** - (Template)
 
@@ -404,7 +416,10 @@ _ **Aggregating Operator**
 
 insert Camel Case.md
 
-_ ***ValueType***: **CamelName**  
+ValueType: Emoji
+ValueType: String
+
+ValueType: **CamelName**  
 
 A short string without punctuation or spaces, suitable for names, labels, or identifiers and presented in camel case.  
 ***Subtype of***: String
@@ -417,63 +432,68 @@ A short string without punctuation or spaces, suitable for names, labels, or ide
   
 *ModelingNote:* *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.
 
-_ **UpperCamel**- a CamelName that begins with a capital letter  
+ValueType:  **UpperCamel**- a CamelName that begins with a capital letter  
 **Subtype of**: CamelName
 **Where**: content begins with an upper case letter. 
 Example:_ "Customer", "ProductCategory", "PaymentMethod"  
 
 
-_ **LowerCamel** - a CamelName that begins with a lower case letter  
+ValueType:   **LowerCamel** - a CamelName that begins with a lower case letter  
 **Subtype of**: CamelName
 **Where**: content begins with a lower case letter. 
 
  Example:  "firstName", "orderTotal", "shippingAddress"  
 
-_ **Qualified Camel** - an expression consisting of Camel Names separated by periods 
+ValueType:   **Qualified Camel** - an expression consisting of Camel Names separated by periods 
 ***Subtype of***: String
 ***Constraint***: content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first. 
 
-_ **RichText**.  A string with markup for block level formatting.  
+_ **RichText** - A string with markup for block level formatting.  
   ***SubtypeOf***: String  
   
   - **value** - the string content (string)  
   - **format** - the rich text coding language used (Code)  
-  	- **HTML**  
-  	- **MarkDown**  
+```code
+HTML
+MarkDown
+```
 
-_  **RichLine**   - String with markup for line level formatting.  
+ValueType:  **OneLiner**   - String with markup for line level formatting.  
   ***SubtypeOf***: RichText 
   
   - **value** - the string content (string)  
       ***Constraint***: must not containa line break or new line character
+      Message: A line can't span two lines
   
-_ **PrimitiveType**  
-Subtype of: ValueType
-A basic, built-in data type  
- Values: 
-  **String**  
-  **Integer**  
-  **Decimal**  
-  **Boolean**  
-  **Date**  
-  **Time**  
-  **DateTime**  
-  
-===
-## Appendices
-Insert More Sidebars.md
-Insert Overrides.md
-insert LDM Intro.md
-Insert OCL.md
-Insert Camel Case.md
+ValueType:  **PrimitiveType**  - A basic, built-in data type  
 
+ValueType: **String**  
+SubtypeOf: PrimitiveType
+
+ValueType: **Integer**  
+SubtypeOf: PrimitiveType
+
+ValueType: **Decimal**  
+SubtypeOf: PrimitiveType
+
+ValueType: **Boolean**  
+SubtypeOf: PrimitiveType
+
+ValueType: **Date**  
+SubtypeOf: PrimitiveType
+
+ValueType: **Time**  
+SubtypeOf: PrimitiveType
+
+ValueType: **DateTime**  
+SubtypeOf: PrimitiveType
 
 
 ### Annotation Types Used
 
 These are the recognized Annotation Types for the LDM model.
 
-
+ 
 And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model. 
 
 ```puml
@@ -572,13 +592,14 @@ Reference,🌐,globe_with_meridians,U+1F310,Provides a reference or link to an e
 See,🔍,mag,U+1F50D,Indicates a cross-reference to another relevant element within the model.
 
 ```
-===
-## Appendices
+## Appendices - various sidebars to include
 Insert More Sidebars.md
 Insert Overrides.md
 insert LDM Intro.md
 Insert OCL.md
 Insert Camel Case.md
+
+
 
 
 

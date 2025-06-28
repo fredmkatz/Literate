@@ -73,7 +73,7 @@ keywords = [
     Keyword("Default"),
     # for Formulas
     Keyword("code"),
-    Keyword("english"),
+    Keyword("ocl"),
     Keyword("message"),
     Keyword("severity"),
     # TBD

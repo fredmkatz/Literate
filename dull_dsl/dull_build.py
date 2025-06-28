@@ -5,10 +5,12 @@ from utils.util_fmk import create_fresh_directory
 
 from utils.typed_dict_tools_diff import TypedDict
 import utils.do_weasy_pdf as weasy
-from ldm_to_html import create_model_html
-from ldm_as_html import create_model_html_as
 
 import ldm.ldm_renderers as ldm_renderers
+import ldm.ldm_validators_v3 as ldm_validators
+from ldm.ldm_as_html import create_model_html_as
+from ldm.ldm_htmlers import create_model_html_with_faculty
+
 import utils.util_all_fmk as fmk
 
 from dull_dsl.dull_parser import parse_model_doc
@@ -16,7 +18,6 @@ from utils.util_pydantic import gen_schema
 
 from dataclasses import fields
 
-from ldm_object_creator import GenericObjectCreator
 import ldm.Literate_01 as Literate_01
 from typing import Dict, List
 
@@ -50,9 +51,9 @@ def build_dull_dsl(dull_specs: Dict):
     if USING_PYDANTIC:
         pd_or_not = "PD"
 
-    # if USING_PYDANTIC:
-    create_fresh_directory(results_dir)
-    create_fresh_directory(assets_dir)
+    if USING_PYDANTIC:
+        create_fresh_directory(results_dir)
+        create_fresh_directory(assets_dir)
 
     global the_model_assets_dir
     the_model_assets_dir = assets_dir
@@ -79,7 +80,7 @@ def build_dull_dsl(dull_specs: Dict):
     
 #    start by capturing the schema
     show_phase("Creating schema and survey of Literate_01")
-    gen_schema(LiterateModel, "LiterateMetaModel_01", f"{results_dir}/LiterateMeta")
+    gen_schema(LiterateModel, f"LiterateMetaModel_01_{pd_or_not}", f"{results_dir}/LiterateMeta")
     
     inspect_module(Literate_01, "LiterateMetaModel_survey.txt", f"{results_dir}/LiterateMeta")
     
@@ -138,7 +139,6 @@ def build_dull_dsl(dull_specs: Dict):
     if VALIDATING:
 
         show_phase(f"Validating model tp {valid_model_path}")
-        import ldm.ldm_validators as ldm_validators
 
         # Validate the model
         diagnostics = ldm_validators.validate_model(the_ldm_model_py)
@@ -173,9 +173,8 @@ def build_dull_dsl(dull_specs: Dict):
     # exit(0)
 
 
-    
 
-    RENDER_MD = True
+    RENDER_MD = False
     if RENDER_MD:
         render_path = f"{results_dir}/{model_name}_{pd_or_not}_05.rendered.md"
         show_phase(f"Rendering back to markdown => {render_path}")  # Render
@@ -186,16 +185,8 @@ def build_dull_dsl(dull_specs: Dict):
         show_phase("Skipping Render to Markdown")
 
     # Create HTML
-    CREATE_HTML = False
-    if CREATE_HTML:
-        show_phase("Creating HTML from model dict")
-        html_path = f"{results_dir}/{model_name}_{pd_or_not}_06.html"
 
-        create_model_html(the_ldm_dict, html_path)
-    else:
-        show_phase("Skipping Render to HTML")
-
-    CREATE_HTML_AS = True
+    CREATE_HTML_AS = False
     if CREATE_HTML_AS:
         show_phase("Creating HTML ASfrom model dict")
         html_path = f"{results_dir}/{model_name}_{pd_or_not}_06_as.html"
@@ -203,6 +194,14 @@ def build_dull_dsl(dull_specs: Dict):
         create_model_html_as(the_ldm_dict, html_path)
     else:
         show_phase("Skipping Render to HTML AS")
+        
+    CREATE_HTML_AS2 = True
+    if CREATE_HTML_AS2:
+        show_phase("Creating HTML using the Faculty")
+        html_path = f"{results_dir}/{model_name}_{pd_or_not}_07_as.html"
+
+        create_model_html_with_faculty(the_ldm_model_py, html_path)
+
 
     show_phase("Skipping PDF creation")
 
@@ -228,20 +227,6 @@ def count_strings(string_list):
     return string_counts
 
 
-def validate_model(the_model) -> List[str]:
-
-    import ldm.ldm_validators as ldm_validators
-
-    # Validate the model
-    errors = ldm_validators.validate_model(the_model)
-    print("Validating references...")
-    errors += ldm_validators.validate_references(the_model)
-    if errors:
-        print("Validation errors:", len(errors))
-        for error in errors:
-            print(f"- {error}")
-    else:
-        print("No validation errors found.")
 
 
 def render_to_markdown(the_model):

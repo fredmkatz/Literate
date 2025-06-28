@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 
 # from typing import Any, List, Dict, Tuple, Union, Callable, Optional
 from typing import Any, List, Dict, Union
+from emoji import emoji_list, replace_emoji
 
 # from ldm_parse_bits import parse_header
 # from utils.util_fmk_pom import as_yaml
@@ -84,7 +85,8 @@ class DocPart:
 
         paragraphs = []
 
-        # print("DerivingDict for Part: ", self.part_type)
+        print("DerivingDict for Part: ", self.part_type)
+        # print(self)
         if self.part_type == "Annotation":
             nitems = len(self.items)
             # print(f"THIS IS AN ANNOTATION. All {nitems} items are...")
@@ -120,10 +122,13 @@ class DocPart:
 
                 if label.endswith("_Head"):
                     full_header = item.full_text()
+                    print("Full header: ", full_header)
                     # print(f"\t\tFull header is: {full_header}")
 
                     handlers = item.line_Type.handlers
+                    print("handlers: ", handlers)
                     header_dict = handlers.parse(full_header)
+                    print("Header dict is: ", header_dict)
                     # print_messages(messages)
 
                     # if label.startswith("Class"):
@@ -143,6 +148,7 @@ class DocPart:
                     and item.line_Type.class_started == "Annotation"
                 ):
                     # print("SPOTTED ANNOTATION in DOCPART: ", item)
+                    # print("while ... DerivingDict for Part: ", self.part_type)
                     full_annotation = item.full_text()
                     # print(f"\t\tfull_annotation is: {full_annotation}")
 
@@ -156,14 +162,25 @@ class DocPart:
                     annotation_dict.pop("line_type", None)
                     annotation_dict["content"] = OneLiner(annotation_dict.pop("value", None))
                     # print(".. revised Annotation dict: ", annotation_dict)
-                    
-                    label = annotation_dict["label"]
-                    annotation_dict["label"] = Label(label)
-                    
-                    emoji = annotation_dict["emoji"]
-                    annotation_dict["emoji"] = Emoji(emoji)
+                
+                    full_label = annotation_dict["label"]
 
-                    # print("the dict: ", the_dict)
+                    emoji_dicts = emoji_list(full_label)
+                    if emoji_dicts:
+                        # print(f"found EMOJIS in label {emoji_dicts}: {full_label}")
+                        trimmed_label = replace_emoji(full_label, "").strip()
+                        print("trimmed label is ", trimmed_label)
+                    else:
+                        emoji_dicts = []
+                        trimmed_label = full_label
+
+#    emojis are:  [{'match_start': 0, 'match_end': 2, 'emoji': '⚠️'}]
+                    emojis_list = [ e["emoji"] for e in emoji_dicts]
+                    annotation_dict["label"] = Label(trimmed_label)
+                    
+                    print("emojis are: ", emoji_dicts)
+
+                    print("Final annoation dict is: ", annotation_dict)
                     the_dict.update(annotation_dict)
                     continue
 
@@ -202,7 +219,7 @@ class DocPart:
                     if (
                         isinstance(item.line_Type, MajorClause)
                         and item.line_Type.class_started in ["Default", "Derivation", "Constraint"]
-                        and False
+                        # and False
                     ):
                         print("Dict for Formula", the_dict)
                             
@@ -249,14 +266,14 @@ class DocPart:
         displayables = ["AttributeSection"]
         displayables = ["Class"]
         displayables = ["Default", "Derivation", "Constraint"]
-        displayables = []
+        displayables = ["ValueType", "CodeType"]
         # ["Class", "Attribute", "Formula", "Default"]
         if self.part_type in displayables:
             # print("Re-display for Part: ", self.part_type)
 
             self.display(1)
             print("DerivedDict for Part: ", self.part_type)
-            print(as_json(the_dict))
+            # print(as_json(the_dict))
             print(the_dict)
         # if the_dict.get("name", "") == "Component":
         #     exit(0)

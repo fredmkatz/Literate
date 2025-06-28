@@ -187,8 +187,28 @@ class FluentTag:
 
     def __contains__(self, key):
         return key in self.tag
+    
+    # generalized call for append()
+    # - filters out None items
+    # - takes a list of items as arguments; appends each
+    # - eliiminates empty spans/divs
+    # - takes a list as an argument; recurses into it
+    
+    def append_all(self, *items, warn_on_retarget=True):
+        for item in items:
+            if item is None:
+                continue
+            if isinstance(item, list):
+                self.append_all(*item, warn_on_retarget=warn_on_retarget)
+                continue
+            self.append(item, warn_on_retarget=warn_on_retarget)
+        return self
+            
+            
 
     def append(self, item, warn_on_retarget=True):
+        if item is None:
+            return self
         if not isinstance(item, FluentTag):
             self.tag.append(bs4.NavigableString(str(item)))
             return self

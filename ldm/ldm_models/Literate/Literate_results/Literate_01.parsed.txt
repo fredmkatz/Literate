@@ -8,18 +8,28 @@ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[T
 _ _ _ _ Class_Head: _ **Component** - An element or building block of the literate data model
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **normalName** - the name of the component, not in camel case (*String*)
+. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ WILD: ⚠️ Warning: This is a warning with emoji
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **name** - The name of the component (CamelName)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **qualifiedName** - (*QualifiedCamel*)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **abbreviatedName** - a short form of the component's name, used for cross references and improved readability. (*CamelName*)
-. . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ DEFAULT: ***Default***: name
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ EXAMPLE: ***Example***: "LDM" is the short form of "Literate Data Model".
+. . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ DEFAULT: ***Default***: name -  how do you say name in english?
+_ _ _ _ _ _ OCL: ocl: x.name == y
+. . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ CONSTRAINT: constraint: the abbreviated name should be shorter than the actual name
+_ _ _ _ _ _ OCL: ocl: len(abbreviatedName) < len(name)
+_ _ _ _ _ _ SEVERITY: severity: Warning
+_ _ _ _ _ _ MESSAGE: message:  Why have an abbreviation longer than the name?
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ NOTE: Note: Does this annotation find it's way to the Constraint? YES! It's fixed!
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(RichLine)_
+_ _ _ _ _ Attribute_Head: - **oneLiner** - A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _(OneLiner)_
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **elaboration** - A more detailed explanation or discussion of the component _(RichText)_
 . . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -27,9 +37,9 @@ _ _ _ _ _ AttributeSection_Head: __  ***For Machinery*** - mechanical attributes
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **isEmbellishment** - Indicates whether this component is an embellishment added during post-parsing processing _(Boolean)_
 . . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DEFAULT: ***Default***: false
-. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ NOTE: ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
+_ _ _ _ _ _ _ DEFAULT: 🔄 ***Default***: false
+. . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ _ NOTE: ℹ️ ***Note***: This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ Class_Head: _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component.
 _ _ _ _ BASED_ON: ***Based on*** : Literate Data Model
@@ -48,14 +58,16 @@ _ _ _ _ _ Attribute_Head: - **plural** - the plural form of the label (*UpperCam
 . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ DEFAULT: Default: based on label
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **Purpose** - the intended reason for the annotation.
+_ _ _ _ _ Attribute_Head: - **Purpose** - the intended reason for the annotation. (OneLiner)
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ ValueType: **Annotation**A note or comment associated with a model element
+_ _ _ _ Class_Head: _ **Annotation**  - A note or comment associated with a model element
 _ _ _ _ BASED_ON: ***Based on***: Component
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **annotationType** - (optional Annotation Type)
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ NOTE: Note: An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.
+. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ NOTE: Note: Should be a Value  Type
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **label** - A short label to indicate the purpose of the annotation _(CamelName)_
 _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='But any short label is valid.', extra_text=[])], extra_text=[])]
@@ -72,9 +84,9 @@ _ _ _ _ _ AttributeSection_Head: __***For Machinery***
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **isEmbellishment** - Indicates whether this annotation is an embellishment added during post-parsing processing _(Boolean)_
 . . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DEFAULT: ***Default***: false
-. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ NOTE: ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.
+_ _ _ _ _ _ _ DEFAULT: 🔄 ***Default***: false
+. . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ _ NOTE: ℹ️ ***Note***: This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ SubjectB_Head: ## The Model and its Subjects
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -117,10 +129,10 @@ _ _ _ _ _ _ Attribute_Head: - **aiFunctions** - A list of functions that require
 . . . . . . Derivation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ DERIVATION: Derivation: ['aiEnglishPlural()']
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Subject**A specific topic or theme within the model
+_ _ _ _ Class_Head: _ **Subject**  - A specific topic or theme within the model
 _ _ _ _ PLURAL: Plural: Subjects
 _ _ _ _ SUBTYPE_OF: Subtype of: Component
-_ _ _ _ DEPENDENT_OF: Dependent of: LiterateDataModel
+_ _ _ _ BASED_ON: based on: LiterateDataModel
 _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Subjects are the chapters an sections of the model.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='A subject need not contain any Classes if it’s just expository.', extra_text=[])], extra_text=[])]
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - name (UpperCamel )
@@ -129,20 +141,19 @@ _ _ _ _ _ Attribute_Head: - **parentSubject** - The parent subject, if any, unde
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **Classes** - The major classes related to this subject, in the order in which they should be presented _(ListOf Classes)_
 . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ ISSUE: ***Issue***: define chapter, section, subsection as levels?***DSL***: Generally, it is best to present the classes within a Subject in top down order:
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - Each Class should be followed first by the classes that are dependent on it, and then
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - By its subtype classes.
+_ _ _ _ _ _ ISSUE: ***Issue***: define chapter, section, subsection as levels?***DSL***: Generally, it is best to present the classes within a Subject in top down order... 
++ * Each Class should be followed first by the classes that are dependent on it, and then 
++ * By its subtype classes.
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **childSubjects** - Any child subjects nested under this subject, in the order in which they should be presented _(ListOf Subjects)_
 _ _ _ _ _ INVERSE: inverse of: Subject.parentSubject.
 _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='***DSL***:  the Classes within a Subject are always displayed before the childSubjects.', extra_text=[])], extra_text=[])]
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **SubjectArea**A main topic or area of focus within the model, containing related subjects and classes
+_ _ _ _ Class_Head: _ **SubjectArea**  - A main topic or area of focus within the model, containing related subjects and classes
 _ _ _ _ PLURAL: Plural: SubjectAreas
 _ _ _ _ SUBTYPE_OF: Subtype of: Subject
 _ _ _ _ WHERE: Where: parentSubject is absent
+_ _ _ _ BASED_ON: based on: Literate Model, XYZ
 . . . SubjectC - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ SubjectC_Head: ### Classes
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -194,7 +205,7 @@ _ _ _ _ _ _ _ Attribute_Head: - UniqueKeys - (optional Set of UniqueKeys).
 _ _ _ _ _ _ _ INVERSE: ***Inverse of***:UniqueKey.basedOn
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Class_Head: _ **Subtyping** - a way in which subtypes of a Class may be classified (Subtype of Component).
-_ _ _ _ _ DEPENDENT_OF: ***Dependent of:*** Class
+_ _ _ _ _ BASED_ON: ***based on:*** Class
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **name** (Upper Name).Usually ByThis or ByThat
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -210,43 +221,38 @@ _ _ _ _ _ _ Attribute_Head: - **classes** (List of Classes).
 _ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='***DSL***:  Shown in the DSL as', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='> Subbtypes: byBrand - Brand1, Brand2,... (non exclusive, exhaustive)', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='on the super class. And as', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='> Subtype of: SuperClass byBrand', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='on the subclass.', extra_text=[])], extra_text=[])]
 . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ NOTE: Note: every class can have an unnamed subtyping.Also,  each subtyping is by default Exclusive and  Exhaustive. So those stipulations may be omitted.
+_ _ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='ValueType - A class that is presumed to be used a value, rather than a reference', extra_text=[])], extra_text=[])]
+_ _ _ _ _ _ _ SUBTYPE_OF: Subtype of: Class
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Class_Head: _ **ValueType** -
-_ _ _ _ _ SUBTYPE_OF: Subtype of: Class.
-. . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Class_Head: _ **Reference Type**:
-_ _ _ _ _ SUBTYPE_OF: Subtype of: Class.
-. . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Class_Head: _ **CodeType**A data type or enumeration used in the model
-_ _ _ _ _ SUBTYPE_OF: Subtype of: ValueType.
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ NOTE: Note: Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
+_ _ _ _ _ Class_Head: _ **Reference Type** - A class that is presumed to be used as a reference, rather than a value
+_ _ _ _ _ SUBTYPE_OF: Subtype of: Class
+. . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ ValueType_Head: ValueType:  **CodeType**   - A data type or enumeration used in the model
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - List the code values as a bulletted list inside the description of the attribute in the form:‘**code**: description’
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive.
-. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - isCaptive - the code type was implied by use in an attribute and is only used for that attribute (Boolean) as
-. . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Class_Head: _ **Code Value**
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ WILD: A possible value for an enumerated data class  DependentOf: CodeType
+_ _ _ _ _ _ Attribute_Head: - isCaptive - the code type was implied by use in an attribute and is only used for that attribute (Boolean)
+. . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ ValueType_Head: ValueType:  **Code Value** - A possible value for an enumerated data class
+_ _ _ _ _ BASED_ON: based on: CodeType
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **code** - A short code or abbreviationi for the value _(NameString)_
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **description** - an explanation of what the code means (*RichText*)
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ NOTE: Note: Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:* List the code values as a bulletted list inside the description of the attribute in the form 
++ ‘**code**: description’ 
++ * A Code Type will be created with the name [class][attribute]Code and the code values listed. That CodeType will be marked as isCaptive.
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Class_Head: _ **Key** - a list of attributes of a class
 _ _ _ _ _ SUBTYPE_OF: Subtype of: Component
-_ _ _ _ _ DEPENDENT_OF: DependentOf: Class
+_ _ _ _ _ BASED_ON: basedOn: Class
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - keyAttributes - the attributes of the base Class. (List of Attributes ).
 . . . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ CONSTRAINT: Constraint: each attribute must be a direct or inherited of the base class.
 . . . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ CONSTRAINT: Constraint: no repetitions allowed in keyAttributes> 👍 **Issue**: introduce PureLists?
-. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ ISSUE: Issue: need ascending descending to support index keys or ordering keys.
+. . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ _ ISSUE: Issue: need ascending descending to support index keys or ordering keys.
 . . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Class_Head: _ **UniqueKey** - a list of attributes on which instances of the base class may be keyed.
 _ _ _ _ _ SUBTYPE_OF: Subtype of: Key
@@ -262,7 +268,7 @@ _ _ _ _ BASED_ON: ***Based on***: Class
 _ _ _ _ _ Attribute_Head: -	isOptional - whether the attributes in this section, taken together, are optional. (Boolean)
 _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='If the Attribute Section is required,then each Attribute within the sectional is optional ot required, depending on how it is marked.', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='&nbsp;', extra_text=[]), TypedLine(type_label='TEXT_LINE', line_Type=None, content='But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.', extra_text=[])], extra_text=[])]
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Attribute**A property or characteristic of a class
+_ _ _ _ Class_Head: _ **Attribute**  - A property or characteristic of a class
 _ _ _ _ PLURAL: Plural: Attributes
 _ _ _ _ SUBTYPE_OF: Subtype of: Component
 _ _ _ _ BASED_ON: *Based on*: AttributeSection
@@ -286,8 +292,8 @@ _ _ _ _ _ _ Attribute_Head: - **cardinality** - The cardinality of the relations
 . . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ _ DEFAULT: ***Default:***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.For a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.
 _ _ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='***DSL***: the cardinality of an attribute, if stated explicitly, should be placed just before the class name in the parenthetical data type specification after the one-liner.', extra_text=[])], extra_text=[])]
-. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ WILD: For example:
+. . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ _ WILD: For example:
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - author (1:1 Author)
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -308,35 +314,35 @@ _ _ _ _ _ _ _ DERIVATION: ***Derivation***: from the data type. Null unless arrr
 _ _ _ _ _ _ Attribute_Head: - **inverseAttribute** - (optional Attribute)
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **inverseIsOptional** - (optional Attribute)
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ ***Formulas***
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **default** - The rule or formula for calculating the value, if no value is suppliedNow running to a second line with the parenthentical on yet a third line 
+. . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ AttributeSection_Head: __ ***Formulas***
+. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ Attribute_Head: - **default** - The rule or formula for calculating the value, if no value is suppliedNow running to a second line with the parenthentical on yet a third line 
 + (optional Derivation)
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ NOTE: Note: even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed.And let's see if the note can span extra lines, too
-_ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content="Yes, it handled extra lines.  Let's see about additional paras for an annotation", extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Last paragraph here', extra_text=[])], extra_text=[])]
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **derivation** - For derived attributes, the rule or formula for calculating the value _(optional Derivation)_
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ ISSUE: ***Issue***: on insert vs on access?
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **constraints** - Any validation rules specific to this attribute _(ListOf Constraints)_
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ NOTE: Note: from Class.constraints
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ NOTE: Note: even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed.And let's see if the note can span extra lines, too
+_ _ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content="Yes, it handled extra lines.  Let's see about additional paras for an annotation", extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='Last paragraph here', extra_text=[])], extra_text=[])]
+. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ Attribute_Head: - **derivation** - For derived attributes, the rule or formula for calculating the value _(optional Derivation)_
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ ISSUE: ***Issue***: on insert vs on access?
+. . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ Attribute_Head: - **constraints** - Any validation rules specific to this attribute _(ListOf Constraints)_
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ NOTE: Note: from Class.constraints
 . . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ AttributeSection_Head: __ Override Tracking
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - Overrides
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ ***ValueType:*** **Derivation**A rule or formula for deriving the value of an attribute
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **Derivation**  - A rule or formula for deriving the value of an attribute
 _ _ _ _ PLURAL: Plural: Derivations
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **statement** - An English language statement of the derivation rule _(RichText)_
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **expression** - The formal expression of the derivation in a programming language _(CodeExpression)_
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ ***ValueType:*** **Constraint**A rule, condition, or validation that must be satisfied by the model
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:    **Constraint**  - A rule, condition, or validation that must be satisfied by the model
 _ _ _ _ PLURAL: Plural: Constraints
 _ _ _ _ SUBTYPE_OF: Subtype of: Component
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -345,34 +351,28 @@ _ _ _ _ _ Attribute_Head: - **statement** - An English language statement of the
 _ _ _ _ _ Attribute_Head: - **expression** - The formal expression of the constraint in a programming language (e.g., OCL _(CodeExpression)_
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **severity** -  (Code)
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - - **Warning** - nothing fatal; just a caution
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - - **Error** - serious. Fix now
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **Message** - (Template)
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Class Constraint**
+_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='```codes', extra_text=['Warning, nothing fatal; just a caution', 'Error, serious. Fix now', '```'])]
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:  **Message** - (Template)
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **Class Constraint**
 _ _ _ _ SUBTYPE_OF: **Subtype of**: Constraint
 _ _ _ _ BASED_ON: ***Based on***: Class.
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Attribute Constraint**
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **Attribute Constraint**
 _ _ _ _ SUBTYPE_OF: ***Subtype of***: Constraint
 _ _ _ _ BASED_ON: ***Based on***: Attribute
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **CodeExpression**
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **CodeExpression**
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **Language** - the programming language (Code)
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - - OCL: Object Constraint Language
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - - Java: Java
+_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` code', extra_text=['OCL, Object Constraint Language', 'Java, Java', '```'])]
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **Expression** (String)
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ SubjectB_Head: ## Methods
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Method**A behavior or operation associated with a class
+_ _ _ _ Class_Head: _ **Method**  - A behavior or operation associated with a class
 _ _ _ _ PLURAL: Plural: Methods
 _ _ _ _ SUBTYPE_OF: Subtype of: Component
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -389,27 +389,23 @@ _ _ _ _ _ Attribute_Head: - **type** - The data type of the parameter _(DataType
 _ _ _ _ _ Attribute_Head: - **cardinality** - The cardinality of the parameter (e.g., optional, required) _(AttributeCardinality)_
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ SubjectB_Head: ## Data Types
-_ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='*ValueType*:**Data Type**', extra_text=[])], extra_text=[])]
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Simple Data Type*****SubtpeOf***: DataType
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **Data Type**
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **Simple Data Type*****SubtpeOf***: DataType
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **coreClass** - (Class)
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Complex Data Type**
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **Complex Data Type**
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **aggregation** (Aggregating Operator)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **aggregatedTypes** (List of DataTypes)
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Aggregating Operator**
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **Aggregating Operator**
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **Name**- (Code)
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - - **SetOf**
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - - **ListOf**
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - - **Mapping**
+_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` code', extra_text=['SetOf', 'ListOf', 'Mapping', '```'])]
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **arity** - (Integer)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -417,80 +413,87 @@ _ _ _ _ _ Attribute_Head: - **spelling** - (Template)
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ SubjectB_Head: ## Low level Data Types
 _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='insert Camel Case.md', extra_text=[])], extra_text=[])]
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ ***ValueType***: **CamelName**
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: Emoji
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: String
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **CamelName**
 _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='A short string without punctuation or spaces, suitable for names, labels, or identifiers and presented in camel case.', extra_text=[])], extra_text=[])]
 _ _ _ _ SUBTYPE_OF: ***Subtype of***: String
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - value: the string (String)
 . . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ CONSTRAINT: ***Constraint***: Must follow the camel case naming convention and not be empty.
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ EXAMPLE: Example:  "firstName", "orderDate", "customerID"
-_ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='> 📝 ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute.', extra_text=[])], extra_text=[])]
-. . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ WILD: *ModelingNote:* *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **UpperCamel**- a CamelName that begins with a capital letter
+_ _ _ _ _ _ CONSTRAINT: 🚫 ***Constraint***: Must follow the camel case naming convention and not be empty.
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ EXAMPLE: Example:  "firstName", "orderDate", "customerID"
+_ _ _ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='> 📝 ***ModelingNote***: Putting the non-empty constraint on the CamelName value type is effective because it automatically applies to all attributes that use CamelName as their type. This ensures consistency and avoids the need to define the constraint separately for each attribute.', extra_text=[])], extra_text=[])]
+. . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ _ _ WILD: *ModelingNote:* *CamelName* is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:  **UpperCamel**- a CamelName that begins with a capital letter
 _ _ _ _ SUBTYPE_OF: **Subtype of**: CamelName
 _ _ _ _ WHERE: **Where**: content begins with an upper case letter.
 . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ EXAMPLE: Example:_ "Customer", "ProductCategory", "PaymentMethod"
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **LowerCamel** - a CamelName that begins with a lower case letter
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **LowerCamel** - a CamelName that begins with a lower case letter
 _ _ _ _ SUBTYPE_OF: **Subtype of**: CamelName
 _ _ _ _ WHERE: **Where**: content begins with a lower case letter.
 . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ EXAMPLE: Example:  "firstName", "orderTotal", "shippingAddress"
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **Qualified Camel** - an expression consisting of Camel Names separated by periods
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **Qualified Camel** - an expression consisting of Camel Names separated by periods
 _ _ _ _ SUBTYPE_OF: ***Subtype of***: String
 . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ CONSTRAINT: ***Constraint***: content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **RichText**.  A string with markup for block level formatting.
+_ _ _ _ Class_Head: _ **RichText** - A string with markup for block level formatting.
 _ _ _ _ SUBTYPE_OF: ***SubtypeOf***: String
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **value** - the string content (string)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **format** - the rich text coding language used (Code)
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **HTML**
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **MarkDown**
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _  **RichLine**   - String with markup for line level formatting.
+_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='```code', extra_text=['HTML', 'MarkDown', '```'])]
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:  **OneLiner**   - String with markup for line level formatting.
 _ _ _ _ SUBTYPE_OF: ***SubtypeOf***: RichText
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **value** - the string content (string)
 . . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ CONSTRAINT: ***Constraint***: must not containa line break or new line character
-. . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ Class_Head: _ **PrimitiveType**
-_ _ _ _ SUBTYPE_OF: Subtype of: ValueTypeA basic, built-in data type
-. . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ WILD: Values:**String** 
-+ **Integer** 
-+ **Decimal** 
-+ **Boolean** 
-+ **Date** 
-+ **Time** 
-+ **DateTime**
-_ _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='===', extra_text=[])], extra_text=[])]
-. . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ SubjectB_Head: ## AppendicesInsert More Sidebars.md 
-+ Insert Overrides.md 
-+ insert LDM Intro.md 
-+ Insert OCL.md 
-+ Insert Camel Case.md
+_ _ _ _ _ _ MESSAGE: Message: A line can't span two lines
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:  **PrimitiveType**  - A basic, built-in data type
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **String**
+_ _ _ _ SUBTYPE_OF: SubtypeOf: PrimitiveType
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **Integer**
+_ _ _ _ SUBTYPE_OF: SubtypeOf: PrimitiveType
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **Decimal**
+_ _ _ _ SUBTYPE_OF: SubtypeOf: PrimitiveType
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **Boolean**
+_ _ _ _ SUBTYPE_OF: SubtypeOf: PrimitiveType
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **Date**
+_ _ _ _ SUBTYPE_OF: SubtypeOf: PrimitiveType
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **Time**
+_ _ _ _ SUBTYPE_OF: SubtypeOf: PrimitiveType
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType: **DateTime**
+_ _ _ _ SUBTYPE_OF: SubtypeOf: PrimitiveType
 . . . SubjectC - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ SubjectC_Head: ### Annotation Types Used
 _ _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='These are the recognized Annotation Types for the LDM model.', extra_text=[])], extra_text=[]), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model.', extra_text=[])], extra_text=[]), TypedLine(type_label='CODE_FENCE', line_Type=None, content='```puml', extra_text=['@startjson', '', '[', '{', '"label": "Error",', '"emoji": "❌",', '"emojiName": "cross_mark",', '"emojiUnicode": "U+274C",', '"purpose": "Indicates a critical error or failure in the model."', '},', '{', '"label": "Warning",', '"emoji": "⚠️",', '"emojiName": "warning",', '"emojiUnicode": "U+26A0",', '"purpose": "Indicates a potential issue or warning in the model."', '},', '{', '"label": "Note",', '"emoji": "📘",', '"emojiName": "blue_book",', '"emojiUnicode": "U+1F4D8",', '"purpose": "Provides additional context, explanations, or clarifications for the annotated element."', '},', '{', '"label": "Issue",', '"emoji": "⚠️",', '"emojiName": "warning",', '"emojiUnicode": "U+26A0",', '"purpose": "Highlights a potential issue or error that needs to be addressed or resolved."', '},', '{', '"label": "Question",', '"emoji": "❓",', '"emojiName": "question",', '"emojiUnicode": "U+2753",', '"purpose": "Raises a question or seeks further clarification about the annotated element."', '},', '{', '"label": "Suggestion",', '"emoji": "💡",', '"emojiName": "bulb",', '"emojiUnicode": "U+1F4A1",', '"purpose": "Provides a suggestion or recommendation for improving the model or the annotated element."', '},', '{', '"label": "Info",', '"emoji": "ℹ️",', '"emojiName": "information_source",', '"emojiUnicode": "U+2139",', '"purpose": "Offers relevant information, facts, or details about the annotated element."', '},', '{', '"label": "Todo",', '"emoji": "📌",', '"emojiName": "pushpin",', '"emojiUnicode": "U+1F4CC",', '"purpose": "Indicates a pending task, action item, or future work related to the annotated element."', '},', '{', '"label": "Reference",', '"emoji": "🌐",', '"emojiName": "globe_with_meridians",', '"emojiUnicode": "U+1F310",', '"purpose": "Provides a reference or link to an external resource or documentation."', '},', '{', '"label": "See",', '"emoji": "🔍",', '"emojiName": "mag",', '"emojiUnicode": "U+1F50D",', '"purpose": "Indicates a cross-reference to another relevant element within the model."', '}', ']', '@endjson', '', '```'])]
 . . . SubjectC - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ SubjectC_Head: ### Annotation types as CSV
-_ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` csv', extra_text=['label,emoji,emojiName,emojiUnicode,purpose', 'Error,❌,cross_mark,U+274C,Indicates a critical error or failure in the model.', 'Warning,⚠️,warning,U+26A0,Indicates a potential issue or warning in the model.', 'Note,,blue_book,U+1F4D8,"Provides additional context, explanations, or clarifications for the annotated element."', 'Issue,,warning,U+26A0,Highlights a potential issue or error that needs to be addressed or resolved.', 'Question,❓,question,U+2753,Raises a question or seeks further clarification about the annotated element.', 'Suggestion,💡,bulb,U+1F4A1,Provides a suggestion or recommendation for improving the model or the annotated element.', 'Info,ℹ️,information_source,U+2139,"Offers relevant information, facts, or details about the annotated element."', 'Todo,📌,pushpin,U+1F4CC,"Indicates a pending task, action item, or future work related to the annotated element."', 'Reference,🌐,globe_with_meridians,U+1F310,Provides a reference or link to an external resource or documentation.', 'See,,mag,U+1F50D,Indicates a cross-reference to another relevant element within the model.', '', '```']), TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='===', extra_text=[])], extra_text=[])]
+_ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` csv', extra_text=['label,emoji,emojiName,emojiUnicode,purpose', 'Error,❌,cross_mark,U+274C,Indicates a critical error or failure in the model.', 'Warning,⚠️,warning,U+26A0,Indicates a potential issue or warning in the model.', 'Note,📘,blue_book,U+1F4D8,"Provides additional context, explanations, or clarifications for the annotated element."', 'Issue,⚠️,warning,U+26A0,Highlights a potential issue or error that needs to be addressed or resolved.', 'Question,❓,question,U+2753,Raises a question or seeks further clarification about the annotated element.', 'Suggestion,💡,bulb,U+1F4A1,Provides a suggestion or recommendation for improving the model or the annotated element.', 'Info,ℹ️,information_source,U+2139,"Offers relevant information, facts, or details about the annotated element."', 'Todo,📌,pushpin,U+1F4CC,"Indicates a pending task, action item, or future work related to the annotated element."', 'Reference,🌐,globe_with_meridians,U+1F310,Provides a reference or link to an external resource or documentation.', 'See,🔍,mag,U+1F50D,Indicates a cross-reference to another relevant element within the model.', '', '```'])]
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ SubjectB_Head: ## AppendicesInsert More Sidebars.md 
+_ _ _ SubjectB_Head: ## Appendices - various sidebars to includeInsert More Sidebars.md 
 + Insert Overrides.md 
 + insert LDM Intro.md 
 + Insert OCL.md 

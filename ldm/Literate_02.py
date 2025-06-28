@@ -83,7 +83,6 @@ class Class(Component):
     )
     subtypes: Dict['ClassName', 'SubtypingName'] = Field(default_factory=dict)
     based_on: List['ClassName'] = Field(default_factory=list)
-    dependent_of: List['ClassName'] = Field(default_factory=list)
     dependents: List['ClassName'] = Field(default_factory=list)
     is_value_type: bool = False
     where: Optional['OneLiner'] = None

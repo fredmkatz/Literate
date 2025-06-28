@@ -361,7 +361,6 @@ def render_class(self):
     # result += render_field(self, "subtype_of")
     # result += render_field(self, "subtypes")
     # result += render_field(self, "based_on")
-    # result += render_field(self, "dependent_of")
     # result += render_field(self, "dependents")
     # result += render_field(self, "is_value_type")
     result += render_field(self, "where")
@@ -423,7 +422,7 @@ def render_formula_field(self, field_name: str) -> str:
     json = as_json(formula)
     result += f"{json}\n"
     result += render_field(formula, "one_liner", getattr(formula, "_type", "one_liner"))
-    result += render_field(formula, "english")
+    result += render_field(formula, "ocl")
     result += render_field(formula, "code")
 
     result += render_elaboration(formula)
@@ -435,8 +434,7 @@ def render_formula_field(self, field_name: str) -> str:
 def render_formula(self) -> str:
     """Render the formula for the object."""
     result = render_field(self, "one_liner", getattr(self, "_type", "one_liner"))
-    result += render_field(self, "english")
-    result += render_field(self, "code")
+    result += render_field(self, "ocl")
 
     result += render_elaboration(self)
     result += render_each(self.annotations)

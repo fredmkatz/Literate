@@ -130,6 +130,10 @@ class ClassName(UpperCamel):
     content: Any
     pass
 
+@dataclass
+class ClassReference(ClassName):
+    content: Any
+
 
 @dataclass
 class SubjectName(NormalCase):
@@ -143,7 +147,7 @@ class AttributeSectionName(NormalCase):
 
 @dataclass
 class AttributeName(LowerCamel):
-    pass
+    _html_id: str = ""
 
 
 @dataclass
@@ -178,7 +182,7 @@ class Diagnostic(PydanticMixin):
     object_name: str = ""
     object_type: str = ""
     category: str = ""
-    message: Paragraph = None
+    message: Optional[Paragraph] = None
 
     severity: str = "Error"
     constraint_name: str = ""
@@ -247,6 +251,7 @@ class Component(MinorComponent):
 
 @dataclass
 class SubjectE(Component):
+    name: SubjectName = None
     prefix: str = ""
     classes: List[Class] = block_list_field(default_factory=list)
 
@@ -255,6 +260,10 @@ class SubjectE(Component):
         if isinstance(self.name, str):
             print("Fixing Subject name!")
             self.name = SubjectName(self.name)
+        if not self.classes:
+            self.classes = []
+        if not self.subjects:
+            self.subjects = []
 
     class Meta:
         presentable_header = "#####  {{name}{? - {one_liner}} NEWLINE"
@@ -307,6 +316,7 @@ class LiterateModel(SubjectB):
     #     self.annotations = kwargs.get("annotations", [])
     #     self.subjects = kwargs.get("subjects", [])
     #     self.classes = kwargs.get("classes", [])
+    subjects: List[SubjectB] = block_list_field(default_factory=list)
 
     def shared_post_init(self):
         super().shared_post_init()
@@ -316,18 +326,6 @@ class LiterateModel(SubjectB):
 
     # Replace the from_dict method in LDM class in Literate_01.py
 
-    @classmethod
-    # def from_dict(cls, data_dict):
-    #     """Create a model instance from a dictionary representation"""
-    #     from ldm_object_creator import GenericObjectCreator
-    #     import ldm.Literate_01 as Literate_01
-
-    #     creator = GenericObjectCreator(Literate_01)
-    #     # print(f"Creating model from dictionary: {data_dict}")
-    #     model = creator.create(data_dict)
-    #     print(f"Created model: {model.__class__}")
-
-    #     return model
 
     class Meta:
         presentable_header = "#  {{name}{? - {one_liner}} NEWLINE"
@@ -344,6 +342,9 @@ class DataType(PydanticMixin):
     def shared_post_init(self):
         super().shared_post_init()
         # print("Data type type is ", self._type)
+    
+    def base_type_names(self) -> List[str]:
+        pass    # this is an abstract class
         
 
     class Meta:
@@ -352,17 +353,20 @@ class DataType(PydanticMixin):
 
 @dataclass
 class BaseDataType(DataType):
-    class_name: Any #ClassName = field(default_factory=ClassName)
+    class_name: Any #ClassReference = field(default_factory=ClassReference)
     as_value_type: AsValue = field(default_factory=AsValue)
 
     def shared_post_init(self):
         super().shared_post_init()
         if isinstance(self.class_name, str):
-            self.class_name = ClassName(self.class_name)
+            self.class_name = ClassReference(self.class_name)
         # print("Created BDT is ", self)
         # print("Base Data type type is ", self._type)
         # print("Base Data type is (repr)", self.__repr__())
         # print("Base Data type is (to_typed_dict)", self.to_typed_dict())
+
+    def base_type_names(self) -> List[str]:
+        return [self.class_name.content]
 
 
     class Meta:
@@ -376,6 +380,8 @@ class BaseDataType(DataType):
 class ListDataType(DataType):
     element_type: DataType  # What's inside the list
 
+    def base_type_names(self) -> List[str]:
+        return self.element_type.base_type_names()
 
 
     class Meta:
@@ -389,6 +395,8 @@ class ListDataType(DataType):
 class SetDataType(DataType):
     element_type: DataType  # What's inside the set
 
+    def base_type_names(self) -> List[str]:
+        return self.element_type.base_type_names()
 
     class Meta:
         presentable_template = "Set of {element_type}"
@@ -401,6 +409,10 @@ class SetDataType(DataType):
 class MappingDataType(DataType):
     domain_type: DataType  # Mapping from this
     range_type: DataType  # Mapping to this
+
+    def base_type_names(self) -> List[str]:
+        return self.domain_type.base_type_names() + self.range_type.base_type_names()
+
 
 
     class Meta:
@@ -444,14 +456,13 @@ class FormulaCoding(PydanticMixin):
 
 @dataclass
 class Formula(MinorComponent):
-    english: Optional[Paragraph] = None
-    code: Optional[FormulaCoding] = None
+    ocl: Optional[str] = ""
 
 
     def shared_post_init(self):
         super().shared_post_init()
-        if self.english is None:
-            self.english = Paragraph("")
+        if self.ocl is None:
+            self.ocl = ""
 
 
 @dataclass
@@ -477,40 +488,71 @@ class Default(Formula):
 
 @dataclass
 class SubtypeBy(PydanticMixin):
-    class_name: ClassName = None
+    class_name: ClassReference = None
     subtyping_name: SubtypingName = None
 
 
 # to do: why do all of the field declarations make trouble for serializaing
+# and why do I get FieldInfo values instead of empty lists? without the 
+# "fixes" applied in shared_post_init?
 @dataclass
 class Class(Component):
     name: ClassName = None
-    plural: Optional[str] = None
+    plural: str = None
+    presumed_plural: str = None
     subtype_of: Optional[List[SubtypeBy]] =  None # field(default_factory=list)
+    
     subtypings: Optional[List[Subtyping]] = block_list_field(default_factory=list)
-
     subtypes: Optional[List[SubtypeBy]]  = None # field(default_factory=list)
-    based_on: Optional[List[ClassName]] =  field(default_factory=list)
-    dependent_of: Optional[List[ClassName]] = field(default_factory=list)
-    dependents: Optional[List[ClassName]] =  field(default_factory=list)
+    
+    based_on: Optional[List[ClassReference]] =  None # field(default_factory=list)
+    dependents: Optional[List[ClassReference]] =  None # field(default_factory=list)
     is_value_type: bool = False
     where: Optional[OneLiner] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
 
     attributes: List[Attribute] = block_list_field(default_factory=list)
     attribute_sections: List[AttributeSection] = block_list_field(default_factory=list)
+    
+    # Transients
+    
+    # actually: dict[str, class object]; optional to avoid validation errors
+    # all_classes: Optional[Any] = field(init=False, repr=False, hash=False, compare=False)
+
+    
+
 
     def shared_post_init(self):
         super().shared_post_init()
-        if self.attributes is None:
-            self.attributes = []
-        if self.attribute_sections is None:
-            self.attribute_sections = []
-        if self.subtypings is None:
-            self.subtypings = []
+        # Initialize all list fields consistently
+        self.attributes = self.attributes or []
+        self.attribute_sections = self.attribute_sections or []
+        self.subtypings = self.subtypings or []
+        self.constraints = self.constraints or []
+        self.based_on = self.based_on or []
+        self.dependents = self.dependents or []
+        self.subtype_of = self.subtype_of or []
+        self.subtypes = self.subtypes or []
+        
         if isinstance(self.name, str):
             print("Fixing Class name!")
             self.name = ClassName(self.name)
+        self.prefix = "Class"
+        
+        # and identify self as class of all attributes
+        if(self.attributes):
+            print("backfilling attributes for ", self.name)
+            for att in self.attributes:
+                print("\tbackfilled ", att.name)
+                att._html_id = self.name.content + "__" + att.name.content
+                att.name._html_id = self.name.content + "__" + att.name.content
+        if self.attribute_sections:
+            for section in self.attribute_sections:
+                for att in section.attributes:
+                    print("\tbackfilled ", att.name)
+                    att._html_id = self.name.content + "__" + att.name.content
+                    att.name._html_id = self.name.content + "__" + att.name.content
+            
 
     class Meta:
         presentable_header = "_ {name}{? - {one_liner}} NEWLINE"
@@ -525,6 +567,7 @@ class ValueType(Class):
     def shared_post_init(self):
         super().shared_post_init()
         self.is_value_type = True
+        self.prefix = "Value Type"
 
     class Meta:
         presentable_header = "_  ValueType : {name}{? - {one_liner}} NEWLINE"
@@ -536,6 +579,10 @@ class CodeType(ValueType):
     class Meta:
         presentable_header = "_  CodeType : {name}{? - {one_liner}} NEWLINE"
 
+    def shared_post_init(self):
+        super().shared_post_init()
+        self.is_value_type = True
+        self.prefix = "Code Type"
 
 @dataclass
 class ReferenceType(Class):
@@ -547,12 +594,12 @@ class Subtyping(PydanticMixin):
     name: SubtypingName = ""
     is_exclusive: IsExclusive = field(default_factory=IsExclusive)
     is_exhaustive: IsExhaustive = field(default_factory=IsExhaustive)
-    subtypes: Optional[List[ClassName]] = field(default_factory=list)
+    subtypes: Optional[List[ClassReference]] = field(default_factory=list)
 
     def shared_post_init(self):
         super().shared_post_init()
-        self.is_exclusive = True
-        self.is_exhaustive = True
+        self.is_exclusive = IsExclusive(True)
+        self.is_exhaustive = IsExclusive(False)
 
 
 @dataclass
@@ -594,6 +641,8 @@ class Attribute(Component):
     derivation: Optional[Derivation] = None
     default: Optional[Default] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
+    _html_id: str = field(init=False)
+
 
     def shared_post_init(self):
         super().shared_post_init()
@@ -611,7 +660,7 @@ class Attribute(Component):
 
 @dataclass
 class AttributeReference(PydanticMixin):
-    class_name: ClassName =  None 
+    class_name: ClassReference =  None 
     attribute_name: AttributeName = None
 
 
@@ -627,7 +676,7 @@ class AttributeReference(PydanticMixin):
         if not isinstance(data, dict):
             return None
         class_name = (
-            ClassName.from_dict(data.get("class_name"))
+            ClassReference.from_dict(data.get("class_name"))
             if data.get("class_name")
             else None
         )
@@ -668,6 +717,7 @@ AllLDMClasses = [
     OneLiner,
     Annotation,
     ClassName,
+    ClassReference,
     Label,
     PresentableBoolean,
     PresentableToken,

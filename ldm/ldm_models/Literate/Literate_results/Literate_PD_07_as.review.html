@@ -1,0 +1,6965 @@
+<html>
+ <head>
+  <link href="../../ldm_assets/Literate.css" rel="stylesheet"/>
+  <script type="module">
+   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs'
+  </script>
+ </head>
+ <body class="reviewing">
+  <div class="LiterateModel">
+   <div class="header LiterateModel_header">
+    <span class="prefix">
+     #
+    </span>
+    <span class="name SubjectName">
+     Literate Data Model
+    </span>
+   </div>
+   <div class="SubjectB Subject">
+    <div class="SubjectB_header header Subject">
+     <span class="prefix">
+      ##
+     </span>
+     <span class="name SubjectName">
+      Preliminaries
+     </span>
+     <div class="OneLiner mdhtml one_liner">
+      <div>
+       <p>
+        the basic structure of the model
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="Paragraph mdhtml">
+     <div>
+      <p>
+       In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.
+      </p>
+     </div>
+    </div>
+    <div class="Paragraph mdhtml">
+     <div>
+      <p>
+       We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.
+      </p>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="Component">
+       Component
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         An element or building block of the literate data model
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Components
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Components
+      </span>
+     </div>
+     <div class="clause dependents_clause">
+      <span class="key dependents">
+       Dependents
+      </span>
+      <div class="value dependents">
+       <a class="class_reference" href="#Annotation">
+        Annotation
+       </a>
+      </div>
+     </div>
+     <div class="clause subtypes_clause">
+      <span class="key subtypes">
+       Subtypes
+      </span>
+      <div class="value subtypes">
+       <a class="base_class" href="#LiterateDataModel">
+        LiterateDataModel
+       </a>
+       ,
+       <a class="base_class" href="#Subject">
+        Subject
+       </a>
+       ,
+       <a class="base_class" href="#Class">
+        Class
+       </a>
+       ,
+       <a class="base_class" href="#Key">
+        Key
+       </a>
+       ,
+       <a class="base_class" href="#AttributeSection">
+        AttributeSection
+       </a>
+       ,
+       <a class="base_class" href="#Attribute">
+        Attribute
+       </a>
+       ,
+       <a class="base_class" href="#Constraint">
+        Constraint
+       </a>
+       ,
+       <a class="base_class" href="#Method">
+        Method
+       </a>
+       ,
+       <a class="base_class" href="#ParameterAnInputToAMethod">
+        ParameterAnInputToAMethod
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Component__normalName">
+        normalName
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the name of the component, not in camel case
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        *String*
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#String">
+          String
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="Annotation">
+       <span class="emoji Emoji">
+        ⚠️
+       </span>
+       <span class="label Label">
+        warning
+       </span>
+       <div class="OneLiner mdhtml content">
+        <div>
+         <p>
+          This is a warning with emoji
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Component__name">
+        name
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The name of the component
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        CamelName
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#CamelName">
+          CamelName
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Component__qualifiedName">
+        qualifiedName
+       </span>
+       <span class="parenthetical">
+        *QualifiedCamel*
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#QualifiedCamel">
+          QualifiedCamel
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Component__abbreviatedName">
+        abbreviatedName
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          a short form of the component's name, used for cross references and improved readability.
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        *CamelName*
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#CamelName">
+          CamelName
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="Annotation">
+       <span class="emoji Emoji">
+        🔣
+       </span>
+       <span class="label Label">
+        example
+       </span>
+       <div class="OneLiner mdhtml content">
+        <div>
+         <p>
+          "LDM" is the short form of "Literate Data Model".
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="clause default_clause">
+       <span class="key default">
+        Default
+       </span>
+       <div class="value default">
+        <div class="OneLiner mdhtml">
+         <div>
+          <p>
+           name -  how do you say name in english?
+          </p>
+         </div>
+        </div>
+        <div class="clause ocl_clause">
+         <span class="key ocl">
+          Ocl
+         </span>
+         <span class="value ocl">
+          x.name == y
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="clause constraints_clause">
+       <span class="key constraints">
+        Constraints
+       </span>
+       <div class="value constraints">
+        <div>
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            the abbreviated name should be shorter than the actual name
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="clause ocl_clause">
+         <span class="key ocl">
+          Ocl
+         </span>
+         <span class="value ocl">
+          len(abbreviatedName) &lt; len(name)
+         </span>
+        </div>
+        <div class="clause message_clause">
+         <span class="key message">
+          Message
+         </span>
+         <span class="message value">
+          Why have an abbreviation longer than the name?
+         </span>
+        </div>
+        <div class="clause severity_clause">
+         <span class="key severity">
+          Severity
+         </span>
+         <span class="value severity">
+          Warning
+         </span>
+        </div>
+        <div class="Annotation">
+         <span class="label Label">
+          note
+         </span>
+         <div class="OneLiner mdhtml content">
+          <div>
+           <p>
+            Does this annotation find it's way to the Constraint? YES! It's fixed!
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          Tester
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Let's see how Constraints handle diagnostics
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+            <class 'list'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'message' - expected typing.Optional[Literate_01.Paragraph], but got
+            <class 'str'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Component__oneLiner">
+        oneLiner
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        OneLiner
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#OneLiner">
+          OneLiner
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="Diagnostic">
+       <span class="severity">
+        Warning
+       </span>
+       <span class="category">
+        Style
+       </span>
+       <div class="message Paragraph mdhtml">
+        <div>
+         <p>
+          oneLiner is too long. (116 chars).
+         </p>
+        </div>
+       </div>
+       <span class="object_type">
+        Attribute
+       </span>
+       <span class="object_name">
+        oneLiner
+       </span>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Component__elaboration">
+        elaboration
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A more detailed explanation or discussion of the component _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        RichText
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#RichText">
+          RichText
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="AttributeSection">
+      <div class="header AttributeSection_header">
+       <span class="prefix">
+        __
+       </span>
+       <span class="name AttributeSectionName">
+        For Machinery
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          mechanical attributes
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Component__isEmbellishment">
+         isEmbellishment
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           Indicates whether this component is an embellishment added during post-parsing processing _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         Boolean
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Boolean">
+           Boolean
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Warning
+        </span>
+        <span class="category">
+         Style
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           oneLiner is too long. (91 chars).
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Attribute
+        </span>
+        <span class="object_name">
+         isEmbellishment
+        </span>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            false
+           </p>
+          </div>
+         </div>
+         <div class="Annotation">
+          <span class="label Label">
+           note
+          </span>
+          <div class="OneLiner mdhtml content">
+           <div>
+            <p>
+             This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source.
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="AnnotationType">
+       AnnotationType
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         a kind of note, or aside, used to call attention to additional information about some Component.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Annotation">
+      <span class="emoji Emoji">
+       🗉
+      </span>
+      <span class="label Label">
+       note
+      </span>
+      <div class="OneLiner mdhtml content">
+       <div>
+        <p>
+         Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are
+         <em>
+          recognized
+         </em>
+         or
+         <em>
+          registered
+         </em>
+         Annotation Types.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Warning
+      </span>
+      <span class="category">
+       Style
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         oneLiner is too long. (96 chars).
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       Class
+      </span>
+      <span class="object_name">
+       AnnotationType
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       AnnotationTypes
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       AnnotationTypes
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#LiterateDataModel">
+        LiterateDataModel
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AnnotationType__emoji">
+        emoji
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          an emoji
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        Emoji
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Emoji">
+          Emoji
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AnnotationType__emojiName">
+        emojiName
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          an emoji
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        String
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#String">
+          String
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AnnotationType__emojiUnicode">
+        emojiUnicode
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the Unicode for the emoji
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        Unicode
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Unicode">
+          Unicode
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AnnotationType__label">
+        label
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A short label to indicate the purpose of the annotation _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        CamelName
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#CamelName">
+          CamelName
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AnnotationType__plural">
+        plural
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the plural form of the label
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        *UpperCamel*
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#UpperCamel">
+          UpperCamel
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="clause default_clause">
+       <span class="key default">
+        Default
+       </span>
+       <div class="value default">
+        <div class="OneLiner mdhtml">
+         <div>
+          <p>
+           based on label
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AnnotationType__purpose">
+        purpose
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the intended reason for the annotation.
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        OneLiner
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#OneLiner">
+          OneLiner
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="Annotation">
+       Annotation
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A note or comment associated with a model element
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Annotations
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Annotations
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#Component">
+        Component
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Annotation__annotationType">
+        annotationType
+       </span>
+       <span class="parenthetical">
+        optional Annotation Type
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+         Optional
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#AnnotationType">
+          AnnotationType
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="Annotation">
+       <span class="emoji Emoji">
+        🗉
+       </span>
+       <span class="label Label">
+        note
+       </span>
+       <div class="OneLiner mdhtml content">
+        <div>
+         <p>
+          An Annotation is considered to
+          <em>
+           recognized
+          </em>
+          if the label is associated with an Annotation Type. otherwise it is
+          <em>
+           ad hoc
+          </em>
+          .
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="Annotation">
+       <span class="emoji Emoji">
+        🗉
+       </span>
+       <span class="label Label">
+        note
+       </span>
+       <div class="OneLiner mdhtml content">
+        <div>
+         <p>
+          Should be a Value  Type
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Annotation__label">
+        label
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A short label to indicate the purpose of the annotation _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        CamelName
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#CamelName">
+          CamelName
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="Paragraph mdhtml">
+       <div>
+        <p>
+         But any short label is valid.
+        </p>
+       </div>
+      </div>
+      <div class="clause default_clause">
+       <span class="key default">
+        Default
+       </span>
+       <div class="value default">
+        <div class="OneLiner mdhtml">
+         <div>
+          <p>
+           from annotationType
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Annotation__emoji">
+        emoji
+       </span>
+       <span class="parenthetical">
+        optional Emoji
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+         Optional
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Emoji">
+          Emoji
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="clause default_clause">
+       <span class="key default">
+        Default
+       </span>
+       <div class="value default">
+        <div class="OneLiner mdhtml">
+         <div>
+          <p>
+           from annotation type
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Annotation__content">
+        content
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The content or body of the annotation
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        *RichText*
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#RichText">
+          RichText
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="AttributeSection">
+      <div class="header AttributeSection_header">
+       <span class="prefix">
+        __
+       </span>
+       <span class="name AttributeSectionName">
+        For Machinery
+       </span>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Annotation__isEmbellishment">
+         isEmbellishment
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           Indicates whether this annotation is an embellishment added during post-parsing processing _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         Boolean
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Boolean">
+           Boolean
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Warning
+        </span>
+        <span class="category">
+         Style
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           oneLiner is too long. (92 chars).
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Attribute
+        </span>
+        <span class="object_name">
+         isEmbellishment
+        </span>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            false
+           </p>
+          </div>
+         </div>
+         <div class="Annotation">
+          <span class="label Label">
+           note
+          </span>
+          <div class="OneLiner mdhtml content">
+           <div>
+            <p>
+             This attribute is set to true for annotations that are automatically generated or added during the fleshing out, review, or rendering processes, such as suggestions, issues, or diagnostic messages. It helps distinguish embellishment annotations from the annotations defined in the original LDM source.
+            </p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="SubjectB Subject">
+    <div class="SubjectB_header header Subject">
+     <span class="prefix">
+      ##
+     </span>
+     <span class="name SubjectName">
+      The Model and its Subjects
+     </span>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="LiterateDataModel">
+       LiterateDataModel
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A representation of a domain's entities, attributes, and relationships,
+along with explanatory text and examples
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Warning
+      </span>
+      <span class="category">
+       Style
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         oneLiner is too long. (112 chars).
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       Class
+      </span>
+      <span class="object_name">
+       LiterateDataModel
+      </span>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Bug
+      </span>
+      <span class="category">
+       Field Error
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         For field 'abbreviation' - expected typing.Optional[utils.class_casing.CamelCase], but got
+         <class 'str'="">
+         </class>
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       Class
+      </span>
+      <span class="object_name">
+       LiterateDataModel
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       LiterateDataModels
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       LiterateDataModels
+      </span>
+     </div>
+     <div class="clause dependents_clause">
+      <span class="key dependents">
+       Dependents
+      </span>
+      <div class="value dependents">
+       <a class="class_reference" href="#AnnotationType">
+        AnnotationType
+       </a>
+       ,
+       <a class="class_reference" href="#Subject">
+        Subject
+       </a>
+      </div>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Component">
+         Component
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="LiterateDataModel__name">
+        name
+       </span>
+       <span class="parenthetical">
+        UpperCamel
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#UpperCamel">
+          UpperCamel
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="clause overrides_clause">
+       <span class="key overrides">
+        Overrides
+       </span>
+       <a class="value AttributeReference overrides" href="#Component__name">
+        Component.name
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="LiterateDataModel__allSubjects">
+        allSubjects
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          list of all classes in the model, as ordered in the
+definition of the model.
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        List of Classes
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="data_type list_data_type">
+         List of
+         <span class="base_data_type">
+          <a class="base_class" href="#Classes">
+           Classes
+          </a>
+          value
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="clause derivation_clause">
+       <span class="key derivation">
+        Derivation
+       </span>
+       <div class="value derivation">
+        <div class="OneLiner mdhtml">
+         <div>
+          <p>
+           gathering s.allSubjects over s in subjectAreas
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="clause constraints_clause">
+       <span class="key constraints">
+        Constraints
+       </span>
+       <div class="value constraints">
+        <div>
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            Subject names must be unique across the model.
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          Tester
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Let's see how Constraints handle diagnostics
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          NonPresence
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Missing value for required field: 'ocl'
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+            <class 'list'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="LiterateDataModel__allClasses">
+        allClasses
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          list of all classes in the model, as ordered in the definition of the model.
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        List of Classes
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="data_type list_data_type">
+         List of
+         <span class="base_data_type">
+          <a class="base_class" href="#Classes">
+           Classes
+          </a>
+          value
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="clause derivation_clause">
+       <span class="key derivation">
+        Derivation
+       </span>
+       <div class="value derivation">
+        <div class="OneLiner mdhtml">
+         <div>
+          <p>
+           gathering s.allClasses over s in allSubjects.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="clause constraints_clause">
+       <span class="key constraints">
+        Constraints
+       </span>
+       <div class="value constraints">
+        <div>
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            Class names must be unique across the model.
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          Tester
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Let's see how Constraints handle diagnostics
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          NonPresence
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Missing value for required field: 'ocl'
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+            <class 'list'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="AttributeSection">
+      <div class="header AttributeSection_header">
+       <span class="prefix">
+        __
+       </span>
+       <span class="name AttributeSectionName">
+        Modeling Configuration
+       </span>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="LiterateDataModel__annotationTypes">
+         annotationTypes
+        </span>
+        <span class="parenthetical">
+         List of AnnotationTypes
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#AnnotationTypes">
+            AnnotationTypes
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="LiterateDataModel__preferredCodingLanguage">
+         preferredCodingLanguage
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the recommended lanquage  for expressing derivation, defaults, and constraints
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         Coding Language
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#CodingLanguage">
+           CodingLanguage
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            OCL
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="LiterateDataModel__alternateCodingLanguages">
+         alternateCodingLanguages
+        </span>
+        <span class="parenthetical">
+         optional List of Coding Languages
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#CodingLanguages">
+            CodingLanguages
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="LiterateDataModel__preferredTemplateLanguage">
+         preferredTemplateLanguage
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the recommended lanquage  for expressing derivation, defaults, and constraints
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         Template Language
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#TemplateLanguage">
+           TemplateLanguage
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            Handlebars
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="LiterateDataModel__alternateTemplateLanguages">
+         alternateTemplateLanguages
+        </span>
+        <span class="parenthetical">
+         optional List of Template Languages
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#TemplateLanguages">
+            TemplateLanguages
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="LiterateDataModel__aiFunctions">
+         aiFunctions
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           A list of functions that require sophisticated AI-powered implementation *
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         List of String
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#String">
+            String
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="clause derivation_clause">
+        <span class="key derivation">
+         Derivation
+        </span>
+        <div class="value derivation">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            ['aiEnglishPlural()']
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="Subject">
+       Subject
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A specific topic or theme within the model
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Paragraph mdhtml">
+      <div>
+       <p>
+        Subjects are the chapters an sections of the model.
+       </p>
+       <ul>
+        <li>
+         A subject need not contain any Classes if it’s just expository.
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Subjects
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Subjects
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#LiterateDataModel">
+        LiterateDataModel
+       </a>
+      </div>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Component">
+         Component
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="clause subtypes_clause">
+      <span class="key subtypes">
+       Subtypes
+      </span>
+      <div class="value subtypes">
+       <a class="base_class" href="#SubjectArea">
+        SubjectArea
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Subject__name">
+        name
+       </span>
+       <span class="parenthetical">
+        UpperCamel
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#UpperCamel">
+          UpperCamel
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="clause overrides_clause">
+       <span class="key overrides">
+        Overrides
+       </span>
+       <a class="value AttributeReference overrides" href="#Component__name">
+        Component.name
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Subject__parentSubject">
+        parentSubject
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The parent subject, if any, under which this subject is nested _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        optional Subject
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+         Optional
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Subject">
+          Subject
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Subject__classes">
+        classes
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The major classes related to this subject, in the order in which they should be presented _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        ListOf Classes
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="data_type list_data_type">
+         List of
+         <span class="base_data_type">
+          <a class="base_class" href="#Classes">
+           Classes
+          </a>
+          value
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Annotation">
+       <span class="emoji Emoji">
+        🤔
+       </span>
+       <span class="label Label">
+        issue
+       </span>
+       <div class="OneLiner mdhtml content">
+        <div>
+         <p>
+          define chapter, section, subsection as levels?
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="Diagnostic">
+       <span class="severity">
+        Warning
+       </span>
+       <span class="category">
+        Style
+       </span>
+       <div class="message Paragraph mdhtml">
+        <div>
+         <p>
+          oneLiner is too long. (91 chars).
+         </p>
+        </div>
+       </div>
+       <span class="object_type">
+        Attribute
+       </span>
+       <span class="object_name">
+        classes
+       </span>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Subject__childSubjects">
+        childSubjects
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          Any child subjects nested under this subject, in the order in which they should be presented _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        ListOf Subjects
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="data_type list_data_type">
+         List of
+         <span class="base_data_type">
+          <a class="base_class" href="#Subjects">
+           Subjects
+          </a>
+          value
+         </span>
+        </span>
+       </div>
+      </div>
+      <div class="Paragraph mdhtml">
+       <div>
+        <p>
+         <strong>
+          <em>
+           DSL
+          </em>
+         </strong>
+         :  the Classes within a Subject are always displayed before the childSubjects.
+        </p>
+       </div>
+      </div>
+      <div class="Diagnostic">
+       <span class="severity">
+        Warning
+       </span>
+       <span class="category">
+        Style
+       </span>
+       <div class="message Paragraph mdhtml">
+        <div>
+         <p>
+          oneLiner is too long. (94 chars).
+         </p>
+        </div>
+       </div>
+       <span class="object_type">
+        Attribute
+       </span>
+       <span class="object_name">
+        childSubjects
+       </span>
+      </div>
+      <div class="clause inverse_clause">
+       <span class="key inverse">
+        Inverse
+       </span>
+       <a class="inverse value AttributeReference" href="#Subject__parentSubject">
+        Subject.parentSubject
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="SubjectArea">
+       SubjectArea
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A main topic or area of focus within the model, containing related subjects and classes
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Bug
+      </span>
+      <span class="category">
+       Field Error
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got
+         <class 'str'="">
+         </class>
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       Class
+      </span>
+      <span class="object_name">
+       SubjectArea
+      </span>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Error
+      </span>
+      <span class="category">
+       Invalid class reference
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         Invalid reference to 'LiterateModel' in based_on
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       Class
+      </span>
+      <span class="object_name">
+       SubjectArea
+      </span>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Error
+      </span>
+      <span class="category">
+       Invalid class reference
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         Invalid reference to 'Xyz' in based_on
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       Class
+      </span>
+      <span class="object_name">
+       SubjectArea
+      </span>
+     </div>
+     <div class="clause where_clause">
+      <span class="key where">
+       Where
+      </span>
+      <span class="value where">
+       parentSubject is absent
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       SubjectAreas
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       SubjectAreas
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#LiterateModel">
+        LiterateModel
+       </a>
+       ,
+       <a class="class_reference" href="#Xyz">
+        Xyz
+       </a>
+      </div>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Subject">
+         Subject
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Subject SubjectC">
+     <div class="header SubjectC_header Subject">
+      <span class="prefix">
+       ###
+      </span>
+      <span class="name SubjectName">
+       Classes
+      </span>
+     </div>
+     <div class="Class">
+      <div class="header Class_header">
+       <span class="prefix">
+        Class
+       </span>
+       <span class="name ClassName" id="Class">
+        Class
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A key entity or object type in the model, often corresponding to a real-world concept
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="clause plural_clause">
+       <span class="key plural">
+        Plural
+       </span>
+       <span class="value plural">
+        Classes
+       </span>
+      </div>
+      <div class="clause presumed_plural_clause">
+       <span class="key presumed_plural">
+        PresumedPlural
+       </span>
+       <span class="value presumed_plural">
+        Classes
+       </span>
+      </div>
+      <div class="clause dependents_clause">
+       <span class="key dependents">
+        Dependents
+       </span>
+       <div class="value dependents">
+        <a class="class_reference" href="#Subtyping">
+         Subtyping
+        </a>
+        ,
+        <a class="class_reference" href="#Key">
+         Key
+        </a>
+        ,
+        <a class="class_reference" href="#AttributeSection">
+         AttributeSection
+        </a>
+        ,
+        <a class="class_reference" href="#ClassConstraint">
+         ClassConstraint
+        </a>
+       </div>
+      </div>
+      <div class="clause subtype_of_clause">
+       <span class="key subtype_of">
+        SubtypeOf
+       </span>
+       <div class="subtype_of value">
+        <div class="SubtypeBy">
+         <a class="class_name class_reference" href="#Component">
+          Component
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="clause subtypes_clause">
+       <span class="key subtypes">
+        Subtypes
+       </span>
+       <div class="value subtypes">
+        <a class="base_class" href="#ReferenceType">
+         ReferenceType
+        </a>
+       </div>
+      </div>
+      <div class="clause constraints_clause">
+       <span class="key constraints">
+        Constraints
+       </span>
+       <div class="value constraints">
+        <div>
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            Within each Class, attribute names must be unique.
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          Tester
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Let's see how Constraints handle diagnostics
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          NonPresence
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Missing value for required field: 'ocl'
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+            <class 'list'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__pluralForm">
+         pluralForm
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the normal English plural form of the name of the Class
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         UpperName
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#UpperName">
+           UpperName
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="Paragraph mdhtml">
+        <div>
+         <p>
+          Might be Books for the Book class or other regular plurals.
+         </p>
+         <ul>
+          <li>
+           But also might be People for Person.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           When inputting a model, you will rarely need to specify the plural form. The input program will just look it up.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            the regular plural, formed by adding "s" or "es".
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__basedOn">
+         basedOn
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the Class or Classes on which this class is dependent
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         SetOf Classes
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="set_data_type data_type">
+          Set of
+          <span class="base_data_type">
+           <a class="base_class" href="#Classes">
+            Classes
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="Paragraph mdhtml">
+        <div>
+         <p>
+          This is solely based on
+          <strong>
+           Existence Dependency
+          </strong>
+          . A true dependent entity cannot logically exist without the related parent entity. For instance, an Order Item cannot exist without an Order. If removing the parent entity logically implies removing the dependent entity, then it is a dependent entity.
+         </p>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           that basedOn and dependentOf are being used synonymousle in this metamodel.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__supertypes">
+         supertypes
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           The parent class
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         es
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Es">
+           Es
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__subtypings">
+         subtypings
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the criteria, or dimensions, by which the class can be divided into subtypes
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         list of Subtypings
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Subtypings">
+            Subtypings
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🔣
+        </span>
+        <span class="label Label">
+         example
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           in a library model, the
+           <code>
+            Book
+           </code>
+           class could have subtypings based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback), or subject (e.g., Science, History).
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__subtypes">
+         subtypes
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           Any subtypes or specializations of this class based on it’s subtypings. _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         ListOf Classes
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Classes">
+            Classes
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🔣
+        </span>
+        <span class="label Label">
+         example
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           For instance, using the
+           <code>
+            Book
+           </code>
+           example, the subtypes could include
+           <code>
+            FictionBook
+           </code>
+           ,
+           <code>
+            Non-fictionBook
+           </code>
+           ,
+           <code>
+            HardcoverBook
+           </code>
+           ,
+           <code>
+            PaperbackBook
+           </code>
+           ,
+           <code>
+            ScienceBook
+           </code>
+           , and
+           <code>
+            HistoryBook
+           </code>
+           .
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__attributes">
+         attributes
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           The attributes or properties of the class, in the order in which they should be presented _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         ListOf Attributes
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Attributes">
+            Attributes
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Warning
+        </span>
+        <span class="category">
+         Style
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           oneLiner is too long. (91 chars).
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Attribute
+        </span>
+        <span class="object_name">
+         attributes
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__attributeSections">
+         attributeSections
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           additional attributes or properties of the class, grouped for clarity and elaboration.  _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         ListOf AttributeSections
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#AttributeSections">
+            AttributeSections
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__constraints">
+         constraints
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           Any constraints, rules, or validations specific to this class _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         ListOf Constraints
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Constraints">
+            Constraints
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           Constraints may be expressed on either the Class or the Attribute. Always?
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Class__methods">
+         methods
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           Any behaviors or operations associated with this class _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         ListOf Methods
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Methods">
+            Methods
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="AttributeSection">
+       <div class="header AttributeSection_header">
+        <span class="prefix">
+         __
+        </span>
+        <span class="name AttributeSectionName">
+         Implied Attributes
+        </span>
+       </div>
+       <div class="Attribute">
+        <div class="header Attribute_header">
+         <span class="prefix">
+          -
+         </span>
+         <span class="name AttributeName" id="Class__dependents">
+          dependents
+         </span>
+         <div class="OneLiner mdhtml one_liner">
+          <div>
+           <p>
+            the Classes which are basedOn this Class
+           </p>
+          </div>
+         </div>
+         <span class="parenthetical">
+          optional SetOf Classes
+         </span>
+         <div class="DataTypeClause data_type_clause">
+          <span class="is_optional_lit AsValue">
+           Optional
+          </span>
+          <span class="set_data_type data_type">
+           Set of
+           <span class="base_data_type">
+            <a class="base_class" href="#Classes">
+             Classes
+            </a>
+            value
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="clause inverse_clause">
+         <span class="key inverse">
+          Inverse
+         </span>
+         <a class="inverse value AttributeReference" href="#Class__basedOn">
+          Class.basedOn
+         </a>
+        </div>
+       </div>
+       <div class="Attribute">
+        <div class="header Attribute_header">
+         <span class="prefix">
+          -
+         </span>
+         <span class="name AttributeName" id="Class__uniqueKeys">
+          uniqueKeys
+         </span>
+         <span class="parenthetical">
+          optional Set of UniqueKeys
+         </span>
+         <div class="DataTypeClause data_type_clause">
+          <span class="is_optional_lit AsValue">
+           Optional
+          </span>
+          <span class="set_data_type data_type">
+           Set of
+           <span class="base_data_type">
+            <a class="base_class" href="#UniqueKeys">
+             UniqueKeys
+            </a>
+            value
+           </span>
+          </span>
+         </div>
+        </div>
+        <div class="clause inverse_clause">
+         <span class="key inverse">
+          Inverse
+         </span>
+         <a class="inverse value AttributeReference" href="#UniqueKey__basedOn">
+          UniqueKey.basedOn
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Class">
+      <div class="header Class_header">
+       <span class="prefix">
+        Class
+       </span>
+       <span class="name ClassName" id="Subtyping">
+        Subtyping
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          a way in which subtypes of a Class may be classified
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        Subtype of Component
+       </span>
+      </div>
+      <div class="clause plural_clause">
+       <span class="key plural">
+        Plural
+       </span>
+       <span class="value plural">
+        Subtypings
+       </span>
+      </div>
+      <div class="clause presumed_plural_clause">
+       <span class="key presumed_plural">
+        PresumedPlural
+       </span>
+       <span class="value presumed_plural">
+        Subtypings
+       </span>
+      </div>
+      <div class="clause based_on_clause">
+       <span class="key based_on">
+        BasedOn
+       </span>
+       <div class="value based_on">
+        <a class="class_reference" href="#Class">
+         Class
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Subtyping__name">
+         name
+        </span>
+        <span class="parenthetical">
+         Upper Name
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#UpperName">
+           UpperName
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Subtyping__isExclusive">
+         isExclusive
+        </span>
+        <span class="parenthetical">
+         Boolean
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Boolean">
+           Boolean
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            true
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Subtyping__isExhaustive">
+         isExhaustive
+        </span>
+        <span class="parenthetical">
+         Boolean
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Boolean">
+           Boolean
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            true
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Subtyping__classes">
+         classes
+        </span>
+        <span class="parenthetical">
+         List of Classes
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Classes">
+            Classes
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="Paragraph mdhtml">
+        <div>
+         <p>
+          <strong>
+           <em>
+            DSL
+           </em>
+          </strong>
+          :  Shown in the DSL as
+         </p>
+         <ul>
+          <li>
+           <blockquote>
+            <p>
+             Subbtypes: byBrand - Brand1, Brand2,... (non exclusive, exhaustive)
+            </p>
+           </blockquote>
+          </li>
+          <li>
+           <p>
+            on the super class. And as
+           </p>
+          </li>
+          <li>
+           <blockquote>
+            <p>
+             Subtype of: SuperClass byBrand
+            </p>
+           </blockquote>
+          </li>
+          <li>
+           <p>
+            on the subclass.
+           </p>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           every class can have an unnamed subtyping.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Class">
+      <div class="header Class_header">
+       <span class="prefix">
+        Class
+       </span>
+       <span class="name ClassName" id="ReferenceType">
+        ReferenceType
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A class that is presumed to be used as a reference, rather than a value
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="clause plural_clause">
+       <span class="key plural">
+        Plural
+       </span>
+       <span class="value plural">
+        ReferenceTypes
+       </span>
+      </div>
+      <div class="clause presumed_plural_clause">
+       <span class="key presumed_plural">
+        PresumedPlural
+       </span>
+       <span class="value presumed_plural">
+        ReferenceTypes
+       </span>
+      </div>
+      <div class="clause subtype_of_clause">
+       <span class="key subtype_of">
+        SubtypeOf
+       </span>
+       <div class="subtype_of value">
+        <div class="SubtypeBy">
+         <a class="class_name class_reference" href="#Class">
+          Class
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="ValueType">
+      <div class="header ValueType_header">
+       <span class="prefix">
+        Value Type
+       </span>
+       <span class="name ClassName" id="CodeType">
+        CodeType
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A data type or enumeration used in the model
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="clause plural_clause">
+       <span class="key plural">
+        Plural
+       </span>
+       <span class="value plural">
+        CodeTypes
+       </span>
+      </div>
+      <div class="clause presumed_plural_clause">
+       <span class="key presumed_plural">
+        PresumedPlural
+       </span>
+       <span class="value presumed_plural">
+        CodeTypes
+       </span>
+      </div>
+      <div class="clause dependents_clause">
+       <span class="key dependents">
+        Dependents
+       </span>
+       <div class="value dependents">
+        <a class="class_reference" href="#CodeValue">
+         CodeValue
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="CodeType__isCaptive">
+         isCaptive
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the code type was implied by use in an attribute and is only used for that attribute
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         Boolean
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Boolean">
+           Boolean
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="ValueType">
+      <div class="header ValueType_header">
+       <span class="prefix">
+        Value Type
+       </span>
+       <span class="name ClassName" id="CodeValue">
+        CodeValue
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          A possible value for an enumerated data class
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="clause plural_clause">
+       <span class="key plural">
+        Plural
+       </span>
+       <span class="value plural">
+        CodeValues
+       </span>
+      </div>
+      <div class="clause presumed_plural_clause">
+       <span class="key presumed_plural">
+        PresumedPlural
+       </span>
+       <span class="value presumed_plural">
+        CodeValues
+       </span>
+      </div>
+      <div class="clause based_on_clause">
+       <span class="key based_on">
+        BasedOn
+       </span>
+       <div class="value based_on">
+        <a class="class_reference" href="#CodeType">
+         CodeType
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="CodeValue__code">
+         code
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           A short code or abbreviationi for the value _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         NameString
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#NameString">
+           NameString
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="CodeValue__description">
+         description
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           an explanation of what the code means
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         *RichText*
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#RichText">
+           RichText
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Class">
+      <div class="header Class_header">
+       <span class="prefix">
+        Class
+       </span>
+       <span class="name ClassName" id="Key">
+        Key
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          a list of attributes of a class
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="clause plural_clause">
+       <span class="key plural">
+        Plural
+       </span>
+       <span class="value plural">
+        Keys
+       </span>
+      </div>
+      <div class="clause presumed_plural_clause">
+       <span class="key presumed_plural">
+        PresumedPlural
+       </span>
+       <span class="value presumed_plural">
+        Keys
+       </span>
+      </div>
+      <div class="clause based_on_clause">
+       <span class="key based_on">
+        BasedOn
+       </span>
+       <div class="value based_on">
+        <a class="class_reference" href="#Class">
+         Class
+        </a>
+       </div>
+      </div>
+      <div class="clause subtype_of_clause">
+       <span class="key subtype_of">
+        SubtypeOf
+       </span>
+       <div class="subtype_of value">
+        <div class="SubtypeBy">
+         <a class="class_name class_reference" href="#Component">
+          Component
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="clause subtypes_clause">
+       <span class="key subtypes">
+        Subtypes
+       </span>
+       <div class="value subtypes">
+        <a class="base_class" href="#UniqueKey">
+         UniqueKey
+        </a>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Key__keyAttributes">
+         keyAttributes
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the attributes of the base Class.
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         List of Attributes
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Attributes">
+            Attributes
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="clause constraints_clause">
+        <span class="key constraints">
+         Constraints
+        </span>
+        <div class="value constraints">
+         <div>
+          <div class="OneLiner mdhtml">
+           <div>
+            <p>
+             each attribute must be a direct or inherited of the base class.
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Error
+          </span>
+          <span class="category">
+           Tester
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             Let's see how Constraints handle diagnostics
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Constraint
+          </span>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Error
+          </span>
+          <span class="category">
+           NonPresence
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             Missing value for required field: 'ocl'
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Constraint
+          </span>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Bug
+          </span>
+          <span class="category">
+           Field Error
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+             <class 'list'="">
+             </class>
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Constraint
+          </span>
+         </div>
+        </div>
+       </div>
+       <div class="clause constraints_clause">
+        <span class="key constraints">
+         Constraints
+        </span>
+        <div class="value constraints">
+         <div>
+          <div class="OneLiner mdhtml">
+           <div>
+            <p>
+             no repetitions allowed in keyAttributes
+            </p>
+            <blockquote>
+             <p>
+              👍
+              <strong>
+               Issue
+              </strong>
+              : introduce PureLists?
+             </p>
+            </blockquote>
+           </div>
+          </div>
+         </div>
+         <div class="Annotation">
+          <span class="label Label">
+           issue
+          </span>
+          <div class="OneLiner mdhtml content">
+           <div>
+            <p>
+             need ascending descending to support index keys or ordering keys.
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Warning
+          </span>
+          <span class="category">
+           Style
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             Formula one_liner is too long (99 chars)
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Constraint
+          </span>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Error
+          </span>
+          <span class="category">
+           Tester
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             Let's see how Constraints handle diagnostics
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Constraint
+          </span>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Error
+          </span>
+          <span class="category">
+           NonPresence
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             Missing value for required field: 'ocl'
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Constraint
+          </span>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Bug
+          </span>
+          <span class="category">
+           Field Error
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+             <class 'list'="">
+             </class>
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Constraint
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="Class">
+      <div class="header Class_header">
+       <span class="prefix">
+        Class
+       </span>
+       <span class="name ClassName" id="UniqueKey">
+        UniqueKey
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          a list of attributes on which instances of the base class may be keyed.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="Annotation">
+       <span class="emoji Emoji">
+        🗉
+       </span>
+       <span class="label Label">
+        note
+       </span>
+       <div class="OneLiner mdhtml content">
+        <div>
+         <p>
+          order unimportant for Unique Keys.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="clause plural_clause">
+       <span class="key plural">
+        Plural
+       </span>
+       <span class="value plural">
+        UniqueKeys
+       </span>
+      </div>
+      <div class="clause presumed_plural_clause">
+       <span class="key presumed_plural">
+        PresumedPlural
+       </span>
+       <span class="value presumed_plural">
+        UniqueKeys
+       </span>
+      </div>
+      <div class="clause subtype_of_clause">
+       <span class="key subtype_of">
+        SubtypeOf
+       </span>
+       <div class="subtype_of value">
+        <div class="SubtypeBy">
+         <a class="class_name class_reference" href="#Key">
+          Key
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="SubjectB Subject">
+    <div class="SubjectB_header header Subject">
+     <span class="prefix">
+      ##
+     </span>
+     <span class="name SubjectName">
+      Attributes
+     </span>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="AttributeSection">
+       AttributeSection
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         a group of attributes for a class that merit a shared explanation.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       AttributeSections
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       AttributeSections
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#Class">
+        Class
+       </a>
+      </div>
+     </div>
+     <div class="clause dependents_clause">
+      <span class="key dependents">
+       Dependents
+      </span>
+      <div class="value dependents">
+       <a class="class_reference" href="#Attribute">
+        Attribute
+       </a>
+      </div>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Component">
+         Component
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AttributeSection__isOptional">
+        isOptional
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          whether the attributes in this section, taken together, are optional.
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        Boolean
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Boolean">
+          Boolean
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="Paragraph mdhtml">
+       <div>
+        <p>
+         If the Attribute Section is required,then each Attribute within the sectional is optional ot required, depending on how it is marked.
+        </p>
+        <ul>
+         <li>
+          <p>
+          </p>
+         </li>
+         <li>
+          <p>
+           But if the Arrribute Section is optional each attribute in the section is only required if any attribute in the section is ptresent.
+          </p>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="Attribute">
+       Attribute
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A property or characteristic of a class
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Attributes
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Attributes
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#AttributeSection">
+        AttributeSection
+       </a>
+      </div>
+     </div>
+     <div class="clause dependents_clause">
+      <span class="key dependents">
+       Dependents
+      </span>
+      <div class="value dependents">
+       <a class="class_reference" href="#AttributeConstraint">
+        AttributeConstraint
+       </a>
+      </div>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Component">
+         Component
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Attribute__name">
+        name
+       </span>
+       <span class="parenthetical">
+        Lower Camel
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#LowerCamel">
+          LowerCamel
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="clause overrides_clause">
+       <span class="key overrides">
+        Overrides
+       </span>
+       <a class="value AttributeReference overrides" href="#Component__name">
+        Component.name
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Attribute__dataType">
+        dataType
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The kind of object to which the attribute refers.  _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        DataType
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#DataType">
+          DataType
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="Paragraph mdhtml">
+       <div>
+        <p>
+         But,
+        </p>
+        <ul>
+         <li>
+          <ul>
+           <li>
+            List of Editions
+           </li>
+          </ul>
+         </li>
+         <li>
+          <ul>
+           <li>
+            Set of Edition
+           </li>
+          </ul>
+         </li>
+         <li>
+          <ul>
+           <li>
+            ... and more complicated cases.
+           </li>
+          </ul>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="Annotation">
+       <span class="emoji Emoji">
+        👀
+       </span>
+       <span class="label Label">
+        see
+       </span>
+       <div class="OneLiner mdhtml content">
+        <div>
+         <p>
+          the section below on Data Type Specifiers.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="AttributeSection">
+      <div class="header AttributeSection_header">
+       <span class="prefix">
+        __
+       </span>
+       <span class="name AttributeSectionName">
+        Cardinalities
+       </span>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__isOptional">
+         isOptional
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           Indicates whether the attribute must have a value for every instance of the class _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         Boolean
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Boolean">
+           Boolean
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            *** False
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__cardinality">
+         cardinality
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           The cardinality of the relationship represented by the attribute _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         CardinalityCode
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#CardinalityCode">
+           CardinalityCode
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause default_clause">
+        <span class="key default">
+         Default
+        </span>
+        <div class="value default">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            ***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.
+For a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.
+           </p>
+          </div>
+         </div>
+         <div class="Annotation">
+          <span class="label Label">
+           forExample
+          </span>
+         </div>
+         <div class="Diagnostic">
+          <span class="severity">
+           Warning
+          </span>
+          <span class="category">
+           Style
+          </span>
+          <div class="message Paragraph mdhtml">
+           <div>
+            <p>
+             Formula one_liner is too long (220 chars)
+            </p>
+           </div>
+          </div>
+          <span class="object_type">
+           Default
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__author">
+         author
+        </span>
+        <span class="parenthetical">
+         1:1 Author
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#InventedName">
+           InventedName
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__books">
+         books
+        </span>
+        <span class="parenthetical">
+         optional N:M Set of Books
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#InventedName">
+           InventedName
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           how this works with optionality
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="AttributeSection">
+      <div class="header AttributeSection_header">
+       <span class="prefix">
+        __
+       </span>
+       <span class="name AttributeSectionName">
+        Inverse Attributes
+       </span>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__isInvertible">
+         isInvertible
+        </span>
+        <span class="parenthetical">
+         Boolean
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Boolean">
+           Boolean
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause derivation_clause">
+        <span class="key derivation">
+         Derivation
+        </span>
+        <div class="value derivation">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            true if the data type is a class or a simple collection of members of a class.
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__inverseClass">
+         inverseClass
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           the class which contains, or would contain the inverse attribute
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         optional Class
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Class">
+           Class
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="clause derivation_clause">
+        <span class="key derivation">
+         Derivation
+        </span>
+        <div class="value derivation">
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            from the data type. Null unless arrribute is invertible.
+           </p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__inverseAttribute">
+         inverseAttribute
+        </span>
+        <span class="parenthetical">
+         optional Attribute
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Attribute">
+           Attribute
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__inverseIsOptional">
+         inverseIsOptional
+        </span>
+        <span class="parenthetical">
+         optional Attribute
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Attribute">
+           Attribute
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="AttributeSection">
+      <div class="header AttributeSection_header">
+       <span class="prefix">
+        __
+       </span>
+       <span class="name AttributeSectionName">
+        Formulas
+       </span>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__default">
+         default
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           The rule or formula for calculating the value, if no value is supplied
+Now running to a second line with the parenthentical on yet a third line
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         optional Derivation
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Derivation">
+           Derivation
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           even when an Attribute has a default derivation, there’s no guarantee that every instance will have an assigned value. Example needed.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Warning
+        </span>
+        <span class="category">
+         Style
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           oneLiner is too long. (143 chars).
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Attribute
+        </span>
+        <span class="object_name">
+         default
+        </span>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__derivation">
+         derivation
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           For derived attributes, the rule or formula for calculating the value _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         optional Derivation
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+          Optional
+         </span>
+         <span class="base_data_type data_type">
+          <a class="base_class" href="#Derivation">
+           Derivation
+          </a>
+          value
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🤔
+        </span>
+        <span class="label Label">
+         issue
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           on insert vs on access?
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__constraints">
+         constraints
+        </span>
+        <div class="OneLiner mdhtml one_liner">
+         <div>
+          <p>
+           Any validation rules specific to this attribute _
+          </p>
+         </div>
+        </div>
+        <span class="parenthetical">
+         ListOf Constraints
+        </span>
+        <div class="DataTypeClause data_type_clause">
+         <span class="is_optional_lit AsValue">
+         </span>
+         <span class="data_type list_data_type">
+          List of
+          <span class="base_data_type">
+           <a class="base_class" href="#Constraints">
+            Constraints
+           </a>
+           value
+          </span>
+         </span>
+        </div>
+       </div>
+       <div class="Annotation">
+        <span class="emoji Emoji">
+         🗉
+        </span>
+        <span class="label Label">
+         note
+        </span>
+        <div class="OneLiner mdhtml content">
+         <div>
+          <p>
+           from Class.constraints
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="AttributeSection">
+      <div class="header AttributeSection_header">
+       <span class="prefix">
+        __
+       </span>
+       <span class="name AttributeSectionName">
+        Override Tracking
+       </span>
+      </div>
+      <div class="Attribute">
+       <div class="header Attribute_header">
+        <span class="prefix">
+         -
+        </span>
+        <span class="name AttributeName" id="Attribute__overrides">
+         overrides
+        </span>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Bug
+        </span>
+        <span class="category">
+         Field Error
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           Required field 'data_type_clause' is missing
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Attribute
+        </span>
+        <span class="object_name">
+         overrides
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Derivation">
+       Derivation
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A rule or formula for deriving the value of an attribute
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Derivations
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Derivations
+      </span>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Derivation__statement">
+        statement
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          An English language statement of the derivation rule _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        RichText
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#RichText">
+          RichText
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Derivation__expression">
+        expression
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The formal expression of the derivation in a programming language _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        CodeExpression
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#CodeExpression">
+          CodeExpression
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Constraint">
+       Constraint
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A rule, condition, or validation that must be satisfied by the model
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Constraints
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Constraints
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Component">
+         Component
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="clause subtypes_clause">
+      <span class="key subtypes">
+       Subtypes
+      </span>
+      <div class="value subtypes">
+       <a class="base_class" href="#ClassConstraint">
+        ClassConstraint
+       </a>
+       ,
+       <a class="base_class" href="#AttributeConstraint">
+        AttributeConstraint
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Constraint__statement">
+        statement
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          An English language statement of the constraint _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        RichText
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#RichText">
+          RichText
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Constraint__expression">
+        expression
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The formal expression of the constraint in a programming language
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        e.g., OCL _(CodeExpression
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#InventedName">
+          InventedName
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Constraint__severity">
+        severity
+       </span>
+       <span class="parenthetical">
+        Code
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Code">
+          Code
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="CodeBlock mdhtml">
+       <div>
+        <pre><code class="language-codes">Warning, nothing fatal; just a caution
+Error, serious. Fix now
+</code></pre>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Message">
+       Message
+      </span>
+      <span class="parenthetical">
+       Template
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Messages
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Messages
+      </span>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="ClassConstraint">
+       ClassConstraint
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       ClassConstraints
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       ClassConstraints
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#Class">
+        Class
+       </a>
+      </div>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Constraint">
+         Constraint
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="AttributeConstraint">
+       AttributeConstraint
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       AttributeConstraints
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       AttributeConstraints
+      </span>
+     </div>
+     <div class="clause based_on_clause">
+      <span class="key based_on">
+       BasedOn
+      </span>
+      <div class="value based_on">
+       <a class="class_reference" href="#Attribute">
+        Attribute
+       </a>
+      </div>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Constraint">
+         Constraint
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="CodeExpression">
+       CodeExpression
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       CodeExpressions
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       CodeExpressions
+      </span>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="CodeExpression__language">
+        language
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the programming language
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        Code
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Code">
+          Code
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="CodeBlock mdhtml">
+       <div>
+        <pre><code class="language-code">OCL, Object Constraint Language
+Java, Java
+</code></pre>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="CodeExpression__expression">
+        expression
+       </span>
+       <span class="parenthetical">
+        String
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#String">
+          String
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="SubjectB Subject">
+    <div class="SubjectB_header header Subject">
+     <span class="prefix">
+      ##
+     </span>
+     <span class="name SubjectName">
+      Methods
+     </span>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="Method">
+       Method
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A behavior or operation associated with a class
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Methods
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Methods
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Component">
+         Component
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Method__parameters">
+        parameters
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The input parameters of the method _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        ListOf Parameters
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="data_type list_data_type">
+         List of
+         <span class="base_data_type">
+          <a class="base_class" href="#Parameters">
+           Parameters
+          </a>
+          value
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="Method__returnType">
+        returnType
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The data type of the value returned by the method _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        DataType
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#DataType">
+          DataType
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="ParameterAnInputToAMethod">
+       ParameterAnInputToAMethod
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Parameters
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       ParameterAnInputToAMethods
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#Component">
+         Component
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="ParameterAnInputToAMethod__type">
+        type
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The data type of the parameter _
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        DataType
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#DataType">
+          DataType
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="ParameterAnInputToAMethod__cardinality">
+        cardinality
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          The cardinality of the parameter
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        e.g., optional, required
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#InventedName">
+          InventedName
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="SubjectB Subject">
+    <div class="SubjectB_header header Subject">
+     <span class="prefix">
+      ##
+     </span>
+     <span class="name SubjectName">
+      Data Types
+     </span>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="DataType">
+       DataType
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       DataTypes
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       DataTypes
+      </span>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="SimpleDataTypeSubtpeOfDataType">
+       SimpleDataTypeSubtpeOfDataType
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       SimpleDataTypeSubtpeOfDataTypes
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       SimpleDataTypeSubtpeOfDataTypes
+      </span>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="SimpleDataTypeSubtpeOfDataType__coreClass">
+        coreClass
+       </span>
+       <span class="parenthetical">
+        Class
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Class">
+          Class
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="ComplexDataType">
+       ComplexDataType
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       ComplexDataTypes
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       ComplexDataTypes
+      </span>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="ComplexDataType__aggregation">
+        aggregation
+       </span>
+       <span class="parenthetical">
+        Aggregating Operator
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#AggregatingOperator">
+          AggregatingOperator
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="ComplexDataType__aggregatedTypes">
+        aggregatedTypes
+       </span>
+       <span class="parenthetical">
+        List of DataTypes
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="data_type list_data_type">
+         List of
+         <span class="base_data_type">
+          <a class="base_class" href="#DataTypes">
+           DataTypes
+          </a>
+          value
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="AggregatingOperator">
+       AggregatingOperator
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       AggregatingOperators
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       AggregatingOperators
+      </span>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AggregatingOperator__name">
+        name
+       </span>
+       <span class="parenthetical">
+        Code
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Code">
+          Code
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="CodeBlock mdhtml">
+       <div>
+        <pre><code class="language-code">SetOf
+ListOf
+Mapping
+</code></pre>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AggregatingOperator__arity">
+        arity
+       </span>
+       <span class="parenthetical">
+        Integer
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Integer">
+          Integer
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="AggregatingOperator__spelling">
+        spelling
+       </span>
+       <span class="parenthetical">
+        Template
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Template">
+          Template
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="SubjectB Subject">
+    <div class="SubjectB_header header Subject">
+     <span class="prefix">
+      ##
+     </span>
+     <span class="name SubjectName">
+      Low level Data Types
+     </span>
+    </div>
+    <div class="Paragraph mdhtml">
+     <div>
+      <p>
+       insert Camel Case.md
+      </p>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Emoji">
+       Emoji
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Emojis
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Emojis
+      </span>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="String">
+       String
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Strings
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Strings
+      </span>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="CamelName">
+       CamelName
+      </span>
+     </div>
+     <div class="Paragraph mdhtml">
+      <div>
+       <p>
+        A short string without punctuation or spaces, suitable for names, labels, or identifiers and presented in camel case.
+       </p>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       CamelNames
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       CamelNames
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#String">
+         String
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="clause subtypes_clause">
+      <span class="key subtypes">
+       Subtypes
+      </span>
+      <div class="value subtypes">
+       <a class="base_class" href="#UpperCamel">
+        UpperCamel
+       </a>
+       ,
+       <a class="base_class" href="#LowerCamel">
+        LowerCamel
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="CamelName__valueTheString">
+        valueTheString
+       </span>
+       <span class="parenthetical">
+        String
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#String">
+          String
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="clause constraints_clause">
+       <span class="key constraints">
+        Constraints
+       </span>
+       <div class="value constraints">
+        <div>
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            Must follow the camel case naming convention and not be empty.
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="Annotation">
+         <span class="label Label">
+          example
+         </span>
+         <div class="OneLiner mdhtml content">
+          <div>
+           <p>
+            "firstName", "orderDate", "customerID"
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="Annotation">
+         <span class="label Label">
+          modelingNote
+         </span>
+         <div class="OneLiner mdhtml content">
+          <div>
+           <ul>
+            <li>
+             <em>
+              CamelName
+             </em>
+             is presented here, just after its first usage by another class (Component), to provide context and understanding before it is used further in the model.
+            </li>
+           </ul>
+          </div>
+         </div>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          Tester
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Let's see how Constraints handle diagnostics
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          NonPresence
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Missing value for required field: 'ocl'
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+            <class 'list'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="UpperCamel">
+       UpperCamel
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         a CamelName that begins with a capital letter
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Annotation">
+      <span class="emoji Emoji">
+       🔣
+      </span>
+      <span class="label Label">
+       example
+      </span>
+      <div class="OneLiner mdhtml content">
+       <div>
+        <p>
+         _ "Customer", "ProductCategory", "PaymentMethod"
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Bug
+      </span>
+      <span class="category">
+       Field Error
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got
+         <class 'str'="">
+         </class>
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       ValueType
+      </span>
+      <span class="object_name">
+       UpperCamel
+      </span>
+     </div>
+     <div class="clause where_clause">
+      <span class="key where">
+       Where
+      </span>
+      <span class="value where">
+       content begins with an upper case letter.
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       UpperCamels
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       UpperCamels
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#CamelName">
+         CamelName
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="LowerCamel">
+       LowerCamel
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         a CamelName that begins with a lower case letter
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Annotation">
+      <span class="emoji Emoji">
+       🔣
+      </span>
+      <span class="label Label">
+       example
+      </span>
+      <div class="OneLiner mdhtml content">
+       <div>
+        <p>
+         "firstName", "orderTotal", "shippingAddress"
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="Diagnostic">
+      <span class="severity">
+       Bug
+      </span>
+      <span class="category">
+       Field Error
+      </span>
+      <div class="message Paragraph mdhtml">
+       <div>
+        <p>
+         For field 'where' - expected typing.Optional[Literate_01.OneLiner], but got
+         <class 'str'="">
+         </class>
+        </p>
+       </div>
+      </div>
+      <span class="object_type">
+       ValueType
+      </span>
+      <span class="object_name">
+       LowerCamel
+      </span>
+     </div>
+     <div class="clause where_clause">
+      <span class="key where">
+       Where
+      </span>
+      <span class="value where">
+       content begins with a lower case letter.
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       LowerCamels
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       LowerCamels
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#CamelName">
+         CamelName
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="QualifiedCamel">
+       QualifiedCamel
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         an expression consisting of Camel Names separated by periods
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       QualifiedCamels
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       QualifiedCamels
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#String">
+         String
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="clause constraints_clause">
+      <span class="key constraints">
+       Constraints
+      </span>
+      <div class="value constraints">
+       <div>
+        <div class="OneLiner mdhtml">
+         <div>
+          <p>
+           content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Warning
+        </span>
+        <span class="category">
+         Style
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           Formula one_liner is too long (152 chars)
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Constraint
+        </span>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Error
+        </span>
+        <span class="category">
+         Tester
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           Let's see how Constraints handle diagnostics
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Constraint
+        </span>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Error
+        </span>
+        <span class="category">
+         NonPresence
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           Missing value for required field: 'ocl'
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Constraint
+        </span>
+       </div>
+       <div class="Diagnostic">
+        <span class="severity">
+         Bug
+        </span>
+        <span class="category">
+         Field Error
+        </span>
+        <div class="message Paragraph mdhtml">
+         <div>
+          <p>
+           For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+           <class 'list'="">
+           </class>
+          </p>
+         </div>
+        </div>
+        <span class="object_type">
+         Constraint
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Class">
+     <div class="header Class_header">
+      <span class="prefix">
+       Class
+      </span>
+      <span class="name ClassName" id="RichText">
+       RichText
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A string with markup for block level formatting.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       RichTexts
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       RichTexts
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#String">
+         String
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="clause subtypes_clause">
+      <span class="key subtypes">
+       Subtypes
+      </span>
+      <div class="value subtypes">
+       <a class="base_class" href="#OneLiner">
+        OneLiner
+       </a>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="RichText__value">
+        value
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the string content
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        string
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#String">
+          String
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="RichText__format">
+        format
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the rich text coding language used
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        Code
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#Code">
+          Code
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="CodeBlock mdhtml">
+       <div>
+        <pre><code class="language-code">HTML
+MarkDown
+</code></pre>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="OneLiner">
+       OneLiner
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         String with markup for line level formatting.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       OneLiners
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       OneLiners
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#RichText">
+         RichText
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="Attribute">
+      <div class="header Attribute_header">
+       <span class="prefix">
+        -
+       </span>
+       <span class="name AttributeName" id="OneLiner__value">
+        value
+       </span>
+       <div class="OneLiner mdhtml one_liner">
+        <div>
+         <p>
+          the string content
+         </p>
+        </div>
+       </div>
+       <span class="parenthetical">
+        string
+       </span>
+       <div class="DataTypeClause data_type_clause">
+        <span class="is_optional_lit AsValue">
+        </span>
+        <span class="base_data_type data_type">
+         <a class="base_class" href="#String">
+          String
+         </a>
+         value
+        </span>
+       </div>
+      </div>
+      <div class="clause overrides_clause">
+       <span class="key overrides">
+        Overrides
+       </span>
+       <a class="value AttributeReference overrides" href="#RichText__value">
+        RichText.value
+       </a>
+      </div>
+      <div class="clause constraints_clause">
+       <span class="key constraints">
+        Constraints
+       </span>
+       <div class="value constraints">
+        <div>
+         <div class="OneLiner mdhtml">
+          <div>
+           <p>
+            must not containa line break or new line character
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="clause message_clause">
+         <span class="key message">
+          Message
+         </span>
+         <span class="message value">
+          A line can't span two lines
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          Tester
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Let's see how Constraints handle diagnostics
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Error
+         </span>
+         <span class="category">
+          NonPresence
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            Missing value for required field: 'ocl'
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'one_liner' - expected typing.Optional[Literate_01.OneLiner], but got
+            <class 'list'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+        <div class="Diagnostic">
+         <span class="severity">
+          Bug
+         </span>
+         <span class="category">
+          Field Error
+         </span>
+         <div class="message Paragraph mdhtml">
+          <div>
+           <p>
+            For field 'message' - expected typing.Optional[Literate_01.Paragraph], but got
+            <class 'str'="">
+            </class>
+           </p>
+          </div>
+         </div>
+         <span class="object_type">
+          Constraint
+         </span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="PrimitiveType">
+       PrimitiveType
+      </span>
+      <div class="OneLiner mdhtml one_liner">
+       <div>
+        <p>
+         A basic, built-in data type
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       PrimitiveTypes
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       PrimitiveTypes
+      </span>
+     </div>
+     <div class="clause subtypes_clause">
+      <span class="key subtypes">
+       Subtypes
+      </span>
+      <div class="value subtypes">
+       <a class="base_class" href="#String">
+        String
+       </a>
+       ,
+       <a class="base_class" href="#Integer">
+        Integer
+       </a>
+       ,
+       <a class="base_class" href="#Decimal">
+        Decimal
+       </a>
+       ,
+       <a class="base_class" href="#Boolean">
+        Boolean
+       </a>
+       ,
+       <a class="base_class" href="#Date">
+        Date
+       </a>
+       ,
+       <a class="base_class" href="#Time">
+        Time
+       </a>
+       ,
+       <a class="base_class" href="#DateTime">
+        DateTime
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="String">
+       String
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Strings
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Strings
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#PrimitiveType">
+         PrimitiveType
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="clause subtypes_clause">
+      <span class="key subtypes">
+       Subtypes
+      </span>
+      <div class="value subtypes">
+       <a class="base_class" href="#CamelName">
+        CamelName
+       </a>
+       ,
+       <a class="base_class" href="#QualifiedCamel">
+        QualifiedCamel
+       </a>
+       ,
+       <a class="base_class" href="#RichText">
+        RichText
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Integer">
+       Integer
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Integers
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Integers
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#PrimitiveType">
+         PrimitiveType
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Decimal">
+       Decimal
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Decimals
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Decimals
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#PrimitiveType">
+         PrimitiveType
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Boolean">
+       Boolean
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Booleans
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Booleans
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#PrimitiveType">
+         PrimitiveType
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Date">
+       Date
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Dates
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Dates
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#PrimitiveType">
+         PrimitiveType
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="Time">
+       Time
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       Times
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       Times
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#PrimitiveType">
+         PrimitiveType
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="ValueType">
+     <div class="header ValueType_header">
+      <span class="prefix">
+       Value Type
+      </span>
+      <span class="name ClassName" id="DateTime">
+       DateTime
+      </span>
+     </div>
+     <div class="clause plural_clause">
+      <span class="key plural">
+       Plural
+      </span>
+      <span class="value plural">
+       DateTimes
+      </span>
+     </div>
+     <div class="clause presumed_plural_clause">
+      <span class="key presumed_plural">
+       PresumedPlural
+      </span>
+      <span class="value presumed_plural">
+       DateTimes
+      </span>
+     </div>
+     <div class="clause subtype_of_clause">
+      <span class="key subtype_of">
+       SubtypeOf
+      </span>
+      <div class="subtype_of value">
+       <div class="SubtypeBy">
+        <a class="class_name class_reference" href="#PrimitiveType">
+         PrimitiveType
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="Subject SubjectC">
+     <div class="header SubjectC_header Subject">
+      <span class="prefix">
+       ###
+      </span>
+      <span class="name SubjectName">
+       Annotation Types Used
+      </span>
+     </div>
+     <div class="Paragraph mdhtml">
+      <div>
+       <p>
+        These are the recognized Annotation Types for the LDM model.
+       </p>
+      </div>
+     </div>
+     <div class="Paragraph mdhtml">
+      <div>
+       <p>
+        And this is how you register the AnnotationTyped for a model. By including this sort of array in the DSL document for the model.
+       </p>
+      </div>
+     </div>
+     <div class="CodeBlock mdhtml">
+      <div>
+       <pre><code class="language-puml">@startjson
+
+[
+{
+"label": "Error",
+"emoji": "❌",
+"emojiName": "cross_mark",
+"emojiUnicode": "U+274C",
+"purpose": "Indicates a critical error or failure in the model."
+},
+{
+"label": "Warning",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Indicates a potential issue or warning in the model."
+},
+{
+"label": "Note",
+"emoji": "📘",
+"emojiName": "blue_book",
+"emojiUnicode": "U+1F4D8",
+"purpose": "Provides additional context, explanations, or clarifications for the annotated element."
+},
+{
+"label": "Issue",
+"emoji": "⚠️",
+"emojiName": "warning",
+"emojiUnicode": "U+26A0",
+"purpose": "Highlights a potential issue or error that needs to be addressed or resolved."
+},
+{
+"label": "Question",
+"emoji": "❓",
+"emojiName": "question",
+"emojiUnicode": "U+2753",
+"purpose": "Raises a question or seeks further clarification about the annotated element."
+},
+{
+"label": "Suggestion",
+"emoji": "💡",
+"emojiName": "bulb",
+"emojiUnicode": "U+1F4A1",
+"purpose": "Provides a suggestion or recommendation for improving the model or the annotated element."
+},
+{
+"label": "Info",
+"emoji": "ℹ️",
+"emojiName": "information_source",
+"emojiUnicode": "U+2139",
+"purpose": "Offers relevant information, facts, or details about the annotated element."
+},
+{
+"label": "Todo",
+"emoji": "📌",
+"emojiName": "pushpin",
+"emojiUnicode": "U+1F4CC",
+"purpose": "Indicates a pending task, action item, or future work related to the annotated element."
+},
+{
+"label": "Reference",
+"emoji": "🌐",
+"emojiName": "globe_with_meridians",
+"emojiUnicode": "U+1F310",
+"purpose": "Provides a reference or link to an external resource or documentation."
+},
+{
+"label": "See",
+"emoji": "🔍",
+"emojiName": "mag",
+"emojiUnicode": "U+1F50D",
+"purpose": "Indicates a cross-reference to another relevant element within the model."
+}
+]
+@endjson
+
+<div class="diagram svg puml" string="SVG Diagram"><img src="assets/diagram1.svg"/></div><div class="diagram png puml" string="PNG Diagram"><img src="assets/diagram1.png"/></div></code></pre>
+      </div>
+     </div>
+    </div>
+    <div class="Subject SubjectC">
+     <div class="header SubjectC_header Subject">
+      <span class="prefix">
+       ###
+      </span>
+      <span class="name SubjectName">
+       Annotation types as CSV
+      </span>
+     </div>
+     <div class="CodeBlock mdhtml">
+      <div>
+       <pre><code class="language-csv">label,emoji,emojiName,emojiUnicode,purpose
+Error,❌,cross_mark,U+274C,Indicates a critical error or failure in the model.
+Warning,⚠️,warning,U+26A0,Indicates a potential issue or warning in the model.
+Note,📘,blue_book,U+1F4D8,"Provides additional context, explanations, or clarifications for the annotated element."
+Issue,⚠️,warning,U+26A0,Highlights a potential issue or error that needs to be addressed or resolved.
+Question,❓,question,U+2753,Raises a question or seeks further clarification about the annotated element.
+Suggestion,💡,bulb,U+1F4A1,Provides a suggestion or recommendation for improving the model or the annotated element.
+Info,ℹ️,information_source,U+2139,"Offers relevant information, facts, or details about the annotated element."
+Todo,📌,pushpin,U+1F4CC,"Indicates a pending task, action item, or future work related to the annotated element."
+Reference,🌐,globe_with_meridians,U+1F310,Provides a reference or link to an external resource or documentation.
+See,🔍,mag,U+1F50D,Indicates a cross-reference to another relevant element within the model.
+
+<div class="codes-table"><table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>label</th>
+<th>emoji</th>
+<th>emojiName</th>
+<th>emojiUnicode</th>
+<th>purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Error</td>
+<td>❌</td>
+<td>cross_mark</td>
+<td>U+274C</td>
+<td>Indicates a critical error or failure in the model.</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Warning</td>
+<td>⚠️</td>
+<td>warning</td>
+<td>U+26A0</td>
+<td>Indicates a potential issue or warning in the model.</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Note</td>
+<td>📘</td>
+<td>blue_book</td>
+<td>U+1F4D8</td>
+<td>Provides additional context, explanations, or clarifications for the annotated element.</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Issue</td>
+<td>⚠️</td>
+<td>warning</td>
+<td>U+26A0</td>
+<td>Highlights a potential issue or error that needs to be addressed or resolved.</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Question</td>
+<td>❓</td>
+<td>question</td>
+<td>U+2753</td>
+<td>Raises a question or seeks further clarification about the annotated element.</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Suggestion</td>
+<td>💡</td>
+<td>bulb</td>
+<td>U+1F4A1</td>
+<td>Provides a suggestion or recommendation for improving the model or the annotated element.</td>
+</tr>
+<tr>
+<th>6</th>
+<td>Info</td>
+<td>ℹ️</td>
+<td>information_source</td>
+<td>U+2139</td>
+<td>Offers relevant information, facts, or details about the annotated element.</td>
+</tr>
+<tr>
+<th>7</th>
+<td>Todo</td>
+<td>📌</td>
+<td>pushpin</td>
+<td>U+1F4CC</td>
+<td>Indicates a pending task, action item, or future work related to the annotated element.</td>
+</tr>
+<tr>
+<th>8</th>
+<td>Reference</td>
+<td>🌐</td>
+<td>globe_with_meridians</td>
+<td>U+1F310</td>
+<td>Provides a reference or link to an external resource or documentation.</td>
+</tr>
+<tr>
+<th>9</th>
+<td>See</td>
+<td>🔍</td>
+<td>mag</td>
+<td>U+1F50D</td>
+<td>Indicates a cross-reference to another relevant element within the model.</td>
+</tr>
+</tbody>
+</table></div></code></pre>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="SubjectB Subject">
+    <div class="SubjectB_header header Subject">
+     <span class="prefix">
+      ##
+     </span>
+     <span class="name SubjectName">
+      Appendices
+     </span>
+     <div class="OneLiner mdhtml one_liner">
+      <div>
+       <p>
+        various sidebars to include
+Insert More Sidebars.md
+Insert Overrides.md
+insert LDM Intro.md
+Insert OCL.md
+Insert Camel Case.md
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="Paragraph mdhtml">
+     <div>
+      <p>
+       == content to add
+      </p>
+     </div>
+    </div>
+    <div class="Diagnostic">
+     <span class="severity">
+      Warning
+     </span>
+     <span class="category">
+      Style
+     </span>
+     <div class="message Paragraph mdhtml">
+      <div>
+       <p>
+        oneLiner is too long. (126 chars).
+       </p>
+      </div>
+     </div>
+     <span class="object_type">
+      SubjectB
+     </span>
+     <span class="object_name">
+      Appendices
+     </span>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

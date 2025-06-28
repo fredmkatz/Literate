@@ -122,10 +122,10 @@ subject_clauses = component_clauses + [
     HeadLine(starter_pattern="_", class_started="Class", handlers=handle_header),
     HeadLine(starter_pattern="Class", class_started="Class", handlers=handle_header),
     HeadLine(
-        starter_pattern="Value Type:", class_started="ValueType", handlers=handle_header
+        starter_pattern="ValueType:", class_started="ValueType", handlers=handle_header
     ),
     HeadLine(
-        starter_pattern="Code Type:", class_started="CodeType", handlers=handle_header
+        starter_pattern="CodeType:", class_started="CodeType", handlers=handle_header
     ),
 ]
 class_clauses = component_clauses + [
@@ -152,9 +152,6 @@ class_clauses = component_clauses + [
         is_list=False,
         is_cum=True,
         plural="constraintes",
-    ),
-    MinorClause(
-        word="dependent of", is_list=True, is_cum=True, handlers=handle_name_list
     ),
     MinorClause(word="where", is_list=False, is_cum=False),
     HeadLine(
@@ -193,10 +190,17 @@ attribute_clauses = component_clauses + [
 ]
 
 formula_clauses = [
-    MinorClause(word="code"),
-    MinorClause(word="english"),
+    MinorClause(word="ocl"),
     MinorClause(word="message"),
     MinorClause(word="severity"),
+    MajorClause(
+        word="note",
+        class_started="Annotation",
+        handlers=handle_annotation,
+        is_cum=True,
+        is_list=False,
+    ),
+
 ]
 all_clauses = (
     subject_clauses
@@ -265,10 +269,10 @@ part_parts = {
     "ValueType": component_parts + ["AttributeSection", "Attribute", "Constraint"],
     "AttributeSection": component_parts + ["Attribute"],
     "Attribute": component_parts + ["Derivation", "Default", "Constraint"],
-    # No parts; only subclauses
-    "Derivation": [],
-    "Default": [],
-    "Constraint": [],
+    # No parts; except for annotations
+    "Derivation":  ["Annotation"],
+    "Default":  ["Annotation"],
+    "Constraint": ["Annotation"],
 }
 
 part_labels = {

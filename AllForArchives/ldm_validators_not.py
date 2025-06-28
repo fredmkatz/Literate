@@ -3,10 +3,40 @@ from typing import List, Any
 
 from ldm.ldm_validators_generic import validate_fields
 import ldm.Literate_01 as Literate_01
-from ldm.Literate_01 import Diagnostic, OneLiner, Paragraph, SubjectB
+from ldm.Literate_01 import Diagnostic, OneLiner, Paragraph, SubjectB, ClassName
 
 All_Diagnostics = []
+All_Classes = None
+All_Class_Mapping = None
+All_Class_Names = None
 
+
+"""To Dos for Validation
+    
+    Class level
+    - inflect for plurals
+    - subtypings and subtypes list
+    - check based on and subtypeOf references
+    
+    
+    Attribute
+    - check class references (in all data types)
+    - overrides Attributes
+    - overrides Derivation, Default, DataType,  oneliner
+        and from where
+    - inherited from
+    
+    - inverses
+    - create implied attributes
+    - check explicit inverses: 
+        cardinality
+        name and one liner, using inflect
+    
+    Also
+    - output error counts
+    - get faculty working
+    
+    """
 def createError(obj, category, message) -> Diagnostic:
     return createDiagnostic(obj, category,  message, severity="Error")
 
@@ -40,7 +70,6 @@ def createDiagnostic(obj, category, message, severity="Error") -> Diagnostic:
 
 ClassListAttributes = [
     "based_on",
-    "dependent_of",
     "dependents",
 ]
 
@@ -75,13 +104,16 @@ def validate_component(component) -> List[str]:
 
     component_type = component._type
     name = component.name
-    if not name:
-        d = createError(component, "Missing field", "Name is missing")
+    
+    # these are now done in validate_fields
+    # if not name:
+    #     d = createError(component, "Missing field", "Name is missing")
+
+    # if not one_liner:
+    #     createError(component, "Missing field", "Missing oneLiner")
 
     one_liner = component.one_liner
-    if not one_liner:
-        createError(component, "Missing field", "Missing oneLiner")
-        
+
     if one_liner and len(str(one_liner)) > 90:
         createWarning(
             component, "Style", f"oneLiner is too long. ({len(str(one_liner))} chars)."
@@ -111,6 +143,8 @@ def validate_attribute_section(self) -> List[str]:
 
 def validate_class(self) -> List[str]:
     """Validate Class instances."""
+    
+    calc_class(self)
 
     validate_component(self)
 
@@ -122,11 +156,29 @@ def validate_class(self) -> List[str]:
     validate_each(self.attributes)
     validate_each(self.attribute_sections)
 
+def calc_class(cls):
+    derive_presumed_plural(cls)
+    derive_plural(cls)
 
+def derive_presumed_plural(cls):
+    print("Calcing presumed_plural")
+    class_name = str(cls.name)
+    cls.presumed_plural = class_name + "!es"
+    
+    print(f"Set presumed plural for {cls}: name is {class_name}, presuming {cls.presumed_plural}")
+
+def derive_plural(cls):
+    # default: presumed_plural
+    plural = cls.plural
+    if plural is not None:
+        print(f"{cls} has explicit plural {plural}")
+        return
+    print(f"Using presumed plural for {cls}")
+    plural = cls.presumed_plural
+    
 def validate_attribute(attrib):
     validate_component(attrib)
 
-    validate_presence(attrib, "data_type_clause")
     validate_object(attrib.data_type_clause)
     validate_object(attrib.derivation)
     validate_object(attrib.default)
@@ -172,11 +224,48 @@ def validate_model(the_model):
     # attach_validation_methods_alternative()
     """Validate an entire LDM model."""
     validate_component(the_model)
+    
+    calc_model(the_model)
     validate_each(the_model.subjects)
     
     print("Validating references...")
 
     return All_Diagnostics
+from collections import defaultdict
+
+def calc_model(model):
+    global All_Classes, All_Class_Mapping, All_Class_Names
+
+    All_Classes = get_all_classes(model)
+    All_Class_Mapping = {str(c.name): c for c in All_Classes}
+    All_Class_Names = set(str(c.name) for c in All_Classes)
+    print("All class names are", All_Class_Names)
+    print("class mapping is ")
+    for k, v in All_Class_Mapping.items():
+        print(k, " => ", v)
+    
+    All_Based_Ons = []
+    print("Calc Dependents")
+    dependents = defaultdict(list)
+    for c in All_Classes:
+        if c.based_on:
+            for b in c.based_on:
+                bsimple = str(b)
+                print(f"{c.name} is based on {bsimple}")
+                dependents[bsimple].append(str(c.name))
+    for base, deps in dependents.items():
+        print("Dependents of ", base, " are ", deps)
+        print("base is ", repr(base))
+        base_class = All_Class_Mapping.get(base, None)
+        if not base_class:
+            print("Class not found")
+            continue
+        dependents_list = [ClassName(d) for d in deps]
+        print("And the list is ", dependents_list)
+        base_class.dependents = dependents_list
+    
+    
+
 
 classes_to_patch = {
     'Component': validate_component,
