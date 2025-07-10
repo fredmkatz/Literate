@@ -736,3 +736,39 @@ Rel(attribute, literate, "extends")
 
 ## and a dummy section
 
+## Mermaid ER from  Extract
+
+
+```mermaid
+erDiagram
+    Component ||--|LiterateDataModel : inherits
+    Component ||--|Subject : inherits
+    Subject ||--|SubjectArea : inherits
+    Component ||--|Class : inherits
+    Class ||--|ReferenceType : inherits
+    Component ||--|Key : inherits
+    Key ||--|UniqueKey : inherits
+    Component ||--|AttributeSection : inherits
+    Component ||--|Attribute : inherits
+    Component ||--|Constraint : inherits
+    Constraint ||--|ClassConstraint : inherits
+    Constraint ||--|AttributeConstraint : inherits
+    Component ||--|Method : inherits
+    Component ||--|ParameterAnInputToAMethod : inherits
+    AnnotationType }|--|} LiterateDataModel : based_on
+    Annotation }|--|} Component : based_on
+    Annotation ||--|| AnnotationType : annotationType
+    Subject }|--|} LiterateDataModel : based_on
+    Subject ||--|| Subject : parentSubject
+    Class ||--|| Class : basedOn
+    Subtyping }|--|} Class : based_on
+    CodeValue }|--|} CodeType : based_on
+    Key }|--|} Class : based_on
+    AttributeSection }|--|} Class : based_on
+    Attribute }|--|} AttributeSection : based_on
+    Attribute ||--|| DataType : dataType
+    ClassConstraint }|--|} Class : based_on
+    AttributeConstraint }|--|} Attribute : based_on
+    Method ||--|| DataType : returnType
+    ParameterAnInputToAMethod ||--|| DataType : type
+    ```

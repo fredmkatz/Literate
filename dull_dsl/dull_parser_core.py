@@ -85,7 +85,7 @@ class DocPart:
 
         paragraphs = []
 
-        print("DerivingDict for Part: ", self.part_type)
+        # print("DerivingDict for Part: ", self.part_type)
         # print(self)
         if self.part_type == "Annotation":
             nitems = len(self.items)
@@ -126,9 +126,9 @@ class DocPart:
                     # print(f"\t\tFull header is: {full_header}")
 
                     handlers = item.line_Type.handlers
-                    print("handlers: ", handlers)
+                    # print("handlers: ", handlers)
                     header_dict = handlers.parse(full_header)
-                    print("Header dict is: ", header_dict)
+                    # print("Header dict is: ", header_dict)
                     # print_messages(messages)
 
                     # if label.startswith("Class"):
@@ -197,7 +197,7 @@ class DocPart:
 
                 if isinstance(item, ClauseLine):
                     clause_dict = item.derive_clause_dict(level)
-                    # print("Clause line dict is", clause_dict)
+                    print("Clause line dict is", clause_dict)
                     for keyword, value in clause_dict.items():
                         # for the real value, we need clause spec
 
@@ -207,12 +207,20 @@ class DocPart:
                         if att_name != keyword:
                             print(f"Using ATT_NAME  {att_name} for {keyword}")
                             print(f"Adding value in ddforpart. {att_name} -. {value}")
+                        print("Calling absorb with line type: ", item.line_Type)
+                        is_cum = item.line_Type.is_cum
+                        
+                        # More hack: oneliners were being accumulated into a list
+                        # just because constraint was cumulative!!! ToDO
+                        if att_name == "one_liner":
+                            is_cum = False
                         the_dict = absorb_into(
                             the_dict,
                             att_name,
                             value,
                             item.line_Type.is_list,
-                            item.line_Type.is_cum,
+                            is_cum,
+                            # item.line_Type.is_cum,
                         )
                         # print("And the dict has;;;")
                         # print(as_json(the_dict))
@@ -268,6 +276,8 @@ class DocPart:
         displayables = ["Default", "Derivation", "Constraint"]
         displayables = ["ValueType", "CodeType"]
         # ["Class", "Attribute", "Formula", "Default"]
+        displayables = ["Default", "Derivation", "Constraint"]
+
         if self.part_type in displayables:
             # print("Re-display for Part: ", self.part_type)
 
@@ -324,7 +334,8 @@ def convert_to_paragraphs(item: TypedLine) -> List[str]:
 def absorb_into(
     the_dict: Dict, keyword: str, value: Any, is_list: bool, is_cum: bool
 ) -> Dict:
-    # print(f"Absorbing to {keyword} {value} into {the_dict}")
+    # print(f"Absorbing  {keyword} = {value}\n into {the_dict}")
+    # print("\tis_list = ", is_list, ". is_cum = ", is_cum)
     # don't clutter the dict with empty values
     if not value:
         return the_dict

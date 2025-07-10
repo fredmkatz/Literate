@@ -8,147 +8,227 @@ import ldm.Literate_01 as Literate_01
 
 from utils.util_excel import read_annotation_types
 
-    # Validation and fleshing out - To Dos
+# Precalcs
+#     Calculate mro per class - OK but need to handle multiple parent TODO
+#     List of class names OK
+#       check for dups
+#     - plurals and presumed plurals
 
-    # Global
-    #     Calculate mro per class - OK but need to handle multiple parent TODO
-    #     List of class names OK
-    #       check for dups
-    #     basic structural - generic field tests. OK
-    #         - for data type clauses
-    #     missing values for required attributes - OK
-    #     derive dependents - OK
-    
-    #     derive subtpings and subtypes
-    #     - default values for exclusive, exhaustive
-    #     check for cycles in subtype of/based on
+# Fleshing out
+#     derive subtpings and subtypes
+#     - default values for exclusive, exhaustive
+#     check for cycles in subtype of/based on
+#     derive dependents - OK
 
-    # Per Class
-    # - uniqueness of attribute names within a Class
-    # - check class references
-    #     - for based on, subtypes, etc
-    #     - plurals and presumed plurals
+# Per Attribute
+# - check for overrides by asceneding thru MRO
+# - create Implied attributes
+#     - baseX and containingX
+#     - inverses (Check of exists)
+#     - and note inverseOf on original and implied
+#     - derive datatype, cardinality
+#     - derive name, oneliner
+#     - Att1 overrides Att2
+#         for derivation, default
+#         adds constraint
+#         refines data type (check aa subtype)
 
-    # Per Attribute
-    # - create Implied attributes
-    #     - inverses (Check of exists)
-    #     - and note inverseOf on original and implied
-    #     - derive datatype, cardinality
-    #     - derive name, oneliner
-    #     - Att1 overrides Att2
-    #         for derivation, default
-    #         adds constraint
-    #         refines data type (check aa subtype)
-            
-    #         check for overrides by asceneding thru MRO
 
-    # - Check that inverses are valid
-    #     - attribute reference is valid
-    #     - types "match"
+# Validation
 
-All_Classes = []
-All_Class_Index = {}
-All_MROs = {}
-All_Attributes_Index = defaultdict(lambda: defaultdict(list)) # class name/attribute name
-All_Class_Names = None
+# Global
+#     basic structural - generic field tests. OK
+#         - for data type clauses
+#     missing values for required attributes - OK
+#     Uniqueness of class names
+
+
+# Per Class
+# - uniqueness of attribute names within a Class
+# - check class references
+#     - for based on, subtypes, etc
+
+# Per Attribute
+#   Check overrides type
+#   check base types
+
+
+# - Check that inverses are valid
+#     - attribute reference is valid
+#     - types "match"
+
+#     Also
+#     - output error counts
+#     - get faculty working
+
+
+The_Model: LiterateModel = None
+
+All_Attributes_Index = defaultdict(
+    lambda: defaultdict(list)
+)  # class name/attribute name
+All_ValueTypes = None
 
 
 All_Diagnostics = []
 Annotation_types = read_annotation_types()
-def createBug(obj, category, message) -> Diagnostic:
-    return createDiagnostic(obj, category, message, severity="Bug")
 
-def createError(obj, category, message) -> Diagnostic:
-    return createDiagnostic(obj, category, message, severity="Error")
 
-def createWarning(obj, category, message) -> Diagnostic:
-    return createDiagnostic(obj, category, message, severity="Warning")
+def createBug(
+    obj, category, message, diagnostic_target=None, constraint_name=None
+) -> Diagnostic:
+    return createDiagnostic(
+        obj,
+        category,
+        message,
+        severity="Bug",
+        diagnostic_target=diagnostic_target,
+        constraint_name=constraint_name,
+    )
 
-def createDiagnostic(obj, category, message, severity="Error") -> Diagnostic:
+
+def createError(
+    obj, category, message, diagnostic_target=None, constraint_name=None
+) -> Diagnostic:
+    return createDiagnostic(
+        obj,
+        category,
+        message,
+        severity="Error",
+        diagnostic_target=diagnostic_target,
+        constraint_name=constraint_name,
+    )
+
+
+def createWarning(
+    obj, category, message, diagnostic_target=None, constraint_name=None
+) -> Diagnostic:
+    return createDiagnostic(
+        obj,
+        category,
+        message,
+        severity="Warning",
+        diagnostic_target=diagnostic_target,
+        constraint_name=constraint_name,
+    )
+
+
+def createDiagnostic(
+    obj,
+    category,
+    message,
+    severity="Error",
+    diagnostic_target=None,
+    constraint_name=None,
+) -> Diagnostic:
     oname_str = ""
     oname = getattr(obj, "name", None)
     if oname:
         oname_str = oname.content
-    
+
     d = Diagnostic(
-        severity=severity, 
-        category=category, 
-        message=Paragraph(message), 
-        object_type=obj._type, 
-        object_name=oname_str
+        severity=severity,
+        category=category,
+        message=message,
+        object_type=obj._type,
+        object_name=oname_str,
+        constraint_name=constraint_name or "NoConstraintName",
     )
-    obj.diagnostics.append(d)
+
     All_Diagnostics.append(d)
+
+    if not diagnostic_target:
+        diagnostic_target = obj
+    if not hasattr(diagnostic_target, "diagnostics"):
+        print(f"{type(diagnostic_target).__name__} can't handle diagnostics")
+        return d
+
+    diagnostic_target.diagnostics.append(d)
     return d
 
+
 def calc_model(model):
-    
-    global All_Classes, All_Class_Index, All_Attributes_Index, All_Class_Names
-    All_Classes = get_all_classes(model)
-    # All_Classes = []
 
-    All_Class_Index = {str(c.name): c for c in All_Classes}
+    # calculate indexes and list for navigating the model
+    precalc_model(model)
+
+    # invert some relationships
+    # - dependents from based_on
+    calc_dependents(model)
+
+    # subtypings from subtype_of
+    calc_subtypings(model)
+
+
+def precalc_model(model: LiterateModel):
+    global All_Attributes_Index, All_ValueTypes
+
+
     # now add all plural forms to the index
-    
-    All_Class_Names = set(str(c.name) for c in All_Classes)
 
-    print("All class names are", All_Class_Names)
-    
-    for c in All_Classes:
-        derive_presumed_plural(c)
-        derive_plural(c)
-    plural_names =  set(str(c.plural) for c in All_Classes)
-    All_Class_Names = All_Class_Names.union(plural_names)
-    print("all plural names are ", plural_names)
 
     print("All classes names (singular and plural are: ")
-    for cn in sorted(All_Class_Names):
-        print(f"\t\"{cn}\",")
+    for cn in sorted(model.all_class_names):
+        print(f'\t"{cn}",')
 
-    for cls in All_Classes:
+    for cls in model.all_classes:
         cname = cls.name.content
         for att in cls.attributes:
             aname = att.name.content
             All_Attributes_Index[cname][aname] = att
-            
-            
-    print("Attributes Index = \n", All_Attributes_Index)
+
+    print("Attributes Index = \n")  # , All_Attributes_Index)
     for cname, att_names in All_Attributes_Index.items():
         print("Class: ", cname)
         for aname in att_names:
             print("\t", aname)
     model.hello = "Hello"
-    
-    calc_dependents()
-    calc_subtypings()
-    
+
+    All_ValueTypes = find_value_types()
+
     # to calculate overrides...
-    calc_mros()
+    calc_mros(model)
     # Note. Needed to avoid duplication of all classes in yaml file
     # but what sets classes??
     print(len(model.classes), " classes in final model")
-    # model.classes = []
-    print(len(model.classes), " classes in final model")
+
+
+def find_value_types():
+    print("finding value types...")
+    vtypes = []
+    for cls in The_Model.all_classes:
+        # print(cls)
+        if str(cls).startswith("Valuetype"):
+            vtypes.append(cls.name.content)
+    # print("found value types are: ", vtypes)
+    return vtypes
+
+
+def calc_mros(model: LiterateModel):
+
+    print("CALC MROS - yields...")
+    for cname, c in model.class_index.items():
+        print("MRO for ", cname, " is ", c.calc_mro(model))
+
 
 
 # derivation of Dependents from basedOn
-
-def calc_dependents():
+def calc_dependents(model: LiterateModel):
     All_Based_Ons = []
     print("Calc Dependents")
     # calc derivation: dependents = inverse(based_on)
     dependents = defaultdict(list)
-    for c in All_Classes:
+    for c in model.all_classes:
         if c.based_on:
             for b in c.based_on:
                 print("b is ", b)
                 bsimple = b.content
                 print(f"{c.name} is based on {bsimple}")
                 dependents[bsimple].append(str(c.name))
-    
+
     for base, deps in dependents.items():
         print("Dependents of ", base, " are ", deps)
-        base_class = All_Class_Index.get(base, None)
+        base_class = model.class_named(base)
         if not base_class:
             print("Class not found")
             continue
@@ -156,12 +236,12 @@ def calc_dependents():
         # print("And the list is ", dependents_list)
         base_class.dependents = dependents_list
 
-def calc_subtypings():
-    
+
+def calc_subtypings(model: LiterateModel):
+
     All_Subtypings = defaultdict(lambda: defaultdict(list))
 
-
-    for c in All_Classes:
+    for c in model.all_classes:
         if not c.subtype_of:
             continue
         supers = getattr(c, "subtype_of", None)
@@ -170,58 +250,27 @@ def calc_subtypings():
             supertype = pair.class_name
             print(f"{c} is subtype of {supertype} via {subtyping}")
             All_Subtypings[str(supertype)][str(subtyping)].append(str(c.name))
-            
+
     print("All Subtypings")
     for supertype, subtypings in All_Subtypings.items():
         print(supertype, " => ")
         for subtyping, subtypes in subtypings.items():
             print(f"\t{subtyping}: {subtypes}")
-            
+
             subtypes_list = [ClassReference(c) for c in subtypes]
-            subtyping_obj = Subtyping(name = SubtypingName(subtyping), 
-                                    #   is_exclusive = IsExclusive("exclusive"),
-                                    #   is_exhaustive = IsExclusive("non exhaustive"),
-                                      subtypes = subtypes_list)
+            subtyping_obj = Subtyping(
+                name=SubtypingName(subtyping),
+                #   is_exclusive = IsExclusive("exclusive"),
+                #   is_exhaustive = IsExclusive("non exhaustive"),
+                subtypes=subtypes_list,
+            )
             print("Subtyping object is ", subtyping_obj)
-            the_class = All_Class_Index.get(supertype, None)
+            the_class = model.class_named(supertype)
             if not the_class:
                 print("No place to put subtypings for: ", supertype)
                 continue
             the_class.subtypings.append(subtyping_obj)
-            
-        
-def calc_mros():
-    global All_MROs
-    
-    print("CALC MROS - index has ", All_Class_Index)
-    for cname, c in All_Class_Index.items():
-        print("Calc MRO for ", cname)
-        mro = calc_mro(cname)
-        print("\tMRO is: ", mro)
-        
-def calc_mro(cname):
-    mro = All_MROs.get(cname, None)
-    if mro is not None:
-        return mro
-    
-    c = All_Class_Index.get(cname, None)
-    if not c:
-        All_MROs[cname] = []
-        return []
-    supers = getattr(c, "subtype_of", None)
-    if not supers:
-        All_MROs[cname] = []
-        return []
-    
-    if len(supers) > 1:
-        print(f"> 1 supers for {cname} - {supers}")
-    # Note only taking the first! TODO
-    for supertype in supers:
-        super_name = str(supertype.class_name)
-        # print(cname, "\thas super: ", super_name)
-        All_MROs[cname] = [super_name] + calc_mro(super_name)
-        print(f"MRO for {cname} => ", All_MROs[cname])
-        return All_MROs[cname]
+
 
 def calc_component(obj):
     for annotation in obj.annotations:
@@ -234,100 +283,219 @@ def calc_component(obj):
         emoji_symbol = atype["Emoji"]
         # print(f"\tlabel = {label}, emoji = {emoji_symbol}")
         annotation.emoji = Emoji(emoji_symbol)
-    
+
+
 def calc_class(cls):
-    derive_presumed_plural(cls)
-    derive_plural(cls)
-    
+
+    calc_base_attribute(cls)
+
     for attribute in cls.attributes:
         calc_attribute(cls, attribute)
 
-# calc derivation: presumed plural
-def derive_presumed_plural(cls):
-    # print("Calcing presumed_plural")
-    class_name = str(cls.name)
-    cls.presumed_plural = fmk.pluralize(class_name)
-    # print(f"Set presumed plural for {cls}: name is {class_name}, presuming {cls.presumed_plural}")
 
-# calc derivation: plural
-def derive_plural(cls):
-    plural = cls.plural
-    if plural is not None:
-        plural = plural.strip()
-        cls.plural = plural
+def calc_base_attribute(cls: Class):
+    based_on_names = getattr(cls, "based_on", None)
+    if not based_on_names:
         return
-    # print(f"Using presumed plural for {cls}")
+    for base_name in based_on_names:
+        print(repr(base_name))
+        based_on_name_str = base_name.content
+        att_name = AttributeName(f"base{based_on_name_str}")
+        dt = BaseDataType(class_name=base_name, as_value_type=AsValue(False))
+        dtc = DataTypeClause(
+            data_type=dt,
+            is_optional=IsOptional(False),
+            cardinality=Cardinality.MANY_ONE,
+        )
+        one_liner = OneLiner(
+            f"A link back to the {based_on_name_str} on which this {cls.name.content} depends."
+        )
+        print("AttNam = ", att_name)
+        print("dt = ", dt)
+        print("dtc = ", dtc)
+        att = Attribute(name=att_name, one_liner=one_liner, data_type_clause=dtc)
+        class_name = cls.name.content
+        att.name._html_id = f"{class_name}__{att_name.content}"
+        print("Creating basedon attribute: ", repr(att))
+        add_implied_attribute(cls, att)
 
-    cls.plural = cls.presumed_plural
 
-def find_value_types():
-    print("finding value types...")
-    # for cname, cls in All_Class_Index.items():
-    #     print(cname, " => ", cls)
-    vtypes = []
-    for cls in All_Classes:
-        # print(cls)
-        if str(cls).startswith("Valuetype"):
-            vtypes.append(cls.name.content)
-    # print("found value types are: ", vtypes)
-    return vtypes
-    
+def add_implied_attribute(cls: Class, att: Attribute):
+    cname = cls.name.content
+    implied_atts = att_section_named(
+        cls, f"Implied Attributes for {cname}", create_section=True
+    )
+
+    implied_atts.attributes.append(att)
+
+
+def att_section_named(cls: Class, new_section_name: str, create_section=False):
+    sections = cls.attribute_sections
+    if not sections:
+        cls.attribute_sections = []
+        sections = cls.attribute_sections
+    implied_atts = None
+    for section in sections:
+        if section.name.content == new_section_name:
+            print("Found section named: ", new_section_name)
+            return section
+
+    if not create_section:
+        return None
+    # nothing found, create new section
+    section = AttributeSection(name=AttributeSectionName(new_section_name))
+    print(f"Creating section for {cls}: {section}")
+    cls.attribute_sections.append(section)
+    return section
+
 
 def calc_attribute(cls, attribute: Attribute):
+
+    calc_attribute_override(cls, attribute)
+
+    calc_attribute_inverse(cls, attribute)
+
+
+def calc_attribute_inverse(cls: Class, attribute: Attribute):
+    # imply inverse
+    cname = cls.name.content
+    aname = attribute.name.content
+
+    print(f"Considering {cname}.{aname} for inversion... ")
+    inverse = attribute.inverse
+    if inverse:
+        print("\tSkipping: already has inverse")
+    dtc = attribute.data_type_clause
+    if not dtc:
+        print("\tSkipping: NO DTC")
+        return
+
+    dt = dtc.data_type
+    print("\tdtc = ", dtc)
+    print("\tdt  = ", dt, " -- ", type(dt))
+
+    # Figure out whether the datatype is
+    #   a. Simple enough. Either a base type or List, Set, or Mapping with just base types
+    #       below
+    #   b. Whether the base type is a value or reference type
+    target_type0 = calc_inverse_target_type(dt)
+    print(f"\tTarget type0 = {target_type0}")
+
+    if not target_type0:
+        print("\tSkipping: datatype to complicated; no target type")
+        return None
+    # if "Mapping" in dtpytype:
+    #     print("\tskipping Mapping Data type")
+    #     return
+
+    if target_type0 not in The_Model.full_class_index:
+        print("\tSKIPPING No such class as ", target_type0)
+        return
+
+    target_type = singularize_class_name(target_type0)
+
+    if target_type in All_ValueTypes:
+        print(
+            f"\tSKIPPING {cname}.{aname}, a {dt}. core type {target_type} is a value type"
+        )
+        return
+
+    print(
+        f"\tInverting {cname}.{aname}, a {dt}. core type {target_type} not a value type"
+    )
+
+    # so
+    # cls is the class of the original attribute
+    # aname is the string name of the original
+
+    # target type is the string name of whete the new implied att should go
+    # source type is the string name of class in which the old attribute was found
+
+    source_type = cname
+    inverse_att_name = AttributeName(f"inverseOf {aname}")
+
+    # will sometimes be set of source_type. If
+    dt = BaseDataType(class_name=source_type, as_value_type=AsValue(False))
+    dtc = DataTypeClause(
+        data_type=dt, is_optional=IsOptional(False), cardinality=Cardinality.MANY_ONE
+    )
+    one_liner = OneLiner(
+        f"Inverse attribute for {source_type}.{aname} from which this was implied."
+    )
+    print("\tInvrse AttNam = ", inverse_att_name)
+    print("\tInverse dt = ", dt)
+    print("\tInverse dtc = ", dtc)
+    inverse_att = Attribute(
+        name=inverse_att_name, one_liner=one_liner, data_type_clause=dtc
+    )
+    inverse_att.name._html_id = f"{target_type}__{inverse_att_name.content}"
+    print("\tCreating inverse attribute: ", repr(inverse_att))
+    target_cls = The_Model.class_named(target_type)
+    add_implied_attribute(target_cls, inverse_att)
+
+    # create inverse attributes for the original and for the implied invers
+    inverse_att.inverse = AttributeReference(
+        class_name=ClassReference(cname), attribute_name=AttributeName(aname)
+    )
+    attribute.inverse = AttributeReference(
+        class_name=ClassReference(target_type), attribute_name=inverse_att_name
+    )
+
+    # And still have to add inverse clauses on both sides
+
+
+def singularize_class_name(cname: str) -> str:
+    cls = The_Model.full_class_index.get(cname, None)
+    if not cls:
+        return None
+    singular = str(cls.name)
+    print(f"\tSingular for {cname} is {singular}")
+    return singular
+
+
+def calc_inverse_target_type(dt: DataType) -> str:
+    target_type = None
+    print(f"\ttypename of dt is: {typename(dt)}")
+    dtname = typename(dt)
+    if dtname == "BaseDataType":
+        target_type = dt.class_name.content
+        return target_type
+    if dtname in ["SetDataType", "ListDataType"]:
+        element_type = dt.element_type
+        if typename(element_type) == "BaseDataType":
+            target_type = element_type.class_name.content
+            return target_type
+    return None
+
+
+def typename(obj):
+    return type(obj).__name__
+
+
+def calc_attribute_override(cls, attribute):
     # Note overrides
     cname = cls.name.content
     aname = attribute.name.content
     print("in calc attribute, attname is ", repr(attribute.name))
-    mros = All_MROs[cname]
+    mros = cls.calc_mro(The_Model)
+    print("calc attribute override; mro for ", cls, " is ", mros)
     for mro in mros:
         parent_att = All_Attributes_Index.get(mro, {}).get(aname, None)
         if not parent_att:
             continue
         print(f"Found override for {cname}.{aname} in {mro}")
         print("Attribute name = ", attribute.name)
-        
+
         newname = AttributeName(aname)
         print(".. and as AName: ", repr(newname))
         attribute.overrides = AttributeReference(ClassReference(mro), newname)
         break
-        
-    ValueTypes = find_value_types()
 
-    # imply inverse
-    print(f"Considering {cname}.{aname} for inversion... ")
-    dtc = attribute.data_type_clause
-    dt = dtc.data_type
-    dtpytype = type(dt).__name__
-    print("\tdtc = ", dtc)
-    print("\tdt  = ", dt, " -- ", type(dt))
-    if "Mapping" in dtpytype:
-        print("\tskipping Mapping Data type")
-        return
-    coretype = None
-    if "Base" in dtpytype:
-        print("\ta base data type2")
-
-        coretype = dt.class_name
-
-    elif "ListDataType" in dtpytype or "SetDataType" in dtpytype:
-        coretype = dt.element_type
-    
-    print("\tcore type is [", coretype, "]")
-    if not coretype:
-        print("\tSKIPPING no core type")
-        return
-    coretype = str(coretype).strip()
-    print(f"is {coretype} in Valuetypes?")
-    if coretype in ValueTypes:
-        print(f"\tSKIPPING {cname}.{aname}, a {dt}. core type {coretype} is a value type")
-        return
-
-    print(f"\tInverting {cname}.{aname}, a {dt}. core type {coretype} not a value type")
 
 @faculty_class
 class Validators(Faculty):
     """Faculty for adding validation methods to LDM classes."""
-    
+
     def validate_object(self, obj: Any, method_name: str = "validate"):
         """Validate an object using the appropriate patched method."""
         if not obj:
@@ -336,114 +504,113 @@ class Validators(Faculty):
         patched_func = self.resolve_patched_method(obj, method_name)
         if patched_func:
             patched_func(obj)
-        
+
         # Always do field validation
         validate_fields(obj)
-    
+
     def call_super_validate(self, obj, current_class_name: str = None):
         """Helper to call super().validate() equivalent."""
         return self.call_super_method(obj, "validate", current_class_name)
-    
+
     @patch_on(Component, "validate")
     def validate_component(self):
         calc_component(self)
         """Base validation for all Components"""
         if len(str(self.one_liner)) > 90:
-            createWarning(self, "Style", f"oneLiner is too long. ({len(str(self.one_liner))} chars).")
+            createWarning(
+                self,
+                "Style",
+                f"oneLiner is too long. ({len(str(self.one_liner))} chars).",
+                constraint_name="checkOneLinerLength",
+            )
         if len(str(self.name)) > 30:
-            createWarning(self, "Style", f"name is too long. ({len(str(self.name))} chars).")
+            createWarning(
+                self, "Style", f"name is too long. ({len(str(self.name))} chars)."
+            )
 
     @patch_on(LiterateModel, "validate")
     def validate_literate_model(self):
+
+        global The_Model
+
+        The_Model = self
         calc_model(self)
+
+        # call precalc a second time to include all the implied attributes
+        precalc_model(self)
 
         # Call super validator with explicit class name
         print("Validating LiterateModel")
-        _validation_faculty.call_super_validate(self, 'LiterateModel')
+        _validation_faculty.call_super_validate(self, "LiterateModel")
         print("Call to Validating references...")
         print("Before validating: ", len(self.classes), " classes in model")
         validate_references(self)
         print("After validating: ", len(self.classes), " classes in model")
         # self.classes = []   # Don't know why this is necessary, but it is!
-        
 
     @patch_on(SubjectE, "validate")  # lowest level Subject
     def validate_subject_e(self):
         # Call super validator with explicit class name
-        _validation_faculty.call_super_validate(self, 'SubjectE')
+        _validation_faculty.call_super_validate(self, "SubjectE")
 
-        classes_count = len(getattr(self, 'classes', []))
-        subjects_count = len(getattr(self, 'subjects', []))
-        
+        classes_count = len(getattr(self, "classes", []))
+        subjects_count = len(getattr(self, "subjects", []))
+
         obj_type = type(self).__name__
-        validate_each(getattr(self, 'classes', []))
-        validate_each(getattr(self, 'subjects', []))
+        validate_each(getattr(self, "classes", []))
+        validate_each(getattr(self, "subjects", []))
 
     @patch_on(Class, "validate")
     def validate_class(self):
         """Validate Class instances."""
         # Call super validator with explicit class name
-        _validation_faculty.call_super_validate(self, 'Class')
-        
+        _validation_faculty.call_super_validate(self, "Class")
+
         calc_class(self)
-        validate_each(getattr(self, 'constraints', []))
-        validate_each(getattr(self, 'attributes', []))
-        validate_each(getattr(self, 'attribute_sections', []))
+        validate_each(getattr(self, "constraints", []))
+        validate_each(getattr(self, "attributes", []))
+        validate_each(getattr(self, "attribute_sections", []))
 
     @patch_on(AttributeSection, "validate")
     def validate_attribute_section(self):
         """Validate AttributeSection instances."""
-        _validation_faculty.call_super_validate(self, 'AttributeSection')
-        
+        _validation_faculty.call_super_validate(self, "AttributeSection")
+
         if not hasattr(self, "attributes") or self.attributes is None:
-            createError(self, "Empty AttributeSection", "Missing list of Attributes")
-        
-        validate_each(getattr(self, 'attributes', []))
+            createError(self, "EmptyAttributeSection", "Missing list of Attributes")
+
+        validate_each(getattr(self, "attributes", []))
 
     @patch_on(Attribute, "validate")
     def validate_attribute(self):
         """Validate Attribute instances."""
-        _validation_faculty.call_super_validate(self, 'Attribute')
-        
-        _validation_faculty.validate_object(getattr(self, 'data_type_clause', None))
-        _validation_faculty.validate_object(getattr(self, 'derivation', None))
-        _validation_faculty.validate_object(getattr(self, 'default', None))
-        validate_each(getattr(self, 'constraints', []))
+        _validation_faculty.call_super_validate(self, "Attribute")
 
-    
-    @patch_on(DataTypeClause, "validate")
-    def validate_data_type_clause(self):
-        """Validate DataTypeClause instances."""
-        validate_presence(self, "data_type")
-        _validation_faculty.validate_object(getattr(self, 'data_type', None))
-        
-    @patch_on(DataType, "validate")
-    def validate_data_type(datatype:DataType):
-        """Validate DataType instances."""
-        print("validating datatype: ", datatype)
-        base_types = datatype.base_type_names()
-        print("... base types are: ", base_types)
-        for base_type in base_types:
-            if base_type in All_Class_Names:
-                print("\tno problem with ", base_type)
-                continue
-            print("Base type error for ", base_type, " in dt ", datatype)
-        
-    
+        dtc = getattr(self, "data_type_clause", None)
+        if dtc:
+            validate_data_type_clause(dtc, target=self)
+
+        _validation_faculty.validate_object(getattr(self, "derivation", None))
+        _validation_faculty.validate_object(getattr(self, "default", None))
+        validate_each(getattr(self, "constraints", []))
+
     @patch_on(Formula, "validate")
     def validate_formula(self):
         """Validate Formula instances."""
         one_liner = getattr(self, "one_liner", "")
         if len(str(one_liner)) > 90:
-            createWarning(self, "Style", f"Formula one_liner is too long ({len(str(one_liner))} chars)")
-        
+            createWarning(
+                self,
+                "Style",
+                f"Formula one_liner is too long ({len(str(one_liner))} chars)",
+            )
 
     @patch_on(Constraint, "validate")
     def validate_constraint(self):
         """Validate Constraint instances."""
-        _validation_faculty.call_super_validate(self, 'Constraint')
-        createError(self, "Tester", "Let's see how Constraints handle diagnostics")
+        _validation_faculty.call_super_validate(self, "Constraint")
         validate_presence(self, "ocl")
+
 
 # Helper functions
 def validate_each(objects: List):
@@ -452,44 +619,75 @@ def validate_each(objects: List):
     for i, obj in enumerate(objects):
         _validation_faculty.validate_object(obj)
 
+
 def validate_presence(obj, attribute):
     value = getattr(obj, attribute, None)
     if value:
         return
-    createError(obj, "NonPresence", f"Missing value for required field: '{attribute}'")
+    createError(obj, "MissingValue", f"Missing value for required field: '{attribute}'")
+
+
+def validate_data_type_clause(dtc, target=None):
+    """Validate DataTypeClause instances."""
+    validate_presence(dtc, "data_type")
+    data_type = getattr(dtc, "data_type", None)
+    if data_type:
+        validate_data_type(data_type, target=target)
+
+
+def validate_data_type(datatype: DataType, target=None):
+    """Validate DataType instances."""
+    print("validating datatype: ", datatype)
+    base_types = datatype.base_type_names()
+    print("... base types are: ", base_types)
+    for base_type in base_types:
+        if base_type in The_Model.all_class_names:
+            print("\tno problem with ", base_type)
+            continue
+        print("\t!!! Base type error for ", base_type, " in dt ", datatype)
+        createError(
+            datatype,
+            "InvalidBaseType",
+            f"{base_type} is not a class name - or plural",
+            constraint_name="checkClassReference",
+            diagnostic_target=target,
+        )
+
 
 # Create the validators instance
 _validation_faculty = Validators()
 print("Created Validators() = ", _validation_faculty)
 show_patches(_validation_faculty.all_patches)
 
+
 def validate_model(the_model):
     """Validate an entire LDM model."""
     _validation_faculty.validate_object(the_model)
     return All_Diagnostics
 
+
 # Reference validation functions (unchanged)
 ClassListAttributes = ["based_on", "dependents"]
 
-def validate_references(model):
+
+def validate_references(model: LiterateModel):
     """Validate all references within a model."""
-    all_classes = get_all_classes(model)
+    all_classes = model.all_classes
+
     class_names = set(str(c.name) for c in all_classes)
     print("Validating references")
     for c in all_classes:
         for att in ClassListAttributes:
             attrefs = getattr(c, att, [])
-            print("Validation class refs for ", c.name, "with att = ", att, " - ", attrefs)
+            print(
+                "Validation class refs for ", c.name, "with att = ", att, " - ", attrefs
+            )
             for ref in attrefs:
                 ref_name = str(ref)
                 if ref_name not in class_names:
-                    createError(c, "Invalid class reference", f"Invalid reference to '{ref}' in {att}")
-
-def get_all_classes(subject: SubjectB) -> List[Class]:
-    all_classes = []
-    all_classes.extend(subject.classes)
-    # note: following causes subject.classes to be extended with all below!!
-    # all_classes = subject.classes
-    for sub in subject.subjects:
-        all_classes.extend(get_all_classes(sub))
-    return all_classes
+                    createError(
+                        c,
+                        "InvalidClassReference",
+                        f"Invalid reference to '{ref}' in {att}",
+                        constraint_name="checkListedClassReference",
+                    )

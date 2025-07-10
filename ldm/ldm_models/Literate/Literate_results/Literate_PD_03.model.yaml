@@ -74,7 +74,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Component__normalName
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -98,7 +99,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Component__name
+                cardinality:
+                - O_O
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -119,7 +121,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Component__qualifiedName
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -152,6 +155,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             default:
                 _type: Default
                 one_liner:
@@ -166,7 +171,7 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' the abbreviated name should be shorter than the actual
                         name
 
@@ -190,7 +195,6 @@ subjects:
                 severity: ' Warning
 
                     '
-            _html_id: Component__abbreviatedName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -215,7 +219,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Component__oneLiner
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -240,7 +245,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Component__elaboration
+                cardinality:
+                - O_O
         attribute_sections:
         -   _type: AttributeSection
             one_liner:
@@ -279,6 +285,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -300,7 +308,6 @@ subjects:
                                 It helps distinguish embellishments from the core
                                 model elements defined in the original LDM source.
                     is_embellishment: false
-                _html_id: Component__isEmbellishment
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -349,7 +356,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AnnotationType__emoji
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -373,7 +381,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AnnotationType__emojiName
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -383,21 +392,22 @@ subjects:
             name:
                 _type: AttributeName
                 content: emojiUnicode
-            parenthetical: Unicode
+            parenthetical: String
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: Unicode
+                        content: String
                     as_value_type:
                         _type: AsValue
                         content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AnnotationType__emojiUnicode
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -407,21 +417,22 @@ subjects:
             name:
                 _type: AttributeName
                 content: label
-            parenthetical: CamelName
+            parenthetical: LowerCamel
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: CamelName
+                        content: LowerCamel
                     as_value_type:
                         _type: AsValue
                         content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AnnotationType__label
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -445,6 +456,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             default:
                 _type: Default
                 one_liner:
@@ -453,7 +466,6 @@ subjects:
 
                         '
                 is_embellishment: false
-            _html_id: AnnotationType__plural
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -477,7 +489,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AnnotationType__purpose
+                cardinality:
+                - O_O
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -529,7 +542,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
-            _html_id: Annotation__annotationType
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -558,6 +572,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             default:
                 _type: Default
                 one_liner:
@@ -566,7 +582,6 @@ subjects:
 
                         '
                 is_embellishment: false
-            _html_id: Annotation__label
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -587,6 +602,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+                cardinality:
+                - O_O
             default:
                 _type: Default
                 one_liner:
@@ -595,7 +612,6 @@ subjects:
 
                         '
                 is_embellishment: false
-            _html_id: Annotation__emoji
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -619,7 +635,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Annotation__content
+                cardinality:
+                - O_O
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -655,6 +672,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -676,7 +695,6 @@ subjects:
                                 helps distinguish embellishment annotations from the
                                 annotations defined in the original LDM source.
                     is_embellishment: false
-                _html_id: Annotation__isEmbellishment
 -   _type: SubjectB
     is_embellishment: false
     prefix: '##'
@@ -729,7 +747,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: LiterateDataModel__name
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -757,6 +776,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             derivation:
                 _type: Derivation
                 one_liner:
@@ -768,14 +789,11 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Subject names must be unique across the model.
 
                         '
                 is_embellishment: false
-                message:
-                    _type: Paragraph
-            _html_id: LiterateDataModel__allSubjects
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -802,6 +820,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             derivation:
                 _type: Derivation
                 one_liner:
@@ -813,14 +833,11 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Class names must be unique across the model.
 
                         '
                 is_embellishment: false
-                message:
-                    _type: Paragraph
-            _html_id: LiterateDataModel__allClasses
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -854,7 +871,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: LiterateDataModel__annotationTypes
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -879,6 +897,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -887,7 +907,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: LiterateDataModel__preferredCodingLanguage
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -910,7 +929,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                _html_id: LiterateDataModel__alternateCodingLanguages
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -935,6 +955,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -943,7 +965,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: LiterateDataModel__preferredTemplateLanguage
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -966,7 +987,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                _html_id: LiterateDataModel__alternateTemplateLanguages
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -993,6 +1015,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -1001,7 +1025,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: LiterateDataModel__aiFunctions
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -1051,7 +1074,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Subject__name
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1076,7 +1100,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
-            _html_id: Subject__parentSubject
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1111,7 +1136,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Subject__classes
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1144,6 +1170,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             inverse:
                 _type: AttributeReference
                 class_name:
@@ -1152,7 +1180,6 @@ subjects:
                 attribute_name:
                     _type: AttributeName
                     content: parentSubject
-            _html_id: Subject__childSubjects
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -1216,13 +1243,11 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Within each Class, attribute names must be unique.
 
                         '
                 is_embellishment: false
-                message:
-                    _type: Paragraph
             attributes:
             -   _type: Attribute
                 one_liner:
@@ -1252,20 +1277,22 @@ subjects:
                 name:
                     _type: AttributeName
                     content: pluralForm
-                parenthetical: UpperName
+                parenthetical: UpperCamel
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: UpperName
+                            content: UpperCamel
                         as_value_type:
                             _type: AsValue
                             content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -1274,7 +1301,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: Class__pluralForm
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1302,7 +1328,7 @@ subjects:
                 name:
                     _type: AttributeName
                     content: basedOn
-                parenthetical: SetOf Classes
+                parenthetical: SetOf Class
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1311,14 +1337,15 @@ subjects:
                             _type: BaseDataType
                             class_name:
                                 _type: ClassReference
-                                content: Classes
+                                content: Class
                             as_value_type:
                                 _type: AsValue
                                 content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__basedOn
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1342,7 +1369,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__supertypes
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1379,12 +1407,13 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__subtypings
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
                     content: "Any subtypes or specializations of this class based\
-                        \ on it\u2019s subtypings. _"
+                        \ on it\u2019s subtypings."
                 annotations:
                 -   _type: Annotation
                     label:
@@ -1416,7 +1445,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__subtypes
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1443,7 +1473,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__attributes
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1470,7 +1501,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__attributeSections
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1506,7 +1538,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__constraints
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1533,7 +1566,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Class__methods
+                    cardinality:
+                    - O_O
             attribute_sections:
             -   _type: AttributeSection
                 is_embellishment: false
@@ -1570,6 +1604,8 @@ subjects:
                         is_optional_lit:
                             _type: IsOptional
                             content: true
+                        cardinality:
+                        - O_O
                     inverse:
                         _type: AttributeReference
                         class_name:
@@ -1578,7 +1614,6 @@ subjects:
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
-                    _html_id: Class__dependents
                 -   _type: Attribute
                     is_embellishment: false
                     prefix: '-'
@@ -1601,6 +1636,8 @@ subjects:
                         is_optional_lit:
                             _type: IsOptional
                             content: true
+                        cardinality:
+                        - O_O
                     inverse:
                         _type: AttributeReference
                         class_name:
@@ -1609,7 +1646,6 @@ subjects:
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
-                    _html_id: Class__uniqueKeys
         -   _type: Class
             one_liner:
                 _type: OneLiner
@@ -1631,21 +1667,22 @@ subjects:
                 name:
                     _type: AttributeName
                     content: name
-                parenthetical: Upper Name
+                parenthetical: LowerCamel
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: UpperName
+                            content: LowerCamel
                         as_value_type:
                             _type: AsValue
                             content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Subtyping__name
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -1666,6 +1703,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -1674,7 +1713,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: Subtyping__isExclusive
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -1695,6 +1733,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -1703,7 +1743,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: Subtyping__isExhaustive
             -   _type: Attribute
                 elaboration:
                 -   _type: Paragraph
@@ -1746,7 +1785,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Subtyping__classes
+                    cardinality:
+                    - O_O
         -   _type: Class
             one_liner:
                 _type: OneLiner
@@ -1801,7 +1841,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: CodeType__isCaptive
+                    cardinality:
+                    - O_O
         -   _type: ValueType
             one_liner:
                 _type: OneLiner
@@ -1839,7 +1880,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: CodeValue__code
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1873,7 +1915,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: CodeValue__description
+                    cardinality:
+                    - O_O
         -   _type: Class
             one_liner:
                 _type: OneLiner
@@ -1921,20 +1964,20 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 constraints:
                 -   _type: Constraint
                     one_liner:
-                    -   _type: OneLiner
+                        _type: OneLiner
                         content: ' each attribute must be a direct or inherited of
                             the base class.
 
                             '
                     is_embellishment: false
-                    message:
-                        _type: Paragraph
                 -   _type: Constraint
                     one_liner:
-                    -   _type: OneLiner
+                        _type: OneLiner
                         content: " no repetitions allowed in keyAttributes\n> \U0001F44D\
                             \ **Issue**: introduce PureLists?"
                     annotations:
@@ -1947,9 +1990,6 @@ subjects:
                             content: need ascending descending to support index keys
                                 or ordering keys.
                     is_embellishment: false
-                    message:
-                        _type: Paragraph
-                _html_id: Key__keyAttributes
         -   _type: Class
             one_liner:
                 _type: OneLiner
@@ -2037,7 +2077,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AttributeSection__isOptional
+                cardinality:
+                - O_O
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -2083,10 +2124,11 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             overrides:
                 _type: AttributeReference
                 class_name: CamelName
-            _html_id: Attribute__name
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2122,7 +2164,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Attribute__dataType
+                cardinality:
+                - O_O
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -2158,6 +2201,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -2166,7 +2211,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: Attribute__isOptional
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -2191,6 +2235,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -2216,7 +2262,6 @@ subjects:
                         content:
                             _type: OneLiner
                     is_embellishment: false
-                _html_id: Attribute__cardinality
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2237,7 +2282,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Attribute__author
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 annotations:
                 -   _type: Annotation
@@ -2266,7 +2312,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                _html_id: Attribute__books
+                    cardinality:
+                    - O_O
         -   _type: AttributeSection
             is_embellishment: false
             prefix: __
@@ -2297,6 +2344,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -2306,7 +2355,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: Attribute__isInvertible
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -2331,6 +2379,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -2339,7 +2389,6 @@ subjects:
 
                             '
                     is_embellishment: false
-                _html_id: Attribute__inverseClass
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2360,7 +2409,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                _html_id: Attribute__inverseAttribute
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 is_embellishment: false
                 prefix: '-'
@@ -2381,7 +2431,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                _html_id: Attribute__inverseIsOptional
+                    cardinality:
+                    - O_O
         -   _type: AttributeSection
             is_embellishment: false
             prefix: __
@@ -2439,7 +2490,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                _html_id: Attribute__default
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -2472,7 +2524,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
-                _html_id: Attribute__derivation
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -2506,7 +2559,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
-                _html_id: Attribute__constraints
+                    cardinality:
+                    - O_O
         -   _type: AttributeSection
             is_embellishment: false
             prefix: __
@@ -2523,7 +2577,6 @@ subjects:
                 name:
                     _type: AttributeName
                     content: overrides
-                _html_id: Attribute__overrides
     -   _type: ValueType
         one_liner:
             _type: OneLiner
@@ -2561,7 +2614,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Derivation__statement
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2586,7 +2640,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Derivation__expression
+                cardinality:
+                - O_O
     -   _type: ValueType
         one_liner:
             _type: OneLiner
@@ -2633,7 +2688,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Constraint__statement
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2658,7 +2714,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Constraint__expression
+                cardinality:
+                - O_O
         -   _type: Attribute
             elaboration:
             -   _type: CodeBlock
@@ -2688,7 +2745,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Constraint__severity
+                cardinality:
+                - O_O
     -   _type: ValueType
         is_embellishment: false
         prefix: Value Type
@@ -2773,7 +2831,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: CodeExpression__language
+                cardinality:
+                - O_O
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -2794,7 +2853,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: CodeExpression__expression
+                cardinality:
+                - O_O
 -   _type: SubjectB
     is_embellishment: false
     prefix: '##'
@@ -2849,7 +2909,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Method__parameters
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2873,7 +2934,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: Method__returnType
+                cardinality:
+                - O_O
     -   _type: Class
         is_embellishment: false
         prefix: Class
@@ -2916,7 +2978,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: ParameterAnInputToAMethod__type
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2940,7 +3003,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: ParameterAnInputToAMethod__cardinality
+                cardinality:
+                - O_O
 -   _type: SubjectB
     is_embellishment: false
     prefix: '##'
@@ -2983,7 +3047,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: SimpleDataTypeSubtpeOfDataType__coreClass
+                cardinality:
+                - O_O
     -   _type: ValueType
         is_embellishment: false
         prefix: Value Type
@@ -3012,7 +3077,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: ComplexDataType__aggregation
+                cardinality:
+                - O_O
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -3035,7 +3101,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: ComplexDataType__aggregatedTypes
+                cardinality:
+                - O_O
     -   _type: ValueType
         is_embellishment: false
         prefix: Value Type
@@ -3075,7 +3142,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AggregatingOperator__name
+                cardinality:
+                - O_O
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -3096,7 +3164,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AggregatingOperator__arity
+                cardinality:
+                - O_O
         -   _type: Attribute
             is_embellishment: false
             prefix: '-'
@@ -3117,7 +3186,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: AggregatingOperator__spelling
+                cardinality:
+                - O_O
 -   _type: SubjectB
     elaboration:
     -   _type: Paragraph
@@ -3186,10 +3256,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Must follow the camel case naming convention and not
                         be empty.
 
@@ -3220,9 +3292,6 @@ subjects:
                             first usage by another class (Component), to provide context
                             and understanding before it is used further in the model.'
                 is_embellishment: false
-                message:
-                    _type: Paragraph
-            _html_id: CamelName__valueTheString
     -   _type: ValueType
         one_liner:
             _type: OneLiner
@@ -3302,14 +3371,12 @@ subjects:
         constraints:
         -   _type: Constraint
             one_liner:
-            -   _type: OneLiner
+                _type: OneLiner
                 content: ' content consists of CamelNames, separated by periods.  Each
                     of the camel names must be Upper Camel except, possibly, the first.
 
                     '
             is_embellishment: false
-            message:
-                _type: Paragraph
     -   _type: Class
         one_liner:
             _type: OneLiner
@@ -3318,7 +3385,7 @@ subjects:
         prefix: Class
         name:
             _type: ClassName
-            content: RichText
+            content: ValueTypeRichText
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3352,7 +3419,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: RichText__value
+                cardinality:
+                - O_O
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -3385,7 +3453,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
-            _html_id: RichText__format
+                cardinality:
+                - O_O
     -   _type: ValueType
         one_liner:
             _type: OneLiner
@@ -3428,10 +3497,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' must not containa line break or new line character
 
                         '
@@ -3439,7 +3510,6 @@ subjects:
                 message: ' A line can''t span two lines
 
                     '
-            _html_id: OneLiner__value
     -   _type: ValueType
         one_liner:
             _type: OneLiner

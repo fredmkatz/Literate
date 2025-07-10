@@ -61,6 +61,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             annotations:
             -   _type: Annotation
                 label:
@@ -91,6 +93,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -110,6 +114,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -133,6 +139,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             annotations:
             -   _type: Annotation
                 label:
@@ -154,7 +162,7 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' the abbreviated name should be shorter than the actual
                         name
 
@@ -200,6 +208,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -223,6 +233,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         attribute_sections:
         -   _type: AttributeSection
             prefix: __
@@ -256,6 +268,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -321,6 +335,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -343,6 +359,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -351,20 +369,22 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: the Unicode for the emoji
-            parenthetical: Unicode
+            parenthetical: String
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: Unicode
+                        content: String
                     as_value_type:
                         _type: AsValue
                         content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -373,20 +393,22 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: A short label to indicate the purpose of the annotation _
-            parenthetical: CamelName
+            parenthetical: LowerCamel
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: CamelName
+                        content: LowerCamel
                     as_value_type:
                         _type: AsValue
                         content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -409,6 +431,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             default:
                 _type: Default
                 one_liner:
@@ -438,6 +462,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
     -   _type: Class
         prefix: _
         name:
@@ -469,6 +495,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+                cardinality:
+                - O_O
             annotations:
             -   _type: Annotation
                 label:
@@ -508,6 +536,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             elaboration:
             -   _type: Paragraph
                 content: 'But any short label is valid.
@@ -539,6 +569,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+                cardinality:
+                - O_O
             default:
                 _type: Default
                 one_liner:
@@ -568,6 +600,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         attribute_sections:
         -   _type: AttributeSection
             prefix: __
@@ -598,6 +632,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -666,6 +702,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -692,6 +730,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             derivation:
                 _type: Derivation
                 one_liner:
@@ -702,7 +742,7 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Subject names must be unique across the model.
 
                         '
@@ -731,6 +771,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             derivation:
                 _type: Derivation
                 one_liner:
@@ -741,7 +783,7 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Class names must be unique across the model.
 
                         '
@@ -773,6 +815,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -796,6 +840,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -824,6 +870,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -847,6 +895,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -875,6 +925,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -900,6 +952,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -953,6 +1007,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -976,6 +1032,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: true
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -1001,6 +1059,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             annotations:
             -   _type: Annotation
                 label:
@@ -1034,6 +1094,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             inverse:
                 _type: AttributeReference
                 class_name:
@@ -1106,7 +1168,7 @@ subjects:
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Within each Class, attribute names must be unique.
 
                         '
@@ -1119,20 +1181,22 @@ subjects:
                 one_liner:
                     _type: OneLiner
                     content: the normal English plural form of the name of the Class
-                parenthetical: UpperName
+                parenthetical: UpperCamel
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: UpperName
+                            content: UpperCamel
                         as_value_type:
                             _type: AsValue
                             content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 elaboration:
                 -   _type: Paragraph
                     content: "Might be Books for the Book class or other regular plurals.\n\
@@ -1167,7 +1231,7 @@ subjects:
                 one_liner:
                     _type: OneLiner
                     content: the Class or Classes on which this class is dependent
-                parenthetical: SetOf Classes
+                parenthetical: SetOf Class
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1176,13 +1240,15 @@ subjects:
                             _type: BaseDataType
                             class_name:
                                 _type: ClassReference
-                                content: Classes
+                                content: Class
                             as_value_type:
                                 _type: AsValue
                                 content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 elaboration:
                 -   _type: Paragraph
                     content: 'This is solely based on **Existence Dependency**. A
@@ -1223,6 +1289,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -1248,6 +1316,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -1266,7 +1336,7 @@ subjects:
                 one_liner:
                     _type: OneLiner
                     content: "Any subtypes or specializations of this class based\
-                        \ on it\u2019s subtypings. _"
+                        \ on it\u2019s subtypings."
                 parenthetical: ListOf Classes
                 data_type_clause:
                     _type: DataTypeClause
@@ -1283,6 +1353,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -1318,6 +1390,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -1343,6 +1417,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -1368,6 +1444,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -1402,6 +1480,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             attribute_sections:
             -   _type: AttributeSection
                 prefix: __
@@ -1433,6 +1513,8 @@ subjects:
                         is_optional_lit:
                             _type: IsOptional
                             content: true
+                        cardinality:
+                        - O_O
                     inverse:
                         _type: AttributeReference
                         class_name:
@@ -1462,6 +1544,8 @@ subjects:
                         is_optional_lit:
                             _type: IsOptional
                             content: true
+                        cardinality:
+                        - O_O
                     inverse:
                         _type: AttributeReference
                         class_name:
@@ -1488,20 +1572,22 @@ subjects:
                 name:
                     _type: AttributeName
                     content: name
-                parenthetical: Upper Name
+                parenthetical: LowerCamel
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: UpperName
+                            content: LowerCamel
                         as_value_type:
                             _type: AsValue
                             content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -1521,6 +1607,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -1547,6 +1635,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -1575,6 +1665,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 elaboration:
                 -   _type: Paragraph
                     content: "***DSL***:  Shown in the DSL as\n \n+ > Subbtypes: byBrand\
@@ -1652,6 +1744,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
         -   _type: ValueType
             prefix: 'ValueType:'
             name:
@@ -1686,6 +1780,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -1708,6 +1804,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -1762,17 +1860,19 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 constraints:
                 -   _type: Constraint
                     one_liner:
-                    -   _type: OneLiner
+                        _type: OneLiner
                         content: ' each attribute must be a direct or inherited of
                             the base class.
 
                             '
                 -   _type: Constraint
                     one_liner:
-                    -   _type: OneLiner
+                        _type: OneLiner
                         content: " no repetitions allowed in keyAttributes\n> \U0001F44D\
                             \ **Issue**: introduce PureLists?"
                     annotations:
@@ -1858,6 +1958,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             elaboration:
             -   _type: Paragraph
                 content: "If the Attribute Section is required,then each Attribute\
@@ -1907,6 +2009,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             overrides:
                 _type: AttributeReference
                 class_name: CamelName
@@ -1932,6 +2036,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             elaboration:
             -   _type: Paragraph
                 content: "But,\n \n+ * List of Editions\n \n+ * Set of Edition\n \n\
@@ -1974,6 +2080,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -2004,6 +2112,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 default:
                     _type: Default
                     one_liner:
@@ -2047,6 +2157,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -2066,6 +2178,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -2099,6 +2213,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -2130,6 +2246,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
                 derivation:
                     _type: Derivation
                     one_liner:
@@ -2156,6 +2274,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
             -   _type: Attribute
                 prefix: '-'
                 name:
@@ -2175,6 +2295,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
         -   _type: AttributeSection
             prefix: __
             name:
@@ -2207,6 +2329,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -2250,6 +2374,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: true
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -2282,6 +2408,8 @@ subjects:
                     is_optional_lit:
                         _type: IsOptional
                         content: false
+                    cardinality:
+                    - O_O
                 annotations:
                 -   _type: Annotation
                     label:
@@ -2335,6 +2463,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2358,6 +2488,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
     -   _type: ValueType
         prefix: 'ValueType:'
         name:
@@ -2401,6 +2533,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2424,6 +2558,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2443,6 +2579,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             elaboration:
             -   _type: CodeBlock
                 content: '```codes
@@ -2518,6 +2656,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             elaboration:
             -   _type: CodeBlock
                 content: '``` code
@@ -2546,6 +2686,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
 -   _type: SubjectB
     prefix: '##'
     name:
@@ -2596,6 +2738,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2618,6 +2762,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
     -   _type: Class
         prefix: _
         name:
@@ -2657,6 +2803,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2679,6 +2827,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
 -   _type: SubjectB
     prefix: '##'
     name:
@@ -2715,6 +2865,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
     -   _type: ValueType
         prefix: 'ValueType:'
         name:
@@ -2740,6 +2892,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2761,6 +2915,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
     -   _type: ValueType
         prefix: 'ValueType:'
         name:
@@ -2786,6 +2942,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             elaboration:
             -   _type: CodeBlock
                 content: '``` code
@@ -2816,6 +2974,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -2835,6 +2995,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
 -   _type: SubjectB
     prefix: '##'
     name:
@@ -2895,10 +3057,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' Must follow the camel case naming convention and not
                         be empty.
 
@@ -3001,7 +3165,7 @@ subjects:
         constraints:
         -   _type: Constraint
             one_liner:
-            -   _type: OneLiner
+                _type: OneLiner
                 content: ' content consists of CamelNames, separated by periods.  Each
                     of the camel names must be Upper Camel except, possibly, the first.
 
@@ -3010,7 +3174,7 @@ subjects:
         prefix: _
         name:
             _type: ClassName
-            content: RichText
+            content: ValueTypeRichText
         one_liner:
             _type: OneLiner
             content: A string with markup for block level formatting.
@@ -3045,6 +3209,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
         -   _type: Attribute
             prefix: '-'
             name:
@@ -3067,6 +3233,8 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             elaboration:
             -   _type: CodeBlock
                 content: '```code
@@ -3115,10 +3283,12 @@ subjects:
                 is_optional_lit:
                     _type: IsOptional
                     content: false
+                cardinality:
+                - O_O
             constraints:
             -   _type: Constraint
                 one_liner:
-                -   _type: OneLiner
+                    _type: OneLiner
                     content: ' must not containa line break or new line character
 
                         '

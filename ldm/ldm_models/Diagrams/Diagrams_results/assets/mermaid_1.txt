@@ -1,0 +1,17 @@
+
+
+classDiagram
+class Component
+class Literate
+class Subject
+class Class
+class Attrribute Section
+class Attribute
+
+Component  <|-- Literate
+Subject  <|-- Literate
+Class  <|-- Literate
+AttributeSection  <|-- Literate
+Attribute  <|-- Literate
+
+classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px

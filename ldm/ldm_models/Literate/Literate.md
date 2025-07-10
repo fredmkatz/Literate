@@ -47,8 +47,8 @@ _ **AnnotationType** - a kind of note, or aside, used to call attention to addit
 But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type. 
 - **emoji** - an emoji (Emoji)
 - **emojiName** - an emoji (String)
-- **emojiUnicode** - the Unicode for the emoji (Unicode)
-- **label** - A short label to indicate the purpose of the annotation _(CamelName)_  
+- **emojiUnicode** - the Unicode for the emoji (String)
+- **label** - A short label to indicate the purpose of the annotation _(LowerCamel)_  
 - **plural** - the plural form of the label (*UpperCamel*).  
     Default: based on label
  - **Purpose** - the intended reason for the annotation. (OneLiner)
@@ -152,7 +152,7 @@ _ **Class** - A key entity or object type in the model, often corresponding to a
 Plural: Classes  
 Subtype of: Component  
 ***Constraint***: Within each Class, attribute names must be unique.  
-- **pluralForm** - the normal English plural form of the name of the Class (UpperName)  
+- **pluralForm** - the normal English plural form of the name of the Class (UpperCamel)  
 
     Might be Books for the Book class or other regular plurals. 
     But also might be People for Person. 
@@ -161,7 +161,7 @@ Subtype of: Component
    
     The exception is when a common noun has two plural forms, like People and Persons. But this is unusual.  
 	***Default***: the regular plural, formed by adding "s" or "es".  
-- **basedOn** - the Class or Classes on which this class is dependent (SetOf Classes).  
+- **basedOn** - the Class or Classes on which this class is dependent (SetOf Class).  
 
 
   	This is solely based on **Existence Dependency**. A true dependent entity cannot logically exist without the related parent entity. For instance, an Order Item cannot exist without an Order. If removing the parent entity logically implies removing the dependent entity, then it is a dependent entity.  
@@ -170,14 +170,14 @@ Subtype of: Component
   	ToDo - fix that
 
 
-- **supertypes** - The parent class(es) from which this class inherits attributes _(ListOf Classes)_
+- **supertypes** - The parent class(es) from which this class inherits attributes (ListOf Classes)
 
 - **subtypings** - the criteria, or dimensions, by which the class can be divided into subtypes (list of Subtypings).
 	
      Example: in a library model, the `Book` class could have subtypings based on genre (e.g., Fiction, Non-fiction), format (e.g., Hardcover, Paperback), or subject (e.g., Science, History).   
    
 	
-- **subtypes** - Any subtypes or specializations of this class based on it’s subtypings. _(ListOf Classes)_  
+- **subtypes** - Any subtypes or specializations of this class based on it’s subtypings. (ListOf Classes)
 
     
     Example: For instance, using the `Book` example, the subtypes could include `FictionBook`, `Non-fictionBook`, `HardcoverBook`, `PaperbackBook`, `ScienceBook`, and `HistoryBook`.
@@ -204,7 +204,7 @@ __  ***Implied Attributes***
 
 _ **Subtyping** - a way in which subtypes of a Class may be classified (Subtype of Component).  
     ***based on:*** Class
-- **name** (Upper Name). 
+- **name** (LowerCamel). 
     Usually ByThis or ByThat
 - **is exclusive** (Boolean).  
     Default: true
@@ -448,7 +448,7 @@ ValueType:   **Qualified Camel** - an expression consisting of Camel Names separ
 ***Subtype of***: String
 ***Constraint***: content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first. 
 
-_ **RichText** - A string with markup for block level formatting.  
+_ ValueType: **RichText** - A string with markup for block level formatting.  
   ***SubtypeOf***: String  
   
   - **value** - the string content (string)  
@@ -607,3 +607,38 @@ Insert Camel Case.md
 - minor component
 - embellishment
 - words and phrases
+
+
+``` mermaid
+erDiagram
+    Component ||--|LiterateDataModel : inherits
+    Component ||--|Subject : inherits
+    Subject ||--|SubjectArea : inherits
+    Component ||--|Class : inherits
+    Class ||--|ReferenceType : inherits
+    Component ||--|Key : inherits
+    Key ||--|UniqueKey : inherits
+    Component ||--|AttributeSection : inherits
+    Component ||--|Attribute : inherits
+    Component ||--|Constraint : inherits
+    Constraint ||--|ClassConstraint : inherits
+    Constraint ||--|AttributeConstraint : inherits
+    Component ||--|Method : inherits
+    Component ||--|ParameterAnInputToAMethod : inherits
+    AnnotationType }|--|} LiterateDataModel : based_on
+    Annotation }|--|} Component : based_on
+    Annotation ||--|| AnnotationType : annotationType
+    Subject }|--|} LiterateDataModel : based_on
+    Subject ||--|| Subject : parentSubject
+    Class ||--|| Class : basedOn
+    Subtyping }|--|} Class : based_on
+    CodeValue }|--|} CodeType : based_on
+    Key }|--|} Class : based_on
+    AttributeSection }|--|} Class : based_on
+    Attribute }|--|} AttributeSection : based_on
+    Attribute ||--|| DataType : dataType
+    ClassConstraint }|--|} Class : based_on
+    AttributeConstraint }|--|} Attribute : based_on
+    Method ||--|| DataType : returnType
+    ParameterAnInputToAMethod ||--|| DataType : type
+    ```

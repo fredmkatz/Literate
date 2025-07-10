@@ -362,12 +362,15 @@ if __name__ == "__main__":
     ]
     
     test_models = ["LiterateTester"]
-    test_models = ["Diagrams"]
 
     test_models = ["Bibiio"]
     test_models = all_models
     test_models = ["Markdown"]
     test_models = ["Mini"]
+    test_models = ["Literate", "Diagrams"]
+
+    test_models = ["Literate", "Diagrams"]
+    test_models = ["Diagrams"]
     test_models = ["Literate"]
 
     import traceback

@@ -1,0 +1,17 @@
+['ldm/ldm_models/Diagrams/Diagrams_results\\Diagrams_PD_02.dict.yaml', 'ldm/ldm_models/Diagrams/Diagrams_results\\Diagrams_PD_03.model.yaml', 'ldm/ldm_models/Diagrams/Diagrams_results\\Diagrams_PD_04.v_model.yaml']
+Including:  Diagrams_PD_02.dict.yaml
+Including:  Diagrams_PD_03.model.yaml
+
+Census:  Trimmed Merged  for dict_keys(['Diagrams_PD_02.dict.yaml', 'Diagrams_PD_03.model.yaml'])- 'All' cells deleted
+LiterateModel.is_embellishment:
+    Diagrams_PD_03.model.yaml: 1
+SubjectB.is_embellishment:
+    Diagrams_PD_03.model.yaml: 15
+
+Including:  Diagrams_PD_03.model.yaml
+Including:  Diagrams_PD_04.v_model.yaml
+
+Census:  Trimmed Merged  for dict_keys(['Diagrams_PD_03.model.yaml', 'Diagrams_PD_04.v_model.yaml'])- 'All' cells deleted
+LiterateModel.hello:
+    Diagrams_PD_04.v_model.yaml: 1
+

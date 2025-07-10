@@ -32,6 +32,15 @@ jsonpickle = "^4.1.1"
 deepdiff = "^8.5.0"
 emojipedia = "^0.4.1"
 openpyxl = "^3.1.5"
+jsonschema = "^4.24.0"
+cairosvg = "^2.8.2"
+docraptor = "^3.1.0"
+playwright = "^1.53.0"
+pyprince = "^0.6.1"
+mermaid-py = "^0.8.0"
+pikepdf = "^9.9.0"
+mermaid-cli = "^0.1.2"
+chromium = "^0.0.0"
 
 
 [build-system]

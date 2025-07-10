@@ -1,0 +1,248 @@
+@import "Literate.css";
+background: orange;
+/* override styles when printing */
+@page{
+    size: 6.0in 9.0in;
+}
+
+
+body {
+    margin: 0;
+    color: red;
+    background-color: yellow;
+
+}
+
+
+
+
+body {
+    counter-reset: page_num chap_num;
+}
+
+/* First page of each subject */
+
+/* Special case for first page of each subject */
+@page subject-first {
+    background: yellow;
+
+    /* Clear all headers and footers */
+    @top-left { content: none; }
+    @top-center { content: none; }
+    @top-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+@page {
+    margin-top: .7in;
+    /* Getting an extra .12 inches padding on the bottom from ?? Whatever, hack! */
+    margin-bottom: .58in;
+    padding: 0;
+    size: 6.0in 9.0in;
+    counter-increment: page_num;
+
+    @bottom-center {
+        font-family: "Jost";
+        font-weight: 300;
+        content: counter(page_num);
+        font-size: 9pt;
+        position: relative;
+        margin-top: -.35in;
+    }
+}
+
+/* Adjust your existing page margins */
+:root {
+    --inside-margin: 0.6in; /* Reduced from .75in */
+    --outside-margin: 0.4in; /* Reduced from .5in */
+}
+
+@page :left {
+    margin-left: var(--outside-margin);
+    margin-right: var(--inside-margin);
+    @top-right {
+        margin-bottom: -.22in;
+        font-family: "Jost";
+        font-weight: 300;
+        font-size: 9.2pt;
+        content: string(modelname);
+    }
+}
+
+@page :right {
+    margin-left: var(--inside-margin);
+    margin-right: var(--outside-margin);
+
+    @top-left {
+        margin-bottom: -.23in;
+        font-family: "Jost";
+        font-weight: 300;
+        font-size: 10pt;
+        content: string(subjectname);
+    }
+}
+
+@page :blank {
+    @top-right {
+        content: ""; /* Clears the header content on blank pages */
+    }
+
+    @top-center {
+        content: "BLANK";
+    }
+
+    @top-right{
+        content: "";
+    }
+
+    @bottom-center {
+        content: "B";
+    }
+}
+
+@page :first {
+    background: purple;
+}
+
+/* 2. Just create the blank page - no counter reset needed */
+/* Add these new rules: */
+@page true-first {
+    /* Completely blank first page */
+    @top-center { content: none; }
+    @bottom-center { content: none; }
+    background: yellow;
+}
+
+.true-first-page {
+    page: true-first;
+    break-before: right; /* Force new page */
+    height: 0;
+}
+
+
+@page title-page {
+    /* Title page (will be page 1) */
+    counter-reset: page_num 1; /* Force page numbering to start here */
+}
+
+
+
+.LiterateModel_header {
+    /* Title page  */
+    page: title-page ;
+    break-before: right; /* Ensure starts on right side */
+
+    counter-reset: page_num 1; /* Force page numbering to start here */
+}
+
+.LiterateModel_header .name {
+    string-set: modelname content()
+
+}
+
+/* Apply the subject-first style to the first page */
+.SubjectB {
+    page: subject;
+}
+
+.SubjectB > .header:first-child {
+    page: subject-first;
+    break-before: right; /* Ensure it starts on new page */
+}
+
+.SubjectName{
+        string-set: subjectname content(); 
+
+}
+
+/* Ensure better page breaks */
+.Subject, .Class {
+    break-inside: avoid;
+}
+
+/* Prevent widows/orphans */
+p, .clause {
+    orphans: 3;
+    widows: 3;
+}
+
+
+/* Specifics for getting a condensed view */
+
+.Emoji{
+    display: none;
+}
+
+.Diagnostic{
+    display: none;
+    background: yellow;
+}
+
+.Diagnostic *{
+    display: none;
+
+}
+
+.clause .Diagnostic * {
+    display: none;
+}
+.clause .Diagnostic .severity {
+    display: none;
+}
+
+
+.parenthetical{
+    display: none;
+}
+
+/* Deep Seek */
+/* In LiteratePrint.css */
+body {
+    font-size: 85%; /* Slightly smaller base font size */
+    line-height: 1.3; /* Tighter line spacing */
+}
+
+.header {
+    font-size: 95%; /* Slightly smaller headers */
+    margin: 0.8em 0 0.3em 0; /* Reduced vertical spacing */
+}
+
+/* Make left labels more compact */
+.clause_label,
+.AttributeName,
+.Annotation .label,
+.Diagnostic .severity,
+.clause .key,
+.key {
+    width: 1in; /* Reduced from 1.25in */
+    margin-left: -1in; /* Adjusted to match */
+}
+
+/* Reduce vertical spacing between elements */
+.Attribute {
+    margin-top: 0.3em; /* Reduced from .5em */
+}
+
+.Class {
+    margin-top: 0.7em; /* Reduced from 1em */
+}
+
+/* Hide less critical elements in print */
+.parenthetical,
+.Emoji,
+.Diagnostic {
+    display: none !important;
+}
+
+/* Make annotations more compact */
+.Annotation .content {
+    margin-left: 0;
+    padding-left: 0.2in;
+}
+
+/* Compact code blocks */
+.CodeBlock code {
+    padding: 0.2em 0.4em;
+    font-size: 85%;
+}
+

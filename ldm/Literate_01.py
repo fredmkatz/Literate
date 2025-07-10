@@ -8,7 +8,7 @@ from utils.util_pydantic import PydanticMixin,  dataclass, field
 
 from utils.debug_pydantic import debug_dataclass_creation
 from utils.class_casing import *
-
+from functools import cached_property # You need to import cached_property
 
 # from abc import ABC, abstractmethod
 import json
@@ -52,6 +52,7 @@ __model_imports__ = [
 # TODO: subtypings
 # todo: codes
 
+All_MROs = {}
 
 def block_list_field(*args, **kwargs):
     """Helper function to create fields for block lists within dataclasses."""
@@ -84,9 +85,19 @@ def block_list_field(*args, **kwargs):
 
     return dataclass_field(*args, **kwargs)
 
+from enum import Enum, StrEnum
+class Cardinality(StrEnum):
+    MANY_ONE = "M_1"
+    ONE_MANY = "1_M"
+    ONE_ONE = "O_O"
+    MANY_MANY = "M_M"
+
+@dataclass 
+class Trivial():
+    pass
 
 @dataclass
-class Natural(PydanticMixin):
+class Natural(PydanticMixin, Trivial):
     content: str = ""
 
     def __str__(self):
@@ -147,7 +158,7 @@ class AttributeSectionName(NormalCase):
 
 @dataclass
 class AttributeName(LowerCamel):
-    _html_id: str = ""
+    _html_id: str = None
 
 
 @dataclass
@@ -182,7 +193,7 @@ class Diagnostic(PydanticMixin):
     object_name: str = ""
     object_type: str = ""
     category: str = ""
-    message: Optional[Paragraph] = None
+    message: Optional[str] = None
 
     severity: str = "Error"
     constraint_name: str = ""
@@ -192,7 +203,7 @@ class Diagnostic(PydanticMixin):
 
     def shared_post_init(self):
         if self.message == None:
-            self.message = Paragraph("")
+            self.message = ""
 
 
 @dataclass
@@ -225,7 +236,7 @@ class Component(MinorComponent):
     prefix: Optional[str] = None
     name: CamelCase = None
     parenthetical: Optional[str] = None
-    abbreviation: Optional[CamelCase] = None
+    abbreviation: Optional[str] = None
 
     class Meta:
         is_abstract = True
@@ -254,6 +265,7 @@ class SubjectE(Component):
     name: SubjectName = None
     prefix: str = ""
     classes: List[Class] = block_list_field(default_factory=list)
+    
 
     def shared_post_init(self):
         super().shared_post_init()
@@ -264,6 +276,15 @@ class SubjectE(Component):
             self.classes = []
         if not self.subjects:
             self.subjects = []
+
+    @cached_property
+    def all_classes(self) -> List[Class]:
+        print("Calcing all_classes for ", self)
+        all_classes = self.classes
+
+        for subject in self.subjects:
+            all_classes.extend(subject.all_classes)
+        return all_classes
 
     class Meta:
         presentable_header = "#####  {{name}{? - {one_liner}} NEWLINE"
@@ -290,7 +311,7 @@ class SubjectC(SubjectD):
 @dataclass
 class SubjectB(SubjectC):
     subjects: List[SubjectC] = block_list_field(default_factory=list)
-
+    
 
     class Meta:
         presentable_header = "##  {{name}{? - {one_liner}} NEWLINE"
@@ -323,21 +344,48 @@ class LiterateModel(SubjectB):
         if isinstance(self.name, str):
             print("Fixing LiterateModel name!")
             self.name = ModelName(self.name)
+        
+    @cached_property
+    def all_class_names(self) -> list[str]:
+        print("Calcing all_class names  for ", self)
+        return self.full_class_index.keys()
 
-    # Replace the from_dict method in LDM class in Literate_01.py
+    
+    @cached_property
+    def class_index(self) -> dict[str, Class]:
+        the_index  = {str(c.name): c for c in self.all_classes}
+        if None in the_index:
+            print("Found none in singular index")
+        return the_index
+    
+    @cached_property
+    def plural_index(self) -> dict[str, Class]:
+        the_index  = {c.derive_plural() : c for c in self.all_classes}
+        if None in the_index:
+            print("Found none in p;ural index")
+        return the_index
+    
+    @cached_property
+    def full_class_index(self) -> dict[str, Class]:
+        return self.class_index | self.plural_index
+
+    def class_named(self, cname: str)-> Class:
+        return self.full_class_index.get(cname, None)
 
 
     class Meta:
         presentable_header = "#  {{name}{? - {one_liner}} NEWLINE"
+        
+
 
 
 Subject = SubjectB
 
 
+
 @dataclass
 class DataType(PydanticMixin):
     """A simple or complex data type"""
-    
 
     def shared_post_init(self):
         super().shared_post_init()
@@ -437,7 +485,7 @@ class DataTypeClause(PydanticMixin):
     # is_optional_lit: Optional[IsOptional] = field(default="Required")
     is_optional_lit: Optional[IsOptional] = field(default_factory=lambda: IsOptional(content=False))
 
-    cardinality: Optional[str] = None
+    cardinality: Optional[Cardinality] = field(default = Cardinality.ONE_ONE)
 
 
     class Meta:
@@ -445,7 +493,7 @@ class DataTypeClause(PydanticMixin):
 
     def __str__(self):
         req_or_optional = "optional" if self.is_optional_lit else "required"
-        return f"{req_or_optional} {self.data_type}"
+        return f"{req_or_optional} {self.data_type} ({self.cardinality})"
 
 
 @dataclass
@@ -467,13 +515,13 @@ class Formula(MinorComponent):
 
 @dataclass
 class Constraint(Formula):
-    message: Optional[Paragraph] = None
+    message: Optional[str] = None
     severity: Optional[str] = None
 
     def shared_post_init(self):
         super().shared_post_init()
         if self.message is None:
-            self.message = Paragraph("")
+            self.message = ""
 
 
 @dataclass
@@ -508,12 +556,13 @@ class Class(Component):
     based_on: Optional[List[ClassReference]] =  None # field(default_factory=list)
     dependents: Optional[List[ClassReference]] =  None # field(default_factory=list)
     is_value_type: bool = False
-    where: Optional[OneLiner] = None
+    where: Optional[str] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
 
     attributes: List[Attribute] = block_list_field(default_factory=list)
     attribute_sections: List[AttributeSection] = block_list_field(default_factory=list)
     
+
     # Transients
     
     # actually: dict[str, class object]; optional to avoid validation errors
@@ -544,15 +593,63 @@ class Class(Component):
             print("backfilling attributes for ", self.name)
             for att in self.attributes:
                 print("\tbackfilled ", att.name)
-                att._html_id = self.name.content + "__" + att.name.content
                 att.name._html_id = self.name.content + "__" + att.name.content
         if self.attribute_sections:
             for section in self.attribute_sections:
                 for att in section.attributes:
-                    print("\tbackfilled ", att.name)
-                    att._html_id = self.name.content + "__" + att.name.content
                     att.name._html_id = self.name.content + "__" + att.name.content
-            
+                    print("\tbackfilled ", att)
+
+    # calc derivation: presumed plural
+    def derive_presumed_plural(self) -> str:
+        # print("Calcing presumed_plural")
+        class_name = str(self.name)
+        self.presumed_plural = fmk.pluralize(class_name)
+        # print(f"Set presumed plural for {self}: name is {class_name}, presuming {self.presumed_plural}")
+        return self.presumed_plural
+
+    # calc derivation: plural
+    def derive_plural(self) -> str:
+        plural = self.plural
+        if plural is not None:
+            plural = plural.strip()
+            self.plural = plural
+            return plural
+        # print(f"Using presumed plural for {self}")
+
+        self.plural = self.derive_presumed_plural()
+        return self.plural
+
+    def calc_mro(self, model: LiterateModel):
+        global All_MROs
+        
+        cname = self.name.content
+         
+        mro = All_MROs.get(cname, None)
+        if mro is not None:
+            return mro
+
+        supers = getattr(self, "subtype_of", None)
+        if not supers:
+            All_MROs[cname] = []
+            return []
+
+        if len(supers) > 1:
+            print(f"> 1 supers for {cname} - {supers}")
+        # Note only taking the first! TODO
+        for supertype in supers:
+            super_name = str(supertype.class_name)
+            # print(cname, "\thas super: ", super_name)
+            super_type = model.class_named(super_name)
+            if not super_type:
+                continue
+            All_MROs[cname] = [super_name] + super_type.calc_mro(model)
+            print(f"MRO for {cname} => ", All_MROs[cname])
+            return All_MROs[cname]
+        All_MROs[cname] = []
+        return []
+
+
 
     class Meta:
         presentable_header = "_ {name}{? - {one_liner}} NEWLINE"
@@ -572,7 +669,8 @@ class ValueType(Class):
     class Meta:
         presentable_header = "_  ValueType : {name}{? - {one_liner}} NEWLINE"
 
-
+    
+    
 @dataclass
 class CodeType(ValueType):
 
@@ -641,7 +739,7 @@ class Attribute(Component):
     derivation: Optional[Derivation] = None
     default: Optional[Default] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
-    _html_id: str = field(init=False)
+    # _html_id: str = field(init=False)
 
 
     def shared_post_init(self):
@@ -659,7 +757,7 @@ class Attribute(Component):
 
 
 @dataclass
-class AttributeReference(PydanticMixin):
+class AttributeReference(PydanticMixin, Trivial):
     class_name: ClassReference =  None 
     attribute_name: AttributeName = None
 

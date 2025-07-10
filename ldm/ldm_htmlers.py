@@ -123,7 +123,7 @@ class Htmlers(Faculty):
     @patch_on(DataTypeClause, "as_html")
     def dtc_html(self):
         
-        return html_chunk(self, "is_optional_lit", "data_type")
+        return html_chunk(self, "is_optional_lit", "data_type", "cardinality")
 
     @patch_on(BaseDataType, "as_html")
     def bdt_html(self):
@@ -373,19 +373,19 @@ import sys
 def html_prose_content(obj_type, obj):
     from ldm.ldm_to_html_prose import as_prose_html
 
-    # print(f"Adding simple: {obj_type} ")
-    # print("...obj is ", obj)
+    print(f"Adding simple: {obj_type} ")
+    print("...obj is ", obj)
     content = obj.content
     if not content:
         content = f"Empty content for {obj_type}??"
         return None
 
-    # print("...content for prose html is\n", content)
-    # print(content)
 
     try:
         content_h = as_prose_html(content)
-        # print(f"Adding simple: {obj_type} with {content_h}")
+        print("...contenth for prose html is...")
+        print(content_h)
+        print("...end of contenth for prose html .")
         return div(content_h, class_=f"{obj_type} mdhtml")
     except Exception:
         print(
@@ -567,13 +567,12 @@ def object_html(the_object):
 
 
 
-def create_model_html_with_faculty(the_model, html_path):
+def create_model_html_with_faculty(the_model, html_path, css_path):
 
     # Note html file is in
     #  ldm/ldm_models/MODEL/MODEL_results/Model.html
 
     # and css is in ldm/ldm_models/ldm_assets
-    css_path = "../../ldm_assets/Literate.css"
     save_model_html_with_faculty(the_model, css_path, html_path)
 
 
@@ -596,6 +595,8 @@ def save_model_html_with_faculty(the_model, css_path, output_path):
     )
     body_h = body()
     html_h.append(body_h)
+    
+    body_h.append(div("FIRST PAGE LEFT LEFT BLANK", class_ = "true-first-page"))
 
     body_h.append(model_h)
 

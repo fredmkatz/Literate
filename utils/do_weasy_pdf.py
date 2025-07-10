@@ -41,19 +41,30 @@ class suppress_stdout_stderr(object):
 def generate_weasy_pdf(html_path, css_path, output_path):
     #   css = CSS("ldm/Literate.css")
     #   html = HTML(filename="ldm/LDMMeta_results/LDMMeta.html")
-    with suppress_stdout_stderr():
+    print("Hml path = ", html_path)
+    print("css path = ", css_path)
+    print("out path = ", output_path)
+    # with suppress_stdout_stderr():
 
-        from weasyprint import CSS, HTML
+    from weasyprint import CSS, HTML
 
-        html = HTML(filename=html_path)
-        css = CSS(css_path)
-        out_path = output_path
-        print(f"PDFing for {html_path} written to {out_path}")
 
-        html.write_pdf(target=out_path, stylesheets=[css])
+    # Get the directory of the HTML file
+    import os
+    html_dir = os.path.dirname(html_path)
 
-    print(f"PDF for {html_path} written to {out_path}")
-    return out_path
+    # Use the HTML file's directory as the base_url
+    # html = HTML(filename=html_path, base_url='./trials') 
+    html = HTML(filename=html_path, base_url=html_dir) 
+    # print(html)
+    print(f"PDFing for {html_path} written to {output_path}")
+
+    css = CSS(css_path)
+
+    html.write_pdf(target=output_path, stylesheets=[css])
+
+    print(f"PDF for {html_path} written to {output_path}")
+    return output_path
 
 
 from html_to_markdown import convert_to_markdown
@@ -79,14 +90,31 @@ def gen_markdown_to_html(html_path, md_path):
 
 if __name__ == "__main__":
     # HTML('https://weasyprint.org/').write_pdf('weasyprint-website.pdf')
-    html_path = "ldm/LDMMeta_results/LDMMeta.html"
-    css_path = "ldm/Literate.css"
-    out_path = "ldm/LDMMeta_results/LDMMeta.pdf"
-    md_path = "ldm/LDMMeta_results/LDMMeta.html.md"
+    # ldm_path = "ldm"
+    # models_path = "ldm/ldm_models"
+    # css_path = f"{models_path}/ldm_assets/LiteratePrint.css"
+    # model_name = "Literate"
+    # results_path = f"{models_path}/{model_name}/{model_name}_results"
+    # html_path = f"{results_path}/{model_name}_PD_07_as.html"
+    # out_path = f"{results_path}/{model_name}_weasy.pdf"
+    # # md_path = "ldm/LDMMeta_results/LDMMeta.html.md"
 
-    pdf_path = generate_weasy_pdf(
-        html_path=html_path, css_path=css_path, output_path=out_path
-    )
+    # # pdf_path = generate_weasy_pdf(
+    # #     html_path=html_path, css_path=css_path, output_path=out_path
+    # # )
+    # css_path = "ldm/ldm_models/ldm_assets/LiteratePrint.css"
+    # pdf_path = f"{results_path}/{model_name}_PD_07.pdf"
+    # print("css : ", css_path)
+    # print("html: ", html_path)
+    # print("pdf: ", pdf_path)
+    # generate_weasy_pdf(html_path, css_path=css_path, output_path=pdf_path)
 
-    md_path_new = gen_markdown_to_html(html_path=html_path, md_path=md_path)
-    print(md_path_new)
+    # md_path_new = gen_markdown_to_html(html_path=html_path, md_path=md_path)
+    # print(md_path_new)
+    
+    test_dir = "trials"
+    html_path = "trials/weasytest.html"
+    pdf_path = "trials/weasytest.pdf"
+    css_path = "trials/weasy.css"
+    generate_weasy_pdf(html_path, css_path=css_path, output_path=pdf_path)
+

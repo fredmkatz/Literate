@@ -1,0 +1,551 @@
+/* Literate.css - Fresh start */
+.reviewing {
+  .mdhtml {
+    background-color: blanchedalmond ;
+  }
+
+
+
+  .header .ClassName {
+    color: #222;
+    background-color: pink;
+  }
+
+  .header .parenthetical{
+    color: navy;
+    background-color: orange;
+    margin-right: 10px;
+    display: inline;
+    display: none;
+  
+  }
+  .AttributeSection {
+    /* background-color: pink; */
+    border-right: 2px solid black;
+
+  }
+  .Attribute .header {
+    /* background-color: lightcoral; */
+    /* border: 1px solid black; */
+  
+    .DataTypeClause{ 
+      color: darkred;
+      background-color: yellow;
+    }
+  }
+  .AttributeName {
+    color: white;
+    background-color: navy;
+  }
+  .clause_label  {
+    color: orange;
+    background-color: black;
+  }
+
+
+  .Annotation .label {
+    /* background-color: yellow; */
+
+  }
+
+  .Annotation .content {
+    color: navy;
+  }
+
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 2rem;
+    color: #222;
+    max-width: 5in;
+    margin-left: 2in;
+    font-size: 90%;
+
+  }
+[title]::before {
+  content: attr(title);
+  font-weight: bold;
+  display: block;
+}
+img{
+  max-width: 300px;
+  background: yellow;
+}
+  figure{
+    text-align: center;
+
+    img {
+      border: 5px solid navy;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 400px;
+    }
+  figcaption {
+    margin: auto;
+    text-align: center;
+    font-style: italic;
+  }
+
+  }
+
+  .header {
+    clear: left;
+  }
+  /* For the left column */
+  .clause_label ,
+  .AttributeName,
+  .Annotation .label,
+  .Diagnostic .severity,
+  .clause .key,
+  .key{
+    /* display: inline; */
+    display: block;
+    margin-left: -1.5in;
+    width: 1.25in;
+    float: left;
+    clear: left;
+    justify-self: right;
+  }
+
+.Annotation .Emoji{
+  margin-left: -1.5in;
+  justify-self: right;
+  font-size: 155%;
+
+}
+
+.LiterateModel_header{
+    margin-left: 0;
+    text-align: center;
+
+  .prefix {
+    display: none;
+  }
+  .name{
+    font-weight: bold;
+    font-size: 140%;
+  }
+
+}
+
+.Subject.header{
+  /* background: black;
+  color: white */
+  margin-top: 2em;
+  font-weight: bold;
+
+  .name{
+    font-weight: bold;
+    font-size: 110%;
+
+    background: black;
+    color: white;
+  }
+}
+
+.Subject_header::before {
+    content: " \25A0\25A0\25A0 ";
+  }
+
+
+
+.Subject.header .prefix{
+  background: yellow;
+  font-size: 140%;
+
+  display: inline;
+  margin-left: -1.5in;
+  float: left;
+  font-weight: bold;
+  ::after {
+    content: " \25A0 ";
+  }
+
+}
+
+.Subject .header .OneLiner {
+  display: block;
+}
+
+.SubjectC  .Subject_header{
+  font-size: 120%;
+  ::before {
+    content: " \25A0\25A0 ";
+  }
+}
+
+.SubjectD  .Subject_header{
+  font-size: 115%;
+  ::before {
+    content: " \25A0\25A0\25A0 ";
+  }
+}
+
+.SubjectE  .Subject_header{
+  font-size: 110%;
+  ::before {
+    content: " \25A0\25A0\25A0\25A0 ";
+  }
+}
+
+.ValueType_header .name,
+.CodeType_header .name,
+.Class_header .name{
+    margin-left: 0;
+    background: gray;
+    color: white;
+    font-weight: bold;
+
+    ::before{
+      content: "Class";
+      margin-left: -1.5in;
+    }
+}
+
+
+.ValueType_header .prefix,
+.CodeType_header .prefix,
+.Class_header .prefix {
+    display: inline;
+    margin-left: -1.5in;
+    float: left;
+    font-weight: bold;
+    content: "Class";
+    ::before {
+      content: "Class";
+    }
+}
+
+
+.AttributeSection_header{
+
+  .name {
+    display: inline-block;
+    margin-left: -1.5in;
+    width: 1.25in;
+    float: left;
+    clear: left;
+    justify-self: right;
+    vertical-align: top;
+    text-align: left;
+
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    background: navy;
+  }
+  .prefix {
+    display: none;
+  }
+}
+
+.AttributeSection {
+  /* border-left: 1px solid black; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.Attribute_header .name{
+    display: inline-block;
+    margin-left: -1.5in;
+    width: 1.25in;
+    float: left;
+    clear: left;
+    justify-self: right;
+    vertical-align: top;
+    text-align: right;
+
+    color: navy;
+    background: white;
+    font-style: italic;
+    font-weight: bold;
+
+  }
+  .Attribute_header .prefix {
+    display: none;
+  }
+
+
+  .clause_label  {
+    text-align: right;
+
+  }
+  
+  /* Basic table-like layout */
+  .header {
+    /* width: 100%; */
+    margin: 1.2em 0 0.5em 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: lightcoral;
+    border: 1px solid black;
+
+  }
+
+  /* Vertical spacing */
+  .Class {
+    margin-top: 1em;
+  }
+
+  .Attribute {
+    margin-top: .5em;
+  }
+
+  .header .Constraint {
+    background: red;
+  }
+
+
+
+  
+  .header .ClassName {
+    font-weight: bold;
+    vertical-align: top;
+  }
+
+  .header .one_liner {
+    font-weight: normal;
+    color: #333;
+    vertical-align: top;
+    color: black;
+  }
+
+  .Constraint .clause_label {
+    font-variant:small-caps;
+  }
+  .Derivation .clause_label {
+    font-variant:small-caps;
+  }
+  .Default .clause_label {
+    font-variant:small-caps;
+  }
+
+  .clause .Annotation,
+  .clause .Diagnostic,
+  .clause .clause{
+    /* background: orange; */
+    font-size: 92%;
+    .key{
+      font-weight: normal;
+      /* background: pink; */
+    }
+  }
+  /* Make the oneliner in the header inline-block so that any 
+  parenthetical will go on the same line. */
+.OneLiner{
+  font-weight: normal;
+  color: #333;
+  vertical-align: top;
+
+
+  display: inline-block; 
+  p{display: inline;}
+}
+
+  /* Keep the class and subject names on their own lines */
+  .Class .header .OneLiner {
+    display: block;
+  }
+
+
+/* Safe approach without overflow:hidden on content */
+
+.header {
+    clear: left;
+    /* Remove overflow: hidden */
+}
+
+.header .data_type_clause {
+    float: right;
+    font-style: italic;
+    margin-left: 0.5em;
+    white-space: nowrap; /* Keep the clause on one line */
+    clear: right; /* Stack multiple right-floated elements */
+}
+
+.header .data_type_clause::before{
+    content: '(';
+}
+.header .data_type_clause::after{
+    content: ')';
+}
+
+/* Add a clearfix only to contain the floated elements without hiding content */
+.header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 
+/* Ensure the main content doesn't wrap under the floated element */
+.header .OneLiner {
+    margin-right: 2em; /* Adjust based on your needs */
+}
+
+
+
+  .class_names {
+    /* display: table-cell; */
+    vertical-align: top;
+  }
+  /* Key-value pairs */
+
+  .clause .key{
+    font-variant: small-caps;
+  }
+  
+  .key {
+    width: 12rem;
+    text-align: right;
+    padding-right: 1rem;
+    font-weight: bold;
+    color: #444;
+    vertical-align: top;
+  }
+  
+  .dict .value .key {
+
+    font-variant: small-caps;
+    font-size: 90%;
+  }
+  /* @startuml
+
+    rectangle Arrows
+    rectangle Up
+    rectangle Down
+    rectangle Left
+    rectangle Right
+    
+    Arrows -u-> Up 
+    Arrows -d-> Down
+    Arrows -l-> Left
+    Arrows -r-> Right
+    
+    @enduml%;
+
+    width: 12rem;
+    text-align: right;
+    padding-right: 1rem;
+    font-weight: bold;
+    vertical-align: top
+  } */
+  
+  /* Ensure lists maintain the layout */
+  .list > div {
+    margin: 0.25rem 0;
+  }
+  
+  .Diagnostic {
+    display: block;
+    clear: both;
+
+    .severity {
+      font-weight: bold;
+      color: red;
+      text-align: right;
+
+      ::before{
+        content: "!!!";
+      }
+    }
+
+    .message {
+      font-weight: bold;
+      color: red;
+
+    }
+    .category {
+      display: inline;
+      float: right;
+      font-style: italic;
+      color: red;
+    }
+
+    .object_type, .object_name {
+      display: none;
+    }
+  }
+  /* Annotations */
+  .Annotation .label {
+    font-weight: bold;
+    margin-right: 0.25em;
+    margin-bottom: 5px;
+    text-align: right;
+
+  }
+
+  .Annotation .content {
+    display: block;
+  }
+  
+  /* Paragraphs */
+  .Paragraph .value {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+
+  span.class_name {
+    font-weight: bold;
+    color: darkred ;
+  }
+
+  /* Code blocks */
+  .CodeBlock  {
+    /* center the inner parts (pre and code) */
+    text-align: center;
+
+    pre{
+      display: inline-block;
+      text-align: left;
+    }
+    code {
+      font-family: monospace;
+      background-color: #f8f8f8;
+      border-left: 3px solid #ccc;
+      padding: 0.5em;
+      white-space: pre-wrap;
+
+    }
+  }
+  
+  /* Special styling */
+  .parenthetical {
+    margin-left: 0.25rem;
+    font-style: italic;
+    color: #777;
+    float: right;
+  }
+  
+/* Subtypes and based_on et al*/
+.class_name_list .class_names {
+    /* display: table-cell; */
+    width: 12rem;
+    text-align: right;
+    padding-right: 1rem;
+    font-weight: bold;
+    color: #444;
+    vertical-align: top;
+    }
+
+/* for codes-table generated from css */
+.CodeBlock table{
+  border-collapse: collapse;
+
+  font-size: 100%;
+
+  /* center in its space */
+  margin-left: auto;
+  margin-right: auto;
+
+
+  thead {
+    background: navy;
+    color: white;
+
+    th {
+      text-align: center;
+    }
+  }
+}

@@ -6,7 +6,7 @@ from typing import Union
 
 from deepdiff import DeepDiff
 
-from utils.util_json import tidy_dict, write_yaml, read_yaml_file #, read_json
+from utils.util_json import tidy_dict, write_yaml, read_yaml_file,  write_json #, read_json
 from utils.util_pydantic import TYPE_REGISTRY
 
 
@@ -48,7 +48,10 @@ class TypedDict(dict):
 
     def save_as(self, filepath: Union[str, Path]):
         """Save to a YAML file."""
-        write_yaml(dict(self), filepath)
+        if filepath.endswith(".yaml"):
+            write_yaml(dict(self), filepath)
+        elif filepath.endswith(".json"):
+            write_json(self, filepath)
 
     def to_object(self):
         """Recreate the object using _type-dispatch."""

@@ -13,13 +13,13 @@ from typing import (
     Callable,
 )
 
-def create_field_error(obj, message):
+def create_field_error(obj, category, message):
     """
     Helper function to log or handle validation errors.
     """
     
     from ldm.ldm_validators_v3 import createBug
-    createBug(obj, "Field Error",  message)
+    createBug(obj, category,  message)
 
 
 def check_type(value: Any, expected_type: Any) -> bool:
@@ -134,7 +134,7 @@ def validate_fields(obj: Any):
 
     # Ensure the object is a dataclass
     if not is_dataclass(cls):
-        create_field_error(obj, "Object is not a dataclass")
+        create_field_error(obj, "Non DataClass", "Object is not a dataclass")
         return
 
     # Get the list of fields in the class
@@ -153,7 +153,7 @@ def validate_fields(obj: Any):
         # If the value is None and the field is not optional, create an error
         if value is None:
             if not is_optional:
-                create_field_error(obj, f"Required field '{fld.name}' is missing")
+                create_field_error(obj, "MissingValue", f"Required field '{fld.name}' is missing")
             continue
 
         # Skip validation for certain problematic fields temporarily
@@ -163,7 +163,7 @@ def validate_fields(obj: Any):
         # Perform deep type checking
         if not check_type(value, field_type):
             create_field_error(
-                obj,
+                obj, "InvalidFieldType",
                 f"For field '{fld.name}' - expected {field_type}, but got {type(value)}"
             )
 

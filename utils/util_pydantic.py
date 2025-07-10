@@ -39,7 +39,6 @@ from pydantic import TypeAdapter, model_validator
 from dataclasses import MISSING
 
 
-
 # Optional dependency, used in gen_schema
 import utils.util_all_fmk as fmk
 
@@ -106,7 +105,7 @@ def using():
     
     
     
-class PydanticMixin:
+class PydanticMixin():
     _type: str = ""  # auto-set to class name
 
     def shared_post_init(self):

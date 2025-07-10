@@ -1,0 +1,168 @@
+_type: LiterateModel
+name: Literate Data Model
+classes:
+-   _type: Class
+    name: Component
+    edges: []
+-   _type: Class
+    name: AnnotationType
+    edges:
+    -   relation: based_on
+        to: LiterateDataModel
+        cardinality: M:1
+-   _type: Class
+    name: Annotation
+    edges:
+    -   relation: based_on
+        to: Component
+        cardinality: M:1
+    -   relation: annotationType
+        to: AnnotationType
+        cardinality: O_O
+-   _type: Class
+    name: LiterateDataModel
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+-   _type: Class
+    name: Subject
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+    -   relation: based_on
+        to: LiterateDataModel
+        cardinality: M:1
+    -   relation: parentSubject
+        to: Subject
+        cardinality: O_O
+-   _type: Class
+    name: SubjectArea
+    edges:
+    -   relation: subtype_of
+        to: Subject
+        cardinality: '1:1'
+    -   relation: based_on
+        to: LiterateModel
+        cardinality: M:1
+    -   relation: based_on
+        to: Xyz
+        cardinality: M:1
+-   _type: Class
+    name: Class
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+    -   relation: basedOn
+        to: Class
+        cardinality: O_O
+-   _type: Class
+    name: Subtyping
+    edges:
+    -   relation: based_on
+        to: Class
+        cardinality: M:1
+-   _type: Class
+    name: ReferenceType
+    edges:
+    -   relation: subtype_of
+        to: Class
+        cardinality: '1:1'
+-   _type: ValueType
+    name: CodeType
+    edges: []
+-   _type: ValueType
+    name: CodeValue
+    edges:
+    -   relation: based_on
+        to: CodeType
+        cardinality: M:1
+-   _type: Class
+    name: Key
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+    -   relation: based_on
+        to: Class
+        cardinality: M:1
+-   _type: Class
+    name: UniqueKey
+    edges:
+    -   relation: subtype_of
+        to: Key
+        cardinality: '1:1'
+-   _type: Class
+    name: AttributeSection
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+    -   relation: based_on
+        to: Class
+        cardinality: M:1
+-   _type: Class
+    name: Attribute
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+    -   relation: based_on
+        to: AttributeSection
+        cardinality: M:1
+    -   relation: dataType
+        to: DataType
+        cardinality: O_O
+-   _type: ValueType
+    name: Derivation
+    edges: []
+-   _type: ValueType
+    name: Constraint
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+-   _type: ValueType
+    name: ClassConstraint
+    edges:
+    -   relation: subtype_of
+        to: Constraint
+        cardinality: '1:1'
+    -   relation: based_on
+        to: Class
+        cardinality: M:1
+-   _type: ValueType
+    name: AttributeConstraint
+    edges:
+    -   relation: subtype_of
+        to: Constraint
+        cardinality: '1:1'
+    -   relation: based_on
+        to: Attribute
+        cardinality: M:1
+-   _type: Class
+    name: Method
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+    -   relation: returnType
+        to: DataType
+        cardinality: O_O
+-   _type: Class
+    name: ParameterAnInputToAMethod
+    edges:
+    -   relation: subtype_of
+        to: Component
+        cardinality: '1:1'
+    -   relation: type
+        to: DataType
+        cardinality: O_O
+-   _type: ValueType
+    name: DataType
+    edges: []
+-   _type: ValueType
+    name: ComplexDataType
+    edges: []

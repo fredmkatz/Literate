@@ -145,6 +145,11 @@ class FluentTag:
         for k, v in attrs.items():
             self.tag[k] = v
         return self
+    
+    def parent_tag(self):
+        result = self.tag.parent 
+        return FluentTag(result) if result else None
+
 
     def find(self, *args, **kwargs):
         result = self.tag.find(*args, **kwargs)

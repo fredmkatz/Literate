@@ -473,13 +473,13 @@ def parse_header(header: str) -> dict:
     - one_liner: The one-liner description (if present)
     - parenthetical: The content in parentheses (if present)
     """
-    print(f"\n\n===\nParsingHeader header: {header}")
+    # print(f"\n\n===\nParsingHeader header: {header}")
 
     result = {"prefix": "", "name": None, "one_liner": None, "parenthetical": ""}
 
     # First, identify the line type and get the rest of the line
     parsed = parse_input_line(header)
-    print("PARSED AS INPUT LINE ", parsed)
+    # print("PARSED AS INPUT LINE ", parsed)
     if "rest_of_line" not in parsed:
         print("No rest of line")
         return result

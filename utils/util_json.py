@@ -148,6 +148,26 @@ def read_yaml_file(yaml_path: str) -> Dict[str, Any]:
             return {}
     return {}
 
+def read_json_file(json_path: str) -> Dict[str, Any]:
+    """
+    Read a JSON file and return its contents as a dictionary.
+
+    Args:
+        json_path: Path to the YAML file
+
+    Returns:
+        Dictionary with file contents, or empty dict if file not found
+    """
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data
+        except Exception as e:
+            flogger.warningf(f"Error reading JSON file {json_path}: {e}")
+            return {}
+    return {}
+
 
 def as_yaml(the_dict: Dict, warnings: bool = False) -> str:
     print("as yaml - warnings = ", warnings)
