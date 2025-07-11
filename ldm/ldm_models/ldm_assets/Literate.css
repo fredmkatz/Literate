@@ -550,3 +550,8 @@ figure figcaption {
 .CodeBlock table th {
       text-align: center;
 }
+.raw-diagram-code {
+    white-space: pre;
+    font-weight: bold;
+    background: orange;
+}

@@ -170,7 +170,7 @@ def read_json_file(json_path: str) -> Dict[str, Any]:
 
 
 def as_yaml(the_dict: Dict, warnings: bool = False) -> str:
-    print("as yaml - warnings = ", warnings)
+    # print("as yaml - warnings = ", warnings)
     
     yaml.emitter.Emitter.prepare_tag = lambda self, tag: ''
     ditems = the_dict.get("dictitems", None)

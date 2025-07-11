@@ -24,8 +24,8 @@ def inspect_module(module, outfile_name, outfile_dir):
         
         class_dict[name] = cdict
         
-        print(cls.__name__, " Qualified: ", qualified)
-        print(cls.__name__, " MRO: ",  mro)
+        # print(cls.__name__, " Qualified: ", qualified)
+        # print(cls.__name__, " MRO: ",  mro)
         # print(cls.__name__, " to_typed_dict: ", cls.to_typed_dict)
         # if dataclasses.is_dataclass(cls):
             # print(cls.__name__, " fields: ", [f.name for f in cls.__fields__])

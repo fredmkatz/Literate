@@ -6,7 +6,9 @@ from ldm.Literate_01 import *
 
 from utils.util_flogging import trace_decorator
 
-
+Reserved_Words = [
+    "Class",
+]
 
 All_Trivials = [
     'Decimal', 
@@ -52,6 +54,8 @@ class Extractors(Faculty):
         name = getattr(self, "name", "Anon")
         if not isinstance(name, str):
             name = name.content
+            if name in Reserved_Words:
+                name = name + "_"
         otype = type(self).__name__
         extract = { "_type": otype, "name": name}
         return extract
@@ -67,7 +71,7 @@ class Extractors(Faculty):
         The_Model = model
         the_extract = _extract_faculty.call_super_extract(model, 'LiterateModel')
         class_extracts = []
-        for cls in get_all_classes(model):
+        for cls in model.all_classes:
             cname = cls.name.content
             # print("cls is ", cls, type(cls), "MRO: ", cls.__mro__)
             # print("Trival  is ", Trivial)
@@ -145,6 +149,9 @@ def create_edge(relation, target_name, cardinality = "missing!"):
     if not isinstance(cardinality, str):
         cardinality = "1:1c"
     cardinality = str(cardinality)
+    
+    if target_name in Reserved_Words:
+        target_name = target_name + "_"
     edge = { 
             "relation": relation,
             "to": target_name,
@@ -157,15 +164,6 @@ def object_extract(the_object):
     return object_x
 
 
-def get_all_classes(subject):
-    all_classes =  subject.classes
-    for subject1 in subject.subjects:
-        print(subject1)
-        classes1 = get_all_classes(subject1)
-        print(classes1)
-        all_classes.extend(classes1)
-    return all_classes
-    
 
 def create_model_extract_with_faculty(the_model, extract_path):
 

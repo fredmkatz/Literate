@@ -4,12 +4,14 @@ classes:
 -   _type: Class
     name: Component
     edges: []
+    distance: 0
 -   _type: Class
     name: AnnotationType
     edges:
     -   relation: based_on
         to: LiterateDataModel
         cardinality: M:1
+    distance: 2
 -   _type: Class
     name: Annotation
     edges:
@@ -19,12 +21,20 @@ classes:
     -   relation: annotationType
         to: AnnotationType
         cardinality: O_O
+    distance: 1
 -   _type: Class
     name: LiterateDataModel
     edges:
     -   relation: subtype_of
         to: Component
         cardinality: '1:1'
+    -   relation: allSubjects
+        to: Classes
+        cardinality: O_O
+    -   relation: allClasses
+        to: Classes
+        cardinality: O_O
+    distance: 1
 -   _type: Class
     name: Subject
     edges:
@@ -37,6 +47,13 @@ classes:
     -   relation: parentSubject
         to: Subject
         cardinality: O_O
+    -   relation: classes
+        to: Classes
+        cardinality: O_O
+    -   relation: childSubjects
+        to: Subjects
+        cardinality: O_O
+    distance: 1
 -   _type: Class
     name: SubjectArea
     edges:
@@ -49,6 +66,7 @@ classes:
     -   relation: based_on
         to: Xyz
         cardinality: M:1
+    distance: 2
 -   _type: Class
     name: Class_
     edges:
@@ -58,27 +76,53 @@ classes:
     -   relation: basedOn
         to: Class_
         cardinality: O_O
+    -   relation: subtypings
+        to: Subtypings
+        cardinality: O_O
+    -   relation: subtypes
+        to: Classes
+        cardinality: O_O
+    -   relation: attributes
+        to: Attributes
+        cardinality: O_O
+    -   relation: attributeSections
+        to: AttributeSections
+        cardinality: O_O
+    -   relation: constraints
+        to: Constraints
+        cardinality: O_O
+    -   relation: methods
+        to: Methods
+        cardinality: O_O
+    distance: 1
 -   _type: Class
     name: Subtyping
     edges:
     -   relation: based_on
         to: Class_
         cardinality: M:1
+    -   relation: classes
+        to: Classes
+        cardinality: O_O
+    distance: 2
 -   _type: Class
     name: ReferenceType
     edges:
     -   relation: subtype_of
         to: Class_
         cardinality: '1:1'
+    distance: 2
 -   _type: ValueType
     name: CodeType
     edges: []
+    distance: 1000
 -   _type: ValueType
     name: CodeValue
     edges:
     -   relation: based_on
         to: CodeType
         cardinality: M:1
+    distance: 1000
 -   _type: Class
     name: Key
     edges:
@@ -88,12 +132,17 @@ classes:
     -   relation: based_on
         to: Class_
         cardinality: M:1
+    -   relation: keyAttributes
+        to: Attributes
+        cardinality: O_O
+    distance: 1
 -   _type: Class
     name: UniqueKey
     edges:
     -   relation: subtype_of
         to: Key
         cardinality: '1:1'
+    distance: 2
 -   _type: Class
     name: AttributeSection
     edges:
@@ -103,6 +152,7 @@ classes:
     -   relation: based_on
         to: Class_
         cardinality: M:1
+    distance: 1
 -   _type: Class
     name: Attribute
     edges:
@@ -115,15 +165,18 @@ classes:
     -   relation: dataType
         to: DataType
         cardinality: O_O
+    distance: 1
 -   _type: ValueType
     name: Derivation
     edges: []
+    distance: 2000
 -   _type: ValueType
     name: Constraint
     edges:
     -   relation: subtype_of
         to: Component
         cardinality: '1:1'
+    distance: 1
 -   _type: ValueType
     name: ClassConstraint
     edges:
@@ -133,6 +186,7 @@ classes:
     -   relation: based_on
         to: Class_
         cardinality: M:1
+    distance: 2
 -   _type: ValueType
     name: AttributeConstraint
     edges:
@@ -142,15 +196,20 @@ classes:
     -   relation: based_on
         to: Attribute
         cardinality: M:1
+    distance: 2
 -   _type: Class
     name: Method
     edges:
     -   relation: subtype_of
         to: Component
         cardinality: '1:1'
+    -   relation: parameters
+        to: Parameters
+        cardinality: O_O
     -   relation: returnType
         to: DataType
         cardinality: O_O
+    distance: 1
 -   _type: Class
     name: ParameterAnInputToAMethod
     edges:
@@ -160,9 +219,15 @@ classes:
     -   relation: type
         to: DataType
         cardinality: O_O
+    distance: 1
 -   _type: ValueType
     name: DataType
     edges: []
+    distance: 2
 -   _type: ValueType
     name: ComplexDataType
-    edges: []
+    edges:
+    -   relation: aggregatedTypes
+        to: DataTypes
+        cardinality: O_O
+    distance: 1000

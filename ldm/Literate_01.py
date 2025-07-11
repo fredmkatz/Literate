@@ -280,10 +280,15 @@ class SubjectE(Component):
     @cached_property
     def all_classes(self) -> List[Class]:
         print("Calcing all_classes for ", self)
-        all_classes = self.classes
+        print(f"- locally, there are {len(self.classes)} classes for {self}")
+        
+        # Note. Need to make a copy of the list of classes
+        # otherwise as all_classes gets extended, so does self.classes
+        all_classes = [c for c in self.classes]
 
         for subject in self.subjects:
             all_classes.extend(subject.all_classes)
+        print(f"- allclasses for {self} contains {len(all_classes)}; locally just {len(self.classes)}")
         return all_classes
 
     class Meta:
@@ -644,7 +649,7 @@ class Class(Component):
             if not super_type:
                 continue
             All_MROs[cname] = [super_name] + super_type.calc_mro(model)
-            print(f"MRO for {cname} => ", All_MROs[cname])
+            # print(f"MRO for {cname} => ", All_MROs[cname])
             return All_MROs[cname]
         All_MROs[cname] = []
         return []

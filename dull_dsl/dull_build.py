@@ -8,7 +8,7 @@ import utils.do_weasy_pdf as weasy
 
 import ldm.ldm_renderers as ldm_renderers
 import ldm.ldm_validators_v3 as ldm_validators
-from ldm.ldm_htmlers import create_model_html_with_faculty
+from ldm.ldm_htmlers import create_model_html_with_faculty, save_model_html
 
 import utils.util_all_fmk as fmk
 
@@ -30,6 +30,7 @@ all_clauses_by_priority = None
 part_plurals = None
 part_parts = None
 
+The_Extract_Path = None
 from utils.util_pydantic import TYPE_REGISTRY, dataclass, USING_PYDANTIC
 from ldm.Literate_01 import *
 
@@ -184,6 +185,9 @@ def build_dull_dsl(dull_specs: Dict):
     
     the_extract_path = f"{results_dir}/{model_name}_{pd_or_not}_15_extract.yaml"
     
+    global The_Extract_Path
+    The_Extract_Path = the_extract_path
+    
     create_model_extract_with_faculty(the_ldm_model_py, the_extract_path)
     show_phase("Validating to JSON Schema")
     from utils.util_jsonschema import validate_to_schema
@@ -200,22 +204,25 @@ def build_dull_dsl(dull_specs: Dict):
         show_phase("Skipping Render to Markdown")
 
     # Create HTML
-
+    model_h = None
     CREATE_HTML_AS2 = True
     if CREATE_HTML_AS2:
         show_phase("Creating HTML using the Faculty")
         html_path = f"{results_dir}/{model_name}_{pd_or_not}_07_as.html"
         web_css_path = "../../ldm_assets/Literate.css"
 
-        create_model_html_with_faculty(the_ldm_model_py, html_path, web_css_path)
+        model_h = create_model_html_with_faculty(the_ldm_model_py)
+    
+        save_model_html(model_h, web_css_path, html_path)
+
 
     CREATE_HTML_FOR_PDF = True
-    if CREATE_HTML_FOR_PDF:
-        show_phase("Creating HTML for PDF using the Faculty")
+    if CREATE_HTML_FOR_PDF and model_h:
+        show_phase("Saving HTML for PDF ")
         html_pdf_path = f"{results_dir}/{model_name}_{pd_or_not}_08_as_pdf.html"
         print_css_path = "../../ldm_assets/LiteratePrint.css"
+        save_model_html(model_h, print_css_path, html_pdf_path)
 
-        create_model_html_with_faculty(the_ldm_model_py, html_pdf_path, print_css_path)
 
     from utils.util_prince import html2pdf_prince
 

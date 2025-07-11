@@ -132,7 +132,17 @@ class PydanticMixin():
 
     def get_field_order(self):
         # print("get_field_order for ", self)   ## TODO - Causes look
-        return getattr(self, "__field_order__", list(self.__dict__.keys()))
+        fieldnames =  getattr(self, "__field_order__", list(self.__dict__.keys()))
+        exclusions = [ 
+                      'all_classes',
+                      'all_class_names',
+                      'class_index',
+                      'plural_index',
+                      'full_class_index',
+        ]
+        pruned_fieldnames = [item for item in fieldnames if item not in exclusions]
+        return pruned_fieldnames
+    
 
     def __repr__(self):
         fields = {name: getattr(self, name, None) for name in self.get_field_order()}

@@ -24,18 +24,18 @@ def as_prose_html(markdown_string):
     global n_pumls
 
     codeblocks = html_soup.find_all("code")
-    print("Found codeblocks ", len(codeblocks))
-    if len(codeblocks) == 1:
-        print(" and the soup is ")
-        print(html_soup)
+    # print("Found codeblocks ", len(codeblocks))
+    # if len(codeblocks) == 1:
+    #     print(" and the soup is ")
+    #     print(html_soup)
     # make repairs
     for codeblock in html_soup.find_all("code"):
-        print("Starting codeblock")
-        print(codeblock.name)
-        print("and Starting codeblock parent for")
-        print(codeblock.parent_tag())
-        print("and Starting codeblock grandparent for")
-        print(codeblock.parent_tag().parent_tag().name)
+        # print("Starting codeblock")
+        # print(codeblock.name)
+        # print("and Starting codeblock parent for")
+        # print(codeblock.parent_tag())
+        # print("and Starting codeblock grandparent for")
+        # print(codeblock.parent_tag().parent_tag().name)
         codediv = codeblock.parent_tag().parent_tag()   # the containing div/pre
         # codediv = codeblock.find("code")
         # if codediv:

@@ -208,7 +208,8 @@ def calc_mros(model: LiterateModel):
 
     print("CALC MROS - yields...")
     for cname, c in model.class_index.items():
-        print("MRO for ", cname, " is ", c.calc_mro(model))
+        c.calc_mro(model)
+        # print("MRO for ", cname, " is ", c.calc_mro(model))
 
 
 
@@ -637,12 +638,12 @@ def validate_data_type_clause(dtc, target=None):
 
 def validate_data_type(datatype: DataType, target=None):
     """Validate DataType instances."""
-    print("validating datatype: ", datatype)
+    # print("validating datatype: ", datatype)
     base_types = datatype.base_type_names()
-    print("... base types are: ", base_types)
+    # print("... base types are: ", base_types)
     for base_type in base_types:
         if base_type in The_Model.all_class_names:
-            print("\tno problem with ", base_type)
+            # print("\tno problem with ", base_type)
             continue
         print("\t!!! Base type error for ", base_type, " in dt ", datatype)
         createError(

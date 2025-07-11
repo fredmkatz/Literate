@@ -9,7 +9,7 @@ from utils.util_flogging import trace_decorator
 from utils.util_html_helpers import *
 
 from utils.class_fluent_html import FluentTag
-
+from utils.diagram_extract import generate_focused_diagram
 import utils.util_all_fmk as fmk
 PROSE_CONTENT_TYPES = [
     "Paragraph",
@@ -260,19 +260,24 @@ class Htmlers(Faculty):
 
     @patch_on(LiterateModel, "as_html")
     def literate_model_html(self):
-        
+        print(f"HTMLing Model {self.name}")
         # Handle as any old Subject
         # Call super validator with explicit class name
+        nclasses = len(self.classes)
+        nsubjects = len(self.subjects)
+        print(f"Doing html for {nclasses} classes and {nsubjects} subjects")
         comp_html = _html_faculty.call_super_html(self, 'LiterateModel')
-        
 
-        
         return comp_html
 
     @patch_on(SubjectE, "as_html")  # base for LDM and all Subjects
     def subject_html(self):
         # Call super validator with explicit class name
-        
+        print(f"HTMLing subject {self.name}")
+        nclasses = len(self.classes)
+        nsubjects = len(self.subjects)
+        print(f"\tDoing html for {nclasses} classes and {nsubjects} subjects")
+
         # Get container for whole components, with header as a start
         comp_html = _html_faculty.call_super_html(self, 'SubjectE')
         
@@ -285,7 +290,8 @@ class Htmlers(Faculty):
     @patch_on(Class, "as_html")  # and CodeType, ValueType
     def class_html(self):
         # Call super validator with explicit class name
-        
+        print(f"HTMLing class {self.name}")
+
         # Get container for whole components, with header as a start
         comp_html = _html_faculty.call_super_html(self, 'Class')
         
@@ -308,6 +314,27 @@ class Htmlers(Faculty):
 
         for piece in pieces:
             comp_html.append(piece)
+        
+        from ldm.ldm_extractors import All_Trivials
+        # and now create the extract diagram for the class
+        cname = self.name.content
+        if cname == "Class":
+            cname = "Class_"
+        
+        if cname in All_Trivials:
+            comp_html.append(div(f" {cname} is trivial; no diagram", class_ = "raw-diagram-code"))
+
+            return comp_html
+
+            
+        from dull_dsl.dull_build import The_Extract_Path
+        diagram_code = generate_focused_diagram(The_Extract_Path, [cname], radius = 1)
+        if not diagram_code:
+            comp_html.append(div(f"No diagram produced for {cname}", class_ = "raw-diagram-code"))
+        else:
+            comp_html.append(div(f"Diagram produced for {cname}\n", diagram_code, class_ = "raw-diagram-code"))
+            comp_html.append(div(diagram_code, class_ = "language-mermaid mermaid"))
+
         
         return comp_html
     
@@ -373,8 +400,8 @@ import sys
 def html_prose_content(obj_type, obj):
     from ldm.ldm_to_html_prose import as_prose_html
 
-    print(f"Adding simple: {obj_type} ")
-    print("...obj is ", obj)
+    # print(f"Adding simple: {obj_type} ")
+    # print("...obj is ", obj)
     content = obj.content
     if not content:
         content = f"Empty content for {obj_type}??"
@@ -383,9 +410,9 @@ def html_prose_content(obj_type, obj):
 
     try:
         content_h = as_prose_html(content)
-        print("...contenth for prose html is...")
-        print(content_h)
-        print("...end of contenth for prose html .")
+        # print("...contenth for prose html is...")
+        # print(content_h)
+        # print("...end of contenth for prose html .")
         return div(content_h, class_=f"{obj_type} mdhtml")
     except Exception:
         print(
@@ -567,20 +594,20 @@ def object_html(the_object):
 
 
 
-def create_model_html_with_faculty(the_model, html_path, css_path):
+def create_model_html_with_faculty(the_model):
 
     # Note html file is in
     #  ldm/ldm_models/MODEL/MODEL_results/Model.html
+    model_h = object_html(the_model)
+    return model_h
 
     # and css is in ldm/ldm_models/ldm_assets
-    save_model_html_with_faculty(the_model, css_path, html_path)
 
 
 from utils.class_fluent_html import create_html_root
 
 
-def save_model_html_with_faculty(the_model, css_path, output_path):
-    model_h = object_html(the_model)
+def save_model_html( model_h,  css_path, output_path):
 
     html_h = create_html_root()
     head_h = head()
