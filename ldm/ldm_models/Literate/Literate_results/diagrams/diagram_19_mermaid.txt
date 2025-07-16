@@ -1,0 +1,2 @@
+erDiagram
+    Method ||--|| Component : subtype_of

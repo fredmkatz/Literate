@@ -1,0 +1,6 @@
+erDiagram
+    Class_ ||--|| Component : subtype_of
+    Class_ |o--o| Class_ : basedOn
+    Key ||--|| Component : subtype_of
+    Key }o--|| Class_ : based_on
+    UniqueKey ||--|| Key : subtype_of

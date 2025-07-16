@@ -122,7 +122,7 @@ class DocPart:
 
                 if label.endswith("_Head"):
                     full_header = item.full_text()
-                    print("Full header: ", full_header)
+                    # print("Full header: ", full_header)
                     # print(f"\t\tFull header is: {full_header}")
 
                     handlers = item.line_Type.handlers
@@ -169,7 +169,7 @@ class DocPart:
                     if emoji_dicts:
                         # print(f"found EMOJIS in label {emoji_dicts}: {full_label}")
                         trimmed_label = replace_emoji(full_label, "").strip()
-                        print("trimmed label is ", trimmed_label)
+                        # print("trimmed label is ", trimmed_label)
                     else:
                         emoji_dicts = []
                         trimmed_label = full_label
@@ -178,9 +178,9 @@ class DocPart:
                     emojis_list = [ e["emoji"] for e in emoji_dicts]
                     annotation_dict["label"] = Label(trimmed_label)
                     
-                    print("emojis are: ", emoji_dicts)
+                    # print("emojis are: ", emoji_dicts)
 
-                    print("Final annoation dict is: ", annotation_dict)
+                    # print("Final annoation dict is: ", annotation_dict)
                     the_dict.update(annotation_dict)
                     continue
 
@@ -197,17 +197,17 @@ class DocPart:
 
                 if isinstance(item, ClauseLine):
                     clause_dict = item.derive_clause_dict(level)
-                    print("Clause line dict is", clause_dict)
+                    # print("Clause line dict is", clause_dict)
                     for keyword, value in clause_dict.items():
                         # for the real value, we need clause spec
 
                         att_name = SnakeCase(keyword).content
                         sc = SnakeCase(keyword)
                         # print(f"Keyword = {keyword}. attname = {att_name}, sc = {sc}")
-                        if att_name != keyword:
-                            print(f"Using ATT_NAME  {att_name} for {keyword}")
-                            print(f"Adding value in ddforpart. {att_name} -. {value}")
-                        print("Calling absorb with line type: ", item.line_Type)
+                        # if att_name != keyword:
+                        #     print(f"Using ATT_NAME  {att_name} for {keyword}")
+                        #     print(f"Adding value in ddforpart. {att_name} -. {value}")
+                        # print("Calling absorb with line type: ", item.line_Type)
                         is_cum = item.line_Type.is_cum
                         
                         # More hack: oneliners were being accumulated into a list
@@ -227,7 +227,7 @@ class DocPart:
                     if (
                         isinstance(item.line_Type, MajorClause)
                         and item.line_Type.class_started in ["Default", "Derivation", "Constraint"]
-                        # and False
+                        and False
                     ):
                         print("Dict for Formula", the_dict)
                             
@@ -282,9 +282,9 @@ class DocPart:
             # print("Re-display for Part: ", self.part_type)
 
             self.display(1)
-            print("DerivedDict for Part: ", self.part_type)
+            # print("DerivedDict for Part: ", self.part_type)
             # print(as_json(the_dict))
-            print(the_dict)
+            # print(the_dict)
         # if the_dict.get("name", "") == "Component":
         #     exit(0)
         return clean_dict(the_dict)

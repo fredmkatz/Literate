@@ -148,9 +148,6 @@ classes:
     -   relation: based_on
         to: AttributeSection
         cardinality: M:1
-    -   relation: dataType
-        to: DataType
-        cardinality: O_O
 -   _type: ValueType
     name: Derivation
     edges: []
@@ -187,24 +184,9 @@ classes:
     -   relation: parameters
         to: Parameters
         cardinality: O_O
-    -   relation: returnType
-        to: DataType
-        cardinality: O_O
 -   _type: Class
     name: ParameterAnInputToAMethod
     edges:
     -   relation: subtype_of
         to: Component
         cardinality: '1:1'
-    -   relation: type
-        to: DataType
-        cardinality: O_O
--   _type: ValueType
-    name: DataType
-    edges: []
--   _type: ValueType
-    name: ComplexDataType
-    edges:
-    -   relation: aggregatedTypes
-        to: DataTypes
-        cardinality: O_O

@@ -370,6 +370,7 @@ if __name__ == "__main__":
     test_models = ["Literate", "Diagrams"]
 
     test_models = ["Literate", "Diagrams"]
+    test_models = ["Literate"]
     test_models = ["Diagrams"]
     test_models = ["Literate"]
 

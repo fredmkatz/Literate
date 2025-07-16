@@ -1,0 +1,3 @@
+erDiagram
+    AttributeConstraint ||--|| Constraint : subtype_of
+    AttributeConstraint }o--|| Attribute : based_on

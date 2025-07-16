@@ -18,26 +18,30 @@ AsValue:
 Attribute:
     name: Attribute
     qualified: <class 'ldm.Literate_01.Attribute'>
-    mro: '[''Attribute'', ''Component'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''Attribute'']'
+    mro: '[''Attribute'', ''Component'', ''MinorComponent'', ''PydanticMixin'', ''Container'',
+        ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''Attribute'']'
 AttributeName:
     name: AttributeName
     qualified: <class 'ldm.Literate_01.AttributeName'>
     mro: '[''AttributeName'', ''LowerCamel'', ''CamelCase'', ''Casing'', ''PresentableToken'',
-        ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''PresentableToken'', ''Casing'', ''CamelCase'',
-        ''LowerCamel'', ''AttributeName'']'
+        ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''PresentableToken'', ''Casing'',
+        ''CamelCase'', ''LowerCamel'', ''AttributeName'']'
 AttributeReference:
     name: AttributeReference
     qualified: <class 'ldm.Literate_01.AttributeReference'>
-    mro: '[''AttributeReference'', ''PydanticMixin'', ''Trivial'', ''object'']'
-    rmro: '[''object'', ''Trivial'', ''PydanticMixin'', ''AttributeReference'']'
+    mro: '[''AttributeReference'', ''PydanticMixin'', ''Trivial'', ''Container'',
+        ''object'']'
+    rmro: '[''object'', ''Container'', ''Trivial'', ''PydanticMixin'', ''AttributeReference'']'
 AttributeSection:
     name: AttributeSection
     qualified: <class 'ldm.Literate_01.AttributeSection'>
     mro: '[''AttributeSection'', ''Component'', ''MinorComponent'', ''PydanticMixin'',
-        ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''AttributeSection'']'
+        ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''AttributeSection'']'
 AttributeSectionName:
     name: AttributeSectionName
     qualified: <class 'ldm.Literate_01.AttributeSectionName'>
@@ -48,8 +52,8 @@ AttributeSectionName:
 BaseDataType:
     name: BaseDataType
     qualified: <class 'ldm.Literate_01.BaseDataType'>
-    mro: '[''BaseDataType'', ''DataType'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''DataType'', ''BaseDataType'']'
+    mro: '[''BaseDataType'', ''DataType'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''DataType'', ''BaseDataType'']'
 CamelCase:
     name: CamelCase
     qualified: <class 'utils.class_casing.CamelCase'>
@@ -68,8 +72,10 @@ Casing:
 Class:
     name: Class
     qualified: <class 'ldm.Literate_01.Class'>
-    mro: '[''Class'', ''Component'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''Class'']'
+    mro: '[''Class'', ''Component'', ''MinorComponent'', ''PydanticMixin'', ''Container'',
+        ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''Class'']'
 ClassName:
     name: ClassName
     qualified: <class 'ldm.Literate_01.ClassName'>
@@ -81,9 +87,9 @@ ClassReference:
     name: ClassReference
     qualified: <class 'ldm.Literate_01.ClassReference'>
     mro: '[''ClassReference'', ''ClassName'', ''UpperCamel'', ''CamelCase'', ''Casing'',
-        ''PresentableToken'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''PresentableToken'', ''Casing'', ''CamelCase'',
-        ''UpperCamel'', ''ClassName'', ''ClassReference'']'
+        ''PresentableToken'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''PresentableToken'', ''Casing'',
+        ''CamelCase'', ''UpperCamel'', ''ClassName'', ''ClassReference'']'
 CodeBlock:
     name: CodeBlock
     qualified: <class 'ldm.Literate_01.CodeBlock'>
@@ -93,39 +99,50 @@ CodeType:
     name: CodeType
     qualified: <class 'ldm.Literate_01.CodeType'>
     mro: '[''CodeType'', ''ValueType'', ''Class'', ''Component'', ''MinorComponent'',
-        ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''Class'',
-        ''ValueType'', ''CodeType'']'
+        ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''Class'', ''ValueType'', ''CodeType'']'
 Component:
     name: Component
     qualified: <class 'ldm.Literate_01.Component'>
-    mro: '[''Component'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'']'
+    mro: '[''Component'', ''MinorComponent'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'']'
 Constraint:
     name: Constraint
     qualified: <class 'ldm.Literate_01.Constraint'>
-    mro: '[''Constraint'', ''Formula'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Formula'', ''Constraint'']'
+    mro: '[''Constraint'', ''Formula'', ''MinorComponent'', ''PydanticMixin'', ''Container'',
+        ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Formula'',
+        ''Constraint'']'
+Container:
+    name: Container
+    qualified: <class 'utils.class_container.Container'>
+    mro: '[''Container'', ''object'']'
+    rmro: '[''object'', ''Container'']'
 DataType:
     name: DataType
     qualified: <class 'ldm.Literate_01.DataType'>
-    mro: '[''DataType'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''DataType'']'
+    mro: '[''DataType'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''DataType'']'
 DataTypeClause:
     name: DataTypeClause
     qualified: <class 'ldm.Literate_01.DataTypeClause'>
-    mro: '[''DataTypeClause'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''DataTypeClause'']'
+    mro: '[''DataTypeClause'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''DataTypeClause'']'
 Default:
     name: Default
     qualified: <class 'ldm.Literate_01.Default'>
-    mro: '[''Default'', ''Formula'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Formula'', ''Default'']'
+    mro: '[''Default'', ''Formula'', ''MinorComponent'', ''PydanticMixin'', ''Container'',
+        ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Formula'',
+        ''Default'']'
 Derivation:
     name: Derivation
     qualified: <class 'ldm.Literate_01.Derivation'>
-    mro: '[''Derivation'', ''Formula'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Formula'', ''Derivation'']'
+    mro: '[''Derivation'', ''Formula'', ''MinorComponent'', ''PydanticMixin'', ''Container'',
+        ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Formula'',
+        ''Derivation'']'
 Diagnostic:
     name: Diagnostic
     qualified: <class 'ldm.Literate_01.Diagnostic'>
@@ -149,8 +166,8 @@ Enum:
 Formula:
     name: Formula
     qualified: <class 'ldm.Literate_01.Formula'>
-    mro: '[''Formula'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Formula'']'
+    mro: '[''Formula'', ''MinorComponent'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Formula'']'
 FormulaCoding:
     name: FormulaCoding
     qualified: <class 'ldm.Literate_01.FormulaCoding'>
@@ -197,15 +214,15 @@ Label:
 ListDataType:
     name: ListDataType
     qualified: <class 'ldm.Literate_01.ListDataType'>
-    mro: '[''ListDataType'', ''DataType'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''DataType'', ''ListDataType'']'
+    mro: '[''ListDataType'', ''DataType'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''DataType'', ''ListDataType'']'
 LiterateModel:
     name: LiterateModel
     qualified: <class 'ldm.Literate_01.LiterateModel'>
     mro: '[''LiterateModel'', ''SubjectB'', ''SubjectC'', ''SubjectD'', ''SubjectE'',
-        ''Component'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''SubjectE'',
-        ''SubjectD'', ''SubjectC'', ''SubjectB'', ''LiterateModel'']'
+        ''Component'', ''MinorComponent'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''SubjectE'', ''SubjectD'', ''SubjectC'', ''SubjectB'', ''LiterateModel'']'
 LowerCamel:
     name: LowerCamel
     qualified: <class 'utils.class_casing.LowerCamel'>
@@ -216,8 +233,8 @@ LowerCamel:
 MappingDataType:
     name: MappingDataType
     qualified: <class 'ldm.Literate_01.MappingDataType'>
-    mro: '[''MappingDataType'', ''DataType'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''DataType'', ''MappingDataType'']'
+    mro: '[''MappingDataType'', ''DataType'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''DataType'', ''MappingDataType'']'
 MinorComponent:
     name: MinorComponent
     qualified: <class 'ldm.Literate_01.MinorComponent'>
@@ -284,14 +301,14 @@ ReferenceType:
     name: ReferenceType
     qualified: <class 'ldm.Literate_01.ReferenceType'>
     mro: '[''ReferenceType'', ''Class'', ''Component'', ''MinorComponent'', ''PydanticMixin'',
-        ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''Class'',
-        ''ReferenceType'']'
+        ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''Class'', ''ReferenceType'']'
 SetDataType:
     name: SetDataType
     qualified: <class 'ldm.Literate_01.SetDataType'>
-    mro: '[''SetDataType'', ''DataType'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''DataType'', ''SetDataType'']'
+    mro: '[''SetDataType'', ''DataType'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''DataType'', ''SetDataType'']'
 StrEnum:
     name: StrEnum
     qualified: <enum 'StrEnum'>
@@ -301,28 +318,30 @@ SubjectB:
     name: SubjectB
     qualified: <class 'ldm.Literate_01.SubjectB'>
     mro: '[''SubjectB'', ''SubjectC'', ''SubjectD'', ''SubjectE'', ''Component'',
-        ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''SubjectE'',
-        ''SubjectD'', ''SubjectC'', ''SubjectB'']'
+        ''MinorComponent'', ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''SubjectE'', ''SubjectD'', ''SubjectC'', ''SubjectB'']'
 SubjectC:
     name: SubjectC
     qualified: <class 'ldm.Literate_01.SubjectC'>
     mro: '[''SubjectC'', ''SubjectD'', ''SubjectE'', ''Component'', ''MinorComponent'',
-        ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''SubjectE'',
-        ''SubjectD'', ''SubjectC'']'
+        ''PydanticMixin'', ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''SubjectE'', ''SubjectD'', ''SubjectC'']'
 SubjectD:
     name: SubjectD
     qualified: <class 'ldm.Literate_01.SubjectD'>
     mro: '[''SubjectD'', ''SubjectE'', ''Component'', ''MinorComponent'', ''PydanticMixin'',
-        ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''SubjectE'',
-        ''SubjectD'']'
+        ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''SubjectE'', ''SubjectD'']'
 SubjectE:
     name: SubjectE
     qualified: <class 'ldm.Literate_01.SubjectE'>
-    mro: '[''SubjectE'', ''Component'', ''MinorComponent'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''SubjectE'']'
+    mro: '[''SubjectE'', ''Component'', ''MinorComponent'', ''PydanticMixin'', ''Container'',
+        ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''SubjectE'']'
 SubjectName:
     name: SubjectName
     qualified: <class 'ldm.Literate_01.SubjectName'>
@@ -373,9 +392,9 @@ ValueType:
     name: ValueType
     qualified: <class 'ldm.Literate_01.ValueType'>
     mro: '[''ValueType'', ''Class'', ''Component'', ''MinorComponent'', ''PydanticMixin'',
-        ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''Class'',
-        ''ValueType'']'
+        ''Container'', ''object'']'
+    rmro: '[''object'', ''Container'', ''PydanticMixin'', ''MinorComponent'', ''Component'',
+        ''Class'', ''ValueType'']'
 cached_property:
     name: cached_property
     qualified: <class 'functools.cached_property'>

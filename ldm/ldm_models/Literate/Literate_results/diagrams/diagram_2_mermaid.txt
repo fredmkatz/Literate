@@ -1,0 +1,3 @@
+erDiagram
+    AnnotationType }o--|| LiterateDataModel : based_on
+    Annotation |o--o| AnnotationType : annotationType

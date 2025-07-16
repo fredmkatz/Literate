@@ -1,0 +1,6 @@
+erDiagram
+    LiterateDataModel ||--|| Component : subtype_of
+    Subject ||--|| Component : subtype_of
+    Subject }o--|| LiterateDataModel : based_on
+    Subject |o--o| Subject : parentSubject
+    SubjectArea ||--|| Subject : subtype_of

@@ -143,3 +143,24 @@ def tell_me(message):
     traceback.print_stack(file=sys.stdout)
     traceback.print_stack(file=sys.stderr)
 
+def ids_for(items):
+    return [id_for(item) for item in items]
+
+def id_for(obj) -> str:
+    typestr = type_for(obj)
+    name = getattr(obj, "name", None)
+    namestr = None
+    if name:
+        namestr = name
+        if hasattr(name, "content"):
+            namestr = getattr(name, "content")
+    rest = namestr or getattr(obj, "content", None)  
+    if not rest:
+        rest = "[" + str(obj) + "]"
+    # print("typestr = ", typestr, " - ", type(typestr))
+    # print("rest = ", rest, " - ", type(rest))
+    return typestr + ":" + rest
+
+def type_for(obj) -> str:
+    return f"<{type(obj).__name__}>"
+

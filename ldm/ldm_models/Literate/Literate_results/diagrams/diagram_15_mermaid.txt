@@ -1,0 +1,5 @@
+erDiagram
+    AttributeSection ||--|| Component : subtype_of
+    Attribute ||--|| Component : subtype_of
+    Attribute }o--|| AttributeSection : based_on
+    AttributeConstraint }o--|| Attribute : based_on

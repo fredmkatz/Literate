@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from utils.util_plantweb import render_puml
 
 import utils.util_all_fmk as fmk
-from dull_dsl.dull_build import model_assets_dir
+from dull_dsl.dull_build import model_assets_dir, model_diagrams_dir
 from utils.class_fluent_html import wrap_deep
 from utils.util_mermaid import render_mermaid_file
 
@@ -58,77 +58,97 @@ def as_prose_html(markdown_string):
             puml = codeblock.get_text()
             puml = puml.replace("@startuml", "")
             puml = puml.replace("@enduml", "")
-            n_pumls += 1
+            
+            suite_h = diagram_suite("PlantUML Diagram", puml, "puml")
 
-            png_file_name = f"plant_img{n_pumls}.png"
-            png_file_path = os.path.abspath(f"{model_assets_dir}/{png_file_name}")
-            print(f"creating png in {png_file_path}")
-            pngurl = render_puml(puml, "png", png_file_path)
+            codediv.clear()
+            codediv.append(suite_h)
             
-            svg_file_name = f"plant_img{n_pumls}.svg"
-            svg_file_path = os.path.abspath(f"{model_assets_dir}/{svg_file_name}")
-            svgurl = render_puml(puml, "svg", svg_file_path)
-
-
-            pngdiv = div(class_="diagram png puml", string="PNG Diagram " + png_file_name)
-            png_image_element = img(src=png_file_path, width="500px")
-            pngdiv.append(png_image_element)
-            
-            svgdiv = div(class_="diagram svg puml", string="SVG Diagram"+ svg_file_name)
-            
-            svg_image_element = img(src=svg_file_path, width="500px")
-            svgdiv.append(svg_image_element)
-            
-            
-            # print("SVG div for PUML")
-            # print(svgdiv)
-
-            codediv.append(pngdiv)
-            codediv.append(svgdiv)
-            
-            # print("Finished codeblock for PUML")
-            # print(codeblock)
-            # print("and Finished codeblock parent for PUML")
-            # print(codeblock.parent)
             continue
         if current_classes and "language-mermaid" in current_classes:
             newclasses = current_classes + ["mermaid"]
             codeblock["class"] = newclasses
             
             mmd = codeblock.get_text()
-            n_pumls += 1
-            
-            mmd_file_name = f"mermaid_{n_pumls}.txt"
+            suite_h = diagram_suite("Mermaid Diagram", mmd, "mermaid")
 
-            mmd_path = os.path.abspath(f"{model_assets_dir}/{mmd_file_name}")
-            fmk.write_text(mmd_path, mmd)
-
-            png_file_name = f"mermaid_img{n_pumls}.png"
-            png_file_path = os.path.abspath(f"{model_assets_dir}/{png_file_name}")
-            print(f"creating png  for mermaid in {png_file_path}")
-            pngurl = render_mermaid_file(mmd_path, "png", png_file_path)
-            
-            svg_file_name = f"mermaid_img{n_pumls}.svg"
-            svg_file_path = os.path.abspath(f"{model_assets_dir}/{svg_file_name}")
-            svgurl = render_mermaid_file(mmd_path, "svg", svg_file_path)
-
-
-            pngdiv = div(class_="diagram png puml", string="PNG Diagram for Mermaid")
-            pngdiv.append(f"Mermaid PNG - {png_file_name}")
-
-            png_image_element = img(src=png_file_path, width="500px")
-            pngdiv.append(png_image_element)
-            
-            svgdiv = div(class_="diagram svg puml", string="SVG Diagram for Mermaid")
-            svgdiv.append(f"Mermaid SVG - {svg_file_name}")
-            svg_image_element = img(src=svg_file_path, width="500px")
-            svgdiv.append(svg_image_element)
-            
-            
-            codediv.append(pngdiv)
-            codediv.append(svgdiv)
+            codediv.clear()
+            codediv.append(suite_h)
 
             continue
 
     return html_soup
 
+def diagram_suite(title: str, diagram_code: str, flavor: str):
+    suite_h = div(class_ = "diagram_suite")
+    
+    # first, the inert raw code
+    rawfigure = figure(
+        figcaption(f"{title} - Inert"),
+        div(diagram_code,  class_ = "raw-diagram-code")
+    )
+
+    suite_h.append(rawfigure)
+
+    # only produce a live section for mermaid; can't use it for PlantUML
+    if flavor == "mermaid":
+        # then, the live version of the code
+        live_figure = figure(
+            figcaption(f"{title} - Live!"),
+            div(diagram_code, class_ =  f"language-{flavor} {flavor}")
+        )
+        suite_h.append(live_figure)
+
+        # then, the png/svg
+
+    global n_pumls
+    n_pumls += 1
+    
+    diagram_code_file_name = f"diagram_{n_pumls}_{flavor}.txt"
+
+    diagram_code_path = os.path.abspath(f"{model_diagrams_dir}/{diagram_code_file_name}")
+    fmk.write_text(diagram_code_path, diagram_code)
+
+    
+
+
+
+    PNGING = True
+    if PNGING:
+        png_file_name = f"diagram_{n_pumls}_{flavor}.png"
+        png_file_path = os.path.abspath(f"{model_diagrams_dir}/{png_file_name}")
+        print(f"creating png  for {flavor} in {png_file_path}")
+
+        if flavor == "puml":
+            pngurl = render_puml(diagram_code, "png", png_file_path)
+        else:
+            pngurl = render_mermaid_file(diagram_code_path, "png", png_file_path)
+
+        pngfigure = figure(
+            figcaption(f"{title} - PNG for {flavor}"),
+            img(src=png_file_path, width="500px"), 
+            class_="diagram png puml"
+        )
+
+        suite_h.append(pngfigure)
+
+    SVGING = False
+    if SVGING:
+        svg_file_name = f"diagram_{n_pumls}_{flavor}.svg"
+        svg_file_path = os.path.abspath(f"{model_diagrams_dir}/{svg_file_name}")
+
+        if flavor == "puml":
+            svgurl = render_puml(diagram_code, "svg", svg_file_path)
+        else:
+            svgurl = render_mermaid_file(diagram_code_path, "svg", svg_file_path)
+
+        svgfigure = figure(
+            figcaption(f"{title} - SVG for {flavor}"),
+            img(src=svg_file_path, width="500px"), 
+            class_="diagram svg puml"
+        )
+
+        suite_h.append(svgfigure)
+
+        
+    return suite_h

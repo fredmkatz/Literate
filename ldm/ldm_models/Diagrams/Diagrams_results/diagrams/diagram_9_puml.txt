@@ -1,0 +1,43 @@
+
+'hide empty description
+'!pragma layout elk
+skinparam rectangleBorderThickness 1
+skinparam defaultTextAlignment center
+skinparam lifelineStrategy solid
+skinparam monochrome false
+skinparam style strictuml
+hide empty members
+skinparam Linetype ortho
+
+rectangle "Базовые модули" as base {
+
+class "Базовые объекты" as baseobjects
+class "Делопроизводство\n4.5" as takeoffice
+class "Управление\nпроцессами" as workflow
+class "Windows-клиент" as windowsclient
+
+class "Управление\nдокументами" as documentmanagement
+class "Конструктор\nсогласований" as approvaldesigner
+
+class "Платформа" as platform
+class "Служба\n фоновых операций" as worker
+
+}
+
+platform <-- baseobjects
+platform <-- workflow
+platform <-- takeoffice
+platform <-- windowsclient
+platform <-- documentmanagement
+platform <-- approvaldesigner
+
+windowsclient -up-> approvaldesigner
+windowsclient -up-> documentmanagement
+windowsclient -up-> baseobjects
+windowsclient -up-> takeoffice
+windowsclient -up-> workflow
+
+worker <-- approvaldesigner
+worker <-- baseobjects
+
+

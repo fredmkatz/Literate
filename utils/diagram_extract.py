@@ -126,13 +126,15 @@ def derive_edges_for_extract(extract: dict) -> list:
             all_edges.append((cname, target))
     return all_edges
 
-def generate_focused_diagram(full_extract_path: str, focal_points: list[str], radius: int):
+def generate_focused_diagram(full_extract_path: str, extracts_path, focal_points: list[str], radius: int):
     full_extract = load_yaml(full_extract_path)
     marked_extract = mark_distances(full_extract, focal_points=focal_points)
     if(not marked_extract):
         return None
     focuswords = "-".join(focal_points)
-    marked_path = full_extract_path.replace(".yaml", f"_{focuswords}.yaml")
+    marked_file_name = f"Extract_{focuswords}.yaml"
+    marked_path = f"{extracts_path}/{marked_file_name}"
+    
     fmk.write_yaml(marked_extract, marked_path)
     # Generate the Mermaid diagram
     diagram_code = generate_diagram_code(marked_extract, radius=radius)
@@ -140,8 +142,8 @@ def generate_focused_diagram(full_extract_path: str, focal_points: list[str], ra
 
 def main():
     # Load the YAML file
-    
-    diagram_code = generate_focused_diagram('trials/extract_diagrams/Literate_15_extract.yaml', ["Class_", "Attribute"], 1)
+    extracts_path = 'trials/extract_diagrams'
+    diagram_code = generate_focused_diagram('trials/extract_diagrams/Literate_15_extract.yaml', extracts_path, ["Class_", "Attribute"], 1)
     # Print or save the result
     print(diagram_code)
     fence = "```"

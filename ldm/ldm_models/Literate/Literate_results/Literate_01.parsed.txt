@@ -274,7 +274,6 @@ _ _ _ _ SUBTYPE_OF: Subtype of: Component
 _ _ _ _ BASED_ON: *Based on*: AttributeSection
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **name** - (Lower Camel).
-_ _ _ _ _ OVERRIDES: Overrides: CamelName
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **dataType** - The kind of object to which the attribute refers.  _(DataType)_H 
 + In the simplest cases, the data type will be a class. And the specifier is the just the name of that class.
@@ -353,8 +352,6 @@ _ _ _ _ _ Attribute_Head: - **expression** - The formal expression of the constr
 _ _ _ _ _ Attribute_Head: - **severity** -  (Code)
 _ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='```codes', extra_text=['Warning, nothing fatal; just a caution', 'Error, serious. Fix now', '```'])]
 . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ ValueType_Head: ValueType:  **Message** - (Template)
-. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ ValueType_Head: ValueType:   **Class Constraint**
 _ _ _ _ SUBTYPE_OF: **Subtype of**: Constraint
 _ _ _ _ BASED_ON: ***Based on***: Class.
@@ -362,13 +359,6 @@ _ _ _ _ BASED_ON: ***Based on***: Class.
 _ _ _ _ ValueType_Head: ValueType:   **Attribute Constraint**
 _ _ _ _ SUBTYPE_OF: ***Subtype of***: Constraint
 _ _ _ _ BASED_ON: ***Based on***: Attribute
-. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ ValueType_Head: ValueType:   **CodeExpression**
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **Language** - the programming language (Code)
-_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` code', extra_text=['OCL, Object Constraint Language', 'Java, Java', '```'])]
-. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ Attribute_Head: - **Expression** (String)
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ SubjectB_Head: ## Methods
 . . . Class - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -388,7 +378,16 @@ _ _ _ _ _ Attribute_Head: - **type** - The data type of the parameter _(DataType
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **cardinality** - The cardinality of the parameter (e.g., optional, required) _(AttributeCardinality)_
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ SubjectB_Head: ## Data Types
+_ _ _ SubjectB_Head: ## Trivial Data Types
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:  **Message** - (Template)
+. . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ ValueType_Head: ValueType:   **CodeExpression**
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **Language** - the programming language (Code)
+_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` code', extra_text=['OCL, Object Constraint Language', 'Java, Java', '```'])]
+. . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
+_ _ _ _ _ Attribute_Head: - **Expression** (String)
 . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ ValueType_Head: ValueType: **Data Type**
 . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -411,7 +410,7 @@ _ _ _ _ _ Attribute_Head: - **arity** - (Integer)
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **spelling** - (Template)
 . . SubjectB - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ SubjectB_Head: ## Low level Data Types
+_ _ _ SubjectB_Head: ## Trivial  Low level Data Types
 _ _ _ ELABORATION: [TypedLine(type_label='PARAGRAPH', line_Type=None, content=[TypedLine(type_label='TEXT_LINE', line_Type=None, content='insert Camel Case.md', extra_text=[])], extra_text=[])]
 . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ ValueType_Head: ValueType: Emoji

@@ -1,0 +1,7 @@
+erDiagram
+    Class_ ||--|| Component : subtype_of
+    Class_ |o--o| Class_ : basedOn
+    AttributeSection ||--|| Component : subtype_of
+    AttributeSection }o--|| Class_ : based_on
+    Attribute ||--|| Component : subtype_of
+    Attribute }o--|| AttributeSection : based_on

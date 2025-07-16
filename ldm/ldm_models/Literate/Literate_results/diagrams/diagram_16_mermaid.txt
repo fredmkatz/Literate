@@ -1,0 +1,4 @@
+erDiagram
+    Constraint ||--|| Component : subtype_of
+    ClassConstraint ||--|| Constraint : subtype_of
+    AttributeConstraint ||--|| Constraint : subtype_of

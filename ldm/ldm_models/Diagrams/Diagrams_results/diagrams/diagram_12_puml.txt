@@ -1,0 +1,38 @@
+
+@startmindmap
+* Component
+** Literate
+*** Subject
+*** Class
+*** AttributeSection
+*** Attribute
+@endmindmap
+
+!include <C4/C4_Component>
+
+Person(user, "User")
+Container_Boundary(component, "Component") {
+Component(literate, "Literate", "Core implementation")
+Component(subject, "Subject", "Domain entity")
+Component(class, "Class", "Schema definition")
+Component(attributeSection, "AttributeSection", "Property group")
+Component(attribute, "Attribute", "Individual property")
+}
+
+Rel(subject, literate, "extends")
+Rel(class, literate, "extends")
+Rel(attributeSection, literate, "extends")
+Rel(attribute, literate, "extends")
+
+
+@startjson
+{
+"Component": {
+"Literate": {"description": "Core implementation"},
+"Subject": {"description": "Domain entity", "extends": "Literate"},
+"Class": {"description": "Schema definition", "extends": "Literate"},
+"AttributeSection": {"description": "Property group", "extends": "Literate"},
+"Attribute": {"description": "Individual property", "extends": "Literate"}
+}
+}
+@endjson

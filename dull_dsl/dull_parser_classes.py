@@ -176,7 +176,7 @@ class ClauseLine(TypedLine):
 
     # @trace_method
     def derive_clause_dict(self, level=0) -> Dict:
-        print(f"derive_clause_dict for {self}")
+        # print(f"derive_clause_dict for {self}")
         the_dict = {}
         full_text = self.full_text()
 
@@ -189,7 +189,7 @@ class ClauseLine(TypedLine):
         (keyword, rest_of_line) = splits
 
         handlers = self.line_Type.handlers
-        print("Using handlers: ", handlers)
+        # print("Using handlers: ", handlers)
 
         att_name = self.line_Type.attribute_name
         # print(f"att_name is {att_name} for {self.line_Type} is {att_name}")
@@ -204,17 +204,17 @@ class ClauseLine(TypedLine):
             # get the attribute name from the type, not the label
             # (rtvalue, messages) = handlers.round_trip(rest_of_line)
             rtvalue = handlers.parse(rest_of_line)
-            print(f"adding name value. {att_name} -. {rtvalue}")
+            # print(f"adding name value. {att_name} -. {rtvalue}")
             # print_messages(messages)
             if att_name == "one_liner":
                 # the_dict[att_name] = OneLiner(rtvalue)  # todo - This is a hack!
                 the_dict[att_name] = {"_type": "OneLiner", "content": rtvalue}
-                print(f"thedict[{att_name}] =", the_dict[att_name])
+                # print(f"thedict[{att_name}] =", the_dict[att_name])
             else:
                 the_dict[att_name] = rtvalue
-                print(f"thedict[{att_name}] =", the_dict[att_name])
+                # print(f"thedict[{att_name}] =", the_dict[att_name])
 
-            print(the_dict)
+            # print(the_dict)
         else:
             print(f"Found clause-spec but no handlers for {self.type_label}")
         return the_dict

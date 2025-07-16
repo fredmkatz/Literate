@@ -30,8 +30,8 @@ AttributeName:
 AttributeReference:
     name: AttributeReference
     qualified: <class 'ldm.Literate_01.AttributeReference'>
-    mro: '[''AttributeReference'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''AttributeReference'']'
+    mro: '[''AttributeReference'', ''PydanticMixin'', ''Trivial'', ''object'']'
+    rmro: '[''object'', ''Trivial'', ''PydanticMixin'', ''AttributeReference'']'
 AttributeSection:
     name: AttributeSection
     qualified: <class 'ldm.Literate_01.AttributeSection'>
@@ -238,8 +238,8 @@ SnakeCase:
 Natural:
     name: Natural
     qualified: <class 'ldm.Literate_01.Natural'>
-    mro: '[''Natural'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''Natural'']'
+    mro: '[''Natural'', ''PydanticMixin'', ''Trivial'', ''object'']'
+    rmro: '[''object'', ''Trivial'', ''PydanticMixin'', ''Natural'']'
 NormalCase:
     name: NormalCase
     qualified: <class 'utils.class_casing.NormalCase'>
@@ -248,13 +248,13 @@ NormalCase:
 OneLiner:
     name: OneLiner
     qualified: <class 'ldm.Literate_01.OneLiner'>
-    mro: '[''OneLiner'', ''Natural'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''Natural'', ''OneLiner'']'
+    mro: '[''OneLiner'', ''Natural'', ''PydanticMixin'', ''Trivial'', ''object'']'
+    rmro: '[''object'', ''Trivial'', ''PydanticMixin'', ''Natural'', ''OneLiner'']'
 Paragraph:
     name: Paragraph
     qualified: <class 'ldm.Literate_01.Paragraph'>
-    mro: '[''Paragraph'', ''Natural'', ''PydanticMixin'', ''object'']'
-    rmro: '[''object'', ''PydanticMixin'', ''Natural'', ''Paragraph'']'
+    mro: '[''Paragraph'', ''Natural'', ''PydanticMixin'', ''Trivial'', ''object'']'
+    rmro: '[''object'', ''Trivial'', ''PydanticMixin'', ''Natural'', ''Paragraph'']'
 PascalCase:
     name: PascalCase
     qualified: <class 'utils.class_casing.PascalCase'>
@@ -357,6 +357,11 @@ TrainCase:
     qualified: <class 'utils.class_casing.TrainCase'>
     mro: '[''TrainCase'', ''Casing'', ''PresentableToken'', ''PydanticMixin'', ''object'']'
     rmro: '[''object'', ''PydanticMixin'', ''PresentableToken'', ''Casing'', ''TrainCase'']'
+Trivial:
+    name: Trivial
+    qualified: <class 'ldm.Literate_01.Trivial'>
+    mro: '[''Trivial'', ''object'']'
+    rmro: '[''object'', ''Trivial'']'
 UpperCamel:
     name: UpperCamel
     qualified: <class 'utils.class_casing.UpperCamel'>
@@ -371,3 +376,8 @@ ValueType:
         ''object'']'
     rmro: '[''object'', ''PydanticMixin'', ''MinorComponent'', ''Component'', ''Class'',
         ''ValueType'']'
+cached_property:
+    name: cached_property
+    qualified: <class 'functools.cached_property'>
+    mro: '[''cached_property'', ''object'']'
+    rmro: '[''object'', ''cached_property'']'

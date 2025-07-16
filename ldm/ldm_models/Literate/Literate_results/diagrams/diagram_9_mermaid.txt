@@ -1,0 +1,3 @@
+erDiagram
+    Class_ |o--o| Class_ : basedOn
+    ReferenceType ||--|| Class_ : subtype_of

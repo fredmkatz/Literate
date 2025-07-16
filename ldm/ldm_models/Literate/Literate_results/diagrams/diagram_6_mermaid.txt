@@ -1,0 +1,3 @@
+erDiagram
+    Subject |o--o| Subject : parentSubject
+    SubjectArea ||--|| Subject : subtype_of

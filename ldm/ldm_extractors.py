@@ -10,29 +10,6 @@ Reserved_Words = [
     "Class",
 ]
 
-All_Trivials = [
-    'Decimal', 
-    'CamelName', 
-    'CodeExpression', 
-    'DateTime', 
-    'PrimitiveType', 
-    'Time', 
-    'Emoji', 
-    'Boolean', 
-    'ValueTypeRichText', 
-    'String', 
-    'Date', 
-    'Message', 
-    'SimpleDataTypeSubtpeOfDataType', 
-    'AggregatingOperator', 
-    'OneLiner', 
-    'QualifiedCamel', 
-    'LowerCamel', 
-    'UpperCamel', 
-    'Integer'
-]
-
-The_Model: LiterateModel = None
 
 @faculty_class
 class Extractors(Faculty):
@@ -66,12 +43,9 @@ class Extractors(Faculty):
 
     @patch_on(LiterateModel, "as_extract")
     def model_extract(model):
-        global The_Model
-        
-        The_Model = model
         the_extract = _extract_faculty.call_super_extract(model, 'LiterateModel')
         class_extracts = []
-        for cls in model.all_classes:
+        for cls in model.all_classes():
             cname = cls.name.content
             # print("cls is ", cls, type(cls), "MRO: ", cls.__mro__)
             # print("Trival  is ", Trivial)
@@ -80,8 +54,8 @@ class Extractors(Faculty):
             #     print(f"Extract skipping trivial class (by Trivial mixin) {cname}")
             #     continue
 
-            if cname in All_Trivials:
-                print(f"Extract skipping trivial class (by adhoc list) {cname}")
+            if cls.is_trivial():
+                print(f"Extract skipping trivial class (is_istrivial) {cname}")
                 continue
             print("extracting ", cls)
             cls_extract = object_extract(cls)
@@ -94,6 +68,8 @@ class Extractors(Faculty):
     def class_extract(cls: Class):
         the_extract = _extract_faculty.call_super_extract(cls, 'Class')
         edges = []
+        the_model = cls.containing(LiterateModel)
+        print("Found the model? ", the_model)
         for subtype_by in cls.subtype_of:
             subtyping = subtype_by.subtyping_name
             class_ref = subtype_by.class_name
@@ -107,11 +83,17 @@ class Extractors(Faculty):
         for attribute in cls.attributes:
             att_name = attribute.name.content
             (target_type, card) = core_type(attribute)
-            if target_type in All_Trivials:
-                print(f"extract skipping attribute - {att_name} - target type {target_type} is trivial")
+            if not target_type:
+                print(f"extract skipping attribute - {att_name} - target type {target_type} not defined?")
                 continue
-            if not target_type in The_Model.all_class_names:
-                print(f"extract skipping attribute - {att_name} - target type {target_type} is not in all class names")
+
+            target_type_object = the_model.class_named(target_type)
+            if not target_type_object:
+                print(f"extract skipping attribute - {att_name} - target type {target_type} does not name a class")
+                continue
+
+            if target_type_object.is_trivial():
+                print(f"extract skipping attribute - {att_name} - target type {target_type} is trivial")
                 continue
             
             edge = create_edge(att_name, target_type, card)
@@ -136,6 +118,8 @@ def core_type(attribute: Attribute):
 def dt_core(datatype: DataType):
     base_types = datatype.base_type_names()
     print(f"Base type names for {datatype} are {base_types}")
+    if not base_types:
+        return None
     return base_types[0]
 
 def create_edge(relation, target_name, cardinality = "missing!"):

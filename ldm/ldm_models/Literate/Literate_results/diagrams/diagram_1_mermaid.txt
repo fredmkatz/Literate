@@ -1,0 +1,17 @@
+erDiagram
+    Annotation }o--|| Component : based_on
+    LiterateDataModel ||--|| Component : subtype_of
+    Subject ||--|| Component : subtype_of
+    Subject }o--|| LiterateDataModel : based_on
+    Subject |o--o| Subject : parentSubject
+    Class_ ||--|| Component : subtype_of
+    Class_ |o--o| Class_ : basedOn
+    Key ||--|| Component : subtype_of
+    Key }o--|| Class_ : based_on
+    AttributeSection ||--|| Component : subtype_of
+    AttributeSection }o--|| Class_ : based_on
+    Attribute ||--|| Component : subtype_of
+    Attribute }o--|| AttributeSection : based_on
+    Constraint ||--|| Component : subtype_of
+    Method ||--|| Component : subtype_of
+    ParameterAnInputToAMethod ||--|| Component : subtype_of

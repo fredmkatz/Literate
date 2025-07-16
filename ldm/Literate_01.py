@@ -5,7 +5,7 @@ from typing import List, Optional, Dict, Any, Union
 
 
 from utils.util_pydantic import PydanticMixin,  dataclass, field
-
+from utils.class_container import Container
 from utils.debug_pydantic import debug_dataclass_creation
 from utils.class_casing import *
 from functools import cached_property # You need to import cached_property
@@ -52,7 +52,6 @@ __model_imports__ = [
 # TODO: subtypings
 # todo: codes
 
-All_MROs = {}
 
 def block_list_field(*args, **kwargs):
     """Helper function to create fields for block lists within dataclasses."""
@@ -86,6 +85,7 @@ def block_list_field(*args, **kwargs):
     return dataclass_field(*args, **kwargs)
 
 from enum import Enum, StrEnum
+
 class Cardinality(StrEnum):
     MANY_ONE = "M_1"
     ONE_MANY = "1_M"
@@ -139,12 +139,13 @@ class ModelName(NormalCase):
 @dataclass
 class ClassName(UpperCamel):
     content: Any
-    pass
 
 @dataclass
-class ClassReference(ClassName):
+class ClassReference(ClassName, Container):
     content: Any
-
+    container: Optional["Container"] = field(default=None, kw_only=True)
+## NOTE: MAGIC treatment for adding Containter as parent:
+### redeclare the container attribute and set kw_only = True for it
 
 @dataclass
 class SubjectName(NormalCase):
@@ -157,8 +158,9 @@ class AttributeSectionName(NormalCase):
 
 
 @dataclass
-class AttributeName(LowerCamel):
-    _html_id: str = None
+class AttributeName(LowerCamel, Container):
+    content: Any
+    container: Optional["Container"] = field(default=None, kw_only=True)
 
 
 @dataclass
@@ -232,7 +234,7 @@ class MinorComponent(PydanticMixin):  # TO DO: Change to subtype of Component, o
 
 
 @dataclass
-class Component(MinorComponent):
+class Component(MinorComponent, Container):
     prefix: Optional[str] = None
     name: CamelCase = None
     parenthetical: Optional[str] = None
@@ -266,6 +268,9 @@ class SubjectE(Component):
     prefix: str = ""
     classes: List[Class] = block_list_field(default_factory=list)
     
+    def containees(self):
+        return self.classes
+    
 
     def shared_post_init(self):
         super().shared_post_init()
@@ -277,19 +282,37 @@ class SubjectE(Component):
         if not self.subjects:
             self.subjects = []
 
+    def all_classes(self):
+        return self.all_classes_p
+    
     @cached_property
-    def all_classes(self) -> List[Class]:
-        print("Calcing all_classes for ", self)
-        print(f"- locally, there are {len(self.classes)} classes for {self}")
+    def all_classes_p(self) -> List[Class]:
+        # print("Calcing all_classes for ", self)
+        # print(f"- locally, there are {len(self.classes)} classes for {self}")
         
         # Note. Need to make a copy of the list of classes
         # otherwise as all_classes gets extended, so does self.classes
         all_classes = [c for c in self.classes]
 
         for subject in self.subjects:
-            all_classes.extend(subject.all_classes)
-        print(f"- allclasses for {self} contains {len(all_classes)}; locally just {len(self.classes)}")
+            all_classes.extend(subject.all_classes_p)
+        # print(f"- allclasses for {self} contains {len(all_classes)}; locally just {len(self.classes)}")
         return all_classes
+
+    def is_trivial(self):
+        return self.is_trivial_p
+    
+    @cached_property
+    def is_trivial_p(self) -> bool:
+        if "trivial" in self.name.content.lower():
+            print(f"{self} is Trivial!")
+            return True
+        parent_subject = self.containing(Subject)
+        if not parent_subject:
+            print(f"{self} is NOT Trivial!")
+            return False
+        print(f"{self} doesn't look Trivial, but ascending...")
+        return self.containing(Subject).is_trivial()
 
     class Meta:
         presentable_header = "#####  {{name}{? - {one_liner}} NEWLINE"
@@ -299,6 +322,8 @@ class SubjectE(Component):
 class SubjectD(SubjectE):
     subjects: List[SubjectE] = block_list_field(default_factory=list)
 
+    def containees(self):
+        return self.classes + self.subjects
 
     class Meta:
         presentable_header = "####  {{name}{? - {one_liner}} NEWLINE"
@@ -349,33 +374,45 @@ class LiterateModel(SubjectB):
         if isinstance(self.name, str):
             print("Fixing LiterateModel name!")
             self.name = ModelName(self.name)
-        
-    @cached_property
-    def all_class_names(self) -> list[str]:
-        print("Calcing all_class names  for ", self)
-        return self.full_class_index.keys()
-
+        self.set_containees_back()
+    
+    def all_class_names(self):
+        return self.all_class_names_p
     
     @cached_property
-    def class_index(self) -> dict[str, Class]:
-        the_index  = {str(c.name): c for c in self.all_classes}
+    def all_class_names_p(self) -> list[str]:
+        print("Calcing all_class names  for ", self)
+        return self.full_class_index().keys()
+
+    def class_index(self):
+        return self.class_index_p
+    
+    @cached_property
+    def class_index_p(self) -> dict[str, Class]:
+        the_index  = {str(c.name): c for c in self.all_classes()}
         if None in the_index:
             print("Found none in singular index")
         return the_index
     
+    def plural_index(self):
+        return self.plural_index_p
+    
     @cached_property
-    def plural_index(self) -> dict[str, Class]:
-        the_index  = {c.derive_plural() : c for c in self.all_classes}
+    def plural_index_p(self) -> dict[str, Class]:
+        the_index  = {c.derive_plural() : c for c in self.all_classes()}
         if None in the_index:
             print("Found none in p;ural index")
         return the_index
     
+    def full_class_index(self):
+        return self.full_class_index_p
+    
     @cached_property
-    def full_class_index(self) -> dict[str, Class]:
-        return self.class_index | self.plural_index
+    def full_class_index_p(self) -> dict[str, Class]:
+        return self.class_index() | self.plural_index()
 
     def class_named(self, cname: str)-> Class:
-        return self.full_class_index.get(cname, None)
+        return self.full_class_index().get(cname, None)
 
 
     class Meta:
@@ -389,7 +426,7 @@ Subject = SubjectB
 
 
 @dataclass
-class DataType(PydanticMixin):
+class DataType(PydanticMixin, Container):
     """A simple or complex data type"""
 
     def shared_post_init(self):
@@ -406,8 +443,12 @@ class DataType(PydanticMixin):
 
 @dataclass
 class BaseDataType(DataType):
-    class_name: Any #ClassReference = field(default_factory=ClassReference)
-    as_value_type: AsValue = field(default_factory=AsValue)
+    class_name: Any  = None #ClassReference = field(default_factory=ClassReference)
+    as_value_type: AsValue = None # field(default_factory=AsValue)
+    container: Optional["Container"] = field(default=None, kw_only=True)
+    
+    def containees(self):
+        return [self.class_name]
 
     def shared_post_init(self):
         super().shared_post_init()
@@ -431,9 +472,15 @@ class BaseDataType(DataType):
 
 @dataclass
 class ListDataType(DataType):
-    element_type: DataType  # What's inside the list
+    element_type: DataType  = None # What's inside the list
+    container: Optional["Container"] = field(default=None, kw_only=True)
+
+    def containees(self):
+        return [self.element_type]
 
     def base_type_names(self) -> List[str]:
+        if not self.element_type:
+            return []
         return self.element_type.base_type_names()
 
 
@@ -446,9 +493,15 @@ class ListDataType(DataType):
 
 @dataclass
 class SetDataType(DataType):
-    element_type: DataType  # What's inside the set
+    element_type: DataType = None  # What's inside the set
+    container: Optional["Container"] = field(default=None, kw_only=True)
+
+    def containees(self):
+        return [self.element_type]
 
     def base_type_names(self) -> List[str]:
+        if not self.element_type:
+            return []
         return self.element_type.base_type_names()
 
     class Meta:
@@ -460,8 +513,12 @@ class SetDataType(DataType):
 
 @dataclass
 class MappingDataType(DataType):
-    domain_type: DataType  # Mapping from this
-    range_type: DataType  # Mapping to this
+    domain_type: DataType = None # Mapping from this
+    range_type: DataType  = None # Mapping to this
+    container: Optional["Container"] = field(default=None, kw_only=True)
+
+    def containees(self):
+        return [self.domain_type, self.range_type]
 
     def base_type_names(self) -> List[str]:
         return self.domain_type.base_type_names() + self.range_type.base_type_names()
@@ -476,7 +533,7 @@ class MappingDataType(DataType):
 
 
 @dataclass
-class DataTypeClause(PydanticMixin):
+class DataTypeClause(PydanticMixin, Container):
     """
     Represents the type information for an attribute.
 
@@ -486,19 +543,22 @@ class DataTypeClause(PydanticMixin):
         cardinality: Optional cardinality constraint (e.g., "0..1", "1..*")
     """
 
-    data_type: Any
+    data_type: Any = None
     # is_optional_lit: Optional[IsOptional] = field(default="Required")
     is_optional_lit: Optional[IsOptional] = field(default_factory=lambda: IsOptional(content=False))
 
     cardinality: Optional[Cardinality] = field(default = Cardinality.ONE_ONE)
 
-
+    def containees(self):
+        return [self.data_type]
     class Meta:
         presentable_template = "{is_optional_lit} {data_type}{? {cardinality}}"
 
     def __str__(self):
         req_or_optional = "optional" if self.is_optional_lit else "required"
         return f"{req_or_optional} {self.data_type} ({self.cardinality})"
+    
+    
 
 
 @dataclass
@@ -508,8 +568,9 @@ class FormulaCoding(PydanticMixin):
 
 
 @dataclass
-class Formula(MinorComponent):
+class Formula(MinorComponent, Container):
     ocl: Optional[str] = ""
+    container: Optional["Container"] = field(default=None, kw_only=True)
 
 
     def shared_post_init(self):
@@ -573,6 +634,8 @@ class Class(Component):
     # actually: dict[str, class object]; optional to avoid validation errors
     # all_classes: Optional[Any] = field(init=False, repr=False, hash=False, compare=False)
 
+    def containees(self):
+        return self.attribute_sections + self.attributes + self.based_on + self.constraints
     
 
 
@@ -593,17 +656,6 @@ class Class(Component):
             self.name = ClassName(self.name)
         self.prefix = "Class"
         
-        # and identify self as class of all attributes
-        if(self.attributes):
-            print("backfilling attributes for ", self.name)
-            for att in self.attributes:
-                print("\tbackfilled ", att.name)
-                att.name._html_id = self.name.content + "__" + att.name.content
-        if self.attribute_sections:
-            for section in self.attribute_sections:
-                for att in section.attributes:
-                    att.name._html_id = self.name.content + "__" + att.name.content
-                    print("\tbackfilled ", att)
 
     # calc derivation: presumed plural
     def derive_presumed_plural(self) -> str:
@@ -613,6 +665,23 @@ class Class(Component):
         # print(f"Set presumed plural for {self}: name is {class_name}, presuming {self.presumed_plural}")
         return self.presumed_plural
 
+    def attribute_named(self, aname):
+        return self.attribute_named_p.get(aname, None)
+    
+    # @cached_property
+    @property
+    def attribute_named_p(self) -> dict:
+        attributes = self.all_attributes()
+        the_dict =  {a.name.content: a for a in attributes}
+        print(f"All attributes for {self} are: ", the_dict.keys())
+        return the_dict
+    
+    def all_attributes(self):
+        atts = self.attributes
+        for section in self.attribute_sections:
+            atts += section.attributes
+        return atts
+    
     # calc derivation: plural
     def derive_plural(self) -> str:
         plural = self.plural
@@ -625,18 +694,17 @@ class Class(Component):
         self.plural = self.derive_presumed_plural()
         return self.plural
 
-    def calc_mro(self, model: LiterateModel):
-        global All_MROs
+    def class_mro(self):
+        return self.class_mro_p
+
+    @cached_property
+    def class_mro_p(self):
         
         cname = self.name.content
-         
-        mro = All_MROs.get(cname, None)
-        if mro is not None:
-            return mro
-
+        the_model = self.containing(LiterateModel)
+        print(f"In classs_mro, the_model = {the_model}")
         supers = getattr(self, "subtype_of", None)
         if not supers:
-            All_MROs[cname] = []
             return []
 
         if len(supers) > 1:
@@ -645,15 +713,20 @@ class Class(Component):
         for supertype in supers:
             super_name = str(supertype.class_name)
             # print(cname, "\thas super: ", super_name)
-            super_type = model.class_named(super_name)
+            super_type = the_model.class_named(super_name)
             if not super_type:
                 continue
-            All_MROs[cname] = [super_name] + super_type.calc_mro(model)
-            # print(f"MRO for {cname} => ", All_MROs[cname])
-            return All_MROs[cname]
-        All_MROs[cname] = []
+            mro = [super_name] + super_type.class_mro_p
+            print(f"MRO for {cname} => ", mro)
+            return mro
         return []
 
+    def is_trivial(self):
+        return self.is_trivial_p
+    
+    @cached_property
+    def is_trivial_p(self) -> bool:
+        return self.containing(Subject).is_trivial()
 
 
     class Meta:
@@ -711,12 +784,16 @@ class AttributeSection(Component):
 
     is_optional: IsOptional = None
     attributes: List[Attribute] = block_list_field(default_factory=list)
+    container: Optional["Container"] = field(default=None, kw_only=True)
+    
+    def containees(self):
+        return self.attributes
 
     def shared_post_init(self):
         super().shared_post_init()
-        print(
-            f"In AttSection post-init for {self.name}, is_optional = {self.is_optional}"
-        )
+        # print(
+        #     f"In AttSection post-init for {self.name}, is_optional = {self.is_optional}"
+        # )
         if self.attributes is None:
             self.attributes = []
         if self.is_optional is None:
@@ -744,9 +821,12 @@ class Attribute(Component):
     derivation: Optional[Derivation] = None
     default: Optional[Default] = None
     constraints: Optional[List[Constraint]] = block_list_field(default_factory=list)
-    # _html_id: str = field(init=False)
+    container: Optional["Container"] = field(default=None, kw_only=True)
 
-
+    def containees(self):
+        return [self.data_type_clause, self.name, self.inverse, self.overrides]
+        # containess to add. overrides, inverse
+    
     def shared_post_init(self):
         super().shared_post_init()
         if self.constraints is None:
@@ -762,15 +842,18 @@ class Attribute(Component):
 
 
 @dataclass
-class AttributeReference(PydanticMixin, Trivial):
+class AttributeReference(PydanticMixin, Trivial, Container):
     class_name: ClassReference =  None 
     attribute_name: AttributeName = None
+    container: Optional["Container"] = field(default=None, kw_only=True)
 
+    def containees(self):
+        return [self.class_name, self.attribute_name]
 
     # Note. With this in, to_typed_dict fails, but why?
-    # def __str__(self):
-    #     """Convert the object to a string."""
-    #     return f"{self.class_name.content}.{self.attribute_name.content}"
+    def __str__(self):
+        """Convert the object to a string."""
+        return f"{self.class_name}.{self.attribute_name}"
 
 
     @classmethod

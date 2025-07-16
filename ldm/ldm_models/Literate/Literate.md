@@ -277,7 +277,6 @@ Plural: Attributes
 Subtype of: Component  
 *Based on*: AttributeSection
 - **name** - (Lower Camel).   
-    Overrides: CamelName
 - **dataType** - The kind of object to which the attribute refers.  _(DataType)_  
   H
      In the simplest cases, the data type will be a class. And the specifier is the just the name of that class.   
@@ -356,7 +355,6 @@ Subtype of: Component
 Warning, nothing fatal; just a caution
 Error, serious. Fix now
 ```
-ValueType:  **Message** - (Template)
 
 ValueType:   **Class Constraint**  
 **Subtype of**: Constraint  
@@ -366,13 +364,6 @@ ValueType:   **Attribute Constraint**
 ***Subtype of***: Constraint 
 ***Based on***: Attribute
 
-ValueType:   **CodeExpression**
-- **Language** - the programming language (Code)
-``` code
-OCL, Object Constraint Language
-Java, Java 
-```
-- **Expression** (String)
 ## Methods 
 _ **Method**  - A behavior or operation associated with a class  
 Plural: Methods  
@@ -387,7 +378,15 @@ Subtype of: Component
 - **type** - The data type of the parameter _(DataType )_  
 - **cardinality** - The cardinality of the parameter (e.g., optional, required) _(AttributeCardinality)_  
 
-## Data Types
+## Trivial Data Types
+ValueType:  **Message** - (Template)
+ValueType:   **CodeExpression**
+- **Language** - the programming language (Code)
+``` code
+OCL, Object Constraint Language
+Java, Java 
+```
+- **Expression** (String)
 
 ValueType: **Data Type**
 
@@ -412,7 +411,7 @@ Mapping
 - **spelling** - (Template)
 
 
-## Low level Data Types
+## Trivial  Low level Data Types
 
 insert Camel Case.md
 

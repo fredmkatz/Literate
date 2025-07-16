@@ -1,5 +1,16 @@
 {
   "_type": "LiterateModel",
+  "diagnostics": [
+    {
+      "_type": "Diagnostic",
+      "object_name": "Appendices",
+      "object_type": "SubjectB",
+      "category": "Style",
+      "message": "oneLiner is too long. (126 chars).",
+      "severity": "Warning",
+      "constraint_name": "checkOneLinerLength"
+    }
+  ],
   "is_embellishment": false,
   "prefix": "#",
   "name": {
@@ -23,6 +34,17 @@
           "content": "We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.\n"
         }
       ],
+      "diagnostics": [
+        {
+          "_type": "Diagnostic",
+          "object_name": "AnnotationType",
+          "object_type": "Class",
+          "category": "Style",
+          "message": "oneLiner is too long. (96 chars).",
+          "severity": "Warning",
+          "constraint_name": "checkOneLinerLength"
+        }
+      ],
       "is_embellishment": false,
       "prefix": "##",
       "name": {
@@ -36,6 +58,17 @@
             "_type": "OneLiner",
             "content": "An element or building block of the literate data model"
           },
+          "diagnostics": [
+            {
+              "_type": "Diagnostic",
+              "object_name": "oneLiner",
+              "object_type": "Attribute",
+              "category": "Style",
+              "message": "oneLiner is too long. (116 chars).",
+              "severity": "Warning",
+              "constraint_name": "checkOneLinerLength"
+            }
+          ],
           "is_embellishment": false,
           "prefix": "Class",
           "name": {
@@ -310,17 +343,6 @@
                 "_type": "OneLiner",
                 "content": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _"
               },
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "oneLiner",
-                  "object_type": "Attribute",
-                  "category": "Style",
-                  "message": "oneLiner is too long. (116 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "checkOneLinerLength"
-                }
-              ],
               "is_embellishment": false,
               "prefix": "-",
               "name": {
@@ -390,6 +412,1464 @@
                 },
                 "cardinality": "O_O"
               }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
+            },
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
+              },
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "isEmbellishment"
+              },
+              "parenthetical": "Boolean",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Boolean"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              },
+              "default": {
+                "_type": "Default",
+                "one_liner": {
+                  "_type": "OneLiner",
+                  "content": " false\n"
+                },
+                "annotations": [
+                  {
+                    "_type": "Annotation",
+                    "label": {
+                      "_type": "Label",
+                      "content": "note"
+                    },
+                    "content": {
+                      "_type": "OneLiner",
+                      "content": "This attribute is set to true for components that are automatically generated or added during the fleshing out, review, or rendering processes, such as implied attributes or suggested model elements. It helps distinguish embellishments from the core model elements defined in the original LDM source."
+                    }
+                  }
+                ],
+                "is_embellishment": false
+              }
             }
           ],
           "attribute_sections": [
@@ -399,6 +1879,17 @@
                 "_type": "OneLiner",
                 "content": "mechanical attributes"
               },
+              "diagnostics": [
+                {
+                  "_type": "Diagnostic",
+                  "object_name": "isEmbellishment",
+                  "object_type": "Attribute",
+                  "category": "Style",
+                  "message": "oneLiner is too long. (91 chars).",
+                  "severity": "Warning",
+                  "constraint_name": "checkOneLinerLength"
+                }
+              ],
               "is_embellishment": false,
               "prefix": "__",
               "name": {
@@ -416,17 +1907,6 @@
                     "_type": "OneLiner",
                     "content": "Indicates whether this component is an embellishment added during post-parsing processing _"
                   },
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_name": "isEmbellishment",
-                      "object_type": "Attribute",
-                      "category": "Style",
-                      "message": "oneLiner is too long. (91 chars).",
-                      "severity": "Warning",
-                      "constraint_name": "checkOneLinerLength"
-                    }
-                  ],
                   "is_embellishment": false,
                   "prefix": "-",
                   "name": {
@@ -505,12 +1985,12 @@
           "diagnostics": [
             {
               "_type": "Diagnostic",
-              "object_name": "AnnotationType",
-              "object_type": "Class",
+              "object_name": "Implied Attributes for Annotation Type",
+              "object_type": "AttributeSection",
               "category": "Style",
-              "message": "oneLiner is too long. (96 chars).",
+              "message": "name is too long. (38 chars).",
               "severity": "Warning",
-              "constraint_name": "checkOneLinerLength"
+              "constraint_name": "NoConstraintName"
             }
           ],
           "is_embellishment": false,
@@ -739,17 +2219,6 @@
           "attribute_sections": [
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Annotation Type",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (38 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -857,6 +2326,17 @@
             "_type": "OneLiner",
             "content": "A note or comment associated with a model element"
           },
+          "diagnostics": [
+            {
+              "_type": "Diagnostic",
+              "object_name": "Implied Attributes for Annotation",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (33 chars).",
+              "severity": "Warning",
+              "constraint_name": "NoConstraintName"
+            }
+          ],
           "is_embellishment": false,
           "prefix": "Class",
           "name": {
@@ -1076,6 +2556,17 @@
           "attribute_sections": [
             {
               "_type": "AttributeSection",
+              "diagnostics": [
+                {
+                  "_type": "Diagnostic",
+                  "object_name": "isEmbellishment",
+                  "object_type": "Attribute",
+                  "category": "Style",
+                  "message": "oneLiner is too long. (92 chars).",
+                  "severity": "Warning",
+                  "constraint_name": "checkOneLinerLength"
+                }
+              ],
               "is_embellishment": false,
               "prefix": "__",
               "name": {
@@ -1093,17 +2584,6 @@
                     "_type": "OneLiner",
                     "content": "Indicates whether this annotation is an embellishment added during post-parsing processing _"
                   },
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_name": "isEmbellishment",
-                      "object_type": "Attribute",
-                      "category": "Style",
-                      "message": "oneLiner is too long. (92 chars).",
-                      "severity": "Warning",
-                      "constraint_name": "checkOneLinerLength"
-                    }
-                  ],
                   "is_embellishment": false,
                   "prefix": "-",
                   "name": {
@@ -1156,17 +2636,6 @@
             },
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Annotation",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (33 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -1216,6 +2685,62 @@
     },
     {
       "_type": "SubjectB",
+      "diagnostics": [
+        {
+          "_type": "Diagnostic",
+          "object_name": "LiterateDataModel",
+          "object_type": "Class",
+          "category": "Style",
+          "message": "oneLiner is too long. (112 chars).",
+          "severity": "Warning",
+          "constraint_name": "checkOneLinerLength"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "LiterateDataModel",
+          "object_type": "Class",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "Subject",
+          "object_type": "Class",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "SubjectArea",
+          "object_type": "Class",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "SubjectArea",
+          "object_type": "Class",
+          "category": "InvalidClassReference",
+          "message": "Invalid reference to 'LiterateModel' in based_on",
+          "severity": "Error",
+          "constraint_name": "checkListedClassReference"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "SubjectArea",
+          "object_type": "Class",
+          "category": "InvalidClassReference",
+          "message": "Invalid reference to 'Xyz' in based_on",
+          "severity": "Error",
+          "constraint_name": "checkListedClassReference"
+        }
+      ],
       "is_embellishment": false,
       "prefix": "##",
       "name": {
@@ -1229,26 +2754,6 @@
             "_type": "OneLiner",
             "content": "A representation of a domain's entities, attributes, and relationships,\nalong with explanatory text and examples"
           },
-          "diagnostics": [
-            {
-              "_type": "Diagnostic",
-              "object_name": "LiterateDataModel",
-              "object_type": "Class",
-              "category": "Style",
-              "message": "oneLiner is too long. (112 chars).",
-              "severity": "Warning",
-              "constraint_name": "checkOneLinerLength"
-            },
-            {
-              "_type": "Diagnostic",
-              "object_name": "LiterateDataModel",
-              "object_type": "Class",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
-              "constraint_name": "NoConstraintName"
-            }
-          ],
           "is_embellishment": false,
           "prefix": "Class",
           "name": {
@@ -1383,16 +2888,6 @@
                     "_type": "OneLiner",
                     "content": " Subject names must be unique across the model.\n"
                   },
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_type": "Constraint",
-                      "category": "MissingValue",
-                      "message": "Missing value for required field: 'ocl'",
-                      "severity": "Error",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false
                 }
               ]
@@ -1458,16 +2953,6 @@
                     "_type": "OneLiner",
                     "content": " Class names must be unique across the model.\n"
                   },
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_type": "Constraint",
-                      "category": "MissingValue",
-                      "message": "Missing value for required field: 'ocl'",
-                      "severity": "Error",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false
                 }
               ]
@@ -1768,12 +3253,21 @@
           "diagnostics": [
             {
               "_type": "Diagnostic",
-              "object_name": "Subject",
-              "object_type": "Class",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
-              "constraint_name": "NoConstraintName"
+              "object_name": "classes",
+              "object_type": "Attribute",
+              "category": "Style",
+              "message": "oneLiner is too long. (91 chars).",
+              "severity": "Warning",
+              "constraint_name": "checkOneLinerLength"
+            },
+            {
+              "_type": "Diagnostic",
+              "object_name": "childSubjects",
+              "object_type": "Attribute",
+              "category": "Style",
+              "message": "oneLiner is too long. (94 chars).",
+              "severity": "Warning",
+              "constraint_name": "checkOneLinerLength"
             }
           ],
           "is_embellishment": false,
@@ -1934,17 +3428,6 @@
                   }
                 }
               ],
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "classes",
-                  "object_type": "Attribute",
-                  "category": "Style",
-                  "message": "oneLiner is too long. (91 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "checkOneLinerLength"
-                }
-              ],
               "is_embellishment": false,
               "prefix": "-",
               "name": {
@@ -1996,17 +3479,6 @@
                 {
                   "_type": "Paragraph",
                   "content": "***DSL***:  the Classes within a Subject are always displayed before the childSubjects.\n"
-                }
-              ],
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "childSubjects",
-                  "object_type": "Attribute",
-                  "category": "Style",
-                  "message": "oneLiner is too long. (94 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "checkOneLinerLength"
                 }
               ],
               "is_embellishment": false,
@@ -2192,30 +3664,21 @@
           "diagnostics": [
             {
               "_type": "Diagnostic",
-              "object_name": "SubjectArea",
-              "object_type": "Class",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
+              "object_name": "Implied Attributes for Subject Area",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (35 chars).",
+              "severity": "Warning",
               "constraint_name": "NoConstraintName"
             },
             {
               "_type": "Diagnostic",
-              "object_name": "SubjectArea",
-              "object_type": "Class",
-              "category": "InvalidClassReference",
-              "message": "Invalid reference to 'LiterateModel' in based_on",
-              "severity": "Error",
-              "constraint_name": "checkListedClassReference"
-            },
-            {
-              "_type": "Diagnostic",
-              "object_name": "SubjectArea",
-              "object_type": "Class",
-              "category": "InvalidClassReference",
-              "message": "Invalid reference to 'Xyz' in based_on",
-              "severity": "Error",
-              "constraint_name": "checkListedClassReference"
+              "object_name": "Implied Attributes for Subject Area",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (35 chars).",
+              "severity": "Warning",
+              "constraint_name": "NoConstraintName"
             }
           ],
           "is_embellishment": false,
@@ -2253,17 +3716,6 @@
           "attribute_sections": [
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Subject Area",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (35 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -2319,17 +3771,6 @@
             },
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Subject Area",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (35 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -2389,6 +3830,17 @@
       "subjects": [
         {
           "_type": "SubjectC",
+          "diagnostics": [
+            {
+              "_type": "Diagnostic",
+              "object_name": "Class",
+              "object_type": "Class",
+              "category": "MissingValue",
+              "message": "Required field 'presumed_plural' is missing",
+              "severity": "Bug",
+              "constraint_name": "NoConstraintName"
+            }
+          ],
           "is_embellishment": false,
           "prefix": "###",
           "name": {
@@ -2405,12 +3857,20 @@
               "diagnostics": [
                 {
                   "_type": "Diagnostic",
-                  "object_name": "Class",
-                  "object_type": "Class",
+                  "object_type": "Constraint",
                   "category": "MissingValue",
-                  "message": "Required field 'presumed_plural' is missing",
-                  "severity": "Bug",
+                  "message": "Missing value for required field: 'ocl'",
+                  "severity": "Error",
                   "constraint_name": "NoConstraintName"
+                },
+                {
+                  "_type": "Diagnostic",
+                  "object_name": "attributes",
+                  "object_type": "Attribute",
+                  "category": "Style",
+                  "message": "oneLiner is too long. (91 chars).",
+                  "severity": "Warning",
+                  "constraint_name": "checkOneLinerLength"
                 }
               ],
               "is_embellishment": false,
@@ -2482,16 +3942,6 @@
                     "_type": "OneLiner",
                     "content": " Within each Class, attribute names must be unique.\n"
                   },
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_type": "Constraint",
-                      "category": "MissingValue",
-                      "message": "Missing value for required field: 'ocl'",
-                      "severity": "Error",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false
                 }
               ],
@@ -2813,17 +4263,6 @@
                     "_type": "OneLiner",
                     "content": "The attributes or properties of the class, in the order in which they should be presented _"
                   },
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_name": "attributes",
-                      "object_type": "Attribute",
-                      "category": "Style",
-                      "message": "oneLiner is too long. (91 chars).",
-                      "severity": "Warning",
-                      "constraint_name": "checkOneLinerLength"
-                    }
-                  ],
                   "is_embellishment": false,
                   "prefix": "-",
                   "name": {
@@ -3435,6 +4874,17 @@
                 "_type": "OneLiner",
                 "content": "a way in which subtypes of a Class may be classified"
               },
+              "diagnostics": [
+                {
+                  "_type": "Diagnostic",
+                  "object_name": "Implied Attributes for Subtyping",
+                  "object_type": "AttributeSection",
+                  "category": "Style",
+                  "message": "name is too long. (32 chars).",
+                  "severity": "Warning",
+                  "constraint_name": "NoConstraintName"
+                }
+              ],
               "is_embellishment": false,
               "prefix": "Class",
               "name": {
@@ -3631,17 +5081,6 @@
               "attribute_sections": [
                 {
                   "_type": "AttributeSection",
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_name": "Implied Attributes for Subtyping",
-                      "object_type": "AttributeSection",
-                      "category": "Style",
-                      "message": "name is too long. (32 chars).",
-                      "severity": "Warning",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false,
                   "name": {
                     "_type": "AttributeSectionName",
@@ -3821,6 +5260,17 @@
                 "_type": "OneLiner",
                 "content": "A possible value for an enumerated data class"
               },
+              "diagnostics": [
+                {
+                  "_type": "Diagnostic",
+                  "object_name": "Implied Attributes for Code Value",
+                  "object_type": "AttributeSection",
+                  "category": "Style",
+                  "message": "name is too long. (33 chars).",
+                  "severity": "Warning",
+                  "constraint_name": "NoConstraintName"
+                }
+              ],
               "is_embellishment": false,
               "prefix": "Value Type",
               "name": {
@@ -3944,17 +5394,6 @@
               "attribute_sections": [
                 {
                   "_type": "AttributeSection",
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_name": "Implied Attributes for Code Value",
-                      "object_type": "AttributeSection",
-                      "category": "Style",
-                      "message": "name is too long. (33 chars).",
-                      "severity": "Warning",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false,
                   "name": {
                     "_type": "AttributeSectionName",
@@ -4111,16 +5550,6 @@
                         "_type": "OneLiner",
                         "content": " each attribute must be a direct or inherited of the base class.\n"
                       },
-                      "diagnostics": [
-                        {
-                          "_type": "Diagnostic",
-                          "object_type": "Constraint",
-                          "category": "MissingValue",
-                          "message": "Missing value for required field: 'ocl'",
-                          "severity": "Error",
-                          "constraint_name": "NoConstraintName"
-                        }
-                      ],
                       "is_embellishment": false
                     },
                     {
@@ -4140,16 +5569,6 @@
                             "_type": "OneLiner",
                             "content": "need ascending descending to support index keys or ordering keys."
                           }
-                        }
-                      ],
-                      "diagnostics": [
-                        {
-                          "_type": "Diagnostic",
-                          "object_type": "Constraint",
-                          "category": "MissingValue",
-                          "message": "Missing value for required field: 'ocl'",
-                          "severity": "Error",
-                          "constraint_name": "NoConstraintName"
                         }
                       ],
                       "is_embellishment": false
@@ -4257,6 +5676,35 @@
     },
     {
       "_type": "SubjectB",
+      "diagnostics": [
+        {
+          "_type": "Diagnostic",
+          "object_name": "Attribute",
+          "object_type": "Class",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "Derivation",
+          "object_type": "ValueType",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "Constraint",
+          "object_type": "ValueType",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        }
+      ],
       "is_embellishment": false,
       "prefix": "##",
       "name": {
@@ -4270,6 +5718,26 @@
             "_type": "OneLiner",
             "content": "a group of attributes for a class that merit a shared explanation."
           },
+          "diagnostics": [
+            {
+              "_type": "Diagnostic",
+              "object_name": "Implied Attributes for Attribute Section",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (40 chars).",
+              "severity": "Warning",
+              "constraint_name": "NoConstraintName"
+            },
+            {
+              "_type": "Diagnostic",
+              "object_name": "Implied Attributes for Attribute Section",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (40 chars).",
+              "severity": "Warning",
+              "constraint_name": "NoConstraintName"
+            }
+          ],
           "is_embellishment": false,
           "prefix": "Class",
           "name": {
@@ -4348,17 +5816,6 @@
           "attribute_sections": [
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Attribute Section",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (40 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -4415,17 +5872,6 @@
             },
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Attribute Section",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (40 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -4480,11 +5926,11 @@
           "diagnostics": [
             {
               "_type": "Diagnostic",
-              "object_name": "Attribute",
-              "object_type": "Class",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
+              "object_name": "Implied Attributes for Attribute",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (32 chars).",
+              "severity": "Warning",
               "constraint_name": "NoConstraintName"
             }
           ],
@@ -4740,16 +6186,6 @@
                         }
                       }
                     ],
-                    "diagnostics": [
-                      {
-                        "_type": "Diagnostic",
-                        "object_type": "Default",
-                        "category": "Style",
-                        "message": "Formula one_liner is too long (220 chars)",
-                        "severity": "Warning",
-                        "constraint_name": "NoConstraintName"
-                      }
-                    ],
                     "is_embellishment": false
                   }
                 },
@@ -5003,6 +6439,17 @@
             },
             {
               "_type": "AttributeSection",
+              "diagnostics": [
+                {
+                  "_type": "Diagnostic",
+                  "object_name": "default",
+                  "object_type": "Attribute",
+                  "category": "Style",
+                  "message": "oneLiner is too long. (143 chars).",
+                  "severity": "Warning",
+                  "constraint_name": "checkOneLinerLength"
+                }
+              ],
               "is_embellishment": false,
               "prefix": "__",
               "name": {
@@ -5045,17 +6492,6 @@
                           "content": "Last paragraph here\n"
                         }
                       ]
-                    }
-                  ],
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_name": "default",
-                      "object_type": "Attribute",
-                      "category": "Style",
-                      "message": "oneLiner is too long. (143 chars).",
-                      "severity": "Warning",
-                      "constraint_name": "checkOneLinerLength"
                     }
                   ],
                   "is_embellishment": false,
@@ -5192,6 +6628,17 @@
             },
             {
               "_type": "AttributeSection",
+              "diagnostics": [
+                {
+                  "_type": "Diagnostic",
+                  "object_name": "overrides",
+                  "object_type": "Attribute",
+                  "category": "MissingValue",
+                  "message": "Required field 'data_type_clause' is missing",
+                  "severity": "Bug",
+                  "constraint_name": "NoConstraintName"
+                }
+              ],
               "is_embellishment": false,
               "prefix": "__",
               "name": {
@@ -5205,17 +6652,6 @@
               "attributes": [
                 {
                   "_type": "Attribute",
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_name": "overrides",
-                      "object_type": "Attribute",
-                      "category": "MissingValue",
-                      "message": "Required field 'data_type_clause' is missing",
-                      "severity": "Bug",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false,
                   "prefix": "-",
                   "name": {
@@ -5227,17 +6663,6 @@
             },
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Attribute",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (32 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -5373,17 +6798,6 @@
             "_type": "OneLiner",
             "content": "A rule or formula for deriving the value of an attribute"
           },
-          "diagnostics": [
-            {
-              "_type": "Diagnostic",
-              "object_name": "Derivation",
-              "object_type": "ValueType",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
-              "constraint_name": "NoConstraintName"
-            }
-          ],
           "is_embellishment": false,
           "prefix": "Value Type",
           "name": {
@@ -5477,17 +6891,6 @@
             "_type": "OneLiner",
             "content": "A rule, condition, or validation that must be satisfied by the model"
           },
-          "diagnostics": [
-            {
-              "_type": "Diagnostic",
-              "object_name": "Constraint",
-              "object_type": "ValueType",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
-              "constraint_name": "NoConstraintName"
-            }
-          ],
           "is_embellishment": false,
           "prefix": "Value Type",
           "name": {
@@ -5672,19 +7075,17 @@
         },
         {
           "_type": "ValueType",
-          "is_embellishment": false,
-          "prefix": "Value Type",
-          "name": {
-            "_type": "ClassName",
-            "content": "Message"
-          },
-          "parenthetical": "Template",
-          "plural": "Messages",
-          "presumed_plural": "Messages",
-          "is_value_type": true
-        },
-        {
-          "_type": "ValueType",
+          "diagnostics": [
+            {
+              "_type": "Diagnostic",
+              "object_name": "Implied Attributes for Class Constraint",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (39 chars).",
+              "severity": "Warning",
+              "constraint_name": "NoConstraintName"
+            }
+          ],
           "is_embellishment": false,
           "prefix": "Value Type",
           "name": {
@@ -5716,17 +7117,6 @@
           "attribute_sections": [
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Class Constraint",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (39 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -5774,6 +7164,17 @@
         },
         {
           "_type": "ValueType",
+          "diagnostics": [
+            {
+              "_type": "Diagnostic",
+              "object_name": "Implied Attributes for Attribute Constraint",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (43 chars).",
+              "severity": "Warning",
+              "constraint_name": "NoConstraintName"
+            }
+          ],
           "is_embellishment": false,
           "prefix": "Value Type",
           "name": {
@@ -5805,17 +7206,6 @@
           "attribute_sections": [
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Attribute Constraint",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (43 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -5860,103 +7250,31 @@
               ]
             }
           ]
-        },
-        {
-          "_type": "ValueType",
-          "is_embellishment": false,
-          "prefix": "Value Type",
-          "name": {
-            "_type": "ClassName",
-            "content": "CodeExpression"
-          },
-          "plural": "CodeExpressions",
-          "presumed_plural": "CodeExpressions",
-          "is_value_type": true,
-          "attributes": [
-            {
-              "_type": "Attribute",
-              "one_liner": {
-                "_type": "OneLiner",
-                "content": "the programming language"
-              },
-              "elaboration": [
-                {
-                  "_type": "CodeBlock",
-                  "content": "``` code\nOCL, Object Constraint Language\nJava, Java\n```"
-                }
-              ],
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_type": "BaseDataType",
-                  "category": "InvalidBaseType",
-                  "message": "Code is not a class name - or plural",
-                  "severity": "Error",
-                  "constraint_name": "checkClassReference"
-                }
-              ],
-              "is_embellishment": false,
-              "prefix": "-",
-              "name": {
-                "_type": "AttributeName",
-                "content": "language"
-              },
-              "parenthetical": "Code",
-              "data_type_clause": {
-                "_type": "DataTypeClause",
-                "data_type": {
-                  "_type": "BaseDataType",
-                  "class_name": {
-                    "_type": "ClassReference",
-                    "content": "Code"
-                  },
-                  "as_value_type": {
-                    "_type": "AsValue",
-                    "content": true
-                  }
-                },
-                "is_optional_lit": {
-                  "_type": "IsOptional",
-                  "content": false
-                },
-                "cardinality": "O_O"
-              }
-            },
-            {
-              "_type": "Attribute",
-              "is_embellishment": false,
-              "prefix": "-",
-              "name": {
-                "_type": "AttributeName",
-                "content": "expression"
-              },
-              "parenthetical": "String",
-              "data_type_clause": {
-                "_type": "DataTypeClause",
-                "data_type": {
-                  "_type": "BaseDataType",
-                  "class_name": {
-                    "_type": "ClassReference",
-                    "content": "String"
-                  },
-                  "as_value_type": {
-                    "_type": "AsValue",
-                    "content": true
-                  }
-                },
-                "is_optional_lit": {
-                  "_type": "IsOptional",
-                  "content": false
-                },
-                "cardinality": "O_O"
-              }
-            }
-          ]
         }
       ]
     },
     {
       "_type": "SubjectB",
+      "diagnostics": [
+        {
+          "_type": "Diagnostic",
+          "object_name": "Method",
+          "object_type": "Class",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        },
+        {
+          "_type": "Diagnostic",
+          "object_name": "ParameterAnInputToAMethod",
+          "object_type": "Class",
+          "category": "MissingValue",
+          "message": "Required field 'presumed_plural' is missing",
+          "severity": "Bug",
+          "constraint_name": "NoConstraintName"
+        }
+      ],
       "is_embellishment": false,
       "prefix": "##",
       "name": {
@@ -5970,17 +7288,6 @@
             "_type": "OneLiner",
             "content": "A behavior or operation associated with a class"
           },
-          "diagnostics": [
-            {
-              "_type": "Diagnostic",
-              "object_name": "Method",
-              "object_type": "Class",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
-              "constraint_name": "NoConstraintName"
-            }
-          ],
           "is_embellishment": false,
           "prefix": "Class",
           "name": {
@@ -6148,11 +7455,11 @@
           "diagnostics": [
             {
               "_type": "Diagnostic",
-              "object_name": "ParameterAnInputToAMethod",
-              "object_type": "Class",
-              "category": "MissingValue",
-              "message": "Required field 'presumed_plural' is missing",
-              "severity": "Bug",
+              "object_name": "Implied Attributes for Parameter An Input To A Method",
+              "object_type": "AttributeSection",
+              "category": "Style",
+              "message": "name is too long. (53 chars).",
+              "severity": "Warning",
               "constraint_name": "NoConstraintName"
             }
           ],
@@ -6258,17 +7565,6 @@
           "attribute_sections": [
             {
               "_type": "AttributeSection",
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_name": "Implied Attributes for Parameter An Input To A Method",
-                  "object_type": "AttributeSection",
-                  "category": "Style",
-                  "message": "name is too long. (53 chars).",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false,
               "name": {
                 "_type": "AttributeSectionName",
@@ -6333,9 +7629,114 @@
       "prefix": "##",
       "name": {
         "_type": "SubjectName",
-        "content": "Data Types"
+        "content": "Trivial Data Types"
       },
       "classes": [
+        {
+          "_type": "ValueType",
+          "is_embellishment": false,
+          "prefix": "Value Type",
+          "name": {
+            "_type": "ClassName",
+            "content": "Message"
+          },
+          "parenthetical": "Template",
+          "plural": "Messages",
+          "presumed_plural": "Messages",
+          "is_value_type": true
+        },
+        {
+          "_type": "ValueType",
+          "is_embellishment": false,
+          "prefix": "Value Type",
+          "name": {
+            "_type": "ClassName",
+            "content": "CodeExpression"
+          },
+          "plural": "CodeExpressions",
+          "presumed_plural": "CodeExpressions",
+          "is_value_type": true,
+          "attributes": [
+            {
+              "_type": "Attribute",
+              "one_liner": {
+                "_type": "OneLiner",
+                "content": "the programming language"
+              },
+              "elaboration": [
+                {
+                  "_type": "CodeBlock",
+                  "content": "``` code\nOCL, Object Constraint Language\nJava, Java\n```"
+                }
+              ],
+              "diagnostics": [
+                {
+                  "_type": "Diagnostic",
+                  "object_type": "BaseDataType",
+                  "category": "InvalidBaseType",
+                  "message": "Code is not a class name - or plural",
+                  "severity": "Error",
+                  "constraint_name": "checkClassReference"
+                }
+              ],
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "language"
+              },
+              "parenthetical": "Code",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "Code"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              }
+            },
+            {
+              "_type": "Attribute",
+              "is_embellishment": false,
+              "prefix": "-",
+              "name": {
+                "_type": "AttributeName",
+                "content": "expression"
+              },
+              "parenthetical": "String",
+              "data_type_clause": {
+                "_type": "DataTypeClause",
+                "data_type": {
+                  "_type": "BaseDataType",
+                  "class_name": {
+                    "_type": "ClassReference",
+                    "content": "String"
+                  },
+                  "as_value_type": {
+                    "_type": "AsValue",
+                    "content": true
+                  }
+                },
+                "is_optional_lit": {
+                  "_type": "IsOptional",
+                  "content": false
+                },
+                "cardinality": "O_O"
+              }
+            }
+          ]
+        },
         {
           "_type": "ValueType",
           "is_embellishment": false,
@@ -6618,7 +8019,7 @@
       "prefix": "##",
       "name": {
         "_type": "SubjectName",
-        "content": "Low level Data Types"
+        "content": "Trivial Low level Data Types"
       },
       "classes": [
         {
@@ -6768,16 +8169,6 @@
                       }
                     }
                   ],
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_type": "Constraint",
-                      "category": "MissingValue",
-                      "message": "Missing value for required field: 'ocl'",
-                      "severity": "Error",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false
                 }
               ]
@@ -6884,6 +8275,24 @@
             "_type": "OneLiner",
             "content": "an expression consisting of Camel Names separated by periods"
           },
+          "diagnostics": [
+            {
+              "_type": "Diagnostic",
+              "object_type": "Constraint",
+              "category": "Style",
+              "message": "Formula one_liner is too long (129 chars)",
+              "severity": "Warning",
+              "constraint_name": "NoConstraintName"
+            },
+            {
+              "_type": "Diagnostic",
+              "object_type": "Constraint",
+              "category": "MissingValue",
+              "message": "Missing value for required field: 'ocl'",
+              "severity": "Error",
+              "constraint_name": "NoConstraintName"
+            }
+          ],
           "is_embellishment": false,
           "prefix": "Value Type",
           "name": {
@@ -6913,24 +8322,6 @@
                 "_type": "OneLiner",
                 "content": " content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.\n"
               },
-              "diagnostics": [
-                {
-                  "_type": "Diagnostic",
-                  "object_type": "Constraint",
-                  "category": "Style",
-                  "message": "Formula one_liner is too long (129 chars)",
-                  "severity": "Warning",
-                  "constraint_name": "NoConstraintName"
-                },
-                {
-                  "_type": "Diagnostic",
-                  "object_type": "Constraint",
-                  "category": "MissingValue",
-                  "message": "Missing value for required field: 'ocl'",
-                  "severity": "Error",
-                  "constraint_name": "NoConstraintName"
-                }
-              ],
               "is_embellishment": false
             }
           ]
@@ -7116,16 +8507,6 @@
                     "_type": "OneLiner",
                     "content": " must not containa line break or new line character\n"
                   },
-                  "diagnostics": [
-                    {
-                      "_type": "Diagnostic",
-                      "object_type": "Constraint",
-                      "category": "MissingValue",
-                      "message": "Missing value for required field: 'ocl'",
-                      "severity": "Error",
-                      "constraint_name": "NoConstraintName"
-                    }
-                  ],
                   "is_embellishment": false,
                   "message": " A line can't span two lines\n"
                 }
@@ -7456,17 +8837,6 @@
           "content": "== content to add\n"
         }
       ],
-      "diagnostics": [
-        {
-          "_type": "Diagnostic",
-          "object_name": "Appendices",
-          "object_type": "SubjectB",
-          "category": "Style",
-          "message": "oneLiner is too long. (126 chars).",
-          "severity": "Warning",
-          "constraint_name": "checkOneLinerLength"
-        }
-      ],
       "is_embellishment": false,
       "prefix": "##",
       "name": {
@@ -7474,6 +8844,5 @@
         "content": "Appendices"
       }
     }
-  ],
-  "hello": "Hello"
+  ]
 }

@@ -24,6 +24,7 @@ models_dir = ""
 model_dir = ""
 model_results_dir = ""
 model_assets_dir = ""
+model_diagrams_dir = ""
 ldm_assets_dir = ""
 
 all_clauses_by_priority = None
@@ -39,7 +40,7 @@ from utils.util_inspect import inspect_module
 
 def build_dull_dsl(dull_specs: Dict):
 
-    global model_assets_dir
+    global model_assets_dir, model_diagrams_dir
     models_dir = dull_specs["models_dir"]
     ldm_assets_dir = f"{models_dir}/ldm_assets"
 
@@ -53,6 +54,7 @@ def build_dull_dsl(dull_specs: Dict):
     # model_module_path = f"{model_dir}/{model_module}"
     results_dir = f"{model_dir}/{model_name}_results"
     model_assets_dir = f"{results_dir}/assets"
+    model_diagrams_dir = f"{results_dir}/diagrams"
 
     pd_or_not = "DC"
     if USING_PYDANTIC:
@@ -61,6 +63,7 @@ def build_dull_dsl(dull_specs: Dict):
     if USING_PYDANTIC:
         create_fresh_directory(results_dir)
         create_fresh_directory(model_assets_dir)
+        create_fresh_directory(model_diagrams_dir)
 
     # print("Dull specs: ", as_json(dull_specs))
     show_phase("Warming up")
@@ -73,6 +76,7 @@ def build_dull_dsl(dull_specs: Dict):
     # print("Model module path: ", model_module_path)
     print("Results dir: ", results_dir)
     print("Assets dir: ", model_assets_dir)
+    print("Diagrams dir: ", model_diagrams_dir)
 
     trace_path = f"{results_dir}/{model_name}_00_trace.txt"
     print("Trace path: ", trace_path)
@@ -130,7 +134,7 @@ def build_dull_dsl(dull_specs: Dict):
             f"Creating model with from_typed_dict() => to_typed_dict() => {yaml_model_path}"
         )
         print("Calling LiterateModel.from_typed_dict ...")
-        the_ldm_model_py = LiterateModel.from_typed_dict(the_ldm_dict)
+        the_ldm_model_py = Literate_01.LiterateModel.from_typed_dict(the_ldm_dict)
         show_phase("have py  model from dict")
 
         show_phase(f"Creating model_dict from model => {yaml_model_path}")  # _03_
@@ -141,6 +145,10 @@ def build_dull_dsl(dull_specs: Dict):
     else:
         show_phase("Skipping Pydantic model creation from dict")
 
+    show_phase("Testing containers")
+    # test_containers(the_ldm_model_py)
+    # exit(0)
+    
     VALIDATING = True
     if VALIDATING:
 
@@ -170,7 +178,7 @@ def build_dull_dsl(dull_specs: Dict):
             for d in diagnostics
         ]
         counts = count_strings(d_strings)
-        print(counts)
+        print(len(d_strings), "\t", "All Diagnostics")
         for key, value in counts.items():
             print(value, "\t", key)
     else:
@@ -253,6 +261,51 @@ def show_phase(caption: str):
     print(f"\nPhase: {caption}", file=sys.stderr)
     print(f"\nPhase: {caption}")
 
+from utils.class_container import show_containers
+
+def test_containers(the_model: LiterateModel):
+    show_containers(the_model)
+    show_upchains(the_model)
+    show_trivials(the_model)
+    
+    fix_class_refs(the_model)
+    # fix_class_refs(the_model) # second run; should be no fixes
+
+def show_upchains(model):
+    print("\nUpchains are....")
+    all_refs = model.all_contained(ClassReference)
+    for r in all_refs:
+        print("Upchain: ", r.up_chain())
+
+def fix_class_refs(model):
+    print("Fixing class refs")
+    all_refs = model.all_contained(ClassReference)
+    for r in all_refs:
+        # print("ClassRef: ", r.up_chain())
+        ref = str(r)
+        the_class = model.class_named(ref)
+        # print("\t and class is: ", the_class)
+        if not the_class:
+            print("ClassRef: ", r, " = ", the_class)
+            print("\tBad, unfixable reference: ", r)
+            continue
+        real_name = the_class.name.content
+        if ref != real_name:
+            print("ClassRef: ", r, " = ", the_class)
+            print(f"\tFixing reference: {ref} to {real_name}")
+            r.content = real_name
+            
+    print("Done fixing")
+    
+def show_trivials(model):
+    show_phase("Surveying trivials")
+    for c in model.all_classes():
+        trivial = c.is_trivial()
+        print(f"{c} is trivial? {trivial}")
+
+    
+import ldm as ldm
+from ldm.ldm_validators_v3 import findTheModel
 
 def count_strings(string_list):
     string_counts = {}

@@ -249,7 +249,7 @@ class ParseSubtypeOf(ParseHandler):
     # }
     # if the byPhrase is omitted, "Subtypes" is used instead
     def parse(self, input_str) -> List[Tuple[ClassReference, SubtypingName]]:
-        print("parsing subtypeOfs: ", input_str)
+        # print("parsing subtypeOfs: ", input_str)
         pairs = input_str.split(",")
         result = []
         for pair in pairs:
@@ -261,7 +261,7 @@ class ParseSubtypeOf(ParseHandler):
 
             else:
                 subtyping_name0 = "Subtypes"
-            class_name = ClassReference(parse_name(class_name0))
+            class_name = ClassReference(content=parse_name(class_name0))
             subtyping_name = SubtypingName(subtyping_name0)
             subtype_of = {
                 "_type": "SubtypeBy",
@@ -269,7 +269,7 @@ class ParseSubtypeOf(ParseHandler):
                 "subtyping_name": subtyping_name
             }
             result.append(subtype_of)
-        print("SubtypeOf result is ", result)
+        # print("SubtypeOf result is ", result)
 
         return result
 
@@ -304,8 +304,8 @@ class ParseNameList(ParseHandler):
         cleaned_names = [parse_name(part) for part in parts]
 
         # Filter out empty strings - and create ClassReferences
-        the_list =  [ClassReference(name) for name in cleaned_names if name]
-        print("ParseNameList returning: ", the_list)
+        the_list =  [ClassReference(content=name) for name in cleaned_names if name]
+        # print("ParseNameList returning: ", the_list)
         return the_list
 
     def render(self, names: List[ClassReference]) -> str:
@@ -338,7 +338,7 @@ class ParseAttributeReference(ParseHandler):
 
         # Split by dot
         parts = re.split(r"\.\s*", str(cleaned), 1)
-        class_name = ClassReference(parts[0].strip())
+        class_name = ClassReference(content=parts[0].strip())
         attribute_name = AttributeName(parts[1].strip()) if len(parts) > 1 else ""
 
         if len(parts) == 2:
@@ -508,7 +508,7 @@ def parse_header(header: str) -> dict:
         elif "__" in prefix:
             deep_name = AttributeSectionName(raw_name)
         elif "Value" in prefix:
-            print(f"raw name = {raw_name}, deep = {deep_name}")
+            # print(f"raw name = {raw_name}, deep = {deep_name}")
             deep_name = ClassName(raw_name)
         elif "Code" in prefix:
             deep_name = ClassName(raw_name)
@@ -599,6 +599,7 @@ def parse_data_type(phrase) -> DataType:
         return dt
 
     if is_name(phrase):
+        name_obj = ClassName(phrase)
         name_obj = ClassReference(phrase)
         # print("Arg to basedata type is ", name_obj)
         dt = BaseDataType(class_name=ClassReference(phrase), as_value_type=AsValue("reference"))
@@ -714,10 +715,10 @@ class ParseAnnotation(ParseHandler):
         - value: The content after the label
         """
         
-        print("Parsing annotation: ", input_str)
+        # print("Parsing annotation: ", input_str)
         parsed = parse_input_line(input_str)
         if parsed.get("line_type") == "labeled_value":
-            print("Returning parsed from ParseAnnotaion", parsed)
+            # print("Returning parsed from ParseAnnotaion", parsed)
             return parsed
         else:
             return {"line_type": "text", "content": input_str}

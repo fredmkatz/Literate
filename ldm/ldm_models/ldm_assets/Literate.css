@@ -550,8 +550,31 @@ figure figcaption {
 .CodeBlock table th {
       text-align: center;
 }
+
+figure {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  background: pink;
+}
+
+figcaption {
+  background-color: black;
+  color: white;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}
+
 .raw-diagram-code {
-    white-space: pre;
-    font-weight: bold;
-    background: orange;
+  /* white-space: pre; */
+  white-space: pre-line;
+  background: normal;
+  text-align: left;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow-wrap: break-word;
+  background-color: yellow;
+  font-weight: bold;
 }

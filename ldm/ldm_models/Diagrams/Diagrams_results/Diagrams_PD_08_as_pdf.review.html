@@ -18,8 +18,8 @@
      This is my first Mermaid test
     </span>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -29,9 +29,13 @@
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-mermaid mermaid">
-
-classDiagram
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         classDiagram
 class Component
 class Literate
 class Subject
@@ -46,20 +50,42 @@ AttributeSection  &lt;|-- Literate
 Attribute  &lt;|-- Literate
 
 classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram for Mermaid">
-       Mermaid PNG - mermaid_img14.png
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img14.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagram for Mermaid">
-       Mermaid SVG - mermaid_img14.svg
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img14.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Live!
+        </figcaption>
+        <div class="language-mermaid mermaid">
+         classDiagram
+class Component
+class Literate
+class Subject
+class Class
+class Attrribute Section
+class Attribute
+
+Component  &lt;|-- Literate
+Subject  &lt;|-- Literate
+Class  &lt;|-- Literate
+AttributeSection  &lt;|-- Literate
+Attribute  &lt;|-- Literate
+
+classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         Mermaid Diagram - PNG for mermaid
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_1_mermaid.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -69,7 +95,13 @@ classDef default fill:yellow,stroke:#000, color:black, stroke-width:4px
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-mermaid mermaid">%%{init: {
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         %%{init: {
 "flowchart": {
 "curve": "stepAfter",
 "useMaxWidth": true
@@ -106,20 +138,64 @@ class Subtypes subcontainer
 
 %% Edge styling
 linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram for Mermaid">
-       Mermaid PNG - mermaid_img15.png
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img15.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagram for Mermaid">
-       Mermaid SVG - mermaid_img15.svg
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img15.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Live!
+        </figcaption>
+        <div class="language-mermaid mermaid">
+         %%{init: {
+"flowchart": {
+"curve": "stepAfter",
+"useMaxWidth": true
+}
+}}%%
+
+flowchart TB
+subgraph Component["Component - Base class"]
+direction TB
+
+Literate["Literate&lt;br&gt;Core implementation"]
+
+subgraph Subtypes["Component Subtypes"]
+direction LR
+Subject["Subject&lt;br&gt;Domain entity"]
+Class["Class&lt;br&gt;Schema definition"]
+AttributeSection["AttributeSection&lt;br&gt;Property group"]
+Attribute["Attribute&lt;br&gt;Individual property"]
+end
+
+Subject ==&gt; Literate
+Class ==&gt; Literate
+AttributeSection ==&gt; Literate
+Attribute ==&gt; Literate
+end
+
+%% Styling with border-radius only
+classDef container fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#0d47a1,border-radius:10px
+classDef subcontainer fill:#f5f5f5,stroke:#78909c,stroke-width:2px,color:#37474f,border-radius:8px
+classDef default fill:white,stroke:#90a4ae,stroke-width:1px,color:#455a64,border-radius:5px
+
+class Component container
+class Subtypes subcontainer
+
+%% Edge styling
+linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         Mermaid Diagram - PNG for mermaid
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_2_mermaid.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -129,7 +205,13 @@ linkStyle default stroke:#546e7a,stroke-width:2px, border-radius: 20px
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">@startjson
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         @startjson
 &lt;style&gt;
 .h1 {
 BackGroundColor green
@@ -170,18 +252,20 @@ FontStyle bold
 "spouse": null
 }
 @endjson
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img16.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img16.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img16.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img16.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_3_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -191,10 +275,13 @@ FontStyle bold
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">
-@startuml
-
-rectangle Component
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         rectangle Component
 rectangle Literate
 rectangle Subject
 rectangle Class
@@ -207,19 +294,20 @@ Class -u-&gt; a
 Attribute -u-&gt; a
 a -u-&gt; Component
 skinparam linetype ortho
-@enduml
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img17.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img17.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img17.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img17.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_4_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -229,7 +317,13 @@ skinparam linetype ortho
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-mermaid mermaid">block-beta
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         block-beta
 columns 3
 a:3
 block:group1:2
@@ -241,20 +335,39 @@ block:group2:3
 %% columns auto (default)
 l m n o p q r
 end
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram for Mermaid">
-       Mermaid PNG - mermaid_img18.png
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img18.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagram for Mermaid">
-       Mermaid SVG - mermaid_img18.svg
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img18.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Live!
+        </figcaption>
+        <div class="language-mermaid mermaid">
+         block-beta
+columns 3
+a:3
+block:group1:2
+columns 2
+h i j k
+end
+g
+block:group2:3
+%% columns auto (default)
+l m n o p q r
+end
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         Mermaid Diagram - PNG for mermaid
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_5_mermaid.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -264,8 +377,13 @@ end
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-mermaid mermaid">
-erDiagram
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         erDiagram
 
 CAR {
 
@@ -290,21 +408,52 @@ int age
 style CAR fill: red,stroke:navy,stroke-width:3px
 
 style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
+        </div>
+       </figure>
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Live!
+        </figcaption>
+        <div class="language-mermaid mermaid">
+         erDiagram
 
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram for Mermaid">
-       Mermaid PNG - mermaid_img19.png
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img19.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagram for Mermaid">
-       Mermaid SVG - mermaid_img19.svg
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img19.svg" width="500px"/>
+CAR {
+
+string registrationNumber
+
+string make
+
+string model
+
+}
+
+PERSON {
+
+string firstName
+
+string lastName
+
+int age
+
+}
+
+style CAR fill: red,stroke:navy,stroke-width:3px
+
+style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         Mermaid Diagram - PNG for mermaid
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_6_mermaid.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -314,7 +463,13 @@ style PERSON color: white, fill: navy,stroke:yellow ,stroke-width:2px
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-mermaid mermaid">erDiagram
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         erDiagram
 
 class Subject Component
 
@@ -335,21 +490,48 @@ Classe ||--|{ Section : contains
 Classe ||--|{ Attribute : contains
 
 Section ||--|{ Attribute : contains
+        </div>
+       </figure>
+       <figure>
+        <figcaption>
+         Mermaid Diagram - Live!
+        </figcaption>
+        <div class="language-mermaid mermaid">
+         erDiagram
 
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram for Mermaid">
-       Mermaid PNG - mermaid_img20.png
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img20.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagram for Mermaid">
-       Mermaid SVG - mermaid_img20.svg
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\mermaid_img20.svg" width="500px"/>
+class Subject Component
+
+class Section Component
+
+class Attribute Component
+
+class Classe Component
+
+Subject ||--|{ Subject : contains
+
+Subject ||--|{ Classe : contains
+
+
+
+Classe ||--|{ Section : contains
+
+Classe ||--|{ Attribute : contains
+
+Section ||--|{ Attribute : contains
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         Mermaid Diagram - PNG for mermaid
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_7_mermaid.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -391,8 +573,8 @@ Section ||--|{ Attribute : contains
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -430,8 +612,8 @@ PDF, formatted for printing and direct delivery
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -441,10 +623,13 @@ PDF, formatted for printing and direct delivery
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">
-@startuml
-
-nwdiag {
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         nwdiag {
 
 network {
 
@@ -488,20 +673,20 @@ Class [description = "Schema definition"];
 }
 
 }
-
-@enduml
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img21.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img21.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img21.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img21.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_8_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -511,8 +696,13 @@ Class [description = "Schema definition"];
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">@startuml
-'hide empty description
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         'hide empty description
 '!pragma layout elk
 skinparam rectangleBorderThickness 1
 skinparam defaultTextAlignment center
@@ -552,20 +742,20 @@ windowsclient -up-&gt; workflow
 
 worker &lt;-- approvaldesigner
 worker &lt;-- baseobjects
-@enduml
-
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img22.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img22.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img22.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img22.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_9_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -575,25 +765,31 @@ worker &lt;-- baseobjects
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">@startuml
-class Car
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         class Car
 
 Driver - Car : drives &gt;
 Car *- Wheel : have 4 &gt;
 Car -- Person : &lt; owns
-@enduml
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img23.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img23.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img23.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img23.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_10_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -603,8 +799,13 @@ Car -- Person : &lt; owns
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">@startuml
-' Configure the modern style approach with CSS
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         ' Configure the modern style approach with CSS
 ' Try polyline instead of ortho
 skinparam linetype polyline
 
@@ -671,20 +872,20 @@ Class -&gt; Literate
 AttributeSection -&gt; Literate
 Attribute -&gt; Literate
 }
-
-@enduml
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img24.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img24.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img24.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img24.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_11_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -701,8 +902,13 @@ Attribute -&gt; Literate
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">
-@startmindmap
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         @startmindmap
 * Component
 ** Literate
 *** Subject
@@ -710,7 +916,7 @@ Attribute -&gt; Literate
 *** AttributeSection
 *** Attribute
 @endmindmap
-@startuml
+
 !include &lt;C4/C4_Component&gt;
 
 Person(user, "User")
@@ -726,7 +932,7 @@ Rel(subject, literate, "extends")
 Rel(class, literate, "extends")
 Rel(attributeSection, literate, "extends")
 Rel(attribute, literate, "extends")
-@enduml
+
 
 @startjson
 {
@@ -739,18 +945,20 @@ Rel(attribute, literate, "extends")
 }
 }
 @endjson
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img25.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img25.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img25.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img25.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_12_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>
    </div>
-   <div class="Subject SubjectB">
-    <div class="SubjectB_header header Subject">
+   <div class="SubjectB Subject">
+    <div class="Subject SubjectB_header header">
      <span class="prefix">
       ##
      </span>
@@ -760,7 +968,13 @@ Rel(attribute, literate, "extends")
     </div>
     <div class="CodeBlock mdhtml">
      <div>
-      <pre><code class="language-puml">@startjson
+      <div class="diagram_suite">
+       <figure>
+        <figcaption>
+         PlantUML Diagram - Inert
+        </figcaption>
+        <div class="raw-diagram-code">
+         @startjson
 {
 "Component": {
 "Literate": ["description", "Core implementation"],
@@ -771,12 +985,14 @@ Rel(attribute, literate, "extends")
 }
 }
 @endjson
-</code></pre>
-      <div class="diagram png puml" string="PNG Diagram plant_img26.png">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img26.png" width="500px"/>
-      </div>
-      <div class="diagram svg puml" string="SVG Diagramplant_img26.svg">
-       <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\assets\plant_img26.svg" width="500px"/>
+        </div>
+       </figure>
+       <figure class="diagram png puml">
+        <figcaption>
+         PlantUML Diagram - PNG for puml
+        </figcaption>
+        <img src="C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Diagrams\Diagrams_results\diagrams\diagram_13_puml.png" width="500px"/>
+       </figure>
       </div>
      </div>
     </div>

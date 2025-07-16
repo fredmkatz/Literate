@@ -114,6 +114,11 @@ $defs:
                     type: array
                 -   type: 'null'
                 title: Constraints
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
         title: Attribute
         type: object
     AttributeName:
@@ -121,14 +126,14 @@ $defs:
             content:
                 default: ''
                 title: Content
-                type: string
             _type:
                 title: Type
                 type: string
-            _html_id:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
                 default: null
-                title: Html Id
-                type: string
         required:
         - _type
         title: AttributeName
@@ -140,6 +145,11 @@ $defs:
                 default: null
             attribute_name:
                 $ref: '#/$defs/AttributeName'
+                default: null
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
                 default: null
         title: AttributeReference
         type: object
@@ -206,6 +216,11 @@ $defs:
                     $ref: '#/$defs/Attribute'
                 title: Attributes
                 type: array
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
         title: AttributeSection
         type: object
     AttributeSectionName:
@@ -231,6 +246,11 @@ $defs:
         type: string
     Class:
         properties:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -380,6 +400,11 @@ $defs:
             _type:
                 title: Type
                 type: string
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
         required:
         - _type
         title: ClassReference
@@ -444,7 +469,21 @@ $defs:
                 -   type: 'null'
                 default: null
                 title: Severity
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
         title: Constraint
+        type: object
+    Container:
+        properties:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
+        title: Container
         type: object
     DataTypeClause:
         description: "Represents the type information for an attribute.\n\nAttributes:\n\
@@ -452,7 +491,13 @@ $defs:
             \ is optional (default: False)\n    cardinality: Optional cardinality\
             \ constraint (e.g., \"0..1\", \"1..*\")"
         properties:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
             data_type:
+                default: null
                 title: Data Type
             is_optional_lit:
                 anyOf:
@@ -463,8 +508,6 @@ $defs:
                 -   $ref: '#/$defs/Cardinality'
                 -   type: 'null'
                 default: O_O
-        required:
-        - data_type
         title: DataTypeClause
         type: object
     Default:
@@ -507,6 +550,11 @@ $defs:
                 -   type: 'null'
                 default: ''
                 title: Ocl
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
         title: Default
         type: object
     Derivation:
@@ -549,6 +597,11 @@ $defs:
                 -   type: 'null'
                 default: ''
                 title: Ocl
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
         title: Derivation
         type: object
     Diagnostic:
@@ -679,6 +732,11 @@ $defs:
         type: object
     SubjectB:
         properties:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -744,6 +802,11 @@ $defs:
         type: object
     SubjectC:
         properties:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -809,6 +872,11 @@ $defs:
         type: object
     SubjectD:
         properties:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -874,6 +942,11 @@ $defs:
         type: object
     SubjectE:
         properties:
+            container:
+                anyOf:
+                -   $ref: '#/$defs/Container'
+                -   type: 'null'
+                default: null
             one_liner:
                 anyOf:
                 -   $ref: '#/$defs/OneLiner'
@@ -987,6 +1060,11 @@ $defs:
         title: SubtypingName
         type: object
 properties:
+    container:
+        anyOf:
+        -   $ref: '#/$defs/Container'
+        -   type: 'null'
+        default: null
     one_liner:
         anyOf:
         -   $ref: '#/$defs/OneLiner'

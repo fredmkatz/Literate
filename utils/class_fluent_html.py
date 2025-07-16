@@ -8,7 +8,8 @@ Tag.__str__ = lambda self: self.prettify()
 
 TAGS_TO_EXPORT = [
     "html", "head", "link", "script", "title", "body", "div", "table",
-    "img", "span", "h1", "p", "a", "b"
+    "img", "span", "h1", "p", "a", "b",
+    "figure", "figcaption", "pre"
 ]
 
 VALID_HTML_TAGS = {

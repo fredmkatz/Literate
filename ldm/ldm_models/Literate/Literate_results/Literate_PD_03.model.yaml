@@ -2126,9 +2126,6 @@ subjects:
                     content: false
                 cardinality:
                 - O_O
-            overrides:
-                _type: AttributeReference
-                class_name: CamelName
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -2752,14 +2749,6 @@ subjects:
         prefix: Value Type
         name:
             _type: ClassName
-            content: Message
-        parenthetical: Template
-        is_value_type: true
-    -   _type: ValueType
-        is_embellishment: false
-        prefix: Value Type
-        name:
-            _type: ClassName
             content: ClassConstraint
         subtype_of:
         -   _type: SubtypeBy
@@ -2791,70 +2780,6 @@ subjects:
         -   _type: ClassReference
             content: Attribute
         is_value_type: true
-    -   _type: ValueType
-        is_embellishment: false
-        prefix: Value Type
-        name:
-            _type: ClassName
-            content: CodeExpression
-        is_value_type: true
-        attributes:
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: the programming language
-            elaboration:
-            -   _type: CodeBlock
-                content: '``` code
-
-                    OCL, Object Constraint Language
-
-                    Java, Java
-
-                    ```'
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: language
-            parenthetical: Code
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Code
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-        -   _type: Attribute
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: expression
-            parenthetical: String
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: String
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
 -   _type: SubjectB
     is_embellishment: false
     prefix: '##'
@@ -3010,8 +2935,80 @@ subjects:
     prefix: '##'
     name:
         _type: SubjectName
-        content: Data Types
+        content: Trivial Data Types
     classes:
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Message
+        parenthetical: Template
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: CodeExpression
+        is_value_type: true
+        attributes:
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: the programming language
+            elaboration:
+            -   _type: CodeBlock
+                content: '``` code
+
+                    OCL, Object Constraint Language
+
+                    Java, Java
+
+                    ```'
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: language
+            parenthetical: Code
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Code
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: expression
+            parenthetical: String
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: String
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
     -   _type: ValueType
         is_embellishment: false
         prefix: Value Type
@@ -3198,7 +3195,7 @@ subjects:
     prefix: '##'
     name:
         _type: SubjectName
-        content: Low level Data Types
+        content: Trivial Low level Data Types
     classes:
     -   _type: ValueType
         is_embellishment: false

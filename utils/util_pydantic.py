@@ -133,14 +133,14 @@ class PydanticMixin():
     def get_field_order(self):
         # print("get_field_order for ", self)   ## TODO - Causes look
         fieldnames =  getattr(self, "__field_order__", list(self.__dict__.keys()))
+        
+        ## NOTE: By convention (FMK only) all @properties and @cached_properties end with _p
+        ## All these are calculated as needed; none should be serialized
+        # todo: change to check for fields that are properties
         exclusions = [ 
-                      'all_classes',
-                      'all_class_names',
-                      'class_index',
-                      'plural_index',
-                      'full_class_index',
+                      "container",
         ]
-        pruned_fieldnames = [item for item in fieldnames if item not in exclusions]
+        pruned_fieldnames = [item for item in fieldnames if item not in exclusions and not item.endswith("_p")]
         return pruned_fieldnames
     
 

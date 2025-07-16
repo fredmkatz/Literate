@@ -1,0 +1,70 @@
+
+' Configure the modern style approach with CSS
+' Try polyline instead of ortho
+skinparam linetype polyline
+
+<style>
+/* Global settings */
+diagram {
+backgroundColor: white;
+}
+
+/* Class styling */
+class {
+BackgroundColor: #FFFFEE;
+BorderColor: #333333;
+BorderThickness: 1;
+BorderRadius: 8;
+FontColor: #333333;
+FontSize: 12;
+}
+
+/* Arrow styling */
+arrow {
+Color: #333333;
+Thickness: 1.5;
+}
+
+/* Package styling */
+package {
+BackgroundColor: #E6F2FF;
+BorderColor: #336699;
+BorderThickness: 3;
+FontColor: #333333;
+}
+
+/* Custom style for Component */
+.container {
+BackgroundColor: #E6F2FF;
+BorderColor: #336699;
+BorderThickness: 3;
+BorderRadius: 10;
+}
+</style>
+
+package "Component" <<container>> {
+class Literate {
+Core implementation
+}
+
+class Subject {
+Domain entity
+}
+class Class {
+Schema definition
+}
+class AttributeSection {
+Property group
+}
+class Attribute {
+Individual property
+}
+
+' Relationships
+Subject -> Literate
+Class -> Literate
+AttributeSection -> Literate
+Attribute -> Literate
+}
+
+

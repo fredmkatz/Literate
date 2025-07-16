@@ -290,7 +290,7 @@ class Htmlers(Faculty):
     @patch_on(Class, "as_html")  # and CodeType, ValueType
     def class_html(self):
         # Call super validator with explicit class name
-        print(f"HTMLing class {self.name}")
+        # print(f"HTMLing class {self.name}")
 
         # Get container for whole components, with header as a start
         comp_html = _html_faculty.call_super_html(self, 'Class')
@@ -315,25 +315,25 @@ class Htmlers(Faculty):
         for piece in pieces:
             comp_html.append(piece)
         
-        from ldm.ldm_extractors import All_Trivials
         # and now create the extract diagram for the class
         cname = self.name.content
         if cname == "Class":
             cname = "Class_"
         
-        if cname in All_Trivials:
+        if self.is_trivial():
             comp_html.append(div(f" {cname} is trivial; no diagram", class_ = "raw-diagram-code"))
 
             return comp_html
 
             
-        from dull_dsl.dull_build import The_Extract_Path
-        diagram_code = generate_focused_diagram(The_Extract_Path, [cname], radius = 1)
-        if not diagram_code:
-            comp_html.append(div(f"No diagram produced for {cname}", class_ = "raw-diagram-code"))
-        else:
-            comp_html.append(div(f"Diagram produced for {cname}\n", diagram_code, class_ = "raw-diagram-code"))
-            comp_html.append(div(diagram_code, class_ = "language-mermaid mermaid"))
+        from dull_dsl.dull_build import The_Extract_Path, model_diagrams_dir
+        
+        diagram_code = generate_focused_diagram(The_Extract_Path, model_diagrams_dir, [cname], radius = 1)
+        if  diagram_code:
+            from ldm.ldm_to_html_prose import  diagram_suite
+
+            title = "Mermaid ER Diagram for " + cname
+            comp_html.append(diagram_suite(title, diagram_code, "mermaid"))
 
         
         return comp_html
@@ -379,10 +379,20 @@ class Htmlers(Faculty):
         return comp_html
     
     @patch_on(AttributeName, "as_html")
-    def attribute_name_html(self):
+    def attribute_name_html(self: AttributeName):
         
+        attclass = self.containing(Class)
+        cname = "WhatClass"
+        if attclass:
+            cname = attclass.name.content
+        else:
+            print("BUG. attribute_name_html can't find class for ", self)
+            print("\tChain from AttributeName is ", self.up_chain())
         otype = type(self).__name__
-        return  span(self.content, class_ = otype, id=self._html_id)
+        html_id = cname + "__" + self.content
+        print(f"html-id for {self} = {html_id}")
+
+        return  span(self.content, class_ = otype, id=html_id)
 
     @patch_on(AttributeReference, "as_html") 
     def attribute_reference_html(self):
@@ -397,8 +407,9 @@ class Htmlers(Faculty):
 import traceback
 import sys
 
+
 def html_prose_content(obj_type, obj):
-    from ldm.ldm_to_html_prose import as_prose_html
+    from ldm.ldm_to_html_prose import as_prose_html, diagram_suite
 
     # print(f"Adding simple: {obj_type} ")
     # print("...obj is ", obj)
@@ -516,14 +527,14 @@ def class_names_clause(obj, att_name):
         print("class_names_list expects a LIST of ClassNames")
         return None
     
-    print("for attribute ", att_name, " class_names_clause handed: ", value)
+    print("class_names_clause for attribute ", att_name, " class_names_clause handed: ", value)
     class_names = [c.content for c in value]
     # class_names = [c.get("content", "ClassRef?") for c in value]
-    print("class_names are: ", class_names)
+    # print("class_names are: ", class_names)
     value_h = comma_separated_html(class_names)
     
     class_anchors = [class_anchor(c, as_plural=False) for c in value]
-    print("class_anchors are: ", class_anchors)
+    # print("class_anchors are: ", class_anchors)
 
     value_h = comma_separated_tags(class_anchors)
     
