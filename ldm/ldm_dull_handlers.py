@@ -605,7 +605,7 @@ def parse_data_type(phrase) -> DataType:
         dt = BaseDataType(class_name=ClassReference(phrase), as_value_type=AsValue("reference"))
         return dt
 
-    print("Inventing name for: ", phrase)
+    # print("Inventing name for: ", phrase)
     phrase = "Invented Name"
     dt = BaseDataType(class_name=ClassReference(phrase), as_value_type=AsValue("value"))
     return dt

@@ -198,19 +198,6 @@ figure figcaption {
     font-weight: bold;
 }
 
-.ValueType_header .prefix::before{
-    content: "Value Type";
-
-}
-.Class_header .prefix::before{
-    content: "Class";
-
-}
-.CodeType_header .prefix::before{
-    content: "Code Type";
-
-}
-
 
 .AttributeSection_header .name {
     display: inline-block;

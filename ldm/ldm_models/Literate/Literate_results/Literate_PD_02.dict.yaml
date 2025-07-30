@@ -301,7 +301,7 @@ subjects:
                 information about some Component.
         based_on:
         -   _type: ClassReference
-            content: LiterateDataModel
+            content: LiterateModel
         annotations:
         -   _type: Annotation
             label:
@@ -664,14 +664,14 @@ subjects:
         prefix: _
         name:
             _type: ClassName
-            content: LiterateDataModel
+            content: LiterateModel
         one_liner:
             _type: OneLiner
             content: 'A representation of a domain''s entities, attributes, and relationships,
 
                 along with explanatory text and examples'
         abbreviation: LDM
-        plural: ' LiterateDataModels
+        plural: ' LiterateModels
 
             '
         subtype_of:
@@ -982,7 +982,7 @@ subjects:
                 content: subtypes
         based_on:
         -   _type: ClassReference
-            content: LiterateDataModel
+            content: LiterateModel
         elaboration:
         -   _type: Paragraph
             content: "Subjects are the chapters an sections of the model.\n \n+ A\
@@ -1136,8 +1136,6 @@ subjects:
         based_on:
         -   _type: ClassReference
             content: LiterateModel
-        -   _type: ClassReference
-            content: Xyz
     subjects:
     -   _type: SubjectC
         prefix: '###'
@@ -1274,18 +1272,21 @@ subjects:
                     content: supertypes
                 one_liner:
                     _type: OneLiner
-                    content: The parent class
-                parenthetical: es
+                    content: The parent class or classes from which this class inherits
+                        attributes
+                parenthetical: ListOf Classes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: Es
-                        as_value_type:
-                            _type: AsValue
-                            content: true
+                        _type: ListDataType
+                        element_type:
+                            _type: BaseDataType
+                            class_name:
+                                _type: ClassReference
+                                content: Classes
+                            as_value_type:
+                                _type: AsValue
+                                content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
@@ -1765,15 +1766,15 @@ subjects:
                     content: code
                 one_liner:
                     _type: OneLiner
-                    content: A short code or abbreviationi for the value _
-                parenthetical: NameString
+                    content: A short code or abbreviation for the value _
+                parenthetical: String
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: NameString
+                            content: String
                         as_value_type:
                             _type: AsValue
                             content: true
@@ -2095,14 +2096,14 @@ subjects:
                     _type: OneLiner
                     content: The cardinality of the relationship represented by the
                         attribute _
-                parenthetical: CardinalityCode
+                parenthetical: Cardinality
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: CardinalityCode
+                            content: Cardinality
                         as_value_type:
                             _type: AsValue
                             content: true
@@ -2128,63 +2129,24 @@ subjects:
                             one-liner.
 
                             '
+                    -   _type: CodeBlock
+                        content: '```
+
+                            For example:
+
+                            - author (1:1 Author)
+
+                            - books (optional N:M Set of Books)
+
+                            ```'
                     annotations:
                     -   _type: Annotation
                         label:
                             _type: Label
-                            content: forExample
+                            content: note
                         content:
                             _type: OneLiner
-            -   _type: Attribute
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: author
-                parenthetical: 1:1 Author
-                data_type_clause:
-                    _type: DataTypeClause
-                    data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: InventedName
-                        as_value_type:
-                            _type: AsValue
-                            content: false
-                    is_optional_lit:
-                        _type: IsOptional
-                        content: false
-                    cardinality:
-                    - O_O
-            -   _type: Attribute
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: books
-                parenthetical: optional N:M Set of Books
-                data_type_clause:
-                    _type: DataTypeClause
-                    data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: InventedName
-                        as_value_type:
-                            _type: AsValue
-                            content: false
-                    is_optional_lit:
-                        _type: IsOptional
-                        content: true
-                    cardinality:
-                    - O_O
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: how this works with optionality
+                            content: how this works with optionality
         -   _type: AttributeSection
             prefix: __
             name:
@@ -2539,19 +2501,19 @@ subjects:
                 content: expression
             one_liner:
                 _type: OneLiner
-                content: The formal expression of the constraint in a programming
-                    language
-            parenthetical: e.g., OCL _(CodeExpression
+                content: 'The formal expression of the constraint in a programming
+                    language, for example: OCL or Python. _'
+            parenthetical: CodeExpression
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: InventedName
+                        content: CodeExpression
                     as_value_type:
                         _type: AsValue
-                        content: false
+                        content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
@@ -2699,7 +2661,10 @@ subjects:
         prefix: _
         name:
             _type: ClassName
-            content: ParameterAnInputToAMethod
+            content: Parameter
+        one_liner:
+            _type: OneLiner
+            content: An input to a method
         plural: ' Parameters
 
             '
@@ -2719,7 +2684,7 @@ subjects:
                 content: type
             one_liner:
                 _type: OneLiner
-                content: The data type of the parameter _
+                content: The data type of the parameter
             parenthetical: DataType
             data_type_clause:
                 _type: DataTypeClause
@@ -2743,18 +2708,18 @@ subjects:
                 content: cardinality
             one_liner:
                 _type: OneLiner
-                content: The cardinality of the parameter
-            parenthetical: e.g., optional, required
+                content: The cardinality of the parameter. e.g., optional, required.
+            parenthetical: Cardinality
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: InventedName
+                        content: Cardinality
                     as_value_type:
                         _type: AsValue
-                        content: false
+                        content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
@@ -3167,11 +3132,11 @@ subjects:
                     of the camel names must be Upper Camel except, possibly, the first.
 
                     '
-    -   _type: Class
-        prefix: _
+    -   _type: ValueType
+        prefix: 'ValueType:'
         name:
             _type: ClassName
-            content: ValueTypeRichText
+            content: RichText
         one_liner:
             _type: OneLiner
             content: A string with markup for block level formatting.
@@ -3391,6 +3356,31 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
+    -   _type: CodeType
+        prefix: 'CodeType:'
+        name:
+            _type: ClassName
+            content: CodingLanguage
+    -   _type: CodeType
+        prefix: 'CodeType:'
+        name:
+            _type: ClassName
+            content: Cardinality
+    -   _type: ValueType
+        prefix: 'ValueType:'
+        name:
+            _type: ClassName
+            content: TemplateLanguage
+    -   _type: ValueType
+        prefix: 'ValueType:'
+        name:
+            _type: ClassName
+            content: Template
+    -   _type: ValueType
+        prefix: 'ValueType:'
+        name:
+            _type: ClassName
+            content: Code
     subjects:
     -   _type: SubjectC
         prefix: '###'

@@ -1,6 +1,8 @@
 erDiagram
-    AnnotationType }o--|| LiterateDataModel : based_on
-    LiterateDataModel ||--|| Component : subtype_of
+    AnnotationType }o--|| LiterateModel : based_on
+    LiterateModel ||--|| Component : subtype_of
     Subject ||--|| Component : subtype_of
-    Subject }o--|| LiterateDataModel : based_on
+    Subject }o--|| LiterateModel : based_on
     Subject |o--o| Subject : parentSubject
+    SubjectArea ||--|| Subject : subtype_of
+    SubjectArea }o--|| LiterateModel : based_on

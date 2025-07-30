@@ -42,7 +42,7 @@ __  ***For Machinery*** - mechanical attributes
 	
 
 _ **AnnotationType** - a kind of note, or aside, used to call attention to additional information about some Component. 
-***Based on*** : Literate Data Model
+***Based on*** : LiterateModel
 ***Note***: Each LDM declares a set of Annotation Types, with defined labels, emojis, and clearly documented purposes. These are *recognized* or *registered* Annotation Types. 
 But, if none of these fit, you can  introduce an Annotation with any label. It would have an *ad hoc* Annotation Type. 
 - **emoji** - an emoji (Emoji)
@@ -84,10 +84,10 @@ __***For Machinery***
 ## The Model and its Subjects
 
 
-_ **LiterateDataModel** - A representation of a domain's entities, attributes, and relationships, 
+_ **LiterateModel** - A representation of a domain's entities, attributes, and relationships, 
 along with explanatory text and examples  
 ***Abbreviation***: LDM
-Plural: LiterateDataModels 
+Plural: LiterateModels 
 Subtype of: Component  
 
 
@@ -116,7 +116,7 @@ __ 	***Modeling Configuration***
 _ **Subject**  - A specific topic or theme within the model  
 Plural: Subjects  
 Subtype of: Component  
-based on: LiterateDataModel
+based on: LiterateModel
 
 Subjects are the chapters an sections of the model. 
 A subject need not contain any Classes if it’s just expository.  
@@ -141,7 +141,7 @@ _ **SubjectArea**  - A main topic or area of focus within the model, containing 
 Plural: SubjectAreas  
 Subtype of: Subject  
 Where: parentSubject is absent
-based on: Literate Model, XYZ
+based on: Literate Model
 
 
 ### Classes
@@ -170,7 +170,7 @@ Subtype of: Component
   	ToDo - fix that
 
 
-- **supertypes** - The parent class(es) from which this class inherits attributes (ListOf Classes)
+- **supertypes** - The parent class or classes from which this class inherits attributes (ListOf Classes)
 
 - **subtypings** - the criteria, or dimensions, by which the class can be divided into subtypes (list of Subtypings).
 	
@@ -235,7 +235,7 @@ ValueType:  **CodeType**   - A data type or enumeration used in the model
 ValueType:  **Code Value** - A possible value for an enumerated data class  
 based on: CodeType
 
-- **code** - A short code or abbreviationi for the value _(NameString)_
+- **code** - A short code or abbreviation for the value _(String)_
 - **description** - an explanation of what the code means (*RichText*)
 Note: Often, a CodeType will be assigned to just one attribute in the model.  In such cases, there's no need to declare a new Code Type and invent a name for it.  Instead:
    * List the code values as a bulletted list inside the description of the attribute in the form
@@ -292,7 +292,7 @@ __ **Cardinalities**.
   
   	***Default:*** False
 
-- **cardinality** - The cardinality of the relationship represented by the attribute _(CardinalityCode)_
+- **cardinality** - The cardinality of the relationship represented by the attribute _(Cardinality)_
   
   	***Default:***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.
   For a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.
@@ -300,10 +300,11 @@ __ **Cardinalities**.
 
 
 	***DSL***: the cardinality of an attribute, if stated explicitly, should be placed just before the class name in the parenthetical data type specification after the one-liner.
+```
 	For example:
 	- author (1:1 Author)
 	- books (optional N:M Set of Books)
-
+```
 	***Note***: how this works with optionality
 
 __  ***Inverse Attributes***
@@ -349,7 +350,7 @@ ValueType:    **Constraint**  - A rule, condition, or validation that must be sa
 Plural: Constraints  
 Subtype of: Component  
 - **statement** - An English language statement of the constraint _(RichText)_  
-- **expression** - The formal expression of the constraint in a programming language (e.g., OCL _(CodeExpression)_  
+- **expression** - The formal expression of the constraint in a programming language, for example: OCL or Python. _(CodeExpression)_  
 - **severity** -  (Code)
 ```codes
 Warning, nothing fatal; just a caution
@@ -371,12 +372,11 @@ Subtype of: Component
 - **parameters** - The input parameters of the method _(ListOf Parameters)_  
 - **returnType** - The data type of the value returned by the method _(DataType )_  
 
-_ **Parameter**  
-An input to a method  
+_ **Parameter**  - An input to a method  
 Plural: Parameters  
 Subtype of: Component  
-- **type** - The data type of the parameter _(DataType )_  
-- **cardinality** - The cardinality of the parameter (e.g., optional, required) _(AttributeCardinality)_  
+- **type** - The data type of the parameter (DataType)
+- **cardinality** - The cardinality of the parameter. e.g., optional, required. (Cardinality)
 
 ## Trivial Data Types
 ValueType:  **Message** - (Template)
@@ -447,7 +447,7 @@ ValueType:   **Qualified Camel** - an expression consisting of Camel Names separ
 ***Subtype of***: String
 ***Constraint***: content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first. 
 
-_ ValueType: **RichText** - A string with markup for block level formatting.  
+ValueType: **RichText** - A string with markup for block level formatting.  
   ***SubtypeOf***: String  
   
   - **value** - the string content (string)  
@@ -456,7 +456,6 @@ _ ValueType: **RichText** - A string with markup for block level formatting.
 HTML
 MarkDown
 ```
-
 ValueType:  **OneLiner**   - String with markup for line level formatting.  
   ***SubtypeOf***: RichText 
   
@@ -486,6 +485,13 @@ SubtypeOf: PrimitiveType
 
 ValueType: **DateTime**  
 SubtypeOf: PrimitiveType
+
+CodeType: CodingLanguage
+CodeType: Cardinality
+
+ValueType: Template Language
+ValueType: Template
+ValueType: Code
 
 
 ### Annotation Types Used
@@ -610,7 +616,7 @@ Insert Camel Case.md
 
 ``` mermaid
 erDiagram
-    Component ||--|LiterateDataModel : inherits
+    Component ||--|LiterateModel : inherits
     Component ||--|Subject : inherits
     Subject ||--|SubjectArea : inherits
     Component ||--|Class : inherits
@@ -624,10 +630,10 @@ erDiagram
     Constraint ||--|AttributeConstraint : inherits
     Component ||--|Method : inherits
     Component ||--|ParameterAnInputToAMethod : inherits
-    AnnotationType }|--|} LiterateDataModel : based_on
+    AnnotationType }|--|} LiterateModel : based_on
     Annotation }|--|} Component : based_on
     Annotation ||--|| AnnotationType : annotationType
-    Subject }|--|} LiterateDataModel : based_on
+    Subject }|--|} LiterateModel : based_on
     Subject ||--|| Subject : parentSubject
     Class ||--|| Class : basedOn
     Subtyping }|--|} Class : based_on

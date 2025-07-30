@@ -6,21 +6,25 @@ Census:  Trimmed Merged  for dict_keys(['Literate_PD_02.dict.yaml', 'Literate_PD
 Annotation.subtype_of:
     Literate_PD_02.dict.yaml: 1
 Attribute.is_embellishment:
-    Literate_PD_03.model.yaml: 86
+    Literate_PD_03.model.yaml: 84
 AttributeSection.is_embellishment:
     Literate_PD_03.model.yaml: 8
 AttributeSection.is_optional:
     Literate_PD_03.model.yaml: 8
 Class.is_embellishment:
-    Literate_PD_03.model.yaml: 16
+    Literate_PD_03.model.yaml: 15
 Class.is_value_type:
-    Literate_PD_03.model.yaml: 16
+    Literate_PD_03.model.yaml: 15
 ClassReference._type:
-    Literate_PD_02.dict.yaml: 128
-    Literate_PD_03.model.yaml: 127
+    Literate_PD_02.dict.yaml: 125
+    Literate_PD_03.model.yaml: 124
 ClassReference.content:
-    Literate_PD_02.dict.yaml: 128
-    Literate_PD_03.model.yaml: 127
+    Literate_PD_02.dict.yaml: 125
+    Literate_PD_03.model.yaml: 124
+CodeType.is_embellishment:
+    Literate_PD_03.model.yaml: 2
+CodeType.is_value_type:
+    Literate_PD_03.model.yaml: 2
 Constraint.is_embellishment:
     Literate_PD_03.model.yaml: 9
 Default.is_embellishment:
@@ -28,11 +32,11 @@ Default.is_embellishment:
 Derivation.is_embellishment:
     Literate_PD_03.model.yaml: 5
 IsOptional._type:
-    Literate_PD_02.dict.yaml: 85
-    Literate_PD_03.model.yaml: 93
+    Literate_PD_02.dict.yaml: 83
+    Literate_PD_03.model.yaml: 91
 IsOptional.content:
-    Literate_PD_02.dict.yaml: 85
-    Literate_PD_03.model.yaml: 93
+    Literate_PD_02.dict.yaml: 83
+    Literate_PD_03.model.yaml: 91
 LiterateModel.is_embellishment:
     Literate_PD_03.model.yaml: 1
 SubjectB.is_embellishment:
@@ -55,226 +59,233 @@ SubtypingName.content:
     Literate_PD_02.dict.yaml: 28
     Literate_PD_03.model.yaml: 27
 ValueType.is_embellishment:
-    Literate_PD_03.model.yaml: 27
+    Literate_PD_03.model.yaml: 31
 ValueType.is_value_type:
-    Literate_PD_03.model.yaml: 27
+    Literate_PD_03.model.yaml: 31
 
 Including:  Literate_PD_03.model.yaml
 Including:  Literate_PD_04.v_model.yaml
 
 Census:  Trimmed Merged  for dict_keys(['Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml'])- 'All' cells deleted
 Annotation._type:
-    Literate_PD_03.model.yaml: 28
-    Literate_PD_04.v_model.yaml: 55
+    Literate_PD_03.model.yaml: 27
+    Literate_PD_04.v_model.yaml: 28
 Annotation.content:
-    Literate_PD_03.model.yaml: 28
-    Literate_PD_04.v_model.yaml: 55
+    Literate_PD_03.model.yaml: 27
+    Literate_PD_04.v_model.yaml: 28
 Annotation.emoji:
-    Literate_PD_04.v_model.yaml: 21
+    Literate_PD_04.v_model.yaml: 20
 Annotation.label:
-    Literate_PD_03.model.yaml: 28
-    Literate_PD_04.v_model.yaml: 55
+    Literate_PD_03.model.yaml: 27
+    Literate_PD_04.v_model.yaml: 28
 AsValue._type:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 AsValue.content:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 Attribute._type:
-    Literate_PD_03.model.yaml: 86
-    Literate_PD_04.v_model.yaml: 141
+    Literate_PD_03.model.yaml: 84
+    Literate_PD_04.v_model.yaml: 112
 Attribute.data_type_clause:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 Attribute.default:
     Literate_PD_03.model.yaml: 13
-    Literate_PD_04.v_model.yaml: 40
+    Literate_PD_04.v_model.yaml: 14
 Attribute.diagnostics:
-    Literate_PD_04.v_model.yaml: 23
+    Literate_PD_04.v_model.yaml: 6
 Attribute.inverse:
     Literate_PD_03.model.yaml: 3
-    Literate_PD_04.v_model.yaml: 34
+    Literate_PD_04.v_model.yaml: 35
 Attribute.is_embellishment:
-    Literate_PD_03.model.yaml: 86
-    Literate_PD_04.v_model.yaml: 141
+    Literate_PD_03.model.yaml: 84
+    Literate_PD_04.v_model.yaml: 112
 Attribute.name:
-    Literate_PD_03.model.yaml: 86
-    Literate_PD_04.v_model.yaml: 141
+    Literate_PD_03.model.yaml: 84
+    Literate_PD_04.v_model.yaml: 112
 Attribute.one_liner:
     Literate_PD_03.model.yaml: 57
-    Literate_PD_04.v_model.yaml: 112
+    Literate_PD_04.v_model.yaml: 85
 Attribute.overrides:
-    Literate_PD_04.v_model.yaml: 3
+    Literate_PD_04.v_model.yaml: 4
 Attribute.parenthetical:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 112
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 84
 Attribute.prefix:
-    Literate_PD_03.model.yaml: 86
-    Literate_PD_04.v_model.yaml: 113
+    Literate_PD_03.model.yaml: 84
+    Literate_PD_04.v_model.yaml: 85
 AttributeName._type:
-    Literate_PD_03.model.yaml: 89
-    Literate_PD_04.v_model.yaml: 178
+    Literate_PD_03.model.yaml: 87
+    Literate_PD_04.v_model.yaml: 151
 AttributeName.content:
-    Literate_PD_03.model.yaml: 89
-    Literate_PD_04.v_model.yaml: 178
+    Literate_PD_03.model.yaml: 87
+    Literate_PD_04.v_model.yaml: 151
 AttributeReference._type:
     Literate_PD_03.model.yaml: 3
-    Literate_PD_04.v_model.yaml: 37
+    Literate_PD_04.v_model.yaml: 39
 AttributeReference.attribute_name:
     Literate_PD_03.model.yaml: 3
-    Literate_PD_04.v_model.yaml: 37
+    Literate_PD_04.v_model.yaml: 39
 AttributeReference.class_name:
     Literate_PD_03.model.yaml: 3
-    Literate_PD_04.v_model.yaml: 37
+    Literate_PD_04.v_model.yaml: 39
 AttributeSection._type:
     Literate_PD_03.model.yaml: 8
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 21
 AttributeSection.attributes:
     Literate_PD_03.model.yaml: 8
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 21
 AttributeSection.diagnostics:
     Literate_PD_04.v_model.yaml: 4
 AttributeSection.is_embellishment:
     Literate_PD_03.model.yaml: 8
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 21
 AttributeSection.is_optional:
     Literate_PD_03.model.yaml: 8
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 21
 AttributeSection.name:
     Literate_PD_03.model.yaml: 8
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 21
+AttributeSection.one_liner:
+    Literate_PD_03.model.yaml: 1
+    Literate_PD_04.v_model.yaml: 14
 AttributeSectionName._type:
     Literate_PD_03.model.yaml: 8
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 21
 AttributeSectionName.content:
     Literate_PD_03.model.yaml: 8
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 21
 BaseDataType._type:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 BaseDataType.as_value_type:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 BaseDataType.class_name:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 Class.attribute_sections:
     Literate_PD_03.model.yaml: 5
     Literate_PD_04.v_model.yaml: 13
 Class.dependents:
     Literate_PD_04.v_model.yaml: 5
 Class.diagnostics:
-    Literate_PD_04.v_model.yaml: 10
+    Literate_PD_04.v_model.yaml: 3
 Class.plural:
     Literate_PD_03.model.yaml: 7
-    Literate_PD_04.v_model.yaml: 16
+    Literate_PD_04.v_model.yaml: 15
 Class.presumed_plural:
-    Literate_PD_04.v_model.yaml: 9
+    Literate_PD_04.v_model.yaml: 8
 Class.subtypings:
     Literate_PD_04.v_model.yaml: 4
 ClassReference._type:
-    Literate_PD_03.model.yaml: 127
-    Literate_PD_04.v_model.yaml: 252
+    Literate_PD_03.model.yaml: 124
+    Literate_PD_04.v_model.yaml: 226
 ClassReference.content:
-    Literate_PD_03.model.yaml: 127
-    Literate_PD_04.v_model.yaml: 252
+    Literate_PD_03.model.yaml: 124
+    Literate_PD_04.v_model.yaml: 226
+CodeType.plural:
+    Literate_PD_04.v_model.yaml: 2
+CodeType.presumed_plural:
+    Literate_PD_04.v_model.yaml: 2
 DataTypeClause._type:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 DataTypeClause.cardinality:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 DataTypeClause.data_type:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 DataTypeClause.is_optional_lit:
-    Literate_PD_03.model.yaml: 85
-    Literate_PD_04.v_model.yaml: 140
+    Literate_PD_03.model.yaml: 83
+    Literate_PD_04.v_model.yaml: 111
 Default._type:
     Literate_PD_03.model.yaml: 13
-    Literate_PD_04.v_model.yaml: 40
+    Literate_PD_04.v_model.yaml: 14
 Default.annotations:
     Literate_PD_03.model.yaml: 3
-    Literate_PD_04.v_model.yaml: 30
+    Literate_PD_04.v_model.yaml: 4
 Default.is_embellishment:
     Literate_PD_03.model.yaml: 13
-    Literate_PD_04.v_model.yaml: 40
+    Literate_PD_04.v_model.yaml: 14
 Default.one_liner:
     Literate_PD_03.model.yaml: 13
-    Literate_PD_04.v_model.yaml: 40
+    Literate_PD_04.v_model.yaml: 14
 Diagnostic._type:
-    Literate_PD_04.v_model.yaml: 60
+    Literate_PD_04.v_model.yaml: 31
 Diagnostic.category:
-    Literate_PD_04.v_model.yaml: 60
+    Literate_PD_04.v_model.yaml: 31
 Diagnostic.constraint_name:
-    Literate_PD_04.v_model.yaml: 60
+    Literate_PD_04.v_model.yaml: 31
 Diagnostic.message:
-    Literate_PD_04.v_model.yaml: 60
+    Literate_PD_04.v_model.yaml: 31
 Diagnostic.object_name:
-    Literate_PD_04.v_model.yaml: 34
+    Literate_PD_04.v_model.yaml: 21
 Diagnostic.object_type:
-    Literate_PD_04.v_model.yaml: 60
+    Literate_PD_04.v_model.yaml: 31
 Diagnostic.severity:
-    Literate_PD_04.v_model.yaml: 60
+    Literate_PD_04.v_model.yaml: 31
 Emoji._type:
-    Literate_PD_04.v_model.yaml: 21
+    Literate_PD_04.v_model.yaml: 20
 Emoji.content:
-    Literate_PD_04.v_model.yaml: 21
+    Literate_PD_04.v_model.yaml: 20
 IsExclusive._type:
-    Literate_PD_04.v_model.yaml: 16
+    Literate_PD_04.v_model.yaml: 18
 IsExclusive.content:
-    Literate_PD_04.v_model.yaml: 16
+    Literate_PD_04.v_model.yaml: 18
 IsOptional._type:
-    Literate_PD_03.model.yaml: 93
-    Literate_PD_04.v_model.yaml: 165
+    Literate_PD_03.model.yaml: 91
+    Literate_PD_04.v_model.yaml: 132
 IsOptional.content:
-    Literate_PD_03.model.yaml: 93
-    Literate_PD_04.v_model.yaml: 165
+    Literate_PD_03.model.yaml: 91
+    Literate_PD_04.v_model.yaml: 132
 Label._type:
-    Literate_PD_03.model.yaml: 28
-    Literate_PD_04.v_model.yaml: 55
+    Literate_PD_03.model.yaml: 27
+    Literate_PD_04.v_model.yaml: 28
 Label.content:
-    Literate_PD_03.model.yaml: 28
-    Literate_PD_04.v_model.yaml: 55
+    Literate_PD_03.model.yaml: 27
+    Literate_PD_04.v_model.yaml: 28
 LiterateModel.diagnostics:
     Literate_PD_04.v_model.yaml: 1
 OneLiner._type:
     Literate_PD_03.model.yaml: 139
-    Literate_PD_04.v_model.yaml: 248
+    Literate_PD_04.v_model.yaml: 182
 OneLiner.content:
-    Literate_PD_03.model.yaml: 138
-    Literate_PD_04.v_model.yaml: 247
+    Literate_PD_03.model.yaml: 139
+    Literate_PD_04.v_model.yaml: 182
 SubjectB.diagnostics:
     Literate_PD_04.v_model.yaml: 4
 SubjectC.diagnostics:
     Literate_PD_04.v_model.yaml: 1
 Subtyping._type:
-    Literate_PD_04.v_model.yaml: 8
+    Literate_PD_04.v_model.yaml: 9
 Subtyping.is_exclusive:
-    Literate_PD_04.v_model.yaml: 8
+    Literate_PD_04.v_model.yaml: 9
 Subtyping.is_exhaustive:
-    Literate_PD_04.v_model.yaml: 8
+    Literate_PD_04.v_model.yaml: 9
 Subtyping.name:
-    Literate_PD_04.v_model.yaml: 8
+    Literate_PD_04.v_model.yaml: 9
 Subtyping.subtypes:
-    Literate_PD_04.v_model.yaml: 8
+    Literate_PD_04.v_model.yaml: 9
 SubtypingName._type:
     Literate_PD_03.model.yaml: 27
-    Literate_PD_04.v_model.yaml: 35
+    Literate_PD_04.v_model.yaml: 36
 SubtypingName.content:
     Literate_PD_03.model.yaml: 27
-    Literate_PD_04.v_model.yaml: 35
+    Literate_PD_04.v_model.yaml: 36
 ValueType.attribute_sections:
     Literate_PD_04.v_model.yaml: 3
 ValueType.dependents:
     Literate_PD_04.v_model.yaml: 1
 ValueType.diagnostics:
-    Literate_PD_04.v_model.yaml: 4
+    Literate_PD_04.v_model.yaml: 2
 ValueType.plural:
     Literate_PD_03.model.yaml: 2
-    Literate_PD_04.v_model.yaml: 27
+    Literate_PD_04.v_model.yaml: 31
 ValueType.presumed_plural:
-    Literate_PD_04.v_model.yaml: 25
+    Literate_PD_04.v_model.yaml: 29
 ValueType.subtypings:
-    Literate_PD_04.v_model.yaml: 4
+    Literate_PD_04.v_model.yaml: 5
 

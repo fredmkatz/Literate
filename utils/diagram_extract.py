@@ -28,7 +28,7 @@ def generate_diagram_code(data: Dict, radius: int) -> str:
     
     classes = [c for c in all_classes if c['distance'] <= radius]
     nshown = len(classes)
-    print(f"Showing {nshown} of {nclasses} classes")
+    # print(f"Showing {nshown} of {nclasses} classes")
     class_names = {cls['name'] for cls in classes}
     # print(class_names)
     

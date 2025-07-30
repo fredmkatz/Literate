@@ -22,7 +22,7 @@ def patch_on(target_class: Type, method_name: str = None):
         
         All_Patches_ByName[target_class.__name__][actual_method_name] = func
         
-        print(f"Registered {actual_method_name} for {target_class.__name__}")
+        # print(f"Registered {actual_method_name} for {target_class.__name__}")
         
         # Mark the function for tracking
         func._patch_target = target_class
@@ -49,10 +49,10 @@ class Faculty:
                 self.all_patches[class_name] = {}
             self.all_patches[class_name].update(methods)
         
-        print("Faculty patches setup:")
-        for target, methods in self.all_patches.items():
-            for method_name, func in methods.items():
-                print(f"  {target}.{method_name} -> {func.__name__}")
+        # print("Faculty patches setup:")
+        # for target, methods in self.all_patches.items():
+        #     for method_name, func in methods.items():
+        #         print(f"  {target}.{method_name} -> {func.__name__}")
         
     def resolve_patched_method(self, obj, method_name: str, current_class_name: str = None):
         """Resolve the appropriate patched method for an object.

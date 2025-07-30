@@ -1,2 +1,2 @@
 erDiagram
-    ParameterAnInputToAMethod ||--|| Component : subtype_of
+    Parameter ||--|| Component : subtype_of

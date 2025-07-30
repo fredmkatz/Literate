@@ -55,11 +55,11 @@ class Extractors(Faculty):
             #     continue
 
             if cls.is_trivial():
-                print(f"Extract skipping trivial class (is_istrivial) {cname}")
+                # print(f"Extract skipping trivial class (is_istrivial) {cname}")
                 continue
-            print("extracting ", cls)
+            # print("extracting ", cls)
             cls_extract = object_extract(cls)
-            print("Extract is ", cls_extract)
+            # print("Extract is ", cls_extract)
             class_extracts.append(cls_extract)
         the_extract['classes'] = class_extracts
         return the_extract
@@ -69,7 +69,7 @@ class Extractors(Faculty):
         the_extract = _extract_faculty.call_super_extract(cls, 'Class')
         edges = []
         the_model = cls.containing(LiterateModel)
-        print("Found the model? ", the_model)
+        # print("Found the model? ", the_model)
         for subtype_by in cls.subtype_of:
             subtyping = subtype_by.subtyping_name
             class_ref = subtype_by.class_name
@@ -84,16 +84,16 @@ class Extractors(Faculty):
             att_name = attribute.name.content
             (target_type, card) = core_type(attribute)
             if not target_type:
-                print(f"extract skipping attribute - {att_name} - target type {target_type} not defined?")
+                # print(f"extract skipping attribute - {att_name} - target type {target_type} not defined?")
                 continue
 
             target_type_object = the_model.class_named(target_type)
             if not target_type_object:
-                print(f"extract skipping attribute - {att_name} - target type {target_type} does not name a class")
+                # print(f"extract skipping attribute - {att_name} - target type {target_type} does not name a class")
                 continue
 
             if target_type_object.is_trivial():
-                print(f"extract skipping attribute - {att_name} - target type {target_type} is trivial")
+                # print(f"extract skipping attribute - {att_name} - target type {target_type} is trivial")
                 continue
             
             edge = create_edge(att_name, target_type, card)
@@ -106,7 +106,7 @@ class Extractors(Faculty):
 # Create the htmlers instance
 _extract_faculty = Extractors()
 print("Created Extractprs() = ", _extract_faculty)
-show_patches(_extract_faculty.all_patches)
+# show_patches(_extract_faculty.all_patches)
 
 def core_type(attribute: Attribute):
     dtc = attribute.data_type_clause
@@ -117,13 +117,13 @@ def core_type(attribute: Attribute):
 
 def dt_core(datatype: DataType):
     base_types = datatype.base_type_names()
-    print(f"Base type names for {datatype} are {base_types}")
+    # print(f"Base type names for {datatype} are {base_types}")
     if not base_types:
         return None
     return base_types[0]
 
 def create_edge(relation, target_name, cardinality = "missing!"):
-    print(f"Cardinality is {repr(cardinality)}")
+    # print(f"Cardinality is {repr(cardinality)}")
     if not cardinality:
         cardinality = "blank!"
     if isinstance(cardinality, list):

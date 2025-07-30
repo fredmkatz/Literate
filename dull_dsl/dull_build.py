@@ -12,6 +12,8 @@ from ldm.ldm_htmlers import create_model_html_with_faculty, save_model_html
 
 import utils.util_all_fmk as fmk
 
+from ldm.ldm_validators_v3 import countEmbellishments
+
 from dull_dsl.dull_parser import parse_model_doc
 from utils.util_pydantic import gen_schema
 
@@ -149,10 +151,11 @@ def build_dull_dsl(dull_specs: Dict):
     # test_containers(the_ldm_model_py)
     # exit(0)
     
+    countEmbellishments(the_ldm_model_py, "After first construction")
     VALIDATING = True
     if VALIDATING:
 
-        show_phase(f"Validating model tp {valid_model_path}")
+        show_phase(f"Validating model with validation faculty, to {valid_model_path}")
 
         # Validate the model
         diagnostics = ldm_validators.validate_model(the_ldm_model_py)
@@ -171,12 +174,14 @@ def build_dull_dsl(dull_specs: Dict):
         the_ldm_dict = valid_model_dict
 
         print(f"..Created dict for validated model: {valid_model_path}")  # _04_
+        countEmbellishments(the_ldm_model_py, "After validation")
 
         show_phase("counting diagnostics")
         d_strings = [
             f"{d.severity} - {d.object_type} - {d.category}- {d.constraint_name}"
             for d in diagnostics
         ]
+        d_strings.sort()
         counts = count_strings(d_strings)
         print(len(d_strings), "\t", "All Diagnostics")
         for key, value in counts.items():
@@ -197,9 +202,13 @@ def build_dull_dsl(dull_specs: Dict):
     The_Extract_Path = the_extract_path
     
     create_model_extract_with_faculty(the_ldm_model_py, the_extract_path)
-    show_phase("Validating to JSON Schema")
+    
+    # Note: validating to the json schema only works using the json form of the 
+    # model - the yaml form is inaccurate
     from utils.util_jsonschema import validate_to_schema
-    validate_to_schema(schema_path=model_schema_path, object_path=valid_model_path)
+    show_phase("Validating to JSON Schema - on json model")
+
+    validate_to_schema(schema_path=model_schema_path, object_path=valid_model_jpath)
 
     RENDER_MD = False
     if RENDER_MD:
@@ -255,7 +264,6 @@ def build_dull_dsl(dull_specs: Dict):
         from utils.util_pikepdf import set_pdf_viewing
         pdf_path2a = pdf_path2.replace(".pdf", ".twoup.pdf")
         set_pdf_viewing(pdf_path2, pdf_path2a)
-
 
 def show_phase(caption: str):
     print(f"\nPhase: {caption}", file=sys.stderr)

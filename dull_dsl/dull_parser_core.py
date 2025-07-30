@@ -277,10 +277,10 @@ class DocPart:
         displayables = ["ValueType", "CodeType"]
         # ["Class", "Attribute", "Formula", "Default"]
         displayables = ["Default", "Derivation", "Constraint"]
-
+        displayables = []
         if self.part_type in displayables:
             # print("Re-display for Part: ", self.part_type)
-
+            print("Displayable: ", self.part_type)
             self.display(1)
             # print("DerivedDict for Part: ", self.part_type)
             # print(as_json(the_dict))

@@ -390,7 +390,7 @@ class Htmlers(Faculty):
             print("\tChain from AttributeName is ", self.up_chain())
         otype = type(self).__name__
         html_id = cname + "__" + self.content
-        print(f"html-id for {self} = {html_id}")
+        # print(f"html-id for {self} = {html_id}")
 
         return  span(self.content, class_ = otype, id=html_id)
 
@@ -527,7 +527,7 @@ def class_names_clause(obj, att_name):
         print("class_names_list expects a LIST of ClassNames")
         return None
     
-    print("class_names_clause for attribute ", att_name, " class_names_clause handed: ", value)
+    # print("class_names_clause for attribute ", att_name, " class_names_clause handed: ", value)
     class_names = [c.content for c in value]
     # class_names = [c.get("content", "ClassRef?") for c in value]
     # print("class_names are: ", class_names)
@@ -639,7 +639,7 @@ def save_model_html( model_h,  css_path, output_path):
     body_h.append(model_h)
 
     body_classes = html_h.find("body").get("class")
-    print("Body classes are", body_classes)
+    # print("Body classes are", body_classes)
 
     html_content = f"{html_h}"
     fmk.write_text(output_path, html_content)
@@ -647,7 +647,7 @@ def save_model_html( model_h,  css_path, output_path):
 
     html_h.find("body").add_class("reviewing")
     body_classes = html_h.find("body").get("class")
-    print("Body classes are", body_classes)
+    # print("Body classes are", body_classes)
     html_content = f"{html_h}"
 
     review_output_path = output_path.replace(".html", ".review.html")

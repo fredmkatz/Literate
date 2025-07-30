@@ -57,7 +57,7 @@ class Container():
             return self.container
         # print("Trying selfcontainer: a ...", type(self), " contained in ", type(self.container))
         if type(self.container).__name__ == "FieldInfo":
-            print(f"Seeking {ctype} above {type(self)}. has container = {self.container}, but that has type  fieldinfo returning none")
+            print(f"BUG: Seeking {ctype} above {id_for(self)}. has container = {id_for(self.container)},\n\tbut that has type  fieldinfo returning none")
             return None
         return self.container.containing(ctype)
     

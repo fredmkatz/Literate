@@ -305,13 +305,13 @@ class SubjectE(Component):
     @cached_property
     def is_trivial_p(self) -> bool:
         if "trivial" in self.name.content.lower():
-            print(f"{self} is Trivial!")
+            # print(f"{self} is Trivial!")
             return True
         parent_subject = self.containing(Subject)
         if not parent_subject:
-            print(f"{self} is NOT Trivial!")
+            # print(f"{self} is NOT Trivial!")
             return False
-        print(f"{self} doesn't look Trivial, but ascending...")
+        # print(f"{self} doesn't look Trivial, but ascending...")
         return self.containing(Subject).is_trivial()
 
     class Meta:
@@ -578,11 +578,14 @@ class Formula(MinorComponent, Container):
         if self.ocl is None:
             self.ocl = ""
 
+    def __str__(self):
+        return self.one_liner.content.strip() or "NoOneLiner"
 
 @dataclass
 class Constraint(Formula):
     message: Optional[str] = None
     severity: Optional[str] = None
+    container: Optional["Container"] = field(default=None, kw_only=True)
 
     def shared_post_init(self):
         super().shared_post_init()
@@ -613,7 +616,7 @@ class SubtypeBy(PydanticMixin):
 class Class(Component):
     name: ClassName = None
     plural: str = None
-    presumed_plural: str = None
+    presumed_plural: Optional[str] = None   # Optional since if plural is supplied, presumed plural won't be calced
     subtype_of: Optional[List[SubtypeBy]] =  None # field(default_factory=list)
     
     subtypings: Optional[List[Subtyping]] = block_list_field(default_factory=list)
@@ -666,14 +669,13 @@ class Class(Component):
         return self.presumed_plural
 
     def attribute_named(self, aname):
-        return self.attribute_named_p.get(aname, None)
+        return self.attribute_names_p.get(aname, None)
     
-    # @cached_property
-    @property
-    def attribute_named_p(self) -> dict:
+    @cached_property
+    def attribute_names_p(self) -> dict:
         attributes = self.all_attributes()
         the_dict =  {a.name.content: a for a in attributes}
-        print(f"All attributes for {self} are: ", the_dict.keys())
+        # print(f"All attributes for {self} are: ", the_dict.keys())
         return the_dict
     
     def all_attributes(self):
@@ -702,7 +704,7 @@ class Class(Component):
         
         cname = self.name.content
         the_model = self.containing(LiterateModel)
-        print(f"In classs_mro, the_model = {the_model}")
+        # print(f"In classs_mro, the_model = {the_model}")
         supers = getattr(self, "subtype_of", None)
         if not supers:
             return []
@@ -717,7 +719,7 @@ class Class(Component):
             if not super_type:
                 continue
             mro = [super_name] + super_type.class_mro_p
-            print(f"MRO for {cname} => ", mro)
+            # print(f"MRO for {cname} => ", mro)
             return mro
         return []
 
@@ -824,16 +826,23 @@ class Attribute(Component):
     container: Optional["Container"] = field(default=None, kw_only=True)
 
     def containees(self):
-        return [self.data_type_clause, self.name, self.inverse, self.overrides]
-        # containess to add. overrides, inverse
+        return [self.data_type_clause, self.name, self.inverse, self.overrides,
+                self.default,
+                self.derivation,
+                ] + self.constraints
+        # containess to add. overrides, inverse, 
+        # to add: default, derivation, constraints
     
     def shared_post_init(self):
         super().shared_post_init()
+        
         if self.constraints is None:
             self.constraints = []
         if isinstance(self.name, str):
             print("Fixing attribute name!")
             self.name = AttributeName(self.name)
+        if self.name.content == "isEmbellishment":
+            print("Creating embellishment attribute")
 
     class Meta:
         presentable_header = (

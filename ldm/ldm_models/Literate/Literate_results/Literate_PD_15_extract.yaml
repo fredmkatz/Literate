@@ -8,7 +8,7 @@ classes:
     name: AnnotationType
     edges:
     -   relation: based_on
-        to: LiterateDataModel
+        to: LiterateModel
         cardinality: M:1
 -   _type: Class
     name: Annotation
@@ -20,7 +20,7 @@ classes:
         to: AnnotationType
         cardinality: O_O
 -   _type: Class
-    name: LiterateDataModel
+    name: LiterateModel
     edges:
     -   relation: subtype_of
         to: Component
@@ -38,7 +38,7 @@ classes:
         to: Component
         cardinality: '1:1'
     -   relation: based_on
-        to: LiterateDataModel
+        to: LiterateModel
         cardinality: M:1
     -   relation: parentSubject
         to: Subject
@@ -58,9 +58,6 @@ classes:
     -   relation: based_on
         to: LiterateModel
         cardinality: M:1
-    -   relation: based_on
-        to: Xyz
-        cardinality: M:1
 -   _type: Class
     name: Class_
     edges:
@@ -69,6 +66,9 @@ classes:
         cardinality: '1:1'
     -   relation: basedOn
         to: Class_
+        cardinality: O_O
+    -   relation: supertypes
+        to: Classes
         cardinality: O_O
     -   relation: subtypings
         to: Subtypings
@@ -185,7 +185,7 @@ classes:
         to: Parameters
         cardinality: O_O
 -   _type: Class
-    name: ParameterAnInputToAMethod
+    name: Parameter
     edges:
     -   relation: subtype_of
         to: Component

@@ -160,7 +160,8 @@ def precalc_model(model: LiterateModel):
 
     print("All classes names (singular and plural are: ")
     for cn in sorted(model.all_class_names()):
-        print(f'\t"{cn}",')
+        break
+        # print(f'\t"{cn}",')
 
 
 
@@ -181,10 +182,10 @@ def calc_dependents(model: LiterateModel):
                 all_dependents[bsimple].append(str(c.name))
 
     for base, deps in all_dependents.items():
-        print("Dependents of ", base, " are ", deps)
+        # print("Dependents of ", base, " are ", deps)
         base_class = model.class_named(base)
         if not base_class:
-            print(f"Base Class {base} not found when deriving dependents")
+            print(f"BUG: Base Class {base} not found when deriving dependents")
             continue
         dependents_list = [ClassReference(d) for d in deps]
         # print("And the list is ", dependents_list)
@@ -275,24 +276,24 @@ def calc_base_attribute(cls: Class):
 def add_implied_attribute(cls: Class, att: Attribute):
     from utils.class_container import show_containers
     cname = cls.name.content
-    print("Adding implied attribute: ", att, " in ", cls)
+    # print("Adding implied attribute: ", att, " in ", cls)
 
     implied_atts = att_section_named(
-        cls, f"Implied Attributes for {cname}", create_section=True
+        cls, f"Implied Attributes", create_section=True, one_liner = f"created for {cname}"
     )
 
     implied_atts.attributes.append(att)
-    implied_atts.set_containees_back(verbose=True)
-    print("Added implied attribute: ", att, " in ", cls)
-    print("... Containees of section are: ", ids_for(implied_atts.clean_containees()))
-    print("... Containees of att are: ", ids_for(att.clean_containees()))
-    print("... Chain from name is: ", att.name.up_chain())
-    print("... Chain from attribute is: ", att.up_chain())
-    print("... Chain from section is: ", implied_atts.up_chain())
-    show_containers(att)
+    implied_atts.set_containees_back(verbose=False)
+    # print("Added implied attribute: ", att, " in ", cls)
+    # print("... Containees of section are: ", ids_for(implied_atts.clean_containees()))
+    # print("... Containees of att are: ", ids_for(att.clean_containees()))
+    # print("... Chain from name is: ", att.name.up_chain())
+    # print("... Chain from attribute is: ", att.up_chain())
+    # print("... Chain from section is: ", implied_atts.up_chain())
+    # show_containers(att)
 
 
-def att_section_named(cls: Class, new_section_name: str, create_section=False):
+def att_section_named(cls: Class, new_section_name: str, create_section=False, one_liner = "No oneliner provided"):
     sections = cls.attribute_sections
     if not sections:
         cls.attribute_sections = []
@@ -300,19 +301,31 @@ def att_section_named(cls: Class, new_section_name: str, create_section=False):
     implied_atts = None
     for section in sections:
         if section.name.content == new_section_name:
-            print("Found section named: ", new_section_name)
+            # print("Found section named: ", new_section_name)
             return section
 
     if not create_section:
         return None
     # nothing found, create new section
     section = AttributeSection(name=AttributeSectionName(new_section_name))
-    print(f"Creating section for {cls}: {section}")
+    section.one_liner = OneLiner(one_liner)
+    # print(f"Creating section for {cls}: {section}")
     cls.attribute_sections.append(section)
-    cls.set_containees_back(verbose=True)
+    # cls.set_containees_back(verbose=True)
+    cls.set_containees_back(verbose=False)
 
     return section
 
+def countEmbellishments(model: LiterateModel, caption):
+    print("Embellishment counting - ", caption)
+    
+    compclass = model.class_named("Component")
+    attributes = compclass.attributes
+    natts = len(attributes)
+    print(natts, " attributes in Component")
+    
+    nembellishments = len( [a  for a in attributes if a.name.content == "isEmbellishment"])
+    print(nembellishments, " isEmbellished in Component")
 
 def calc_attribute(cls, attribute: Attribute):
 
@@ -327,35 +340,36 @@ def calc_attribute_inverse(cls: Class, attribute: Attribute):
     cname = cls.name.content
     aname = attribute.name.content
 
-    print(f"Considering {cname}.{aname} for inversion... ")
+    # print(f"Considering {cname}.{aname} for inversion... ")
     inverse = attribute.inverse
     if inverse:
-        print("\tSkipping: already has inverse")
+        # print("\tSkipping: already has inverse")
+        return
     dtc = attribute.data_type_clause
     if not dtc:
-        print("\tSkipping: NO DTC")
+        # print("\tSkipping: NO DTC")
         return
 
     dt = dtc.data_type
-    print("\tdtc = ", dtc)
-    print("\tdt  = ", dt, " -- ", type(dt))
+    # print("\tdtc = ", dtc)
+    # print("\tdt  = ", dt, " -- ", type(dt))
 
     # Figure out whether the datatype is
     #   a. Simple enough. Either a base type or List, Set, or Mapping with just base types
     #       below
     #   b. Whether the base type is a value or reference type
     target_type0 = calc_inverse_target_type(dt)
-    print(f"\tTarget type0 = {target_type0}")
+    # print(f"\tTarget type0 = {target_type0}")
     
     if not target_type0:
-        print("\tSkipping: datatype to complicated; no target type")
+        # print("\tSkipping: datatype to complicated; no target type")
         return None
     # if "Mapping" in dtpytype:
     #     print("\tskipping Mapping Data type")
     #     return
 
     if target_type0 not in the_model.full_class_index():
-        print("\tSKIPPING inverse for..  No such class as ", target_type0)
+        # print("\tSKIPPING inverse for..  No such class as ", target_type0)
         return
 
     
@@ -366,14 +380,14 @@ def calc_attribute_inverse(cls: Class, attribute: Attribute):
     # print("\tRealer target type is ", realer_target_type)
 
     if realer_target_type.is_value_type:
-        print(
-            f"\tSKIPPING {cname}.{aname}, a {dt}. core type {target_type} is a value type"
-        )
+        # print(
+        #     f"\tSKIPPING {cname}.{aname}, a {dt}. core type {target_type} is a value type"
+        # )
         return
 
-    print(
-        f"\tInverting {cname}.{aname}, a {dt}. core type {target_type} not a value type"
-    )
+    # print(
+    #     f"\tInverting {cname}.{aname}, a {dt}. core type {target_type} not a value type"
+    # )
 
     # so
     # cls is the class of the original attribute
@@ -393,13 +407,13 @@ def calc_attribute_inverse(cls: Class, attribute: Attribute):
     one_liner = OneLiner(
         f"Inverse attribute for {source_type}.{aname} from which this was implied."
     )
-    print("\tInvrse AttNam = ", inverse_att_name)
-    print("\tInverse dt = ", dt)
-    print("\tInverse dtc = ", dtc)
+    # print("\tInvrse AttNam = ", inverse_att_name)
+    # print("\tInverse dt = ", dt)
+    # print("\tInverse dtc = ", dtc)
     inverse_att = Attribute(
         name=inverse_att_name, one_liner=one_liner, data_type_clause=dtc
     )
-    print("\tCreating inverse attribute: ", repr(inverse_att))
+    # print("\tCreating inverse attribute: ", repr(inverse_att))
     target_cls = the_model.class_named(target_type)
     add_implied_attribute(target_cls, inverse_att)
 
@@ -419,13 +433,13 @@ def singularize_class_name(model, cname: str) -> str:
     if not cls:
         return None
     singular = str(cls.name)
-    print(f"\tSingular for {cname} is {singular}")
+    # print(f"\tSingular for {cname} is {singular}")
     return singular
 
 
 def calc_inverse_target_type(dt: DataType) -> str:
     target_type = None
-    print(f"\ttypename of dt is: {typename(dt)}")
+    # print(f"\ttypename of dt is: {typename(dt)}")
     dtname = typename(dt)
     if dtname == "BaseDataType":
         target_type = dt.class_name.content
@@ -446,21 +460,21 @@ def calc_attribute_override(cls: Class, attribute):
     # Note overrides
     cname = cls.name.content
     aname = attribute.name.content
-    print("in calc attribute, attname is ", attribute.name)
+    # print("in calc attribute, attname is ", attribute.name)
     the_model = cls.containing(LiterateModel)
-    print(f"the_model = {the_model}")
+    # print(f"the_model = {the_model}")
     mros = cls.class_mro()
-    print("calc attribute override; mro for ", cls, " is ", mros)
+    # print("calc attribute override; mro for ", cls, " is ", mros)
     for mro in mros:
         parent_class = the_model.class_named(mro)
         parent_att = parent_class.attribute_named(aname)
         if not parent_att:
             continue
-        print(f"Found override for {cname}.{aname} in {mro}")
-        print("Attribute name = ", attribute.name)
+        # print(f"Found override for {cname}.{aname} in {mro}")
+        # print("Attribute name = ", attribute.name)
 
         newname = AttributeName(aname)
-        print(".. and as AName: ", repr(newname))
+        # print(".. and as AName: ", repr(newname))
         attribute.overrides = AttributeReference(ClassReference(mro), newname)
         break
 
@@ -496,9 +510,10 @@ class Validators(Faculty):
                 f"oneLiner is too long. ({len(str(self.one_liner))} chars).",
                 constraint_name="checkOneLinerLength",
             )
-        if len(str(self.name)) > 30:
+        if len(str(self.name.content)) > 30:
             createWarning(
-                self, "Style", f"name is too long. ({len(str(self.name))} chars)."
+                self, "Style", f"name is too long. ({len(str(self.name))} chars).",
+                constraint_name="NameTooLong",
             )
 
     @patch_on(LiterateModel, "validate")
@@ -516,10 +531,9 @@ class Validators(Faculty):
         print("Validating LiterateModel")
         _validation_faculty.call_super_validate(self, "LiterateModel")
         print("Call to Validating references...")
-        print("Before validating: ", len(self.classes), " classes in model")
+        # print("Before validating: ", len(self.classes), " classes in model")
         validate_references(self)
-        print("After validating: ", len(self.classes), " classes in model")
-        # self.classes = []   # Don't know why this is necessary, but it is!
+        # print("After validating: ", len(self.classes), " classes in model")
 
     @patch_on(SubjectE, "validate")  # lowest level Subject
     def validate_subject_e(self):
@@ -543,6 +557,8 @@ class Validators(Faculty):
         validate_each(getattr(self, "constraints", []))
         validate_each(getattr(self, "attributes", []))
         validate_each(getattr(self, "attribute_sections", []))
+        
+        countEmbellishments(The_Model, f"After validating class {self}")
 
     @patch_on(AttributeSection, "validate")
     def validate_attribute_section(self):
@@ -616,18 +632,18 @@ def findTheModel(obj) -> LiterateModel:
 
         the_model = obj.containing(LiterateModel)
     if not the_model:
-        print("obj lacks something, resorting to The_Model for ",  type(obj).__name__, " = ", obj)
+        print("BUG: obj lacks something, resorting to The_Model for ",  type(obj).__name__, " = ", obj)
 
         the_model = The_Model
     return the_model
 
 def validate_data_type(datatype: DataType, target=None):
     """Validate DataType instances."""
-    print("validating datatype: ", datatype)
+    # print("validating datatype: ", datatype)
     if not datatype:
         return
 
-    print("type of datatype is ", type(datatype))
+    # print("type of datatype is ", type(datatype))
     the_model = findTheModel(datatype)
     base_types = datatype.base_type_names()
     # print("... base types are: ", base_types)
@@ -647,7 +663,7 @@ def validate_data_type(datatype: DataType, target=None):
 # Create the validators instance
 _validation_faculty = Validators()
 print("Created Validators() = ", _validation_faculty)
-show_patches(_validation_faculty.all_patches)
+# show_patches(_validation_faculty.all_patches)
 
 
 def validate_model(the_model):
@@ -669,9 +685,9 @@ def validate_references(model: LiterateModel):
     for c in all_classes:
         for att in ClassListAttributes:
             attrefs = getattr(c, att, [])
-            print(
-                "Validation class refs for ", c.name, "with att = ", att, " - has ", len(attrefs)
-            )
+            # print(
+            #     "Validation class refs for ", c.name, "with att = ", att, " - has ", len(attrefs)
+            # )
             for ref in attrefs:
                 ref_name = str(ref)
                 if ref_name not in class_names:

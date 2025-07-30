@@ -80,7 +80,7 @@ subjects:
                 content: false
             subtypes:
             -   _type: ClassReference
-                content: LiterateDataModel
+                content: LiterateModel
             -   _type: ClassReference
                 content: Subject
             -   _type: ClassReference
@@ -96,7 +96,7 @@ subjects:
             -   _type: ClassReference
                 content: Method
             -   _type: ClassReference
-                content: ParameterAnInputToAMethod
+                content: Parameter
         dependents:
         -   _type: ClassReference
             content: Annotation
@@ -291,13 +291,6 @@ subjects:
                 _type: OneLiner
                 content: A more detailed explanation or discussion of the component
                     _
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: RichText is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -319,1228 +312,6 @@ subjects:
                     content: false
                 cardinality:
                 - O_O
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
-        -   _type: Attribute
-            one_liner:
-                _type: OneLiner
-                content: Indicates whether this component is an embellishment added
-                    during post-parsing processing _
-            is_embellishment: false
-            prefix: '-'
-            name:
-                _type: AttributeName
-                content: isEmbellishment
-            parenthetical: Boolean
-            data_type_clause:
-                _type: DataTypeClause
-                data_type:
-                    _type: BaseDataType
-                    class_name:
-                        _type: ClassReference
-                        content: Boolean
-                    as_value_type:
-                        _type: AsValue
-                        content: true
-                is_optional_lit:
-                    _type: IsOptional
-                    content: false
-                cardinality:
-                - O_O
-            default:
-                _type: Default
-                one_liner:
-                    _type: OneLiner
-                    content: ' false
-
-                        '
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: This attribute is set to true for components that
-                            are automatically generated or added during the fleshing
-                            out, review, or rendering processes, such as implied attributes
-                            or suggested model elements. It helps distinguish embellishments
-                            from the core model elements defined in the original LDM
-                            source.
-                is_embellishment: false
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
@@ -1675,14 +446,6 @@ subjects:
             emoji:
                 _type: Emoji
                 content: "\U0001F5C9"
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Annotation Type
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (38 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
         is_embellishment: false
         prefix: Class
         name:
@@ -1692,7 +455,7 @@ subjects:
         presumed_plural: AnnotationTypes
         based_on:
         -   _type: ClassReference
-            content: LiterateDataModel
+            content: LiterateModel
         is_value_type: false
         attributes:
         -   _type: Attribute
@@ -1855,10 +618,13 @@ subjects:
                 - O_O
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for AnnotationType
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Annotation Type
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -1866,19 +632,19 @@ subjects:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
-                    content: A link back to the LiterateDataModel on which this AnnotationType
+                    content: A link back to the LiterateModel on which this AnnotationType
                         depends.
                 is_embellishment: false
                 name:
                     _type: AttributeName
-                    content: baseLiterateDataModel
+                    content: baseLiterateModel
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: LiterateDataModel
+                            content: LiterateModel
                         as_value_type:
                             _type: AsValue
                             content: false
@@ -1887,15 +653,6 @@ subjects:
                         content: false
                     cardinality:
                     - M_1
-        -   _type: AttributeSection
-            is_embellishment: false
-            name:
-                _type: AttributeSectionName
-                content: Implied Attributes for Annotation Type
-            is_optional:
-                _type: IsOptional
-                content: false
-            attributes:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -1932,14 +689,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: A note or comment associated with a model element
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Annotation
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (33 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
         is_embellishment: false
         prefix: Class
         name:
@@ -2077,13 +826,6 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: The content or body of the annotation
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: RichText is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -2172,10 +914,13 @@ subjects:
                                 annotations defined in the original LDM source.
                     is_embellishment: false
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for Annotation
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Annotation
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -2207,14 +952,14 @@ subjects:
 -   _type: SubjectB
     diagnostics:
     -   _type: Diagnostic
-        object_name: LiterateDataModel
+        object_name: LiterateModel
         object_type: Class
         category: Style
         message: oneLiner is too long. (112 chars).
         severity: Warning
         constraint_name: checkOneLinerLength
     -   _type: Diagnostic
-        object_name: LiterateDataModel
+        object_name: LiterateModel
         object_type: Class
         category: MissingValue
         message: Required field 'presumed_plural' is missing
@@ -2234,20 +979,6 @@ subjects:
         message: Required field 'presumed_plural' is missing
         severity: Bug
         constraint_name: NoConstraintName
-    -   _type: Diagnostic
-        object_name: SubjectArea
-        object_type: Class
-        category: InvalidClassReference
-        message: Invalid reference to 'LiterateModel' in based_on
-        severity: Error
-        constraint_name: checkListedClassReference
-    -   _type: Diagnostic
-        object_name: SubjectArea
-        object_type: Class
-        category: InvalidClassReference
-        message: Invalid reference to 'Xyz' in based_on
-        severity: Error
-        constraint_name: checkListedClassReference
     is_embellishment: false
     prefix: '##'
     name:
@@ -2264,9 +995,9 @@ subjects:
         prefix: Class
         name:
             _type: ClassName
-            content: LiterateDataModel
+            content: LiterateModel
         abbreviation: LDM
-        plural: LiterateDataModels
+        plural: LiterateModels
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2280,6 +1011,8 @@ subjects:
             content: AnnotationType
         -   _type: ClassReference
             content: Subject
+        -   _type: ClassReference
+            content: SubjectArea
         is_value_type: false
         attributes:
         -   _type: Attribute
@@ -2318,6 +1051,13 @@ subjects:
                 content: 'list of all classes in the model, as ordered in the
 
                     definition of the model.'
+            diagnostics:
+            -   _type: Diagnostic
+                object_type: Constraint
+                category: MissingValue
+                message: 'Missing value for required field: ''ocl'''
+                severity: Error
+                constraint_name: NoConstraintName
             is_embellishment: false
             prefix: '-'
             name:
@@ -2370,6 +1110,13 @@ subjects:
                 _type: OneLiner
                 content: list of all classes in the model, as ordered in the definition
                     of the model.
+            diagnostics:
+            -   _type: Diagnostic
+                object_type: Constraint
+                category: MissingValue
+                message: 'Missing value for required field: ''ocl'''
+                severity: Error
+                constraint_name: NoConstraintName
             is_embellishment: false
             prefix: '-'
             name:
@@ -2457,13 +1204,6 @@ subjects:
                     _type: OneLiner
                     content: the recommended lanquage  for expressing derivation,
                         defaults, and constraints
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: CodingLanguage is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2494,13 +1234,6 @@ subjects:
                             '
                     is_embellishment: false
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: ListDataType
-                    category: InvalidBaseType
-                    message: CodingLanguages is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2529,13 +1262,6 @@ subjects:
                     _type: OneLiner
                     content: the recommended lanquage  for expressing derivation,
                         defaults, and constraints
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: TemplateLanguage is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2566,13 +1292,6 @@ subjects:
                             '
                     is_embellishment: false
             -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: ListDataType
-                    category: InvalidBaseType
-                    message: TemplateLanguages is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -2685,7 +1404,7 @@ subjects:
                 content: SubjectArea
         based_on:
         -   _type: ClassReference
-            content: LiterateDataModel
+            content: LiterateModel
         is_value_type: false
         attributes:
         -   _type: Attribute
@@ -2840,13 +1559,16 @@ subjects:
                     content: Subject
                 attribute_name:
                     _type: AttributeName
-                    content: inverseOfChildSubjects
+                    content: parentSubject
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for Subject
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Subject
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -2854,19 +1576,19 @@ subjects:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
-                    content: A link back to the LiterateDataModel on which this Subject
+                    content: A link back to the LiterateModel on which this Subject
                         depends.
                 is_embellishment: false
                 name:
                     _type: AttributeName
-                    content: baseLiterateDataModel
+                    content: baseLiterateModel
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: LiterateDataModel
+                            content: LiterateModel
                         as_value_type:
                             _type: AsValue
                             content: false
@@ -2907,58 +1629,11 @@ subjects:
                     attribute_name:
                         _type: AttributeName
                         content: parentSubject
-            -   _type: Attribute
-                one_liner:
-                    _type: OneLiner
-                    content: Inverse attribute for Subject.childSubjects from which
-                        this was implied.
-                is_embellishment: false
-                name:
-                    _type: AttributeName
-                    content: inverseOfChildSubjects
-                data_type_clause:
-                    _type: DataTypeClause
-                    data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: Subject
-                        as_value_type:
-                            _type: AsValue
-                            content: false
-                    is_optional_lit:
-                        _type: IsOptional
-                        content: false
-                    cardinality:
-                    - M_1
-                inverse:
-                    _type: AttributeReference
-                    class_name:
-                        _type: ClassReference
-                        content: Subject
-                    attribute_name:
-                        _type: AttributeName
-                        content: childSubjects
     -   _type: Class
         one_liner:
             _type: OneLiner
             content: A main topic or area of focus within the model, containing related
                 subjects and classes
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Subject Area
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (35 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Subject Area
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (35 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
         is_embellishment: false
         prefix: Class
         name:
@@ -2976,18 +1651,19 @@ subjects:
         based_on:
         -   _type: ClassReference
             content: LiterateModel
-        -   _type: ClassReference
-            content: Xyz
         is_value_type: false
         where: ' parentSubject is absent
 
             '
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for SubjectArea
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Subject Area
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -2997,13 +1673,6 @@ subjects:
                     _type: OneLiner
                     content: A link back to the LiterateModel on which this SubjectArea
                         depends.
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: LiterateModel is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
                 is_embellishment: false
                 name:
                     _type: AttributeName
@@ -3015,45 +1684,6 @@ subjects:
                         class_name:
                             _type: ClassReference
                             content: LiterateModel
-                        as_value_type:
-                            _type: AsValue
-                            content: false
-                    is_optional_lit:
-                        _type: IsOptional
-                        content: false
-                    cardinality:
-                    - M_1
-        -   _type: AttributeSection
-            is_embellishment: false
-            name:
-                _type: AttributeSectionName
-                content: Implied Attributes for Subject Area
-            is_optional:
-                _type: IsOptional
-                content: false
-            attributes:
-            -   _type: Attribute
-                one_liner:
-                    _type: OneLiner
-                    content: A link back to the Xyz on which this SubjectArea depends.
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: Xyz is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
-                is_embellishment: false
-                name:
-                    _type: AttributeName
-                    content: baseXyz
-                data_type_clause:
-                    _type: DataTypeClause
-                    data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: Xyz
                         as_value_type:
                             _type: AsValue
                             content: false
@@ -3258,35 +1888,39 @@ subjects:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
-                    content: The parent class
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: Es is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
+                    content: The parent class or classes from which this class inherits
+                        attributes
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: supertypes
-                parenthetical: es
+                parenthetical: ListOf Classes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: Es
-                        as_value_type:
-                            _type: AsValue
-                            content: true
+                        _type: ListDataType
+                        element_type:
+                            _type: BaseDataType
+                            class_name:
+                                _type: ClassReference
+                                content: Classes
+                            as_value_type:
+                                _type: AsValue
+                                content: true
                     is_optional_lit:
                         _type: IsOptional
                         content: false
                     cardinality:
                     - O_O
+                inverse:
+                    _type: AttributeReference
+                    class_name:
+                        _type: ClassReference
+                        content: Class
+                    attribute_name:
+                        _type: AttributeName
+                        content: inverseOfSupertypes
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -3611,20 +2245,11 @@ subjects:
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
-            -   _type: AttributeSection
-                is_embellishment: false
-                name:
-                    _type: AttributeSectionName
-                    content: Implied Attributes for Class
-                is_optional:
-                    _type: IsOptional
-                    content: false
-                attributes:
                 -   _type: Attribute
                     one_liner:
                         _type: OneLiner
-                        content: Inverse attribute for LiterateDataModel.allSubjects
-                            from which this was implied.
+                        content: Inverse attribute for LiterateModel.allSubjects from
+                            which this was implied.
                     is_embellishment: false
                     name:
                         _type: AttributeName
@@ -3635,7 +2260,7 @@ subjects:
                             _type: BaseDataType
                             class_name:
                                 _type: ClassReference
-                                content: LiterateDataModel
+                                content: LiterateModel
                             as_value_type:
                                 _type: AsValue
                                 content: false
@@ -3648,15 +2273,15 @@ subjects:
                         _type: AttributeReference
                         class_name:
                             _type: ClassReference
-                            content: LiterateDataModel
+                            content: LiterateModel
                         attribute_name:
                             _type: AttributeName
                             content: allSubjects
                 -   _type: Attribute
                     one_liner:
                         _type: OneLiner
-                        content: Inverse attribute for LiterateDataModel.allClasses
-                            from which this was implied.
+                        content: Inverse attribute for LiterateModel.allClasses from
+                            which this was implied.
                     is_embellishment: false
                     name:
                         _type: AttributeName
@@ -3667,7 +2292,7 @@ subjects:
                             _type: BaseDataType
                             class_name:
                                 _type: ClassReference
-                                content: LiterateDataModel
+                                content: LiterateModel
                             as_value_type:
                                 _type: AsValue
                                 content: false
@@ -3680,7 +2305,7 @@ subjects:
                         _type: AttributeReference
                         class_name:
                             _type: ClassReference
-                            content: LiterateDataModel
+                            content: LiterateModel
                         attribute_name:
                             _type: AttributeName
                             content: allClasses
@@ -3748,6 +2373,38 @@ subjects:
                         attribute_name:
                             _type: AttributeName
                             content: basedOn
+                -   _type: Attribute
+                    one_liner:
+                        _type: OneLiner
+                        content: Inverse attribute for Class.supertypes from which
+                            this was implied.
+                    is_embellishment: false
+                    name:
+                        _type: AttributeName
+                        content: inverseOfSupertypes
+                    data_type_clause:
+                        _type: DataTypeClause
+                        data_type:
+                            _type: BaseDataType
+                            class_name:
+                                _type: ClassReference
+                                content: Class
+                            as_value_type:
+                                _type: AsValue
+                                content: false
+                        is_optional_lit:
+                            _type: IsOptional
+                            content: false
+                        cardinality:
+                        - M_1
+                    inverse:
+                        _type: AttributeReference
+                        class_name:
+                            _type: ClassReference
+                            content: Class
+                        attribute_name:
+                            _type: AttributeName
+                            content: supertypes
                 -   _type: Attribute
                     one_liner:
                         _type: OneLiner
@@ -3848,14 +2505,6 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: a way in which subtypes of a Class may be classified
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: Implied Attributes for Subtyping
-                object_type: AttributeSection
-                category: Style
-                message: name is too long. (32 chars).
-                severity: Warning
-                constraint_name: NoConstraintName
             is_embellishment: false
             prefix: Class
             name:
@@ -4008,10 +2657,13 @@ subjects:
                         content: inverseOfClasses
             attribute_sections:
             -   _type: AttributeSection
+                one_liner:
+                    _type: OneLiner
+                    content: created for Subtyping
                 is_embellishment: false
                 name:
                     _type: AttributeSectionName
-                    content: Implied Attributes for Subtyping
+                    content: Implied Attributes
                 is_optional:
                     _type: IsOptional
                     content: false
@@ -4139,14 +2791,6 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: A possible value for an enumerated data class
-            diagnostics:
-            -   _type: Diagnostic
-                object_name: Implied Attributes for Code Value
-                object_type: AttributeSection
-                category: Style
-                message: name is too long. (33 chars).
-                severity: Warning
-                constraint_name: NoConstraintName
             is_embellishment: false
             prefix: Value Type
             name:
@@ -4162,27 +2806,20 @@ subjects:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
-                    content: A short code or abbreviationi for the value _
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: NameString is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
+                    content: A short code or abbreviation for the value _
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: code
-                parenthetical: NameString
+                parenthetical: String
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: NameString
+                            content: String
                         as_value_type:
                             _type: AsValue
                             content: true
@@ -4208,13 +2845,6 @@ subjects:
                     emoji:
                         _type: Emoji
                         content: "\U0001F5C9"
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: RichText is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -4238,10 +2868,13 @@ subjects:
                     - O_O
             attribute_sections:
             -   _type: AttributeSection
+                one_liner:
+                    _type: OneLiner
+                    content: created for CodeValue
                 is_embellishment: false
                 name:
                     _type: AttributeSectionName
-                    content: Implied Attributes for Code Value
+                    content: Implied Attributes
                 is_optional:
                     _type: IsOptional
                     content: false
@@ -4312,6 +2945,19 @@ subjects:
                 one_liner:
                     _type: OneLiner
                     content: the attributes of the base Class.
+                diagnostics:
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: MissingValue
+                    message: 'Missing value for required field: ''ocl'''
+                    severity: Error
+                    constraint_name: NoConstraintName
+                -   _type: Diagnostic
+                    object_type: Constraint
+                    category: MissingValue
+                    message: 'Missing value for required field: ''ocl'''
+                    severity: Error
+                    constraint_name: NoConstraintName
                 is_embellishment: false
                 prefix: '-'
                 name:
@@ -4369,10 +3015,13 @@ subjects:
                     is_embellishment: false
             attribute_sections:
             -   _type: AttributeSection
+                one_liner:
+                    _type: OneLiner
+                    content: created for Key
                 is_embellishment: false
                 name:
                     _type: AttributeSectionName
-                    content: Implied Attributes for Key
+                    content: Implied Attributes
                 is_optional:
                     _type: IsOptional
                     content: false
@@ -4465,21 +3114,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: a group of attributes for a class that merit a shared explanation.
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Attribute Section
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (40 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Attribute Section
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (40 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
         is_embellishment: false
         prefix: Class
         name:
@@ -4538,10 +3172,13 @@ subjects:
                 - O_O
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for AttributeSection
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Attribute Section
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -4578,15 +3215,6 @@ subjects:
                     attribute_name:
                         _type: AttributeName
                         content: attributeSections
-        -   _type: AttributeSection
-            is_embellishment: false
-            name:
-                _type: AttributeSectionName
-                content: Implied Attributes for Attribute Section
-            is_optional:
-                _type: IsOptional
-                content: false
-            attributes:
             -   _type: Attribute
                 one_liner:
                     _type: OneLiner
@@ -4615,14 +3243,6 @@ subjects:
         one_liner:
             _type: OneLiner
             content: A property or characteristic of a class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Attribute
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (32 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
         is_embellishment: false
         prefix: Class
         name:
@@ -4767,24 +3387,24 @@ subjects:
                         attribute _
                 diagnostics:
                 -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: CardinalityCode is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
+                    object_type: Default
+                    category: Style
+                    message: Formula one_liner is too long (220 chars)
+                    severity: Warning
+                    constraint_name: NoConstraintName
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: cardinality
-                parenthetical: CardinalityCode
+                parenthetical: Cardinality
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
                         _type: BaseDataType
                         class_name:
                             _type: ClassReference
-                            content: CardinalityCode
+                            content: Cardinality
                         as_value_type:
                             _type: AsValue
                             content: true
@@ -4810,83 +3430,25 @@ subjects:
                             one-liner.
 
                             '
+                    -   _type: CodeBlock
+                        content: '```
+
+                            For example:
+
+                            - author (1:1 Author)
+
+                            - books (optional N:M Set of Books)
+
+                            ```'
                     annotations:
                     -   _type: Annotation
                         label:
                             _type: Label
-                            content: forExample
+                            content: note
                         content:
                             _type: OneLiner
+                            content: how this works with optionality
                     is_embellishment: false
-            -   _type: Attribute
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: InventedName is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
-                is_embellishment: false
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: author
-                parenthetical: 1:1 Author
-                data_type_clause:
-                    _type: DataTypeClause
-                    data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: InventedName
-                        as_value_type:
-                            _type: AsValue
-                            content: false
-                    is_optional_lit:
-                        _type: IsOptional
-                        content: false
-                    cardinality:
-                    - O_O
-            -   _type: Attribute
-                annotations:
-                -   _type: Annotation
-                    label:
-                        _type: Label
-                        content: note
-                    content:
-                        _type: OneLiner
-                        content: how this works with optionality
-                    emoji:
-                        _type: Emoji
-                        content: "\U0001F5C9"
-                diagnostics:
-                -   _type: Diagnostic
-                    object_type: BaseDataType
-                    category: InvalidBaseType
-                    message: InventedName is not a class name - or plural
-                    severity: Error
-                    constraint_name: checkClassReference
-                is_embellishment: false
-                prefix: '-'
-                name:
-                    _type: AttributeName
-                    content: books
-                parenthetical: optional N:M Set of Books
-                data_type_clause:
-                    _type: DataTypeClause
-                    data_type:
-                        _type: BaseDataType
-                        class_name:
-                            _type: ClassReference
-                            content: InventedName
-                        as_value_type:
-                            _type: AsValue
-                            content: false
-                    is_optional_lit:
-                        _type: IsOptional
-                        content: true
-                    cardinality:
-                    - O_O
         -   _type: AttributeSection
             is_embellishment: false
             prefix: __
@@ -5176,10 +3738,13 @@ subjects:
                     _type: AttributeName
                     content: overrides
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for Attribute
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Attribute
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -5288,13 +3853,6 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: An English language statement of the derivation rule _
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: RichText is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -5347,6 +3905,14 @@ subjects:
             _type: OneLiner
             content: A rule, condition, or validation that must be satisfied by the
                 model
+        diagnostics:
+        -   _type: Diagnostic
+            object_name: expression
+            object_type: Attribute
+            category: Style
+            message: oneLiner is too long. (96 chars).
+            severity: Warning
+            constraint_name: checkOneLinerLength
         is_embellishment: false
         prefix: Value Type
         name:
@@ -5383,13 +3949,6 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: An English language statement of the constraint _
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: RichText is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -5414,31 +3973,24 @@ subjects:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
-                content: The formal expression of the constraint in a programming
-                    language
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: InventedName is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
+                content: 'The formal expression of the constraint in a programming
+                    language, for example: OCL or Python. _'
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: expression
-            parenthetical: e.g., OCL _(CodeExpression
+            parenthetical: CodeExpression
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: InventedName
+                        content: CodeExpression
                     as_value_type:
                         _type: AsValue
-                        content: false
+                        content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
@@ -5454,13 +4006,6 @@ subjects:
                     Error, serious. Fix now
 
                     ```'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: Code is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -5483,14 +4028,6 @@ subjects:
                 cardinality:
                 - O_O
     -   _type: ValueType
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Class Constraint
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (39 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
         is_embellishment: false
         prefix: Value Type
         name:
@@ -5512,10 +4049,13 @@ subjects:
         is_value_type: true
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for ClassConstraint
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Class Constraint
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -5545,14 +4085,6 @@ subjects:
                     cardinality:
                     - M_1
     -   _type: ValueType
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Attribute Constraint
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (43 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
         is_embellishment: false
         prefix: Value Type
         name:
@@ -5574,10 +4106,13 @@ subjects:
         is_value_type: true
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for AttributeConstraint
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Attribute Constraint
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -5616,7 +4151,7 @@ subjects:
         severity: Bug
         constraint_name: NoConstraintName
     -   _type: Diagnostic
-        object_name: ParameterAnInputToAMethod
+        object_name: Parameter
         object_type: Class
         category: MissingValue
         message: Required field 'presumed_plural' is missing
@@ -5679,7 +4214,7 @@ subjects:
                 _type: AttributeReference
                 class_name:
                     _type: ClassReference
-                    content: ParameterAnInputToAMethod
+                    content: Parameter
                 attribute_name:
                     _type: AttributeName
                     content: inverseOfParameters
@@ -5710,10 +4245,13 @@ subjects:
                 - O_O
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for Method
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Method
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -5751,19 +4289,14 @@ subjects:
                         _type: AttributeName
                         content: methods
     -   _type: Class
-        diagnostics:
-        -   _type: Diagnostic
-            object_name: Implied Attributes for Parameter An Input To A Method
-            object_type: AttributeSection
-            category: Style
-            message: name is too long. (53 chars).
-            severity: Warning
-            constraint_name: NoConstraintName
+        one_liner:
+            _type: OneLiner
+            content: An input to a method
         is_embellishment: false
         prefix: Class
         name:
             _type: ClassName
-            content: ParameterAnInputToAMethod
+            content: Parameter
         plural: Parameters
         subtype_of:
         -   _type: SubtypeBy
@@ -5778,7 +4311,7 @@ subjects:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
-                content: The data type of the parameter _
+                content: The data type of the parameter
             is_embellishment: false
             prefix: '-'
             name:
@@ -5803,30 +4336,23 @@ subjects:
         -   _type: Attribute
             one_liner:
                 _type: OneLiner
-                content: The cardinality of the parameter
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: InventedName is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
+                content: The cardinality of the parameter. e.g., optional, required.
             is_embellishment: false
             prefix: '-'
             name:
                 _type: AttributeName
                 content: cardinality
-            parenthetical: e.g., optional, required
+            parenthetical: Cardinality
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
                     _type: BaseDataType
                     class_name:
                         _type: ClassReference
-                        content: InventedName
+                        content: Cardinality
                     as_value_type:
                         _type: AsValue
-                        content: false
+                        content: true
                 is_optional_lit:
                     _type: IsOptional
                     content: false
@@ -5834,10 +4360,13 @@ subjects:
                 - O_O
         attribute_sections:
         -   _type: AttributeSection
+            one_liner:
+                _type: OneLiner
+                content: created for Parameter
             is_embellishment: false
             name:
                 _type: AttributeSectionName
-                content: Implied Attributes for Parameter An Input To A Method
+                content: Implied Attributes
             is_optional:
                 _type: IsOptional
                 content: false
@@ -5914,13 +4443,6 @@ subjects:
                     Java, Java
 
                     ```'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: Code is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -6091,13 +4613,6 @@ subjects:
                     Mapping
 
                     ```'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: Code is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -6142,13 +4657,6 @@ subjects:
                 cardinality:
                 - O_O
         -   _type: Attribute
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: Template is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -6241,6 +4749,13 @@ subjects:
         is_value_type: true
         attributes:
         -   _type: Attribute
+            diagnostics:
+            -   _type: Diagnostic
+                object_type: Constraint
+                category: MissingValue
+                message: 'Missing value for required field: ''ocl'''
+                severity: Error
+                constraint_name: NoConstraintName
             is_embellishment: false
             prefix: '-'
             name:
@@ -6406,17 +4921,17 @@ subjects:
 
                     '
             is_embellishment: false
-    -   _type: Class
+    -   _type: ValueType
         one_liner:
             _type: OneLiner
             content: A string with markup for block level formatting.
         is_embellishment: false
-        prefix: Class
+        prefix: Value Type
         name:
             _type: ClassName
-            content: ValueTypeRichText
-        plural: ValueTypeRichTexts
-        presumed_plural: ValueTypeRichTexts
+            content: RichText
+        plural: RichTexts
+        presumed_plural: RichTexts
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -6425,7 +4940,21 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
-        is_value_type: false
+        subtypings:
+        -   _type: Subtyping
+            name:
+                _type: SubtypingName
+                content: subtypes
+            is_exclusive:
+                _type: IsExclusive
+                content: true
+            is_exhaustive:
+                _type: IsExclusive
+                content: false
+            subtypes:
+            -   _type: ClassReference
+                content: OneLiner
+        is_value_type: true
         attributes:
         -   _type: Attribute
             one_liner:
@@ -6465,13 +4994,6 @@ subjects:
                     MarkDown
 
                     ```'
-            diagnostics:
-            -   _type: Diagnostic
-                object_type: BaseDataType
-                category: InvalidBaseType
-                message: Code is not a class name - or plural
-                severity: Error
-                constraint_name: checkClassReference
             is_embellishment: false
             prefix: '-'
             name:
@@ -6518,6 +5040,13 @@ subjects:
             one_liner:
                 _type: OneLiner
                 content: the string content
+            diagnostics:
+            -   _type: Diagnostic
+                object_type: Constraint
+                category: MissingValue
+                message: 'Missing value for required field: ''ocl'''
+                severity: Error
+                constraint_name: NoConstraintName
             is_embellishment: false
             prefix: '-'
             name:
@@ -6539,6 +5068,14 @@ subjects:
                     content: false
                 cardinality:
                 - O_O
+            overrides:
+                _type: AttributeReference
+                class_name:
+                    _type: ClassReference
+                    content: RichText
+                attribute_name:
+                    _type: AttributeName
+                    content: value
             constraints:
             -   _type: Constraint
                 one_liner:
@@ -6621,7 +5158,7 @@ subjects:
             -   _type: ClassReference
                 content: QualifiedCamel
             -   _type: ClassReference
-                content: ValueTypeRichText
+                content: RichText
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -6724,6 +5261,51 @@ subjects:
             subtyping_name:
                 _type: SubtypingName
                 content: subtypes
+        is_value_type: true
+    -   _type: CodeType
+        is_embellishment: false
+        prefix: Code Type
+        name:
+            _type: ClassName
+            content: CodingLanguage
+        plural: CodingLanguages
+        presumed_plural: CodingLanguages
+        is_value_type: true
+    -   _type: CodeType
+        is_embellishment: false
+        prefix: Code Type
+        name:
+            _type: ClassName
+            content: Cardinality
+        plural: Cardinalitys
+        presumed_plural: Cardinalitys
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: TemplateLanguage
+        plural: TemplateLanguages
+        presumed_plural: TemplateLanguages
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Template
+        plural: Templates
+        presumed_plural: Templates
+        is_value_type: true
+    -   _type: ValueType
+        is_embellishment: false
+        prefix: Value Type
+        name:
+            _type: ClassName
+            content: Code
+        plural: Codes
+        presumed_plural: Codes
         is_value_type: true
     subjects:
     -   _type: SubjectC

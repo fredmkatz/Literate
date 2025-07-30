@@ -9,9 +9,9 @@ classes:
     name: AnnotationType
     edges:
     -   relation: based_on
-        to: LiterateDataModel
+        to: LiterateModel
         cardinality: M:1
-    distance: 1
+    distance: 3
 -   _type: Class
     name: Annotation
     edges:
@@ -23,7 +23,7 @@ classes:
         cardinality: O_O
     distance: 2
 -   _type: Class
-    name: LiterateDataModel
+    name: LiterateModel
     edges:
     -   relation: subtype_of
         to: Component
@@ -34,7 +34,7 @@ classes:
     -   relation: allClasses
         to: Classes
         cardinality: O_O
-    distance: 0
+    distance: 2
 -   _type: Class
     name: Subject
     edges:
@@ -42,7 +42,7 @@ classes:
         to: Component
         cardinality: '1:1'
     -   relation: based_on
-        to: LiterateDataModel
+        to: LiterateModel
         cardinality: M:1
     -   relation: parentSubject
         to: Subject
@@ -53,7 +53,7 @@ classes:
     -   relation: childSubjects
         to: Subjects
         cardinality: O_O
-    distance: 1
+    distance: 2
 -   _type: Class
     name: SubjectArea
     edges:
@@ -63,10 +63,7 @@ classes:
     -   relation: based_on
         to: LiterateModel
         cardinality: M:1
-    -   relation: based_on
-        to: Xyz
-        cardinality: M:1
-    distance: 2
+    distance: 3
 -   _type: Class
     name: Class_
     edges:
@@ -75,6 +72,9 @@ classes:
         cardinality: '1:1'
     -   relation: basedOn
         to: Class_
+        cardinality: O_O
+    -   relation: supertypes
+        to: Classes
         cardinality: O_O
     -   relation: subtypings
         to: Subtypings
@@ -104,7 +104,7 @@ classes:
     -   relation: classes
         to: Classes
         cardinality: O_O
-    distance: 2
+    distance: 3
 -   _type: Class
     name: ReferenceType
     edges:
@@ -205,9 +205,9 @@ classes:
         cardinality: O_O
     distance: 2
 -   _type: Class
-    name: ParameterAnInputToAMethod
+    name: Parameter
     edges:
     -   relation: subtype_of
         to: Component
         cardinality: '1:1'
-    distance: 2
+    distance: 0

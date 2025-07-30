@@ -117,7 +117,7 @@ def diagram_suite(title: str, diagram_code: str, flavor: str):
     if PNGING:
         png_file_name = f"diagram_{n_pumls}_{flavor}.png"
         png_file_path = os.path.abspath(f"{model_diagrams_dir}/{png_file_name}")
-        print(f"creating png  for {flavor} in {png_file_path}")
+        # print(f"creating png  for {flavor} in {png_file_path}")
 
         if flavor == "puml":
             pngurl = render_puml(diagram_code, "png", png_file_path)
