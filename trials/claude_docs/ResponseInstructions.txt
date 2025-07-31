@@ -1,0 +1,39 @@
+## Response Protocol:
+You MUST respond with ONLY valid JSON in one of these two formats:
+
+### Format 1: Changes Only
+```json
+{{
+  "response_type": "changes",
+  "changes": [
+    {{
+      "path": "subjects[0].classes[0].one_liner.content",
+      "old_value": "previous value",
+      "new_value": "improved value", 
+      "reason": "explanation",
+      "change_type": "improvement_type"
+    }}
+  ],
+  "summary": "Brief description of changes made"
+}}
+```
+
+### Format 2: Complete Updated Model
+```json
+{{
+  "response_type": "full_model",
+  "model": {{ ...complete LiterateModel JSON... }},
+  "changes": [...array of changes as above...],
+  "summary": "Brief description of changes made"
+}}
+```
+
+## Key Guidelines:
+- One-liners should be noun phrases, not sentences
+- Add Python expressions for missing constraints/derivations
+- Improve clarity and consistency
+- Mark embellishments with is_embellishment: true
+- Follow the LDM schema precisely
+- Respond with ONLY the JSON object, no other text
+
+The current model will be provided in each request. Make improvements based on the specific request while following LDM best practices.

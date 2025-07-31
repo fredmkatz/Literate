@@ -20,10 +20,10 @@ _ _ _ _ _ Attribute_Head: - **abbreviatedName** - a short form of the component'
 _ _ _ _ _ _ EXAMPLE: ***Example***: "LDM" is the short form of "Literate Data Model".
 . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ DEFAULT: ***Default***: name -  how do you say name in english?
-_ _ _ _ _ _ OCL: ocl: x.name == y
+_ _ _ _ _ _ PYTHON: python: x.name == y
 . . . . . Constraint - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ CONSTRAINT: constraint: the abbreviated name should be shorter than the actual name
-_ _ _ _ _ _ OCL: ocl: len(abbreviatedName) < len(name)
+_ _ _ _ _ _ PYTHON: python: len(abbreviatedName) < len(name)
 _ _ _ _ _ _ SEVERITY: severity: Warning
 _ _ _ _ _ _ MESSAGE: message:  Why have an abbreviation longer than the name?
 . . . . . . Annotation - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -115,7 +115,7 @@ _ _ _ _ _ _ Attribute_Head: - **annotationTypes** - (List of AnnotationTypes)
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **Preferred Coding Language** - the recommended lanquage  for expressing derivation, defaults, and constraints (Coding Language).
 . . . . . . Default - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ _ DEFAULT: Default: OCL
+_ _ _ _ _ _ _ DEFAULT: Default: Python
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ _ Attribute_Head: - **alternate Coding Languages** -  (optional List of Coding Languages).
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
@@ -326,7 +326,7 @@ _ _ _ _ _ _ _ NOTE: Note: from Class.constraints
 . . . . AttributeSection - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ AttributeSection_Head: __ Override Tracking
 . . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
-_ _ _ _ _ _ Attribute_Head: - Overrides
+_ _ _ _ _ _ Attribute_Head: - Overrides - the higher level attribute which this one overrides - for type or ... (Attribute)
 . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ ValueType_Head: ValueType:   **Derivation**  - A rule or formula for deriving the value of an attribute
 _ _ _ _ PLURAL: Plural: Derivations
@@ -379,7 +379,7 @@ _ _ _ _ ValueType_Head: ValueType:  **Message** - (Template)
 _ _ _ _ ValueType_Head: ValueType:   **CodeExpression**
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **Language** - the programming language (Code)
-_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` code', extra_text=['OCL, Object Constraint Language', 'Java, Java', '```'])]
+_ _ _ _ _ ELABORATION: [TypedLine(type_label='CODE_FENCE', line_Type=None, content='``` code', extra_text=['OCL, Object Constraint Language', 'Java, Java', 'Python, Python', '```'])]
 . . . . Attribute - <class 'dull_dsl.dull_parser_core.DocPart'> 
 _ _ _ _ _ Attribute_Head: - **Expression** (String)
 . . . ValueType - <class 'dull_dsl.dull_parser_core.DocPart'> 

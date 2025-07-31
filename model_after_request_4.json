@@ -1,0 +1,30 @@
+{
+  "_type": "LiterateModel",
+  "name": {
+    "_type": "SubjectName",
+    "content": "Test"
+  },
+  "subjects": [
+    {
+      "_type": "SubjectB",
+      "name": {
+        "_type": "SubjectName",
+        "content": "Test Subject"
+      },
+      "classes": [
+        {
+          "_type": "Class",
+          "name": {
+            "_type": "ClassName",
+            "content": "Component"
+          },
+          "one_liner": {
+            "_type": "OneLiner",
+            "content": "An element or building block"
+          },
+          "attributes": []
+        }
+      ]
+    }
+  ]
+}

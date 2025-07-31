@@ -17,7 +17,7 @@ PROSE_CONTENT_TYPES = [
     "CodeBlock",
 ]
 
-
+Do_Diagrams = True
 
 @faculty_class
 class Htmlers(Faculty):
@@ -211,7 +211,7 @@ class Htmlers(Faculty):
         
         formula_h = div()
         formula_h.append_all(one_liner_h,
-                            clauses_for(self, "ocl", "message", "severity"),
+                            clauses_for(self, "python", "message", "severity"),
                             each_listed(self, "annotations"),
                             each_listed(self, "diagnostics")
                              )
@@ -260,12 +260,12 @@ class Htmlers(Faculty):
 
     @patch_on(LiterateModel, "as_html")
     def literate_model_html(self):
-        print(f"HTMLing Model {self.name}")
+        # print(f"HTMLing Model {self.name}")
         # Handle as any old Subject
         # Call super validator with explicit class name
         nclasses = len(self.classes)
         nsubjects = len(self.subjects)
-        print(f"Doing html for {nclasses} classes and {nsubjects} subjects")
+        # print(f"Doing html for {nclasses} classes and {nsubjects} subjects")
         comp_html = _html_faculty.call_super_html(self, 'LiterateModel')
 
         return comp_html
@@ -273,10 +273,10 @@ class Htmlers(Faculty):
     @patch_on(SubjectE, "as_html")  # base for LDM and all Subjects
     def subject_html(self):
         # Call super validator with explicit class name
-        print(f"HTMLing subject {self.name}")
+        # print(f"HTMLing subject {self.name}")
         nclasses = len(self.classes)
         nsubjects = len(self.subjects)
-        print(f"\tDoing html for {nclasses} classes and {nsubjects} subjects")
+        # print(f"\tDoing html for {nclasses} classes and {nsubjects} subjects")
 
         # Get container for whole components, with header as a start
         comp_html = _html_faculty.call_super_html(self, 'SubjectE')
@@ -321,19 +321,20 @@ class Htmlers(Faculty):
             cname = "Class_"
         
         if self.is_trivial():
-            comp_html.append(div(f" {cname} is trivial; no diagram", class_ = "raw-diagram-code"))
+            # comp_html.append(div(f" {cname} is trivial; no diagram", class_ = "raw-diagram-code"))
 
             return comp_html
 
             
         from dull_dsl.dull_build import The_Extract_Path, model_diagrams_dir
+        if Do_Diagrams:
         
-        diagram_code = generate_focused_diagram(The_Extract_Path, model_diagrams_dir, [cname], radius = 1)
-        if  diagram_code:
-            from ldm.ldm_to_html_prose import  diagram_suite
+            diagram_code = generate_focused_diagram(The_Extract_Path, model_diagrams_dir, [cname], radius = 1)
+            if  diagram_code:
+                from ldm.ldm_to_html_prose import  diagram_suite
 
-            title = "Mermaid ER Diagram for " + cname
-            comp_html.append(diagram_suite(title, diagram_code, "mermaid"))
+                title = "Mermaid ER Diagram for " + cname
+                comp_html.append(diagram_suite(title, diagram_code, "mermaid"))
 
         
         return comp_html
@@ -595,7 +596,7 @@ def comma_separated_tags(the_list):
 
 # Create the htmlers instance
 _html_faculty = Htmlers()
-print("Created Htmlers() = ", _html_faculty)
+# print("Created Htmlers() = ", _html_faculty)
 show_patches(_html_faculty.all_patches)
 
 def object_html(the_object):
@@ -605,10 +606,12 @@ def object_html(the_object):
 
 
 
-def create_model_html_with_faculty(the_model):
+def create_model_html_with_faculty(the_model, diagrams = True):
 
     # Note html file is in
     #  ldm/ldm_models/MODEL/MODEL_results/Model.html
+    global Do_Diagrams
+    Do_Diagrams = diagrams
     model_h = object_html(the_model)
     return model_h
 
@@ -643,15 +646,15 @@ def save_model_html( model_h,  css_path, output_path):
 
     html_content = f"{html_h}"
     fmk.write_text(output_path, html_content)
-    print(f"Saved styled dictionary to {output_path}")
+    print(f"\t\tSaved html to {output_path}")
 
-    html_h.find("body").add_class("reviewing")
-    body_classes = html_h.find("body").get("class")
-    # print("Body classes are", body_classes)
-    html_content = f"{html_h}"
+    # html_h.find("body").add_class("reviewing")
+    # body_classes = html_h.find("body").get("class")
+    # # print("Body classes are", body_classes)
+    # html_content = f"{html_h}"
 
-    review_output_path = output_path.replace(".html", ".review.html")
-    fmk.write_text(review_output_path, html_content)
+    # review_output_path = output_path.replace(".html", ".review.html")
+    # fmk.write_text(review_output_path, html_content)
 
-    print(f"Saved styled dictionary (for review) to {review_output_path}")
+    # print(f"Saved styled dictionary (for review) to {review_output_path}")
 

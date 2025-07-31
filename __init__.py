@@ -1,5 +1,5 @@
 """
-Presentable Object Model (POM) package.
+Literate Modeling package.
 
 This package provides tools for generating grammars, parsing, and visiting
 model-driven object representations based on Python dataclasses.

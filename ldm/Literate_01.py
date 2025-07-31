@@ -266,6 +266,7 @@ class Component(MinorComponent, Container):
 class SubjectE(Component):
     name: SubjectName = None
     prefix: str = ""
+    model_path: str = None
     classes: List[Class] = block_list_field(default_factory=list)
     
     def containees(self):
@@ -281,6 +282,7 @@ class SubjectE(Component):
             self.classes = []
         if not self.subjects:
             self.subjects = []
+        self.model_path = type(self).__name__ + "_" + self.name.content
 
     def all_classes(self):
         return self.all_classes_p
@@ -569,14 +571,14 @@ class FormulaCoding(PydanticMixin):
 
 @dataclass
 class Formula(MinorComponent, Container):
-    ocl: Optional[str] = ""
+    python: Optional[str] = ""
     container: Optional["Container"] = field(default=None, kw_only=True)
 
 
     def shared_post_init(self):
         super().shared_post_init()
-        if self.ocl is None:
-            self.ocl = ""
+        if self.python is None:
+            self.python = ""
 
     def __str__(self):
         return self.one_liner.content.strip() or "NoOneLiner"
@@ -616,6 +618,7 @@ class SubtypeBy(PydanticMixin):
 class Class(Component):
     name: ClassName = None
     plural: str = None
+    model_path: str = None
     presumed_plural: Optional[str] = None   # Optional since if plural is supplied, presumed plural won't be calced
     subtype_of: Optional[List[SubtypeBy]] =  None # field(default_factory=list)
     
@@ -658,7 +661,11 @@ class Class(Component):
             print("Fixing Class name!")
             self.name = ClassName(self.name)
         self.prefix = "Class"
+        self.model_path =  "Class_" + self.name.content
         
+        for att in self.all_attributes():
+            att.model_path =  "Attribute_" + self.name.content + "." + att.name.content
+
 
     # calc derivation: presumed plural
     def derive_presumed_plural(self) -> str:
@@ -695,6 +702,10 @@ class Class(Component):
 
         self.plural = self.derive_presumed_plural()
         return self.plural
+
+    @cached_property
+    def model_path(self) ->str:
+        return self.name.content
 
     def class_mro(self):
         return self.class_mro_p
@@ -816,6 +827,8 @@ class AttributeSection(Component):
 @dataclass
 class Attribute(Component):
     name: AttributeName = None
+    model_path: str = None
+
     data_type_clause: DataTypeClause = None
     overrides: Optional[AttributeReference] = None
     inverse: Optional[AttributeReference] = None
@@ -842,7 +855,8 @@ class Attribute(Component):
             print("Fixing attribute name!")
             self.name = AttributeName(self.name)
         if self.name.content == "isEmbellishment":
-            print("Creating embellishment attribute")
+            pass
+            # print("Creating embellishment attribute")
 
     class Meta:
         presentable_header = (

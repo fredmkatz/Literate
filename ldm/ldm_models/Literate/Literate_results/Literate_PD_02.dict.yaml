@@ -156,7 +156,7 @@ subjects:
                     content: ' name -  how do you say name in english?
 
                         '
-                ocl: ' x.name == y
+                python: ' x.name == y
 
                     '
             constraints:
@@ -167,7 +167,7 @@ subjects:
                         name
 
                         '
-                ocl: ' len(abbreviatedName) < len(name)
+                python: ' len(abbreviatedName) < len(name)
 
                     '
                 severity: ' Warning
@@ -846,7 +846,7 @@ subjects:
                     _type: Default
                     one_liner:
                         _type: OneLiner
-                        content: ' OCL
+                        content: ' Python
 
                             '
             -   _type: Attribute
@@ -2388,6 +2388,26 @@ subjects:
                 name:
                     _type: AttributeName
                     content: overrides
+                one_liner:
+                    _type: OneLiner
+                    content: the higher level attribute which this one overrides -
+                        for type or ...
+                parenthetical: Attribute
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: Attribute
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: false
+                    cardinality:
+                    - O_O
     -   _type: ValueType
         prefix: 'ValueType:'
         name:
@@ -2774,6 +2794,8 @@ subjects:
                     OCL, Object Constraint Language
 
                     Java, Java
+
+                    Python, Python
 
                     ```'
         -   _type: Attribute

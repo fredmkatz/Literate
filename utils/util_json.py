@@ -4,6 +4,7 @@ import json
 import yaml
 import os
 
+from utils.util_flogging import flogger
 from utils.util_fmk import glob_files, insure_home_for, write_text
 def update_nested_dict(original, updates):
     for key, value in updates.items():
@@ -166,6 +167,7 @@ def read_json_file(json_path: str) -> Dict[str, Any]:
         except Exception as e:
             flogger.warningf(f"Error reading JSON file {json_path}: {e}")
             return {}
+    flogger.warning(f"JSON path not found: {json_path}")
     return {}
 
 

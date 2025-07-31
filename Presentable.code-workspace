@@ -9,6 +9,6 @@
     ],
     "settings": {
         "markdown-editor.useVscodeThemeColor": false,
-        "powershell.cwd": "Presentable"
+        "powershell.cwd": "Literate"
     }
 }

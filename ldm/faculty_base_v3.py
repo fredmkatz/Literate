@@ -31,6 +31,7 @@ def patch_on(target_class: Type, method_name: str = None):
     return decorator
 
 def show_patches(patches):
+    return
     print("Patches are...")
     for target, methods in patches.items():
         for method_name, func in methods.items():
@@ -148,11 +149,11 @@ def faculty_class(cls):
         # Copy over the patching setup
         _setup_faculty_patches(new_cls)
         
-        print(f"Faculty class {new_cls.__name__} created inheriting from Faculty")
+        # print(f"Faculty class {new_cls.__name__} created inheriting from Faculty")
         return new_cls
     else:
         _setup_faculty_patches(cls)
-        print(f"Faculty class {cls.__name__} created")
+        # print(f"Faculty class {cls.__name__} created")
         return cls
 
 def _setup_faculty_patches(cls):

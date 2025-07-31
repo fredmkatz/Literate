@@ -1,0 +1,9 @@
+[
+  {
+    "path": "subjects[0].classes[0].one_liner.content",
+    "old_value": "An element or building block",
+    "new_value": "Modular building block of a system",
+    "reason": "Made one-liner more specific and concise as a noun phrase while better conveying the concept",
+    "change_type": "clarity_improvement"
+  }
+]

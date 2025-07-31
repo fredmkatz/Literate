@@ -508,7 +508,7 @@ class Validators(Faculty):
                 self,
                 "Style",
                 f"oneLiner is too long. ({len(str(self.one_liner))} chars).",
-                constraint_name="checkOneLinerLength",
+                constraint_name="componentOneLinerLength",
             )
         if len(str(self.name.content)) > 30:
             createWarning(
@@ -592,13 +592,14 @@ class Validators(Faculty):
                 self,
                 "Style",
                 f"Formula one_liner is too long ({len(str(one_liner))} chars)",
+                constraint_name="FormulaOneLinerLength"
             )
 
     @patch_on(Constraint, "validate")
     def validate_constraint(self):
         """Validate Constraint instances."""
         _validation_faculty.call_super_validate(self, "Constraint")
-        validate_presence(self, "ocl")
+        validate_presence(self, "python")
 
 
 # Helper functions
@@ -613,7 +614,8 @@ def validate_presence(obj, attribute):
     value = getattr(obj, attribute, None)
     if value:
         return
-    createError(obj, "MissingValue", f"Missing value for required field: '{attribute}'")
+    createError(obj, "MissingValue", f"Missing value for required field: '{attribute}'",
+                constraint_name=f"Missing attribute: {attribute}")
 
 
 def validate_data_type_clause(dtc, target=None):
@@ -662,7 +664,7 @@ def validate_data_type(datatype: DataType, target=None):
 
 # Create the validators instance
 _validation_faculty = Validators()
-print("Created Validators() = ", _validation_faculty)
+# print("Created Validators() = ", _validation_faculty)
 # show_patches(_validation_faculty.all_patches)
 
 

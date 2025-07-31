@@ -22,10 +22,10 @@ _ **Component** - An element or building block of the literate data model
 	***Example***: "LDM" is the short form of "Literate Data Model".
 
 	***Default***: name -  how do you say name in english?
-  ocl: x.name == y
+  python: x.name == y
 
   constraint: the abbreviated name should be shorter than the actual name
-  ocl: len(abbreviatedName) < len(name)
+  python: len(abbreviatedName) < len(name)
   severity: Warning
   message:  Why have an abbreviation longer than the name?
   Note: Does this annotation find it's way to the Constraint? YES! It's fixed!
@@ -104,7 +104,7 @@ Subtype of: Component
 __ 	***Modeling Configuration***
 - **annotationTypes** - (List of AnnotationTypes)
 - **Preferred Coding Language** - the recommended lanquage  for expressing derivation, defaults, and constraints (Coding Language). 
-   Default: OCL
+   Default: Python
 - **alternate Coding Languages** -  (optional List of Coding Languages).  
 - **Preferred Template Language** - the recommended lanquage  for expressing derivation, defaults, and constraints (Template Language). 
    Default: Handlebars
@@ -334,7 +334,7 @@ __ ***Formulas***
     Note: from Class.constraints 
     
 __ Override Tracking
-- Overrides
+- Overrides - the higher level attribute which this one overrides - for type or ... (Attribute)
 
 
 
@@ -385,6 +385,7 @@ ValueType:   **CodeExpression**
 ``` code
 OCL, Object Constraint Language
 Java, Java 
+Python, Python
 ```
 - **Expression** (String)
 

@@ -1,5 +1,5 @@
 @echo off
-:: Simple GitHub update script for the Presentable project
+:: Simple GitHub update script for the Literate project
 
 :: Get the current branch
 for /f "tokens=*" %%a in ('git rev-parse --abbrev-ref HEAD') do set BRANCH=%%a

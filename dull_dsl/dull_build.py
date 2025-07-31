@@ -228,7 +228,7 @@ def build_dull_dsl(dull_specs: Dict):
         html_path = f"{results_dir}/{model_name}_{pd_or_not}_07_as.html"
         web_css_path = "../../ldm_assets/Literate.css"
 
-        model_h = create_model_html_with_faculty(the_ldm_model_py)
+        model_h = create_model_html_with_faculty(the_ldm_model_py, diagrams=False)
     
         save_model_html(model_h, web_css_path, html_path)
 

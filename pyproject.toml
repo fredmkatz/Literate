@@ -42,6 +42,17 @@ pikepdf = "^9.9.0"
 mermaid-cli = "^0.1.2"
 chromium = "^0.0.0"
 networkx = "^3.5"
+anthropic = "^0.58.2"
+playwright-stealth = "^2.0.0"
+2captcha-python = "^1.5.1"
+zenrows = "^1.4.0"
+openai = "^1.97.0"
+google-genai = "^1.26.0"
+llm-openrouter = "^0.4.1"
+openrouter = "^1.0"
+rdflib = "^7.1.4"
+n3 = "^0.2.0"
+typing-inspection = "^0.4.1"
 
 
 [build-system]

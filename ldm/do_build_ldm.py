@@ -190,7 +190,7 @@ attribute_clauses = component_clauses + [
 ]
 
 formula_clauses = [
-    MinorClause(word="ocl"),
+    MinorClause(word="python"),
     MinorClause(word="message"),
     MinorClause(word="severity"),
     MajorClause(

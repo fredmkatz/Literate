@@ -1,0 +1,48 @@
+[
+  {
+    "path": "subjects[0].classes[0].constraints",
+    "old_value": null,
+    "new_value": [
+      {
+        "_type": "Constraint",
+        "name": {
+          "_type": "ConstraintName",
+          "content": "valid_name"
+        },
+        "expression": {
+          "_type": "PythonExpression",
+          "content": "len(self.name) > 0"
+        },
+        "description": {
+          "_type": "Description",
+          "content": "Component name must not be empty"
+        }
+      }
+    ],
+    "reason": "Added basic name validation constraint",
+    "change_type": "add_constraint"
+  },
+  {
+    "path": "subjects[0].classes[0].derivations",
+    "old_value": null,
+    "new_value": [
+      {
+        "_type": "Derivation",
+        "name": {
+          "_type": "DerivationName",
+          "content": "display_name"
+        },
+        "expression": {
+          "_type": "PythonExpression",
+          "content": "f\"{self.name}\""
+        },
+        "description": {
+          "_type": "Description",
+          "content": "String representation of the component"
+        }
+      }
+    ],
+    "reason": "Added basic string representation derivation",
+    "change_type": "add_derivation"
+  }
+]

@@ -1,0 +1,30 @@
+Your Project Structure:
+
+📁 ldm_site/
+├── 📁 ldm_site_data/           # Your existing data
+│   └── 📄 literate_model.ttl   # (Already exists from converter)
+│
+├── 📁 python_scripts/          # Python conversion tools
+│   ├── 📄 pydantic_rdf_converter.py
+│   ├── 📄 graphdb_setup.py
+│   └── 📄 requirements.txt
+│
+└── 📁 web_interface/           # Next.js web app
+    ├── 📄 package.json
+    ├── 📄 package-lock.json
+    ├── 📄 next.config.js
+    ├── 📄 tailwind.config.ts
+    ├── 📄 tsconfig.json
+    ├── 📁 src/
+    │   ├── 📁 app/
+    │   │   ├── 📄 layout.tsx
+    │   │   ├── 📄 page.tsx          # Dashboard
+    │   │   ├── 📄 globals.css
+    │   │   ├── 📁 class/
+    │   │   │   └── 📁 [id]/
+    │   │   │       └── 📄 page.tsx  # Class detail page
+    │   │   └── 📁 temporal/
+    │   │       └── 📄 page.tsx      # Temporal view
+    │   └── 📁 lib/
+    │       └── 📄 sparql-client.ts   # GraphDB client
+    └── 📁 node_modules/         # (Created by npm install)

@@ -4,6 +4,7 @@ prefix: '#'
 name:
     _type: SubjectName
     content: Literate Data Model
+model_path: LiterateModel_Literate Data Model
 subjects:
 -   _type: SubjectB
     one_liner:
@@ -31,6 +32,7 @@ subjects:
     name:
         _type: SubjectName
         content: Preliminaries
+    model_path: SubjectB_Preliminaries
     classes:
     -   _type: Class
         one_liner:
@@ -41,6 +43,7 @@ subjects:
         name:
             _type: ClassName
             content: Component
+        model_path: Class_Component
         is_value_type: false
         attributes:
         -   _type: Attribute
@@ -61,6 +64,7 @@ subjects:
                 _type: AttributeName
                 content: normalName
             parenthetical: '*String*'
+            model_path: Attribute_Component.normalName
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -86,6 +90,7 @@ subjects:
                 _type: AttributeName
                 content: name
             parenthetical: CamelName
+            model_path: Attribute_Component.name
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -108,6 +113,7 @@ subjects:
                 _type: AttributeName
                 content: qualifiedName
             parenthetical: '*QualifiedCamel*'
+            model_path: Attribute_Component.qualifiedName
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -142,6 +148,7 @@ subjects:
                 _type: AttributeName
                 content: abbreviatedName
             parenthetical: '*CamelName*'
+            model_path: Attribute_Component.abbreviatedName
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -165,7 +172,7 @@ subjects:
 
                         '
                 is_embellishment: false
-                ocl: ' x.name == y
+                python: ' x.name == y
 
                     '
             constraints:
@@ -186,7 +193,7 @@ subjects:
                         content: Does this annotation find it's way to the Constraint?
                             YES! It's fixed!
                 is_embellishment: false
-                ocl: ' len(abbreviatedName) < len(name)
+                python: ' len(abbreviatedName) < len(name)
 
                     '
                 message: '  Why have an abbreviation longer than the name?
@@ -206,6 +213,7 @@ subjects:
                 _type: AttributeName
                 content: oneLiner
             parenthetical: OneLiner
+            model_path: Attribute_Component.oneLiner
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -232,6 +240,7 @@ subjects:
                 _type: AttributeName
                 content: elaboration
             parenthetical: RichText
+            model_path: Attribute_Component.elaboration
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -247,6 +256,54 @@ subjects:
                     content: false
                 cardinality:
                 - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: Indicates whether this component is an embellishment added
+                    during post-parsing processing _
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: isEmbellishment
+            parenthetical: Boolean
+            model_path: Attribute_Component.isEmbellishment
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Boolean
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            default:
+                _type: Default
+                one_liner:
+                    _type: OneLiner
+                    content: ' false
+
+                        '
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: This attribute is set to true for components that
+                            are automatically generated or added during the fleshing
+                            out, review, or rendering processes, such as implied attributes
+                            or suggested model elements. It helps distinguish embellishments
+                            from the core model elements defined in the original LDM
+                            source.
+                is_embellishment: false
         attribute_sections:
         -   _type: AttributeSection
             one_liner:
@@ -272,6 +329,7 @@ subjects:
                     _type: AttributeName
                     content: isEmbellishment
                 parenthetical: Boolean
+                model_path: Attribute_Component.isEmbellishment
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -328,6 +386,7 @@ subjects:
         name:
             _type: ClassName
             content: AnnotationType
+        model_path: Class_AnnotationType
         based_on:
         -   _type: ClassReference
             content: LiterateModel
@@ -343,6 +402,7 @@ subjects:
                 _type: AttributeName
                 content: emoji
             parenthetical: Emoji
+            model_path: Attribute_AnnotationType.emoji
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -368,6 +428,7 @@ subjects:
                 _type: AttributeName
                 content: emojiName
             parenthetical: String
+            model_path: Attribute_AnnotationType.emojiName
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -393,6 +454,7 @@ subjects:
                 _type: AttributeName
                 content: emojiUnicode
             parenthetical: String
+            model_path: Attribute_AnnotationType.emojiUnicode
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -418,6 +480,7 @@ subjects:
                 _type: AttributeName
                 content: label
             parenthetical: LowerCamel
+            model_path: Attribute_AnnotationType.label
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -443,6 +506,7 @@ subjects:
                 _type: AttributeName
                 content: plural
             parenthetical: '*UpperCamel*'
+            model_path: Attribute_AnnotationType.plural
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -476,6 +540,7 @@ subjects:
                 _type: AttributeName
                 content: purpose
             parenthetical: OneLiner
+            model_path: Attribute_AnnotationType.purpose
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -500,6 +565,7 @@ subjects:
         name:
             _type: ClassName
             content: Annotation
+        model_path: Class_Annotation
         based_on:
         -   _type: ClassReference
             content: Component
@@ -529,6 +595,7 @@ subjects:
                 _type: AttributeName
                 content: annotationType
             parenthetical: optional Annotation Type
+            model_path: Attribute_Annotation.annotationType
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -559,6 +626,7 @@ subjects:
                 _type: AttributeName
                 content: label
             parenthetical: CamelName
+            model_path: Attribute_Annotation.label
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -589,6 +657,7 @@ subjects:
                 _type: AttributeName
                 content: emoji
             parenthetical: optional Emoji
+            model_path: Attribute_Annotation.emoji
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -622,6 +691,7 @@ subjects:
                 _type: AttributeName
                 content: content
             parenthetical: '*RichText*'
+            model_path: Attribute_Annotation.content
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -637,6 +707,54 @@ subjects:
                     content: false
                 cardinality:
                 - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: Indicates whether this annotation is an embellishment added
+                    during post-parsing processing _
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: isEmbellishment
+            parenthetical: Boolean
+            model_path: Attribute_Annotation.isEmbellishment
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Boolean
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            default:
+                _type: Default
+                one_liner:
+                    _type: OneLiner
+                    content: ' false
+
+                        '
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: This attribute is set to true for annotations that
+                            are automatically generated or added during the fleshing
+                            out, review, or rendering processes, such as suggestions,
+                            issues, or diagnostic messages. It helps distinguish embellishment
+                            annotations from the annotations defined in the original
+                            LDM source.
+                is_embellishment: false
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -659,6 +777,7 @@ subjects:
                     _type: AttributeName
                     content: isEmbellishment
                 parenthetical: Boolean
+                model_path: Attribute_Annotation.isEmbellishment
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -701,6 +820,7 @@ subjects:
     name:
         _type: SubjectName
         content: The Model and its Subjects
+    model_path: SubjectB_The Model and its Subjects
     classes:
     -   _type: Class
         one_liner:
@@ -717,6 +837,7 @@ subjects:
         plural: ' LiterateModels
 
             '
+        model_path: Class_LiterateModel
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -734,6 +855,7 @@ subjects:
                 _type: AttributeName
                 content: name
             parenthetical: UpperCamel
+            model_path: Attribute_LiterateModel.name
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -761,6 +883,7 @@ subjects:
                 _type: AttributeName
                 content: allSubjects
             parenthetical: List of Classes
+            model_path: Attribute_LiterateModel.allSubjects
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -805,6 +928,7 @@ subjects:
                 _type: AttributeName
                 content: allClasses
             parenthetical: List of Classes
+            model_path: Attribute_LiterateModel.allClasses
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -838,6 +962,188 @@ subjects:
 
                         '
                 is_embellishment: false
+        -   _type: Attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: annotationTypes
+            parenthetical: List of AnnotationTypes
+            model_path: Attribute_LiterateModel.annotationTypes
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: ListDataType
+                    element_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: AnnotationTypes
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: the recommended lanquage  for expressing derivation, defaults,
+                    and constraints
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: preferredCodingLanguage
+            parenthetical: Coding Language
+            model_path: Attribute_LiterateModel.preferredCodingLanguage
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: CodingLanguage
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            default:
+                _type: Default
+                one_liner:
+                    _type: OneLiner
+                    content: ' Python
+
+                        '
+                is_embellishment: false
+        -   _type: Attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: alternateCodingLanguages
+            parenthetical: optional List of Coding Languages
+            model_path: Attribute_LiterateModel.alternateCodingLanguages
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: ListDataType
+                    element_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: CodingLanguages
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: true
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: the recommended lanquage  for expressing derivation, defaults,
+                    and constraints
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: preferredTemplateLanguage
+            parenthetical: Template Language
+            model_path: Attribute_LiterateModel.preferredTemplateLanguage
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: TemplateLanguage
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            default:
+                _type: Default
+                one_liner:
+                    _type: OneLiner
+                    content: ' Handlebars
+
+                        '
+                is_embellishment: false
+        -   _type: Attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: alternateTemplateLanguages
+            parenthetical: optional List of Template Languages
+            model_path: Attribute_LiterateModel.alternateTemplateLanguages
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: ListDataType
+                    element_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: TemplateLanguages
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: true
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: A list of functions that require sophisticated AI-powered
+                    implementation *
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: aiFunctions
+            parenthetical: List of String
+            model_path: Attribute_LiterateModel.aiFunctions
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: ListDataType
+                    element_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: String
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            derivation:
+                _type: Derivation
+                one_liner:
+                    _type: OneLiner
+                    content: ' [''aiEnglishPlural()'']
+
+                        '
+                is_embellishment: false
         attribute_sections:
         -   _type: AttributeSection
             is_embellishment: false
@@ -856,6 +1162,7 @@ subjects:
                     _type: AttributeName
                     content: annotationTypes
                 parenthetical: List of AnnotationTypes
+                model_path: Attribute_LiterateModel.annotationTypes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -884,6 +1191,7 @@ subjects:
                     _type: AttributeName
                     content: preferredCodingLanguage
                 parenthetical: Coding Language
+                model_path: Attribute_LiterateModel.preferredCodingLanguage
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -903,7 +1211,7 @@ subjects:
                     _type: Default
                     one_liner:
                         _type: OneLiner
-                        content: ' OCL
+                        content: ' Python
 
                             '
                     is_embellishment: false
@@ -914,6 +1222,7 @@ subjects:
                     _type: AttributeName
                     content: alternateCodingLanguages
                 parenthetical: optional List of Coding Languages
+                model_path: Attribute_LiterateModel.alternateCodingLanguages
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -942,6 +1251,7 @@ subjects:
                     _type: AttributeName
                     content: preferredTemplateLanguage
                 parenthetical: Template Language
+                model_path: Attribute_LiterateModel.preferredTemplateLanguage
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -972,6 +1282,7 @@ subjects:
                     _type: AttributeName
                     content: alternateTemplateLanguages
                 parenthetical: optional List of Template Languages
+                model_path: Attribute_LiterateModel.alternateTemplateLanguages
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1000,6 +1311,7 @@ subjects:
                     _type: AttributeName
                     content: aiFunctions
                 parenthetical: List of String
+                model_path: Attribute_LiterateModel.aiFunctions
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1041,6 +1353,7 @@ subjects:
         plural: ' Subjects
 
             '
+        model_path: Class_Subject
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -1061,6 +1374,7 @@ subjects:
                 _type: AttributeName
                 content: name
             parenthetical: UpperCamel
+            model_path: Attribute_Subject.name
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1087,6 +1401,7 @@ subjects:
                 _type: AttributeName
                 content: parentSubject
             parenthetical: optional Subject
+            model_path: Attribute_Subject.parentSubject
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1121,6 +1436,7 @@ subjects:
                 _type: AttributeName
                 content: classes
             parenthetical: ListOf Classes
+            model_path: Attribute_Subject.classes
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1155,6 +1471,7 @@ subjects:
                 _type: AttributeName
                 content: childSubjects
             parenthetical: ListOf Subjects
+            model_path: Attribute_Subject.childSubjects
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -1193,6 +1510,7 @@ subjects:
         plural: ' SubjectAreas
 
             '
+        model_path: Class_SubjectArea
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -1215,6 +1533,7 @@ subjects:
         name:
             _type: SubjectName
             content: Classes
+        model_path: SubjectC_Classes
         classes:
         -   _type: Class
             one_liner:
@@ -1229,6 +1548,7 @@ subjects:
             plural: ' Classes
 
                 '
+            model_path: Class_Class
             subtype_of:
             -   _type: SubtypeBy
                 class_name:
@@ -1276,6 +1596,7 @@ subjects:
                     _type: AttributeName
                     content: pluralForm
                 parenthetical: UpperCamel
+                model_path: Attribute_Class.pluralForm
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1327,6 +1648,7 @@ subjects:
                     _type: AttributeName
                     content: basedOn
                 parenthetical: SetOf Class
+                model_path: Attribute_Class.basedOn
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1355,6 +1677,7 @@ subjects:
                     _type: AttributeName
                     content: supertypes
                 parenthetical: ListOf Classes
+                model_path: Attribute_Class.supertypes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1393,6 +1716,7 @@ subjects:
                     _type: AttributeName
                     content: subtypings
                 parenthetical: list of Subtypings
+                model_path: Attribute_Class.subtypings
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1431,6 +1755,7 @@ subjects:
                     _type: AttributeName
                     content: subtypes
                 parenthetical: ListOf Classes
+                model_path: Attribute_Class.subtypes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1459,6 +1784,7 @@ subjects:
                     _type: AttributeName
                     content: attributes
                 parenthetical: ListOf Attributes
+                model_path: Attribute_Class.attributes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1487,6 +1813,7 @@ subjects:
                     _type: AttributeName
                     content: attributeSections
                 parenthetical: ListOf AttributeSections
+                model_path: Attribute_Class.attributeSections
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1524,6 +1851,7 @@ subjects:
                     _type: AttributeName
                     content: constraints
                 parenthetical: ListOf Constraints
+                model_path: Attribute_Class.constraints
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1552,6 +1880,7 @@ subjects:
                     _type: AttributeName
                     content: methods
                 parenthetical: ListOf Methods
+                model_path: Attribute_Class.methods
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1569,6 +1898,75 @@ subjects:
                         content: false
                     cardinality:
                     - O_O
+            -   _type: Attribute
+                one_liner:
+                    _type: OneLiner
+                    content: the Classes which are basedOn this Class
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: dependents
+                parenthetical: optional SetOf Classes
+                model_path: Attribute_Class.dependents
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: SetDataType
+                        element_type:
+                            _type: BaseDataType
+                            class_name:
+                                _type: ClassReference
+                                content: Classes
+                            as_value_type:
+                                _type: AsValue
+                                content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: true
+                    cardinality:
+                    - O_O
+                inverse:
+                    _type: AttributeReference
+                    class_name:
+                        _type: ClassReference
+                        content: Class
+                    attribute_name:
+                        _type: AttributeName
+                        content: basedOn
+            -   _type: Attribute
+                is_embellishment: false
+                prefix: '-'
+                name:
+                    _type: AttributeName
+                    content: uniqueKeys
+                parenthetical: optional Set of UniqueKeys
+                model_path: Attribute_Class.uniqueKeys
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: SetDataType
+                        element_type:
+                            _type: BaseDataType
+                            class_name:
+                                _type: ClassReference
+                                content: UniqueKeys
+                            as_value_type:
+                                _type: AsValue
+                                content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: true
+                    cardinality:
+                    - O_O
+                inverse:
+                    _type: AttributeReference
+                    class_name:
+                        _type: ClassReference
+                        content: UniqueKey
+                    attribute_name:
+                        _type: AttributeName
+                        content: basedOn
             attribute_sections:
             -   _type: AttributeSection
                 is_embellishment: false
@@ -1590,6 +1988,7 @@ subjects:
                         _type: AttributeName
                         content: dependents
                     parenthetical: optional SetOf Classes
+                    model_path: Attribute_Class.dependents
                     data_type_clause:
                         _type: DataTypeClause
                         data_type:
@@ -1622,6 +2021,7 @@ subjects:
                         _type: AttributeName
                         content: uniqueKeys
                     parenthetical: optional Set of UniqueKeys
+                    model_path: Attribute_Class.uniqueKeys
                     data_type_clause:
                         _type: DataTypeClause
                         data_type:
@@ -1657,6 +2057,7 @@ subjects:
                 _type: ClassName
                 content: Subtyping
             parenthetical: Subtype of Component
+            model_path: Class_Subtyping
             based_on:
             -   _type: ClassReference
                 content: Class
@@ -1669,6 +2070,7 @@ subjects:
                     _type: AttributeName
                     content: name
                 parenthetical: LowerCamel
+                model_path: Attribute_Subtyping.name
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1691,6 +2093,7 @@ subjects:
                     _type: AttributeName
                     content: isExclusive
                 parenthetical: Boolean
+                model_path: Attribute_Subtyping.isExclusive
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1721,6 +2124,7 @@ subjects:
                     _type: AttributeName
                     content: isExhaustive
                 parenthetical: Boolean
+                model_path: Attribute_Subtyping.isExhaustive
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1771,6 +2175,7 @@ subjects:
                     _type: AttributeName
                     content: classes
                 parenthetical: List of Classes
+                model_path: Attribute_Subtyping.classes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1798,6 +2203,7 @@ subjects:
             name:
                 _type: ClassName
                 content: ReferenceType
+            model_path: Class_ReferenceType
             subtype_of:
             -   _type: SubtypeBy
                 class_name:
@@ -1816,6 +2222,7 @@ subjects:
             name:
                 _type: ClassName
                 content: CodeType
+            model_path: Class_CodeType
             is_value_type: true
             attributes:
             -   _type: Attribute
@@ -1829,6 +2236,7 @@ subjects:
                     _type: AttributeName
                     content: isCaptive
                 parenthetical: Boolean
+                model_path: Attribute_CodeType.isCaptive
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1853,6 +2261,7 @@ subjects:
             name:
                 _type: ClassName
                 content: CodeValue
+            model_path: Class_CodeValue
             based_on:
             -   _type: ClassReference
                 content: CodeType
@@ -1868,6 +2277,7 @@ subjects:
                     _type: AttributeName
                     content: code
                 parenthetical: String
+                model_path: Attribute_CodeValue.code
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1903,6 +2313,7 @@ subjects:
                     _type: AttributeName
                     content: description
                 parenthetical: '*RichText*'
+                model_path: Attribute_CodeValue.description
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -1927,6 +2338,7 @@ subjects:
             name:
                 _type: ClassName
                 content: Key
+            model_path: Class_Key
             subtype_of:
             -   _type: SubtypeBy
                 class_name:
@@ -1950,6 +2362,7 @@ subjects:
                     _type: AttributeName
                     content: keyAttributes
                 parenthetical: List of Attributes
+                model_path: Attribute_Key.keyAttributes
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2009,6 +2422,7 @@ subjects:
             name:
                 _type: ClassName
                 content: UniqueKey
+            model_path: Class_UniqueKey
             subtype_of:
             -   _type: SubtypeBy
                 class_name:
@@ -2024,6 +2438,7 @@ subjects:
     name:
         _type: SubjectName
         content: Attributes
+    model_path: SubjectB_Attributes
     classes:
     -   _type: Class
         one_liner:
@@ -2034,6 +2449,7 @@ subjects:
         name:
             _type: ClassName
             content: AttributeSection
+        model_path: Class_AttributeSection
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2065,6 +2481,7 @@ subjects:
                 _type: AttributeName
                 content: isOptional
             parenthetical: Boolean
+            model_path: Attribute_AttributeSection.isOptional
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2092,6 +2509,7 @@ subjects:
         plural: ' Attributes
 
             '
+        model_path: Class_Attribute
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2112,6 +2530,7 @@ subjects:
                 _type: AttributeName
                 content: name
             parenthetical: Lower Camel
+            model_path: Attribute_Attribute.name
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2149,6 +2568,7 @@ subjects:
                 _type: AttributeName
                 content: dataType
             parenthetical: DataType
+            model_path: Attribute_Attribute.dataType
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2156,6 +2576,363 @@ subjects:
                     class_name:
                         _type: ClassReference
                         content: DataType
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: Indicates whether the attribute must have a value for every
+                    instance of the class _
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: isOptional
+            parenthetical: Boolean
+            model_path: Attribute_Attribute.isOptional
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Boolean
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            default:
+                _type: Default
+                one_liner:
+                    _type: OneLiner
+                    content: '*** False
+
+                        '
+                is_embellishment: false
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: The cardinality of the relationship represented by the attribute
+                    _
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: cardinality
+            parenthetical: Cardinality
+            model_path: Attribute_Attribute.cardinality
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Cardinality
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            default:
+                _type: Default
+                one_liner:
+                    _type: OneLiner
+                    content: '***  For a singular attribute, the default cardinality
+                        is N:1. If the attribute is 1:1, it must be stated explicitly.
+
+                        For a collective attribute, the default is 1:N. If the attribute
+                        is N:M, it must be stated explicitly.'
+                elaboration:
+                -   _type: Paragraph
+                    content: '***DSL***: the cardinality of an attribute, if stated
+                        explicitly, should be placed just before the class name in
+                        the parenthetical data type specification after the one-liner.
+
+                        '
+                -   _type: CodeBlock
+                    content: '```
+
+                        For example:
+
+                        - author (1:1 Author)
+
+                        - books (optional N:M Set of Books)
+
+                        ```'
+                annotations:
+                -   _type: Annotation
+                    label:
+                        _type: Label
+                        content: note
+                    content:
+                        _type: OneLiner
+                        content: how this works with optionality
+                is_embellishment: false
+        -   _type: Attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: isInvertible
+            parenthetical: Boolean
+            model_path: Attribute_Attribute.isInvertible
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Boolean
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+            derivation:
+                _type: Derivation
+                one_liner:
+                    _type: OneLiner
+                    content: ' true if the data type is a class or a simple collection
+                        of members of a class.
+
+                        '
+                is_embellishment: false
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: the class which contains, or would contain the inverse attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: inverseClass
+            parenthetical: optional Class
+            model_path: Attribute_Attribute.inverseClass
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Class
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: true
+                cardinality:
+                - O_O
+            derivation:
+                _type: Derivation
+                one_liner:
+                    _type: OneLiner
+                    content: ' from the data type. Null unless arrribute is invertible.
+
+                        '
+                is_embellishment: false
+        -   _type: Attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: inverseAttribute
+            parenthetical: optional Attribute
+            model_path: Attribute_Attribute.inverseAttribute
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Attribute
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: true
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: inverseIsOptional
+            parenthetical: optional Attribute
+            model_path: Attribute_Attribute.inverseIsOptional
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Attribute
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: true
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: 'The rule or formula for calculating the value, if no value
+                    is supplied
+
+                    Now running to a second line with the parenthentical on yet a
+                    third line'
+            annotations:
+            -   _type: Annotation
+                label:
+                    _type: Label
+                    content: note
+                content:
+                    _type: OneLiner
+                    content: "even when an Attribute has a default derivation, there\u2019\
+                        s no guarantee that every instance will have an assigned value.\
+                        \ Example needed."
+                elaboration:
+                -   _type: Paragraph
+                    content: 'Yes, it handled extra lines.  Let''s see about additional
+                        paras for an annotation
+
+                        '
+                -   _type: Paragraph
+                    content: 'Last paragraph here
+
+                        '
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: default
+            parenthetical: optional Derivation
+            model_path: Attribute_Attribute.default
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Derivation
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: true
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: For derived attributes, the rule or formula for calculating
+                    the value _
+            annotations:
+            -   _type: Annotation
+                label:
+                    _type: Label
+                    content: issue
+                content:
+                    _type: OneLiner
+                    content: on insert vs on access?
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: derivation
+            parenthetical: optional Derivation
+            model_path: Attribute_Attribute.derivation
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Derivation
+                    as_value_type:
+                        _type: AsValue
+                        content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: true
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: Any validation rules specific to this attribute _
+            annotations:
+            -   _type: Annotation
+                label:
+                    _type: Label
+                    content: note
+                content:
+                    _type: OneLiner
+                    content: from Class.constraints
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: constraints
+            parenthetical: ListOf Constraints
+            model_path: Attribute_Attribute.constraints
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: ListDataType
+                    element_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: Constraints
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                is_optional_lit:
+                    _type: IsOptional
+                    content: false
+                cardinality:
+                - O_O
+        -   _type: Attribute
+            one_liner:
+                _type: OneLiner
+                content: the higher level attribute which this one overrides - for
+                    type or ...
+            is_embellishment: false
+            prefix: '-'
+            name:
+                _type: AttributeName
+                content: overrides
+            parenthetical: Attribute
+            model_path: Attribute_Attribute.overrides
+            data_type_clause:
+                _type: DataTypeClause
+                data_type:
+                    _type: BaseDataType
+                    class_name:
+                        _type: ClassReference
+                        content: Attribute
                     as_value_type:
                         _type: AsValue
                         content: true
@@ -2186,6 +2963,7 @@ subjects:
                     _type: AttributeName
                     content: isOptional
                 parenthetical: Boolean
+                model_path: Attribute_Attribute.isOptional
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2220,6 +2998,7 @@ subjects:
                     _type: AttributeName
                     content: cardinality
                 parenthetical: Cardinality
+                model_path: Attribute_Attribute.cardinality
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2288,6 +3067,7 @@ subjects:
                     _type: AttributeName
                     content: isInvertible
                 parenthetical: Boolean
+                model_path: Attribute_Attribute.isInvertible
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2323,6 +3103,7 @@ subjects:
                     _type: AttributeName
                     content: inverseClass
                 parenthetical: optional Class
+                model_path: Attribute_Attribute.inverseClass
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2353,6 +3134,7 @@ subjects:
                     _type: AttributeName
                     content: inverseAttribute
                 parenthetical: optional Attribute
+                model_path: Attribute_Attribute.inverseAttribute
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2375,6 +3157,7 @@ subjects:
                     _type: AttributeName
                     content: inverseIsOptional
                 parenthetical: optional Attribute
+                model_path: Attribute_Attribute.inverseIsOptional
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2434,6 +3217,7 @@ subjects:
                     _type: AttributeName
                     content: default
                 parenthetical: optional Derivation
+                model_path: Attribute_Attribute.default
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2468,6 +3252,7 @@ subjects:
                     _type: AttributeName
                     content: derivation
                 parenthetical: optional Derivation
+                model_path: Attribute_Attribute.derivation
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2501,6 +3286,7 @@ subjects:
                     _type: AttributeName
                     content: constraints
                 parenthetical: ListOf Constraints
+                model_path: Attribute_Attribute.constraints
                 data_type_clause:
                     _type: DataTypeClause
                     data_type:
@@ -2529,11 +3315,32 @@ subjects:
                 content: false
             attributes:
             -   _type: Attribute
+                one_liner:
+                    _type: OneLiner
+                    content: the higher level attribute which this one overrides -
+                        for type or ...
                 is_embellishment: false
                 prefix: '-'
                 name:
                     _type: AttributeName
                     content: overrides
+                parenthetical: Attribute
+                model_path: Attribute_Attribute.overrides
+                data_type_clause:
+                    _type: DataTypeClause
+                    data_type:
+                        _type: BaseDataType
+                        class_name:
+                            _type: ClassReference
+                            content: Attribute
+                        as_value_type:
+                            _type: AsValue
+                            content: true
+                    is_optional_lit:
+                        _type: IsOptional
+                        content: false
+                    cardinality:
+                    - O_O
     -   _type: ValueType
         one_liner:
             _type: OneLiner
@@ -2546,6 +3353,7 @@ subjects:
         plural: ' Derivations
 
             '
+        model_path: Class_Derivation
         is_value_type: true
         attributes:
         -   _type: Attribute
@@ -2558,6 +3366,7 @@ subjects:
                 _type: AttributeName
                 content: statement
             parenthetical: RichText
+            model_path: Attribute_Derivation.statement
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2584,6 +3393,7 @@ subjects:
                 _type: AttributeName
                 content: expression
             parenthetical: CodeExpression
+            model_path: Attribute_Derivation.expression
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2612,6 +3422,7 @@ subjects:
         plural: ' Constraints
 
             '
+        model_path: Class_Constraint
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2632,6 +3443,7 @@ subjects:
                 _type: AttributeName
                 content: statement
             parenthetical: RichText
+            model_path: Attribute_Constraint.statement
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2658,6 +3470,7 @@ subjects:
                 _type: AttributeName
                 content: expression
             parenthetical: CodeExpression
+            model_path: Attribute_Constraint.expression
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2689,6 +3502,7 @@ subjects:
                 _type: AttributeName
                 content: severity
             parenthetical: Code
+            model_path: Attribute_Constraint.severity
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2710,6 +3524,7 @@ subjects:
         name:
             _type: ClassName
             content: ClassConstraint
+        model_path: Class_ClassConstraint
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2728,6 +3543,7 @@ subjects:
         name:
             _type: ClassName
             content: AttributeConstraint
+        model_path: Class_AttributeConstraint
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2746,6 +3562,7 @@ subjects:
     name:
         _type: SubjectName
         content: Methods
+    model_path: SubjectB_Methods
     classes:
     -   _type: Class
         one_liner:
@@ -2759,6 +3576,7 @@ subjects:
         plural: ' Methods
 
             '
+        model_path: Class_Method
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2779,6 +3597,7 @@ subjects:
                 _type: AttributeName
                 content: parameters
             parenthetical: ListOf Parameters
+            model_path: Attribute_Method.parameters
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2806,6 +3625,7 @@ subjects:
                 _type: AttributeName
                 content: returnType
             parenthetical: DataType
+            model_path: Attribute_Method.returnType
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2833,6 +3653,7 @@ subjects:
         plural: ' Parameters
 
             '
+        model_path: Class_Parameter
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -2853,6 +3674,7 @@ subjects:
                 _type: AttributeName
                 content: type
             parenthetical: DataType
+            model_path: Attribute_Parameter.type
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2878,6 +3700,7 @@ subjects:
                 _type: AttributeName
                 content: cardinality
             parenthetical: Cardinality
+            model_path: Attribute_Parameter.cardinality
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2899,6 +3722,7 @@ subjects:
     name:
         _type: SubjectName
         content: Trivial Data Types
+    model_path: SubjectB_Trivial Data Types
     classes:
     -   _type: ValueType
         is_embellishment: false
@@ -2907,6 +3731,7 @@ subjects:
             _type: ClassName
             content: Message
         parenthetical: Template
+        model_path: Class_Message
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -2914,6 +3739,7 @@ subjects:
         name:
             _type: ClassName
             content: CodeExpression
+        model_path: Class_CodeExpression
         is_value_type: true
         attributes:
         -   _type: Attribute
@@ -2928,6 +3754,8 @@ subjects:
 
                     Java, Java
 
+                    Python, Python
+
                     ```'
             is_embellishment: false
             prefix: '-'
@@ -2935,6 +3763,7 @@ subjects:
                 _type: AttributeName
                 content: language
             parenthetical: Code
+            model_path: Attribute_CodeExpression.language
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2957,6 +3786,7 @@ subjects:
                 _type: AttributeName
                 content: expression
             parenthetical: String
+            model_path: Attribute_CodeExpression.expression
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -2978,6 +3808,7 @@ subjects:
         name:
             _type: ClassName
             content: DataType
+        model_path: Class_DataType
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -2985,6 +3816,7 @@ subjects:
         name:
             _type: ClassName
             content: SimpleDataTypeSubtpeOfDataType
+        model_path: Class_SimpleDataTypeSubtpeOfDataType
         is_value_type: true
         attributes:
         -   _type: Attribute
@@ -2994,6 +3826,7 @@ subjects:
                 _type: AttributeName
                 content: coreClass
             parenthetical: Class
+            model_path: Attribute_SimpleDataTypeSubtpeOfDataType.coreClass
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3015,6 +3848,7 @@ subjects:
         name:
             _type: ClassName
             content: ComplexDataType
+        model_path: Class_ComplexDataType
         is_value_type: true
         attributes:
         -   _type: Attribute
@@ -3024,6 +3858,7 @@ subjects:
                 _type: AttributeName
                 content: aggregation
             parenthetical: Aggregating Operator
+            model_path: Attribute_ComplexDataType.aggregation
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3046,6 +3881,7 @@ subjects:
                 _type: AttributeName
                 content: aggregatedTypes
             parenthetical: List of DataTypes
+            model_path: Attribute_ComplexDataType.aggregatedTypes
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3069,6 +3905,7 @@ subjects:
         name:
             _type: ClassName
             content: AggregatingOperator
+        model_path: Class_AggregatingOperator
         is_value_type: true
         attributes:
         -   _type: Attribute
@@ -3089,6 +3926,7 @@ subjects:
                 _type: AttributeName
                 content: name
             parenthetical: Code
+            model_path: Attribute_AggregatingOperator.name
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3111,6 +3949,7 @@ subjects:
                 _type: AttributeName
                 content: arity
             parenthetical: Integer
+            model_path: Attribute_AggregatingOperator.arity
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3133,6 +3972,7 @@ subjects:
                 _type: AttributeName
                 content: spelling
             parenthetical: Template
+            model_path: Attribute_AggregatingOperator.spelling
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3159,6 +3999,7 @@ subjects:
     name:
         _type: SubjectName
         content: Trivial Low level Data Types
+    model_path: SubjectB_Trivial Low level Data Types
     classes:
     -   _type: ValueType
         is_embellishment: false
@@ -3166,6 +4007,7 @@ subjects:
         name:
             _type: ClassName
             content: Emoji
+        model_path: Class_Emoji
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -3173,6 +4015,7 @@ subjects:
         name:
             _type: ClassName
             content: String
+        model_path: Class_String
         is_value_type: true
     -   _type: ValueType
         elaboration:
@@ -3186,6 +4029,7 @@ subjects:
         name:
             _type: ClassName
             content: CamelName
+        model_path: Class_CamelName
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3203,6 +4047,7 @@ subjects:
                 _type: AttributeName
                 content: valueTheString
             parenthetical: String
+            model_path: Attribute_CamelName.valueTheString
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3269,6 +4114,7 @@ subjects:
         name:
             _type: ClassName
             content: UpperCamel
+        model_path: Class_UpperCamel
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3298,6 +4144,7 @@ subjects:
         name:
             _type: ClassName
             content: LowerCamel
+        model_path: Class_LowerCamel
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3319,6 +4166,7 @@ subjects:
         name:
             _type: ClassName
             content: QualifiedCamel
+        model_path: Class_QualifiedCamel
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3346,6 +4194,7 @@ subjects:
         name:
             _type: ClassName
             content: RichText
+        model_path: Class_RichText
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3366,6 +4215,7 @@ subjects:
                 _type: AttributeName
                 content: value
             parenthetical: string
+            model_path: Attribute_RichText.value
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3400,6 +4250,7 @@ subjects:
                 _type: AttributeName
                 content: format
             parenthetical: Code
+            model_path: Attribute_RichText.format
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3424,6 +4275,7 @@ subjects:
         name:
             _type: ClassName
             content: OneLiner
+        model_path: Class_OneLiner
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3444,6 +4296,7 @@ subjects:
                 _type: AttributeName
                 content: value
             parenthetical: string
+            model_path: Attribute_OneLiner.value
             data_type_clause:
                 _type: DataTypeClause
                 data_type:
@@ -3479,6 +4332,7 @@ subjects:
         name:
             _type: ClassName
             content: PrimitiveType
+        model_path: Class_PrimitiveType
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -3486,6 +4340,7 @@ subjects:
         name:
             _type: ClassName
             content: String
+        model_path: Class_String
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3501,6 +4356,7 @@ subjects:
         name:
             _type: ClassName
             content: Integer
+        model_path: Class_Integer
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3516,6 +4372,7 @@ subjects:
         name:
             _type: ClassName
             content: Decimal
+        model_path: Class_Decimal
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3531,6 +4388,7 @@ subjects:
         name:
             _type: ClassName
             content: Boolean
+        model_path: Class_Boolean
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3546,6 +4404,7 @@ subjects:
         name:
             _type: ClassName
             content: Date
+        model_path: Class_Date
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3561,6 +4420,7 @@ subjects:
         name:
             _type: ClassName
             content: Time
+        model_path: Class_Time
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3576,6 +4436,7 @@ subjects:
         name:
             _type: ClassName
             content: DateTime
+        model_path: Class_DateTime
         subtype_of:
         -   _type: SubtypeBy
             class_name:
@@ -3591,6 +4452,7 @@ subjects:
         name:
             _type: ClassName
             content: CodingLanguage
+        model_path: Class_CodingLanguage
         is_value_type: true
     -   _type: CodeType
         is_embellishment: false
@@ -3598,6 +4460,7 @@ subjects:
         name:
             _type: ClassName
             content: Cardinality
+        model_path: Class_Cardinality
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -3605,6 +4468,7 @@ subjects:
         name:
             _type: ClassName
             content: TemplateLanguage
+        model_path: Class_TemplateLanguage
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -3612,6 +4476,7 @@ subjects:
         name:
             _type: ClassName
             content: Template
+        model_path: Class_Template
         is_value_type: true
     -   _type: ValueType
         is_embellishment: false
@@ -3619,6 +4484,7 @@ subjects:
         name:
             _type: ClassName
             content: Code
+        model_path: Class_Code
         is_value_type: true
     subjects:
     -   _type: SubjectC
@@ -3670,6 +4536,7 @@ subjects:
         name:
             _type: SubjectName
             content: Annotation Types Used
+        model_path: SubjectC_Annotation Types Used
     -   _type: SubjectC
         elaboration:
         -   _type: CodeBlock
@@ -3696,6 +4563,7 @@ subjects:
         name:
             _type: SubjectName
             content: Annotation types as CSV
+        model_path: SubjectC_Annotation types as CSV
 -   _type: SubjectB
     one_liner:
         _type: OneLiner
@@ -3720,3 +4588,4 @@ subjects:
     name:
         _type: SubjectName
         content: Appendices
+    model_path: SubjectB_Appendices

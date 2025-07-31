@@ -72,7 +72,7 @@ def render_value(value):
     if isinstance(value, str):
         return value
 
-    print(f"RenderValue for {vtype} == {pytype}")
+    # print(f"RenderValue for {vtype} == {pytype}")
     if isinstance(value, list):
         return "\n".join([render_value(x) for x in value])
     
@@ -222,11 +222,11 @@ def cleaned_paras(paras: list[Literate_01.Paragraph]) -> str:
 def render_ldm(self):
     objtype = type(self)
     named_type = "??" # self._type
-    print(f"Rendering LDM - {objtype} - {named_type}")
+    # print(f"Rendering LDM - {objtype} - {named_type}")
     result = render_component(self, prefix=self.prefix + " ")
 
     subjects = self.subjects
-    print(len(subjects), " subjects coming in model")
+    # print(len(subjects), " subjects coming in model")
     result += render_each(self.subjects)
 
     return result
@@ -237,7 +237,7 @@ def render_subject(self):
     result = render_component(self, prefix=self.prefix + " ")
     
     classes = getattr(self, 'classes', [])
-    print(len(classes), " classes in subject")
+    # print(len(classes), " classes in subject")
     
 
     # Render classes
@@ -376,7 +376,7 @@ def render_class(self):
 
 def render_attribute_reference(self):
     result = ""
-    result += render(self, "class_name")
+    result += render(self, "class_reference")
     result += "_._"
     result += render(self, "attribute_name")
     return result
@@ -422,7 +422,7 @@ def render_formula_field(self, field_name: str) -> str:
     json = as_json(formula)
     result += f"{json}\n"
     result += render_field(formula, "one_liner", getattr(formula, "_type", "one_liner"))
-    result += render_field(formula, "ocl")
+    result += render_field(formula, "python")
     result += render_field(formula, "code")
 
     result += render_elaboration(formula)
@@ -434,7 +434,7 @@ def render_formula_field(self, field_name: str) -> str:
 def render_formula(self) -> str:
     """Render the formula for the object."""
     result = render_field(self, "one_liner", getattr(self, "_type", "one_liner"))
-    result += render_field(self, "ocl")
+    result += render_field(self, "python")
 
     result += render_elaboration(self)
     result += render_each(self.annotations)

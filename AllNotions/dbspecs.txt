@@ -1,0 +1,30 @@
+## Components Database Specification
+
+Create a new database with the following properties:
+
+### Database Properties
+
+- **Name**: Name (Title property, text)
+- **Type**: Select property with options:
+    - Subject
+    - Class
+    - Attribute
+    - AttributeSection
+    - Annotation
+- **Description**: Text property for a brief one-liner about the component
+- **Elaboration**: Text property for more detailed explanation
+- **Parent**: Relation property linking to this same database (for hierarchical relationships)
+- **SubtypeOf**: Relation property linking to this same database (for inheritance relationships)
+- **BasedOn**: Relation property linking to this same database (for dependency relationships)
+- **DataType**: Text property (for attributes only)
+- **IsOptional**: Checkbox property (for attributes only)
+- **Cardinality**: Select property with options: N:1, 1:1, 1:N, N:M (for attributes only)
+
+### Database Views
+
+- **All Components**: Default table view showing all items
+- **By Type**: Group items by Type
+- **Hierarchical**: Sort by Parent relationship
+- **Attributes Only**: Filter to show only items where Type = Attribute
+- **Classes Only**: Filter to show only items where Type = Class
+- **Subjects Only**: Filter to show only items where Type = Subject

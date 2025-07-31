@@ -1,4 +1,4 @@
-# Simple GitHub update script for the Presentable project
+# Simple GitHub update script for the Literate project
 
 # Get the current branch
 $BRANCH = git rev-parse --abbrev-ref HEAD

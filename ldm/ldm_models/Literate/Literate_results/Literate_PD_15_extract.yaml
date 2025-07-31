@@ -31,6 +31,9 @@ classes:
     -   relation: allClasses
         to: Classes
         cardinality: O_O
+    -   relation: annotationTypes
+        to: AnnotationTypes
+        cardinality: O_O
 -   _type: Class
     name: Subject
     edges:
@@ -87,6 +90,12 @@ classes:
         cardinality: O_O
     -   relation: methods
         to: Methods
+        cardinality: O_O
+    -   relation: dependents
+        to: Classes
+        cardinality: O_O
+    -   relation: uniqueKeys
+        to: UniqueKeys
         cardinality: O_O
 -   _type: Class
     name: Subtyping
@@ -148,6 +157,27 @@ classes:
     -   relation: based_on
         to: AttributeSection
         cardinality: M:1
+    -   relation: inverseClass
+        to: Class_
+        cardinality: O_O
+    -   relation: inverseAttribute
+        to: Attribute
+        cardinality: O_O
+    -   relation: inverseIsOptional
+        to: Attribute
+        cardinality: O_O
+    -   relation: default
+        to: Derivation
+        cardinality: O_O
+    -   relation: derivation
+        to: Derivation
+        cardinality: O_O
+    -   relation: constraints
+        to: Constraints
+        cardinality: O_O
+    -   relation: overrides
+        to: Attribute
+        cardinality: O_O
 -   _type: ValueType
     name: Derivation
     edges: []

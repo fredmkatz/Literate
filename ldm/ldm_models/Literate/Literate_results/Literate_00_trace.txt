@@ -11,8 +11,6 @@ Phase: .. full dict saved  in ldm/ldm_models/Literate/Literate_results/Literate_
 
 Phase: Creating model with from_typed_dict() => to_typed_dict() => ldm/ldm_models/Literate/Literate_results/Literate_PD_03.model.yaml
 Calling LiterateModel.from_typed_dict ...
-Creating embellishment attribute
-Creating embellishment attribute
 
 Phase: have py  model from dict
 
@@ -20,8 +18,8 @@ Phase: Creating model_dict from model => ldm/ldm_models/Literate/Literate_result
 
 Phase: Testing containers
 Embellishment counting -  After first construction
-6  attributes in Component
-0  isEmbellished in Component
+7  attributes in Component
+1  isEmbellished in Component
 
 Phase: Validating model with validation faculty, to ldm/ldm_models/Literate/Literate_results/Literate_PD_04.v_model.yaml
 All classes names (singular and plural are: 
@@ -85,199 +83,218 @@ Invalid boolean value for IsExhaustive:  - should be in:
 All classes names (singular and plural are: 
 Validating LiterateModel
 Embellishment counting -  After validating class Class: Component
-6  attributes in Component
-0  isEmbellished in Component
+7  attributes in Component
+1  isEmbellished in Component
 Embellishment counting -  After validating class Class: AnnotationType
-6  attributes in Component
-0  isEmbellished in Component
+7  attributes in Component
+1  isEmbellished in Component
 Embellishment counting -  After validating class Class: Annotation
-6  attributes in Component
-0  isEmbellished in Component
+7  attributes in Component
+1  isEmbellished in Component
 Embellishment counting -  After validating class Class: LiterateModel
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: Subject
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: SubjectArea
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: Class
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: Subtyping
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: ReferenceType
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: CodeType
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: CodeValue
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: Key
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: UniqueKey
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: AttributeSection
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: Attribute
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Derivation
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Constraint
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: ClassConstraint
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: AttributeConstraint
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: Method
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Class: Parameter
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Message
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: CodeExpression
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: DataType
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: SimpleDataTypeSubtpeOfDataType
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: ComplexDataType
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: AggregatingOperator
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Emoji
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: String
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: CamelName
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: UpperCamel
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: LowerCamel
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: QualifiedCamel
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: RichText
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: OneLiner
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: PrimitiveType
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: String
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Integer
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Decimal
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Boolean
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Date
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Time
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: DateTime
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Codetype: CodingLanguage
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Codetype: Cardinality
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: TemplateLanguage
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Template
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Embellishment counting -  After validating class Valuetype: Code
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 Call to Validating references...
 Validating references
-Validation diagnostics: 31
+Validation diagnostics: 52
 - Warning (Style) on Attribute named oneLiner: oneLiner is too long. (116 chars).
 - Warning (Style) on Attribute named isEmbellishment: oneLiner is too long. (91 chars).
+- Warning (Style) on Attribute named isEmbellishment: oneLiner is too long. (91 chars).
 - Warning (Style) on Class named AnnotationType: oneLiner is too long. (96 chars).
+- Bug (MissingValue) on Attribute named baseLiterateModel: Required field 'model_path' is missing
 - Warning (Style) on Attribute named isEmbellishment: oneLiner is too long. (92 chars).
+- Warning (Style) on Attribute named isEmbellishment: oneLiner is too long. (92 chars).
+- Bug (MissingValue) on Attribute named baseComponent: Required field 'model_path' is missing
 - Warning (Style) on Class named LiterateModel: oneLiner is too long. (112 chars).
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
-- Bug (MissingValue) on Class named LiterateModel: Required field 'presumed_plural' is missing
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
 - Warning (Style) on Attribute named classes: oneLiner is too long. (91 chars).
 - Warning (Style) on Attribute named childSubjects: oneLiner is too long. (94 chars).
-- Bug (MissingValue) on Class named Subject: Required field 'presumed_plural' is missing
-- Bug (MissingValue) on Class named SubjectArea: Required field 'presumed_plural' is missing
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
+- Bug (MissingValue) on Attribute named baseLiterateModel: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfParentSubject: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named baseLiterateModel: Required field 'model_path' is missing
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
 - Warning (Style) on Attribute named attributes: oneLiner is too long. (91 chars).
-- Bug (MissingValue) on Class named Class: Required field 'presumed_plural' is missing
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
+- Bug (MissingValue) on Attribute named inverseOfAllSubjects: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfAllClasses: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfClasses: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfBasedOn: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfSupertypes: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfSubtypes: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfSubtypings: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named baseClass: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named baseCodeType: Required field 'model_path' is missing
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
+- Bug (MissingValue) on Attribute named baseClass: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfAttributeSections: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named baseClass: Required field 'model_path' is missing
 - Warning (Style) on Default named : Formula one_liner is too long (220 chars)
 - Warning (Style) on Attribute named default: oneLiner is too long. (143 chars).
-- Bug (MissingValue) on Attribute named overrides: Required field 'data_type_clause' is missing
-- Bug (MissingValue) on Class named Attribute: Required field 'presumed_plural' is missing
-- Bug (MissingValue) on ValueType named Derivation: Required field 'presumed_plural' is missing
+- Warning (Style) on Default named : Formula one_liner is too long (220 chars)
+- Warning (Style) on Attribute named default: oneLiner is too long. (143 chars).
+- Bug (MissingValue) on Attribute named inverseOfAttributes: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfKeyAttributes: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named baseAttributeSection: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfInverseAttribute: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfInverseIsOptional: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfOverrides: Required field 'model_path' is missing
 - Warning (Style) on Attribute named expression: oneLiner is too long. (96 chars).
-- Bug (MissingValue) on ValueType named Constraint: Required field 'presumed_plural' is missing
-- Bug (MissingValue) on Class named Method: Required field 'presumed_plural' is missing
-- Bug (MissingValue) on Class named Parameter: Required field 'presumed_plural' is missing
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
+- Bug (MissingValue) on Attribute named baseClass: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named baseAttribute: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfMethods: Required field 'model_path' is missing
+- Bug (MissingValue) on Attribute named inverseOfParameters: Required field 'model_path' is missing
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
 - Warning (Style) on Constraint named : Formula one_liner is too long (129 chars)
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
-- Error (MissingValue) on Constraint named : Missing value for required field: 'ocl'
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
+- Error (MissingValue) on Constraint named : Missing value for required field: 'python'
 - Warning (Style) on SubjectB named Appendices: oneLiner is too long. (126 chars).
 ..Created dict for validated model: ldm/ldm_models/Literate/Literate_results/Literate_PD_04.v_model.yaml
 Embellishment counting -  After validation
-7  attributes in Component
-1  isEmbellished in Component
+8  attributes in Component
+2  isEmbellished in Component
 
 Phase: counting diagnostics
-31 	 All Diagnostics
-1 	 Bug - Attribute - MissingValue- NoConstraintName
-7 	 Bug - Class - MissingValue- NoConstraintName
-2 	 Bug - ValueType - MissingValue- NoConstraintName
-8 	 Error - Constraint - MissingValue- NoConstraintName
-8 	 Warning - Attribute - Style- checkOneLinerLength
-2 	 Warning - Class - Style- checkOneLinerLength
-1 	 Warning - Constraint - Style- NoConstraintName
-1 	 Warning - Default - Style- NoConstraintName
-1 	 Warning - SubjectB - Style- checkOneLinerLength
+52 	 All Diagnostics
+27 	 Bug - Attribute - MissingValue- NoConstraintName
+8 	 Error - Constraint - MissingValue- Missing attribute: python
+11 	 Warning - Attribute - Style- componentOneLinerLength
+2 	 Warning - Class - Style- componentOneLinerLength
+1 	 Warning - Constraint - Style- FormulaOneLinerLength
+2 	 Warning - Default - Style- FormulaOneLinerLength
+1 	 Warning - SubjectB - Style- componentOneLinerLength
 pattern is ldm/ldm_models/Literate/Literate_results/*dict*.yaml
 pattern is ldm/ldm_models/Literate/Literate_results/*model*.yaml
 Dict names are:  ['Literate_PD_02.dict.yaml', 'Literate_PD_03.model.yaml', 'Literate_PD_04.v_model.yaml']
@@ -292,10 +309,9 @@ Including:  Literate_PD_03.model.yaml
 Including:  Literate_PD_04.v_model.yaml
 
 Phase: Create extract for diagrams
-Faculty class Extractors created
-Created Extractprs() =  <ldm.ldm_extractors.Extractors object at 0x0000022E7D57A660>
+Created Extractprs() =  <ldm.ldm_extractors.Extractors object at 0x000001727F7AE7B0>
 And the extract is....
-{'_type': 'LiterateModel', 'name': 'Literate Data Model', 'classes': [{'_type': 'Class', 'name': 'Component', 'edges': []}, {'_type': 'Class', 'name': 'AnnotationType', 'edges': [{'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Annotation', 'edges': [{'relation': 'based_on', 'to': 'Component', 'cardinality': 'M:1'}, {'relation': 'annotationType', 'to': 'AnnotationType', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'LiterateModel', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'allSubjects', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'allClasses', 'to': 'Classes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Subject', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}, {'relation': 'parentSubject', 'to': 'Subject', 'cardinality': 'O_O'}, {'relation': 'classes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'childSubjects', 'to': 'Subjects', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'SubjectArea', 'edges': [{'relation': 'subtype_of', 'to': 'Subject', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Class_', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'basedOn', 'to': 'Class_', 'cardinality': 'O_O'}, {'relation': 'supertypes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'subtypings', 'to': 'Subtypings', 'cardinality': 'O_O'}, {'relation': 'subtypes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'attributes', 'to': 'Attributes', 'cardinality': 'O_O'}, {'relation': 'attributeSections', 'to': 'AttributeSections', 'cardinality': 'O_O'}, {'relation': 'constraints', 'to': 'Constraints', 'cardinality': 'O_O'}, {'relation': 'methods', 'to': 'Methods', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Subtyping', 'edges': [{'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}, {'relation': 'classes', 'to': 'Classes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'ReferenceType', 'edges': [{'relation': 'subtype_of', 'to': 'Class_', 'cardinality': '1:1'}]}, {'_type': 'ValueType', 'name': 'CodeType', 'edges': []}, {'_type': 'ValueType', 'name': 'CodeValue', 'edges': [{'relation': 'based_on', 'to': 'CodeType', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Key', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}, {'relation': 'keyAttributes', 'to': 'Attributes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'UniqueKey', 'edges': [{'relation': 'subtype_of', 'to': 'Key', 'cardinality': '1:1'}]}, {'_type': 'Class', 'name': 'AttributeSection', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Attribute', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'AttributeSection', 'cardinality': 'M:1'}]}, {'_type': 'ValueType', 'name': 'Derivation', 'edges': []}, {'_type': 'ValueType', 'name': 'Constraint', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}]}, {'_type': 'ValueType', 'name': 'ClassConstraint', 'edges': [{'relation': 'subtype_of', 'to': 'Constraint', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}]}, {'_type': 'ValueType', 'name': 'AttributeConstraint', 'edges': [{'relation': 'subtype_of', 'to': 'Constraint', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Attribute', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Method', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'parameters', 'to': 'Parameters', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Parameter', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}]}]}
+{'_type': 'LiterateModel', 'name': 'Literate Data Model', 'classes': [{'_type': 'Class', 'name': 'Component', 'edges': []}, {'_type': 'Class', 'name': 'AnnotationType', 'edges': [{'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Annotation', 'edges': [{'relation': 'based_on', 'to': 'Component', 'cardinality': 'M:1'}, {'relation': 'annotationType', 'to': 'AnnotationType', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'LiterateModel', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'allSubjects', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'allClasses', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'annotationTypes', 'to': 'AnnotationTypes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Subject', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}, {'relation': 'parentSubject', 'to': 'Subject', 'cardinality': 'O_O'}, {'relation': 'classes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'childSubjects', 'to': 'Subjects', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'SubjectArea', 'edges': [{'relation': 'subtype_of', 'to': 'Subject', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Class_', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'basedOn', 'to': 'Class_', 'cardinality': 'O_O'}, {'relation': 'supertypes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'subtypings', 'to': 'Subtypings', 'cardinality': 'O_O'}, {'relation': 'subtypes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'attributes', 'to': 'Attributes', 'cardinality': 'O_O'}, {'relation': 'attributeSections', 'to': 'AttributeSections', 'cardinality': 'O_O'}, {'relation': 'constraints', 'to': 'Constraints', 'cardinality': 'O_O'}, {'relation': 'methods', 'to': 'Methods', 'cardinality': 'O_O'}, {'relation': 'dependents', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'uniqueKeys', 'to': 'UniqueKeys', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Subtyping', 'edges': [{'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}, {'relation': 'classes', 'to': 'Classes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'ReferenceType', 'edges': [{'relation': 'subtype_of', 'to': 'Class_', 'cardinality': '1:1'}]}, {'_type': 'ValueType', 'name': 'CodeType', 'edges': []}, {'_type': 'ValueType', 'name': 'CodeValue', 'edges': [{'relation': 'based_on', 'to': 'CodeType', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Key', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}, {'relation': 'keyAttributes', 'to': 'Attributes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'UniqueKey', 'edges': [{'relation': 'subtype_of', 'to': 'Key', 'cardinality': '1:1'}]}, {'_type': 'Class', 'name': 'AttributeSection', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Attribute', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'AttributeSection', 'cardinality': 'M:1'}, {'relation': 'inverseClass', 'to': 'Class_', 'cardinality': 'O_O'}, {'relation': 'inverseAttribute', 'to': 'Attribute', 'cardinality': 'O_O'}, {'relation': 'inverseIsOptional', 'to': 'Attribute', 'cardinality': 'O_O'}, {'relation': 'default', 'to': 'Derivation', 'cardinality': 'O_O'}, {'relation': 'derivation', 'to': 'Derivation', 'cardinality': 'O_O'}, {'relation': 'constraints', 'to': 'Constraints', 'cardinality': 'O_O'}, {'relation': 'overrides', 'to': 'Attribute', 'cardinality': 'O_O'}]}, {'_type': 'ValueType', 'name': 'Derivation', 'edges': []}, {'_type': 'ValueType', 'name': 'Constraint', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}]}, {'_type': 'ValueType', 'name': 'ClassConstraint', 'edges': [{'relation': 'subtype_of', 'to': 'Constraint', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}]}, {'_type': 'ValueType', 'name': 'AttributeConstraint', 'edges': [{'relation': 'subtype_of', 'to': 'Constraint', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Attribute', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Method', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'parameters', 'to': 'Parameters', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Parameter', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}]}]}
 
 Phase: Validating to JSON Schema - on json model
 Schema path is:  ldm/ldm_models/Literate/Literate_results/LiterateMeta/LiterateMetaModel_01_PD_schema.yaml
@@ -305,57 +321,10 @@ Validation successful!
 Phase: Skipping Render to Markdown
 
 Phase: Creating HTML using the Faculty
-HTMLing Model Literate Data Model
-Doing html for 0 classes and 7 subjects
-HTMLing subject Literate Data Model
-	Doing html for 0 classes and 7 subjects
-HTMLing subject Preliminaries
-	Doing html for 3 classes and 0 subjects
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-HTMLing subject The Model and its Subjects
-	Doing html for 3 classes and 1 subjects
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-HTMLing subject Classes
-	Doing html for 7 classes and 0 subjects
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-HTMLing subject Attributes
-	Doing html for 6 classes and 0 subjects
-Generating single mermaid chart
-Generating single mermaid chart
-Focal points not contained in nodes - skipping diagram
-Generating single mermaid chart
-Generating single mermaid chart
-Generating single mermaid chart
-HTMLing subject Methods
-	Doing html for 2 classes and 0 subjects
-Generating single mermaid chart
-Generating single mermaid chart
-HTMLing subject Trivial Data Types
-	Doing html for 6 classes and 0 subjects
-HTMLing subject Trivial Low level Data Types
-	Doing html for 21 classes and 2 subjects
-HTMLing subject Annotation Types Used
-	Doing html for 0 classes and 0 subjects
-PUML png file saved to: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Literate\Literate_results\diagrams\diagram_21_puml.png
-HTMLing subject Annotation types as CSV
-	Doing html for 0 classes and 0 subjects
-HTMLing subject Appendices
-	Doing html for 0 classes and 0 subjects
-Saved styled dictionary to ldm/ldm_models/Literate/Literate_results/Literate_PD_07_as.html
-Saved styled dictionary (for review) to ldm/ldm_models/Literate/Literate_results/Literate_PD_07_as.review.html
+PUML png file saved to: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ldm\ldm_models\Literate\Literate_results\diagrams\diagram_1_puml.png
+		Saved html to ldm/ldm_models/Literate/Literate_results/Literate_PD_07_as.html
 
 Phase: Saving HTML for PDF 
-Saved styled dictionary to ldm/ldm_models/Literate/Literate_results/Literate_PD_08_as_pdf.html
-Saved styled dictionary (for review) to ldm/ldm_models/Literate/Literate_results/Literate_PD_08_as_pdf.review.html
+		Saved html to ldm/ldm_models/Literate/Literate_results/Literate_PD_08_as_pdf.html
 
 Phase: Creating PDF from html and css - using Prince

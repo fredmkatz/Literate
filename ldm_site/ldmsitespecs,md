@@ -1,0 +1,23 @@
+## Left  sidebar - on all pages.
+- contains a nested list of subjects, with the Model name at the top.
+- Each element can be collapsed.
+- Clicking on a subject opens the Subject page at the righ
+
+## Top of Page
+Breadcrumbs to Subject or Class
+## Subject page
+- Name of the chosen subject at the top of the page
+- Then One Liner
+- Then Elaboration
+- Then, list of Classes assigned to the subject - with OneLiners, but no other info. Clicking on a Class name, takes you to the Class page
+- Finally, list of Subjects at the next level down.  Just names, which link to those Subject pages,and oneliners,
+
+## Class Page
+- Prefix, name, and one liner at the top
+- Prefix is: Class or ValueType or CodeType; others will come
+- Clauses like *subtype of*, *based on*
+- Elaboration (set of paragraphs)
+- For each attribute, attribute section,
+- ... everything about the attribute
+  
+  
