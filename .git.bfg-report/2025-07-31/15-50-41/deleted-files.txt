@@ -1,0 +1,2 @@
+5822bd43f67595bf60edce729d4d5dec3f14c9c5 118906368 next-swc.win32-arm64-msvc.node
+834696cf36384bce4919417d9167a3d95c0adfaa 433664 sharp-win32-arm64.node
