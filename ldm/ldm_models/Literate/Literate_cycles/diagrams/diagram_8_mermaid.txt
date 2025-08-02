@@ -1,3 +1,0 @@
-erDiagram
-    Class_ |o--o| Class_ : basedOn
-    Subtyping }o--|| Class_ : based_on

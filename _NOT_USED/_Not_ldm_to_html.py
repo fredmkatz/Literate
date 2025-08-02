@@ -540,7 +540,7 @@ def add_anchor_html(key_name, value, html_h):
 import traceback
 import sys
 def html_simple_content(obj_type, obj):
-    from ldm.ldm_to_html_prose import as_prose_html
+    from ldm.ldm_htmlers_for_prose import as_prose_html
 
     # print(f"Adding simple: {obj_type} ")
     content = "SimpleContent?"

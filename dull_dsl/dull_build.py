@@ -4,15 +4,14 @@ from utils.util_json import as_json, write_yaml, write_json, as_yaml, make_tidy_
 from utils.util_fmk import create_fresh_directory
 
 from utils.typed_dict_tools_diff import TypedDict
-import utils.do_weasy_pdf as weasy
 
 import ldm.ldm_renderers as ldm_renderers
-import ldm.ldm_validators_v3 as ldm_validators
+import ldm.ldm_validators_core as ldm_validators
 from ldm.ldm_htmlers import create_model_html_with_faculty, save_model_html
 
 import utils.util_all_fmk as fmk
 
-from ldm.ldm_validators_v3 import countEmbellishments
+from ldm.ldm_validators_core import countEmbellishments
 
 from dull_dsl.dull_parser import parse_model_doc
 from utils.util_pydantic import gen_schema
@@ -38,7 +37,7 @@ from utils.util_pydantic import TYPE_REGISTRY, dataclass, USING_PYDANTIC
 from ldm.Literate_01 import *
 
 from utils.util_inspect import inspect_module
-
+from ldm.ldm_extractors import create_model_extract_with_faculty
 
 def build_dull_dsl(dull_specs: Dict):
 
@@ -194,7 +193,6 @@ def build_dull_dsl(dull_specs: Dict):
 
     show_phase("Create extract for diagrams")
 
-    from ldm.ldm_extractors import create_model_extract_with_faculty
     
     the_extract_path = f"{results_dir}/{model_name}_{pd_or_not}_15_extract.yaml"
     
@@ -313,7 +311,7 @@ def show_trivials(model):
 
     
 import ldm as ldm
-from ldm.ldm_validators_v3 import findTheModel
+from ldm.ldm_validators_core import findTheModel
 
 def count_strings(string_list):
     string_counts = {}

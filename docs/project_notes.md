@@ -1,2 +1,2 @@
-# Presentable - Specs and Notes
+# Literate - Specs and Notes
 

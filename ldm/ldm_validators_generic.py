@@ -18,7 +18,7 @@ def create_field_error(obj, category, message):
     Helper function to log or handle validation errors.
     """
     
-    from ldm.ldm_validators_v3 import createBug
+    from ldm.ldm_validators_core import createBug
     createBug(obj, category,  message)
 
 

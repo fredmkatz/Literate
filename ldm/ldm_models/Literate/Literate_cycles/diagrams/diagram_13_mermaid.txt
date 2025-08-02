@@ -1,2 +1,0 @@
-erDiagram
-    UniqueKey ||--|| Key : subtype_of

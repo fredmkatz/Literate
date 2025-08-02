@@ -91,6 +91,9 @@ class Casing(PresentableToken):     # Note. PresentableToken now includes Pydant
             for word in word
         ]
         return words3
+    
+    def to_json(self):
+        return f"{self._type} - {self.content}"
 
     def split_camel(self, input_string):
         """

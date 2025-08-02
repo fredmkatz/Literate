@@ -2,15 +2,7 @@ import sys
 
 from typing import List
 
-from dull_dsl.dull_parser_classes import (
-    LineType,
-    HeadLine,
-    # ClauseLine,
-    MajorClause,
-    MinorClause,
-    PartStarter,
-)
-from ldm.ldm_dull_handlers import (
+from ldm.ldm_parse_fns import (
     ParseName,
     ParseNameList,
     ParseTrivial,
@@ -18,6 +10,15 @@ from ldm.ldm_dull_handlers import (
     ParseHeader,
     ParseAnnotation,
     ParseSubtypeOf,
+)
+
+from dull_dsl.dull_parser_classes import (
+    LineType,
+    HeadLine,
+    # ClauseLine,
+    MajorClause,
+    MinorClause,
+    PartStarter,
 )
 
 

@@ -1,7 +1,7 @@
 from typing import List, Any
 from collections import defaultdict
 
-from faculty_base_v3 import Faculty, faculty_class, patch_on, show_patches
+from utils.class_faculty import Faculty, faculty_class, patch_on, show_patches
 from ldm.ldm_validators_generic import validate_fields
 from ldm.Literate_01 import *
 import ldm.Literate_01 as Literate_01

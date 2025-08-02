@@ -1,7 +1,7 @@
 from typing import List, Any
 from collections import defaultdict
 
-from faculty_base_v3 import Faculty, faculty_class, patch_on, show_patches
+from utils.class_faculty import Faculty, faculty_class, patch_on, show_patches
 from ldm.Literate_01 import *
 
 from utils.util_flogging import trace_decorator
@@ -331,7 +331,7 @@ class Htmlers(Faculty):
         
             diagram_code = generate_focused_diagram(The_Extract_Path, model_diagrams_dir, [cname], radius = 1)
             if  diagram_code:
-                from ldm.ldm_to_html_prose import  diagram_suite
+                from ldm.ldm_htmlers_for_prose import  diagram_suite
 
                 title = "Mermaid ER Diagram for " + cname
                 comp_html.append(diagram_suite(title, diagram_code, "mermaid"))
@@ -410,7 +410,7 @@ import sys
 
 
 def html_prose_content(obj_type, obj):
-    from ldm.ldm_to_html_prose import as_prose_html, diagram_suite
+    from ldm.ldm_htmlers_for_prose import as_prose_html, diagram_suite
 
     # print(f"Adding simple: {obj_type} ")
     # print("...obj is ", obj)

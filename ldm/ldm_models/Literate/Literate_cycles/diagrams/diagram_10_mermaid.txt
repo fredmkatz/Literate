@@ -1,2 +1,0 @@
-erDiagram
-    CodeValue }o--|| CodeType : based_on

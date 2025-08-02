@@ -309,7 +309,6 @@ Including:  Literate_PD_03.model.yaml
 Including:  Literate_PD_04.v_model.yaml
 
 Phase: Create extract for diagrams
-Created Extractprs() =  <ldm.ldm_extractors.Extractors object at 0x00000289DC619D30>
 And the extract is....
 {'_type': 'LiterateModel', 'name': 'Literate Data Model', 'classes': [{'_type': 'Class', 'name': 'Component', 'edges': []}, {'_type': 'Class', 'name': 'AnnotationType', 'edges': [{'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Annotation', 'edges': [{'relation': 'based_on', 'to': 'Component', 'cardinality': 'M:1'}, {'relation': 'annotationType', 'to': 'AnnotationType', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'LiterateModel', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'allSubjects', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'allClasses', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'annotationTypes', 'to': 'AnnotationTypes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Subject', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}, {'relation': 'parentSubject', 'to': 'Subject', 'cardinality': 'O_O'}, {'relation': 'classes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'childSubjects', 'to': 'Subjects', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'SubjectArea', 'edges': [{'relation': 'subtype_of', 'to': 'Subject', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'LiterateModel', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Class_', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'basedOn', 'to': 'Class_', 'cardinality': 'O_O'}, {'relation': 'supertypes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'subtypings', 'to': 'Subtypings', 'cardinality': 'O_O'}, {'relation': 'subtypes', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'attributes', 'to': 'Attributes', 'cardinality': 'O_O'}, {'relation': 'attributeSections', 'to': 'AttributeSections', 'cardinality': 'O_O'}, {'relation': 'constraints', 'to': 'Constraints', 'cardinality': 'O_O'}, {'relation': 'methods', 'to': 'Methods', 'cardinality': 'O_O'}, {'relation': 'dependents', 'to': 'Classes', 'cardinality': 'O_O'}, {'relation': 'uniqueKeys', 'to': 'UniqueKeys', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Subtyping', 'edges': [{'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}, {'relation': 'classes', 'to': 'Classes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'ReferenceType', 'edges': [{'relation': 'subtype_of', 'to': 'Class_', 'cardinality': '1:1'}]}, {'_type': 'ValueType', 'name': 'CodeType', 'edges': []}, {'_type': 'ValueType', 'name': 'CodeValue', 'edges': [{'relation': 'based_on', 'to': 'CodeType', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Key', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}, {'relation': 'keyAttributes', 'to': 'Attributes', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'UniqueKey', 'edges': [{'relation': 'subtype_of', 'to': 'Key', 'cardinality': '1:1'}]}, {'_type': 'Class', 'name': 'AttributeSection', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Attribute', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'AttributeSection', 'cardinality': 'M:1'}, {'relation': 'inverseClass', 'to': 'Class_', 'cardinality': 'O_O'}, {'relation': 'inverseAttribute', 'to': 'Attribute', 'cardinality': 'O_O'}, {'relation': 'inverseIsOptional', 'to': 'Attribute', 'cardinality': 'O_O'}, {'relation': 'default', 'to': 'Derivation', 'cardinality': 'O_O'}, {'relation': 'derivation', 'to': 'Derivation', 'cardinality': 'O_O'}, {'relation': 'constraints', 'to': 'Constraints', 'cardinality': 'O_O'}, {'relation': 'overrides', 'to': 'Attribute', 'cardinality': 'O_O'}]}, {'_type': 'ValueType', 'name': 'Derivation', 'edges': []}, {'_type': 'ValueType', 'name': 'Constraint', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}]}, {'_type': 'ValueType', 'name': 'ClassConstraint', 'edges': [{'relation': 'subtype_of', 'to': 'Constraint', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Class_', 'cardinality': 'M:1'}]}, {'_type': 'ValueType', 'name': 'AttributeConstraint', 'edges': [{'relation': 'subtype_of', 'to': 'Constraint', 'cardinality': '1:1'}, {'relation': 'based_on', 'to': 'Attribute', 'cardinality': 'M:1'}]}, {'_type': 'Class', 'name': 'Method', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}, {'relation': 'parameters', 'to': 'Parameters', 'cardinality': 'O_O'}]}, {'_type': 'Class', 'name': 'Parameter', 'edges': [{'relation': 'subtype_of', 'to': 'Component', 'cardinality': '1:1'}]}]}
 
@@ -328,3 +327,47 @@ Phase: Saving HTML for PDF
 		Saved html to ldm/ldm_models/Literate/Literate_results/Literate_PD_08_as_pdf.html
 
 Phase: Creating PDF from html and css - using Prince
+Printing stack trace using traceback.print_exc():
+Traceback (most recent call last):
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\ldm\do_build_ldm.py", line 384, in <module>
+    build_dull_dsl(ldm_dull_specs)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\dull_dsl\dull_build.py", line 261, in build_dull_dsl
+    html2pdf_playwright(html_pdf_path, pdf_path2)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\utils\util_playwright.py", line 8, in html2pdf_playwright
+    browser = p.chromium.launch()
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14494, in launch
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.launch(
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<17 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\.venv\Lib\site-packages\playwright\_impl\_browser_type.py", line 98, in launch
+    await self._channel.send(
+        "launch", TimeoutSettings.launch_timeout, params
+    )
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 558, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at C:\Users\fmkat\AppData\Local\ms-playwright\chromium_headless_shell-1181\chrome-win\headless_shell.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝

@@ -1,4 +1,4 @@
-from ldm.Literate_01.py import ClassName, AttributeName, AttributeReference
+from ldm.Literate_01 import ClassName, AttributeName, AttributeReference
 from utils.class_casing import UpperCamel, LowerCamel, SnakeCase
 
 

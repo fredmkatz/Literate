@@ -1,8 +1,6 @@
 from typing import List, Optional
-from ldm.Literate_01.py import (
+from ldm.Literate_01 import (
     Diagnostic,
-    Annotation,
-    DataType,
     BaseDataType,
     DataTypeClause,
     ClassName,
@@ -11,8 +9,7 @@ from ldm.Literate_01.py import (
     SubjectName,
     IsOptional,
 )
-from utils.class_casing import UpperCamel, Casing, SnakeCase, LowerCamel
-from class_pom_token import IsOptional, IsExclusive, IsExhaustive, AsValue
+from utils.class_casing import UpperCamel, SnakeCase, LowerCamel
 from ldm.ldm_validators import check_type
 from utils.util_json import as_json
 

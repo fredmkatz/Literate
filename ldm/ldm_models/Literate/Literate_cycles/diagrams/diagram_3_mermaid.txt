@@ -1,3 +1,0 @@
-erDiagram
-    Annotation }o--|| Component : based_on
-    Annotation |o--o| AnnotationType : annotationType

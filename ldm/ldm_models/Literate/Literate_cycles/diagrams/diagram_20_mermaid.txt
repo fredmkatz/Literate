@@ -1,2 +1,0 @@
-erDiagram
-    Parameter ||--|| Component : subtype_of
