@@ -12,3 +12,4 @@ venv.bak/
 dist/
 build/
 *.egg-info/
+ai_apis/class_ai_keys.py

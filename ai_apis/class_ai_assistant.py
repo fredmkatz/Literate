@@ -2,8 +2,8 @@ from pathlib import Path
 import json
 
 from typing import Dict, Tuple
-from together import Together
-from ai_apis.class_ai_keys import FMK_Together_API
+# from together import Together
+# from ai_apis.class_ai_keys import FMK_Together_API
 import utils.util_all_fmk as fmk
 
 AI_CONFIGS = "ai_configs"
