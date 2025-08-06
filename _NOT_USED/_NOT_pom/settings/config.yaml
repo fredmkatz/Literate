@@ -1,5 +1,0 @@
-# Parser configuration
-lark:
-  case_sensitive: false
-  ambiguity: resolve
-  debug: false

@@ -141,31 +141,7 @@ PSMODULEPATH => [
   "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules"
 ]
 PUBLIC => C:\Users\Public
-PYTHONPATH => [
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\AIDocumentMgr\\src\\ai_document_mgr",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\fmk_spreads",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKSpreads\\scripts",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\scripts",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\src\\fmk_utilities",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FMKUtilities\\tests",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\FlickrNavigator\\flickr_navigator\\flickr",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\GPhotosNavigator\\gphotos_navigator",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\LiterateDataModels\\literate_models",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\exif_lib",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\images",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoBasics\\photo_basics\\meta_mappings",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\FlickrMod",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\PhotoStoreMod\\GooglePhotosMod",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\PhotoManager\\photo_manager\\meta_mappings",
-  "C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects\\fmk_tool_scripts"
-]
+PYTHONPATH=
 SESSIONNAME => Console
 SYSTEMDRIVE => C:
 SYSTEMROOT => C:\Windows

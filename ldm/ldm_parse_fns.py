@@ -576,7 +576,7 @@ def parse_data_type_clause(parenthetical: str) -> DataTypeClause:
     return dtc
 
 
-from ldm.parsedt import parse_dt_phrase
+from ldm.parse_data_type import parse_dt_phrase
 
 
 def parse_data_type(phrase) -> DataType:

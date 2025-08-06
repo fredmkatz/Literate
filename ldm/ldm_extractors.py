@@ -13,7 +13,7 @@ Reserved_Words = [
 
 @faculty_class
 class Extractors(Faculty):
-    """Faculty for adding validation methods to LDM classes."""
+    """Faculty for creating extracted models (for diagrams) LDM classes."""
     
     def object_extract(self, obj: Any, method_name: str = "as_extract"):
         """Create an extract for object using the appropriate patched method."""

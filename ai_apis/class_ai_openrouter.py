@@ -17,7 +17,8 @@ class OpenRouterAssistant(AI_Assistant):  # Changed class name for clarity
         self.or_object = None
         self.llm_used = None
         self.api_key = FMK_OpenRouter_API
-        
+        print("FMK_OpenRouter_Key = ", FMK_OpenRouter_API)
+
         # OpenRouter uses the OpenAI SDK, but needs a different base_url and API key
         self.client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
@@ -28,7 +29,8 @@ class OpenRouterAssistant(AI_Assistant):  # Changed class name for clarity
             #     "X-Title": "Your App Name",  # Replace with your app's name
             # },
         )
-        print("OR client is ", self.client)
+        print("Now OR client is ", self.client)
+        print("FMK_OpenRouter_Key = ", FMK_OpenRouter_API)
 
     def get_openrouter_llm(self, llm_id) -> dict:
 

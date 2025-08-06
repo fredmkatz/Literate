@@ -11,11 +11,15 @@ AI_CONFIGS = "ai_configs"
 
 class AI_Assistant:
     def __new__(cls, gateway, llm_id):
+        print("Gateway being used is ", gateway)
         if gateway == "Together":
+            print("Using TogetherAssistant")
+
             instance = super().__new__(TogetherAssistant)
             return instance
         elif gateway == "OpenRouter":
             from ai_apis.class_ai_openrouter import OpenRouterAssistant
+            print("Using OpneRouterAssistant")
 
             instance = super().__new__(OpenRouterAssistant)
             return instance
@@ -123,19 +127,23 @@ class AI_Assistant:
         pass
 
     def parse_json_results(self, raw_results: str):
-        pruned = raw_results.replace("```json", "")
+        import re
+        pruned = re.sub(".*```json", "", raw_results, flags=re.DOTALL)
+        # pruned = raw_results.replace(".*```json", "")
         pruned = pruned.replace("```", "")
+        all_results = {"raw": raw_results}
         if pruned != raw_results:
             print("PRUNING NEEDED")
+            all_results["pruned"] = pruned
 
         try:
             jresults = json.loads(pruned)
 
             print(json.dumps(jresults, indent=2))
-            return jresults
+            all_results["parsed"] = jresults
         except Exception:
             print("Parsing failed")
-            return {}
+        return all_results
 
     def standing_prompt(self, docs_dict, iniial_message):
 
@@ -146,34 +154,34 @@ class AI_Assistant:
     """
 
 
-class TogetherAssistant(AI_Assistant):
+# class TogetherAssistant(AI_Assistant):
 
-    def __init__(self, gateway, llm_id):
-        super().__init__(gateway, llm_id=llm_id)
-        self.client = Together(
-            api_key=FMK_Together_API
-        )  # auth defaults to os.environ.get("TOGETHER_API_KEY")
+#     def __init__(self, gateway, llm_id):
+#         super().__init__(gateway, llm_id=llm_id)
+#         self.client = Together(
+#             api_key=FMK_Together_API
+#         )  # auth defaults to os.environ.get("TOGETHER_API_KEY")
 
-    def get_llm_params(self, llm_id) -> dict:
-        llm_details = self.get_together_llm(llm_id)
-        return {
-            "prompt_ppm": llm_details["pricing"]["input"],
-            "completion_ppm": llm_details["pricing"]["output"],
-            "context_length": llm_details["context_length"],
-        }
+#     def get_llm_params(self, llm_id) -> dict:
+#         llm_details = self.get_together_llm(llm_id)
+#         return {
+#             "prompt_ppm": llm_details["pricing"]["input"],
+#             "completion_ppm": llm_details["pricing"]["output"],
+#             "context_length": llm_details["context_length"],
+#         }
 
-    def get_together_llm(self, llm_id) -> dict:
+#     def get_together_llm(self, llm_id) -> dict:
 
-        together_models = fmk.read_json_file(f"{AI_CONFIGS}/together_models.json")
-        return together_models[llm_id]
+#         together_models = fmk.read_json_file(f"{AI_CONFIGS}/together_models.json")
+#         return together_models[llm_id]
 
-    def run_query_native(self, full_query):
-        response = self.client.chat.completions.create(
-            model=self.llm_id, messages=[{"role": "user", "content": full_query}]
-        )
-        raw_results = response.choices[0].message.content
-        raw_usage = response.usage
-        return (raw_results, raw_usage)
+#     def run_query_native(self, full_query):
+#         response = self.client.chat.completions.create(
+#             model=self.llm_id, messages=[{"role": "user", "content": full_query}]
+#         )
+#         raw_results = response.choices[0].message.content
+#         raw_usage = response.usage
+#         return (raw_results, raw_usage)
 
 
 # Not in Class

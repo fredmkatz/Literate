@@ -19,7 +19,7 @@ The AI support will be orchestrated by a Python script that:
 ## Response Protocol:
 You MUST respond with ONLY valid JSON in one of these two formats:
 IMPORTANT: The results should only contain the JSON, no comments and no code fences
-
+The response must not contain any introductory words or ```json notations.  It should just be the json, beginning with a {. and ending with a }.  Otherwise, it will not parse correctly.
 ### Format 1: Changes Only
 ```json
 {{

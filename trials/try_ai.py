@@ -13,10 +13,9 @@ def run_quick_query(query="Please review the attached model"):
     llm_id = "openrouter/auto"
     
     # llm_id = "google/gemini-flash-1.5-8b"   # $.05 1M
-    llm_id = "qwen/qwen3-235b-a22b-2507:free"   #  $0, 260K
     
     llm_id = "deepseek/deepseek-chat-v3-0324"   #   $0.50  164K
-
+    llm_id = "qwen/qwen3-235b-a22b-2507"   #  $0, 260K
     initial_message = (
         "You are an AI assistant specialized in improving Literate Data Models (LDMs)."
     )
@@ -30,6 +29,8 @@ def run_quick_query(query="Please review the attached model"):
         "Literate_PD_04.v_model.json"
     ]
 
+    print("AI Assistant: gateway = ", gateway)
+    print("AI Assistant: llm = ", llm_id)
     assistant = AI_Assistant(gateway, llm_id)
     assistant.prepare(
         docs_dir=docs_dir, doc_files=doc_files, initial_message=initial_message
