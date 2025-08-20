@@ -1,0 +1,1845 @@
+76  initial candidates
+	total est cost - at max =  0.01  =  0.023599999999999996
+12  cheap candidates  with max cost per =  0.01  (8 max runs)
+	 0 	 google/gemini-flash-1.5-8b  - estimate =  0.006
+Useful path =  ldm/ldm_models/Literate/Literate_runs/Literate_T01_google_gemini-flash-1.5-8b.json
+Single query: Literate - T01 - google/gemini-flash-1.5-8b
+	Total size in bytes is:  366585  = about  91646.25  tokens
+rqn return raw results as  <class 'str'>
+Elapsed time: 12.3409 seconds
+Elapsed time: 12.7863 seconds
+Raw results are....
+"```json\n{\"response_type\": \"full_model\", \"model\": {\"_type\": \"LiterateModel\", \"diagnostics\": [], \"is_embellishment\": false, \"prefix\": \"#\", \"name\": {\"_type\": \"SubjectName\", \"content\": \"Literate Data Model\"}, \"model_path\": \"LiterateModel_Literate Data Model\", \"subjects\": [{\"_type\": \"SubjectB\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"the basic structure of the literate data model\"}, \"elaboration\": [{\"_type\": \"Paragraph\", \"content\": \"This model defines the core components of a Literate Data Model (LDM), including classes, attributes, models, and subjects, to ensure clarity, consistency, and reusability.  The Component class serves as a supertype for these specific elements, facilitating inheritance of common attributes and behaviors. The inclusion of the Component class upfront follows modeling best practices, allowing readers to grasp the overarching concepts before delving into specialized components.\"}], \"is_embellishment\": false, \"prefix\": \"##\", \"name\": {\"_type\": \"SubjectName\", \"content\": \"Preliminaries\"}, \"model_path\": \"SubjectB_Preliminaries\", \"classes\": [{\"_type\": \"Class\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"A fundamental building block in a literate data model\"}, \"is_embellishment\": false, \"prefix\": \"Class\", \"name\": {\"_type\": \"ClassName\", \"content\": \"Component\"}, \"plural\": \"Components\", \"model_path\": \"Class_Component\", \"presumed_plural\": \"Components\", \"subtypings\": [{\"_type\": \"Subtyping\", \"name\": {\"_type\": \"SubtypingName\", \"content\": \"subtypes\"}, \"is_exclusive\": {\"_type\": \"IsExclusive\", \"content\": true}, \"is_exhaustive\": {\"_type\": \"IsExhaustive\", \"content\": false}, \"subtypes\": [{\"_type\": \"ClassReference\", \"content\": \"LiterateModel\"}, {\"_type\": \"ClassReference\", \"content\": \"Subject\"}, {\"_type\": \"ClassReference\", \"content\": \"Class\"}, {\"_type\": \"ClassReference\", \"content\": \"Key\"}, {\"_type\": \"ClassReference\", \"content\": \"AttributeSection\"}, {\"_type\": \"ClassReference\", \"content\": \"Attribute\"}, {\"_type\": \"ClassReference\", \"content\": \"Constraint\"}, {\"_type\": \"ClassReference\", \"content\": \"Method\"}, {\"_type\": \"ClassReference\", \"content\": \"Parameter\"}, {\"_type\": \"ClassReference\", \"content\": \"Annotation\"}]}], \"is_value_type\": false, \"attributes\": [\n                   {\n                      \"_type\": \"Attribute\",\n                      \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"The name of the component, generally a noun phrase.\"},\n                      \"name\": {\"_type\": \"AttributeName\", \"content\": \"name\"},\n                      \"parenthetical\": \"*String*\",\n                      \"data_type_clause\": {\"_type\": \"DataTypeClause\", \"data_type\": {\"_type\": \"BaseDataType\", \"class_name\": {\"_type\": \"ClassReference\", \"content\": \"String\"}, \"as_value_type\": {\"_type\": \"AsValue\", \"content\": true}}, \"is_optional_lit\": {\"_type\": \"IsOptional\", \"content\": false}, \"cardinality\": \"O_O\"}\n                   }, {\n                      \"_type\": \"Attribute\",\n                      \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"The normal name of the component, not in camel case.\"},\n                     \"name\": {\"_type\": \"AttributeName\", \"content\": \"normalName\"},\n                      \"parenthetical\": \"*String*\",\n                      \"data_type_clause\": {\"_type\": \"DataTypeClause\", \"data_type\": {\"_type\": \"BaseDataType\", \"class_name\": {\"_type\": \"ClassReference\", \"content\": \"String\"}, \"as_value_type\": {\"_type\": \"AsValue\", \"content\": true}}, \"is_optional_lit\": {\"_type\": \"IsOptional\", \"content\": false}, \"cardinality\": \"O_O\"}\n                   },\n                   \n                  {\"_type\": \"Attribute\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"A brief, one-line definition of the component.\"}, \"name\": {\"_type\": \"AttributeName\", \"content\": \"oneLiner\"}, \"parenthetical\": \"*OneLiner*\", \"data_type_clause\": {\"_type\": \"DataTypeClause\", \"data_type\": {\"_type\": \"BaseDataType\", \"class_name\": {\"_type\": \"ClassReference\", \"content\": \"OneLiner\"}, \"as_value_type\": {\"_type\": \"AsValue\", \"content\": true}}, \"is_optional_lit\": {\"_type\": \"IsOptional\", \"content\": false}, \"cardinality\": \"O_O\"}},\n                  {\"_type\": \"Attribute\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"A detailed explanation of the component.\"}, \"name\": {\"_type\": \"AttributeName\", \"content\": \"elaboration\"}, \"parenthetical\": \"*RichText*\", \"data_type_clause\": {\"_type\": \"DataTypeClause\", \"data_type\": {\"_type\": \"BaseDataType\", \"class_name\": {\"_type\": \"ClassReference\", \"content\": \"RichText\"}, \"as_value_type\": {\"_type\": \"AsValue\", \"content\": true}}, \"is_optional_lit\": {\"_type\": \"IsOptional\", \"content\": false}, \"cardinality\": \"O_O\"}},\n                   {\"_type\": \"Attribute\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"Indicates whether this component is an embellishment.\"}, \"name\": {\"_type\": \"AttributeName\", \"content\": \"isEmbellishment\"}, \"parenthetical\": \"*Boolean*\", \"data_type_clause\": {\"_type\": \"DataTypeClause\", \"data_type\": {\"_type\": \"BaseDataType\", \"class_name\": {\"_type\": \"ClassReference\", \"content\": \"Boolean\"}, \"as_value_type\": {\"_type\": \"AsValue\", \"content\": true}}, \"is_optional_lit\": {\"_type\": \"IsOptional\", \"content\": false}, \"cardinality\": \"O_O\"}, \"default\": {\"_type\": \"Default\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"false\"}, \"is_embellishment\": false}}]}]}, {\"_type\": \"SubjectB\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"The model and its subjects\"}, \"elaboration\": [], \"is_embellishment\": false, \"prefix\": \"##\", \"name\": {\"_type\": \"SubjectName\", \"content\": \"The Model Definition\"}, \"model_path\": \"SubjectB_The Model Definition\", \"classes\": [{\"_type\": \"Class\", \"one_liner\": {\"_type\": \"OneLiner\", \"content\": \"Model containing entities, relations, and documentation\"}, \"is_embellishment\": false, \"prefix\": \"Class\", \"name\": {\"_type\": \"ClassName\", \"content\": \"LiterateModel\"}, \"plural\": \"LiterateModels\", \"model_path\": \"Class_LiterateModel\", \"subtype_of\": [{\"_type\": \"SubtypeBy\", \"class_name\": {\"_type\": \"ClassReference\", \"content\": \"Component\"},\"subtyping_name\": {\"_type\": \"SubtypingName\", \"content\": \"subtypes\"}}], \"attributes\": []}], \"subjects\": []}]}\n```"
+	PRUNING NEEDED
+Parsing failed - only raw results returned
+Pruned =...
+
+{"response_type": "full_model", "model": {"_type": "LiterateModel", "diagnostics": [], "is_embellishment": false, "prefix": "#", "name": {"_type": "SubjectName", "content": "Literate Data Model"}, "model_path": "LiterateModel_Literate Data Model", "subjects": [{"_type": "SubjectB", "one_liner": {"_type": "OneLiner", "content": "the basic structure of the literate data model"}, "elaboration": [{"_type": "Paragraph", "content": "This model defines the core components of a Literate Data Model (LDM), including classes, attributes, models, and subjects, to ensure clarity, consistency, and reusability.  The Component class serves as a supertype for these specific elements, facilitating inheritance of common attributes and behaviors. The inclusion of the Component class upfront follows modeling best practices, allowing readers to grasp the overarching concepts before delving into specialized components."}], "is_embellishment": false, "prefix": "##", "name": {"_type": "SubjectName", "content": "Preliminaries"}, "model_path": "SubjectB_Preliminaries", "classes": [{"_type": "Class", "one_liner": {"_type": "OneLiner", "content": "A fundamental building block in a literate data model"}, "is_embellishment": false, "prefix": "Class", "name": {"_type": "ClassName", "content": "Component"}, "plural": "Components", "model_path": "Class_Component", "presumed_plural": "Components", "subtypings": [{"_type": "Subtyping", "name": {"_type": "SubtypingName", "content": "subtypes"}, "is_exclusive": {"_type": "IsExclusive", "content": true}, "is_exhaustive": {"_type": "IsExhaustive", "content": false}, "subtypes": [{"_type": "ClassReference", "content": "LiterateModel"}, {"_type": "ClassReference", "content": "Subject"}, {"_type": "ClassReference", "content": "Class"}, {"_type": "ClassReference", "content": "Key"}, {"_type": "ClassReference", "content": "AttributeSection"}, {"_type": "ClassReference", "content": "Attribute"}, {"_type": "ClassReference", "content": "Constraint"}, {"_type": "ClassReference", "content": "Method"}, {"_type": "ClassReference", "content": "Parameter"}, {"_type": "ClassReference", "content": "Annotation"}]}], "is_value_type": false, "attributes": [
+                   {
+                      "_type": "Attribute",
+                      "one_liner": {"_type": "OneLiner", "content": "The name of the component, generally a noun phrase."},
+                      "name": {"_type": "AttributeName", "content": "name"},
+                      "parenthetical": "*String*",
+                      "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "String"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}
+                   }, {
+                      "_type": "Attribute",
+                      "one_liner": {"_type": "OneLiner", "content": "The normal name of the component, not in camel case."},
+                     "name": {"_type": "AttributeName", "content": "normalName"},
+                      "parenthetical": "*String*",
+                      "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "String"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}
+                   },
+                   
+                  {"_type": "Attribute", "one_liner": {"_type": "OneLiner", "content": "A brief, one-line definition of the component."}, "name": {"_type": "AttributeName", "content": "oneLiner"}, "parenthetical": "*OneLiner*", "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "OneLiner"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}},
+                  {"_type": "Attribute", "one_liner": {"_type": "OneLiner", "content": "A detailed explanation of the component."}, "name": {"_type": "AttributeName", "content": "elaboration"}, "parenthetical": "*RichText*", "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "RichText"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}},
+                   {"_type": "Attribute", "one_liner": {"_type": "OneLiner", "content": "Indicates whether this component is an embellishment."}, "name": {"_type": "AttributeName", "content": "isEmbellishment"}, "parenthetical": "*Boolean*", "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "Boolean"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}, "default": {"_type": "Default", "one_liner": {"_type": "OneLiner", "content": "false"}, "is_embellishment": false}}]}]}, {"_type": "SubjectB", "one_liner": {"_type": "OneLiner", "content": "The model and its subjects"}, "elaboration": [], "is_embellishment": false, "prefix": "##", "name": {"_type": "SubjectName", "content": "The Model Definition"}, "model_path": "SubjectB_The Model Definition", "classes": [{"_type": "Class", "one_liner": {"_type": "OneLiner", "content": "Model containing entities, relations, and documentation"}, "is_embellishment": false, "prefix": "Class", "name": {"_type": "ClassName", "content": "LiterateModel"}, "plural": "LiterateModels", "model_path": "Class_LiterateModel", "subtype_of": [{"_type": "SubtypeBy", "class_name": {"_type": "ClassReference", "content": "Component"},"subtyping_name": {"_type": "SubtypingName", "content": "subtypes"}}], "attributes": []}], "subjects": []}]}
+
+... end of Pruned
+Can't parse raw results:
+```json
+{"response_type": "full_model", "model": {"_type": "LiterateModel", "diagnostics": [], "is_embellishment": false, "prefix": "#", "name": {"_type": "SubjectName", "content": "Literate Data Model"}, "model_path": "LiterateModel_Literate Data Model", "subjects": [{"_type": "SubjectB", "one_liner": {"_type": "OneLiner", "content": "the basic structure of the literate data model"}, "elaboration": [{"_type": "Paragraph", "content": "This model defines the core components of a Literate Data Model (LDM), including classes, attributes, models, and subjects, to ensure clarity, consistency, and reusability.  The Component class serves as a supertype for these specific elements, facilitating inheritance of common attributes and behaviors. The inclusion of the Component class upfront follows modeling best practices, allowing readers to grasp the overarching concepts before delving into specialized components."}], "is_embellishment": false, "prefix": "##", "name": {"_type": "SubjectName", "content": "Preliminaries"}, "model_path": "SubjectB_Preliminaries", "classes": [{"_type": "Class", "one_liner": {"_type": "OneLiner", "content": "A fundamental building block in a literate data model"}, "is_embellishment": false, "prefix": "Class", "name": {"_type": "ClassName", "content": "Component"}, "plural": "Components", "model_path": "Class_Component", "presumed_plural": "Components", "subtypings": [{"_type": "Subtyping", "name": {"_type": "SubtypingName", "content": "subtypes"}, "is_exclusive": {"_type": "IsExclusive", "content": true}, "is_exhaustive": {"_type": "IsExhaustive", "content": false}, "subtypes": [{"_type": "ClassReference", "content": "LiterateModel"}, {"_type": "ClassReference", "content": "Subject"}, {"_type": "ClassReference", "content": "Class"}, {"_type": "ClassReference", "content": "Key"}, {"_type": "ClassReference", "content": "AttributeSection"}, {"_type": "ClassReference", "content": "Attribute"}, {"_type": "ClassReference", "content": "Constraint"}, {"_type": "ClassReference", "content": "Method"}, {"_type": "ClassReference", "content": "Parameter"}, {"_type": "ClassReference", "content": "Annotation"}]}], "is_value_type": false, "attributes": [
+                   {
+                      "_type": "Attribute",
+                      "one_liner": {"_type": "OneLiner", "content": "The name of the component, generally a noun phrase."},
+                      "name": {"_type": "AttributeName", "content": "name"},
+                      "parenthetical": "*String*",
+                      "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "String"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}
+                   }, {
+                      "_type": "Attribute",
+                      "one_liner": {"_type": "OneLiner", "content": "The normal name of the component, not in camel case."},
+                     "name": {"_type": "AttributeName", "content": "normalName"},
+                      "parenthetical": "*String*",
+                      "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "String"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}
+                   },
+                   
+                  {"_type": "Attribute", "one_liner": {"_type": "OneLiner", "content": "A brief, one-line definition of the component."}, "name": {"_type": "AttributeName", "content": "oneLiner"}, "parenthetical": "*OneLiner*", "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "OneLiner"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}},
+                  {"_type": "Attribute", "one_liner": {"_type": "OneLiner", "content": "A detailed explanation of the component."}, "name": {"_type": "AttributeName", "content": "elaboration"}, "parenthetical": "*RichText*", "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "RichText"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}},
+                   {"_type": "Attribute", "one_liner": {"_type": "OneLiner", "content": "Indicates whether this component is an embellishment."}, "name": {"_type": "AttributeName", "content": "isEmbellishment"}, "parenthetical": "*Boolean*", "data_type_clause": {"_type": "DataTypeClause", "data_type": {"_type": "BaseDataType", "class_name": {"_type": "ClassReference", "content": "Boolean"}, "as_value_type": {"_type": "AsValue", "content": true}}, "is_optional_lit": {"_type": "IsOptional", "content": false}, "cardinality": "O_O"}, "default": {"_type": "Default", "one_liner": {"_type": "OneLiner", "content": "false"}, "is_embellishment": false}}]}]}, {"_type": "SubjectB", "one_liner": {"_type": "OneLiner", "content": "The model and its subjects"}, "elaboration": [], "is_embellishment": false, "prefix": "##", "name": {"_type": "SubjectName", "content": "The Model Definition"}, "model_path": "SubjectB_The Model Definition", "classes": [{"_type": "Class", "one_liner": {"_type": "OneLiner", "content": "Model containing entities, relations, and documentation"}, "is_embellishment": false, "prefix": "Class", "name": {"_type": "ClassName", "content": "LiterateModel"}, "plural": "LiterateModels", "model_path": "Class_LiterateModel", "subtype_of": [{"_type": "SubtypeBy", "class_name": {"_type": "ClassReference", "content": "Component"},"subtyping_name": {"_type": "SubtypingName", "content": "subtypes"}}], "attributes": []}], "subjects": []}]}
+```
+	Run capsule =  {
+  "model": "Literate",
+  "task": "T01",
+  "llm": "google/gemini-flash-1.5-8b",
+  "elapsed": 12.8,
+  "results_len": 6012,
+  "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+  "usage": {
+    "prompt_tokens": 77859,
+    "completion_tokens": 1701,
+    "total_tokens": 79560,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "costs": 0.003,
+  "error_msg": "",
+  "error_code": "",
+  "changes": 0,
+  "parseing_notes": "Pruned - Parsing failed - see raw"
+}
+	 1 	 google/gemini-flash-1.5-8b  - estimate =  0.006
+	 1 	 amazon/nova-lite-v1  - estimate =  0.0096
+Useful path =  ldm/ldm_models/Literate/Literate_runs/Literate_T01_amazon_nova-lite-v1.json
+Single query: Literate - T01 - amazon/nova-lite-v1
+	Total size in bytes is:  366585  = about  91646.25  tokens
+rqn return raw results as  <class 'str'>
+Elapsed time: 38.9383 seconds
+Elapsed time: 39.2930 seconds
+Raw results are....
+"```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].name.content\",\n      \"model_path\": \"SubjectB_Preliminaries.name.content\",\n      \"old_value\": \"Preliminaries\",\n      \"new_value\": \"Overview\",\n      \"reason\": \"Changed 'Preliminaries' to 'Overview' for better clarity.\",\n      \"change_type\": \"clarity\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].one_liner.content\",\n      \"model_path\": \"Class_Component.one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"A building block of the literate data model\",\n      \"reason\": \"Removed 'element or' for conciseness.\",\n      \"change_type\": \"conciseness\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Attribute_Component.normalName.one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"the normal name of the component\",\n      \"reason\": \"Made the one-liner more natural.\",\n      \"change_type\": \"natural_language\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].one_liner.content\",\n      \"model_path\": \"Attribute_Component.elaboration.one_liner.content\",\n      \"old_value\": \"A more detailed explanation or discussion of the component _\",\n      \"new_value\": \"A more detailed explanation of the component\",\n      \"reason\": \"Removed underscore at the end for better readability.\",\n      \"change_type\": \"readability\"\n    },\n    {\n      \"path\": \"subjects[1].name.content\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.name.content\",\n      \"old_value\": \"Model and its Subjects\",\n      \"new_value\": \"Subjects and Classes\",\n      \"reason\": \"Rephrased for consistency and clarity.\",\n      \"change_type\": \"clarity\"\n    },\n    {\n      \"path\": \"subjects[1].diagnostics[0]._type\",\n      \"model_path\": \"SubjectB_The Model and its Subjects._type\",\n      \"old_value\": \"Diagnostic\",\n      \"new_value\": \"null\",\n      \"reason\": \"Removed invalid diagnostic.\",\n      \"change_type\": \"diagnostic_issue\"\n    },\n    {\n      \"path\": \"subjects[2].one_liner.content\",\n      \"model_path\": \"Class_Subject.one_liner.content\",\n      \"old_value\": \"A specific topic or theme within the model, containing related subjects and classes\",\n      \"new_value\": \"A specific topic or theme within the model\",\n      \"reason\": \"Removed excessive details for conciseness.\",\n      \"change_type\": \"conciseness\"\n    },\n    {\n      \"path\": \"subjects[2].attributes[1].one_liner.content\",\n      \"model_path\": \"Attribute_Subject.name.one_liner.content\",\n      \"old_value\": \"The parent subject, if any, under which this subject is nested _\",\n      \"new_value\": \"The parent subject, if any, under which this subject is nested\",\n      \"reason\": \"Removed underscore at the end for better readability.\",\n      \"change_type\": \"readability\"\n    },\n    {\n      \"path\": \"subjects[2].attributes[2].one_liner.content\",\n      \"model_path\": \"Attribute_Subject.classes.one_liner.content\",\n      \"old_value\": \"The major classes related to this subject, in the order in which they should be presented _\",\n      \"new_value\": \"The related classes and their order\",\n      \"reason\": \"Simplified the one-liner for conciseness.\",\n      \"change_type\": \"conciseness\"\n    },\n    {\n      \"path\": \"subjects[2].attributes[2].one_liner.content\",\n      \"model_path\": \"Attribute_Subject.parenthetical.content\",\n      \"old_value\": \"ListOf Classes\",\n      \"new_value\": \"Order of Classes\",\n      \"reason\": \"Made the parenthetical more descriptive.\",\n      \"change_type\": \"readability\"\n    },\n    {\n      \"path\": \"subjects[3].prefix\",\n      \"model_path\": \"Class_Class.prefix\",\n      \"old_value\": \"Class\",\n      \"new_value\": \"Key Class\",\n      \"reason\": \"Changed the prefix for consistency with other key classes.\",\n      \"change_type\": \"consistency\"\n    },\n    {\n      \"path\": \"subjects[3].diagnostics[0].object_name\",\n      \"model_path\": \"Attribute_LiterateModel.allSubjects.diagnostics[0].object_name\",\n      \"old_value\": \"allSubjects\",\n      \"new_value\": \"subjectsList\",\n      \"reason\": \"Changed the object name for consistency.\",\n      \"change_type\": \"consistency\"\n    },\n    {\n      \"path\": \"subjects[3].diagnostics[1].object_name\",\n      \"model_path\": \"Attribute_LiterateModel.allClasses.diagnostics[0].object_name\",\n      \"old_value\": \"allClasses\",\n      \"new_value\": \"classesList\",\n      \"reason\": \"Changed the object name for consistency.\",\n      \"change_type\": \"consistency\"\n    },\n    {\n      \"path\": \"subjects[3].attributes[1].one_liner.content\",\n      \"model_path\": \"Attribute_LiterateModel.allSubjects.one_liner.content\",\n      \"old_value\": \"list of all classes in the model, as ordered in the definition of the model.\",\n      \"new_value\": \"the list of classes, as defined in the model.\",\n      \"reason\": \"Simplified the one-liner for conciseness.\",\n      \"change_type\": \"conciseness\"\n    },\n    {\n      \"path\": \"subjects[3].attributes[3].one_liner.content\",\n      \"model_path\": \"Attribute_LiterateModel.aiFunctions.one_liner.content\",\n      \"old_value\": \"A list of functions that require sophisticated AI-powered implementation *\",\n      \"new_value\": \"functions requiring AI implementation\",\n      \"reason\": \"Made the one-liner more natural.\",\n      \"change_type\": \"natural_language\"\n    },\n    {\n      \"path\": \"subjects[3].attributes[4].one_liner.content\",\n      \"model_path\": \"Attribute_LiterateModel.preferredCodingLanguage.one_liner.content\",\n      \"old_value\": \"the recommended lanquage  for expressing derivation, defaults, and constraints\",\n      \"new_value\": \"preferred language for expressing derivation, defaults, and constraints\",\n      \"reason\": \"Corrected the spelling mistake.\",\n      \"change_type\": \"correct_spelling\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].dependents\",\n      \"model_path\": \"Class_Class.dependents\",\n      \"old_value\": [],\n      \"new_value\": [\n        {\n          \"_type\": \"ClassReference\",\n          \"content\": \"Attribute\"\n        },\n        {\n          \"_type\": \"ClassReference\",\n          \"content\": \"Constraint\"\n        }\n      ],\n      \"reason\": \"Added missing dependencies.\",\n      \"change_type\": \"completeness\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Attribute_Class.pluralForm.one_liner.content\",\n      \"old_value\": \"the normal English plural form of the name of the Class\",\n      \"new_value\": \"the plural form of the class name\",\n      \"reason\": \"Corrected style and simplified.\",\n      \"change_type\": \"clarity\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[2].one_liner.content\",\n      \"model_path\": \"Attribute_Class.constraints.one_liner.content\",\n      \"old_value\": \"Within each Class, attribute names must be unique.\",\n      \"new_value\": \"Unique attribute names within each class.\",\n      \"reason\": \"Structured for clarity.\",\n      \"change_type\": \"clarity\"\n    },\n    {\n      \"path\": \"subjects[4].one_liner.content\",\n      \"model_path\": \"Class_AttributeSection.one_liner.content\",\n      \"old_value\": \"group of attributes for a class that merit a shared explanation.\",\n      \"new_value\": \"a group of class attributes that share a common explanation.\",\n      \"reason\": \"Rephrased for better readability.\",\n      \"change_type\": \"readability\"\n    },\n    {\n      \"path\": \"subjects[5].classes[0].based_on[0].content\",\n      \"model_path\": \"Attribute_CodeExpression.language.based_on[0].content\",\n      \"old_value\": \"Programming Language\",\n      \"new_value\": \"language for code expressions\",\n      \"reason\": \"Ensured language is consistent with usage in the model.\",\n      \"change_type\": \"consistency\"\n    },\n    {\n      \"path\": \"subjects[6].classes[2].plural\",\n      \"model_path\": \"Class_Aggregate.plural\",\n      \"old_value\": \"Aggregates\",\n      \"new_value\": \"AggregatedTypes\",\n      \"reason\": \"Corrected plural to match predefined definitions\",\n      \"change_type\": \"correct_plural\"\n    },\n    {\n      \"path\": \"subjects[6].name.content\",\n      \"model_path\": \"SubjectB_Trivial Data Types.name.content\",\n      \"old_value\": \"Trivial Data Types\",\n      \"new_value\": \"Low Level Data Types\",\n      \"reason\": \"Changed to match predefined section structure.\",\n      \"change_type\": \"consistency\"\n    },\n    {\n      \"path\": \"subjects[6].diagnostics[0].object_name\",\n      \"model_path\": \"Attribute_QualifiedCamel.one_liner.diagnostics[0].object_name\",\n      \"old_value\": \"Formula OneLinerLength\",\n      \"new_value\": \"Field Length\",\n      \"reason\": \"Ensured naming consistency with other fields.\",\n      \"change_type\": \"consistency\"\n    },\n    {\n      \"path\": \"subjects[7].attributes[0].prefix\",\n      \"model_path\": \"Attribute_ComplexDataType.name.prefix\",\n      \"old_value\": \"-\",\n      \"new_value\": \"complexDataType_\",\n      \"reason\": \"Provided a prefix to distinguish attributes of complex data types.\",\n      \"change_type\": \"disambiguation\"\n    },\n    {\n      \"path\": \"subjects[7].value_types[0].name.plural\",\n      \"model_path\": \"ValueType_PrimitiveType.plural\",\n      \"old_value\": \"Types\",\n      \"new_value\": \"PrimitiveTypes\",\n      \"reason\": \"Corrected the plural form to match predefined data types.\",\n      \"change_type\": \"correct_plural\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[5].derivation.python\",\n      \"model_path\": \"Attribute_Component.abbreviatedName.derivation.python\",\n      \"old_value\": \"\",\n      \"new_value\": \"def calculate_abbreviation(self): return self.name.shorten()\",\n      \"reason\": \"Added Python expression for derivation.\",\n      \"change_type\": \"completeness\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[1].diagnostics[0].message\",\n      \"model_path\": \"Attribute_Class.subjectsList.diagnostics[0].message\",\n      \"old_value\": \"Formula one_liner is too long (220 chars)\",\n      \"new_value\": \"Attribute cardinality must be defined explicitly\",\n      \"reason\": \"Corrected and detailed diagnostic.\",\n      \"change_type\": \"diagnostic_correction\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Attribute_Attribute.requiredCodingLanguage.one_liner.content\",\n      \"old_value\": \"Recommended language for expressing derivation, defaults, and constraints\",\n      \"new_value\": \"Preferred language for attribute derivation and constraints\",\n      \"reason\": \"Ensured consistency with context of attribute.\",\n      \"change_type\": \"consistency\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[4].derivation.python\",\n      \"model_path\": \"Attribute_Attribute.preferredCodingLanguage.derivation.python\",\n      \"old_value\": \"\",\n      \"new_value\": \"def get_preferred_coding_language(): return 'Python'\",\n      \"reason\": \"Added Python expression for attribute derivation.\",\n      \"change_type\": \"completeness\"\n    }\n  ],\n  \"summary\": \"Improved clarity, corrected spelling, refined one liners, added derivation and corrected diagnostics where needed.\"\n}\n```"
+	PRUNING NEEDED
+Got 30 changes from raw results: 
+```json
+{
+  "response_type": "changes",
+  "changes": [
+    {
+      "path": "subjects[0].name.content",
+      "model_path": "SubjectB_Preliminaries.name.content",
+      "old_value": "Preliminaries",
+      "new_value": "Overview",
+      "reason": "Changed 'Preliminaries' to 'Overview' for better clarity.",
+      "change_type": "clarity"
+    },
+    {
+      "path": "subjects[0].classes[0].one_liner.content",
+      "model_path": "Class_Component.one_liner.content",
+      "old_value": "An element or building block of the literate data model",
+      "new_value": "A building block of the literate data model",
+      "reason": "Removed 'element or' for conciseness.",
+      "change_type": "conciseness"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[0].one_liner.content",
+      "model_path": "Attribute_Component.normalName.one_liner.content",
+      "old_value": "the name of the component, not in camel case",
+      "new_value": "the normal name of the component",
+      "reason": "Made the one-liner more natural.",
+      "change_type": "natural_language"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[3].one_liner.content",
+      "model_path": "Attribute_Component.elaboration.one_liner.content",
+      "old_value": "A more detailed explanation or discussion of the component _",
+      "new_value": "A more detailed explanation of the component",
+      "reason": "Removed underscore at the end for better readability.",
+      "change_type": "readability"
+    },
+    {
+      "path": "subjects[1].name.content",
+      "model_path": "SubjectB_The Model and its Subjects.name.content",
+      "old_value": "Model and its Subjects",
+      "new_value": "Subjects and Classes",
+      "reason": "Rephrased for consistency and clarity.",
+      "change_type": "clarity"
+    },
+    {
+      "path": "subjects[1].diagnostics[0]._type",
+      "model_path": "SubjectB_The Model and its Subjects._type",
+      "old_value": "Diagnostic",
+      "new_value": "null",
+      "reason": "Removed invalid diagnostic.",
+      "change_type": "diagnostic_issue"
+    },
+    {
+      "path": "subjects[2].one_liner.content",
+      "model_path": "Class_Subject.one_liner.content",
+      "old_value": "A specific topic or theme within the model, containing related subjects and classes",
+      "new_value": "A specific topic or theme within the model",
+      "reason": "Removed excessive details for conciseness.",
+      "change_type": "conciseness"
+    },
+    {
+      "path": "subjects[2].attributes[1].one_liner.content",
+      "model_path": "Attribute_Subject.name.one_liner.content",
+      "old_value": "The parent subject, if any, under which this subject is nested _",
+      "new_value": "The parent subject, if any, under which this subject is nested",
+      "reason": "Removed underscore at the end for better readability.",
+      "change_type": "readability"
+    },
+    {
+      "path": "subjects[2].attributes[2].one_liner.content",
+      "model_path": "Attribute_Subject.classes.one_liner.content",
+      "old_value": "The major classes related to this subject, in the order in which they should be presented _",
+      "new_value": "The related classes and their order",
+      "reason": "Simplified the one-liner for conciseness.",
+      "change_type": "conciseness"
+    },
+    {
+      "path": "subjects[2].attributes[2].one_liner.content",
+      "model_path": "Attribute_Subject.parenthetical.content",
+      "old_value": "ListOf Classes",
+      "new_value": "Order of Classes",
+      "reason": "Made the parenthetical more descriptive.",
+      "change_type": "readability"
+    },
+    {
+      "path": "subjects[3].prefix",
+      "model_path": "Class_Class.prefix",
+      "old_value": "Class",
+      "new_value": "Key Class",
+      "reason": "Changed the prefix for consistency with other key classes.",
+      "change_type": "consistency"
+    },
+    {
+      "path": "subjects[3].diagnostics[0].object_name",
+      "model_path": "Attribute_LiterateModel.allSubjects.diagnostics[0].object_name",
+      "old_value": "allSubjects",
+      "new_value": "subjectsList",
+      "reason": "Changed the object name for consistency.",
+      "change_type": "consistency"
+    },
+    {
+      "path": "subjects[3].diagnostics[1].object_name",
+      "model_path": "Attribute_LiterateModel.allClasses.diagnostics[0].object_name",
+      "old_value": "allClasses",
+      "new_value": "classesList",
+      "reason": "Changed the object name for consistency.",
+      "change_type": "consistency"
+    },
+    {
+      "path": "subjects[3].attributes[1].one_liner.content",
+      "model_path": "Attribute_LiterateModel.allSubjects.one_liner.content",
+      "old_value": "list of all classes in the model, as ordered in the definition of the model.",
+      "new_value": "the list of classes, as defined in the model.",
+      "reason": "Simplified the one-liner for conciseness.",
+      "change_type": "conciseness"
+    },
+    {
+      "path": "subjects[3].attributes[3].one_liner.content",
+      "model_path": "Attribute_LiterateModel.aiFunctions.one_liner.content",
+      "old_value": "A list of functions that require sophisticated AI-powered implementation *",
+      "new_value": "functions requiring AI implementation",
+      "reason": "Made the one-liner more natural.",
+      "change_type": "natural_language"
+    },
+    {
+      "path": "subjects[3].attributes[4].one_liner.content",
+      "model_path": "Attribute_LiterateModel.preferredCodingLanguage.one_liner.content",
+      "old_value": "the recommended lanquage  for expressing derivation, defaults, and constraints",
+      "new_value": "preferred language for expressing derivation, defaults, and constraints",
+      "reason": "Corrected the spelling mistake.",
+      "change_type": "correct_spelling"
+    },
+    {
+      "path": "subjects[3].classes[0].dependents",
+      "model_path": "Class_Class.dependents",
+      "old_value": [],
+      "new_value": [
+        {
+          "_type": "ClassReference",
+          "content": "Attribute"
+        },
+        {
+          "_type": "ClassReference",
+          "content": "Constraint"
+        }
+      ],
+      "reason": "Added missing dependencies.",
+      "change_type": "completeness"
+    },
+    {
+      "path": "subjects[3].classes[0].attributes[0].one_liner.content",
+      "model_path": "Attribute_Class.pluralForm.one_liner.content",
+      "old_value": "the normal English plural form of the name of the Class",
+      "new_value": "the plural form of the class name",
+      "reason": "Corrected style and simplified.",
+      "change_type": "clarity"
+    },
+    {
+      "path": "subjects[3].classes[0].attributes[2].one_liner.content",
+      "model_path": "Attribute_Class.constraints.one_liner.content",
+      "old_value": "Within each Class, attribute names must be unique.",
+      "new_value": "Unique attribute names within each class.",
+      "reason": "Structured for clarity.",
+      "change_type": "clarity"
+    },
+    {
+      "path": "subjects[4].one_liner.content",
+      "model_path": "Class_AttributeSection.one_liner.content",
+      "old_value": "group of attributes for a class that merit a shared explanation.",
+      "new_value": "a group of class attributes that share a common explanation.",
+      "reason": "Rephrased for better readability.",
+      "change_type": "readability"
+    },
+    {
+      "path": "subjects[5].classes[0].based_on[0].content",
+      "model_path": "Attribute_CodeExpression.language.based_on[0].content",
+      "old_value": "Programming Language",
+      "new_value": "language for code expressions",
+      "reason": "Ensured language is consistent with usage in the model.",
+      "change_type": "consistency"
+    },
+    {
+      "path": "subjects[6].classes[2].plural",
+      "model_path": "Class_Aggregate.plural",
+      "old_value": "Aggregates",
+      "new_value": "AggregatedTypes",
+      "reason": "Corrected plural to match predefined definitions",
+      "change_type": "correct_plural"
+    },
+    {
+      "path": "subjects[6].name.content",
+      "model_path": "SubjectB_Trivial Data Types.name.content",
+      "old_value": "Trivial Data Types",
+      "new_value": "Low Level Data Types",
+      "reason": "Changed to match predefined section structure.",
+      "change_type": "consistency"
+    },
+    {
+      "path": "subjects[6].diagnostics[0].object_name",
+      "model_path": "Attribute_QualifiedCamel.one_liner.diagnostics[0].object_name",
+      "old_value": "Formula OneLinerLength",
+      "new_value": "Field Length",
+      "reason": "Ensured naming consistency with other fields.",
+      "change_type": "consistency"
+    },
+    {
+      "path": "subjects[7].attributes[0].prefix",
+      "model_path": "Attribute_ComplexDataType.name.prefix",
+      "old_value": "-",
+      "new_value": "complexDataType_",
+      "reason": "Provided a prefix to distinguish attributes of complex data types.",
+      "change_type": "disambiguation"
+    },
+    {
+      "path": "subjects[7].value_types[0].name.plural",
+      "model_path": "ValueType_PrimitiveType.plural",
+      "old_value": "Types",
+      "new_value": "PrimitiveTypes",
+      "reason": "Corrected the plural form to match predefined data types.",
+      "change_type": "correct_plural"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[5].derivation.python",
+      "model_path": "Attribute_Component.abbreviatedName.derivation.python",
+      "old_value": "",
+      "new_value": "def calculate_abbreviation(self): return self.name.shorten()",
+      "reason": "Added Python expression for derivation.",
+      "change_type": "completeness"
+    },
+    {
+      "path": "subjects[3].classes[0].attributes[1].diagnostics[0].message",
+      "model_path": "Attribute_Class.subjectsList.diagnostics[0].message",
+      "old_value": "Formula one_liner is too long (220 chars)",
+      "new_value": "Attribute cardinality must be defined explicitly",
+      "reason": "Corrected and detailed diagnostic.",
+      "change_type": "diagnostic_correction"
+    },
+    {
+      "path": "subjects[3].classes[0].attributes[4].one_liner.content",
+      "model_path": "Attribute_Attribute.requiredCodingLanguage.one_liner.content",
+      "old_value": "Recommended language for expressing derivation, defaults, and constraints",
+      "new_value": "Preferred language for attribute derivation and constraints",
+      "reason": "Ensured consistency with context of attribute.",
+      "change_type": "consistency"
+    },
+    {
+      "path": "subjects[3].classes[0].attributes[4].derivation.python",
+      "model_path": "Attribute_Attribute.preferredCodingLanguage.derivation.python",
+      "old_value": "",
+      "new_value": "def get_preferred_coding_language(): return 'Python'",
+      "reason": "Added Python expression for attribute derivation.",
+      "change_type": "completeness"
+    }
+  ],
+  "summary": "Improved clarity, corrected spelling, refined one liners, added derivation and corrected diagnostics where needed."
+}
+```
+	Run capsule =  {
+  "model": "Literate",
+  "task": "T01",
+  "llm": "amazon/nova-lite-v1",
+  "elapsed": 39.3,
+  "results_len": 10910,
+  "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+  "usage": {
+    "prompt_tokens": 73641,
+    "completion_tokens": 2991,
+    "total_tokens": 76632
+  },
+  "costs": 0.005,
+  "error_msg": "",
+  "error_code": "",
+  "changes": 30,
+  "parseing_notes": "Pruned - "
+}
+	 2 	 amazon/nova-lite-v1  - estimate =  0.0096
+	 2 	 google/gemini-2.0-flash-exp:free  - estimate =  0
+Useful path =  ldm/ldm_models/Literate/Literate_runs/Literate_T01_google_gemini-2.0-flash-exp_free.json
+Single query: Literate - T01 - google/gemini-2.0-flash-exp:free
+	Total size in bytes is:  366585  = about  91646.25  tokens
+rqn return raw results as  <class 'str'>
+Elapsed time: 7.4368 seconds
+Elapsed time: 7.8293 seconds
+Raw results are....
+"```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.oneLiner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"A brief one-line description of the component. \",\n      \"reason\": \"Improved phrasing and removed trailing underscore.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[5].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.elaboration.one_liner.content\",\n      \"old_value\": \"A more detailed explanation or discussion of the component _\",\n      \"new_value\": \"A more detailed explanation or discussion of the component. \",\n      \"reason\": \"Improved phrasing and removed trailing underscore.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[6].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing.\",\n      \"reason\": \"Improved phrasing and removed trailing underscore.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].one_liner.content\",\n      \"model_path\": \"Class_AnnotationType.one_liner.content\",\n      \"old_value\": \"a kind of note, or aside, used to call attention to additional information about some Component.\",\n      \"new_value\": \"A note, or aside, used to call attention to additional information about some Component.\",\n      \"reason\": \"Improved the one-liner to remove a redundant 'kind of'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].one_liner.content\",\n      \"model_path\": \"Class_Annotation.one_liner.content\",\n      \"old_value\": \"A note or comment associated with a model element\",\n      \"new_value\": \"A note or comment associated with a model element.\",\n      \"reason\": \"Added .\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].attributes[4].one_liner.content\",\n      \"model_path\": \"Class_Annotation.Attribute_Annotation.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this annotation is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this annotation is an embellishment added during post-parsing processing.\",\n      \"reason\": \"Removed trailing underscore and improved clarity.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[3].one_liner.content\",\n      \"model_path\": \"SubjectB_Appendices.one_liner.content\",\n      \"old_value\": \"various sidebars to include\\nInsert More Sidebars.md\\nInsert Overrides.md\\ninsert LDM Intro.md\\nInsert OCL.md\\nInsert Camel Case.md\",\n      \"new_value\": \"Various appendices containing supplemental information.\",\n      \"reason\": \"Reworded one-liner to be a noun phrase and more descriptive.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].attributes[1].elaboration\",\n      \"model_path\": \"SubjectB_Attributes.Class_Attribute.dataType.elaboration\",\n      \"old_value\": [\n        {\n          \"_type\": \"Paragraph\",\n          \"content\": \"But,\\n \\n+ * List of Editions\\n \\n+ * Set of Edition\\n \\n+ * ... and more complicated cases.\\n\"\n        }\n      ],\n      \"new_value\": null,\n      \"reason\": \"elaboration is already expressed as a oneliner and does not require an elaboration\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].attributes[3].default.one_liner.content\",\n      \"model_path\": \"SubjectB_Attributes.Class_Attribute.cardinality.default.one_liner.content\",\n      \"old_value\": \"***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.\\nFor a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.\",\n      \"new_value\": \"For a singular attribute, the default cardinality is M:1. If the attribute is 1:1, it must be stated explicitly. For a collective attribute, the default is 1:M. If the attribute is N:M, it must be stated explicitly.\",\n      \"reason\": \"updated to appropriate cardinalities.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].attributes[4].derivation.one_liner.content\",\n      \"model_path\": \"SubjectB_Attributes.Class_Attribute.isInvertible.derivation.one_liner.content\",\n      \"old_value\": \" true if the data type is a class or a simple collection of members of a class.\\n\",\n      \"new_value\": \"True if the data type is a class or a simple collection of members of a class.\",\n      \"reason\": \"removed extra space. .\",\n      \"change_type\": \"style\"\n    },\n    {\n      \"path\": \"subjects[4].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"SubjectB_Trivial Data Types.Class_DataType.one_liner\",\n      \"old_value\": \"The input parameters of the method _\",\n      \"new_value\": \"The input parameters of the method.\",\n      \"reason\": \"Removed _. .\",\n      \"change_type\": \"style\"\n    },\n    {\n      \"path\": \"subjects[4].classes[0].attributes[1].one_liner.content\",\n      \"model_path\": \"SubjectB_Trivial Data Types.Class_DataType.returnType.one_liner\",\n      \"old_value\": \"The data type of the value returned by the method _\",\n      \"new_value\": \"The data type of the value returned by the method ..\",\n      \"reason\": \"Removed _. .\",\n      \"change_type\": \"style\"\n    }\n  ],\n  \"summary\": \"Completed minor stylistic changes and improvements to one-liners and default text.\"\n}\n```"
+	PRUNING NEEDED
+Got 12 changes from raw results: 
+```json
+{
+  "response_type": "changes",
+  "changes": [
+    {
+      "path": "subjects[0].classes[0].attributes[4].one_liner.content",
+      "model_path": "Class_Component.Attribute_Component.oneLiner.content",
+      "old_value": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _",
+      "new_value": "A brief one-line description of the component. ",
+      "reason": "Improved phrasing and removed trailing underscore.",
+      "change_type": "clarification"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[5].one_liner.content",
+      "model_path": "Class_Component.Attribute_Component.elaboration.one_liner.content",
+      "old_value": "A more detailed explanation or discussion of the component _",
+      "new_value": "A more detailed explanation or discussion of the component. ",
+      "reason": "Improved phrasing and removed trailing underscore.",
+      "change_type": "clarification"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[6].one_liner.content",
+      "model_path": "Class_Component.Attribute_Component.isEmbellishment.one_liner.content",
+      "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this component is an embellishment added during post-parsing processing.",
+      "reason": "Improved phrasing and removed trailing underscore.",
+      "change_type": "clarification"
+    },
+    {
+      "path": "subjects[0].classes[1].one_liner.content",
+      "model_path": "Class_AnnotationType.one_liner.content",
+      "old_value": "a kind of note, or aside, used to call attention to additional information about some Component.",
+      "new_value": "A note, or aside, used to call attention to additional information about some Component.",
+      "reason": "Improved the one-liner to remove a redundant 'kind of'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].one_liner.content",
+      "model_path": "Class_Annotation.one_liner.content",
+      "old_value": "A note or comment associated with a model element",
+      "new_value": "A note or comment associated with a model element.",
+      "reason": "Added .",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[4].one_liner.content",
+      "model_path": "Class_Annotation.Attribute_Annotation.isEmbellishment.one_liner.content",
+      "old_value": "Indicates whether this annotation is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this annotation is an embellishment added during post-parsing processing.",
+      "reason": "Removed trailing underscore and improved clarity.",
+      "change_type": "clarification"
+    },
+    {
+      "path": "subjects[3].one_liner.content",
+      "model_path": "SubjectB_Appendices.one_liner.content",
+      "old_value": "various sidebars to include\nInsert More Sidebars.md\nInsert Overrides.md\ninsert LDM Intro.md\nInsert OCL.md\nInsert Camel Case.md",
+      "new_value": "Various appendices containing supplemental information.",
+      "reason": "Reworded one-liner to be a noun phrase and more descriptive.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[2].classes[0].attributes[1].elaboration",
+      "model_path": "SubjectB_Attributes.Class_Attribute.dataType.elaboration",
+      "old_value": [
+        {
+          "_type": "Paragraph",
+          "content": "But,\n \n+ * List of Editions\n \n+ * Set of Edition\n \n+ * ... and more complicated cases.\n"
+        }
+      ],
+      "new_value": null,
+      "reason": "elaboration is already expressed as a oneliner and does not require an elaboration",
+      "change_type": "clarification"
+    },
+    {
+      "path": "subjects[2].classes[0].attributes[3].default.one_liner.content",
+      "model_path": "SubjectB_Attributes.Class_Attribute.cardinality.default.one_liner.content",
+      "old_value": "***  For a singular attribute, the default cardinality is N:1. If the attribute is 1:1, it must be stated explicitly.\nFor a collective attribute, the default is 1:N. If the attribute is N:M, it must be stated explicitly.",
+      "new_value": "For a singular attribute, the default cardinality is M:1. If the attribute is 1:1, it must be stated explicitly. For a collective attribute, the default is 1:M. If the attribute is N:M, it must be stated explicitly.",
+      "reason": "updated to appropriate cardinalities.",
+      "change_type": "clarification"
+    },
+    {
+      "path": "subjects[2].classes[0].attributes[4].derivation.one_liner.content",
+      "model_path": "SubjectB_Attributes.Class_Attribute.isInvertible.derivation.one_liner.content",
+      "old_value": " true if the data type is a class or a simple collection of members of a class.\n",
+      "new_value": "True if the data type is a class or a simple collection of members of a class.",
+      "reason": "removed extra space. .",
+      "change_type": "style"
+    },
+    {
+      "path": "subjects[4].classes[0].attributes[0].one_liner.content",
+      "model_path": "SubjectB_Trivial Data Types.Class_DataType.one_liner",
+      "old_value": "The input parameters of the method _",
+      "new_value": "The input parameters of the method.",
+      "reason": "Removed _. .",
+      "change_type": "style"
+    },
+    {
+      "path": "subjects[4].classes[0].attributes[1].one_liner.content",
+      "model_path": "SubjectB_Trivial Data Types.Class_DataType.returnType.one_liner",
+      "old_value": "The data type of the value returned by the method _",
+      "new_value": "The data type of the value returned by the method ..",
+      "reason": "Removed _. .",
+      "change_type": "style"
+    }
+  ],
+  "summary": "Completed minor stylistic changes and improvements to one-liners and default text."
+}
+```
+	Run capsule =  {
+  "model": "Literate",
+  "task": "T01",
+  "llm": "google/gemini-2.0-flash-exp:free",
+  "elapsed": 7.8,
+  "results_len": 5873,
+  "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+  "usage": {
+    "prompt_tokens": 77859,
+    "completion_tokens": 1636,
+    "total_tokens": 79495,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "costs": 0.0,
+  "error_msg": "",
+  "error_code": "",
+  "changes": 12,
+  "parseing_notes": "Pruned - "
+}
+	 3 	 google/gemini-2.0-flash-exp:free  - estimate =  0
+	 3 	 deepseek/deepseek-r1:free  - estimate =  0
+Useful path =  ldm/ldm_models/Literate/Literate_runs/Literate_T01_deepseek_deepseek-r1_free.json
+Single query: Literate - T01 - deepseek/deepseek-r1:free
+	Total size in bytes is:  366585  = about  91646.25  tokens
+rqn return raw results as  <class 'str'>
+Elapsed time: 55.0052 seconds
+Elapsed time: 55.3771 seconds
+Raw results are....
+"{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].default.python\",\n      \"model_path\": \"Component.abbreviatedName.default.python\",\n      \"old_value\": \" x.name == y\\n\",\n      \"new_value\": \"self.name.abbreviate() if self.name else ''\",\n      \"reason\": \"Added meaningful derivation logic for abbreviation\",\n      \"change_type\": \"derivation_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].attributes[4].default.python\",\n      \"model_path\": \"AnnotationType.plural.default.python\",\n      \"old_value\": \" based on label\\n\",\n      \"new_value\": \"self.label.pluralize()\",\n      \"reason\": \"Added concrete pluralization logic\",\n      \"change_type\": \"derivation_improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].constraints[0].python\",\n      \"model_path\": \"LiterateModel.allSubjects.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len({s.name for s in self.allSubjects}) == len(self.allSubjects)\",\n      \"reason\": \"Added uniqueness constraint implementation\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[6].constraints[0].python\",\n      \"model_path\": \"Class.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len({a.name for a in self.attributes}) == len(self.attributes)\",\n      \"reason\": \"Implemented unique attribute names constraint\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attribute_sections[0].attributes[0].is_embellishment\",\n      \"model_path\": \"Component.For Machinery.isEmbellishment\",\n      \"old_value\": false,\n      \"new_value\": true,\n      \"reason\": \"Mark machinery section as embellishment\",\n      \"change_type\": \"embellishment_marking\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].attribute_sections[1].attributes[0].is_embellishment\",\n      \"model_path\": \"Annotation.Implied Attributes.baseComponent\",\n      \"old_value\": false,\n      \"new_value\": true,\n      \"reason\": \"Mark implied attribute as embellishment\",\n      \"change_type\": \"embellishment_marking\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].elaboration\",\n      \"model_path\": \"LiterateModel.elaboration\",\n      \"old_value\": [],\n      \"new_value\": [\n        {\n          \"_type\": \"Paragraph\",\n          \"content\": \"This model defines the core structure for creating Literate Data Models, focusing on technical documentation and implementation requirements. It intentionally excludes business domain-specific elements, user interface considerations, and performance optimization details to maintain focus on structural integrity and documentation clarity.\"\n        }\n      ],\n      \"reason\": \"Added explicit scope statement\",\n      \"change_type\": \"scope_definition\"\n    }\n  ],\n  \"summary\": \"Added 7 key improvements: Implemented missing constraints/derivations, marked implied attributes, added scope definition, and improved data type consistency\"\n}"
+	No PRUNING Needed
+Got 7 changes from raw results: 
+{
+  "response_type": "changes",
+  "changes": [
+    {
+      "path": "subjects[0].classes[0].attributes[3].default.python",
+      "model_path": "Component.abbreviatedName.default.python",
+      "old_value": " x.name == y\n",
+      "new_value": "self.name.abbreviate() if self.name else ''",
+      "reason": "Added meaningful derivation logic for abbreviation",
+      "change_type": "derivation_improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[4].default.python",
+      "model_path": "AnnotationType.plural.default.python",
+      "old_value": " based on label\n",
+      "new_value": "self.label.pluralize()",
+      "reason": "Added concrete pluralization logic",
+      "change_type": "derivation_improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[1].constraints[0].python",
+      "model_path": "LiterateModel.allSubjects.constraints[0].python",
+      "old_value": null,
+      "new_value": "len({s.name for s in self.allSubjects}) == len(self.allSubjects)",
+      "reason": "Added uniqueness constraint implementation",
+      "change_type": "constraint_implementation"
+    },
+    {
+      "path": "subjects[3].classes[0].attributes[6].constraints[0].python",
+      "model_path": "Class.constraints[0].python",
+      "old_value": null,
+      "new_value": "len({a.name for a in self.attributes}) == len(self.attributes)",
+      "reason": "Implemented unique attribute names constraint",
+      "change_type": "constraint_implementation"
+    },
+    {
+      "path": "subjects[0].classes[0].attribute_sections[0].attributes[0].is_embellishment",
+      "model_path": "Component.For Machinery.isEmbellishment",
+      "old_value": false,
+      "new_value": true,
+      "reason": "Mark machinery section as embellishment",
+      "change_type": "embellishment_marking"
+    },
+    {
+      "path": "subjects[0].classes[2].attribute_sections[1].attributes[0].is_embellishment",
+      "model_path": "Annotation.Implied Attributes.baseComponent",
+      "old_value": false,
+      "new_value": true,
+      "reason": "Mark implied attribute as embellishment",
+      "change_type": "embellishment_marking"
+    },
+    {
+      "path": "subjects[1].classes[0].elaboration",
+      "model_path": "LiterateModel.elaboration",
+      "old_value": [],
+      "new_value": [
+        {
+          "_type": "Paragraph",
+          "content": "This model defines the core structure for creating Literate Data Models, focusing on technical documentation and implementation requirements. It intentionally excludes business domain-specific elements, user interface considerations, and performance optimization details to maintain focus on structural integrity and documentation clarity."
+        }
+      ],
+      "reason": "Added explicit scope statement",
+      "change_type": "scope_definition"
+    }
+  ],
+  "summary": "Added 7 key improvements: Implemented missing constraints/derivations, marked implied attributes, added scope definition, and improved data type consistency"
+}
+	Run capsule =  {
+  "model": "Literate",
+  "task": "T01",
+  "llm": "deepseek/deepseek-r1:free",
+  "elapsed": 55.4,
+  "results_len": 2987,
+  "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+  "usage": {
+    "prompt_tokens": 68782,
+    "completion_tokens": 2070,
+    "total_tokens": 70852
+  },
+  "costs": 0.0,
+  "error_msg": "",
+  "error_code": "",
+  "changes": 7,
+  "parseing_notes": "UnPruned - "
+}
+	 4 	 deepseek/deepseek-r1:free  - estimate =  0
+	 4 	 qwen/qwen-turbo  - estimate =  0.007999999999999998
+Useful path =  ldm/ldm_models/Literate/Literate_runs/Literate_T01_qwen_qwen-turbo.json
+Single query: Literate - T01 - qwen/qwen-turbo
+	Total size in bytes is:  366585  = about  91646.25  tokens
+rqn return raw results as  <class 'str'>
+Elapsed time: 378.8916 seconds
+Elapsed time: 379.2819 seconds
+Raw results are....
+"{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"A fundamental building block of the literate data model\",\n      \"reason\": \"The one liner was too long and could be more concise. Changed to a more concise and accurate noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Component.attributes[0].one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"The name of the component, not in camel case\",\n      \"reason\": \"The one liner should start with an article, and the original was missing it.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[1].one_liner.content\",\n      \"model_path\": \"Component.attributes[1].one_liner.content\",\n      \"old_value\": \"The name of the component\",\n      \"new_value\": \"The name of the component in camel case\",\n      \"reason\": \"The one liner should begin with an article and specify the format (camel case).\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].one_liner.content\",\n      \"model_path\": \"Component.attributes[3].one_liner.content\",\n      \"old_value\": \"a short form of the component's name, used for cross references and improved readability.\",\n      \"new_value\": \"A short form of the component's name for cross-references and improved readability\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Component.attributes[4].one_liner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"A brief, one-line definition or description of the component suitable for use in a descriptive table of contents\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[5].one_liner.content\",\n      \"model_path\": \"Component.attributes[5].one_liner.content\",\n      \"old_value\": \"A more detailed explanation or discussion of the component _\",\n      \"new_value\": \"A more detailed explanation or discussion of the component\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[6].one_liner.content\",\n      \"model_path\": \"Component.attributes[6].one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[7].one_liner.content\",\n      \"model_path\": \"Component.attributes[7].one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].one_liner.content\",\n      \"model_path\": \"AnnotationType.one_liner.content\",\n      \"old_value\": \"a kind of note, or aside, used to call attention to additional information about some Component.\",\n      \"new_value\": \"A note or aside used to call attention to additional information about a component\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].attributes[0].one_liner.content\",\n      \"model_path\": \"AnnotationType.attributes[0].one_liner.content\",\n      \"old_value\": \"an emoji\",\n      \"new_value\": \"An emoji to represent the annotation\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].attributes[1].one_liner.content\",\n      \"model_path\": \"AnnotationType.attributes[1].one_liner.content\",\n      \"old_value\": \"an emoji\",\n      \"new_value\": \"The name of the emoji\",\n      \"reason\": \"The one liner should be specific and indicate what the attribute represents.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].attributes[2].one_liner.content\",\n      \"model_path\": \"AnnotationType.attributes[2].one_liner.content\",\n      \"old_value\": \"the Unicode for the emoji\",\n      \"new_value\": \"The Unicode value of the emoji\",\n      \"reason\": \"The one liner should be more precise and concise.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].attributes[3].one_liner.content\",\n      \"model_path\": \"AnnotationType.attributes[3].one_liner.content\",\n      \"old_value\": \"A short label to indicate the purpose of the annotation _\",\n      \"new_value\": \"A short label indicating the purpose of the annotation\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].attributes[4].one_liner.content\",\n      \"model_path\": \"AnnotationType.attributes[4].one_liner.content\",\n      \"old_value\": \"the plural form of the label\",\n      \"new_value\": \"The plural form of the label\",\n      \"reason\": \"The one liner should start with an article.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].attributes[5].one_liner.content\",\n      \"model_path\": \"AnnotationType.attributes[5].one_liner.content\",\n      \"old_value\": \"the intended reason for the annotation.\",\n      \"new_value\": \"The intended purpose of the annotation\",\n      \"reason\": \"The one liner should use more precise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].one_liner.content\",\n      \"model_path\": \"Annotation.one_liner.content\",\n      \"old_value\": \"A note or comment associated with a model element\",\n      \"new_value\": \"A note or comment associated with a model element\",\n      \"reason\": \"The one liner is correctly formatted, but the duplicate entry should be merged or removed.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].attributes[0].one_liner.content\",\n      \"model_path\": \"Annotation.attributes[0].one_liner.content\",\n      \"old_value\": \"An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.\",\n      \"new_value\": \"Indicates whether the annotation is recognized or ad hoc based on its label\",\n      \"reason\": \"The one liner should be concise and not include markdown formatting.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].attributes[1].one_liner.content\",\n      \"model_path\": \"Annotation.attributes[1].one_liner.content\",\n      \"old_value\": \"A short label to indicate the purpose of the annotation _\",\n      \"new_value\": \"A short label indicating the purpose of the annotation\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].attributes[2].one_liner.content\",\n      \"model_path\": \"Annotation.attributes[2].one_liner.content\",\n      \"old_value\": \"a short label to indicate the purpose of the annotation\",\n      \"new_value\": \"A short label indicating the purpose of the annotation\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].attributes[3].one_liner.content\",\n      \"model_path\": \"Annotation.attributes[3].one_liner.content\",\n      \"old_value\": \"The content or body of the annotation\",\n      \"new_value\": \"The content or body of the annotation\",\n      \"reason\": \"The one liner is correctly formatted but needs a period to end the sentence.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].attributes[4].one_liner.content\",\n      \"model_path\": \"Annotation.attributes[4].one_liner.content\",\n      \"old_value\": \"Indicates whether this annotation is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this annotation is an embellishment added during post-parsing processing\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[3].one_liner.content\",\n      \"model_path\": \"LiterateModel.one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships,\\nalong with explanatory text and examples\",\n      \"new_value\": \"A representation of a domain's entities, attributes, and relationships along with explanatory text and examples\",\n      \"reason\": \"The one liner should be a single sentence without line breaks.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[3].attributes[1].one_liner.content\",\n      \"model_path\": \"LiterateModel.attributes[1].one_liner.content\",\n      \"old_value\": \"list of all classes in the model, as ordered in the\\ndefinition of the model.\",\n      \"new_value\": \"List of all classes in the model, as ordered in the definition of the model\",\n      \"reason\": \"The one liner should be a noun phrase and not have line breaks.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[3].attributes[2].one_liner.content\",\n      \"model_path\": \"LiterateModel.attributes[2].one_liner.content\",\n      \"old_value\": \"list of all classes in the model, as ordered in the definition of the model.\",\n      \"new_value\": \"List of all classes in the model, as ordered in the definition of the model\",\n      \"reason\": \"The one liner should be a noun phrase and not have line breaks.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[3].attributes[5].one_liner.content\",\n      \"model_path\": \"LiterateModel.attributes[5].one_liner.content\",\n      \"old_value\": \"the recommended lanquage  for expressing derivation, defaults, and constraints\",\n      \"new_value\": \"The recommended language for expressing derivation, defaults, and constraints\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[3].attributes[6].one_liner.content\",\n      \"model_path\": \"LiterateModel.attributes[6].one_liner.content\",\n      \"old_value\": \"the recommended lanquage  for expressing derivation, defaults, and constraints\",\n      \"new_value\": \"The recommended language for expressing derivation, defaults, and constraints\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[3].attributes[7].one_liner.content\",\n      \"model_path\": \"LiterateModel.attributes[7].one_liner.content\",\n      \"old_value\": \"A list of functions that require sophisticated AI-powered implementation *\",\n      \"new_value\": \"A list of functions requiring sophisticated AI-powered implementation\",\n      \"reason\": \"The one liner should be a noun phrase and not have an asterisk.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[4].one_liner.content\",\n      \"model_path\": \"Subject.one_liner.content\",\n      \"old_value\": \"A specific topic or theme within the model\",\n      \"new_value\": \"A specific topic or theme within the model\",\n      \"reason\": \"The one liner is correctly formatted but the duplicate entry should be merged or removed.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[4].attributes[0].one_liner.content\",\n      \"model_path\": \"Subject.attributes[0].one_liner.content\",\n      \"old_value\": \"the normal English plural form of the name of the Class\",\n      \"new_value\": \"The normal English plural form of the name of the class\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[4].attributes[1].one_liner.content\",\n      \"model_path\": \"Subject.attributes[1].one_liner.content\",\n      \"old_value\": \"The parent subject, if any, under which this subject is nested _\",\n      \"new_value\": \"The parent subject, if any, under which this subject is nested\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[4].attributes[2].one_liner.content\",\n      \"model_path\": \"Subject.attributes[2].one_liner.content\",\n      \"old_value\": \"The major classes related to this subject, in the order in which they should be presented _\",\n      \"new_value\": \"The major classes related to this subject, in the order in which they should be presented\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[4].attributes[3].one_liner.content\",\n      \"model_path\": \"Subject.attributes[3].one_liner.content\",\n      \"old_value\": \"Any child subjects nested under this subject, in the order in which they should be presented _\",\n      \"new_value\": \"Any child subjects nested under this subject, in the order in which they should be presented\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].one_liner.content\",\n      \"model_path\": \"Class.one_liner.content\",\n      \"old_value\": \"A key entity or object type in the model, often corresponding to a real-world concept\",\n      \"new_value\": \"A key entity or object type in the model often corresponding to a real-world concept\",\n      \"reason\": \"The one liner should be a noun phrase and not include unnecessary words like 'often'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Class.attributes[0].one_liner.content\",\n      \"old_value\": \"the normal English plural form of the name of the Class\",\n      \"new_value\": \"The normal English plural form of the name of the class\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'Class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].one_liner.content\",\n      \"model_path\": \"Class.attributes[1].one_liner.content\",\n      \"old_value\": \"the Class or Classes on which this class is dependent\",\n      \"new_value\": \"The class or classes on which this class is dependent\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[2].one_liner.content\",\n      \"model_path\": \"Class.attributes[2].one_liner.content\",\n      \"old_value\": \"The parent class or classes from which this class inherits attributes\",\n      \"new_value\": \"The parent class or classes from which this class inherits attributes\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[3].one_liner.content\",\n      \"model_path\": \"Class.attributes[3].one_liner.content\",\n      \"old_value\": \"the criteria, or dimensions, by which the class can be divided into subtypes\",\n      \"new_value\": \"The criteria or dimensions by which the class can be divided into subtypes\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Class.attributes[4].one_liner.content\",\n      \"old_value\": \"Any subtypes or specializations of this class based on it\\u2019s subtypings.\",\n      \"new_value\": \"Any subtypes or specializations of this class based on its subtypings\",\n      \"reason\": \"The one liner should be a noun phrase and not have the incorrect character 'u2019'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[5].one_liner.content\",\n      \"model_path\": \"Class.attributes[5].one_liner.content\",\n      \"old_value\": \"The attributes or properties of the class, in the order in which they should be presented _\",\n      \"new_value\": \"The attributes or properties of the class in the order in which they should be presented\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[6].one_liner.content\",\n      \"model_path\": \"Class.attributes[6].one_liner.content\",\n      \"old_value\": \"additional attributes or properties of the class, grouped for clarity and elaboration.  _\",\n      \"new_value\": \"Additional attributes or properties of the class, grouped for clarity and elaboration\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[7].one_liner.content\",\n      \"model_path\": \"Class.attributes[7].one_liner.content\",\n      \"old_value\": \"Any constraints, rules, or validations specific to this class _\",\n      \"new_value\": \"Any constraints, rules, or validations specific to this class\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[8].one_liner.content\",\n      \"model_path\": \"Class.attributes[8].one_liner.content\",\n      \"old_value\": \"Any behaviors or operations associated with this class _\",\n      \"new_value\": \"Any behaviors or operations associated with this class\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[9].one_liner.content\",\n      \"model_path\": \"Class.attributes[9].one_liner.content\",\n      \"old_value\": \"the Classes which are basedOn this Class\",\n      \"new_value\": \"The classes which are based on this class\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[10].one_liner.content\",\n      \"model_path\": \"Class.attributes[10].one_liner.content\",\n      \"old_value\": \"the Class or Classes on which this class is dependent\",\n      \"new_value\": \"The class or classes on which this class is dependent\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[11].one_liner.content\",\n      \"model_path\": \"Class.attributes[11].one_liner.content\",\n      \"old_value\": \"the criteria, or dimensions, by which the class can be divided into subtypes\",\n      \"new_value\": \"The criteria or dimensions by which the class can be divided into subtypes\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[12].one_liner.content\",\n      \"model_path\": \"Class.attributes[12].one_liner.content\",\n      \"old_value\": \"the Class or Classes on which this class is dependent\",\n      \"new_value\": \"The class or classes on which this class is dependent\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[1].one_liner.content\",\n      \"model_path\": \"SubjectArea.one_liner.content\",\n      \"old_value\": \"A main topic or area of focus within the model, containing related subjects and classes\",\n      \"new_value\": \"A main topic or area of focus within the model containing related subjects and classes\",\n      \"reason\": \"The one liner should be a noun phrase and not have unnecessary spaces.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[7].one_liner.content\",\n      \"model_path\": \"Key.one_liner.content\",\n      \"old_value\": \"a list of attributes of a class\",\n      \"new_value\": \"A list of attributes of a class\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[7].attributes[0].one_liner.content\",\n      \"model_path\": \"Key.attributes[0].one_liner.content\",\n      \"old_value\": \"the attributes of the base Class.\",\n      \"new_value\": \"The attributes of the base class.\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[7].attributes[0].one_liner.content\",\n      \"model_path\": \"Key.attributes[0].one_liner.content\",\n      \"old_value\": \"the attributes of the base Class.\",\n      \"new_value\": \"The attributes of the base class.\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[8].one_liner.content\",\n      \"model_path\": \"UniqueKey.one_liner.content\",\n      \"old_value\": \"a list of attributes on which instances of the base class may be keyed.\",\n      \"new_value\": \"A list of attributes on which instances of the base class may be keyed.\",\n      \"reason\": \"The one liner should start with an article and be a noun phrase.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[8].attributes[0].one_liner.content\",\n      \"model_path\": \"UniqueKey.attributes[0].one_liner.content\",\n      \"old_value\": \"the Class or Classes on which this class is dependent\",\n      \"new_value\": \"The class or classes on which this class is dependent\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'class'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].one_liner.content\",\n      \"model_path\": \"Attribute.one_liner.content\",\n      \"old_value\": \"A property or characteristic of a class\",\n      \"new_value\": \"A property or characteristic of a class\",\n      \"reason\": \"The one liner is correctly formatted but needs to be checked for consistency with other entries.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[1].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[1].one_liner.content\",\n      \"old_value\": \"The kind of object to which the attribute refers.  _\",\n      \"new_value\": \"The type of object to which the attribute refers\",\n      \"reason\": \"The one liner should be a noun phrase and not have an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[1].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[1].one_liner.content\",\n      \"old_value\": \"The kind of object to which the attribute refers.  _\",\n      \"new_value\": \"The type of object to which the attribute refers\",\n      \"reason\": \"The one liner should be a noun phrase and not have an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[2].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[2].one_liner.content\",\n      \"old_value\": \"Indicates whether the attribute must have a value for every instance of the class _\",\n      \"new_value\": \"Indicates whether the attribute must have a value for every instance of the class\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[3].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[3].one_liner.content\",\n      \"old_value\": \"The cardinality of the relationship represented by the attribute _\",\n      \"new_value\": \"The cardinality of the relationship represented by the attribute\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[3].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[3].one_liner.content\",\n      \"old_value\": \"The cardinality of the relationship represented by the attribute _\",\n      \"new_value\": \"The cardinality of the relationship represented by the attribute\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[4].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[4].one_liner.content\",\n      \"old_value\": \"true if the data type is a class or a simple collection of members of a class.\",\n      \"new_value\": \"True if the data type is a class or a simple collection of members of a class\",\n      \"reason\": \"The one liner should start with a capital letter.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[4].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[4].one_liner.content\",\n      \"old_value\": \"true if the data type is a class or a simple collection of members of a class.\",\n      \"new_value\": \"True if the data type is a class or a simple collection of members of a class\",\n      \"reason\": \"The one liner should start with a capital letter.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[6].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[6].one_liner.content\",\n      \"old_value\": \"the class which contains, or would contain the inverse attribute\",\n      \"new_value\": \"The class that contains or would contain the inverse attribute\",\n      \"reason\": \"The one liner should be a noun phrase and use 'that' instead of 'which' for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[7].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[7].one_liner.content\",\n      \"old_value\": \"the attribute which contains the inverse of this attribute\",\n      \"new_value\": \"The attribute containing the inverse of this attribute\",\n      \"reason\": \"The one liner should be a noun phrase and not start with 'the attribute which'; it should start with 'The attribute that' for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[8].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[8].one_liner.content\",\n      \"old_value\": \"the attribute which contains the inverse of this attribute\",\n      \"new_value\": \"The attribute containing the inverse of this attribute\",\n      \"reason\": \"The one liner should be a noun phrase and not start with 'the attribute which'; it should start with 'The attribute that' for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[9].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[9].one_liner.content\",\n      \"old_value\": \"the higher level attribute which this one overrides - for type or ...\",\n      \"new_value\": \"The higher level attribute that this one overrides for type or ...\",\n      \"reason\": \"The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[10].one_lner.content\",\n      \"model_path\": \"Attribute.attributes[10].one_liner.content\",\n      \"old_value\": \"the higher level attribute which this one overrides - for type or ...\",\n      \"new_value\": \"The higher level attribute that this one overrides for type or ...\",\n      \"reason\": \"The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[10].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[10].one_liner.content\",\n      \"old_value\": \"the higher level attribute which this one overrides - for type or ...\",\n      \"new_value\": \"The higher level attribute that this one overrides for type or ...\",\n      \"reason\": \"The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[11].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[11].one_liner.content\",\n      \"old_value\": \"The rule or formula for calculating the value, if no value is supplied\\nNow running to a second line with the parenthentical on yet a third line\",\n      \"new_value\": \"The rule or formula for calculating the value if no value is supplied\",\n      \"reason\": \"The one liner should have one line without additional text in the line.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[11].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[11].one_liner.content\",\n      \"old_value\": \"The rule or formula for calculating the value, if no value is supplied\\nNow running to a second line with the parenthentical on yet a third line\",\n      \"new_value\": \"The rule or formula for calculating the value if no value is supplied\",\n      \"reason\": \"The one liner should have one line without additional text in the line.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[12].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[12].one_liner.content\",\n      \"old_value\": \"For derived attributes, the rule or formula for calculating the value _\",\n      \"new_value\": \"For derived attributes, the rule or formula for calculating the value\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[13].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[13].one_liner.content\",\n      \"old_value\": \"Any validation rules specific to this attribute _\",\n      \"new_value\": \"Any validation rules specific to this attribute\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[0].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[0].one_liner.content\",\n      \"old_value\": \"the name of the attribute\",\n      \"new_value\": \"The name of the attribute\",\n      \"reason\": \"The one liner should be a noun phrase and not have lowercase 'attribute'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[1].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[1].one_liner.content\",\n      \"old_value\": \"The name of the attribute\",\n      \"new_value\": \"The name of the attribute\",\n      \"reason\": \"The one liner is correctly formatted.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[2].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[2].one_liner.content\",\n      \"old_value\": \"Indicates whether the attribute must have a value for every instance of the class _\",\n      \"new_value\": \"Indicates whether the attribute must have a value for every instance of the class\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[3].one_liner.content\",\n      \"model_path\": \"Attribute.attributes[3].one_liner.content\",\n      \"old_value\": \"The cardinality of the relationship represented by the attribute _\",\n      \"new_value\": \"The cardinality of the relationship represented by the attribute\",\n      \"reason\": \"The one liner should be a noun phrase and not end with an underscore.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[9].attributes[4].one_liner.content\",\n      \"model_path"
+	No PRUNING Needed
+Parsing failed - only raw results returned
+Pruned =...
+{
+  "response_type": "changes",
+  "changes": [
+    {
+      "path": "subjects[0].classes[0].one_liner.content",
+      "model_path": "Component.one_liner.content",
+      "old_value": "An element or building block of the literate data model",
+      "new_value": "A fundamental building block of the literate data model",
+      "reason": "The one liner was too long and could be more concise. Changed to a more concise and accurate noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[0].one_liner.content",
+      "model_path": "Component.attributes[0].one_liner.content",
+      "old_value": "the name of the component, not in camel case",
+      "new_value": "The name of the component, not in camel case",
+      "reason": "The one liner should start with an article, and the original was missing it.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[1].one_liner.content",
+      "model_path": "Component.attributes[1].one_liner.content",
+      "old_value": "The name of the component",
+      "new_value": "The name of the component in camel case",
+      "reason": "The one liner should begin with an article and specify the format (camel case).",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[3].one_liner.content",
+      "model_path": "Component.attributes[3].one_liner.content",
+      "old_value": "a short form of the component's name, used for cross references and improved readability.",
+      "new_value": "A short form of the component's name for cross-references and improved readability",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[4].one_liner.content",
+      "model_path": "Component.attributes[4].one_liner.content",
+      "old_value": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _",
+      "new_value": "A brief, one-line definition or description of the component suitable for use in a descriptive table of contents",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[5].one_liner.content",
+      "model_path": "Component.attributes[5].one_liner.content",
+      "old_value": "A more detailed explanation or discussion of the component _",
+      "new_value": "A more detailed explanation or discussion of the component",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[6].one_liner.content",
+      "model_path": "Component.attributes[6].one_liner.content",
+      "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[7].one_liner.content",
+      "model_path": "Component.attributes[7].one_liner.content",
+      "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].one_liner.content",
+      "model_path": "AnnotationType.one_liner.content",
+      "old_value": "a kind of note, or aside, used to call attention to additional information about some Component.",
+      "new_value": "A note or aside used to call attention to additional information about a component",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[0].one_liner.content",
+      "model_path": "AnnotationType.attributes[0].one_liner.content",
+      "old_value": "an emoji",
+      "new_value": "An emoji to represent the annotation",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[1].one_liner.content",
+      "model_path": "AnnotationType.attributes[1].one_liner.content",
+      "old_value": "an emoji",
+      "new_value": "The name of the emoji",
+      "reason": "The one liner should be specific and indicate what the attribute represents.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[2].one_liner.content",
+      "model_path": "AnnotationType.attributes[2].one_liner.content",
+      "old_value": "the Unicode for the emoji",
+      "new_value": "The Unicode value of the emoji",
+      "reason": "The one liner should be more precise and concise.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[3].one_liner.content",
+      "model_path": "AnnotationType.attributes[3].one_liner.content",
+      "old_value": "A short label to indicate the purpose of the annotation _",
+      "new_value": "A short label indicating the purpose of the annotation",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[4].one_liner.content",
+      "model_path": "AnnotationType.attributes[4].one_liner.content",
+      "old_value": "the plural form of the label",
+      "new_value": "The plural form of the label",
+      "reason": "The one liner should start with an article.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[5].one_liner.content",
+      "model_path": "AnnotationType.attributes[5].one_liner.content",
+      "old_value": "the intended reason for the annotation.",
+      "new_value": "The intended purpose of the annotation",
+      "reason": "The one liner should use more precise language.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].one_liner.content",
+      "model_path": "Annotation.one_liner.content",
+      "old_value": "A note or comment associated with a model element",
+      "new_value": "A note or comment associated with a model element",
+      "reason": "The one liner is correctly formatted, but the duplicate entry should be merged or removed.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[0].one_liner.content",
+      "model_path": "Annotation.attributes[0].one_liner.content",
+      "old_value": "An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.",
+      "new_value": "Indicates whether the annotation is recognized or ad hoc based on its label",
+      "reason": "The one liner should be concise and not include markdown formatting.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[1].one_liner.content",
+      "model_path": "Annotation.attributes[1].one_liner.content",
+      "old_value": "A short label to indicate the purpose of the annotation _",
+      "new_value": "A short label indicating the purpose of the annotation",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[2].one_liner.content",
+      "model_path": "Annotation.attributes[2].one_liner.content",
+      "old_value": "a short label to indicate the purpose of the annotation",
+      "new_value": "A short label indicating the purpose of the annotation",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[3].one_liner.content",
+      "model_path": "Annotation.attributes[3].one_liner.content",
+      "old_value": "The content or body of the annotation",
+      "new_value": "The content or body of the annotation",
+      "reason": "The one liner is correctly formatted but needs a period to end the sentence.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[4].one_liner.content",
+      "model_path": "Annotation.attributes[4].one_liner.content",
+      "old_value": "Indicates whether this annotation is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this annotation is an embellishment added during post-parsing processing",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].one_liner.content",
+      "model_path": "LiterateModel.one_liner.content",
+      "old_value": "A representation of a domain's entities, attributes, and relationships,\nalong with explanatory text and examples",
+      "new_value": "A representation of a domain's entities, attributes, and relationships along with explanatory text and examples",
+      "reason": "The one liner should be a single sentence without line breaks.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[1].one_liner.content",
+      "model_path": "LiterateModel.attributes[1].one_liner.content",
+      "old_value": "list of all classes in the model, as ordered in the\ndefinition of the model.",
+      "new_value": "List of all classes in the model, as ordered in the definition of the model",
+      "reason": "The one liner should be a noun phrase and not have line breaks.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[2].one_liner.content",
+      "model_path": "LiterateModel.attributes[2].one_liner.content",
+      "old_value": "list of all classes in the model, as ordered in the definition of the model.",
+      "new_value": "List of all classes in the model, as ordered in the definition of the model",
+      "reason": "The one liner should be a noun phrase and not have line breaks.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[5].one_liner.content",
+      "model_path": "LiterateModel.attributes[5].one_liner.content",
+      "old_value": "the recommended lanquage  for expressing derivation, defaults, and constraints",
+      "new_value": "The recommended language for expressing derivation, defaults, and constraints",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[6].one_liner.content",
+      "model_path": "LiterateModel.attributes[6].one_liner.content",
+      "old_value": "the recommended lanquage  for expressing derivation, defaults, and constraints",
+      "new_value": "The recommended language for expressing derivation, defaults, and constraints",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[7].one_liner.content",
+      "model_path": "LiterateModel.attributes[7].one_liner.content",
+      "old_value": "A list of functions that require sophisticated AI-powered implementation *",
+      "new_value": "A list of functions requiring sophisticated AI-powered implementation",
+      "reason": "The one liner should be a noun phrase and not have an asterisk.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].one_liner.content",
+      "model_path": "Subject.one_liner.content",
+      "old_value": "A specific topic or theme within the model",
+      "new_value": "A specific topic or theme within the model",
+      "reason": "The one liner is correctly formatted but the duplicate entry should be merged or removed.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[0].one_liner.content",
+      "model_path": "Subject.attributes[0].one_liner.content",
+      "old_value": "the normal English plural form of the name of the Class",
+      "new_value": "The normal English plural form of the name of the class",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[1].one_liner.content",
+      "model_path": "Subject.attributes[1].one_liner.content",
+      "old_value": "The parent subject, if any, under which this subject is nested _",
+      "new_value": "The parent subject, if any, under which this subject is nested",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[2].one_liner.content",
+      "model_path": "Subject.attributes[2].one_liner.content",
+      "old_value": "The major classes related to this subject, in the order in which they should be presented _",
+      "new_value": "The major classes related to this subject, in the order in which they should be presented",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[3].one_liner.content",
+      "model_path": "Subject.attributes[3].one_liner.content",
+      "old_value": "Any child subjects nested under this subject, in the order in which they should be presented _",
+      "new_value": "Any child subjects nested under this subject, in the order in which they should be presented",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].one_liner.content",
+      "model_path": "Class.one_liner.content",
+      "old_value": "A key entity or object type in the model, often corresponding to a real-world concept",
+      "new_value": "A key entity or object type in the model often corresponding to a real-world concept",
+      "reason": "The one liner should be a noun phrase and not include unnecessary words like 'often'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[0].one_liner.content",
+      "model_path": "Class.attributes[0].one_liner.content",
+      "old_value": "the normal English plural form of the name of the Class",
+      "new_value": "The normal English plural form of the name of the class",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'Class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[1].one_liner.content",
+      "model_path": "Class.attributes[1].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[2].one_liner.content",
+      "model_path": "Class.attributes[2].one_liner.content",
+      "old_value": "The parent class or classes from which this class inherits attributes",
+      "new_value": "The parent class or classes from which this class inherits attributes",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[3].one_liner.content",
+      "model_path": "Class.attributes[3].one_liner.content",
+      "old_value": "the criteria, or dimensions, by which the class can be divided into subtypes",
+      "new_value": "The criteria or dimensions by which the class can be divided into subtypes",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[4].one_liner.content",
+      "model_path": "Class.attributes[4].one_liner.content",
+      "old_value": "Any subtypes or specializations of this class based on it\u2019s subtypings.",
+      "new_value": "Any subtypes or specializations of this class based on its subtypings",
+      "reason": "The one liner should be a noun phrase and not have the incorrect character 'u2019'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[5].one_liner.content",
+      "model_path": "Class.attributes[5].one_liner.content",
+      "old_value": "The attributes or properties of the class, in the order in which they should be presented _",
+      "new_value": "The attributes or properties of the class in the order in which they should be presented",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[6].one_liner.content",
+      "model_path": "Class.attributes[6].one_liner.content",
+      "old_value": "additional attributes or properties of the class, grouped for clarity and elaboration.  _",
+      "new_value": "Additional attributes or properties of the class, grouped for clarity and elaboration",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[7].one_liner.content",
+      "model_path": "Class.attributes[7].one_liner.content",
+      "old_value": "Any constraints, rules, or validations specific to this class _",
+      "new_value": "Any constraints, rules, or validations specific to this class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[8].one_liner.content",
+      "model_path": "Class.attributes[8].one_liner.content",
+      "old_value": "Any behaviors or operations associated with this class _",
+      "new_value": "Any behaviors or operations associated with this class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[9].one_liner.content",
+      "model_path": "Class.attributes[9].one_liner.content",
+      "old_value": "the Classes which are basedOn this Class",
+      "new_value": "The classes which are based on this class",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[10].one_liner.content",
+      "model_path": "Class.attributes[10].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[11].one_liner.content",
+      "model_path": "Class.attributes[11].one_liner.content",
+      "old_value": "the criteria, or dimensions, by which the class can be divided into subtypes",
+      "new_value": "The criteria or dimensions by which the class can be divided into subtypes",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[12].one_liner.content",
+      "model_path": "Class.attributes[12].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[1].one_liner.content",
+      "model_path": "SubjectArea.one_liner.content",
+      "old_value": "A main topic or area of focus within the model, containing related subjects and classes",
+      "new_value": "A main topic or area of focus within the model containing related subjects and classes",
+      "reason": "The one liner should be a noun phrase and not have unnecessary spaces.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[7].one_liner.content",
+      "model_path": "Key.one_liner.content",
+      "old_value": "a list of attributes of a class",
+      "new_value": "A list of attributes of a class",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[7].attributes[0].one_liner.content",
+      "model_path": "Key.attributes[0].one_liner.content",
+      "old_value": "the attributes of the base Class.",
+      "new_value": "The attributes of the base class.",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[7].attributes[0].one_liner.content",
+      "model_path": "Key.attributes[0].one_liner.content",
+      "old_value": "the attributes of the base Class.",
+      "new_value": "The attributes of the base class.",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[8].one_liner.content",
+      "model_path": "UniqueKey.one_liner.content",
+      "old_value": "a list of attributes on which instances of the base class may be keyed.",
+      "new_value": "A list of attributes on which instances of the base class may be keyed.",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[8].attributes[0].one_liner.content",
+      "model_path": "UniqueKey.attributes[0].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].one_liner.content",
+      "model_path": "Attribute.one_liner.content",
+      "old_value": "A property or characteristic of a class",
+      "new_value": "A property or characteristic of a class",
+      "reason": "The one liner is correctly formatted but needs to be checked for consistency with other entries.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[1].one_liner.content",
+      "model_path": "Attribute.attributes[1].one_liner.content",
+      "old_value": "The kind of object to which the attribute refers.  _",
+      "new_value": "The type of object to which the attribute refers",
+      "reason": "The one liner should be a noun phrase and not have an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[1].one_liner.content",
+      "model_path": "Attribute.attributes[1].one_liner.content",
+      "old_value": "The kind of object to which the attribute refers.  _",
+      "new_value": "The type of object to which the attribute refers",
+      "reason": "The one liner should be a noun phrase and not have an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[2].one_liner.content",
+      "model_path": "Attribute.attributes[2].one_liner.content",
+      "old_value": "Indicates whether the attribute must have a value for every instance of the class _",
+      "new_value": "Indicates whether the attribute must have a value for every instance of the class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[3].one_liner.content",
+      "model_path": "Attribute.attributes[3].one_liner.content",
+      "old_value": "The cardinality of the relationship represented by the attribute _",
+      "new_value": "The cardinality of the relationship represented by the attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[3].one_liner.content",
+      "model_path": "Attribute.attributes[3].one_liner.content",
+      "old_value": "The cardinality of the relationship represented by the attribute _",
+      "new_value": "The cardinality of the relationship represented by the attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[4].one_liner.content",
+      "model_path": "Attribute.attributes[4].one_liner.content",
+      "old_value": "true if the data type is a class or a simple collection of members of a class.",
+      "new_value": "True if the data type is a class or a simple collection of members of a class",
+      "reason": "The one liner should start with a capital letter.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[4].one_liner.content",
+      "model_path": "Attribute.attributes[4].one_liner.content",
+      "old_value": "true if the data type is a class or a simple collection of members of a class.",
+      "new_value": "True if the data type is a class or a simple collection of members of a class",
+      "reason": "The one liner should start with a capital letter.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[6].one_liner.content",
+      "model_path": "Attribute.attributes[6].one_liner.content",
+      "old_value": "the class which contains, or would contain the inverse attribute",
+      "new_value": "The class that contains or would contain the inverse attribute",
+      "reason": "The one liner should be a noun phrase and use 'that' instead of 'which' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[7].one_liner.content",
+      "model_path": "Attribute.attributes[7].one_liner.content",
+      "old_value": "the attribute which contains the inverse of this attribute",
+      "new_value": "The attribute containing the inverse of this attribute",
+      "reason": "The one liner should be a noun phrase and not start with 'the attribute which'; it should start with 'The attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[8].one_liner.content",
+      "model_path": "Attribute.attributes[8].one_liner.content",
+      "old_value": "the attribute which contains the inverse of this attribute",
+      "new_value": "The attribute containing the inverse of this attribute",
+      "reason": "The one liner should be a noun phrase and not start with 'the attribute which'; it should start with 'The attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[9].one_liner.content",
+      "model_path": "Attribute.attributes[9].one_liner.content",
+      "old_value": "the higher level attribute which this one overrides - for type or ...",
+      "new_value": "The higher level attribute that this one overrides for type or ...",
+      "reason": "The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[10].one_lner.content",
+      "model_path": "Attribute.attributes[10].one_liner.content",
+      "old_value": "the higher level attribute which this one overrides - for type or ...",
+      "new_value": "The higher level attribute that this one overrides for type or ...",
+      "reason": "The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[10].one_liner.content",
+      "model_path": "Attribute.attributes[10].one_liner.content",
+      "old_value": "the higher level attribute which this one overrides - for type or ...",
+      "new_value": "The higher level attribute that this one overrides for type or ...",
+      "reason": "The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[11].one_liner.content",
+      "model_path": "Attribute.attributes[11].one_liner.content",
+      "old_value": "The rule or formula for calculating the value, if no value is supplied\nNow running to a second line with the parenthentical on yet a third line",
+      "new_value": "The rule or formula for calculating the value if no value is supplied",
+      "reason": "The one liner should have one line without additional text in the line.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[11].one_liner.content",
+      "model_path": "Attribute.attributes[11].one_liner.content",
+      "old_value": "The rule or formula for calculating the value, if no value is supplied\nNow running to a second line with the parenthentical on yet a third line",
+      "new_value": "The rule or formula for calculating the value if no value is supplied",
+      "reason": "The one liner should have one line without additional text in the line.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[12].one_liner.content",
+      "model_path": "Attribute.attributes[12].one_liner.content",
+      "old_value": "For derived attributes, the rule or formula for calculating the value _",
+      "new_value": "For derived attributes, the rule or formula for calculating the value",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[13].one_liner.content",
+      "model_path": "Attribute.attributes[13].one_liner.content",
+      "old_value": "Any validation rules specific to this attribute _",
+      "new_value": "Any validation rules specific to this attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[0].one_liner.content",
+      "model_path": "Attribute.attributes[0].one_liner.content",
+      "old_value": "the name of the attribute",
+      "new_value": "The name of the attribute",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'attribute'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[1].one_liner.content",
+      "model_path": "Attribute.attributes[1].one_liner.content",
+      "old_value": "The name of the attribute",
+      "new_value": "The name of the attribute",
+      "reason": "The one liner is correctly formatted.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[2].one_liner.content",
+      "model_path": "Attribute.attributes[2].one_liner.content",
+      "old_value": "Indicates whether the attribute must have a value for every instance of the class _",
+      "new_value": "Indicates whether the attribute must have a value for every instance of the class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[3].one_liner.content",
+      "model_path": "Attribute.attributes[3].one_liner.content",
+      "old_value": "The cardinality of the relationship represented by the attribute _",
+      "new_value": "The cardinality of the relationship represented by the attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[4].one_liner.content",
+      "model_path
+... end of Pruned
+Can't parse raw results:
+{
+  "response_type": "changes",
+  "changes": [
+    {
+      "path": "subjects[0].classes[0].one_liner.content",
+      "model_path": "Component.one_liner.content",
+      "old_value": "An element or building block of the literate data model",
+      "new_value": "A fundamental building block of the literate data model",
+      "reason": "The one liner was too long and could be more concise. Changed to a more concise and accurate noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[0].one_liner.content",
+      "model_path": "Component.attributes[0].one_liner.content",
+      "old_value": "the name of the component, not in camel case",
+      "new_value": "The name of the component, not in camel case",
+      "reason": "The one liner should start with an article, and the original was missing it.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[1].one_liner.content",
+      "model_path": "Component.attributes[1].one_liner.content",
+      "old_value": "The name of the component",
+      "new_value": "The name of the component in camel case",
+      "reason": "The one liner should begin with an article and specify the format (camel case).",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[3].one_liner.content",
+      "model_path": "Component.attributes[3].one_liner.content",
+      "old_value": "a short form of the component's name, used for cross references and improved readability.",
+      "new_value": "A short form of the component's name for cross-references and improved readability",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[4].one_liner.content",
+      "model_path": "Component.attributes[4].one_liner.content",
+      "old_value": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _",
+      "new_value": "A brief, one-line definition or description of the component suitable for use in a descriptive table of contents",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[5].one_liner.content",
+      "model_path": "Component.attributes[5].one_liner.content",
+      "old_value": "A more detailed explanation or discussion of the component _",
+      "new_value": "A more detailed explanation or discussion of the component",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[6].one_liner.content",
+      "model_path": "Component.attributes[6].one_liner.content",
+      "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[0].attributes[7].one_liner.content",
+      "model_path": "Component.attributes[7].one_liner.content",
+      "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].one_liner.content",
+      "model_path": "AnnotationType.one_liner.content",
+      "old_value": "a kind of note, or aside, used to call attention to additional information about some Component.",
+      "new_value": "A note or aside used to call attention to additional information about a component",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[0].one_liner.content",
+      "model_path": "AnnotationType.attributes[0].one_liner.content",
+      "old_value": "an emoji",
+      "new_value": "An emoji to represent the annotation",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[1].one_liner.content",
+      "model_path": "AnnotationType.attributes[1].one_liner.content",
+      "old_value": "an emoji",
+      "new_value": "The name of the emoji",
+      "reason": "The one liner should be specific and indicate what the attribute represents.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[2].one_liner.content",
+      "model_path": "AnnotationType.attributes[2].one_liner.content",
+      "old_value": "the Unicode for the emoji",
+      "new_value": "The Unicode value of the emoji",
+      "reason": "The one liner should be more precise and concise.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[3].one_liner.content",
+      "model_path": "AnnotationType.attributes[3].one_liner.content",
+      "old_value": "A short label to indicate the purpose of the annotation _",
+      "new_value": "A short label indicating the purpose of the annotation",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[4].one_liner.content",
+      "model_path": "AnnotationType.attributes[4].one_liner.content",
+      "old_value": "the plural form of the label",
+      "new_value": "The plural form of the label",
+      "reason": "The one liner should start with an article.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[1].attributes[5].one_liner.content",
+      "model_path": "AnnotationType.attributes[5].one_liner.content",
+      "old_value": "the intended reason for the annotation.",
+      "new_value": "The intended purpose of the annotation",
+      "reason": "The one liner should use more precise language.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].one_liner.content",
+      "model_path": "Annotation.one_liner.content",
+      "old_value": "A note or comment associated with a model element",
+      "new_value": "A note or comment associated with a model element",
+      "reason": "The one liner is correctly formatted, but the duplicate entry should be merged or removed.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[0].one_liner.content",
+      "model_path": "Annotation.attributes[0].one_liner.content",
+      "old_value": "An Annotation is considered to *recognized* if the label is associated with an Annotation Type. otherwise it is *ad hoc*.",
+      "new_value": "Indicates whether the annotation is recognized or ad hoc based on its label",
+      "reason": "The one liner should be concise and not include markdown formatting.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[1].one_liner.content",
+      "model_path": "Annotation.attributes[1].one_liner.content",
+      "old_value": "A short label to indicate the purpose of the annotation _",
+      "new_value": "A short label indicating the purpose of the annotation",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[2].one_liner.content",
+      "model_path": "Annotation.attributes[2].one_liner.content",
+      "old_value": "a short label to indicate the purpose of the annotation",
+      "new_value": "A short label indicating the purpose of the annotation",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[3].one_liner.content",
+      "model_path": "Annotation.attributes[3].one_liner.content",
+      "old_value": "The content or body of the annotation",
+      "new_value": "The content or body of the annotation",
+      "reason": "The one liner is correctly formatted but needs a period to end the sentence.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[2].attributes[4].one_liner.content",
+      "model_path": "Annotation.attributes[4].one_liner.content",
+      "old_value": "Indicates whether this annotation is an embellishment added during post-parsing processing _",
+      "new_value": "Indicates whether this annotation is an embellishment added during post-parsing processing",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].one_liner.content",
+      "model_path": "LiterateModel.one_liner.content",
+      "old_value": "A representation of a domain's entities, attributes, and relationships,\nalong with explanatory text and examples",
+      "new_value": "A representation of a domain's entities, attributes, and relationships along with explanatory text and examples",
+      "reason": "The one liner should be a single sentence without line breaks.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[1].one_liner.content",
+      "model_path": "LiterateModel.attributes[1].one_liner.content",
+      "old_value": "list of all classes in the model, as ordered in the\ndefinition of the model.",
+      "new_value": "List of all classes in the model, as ordered in the definition of the model",
+      "reason": "The one liner should be a noun phrase and not have line breaks.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[2].one_liner.content",
+      "model_path": "LiterateModel.attributes[2].one_liner.content",
+      "old_value": "list of all classes in the model, as ordered in the definition of the model.",
+      "new_value": "List of all classes in the model, as ordered in the definition of the model",
+      "reason": "The one liner should be a noun phrase and not have line breaks.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[5].one_liner.content",
+      "model_path": "LiterateModel.attributes[5].one_liner.content",
+      "old_value": "the recommended lanquage  for expressing derivation, defaults, and constraints",
+      "new_value": "The recommended language for expressing derivation, defaults, and constraints",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[6].one_liner.content",
+      "model_path": "LiterateModel.attributes[6].one_liner.content",
+      "old_value": "the recommended lanquage  for expressing derivation, defaults, and constraints",
+      "new_value": "The recommended language for expressing derivation, defaults, and constraints",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[3].attributes[7].one_liner.content",
+      "model_path": "LiterateModel.attributes[7].one_liner.content",
+      "old_value": "A list of functions that require sophisticated AI-powered implementation *",
+      "new_value": "A list of functions requiring sophisticated AI-powered implementation",
+      "reason": "The one liner should be a noun phrase and not have an asterisk.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].one_liner.content",
+      "model_path": "Subject.one_liner.content",
+      "old_value": "A specific topic or theme within the model",
+      "new_value": "A specific topic or theme within the model",
+      "reason": "The one liner is correctly formatted but the duplicate entry should be merged or removed.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[0].one_liner.content",
+      "model_path": "Subject.attributes[0].one_liner.content",
+      "old_value": "the normal English plural form of the name of the Class",
+      "new_value": "The normal English plural form of the name of the class",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[1].one_liner.content",
+      "model_path": "Subject.attributes[1].one_liner.content",
+      "old_value": "The parent subject, if any, under which this subject is nested _",
+      "new_value": "The parent subject, if any, under which this subject is nested",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[2].one_liner.content",
+      "model_path": "Subject.attributes[2].one_liner.content",
+      "old_value": "The major classes related to this subject, in the order in which they should be presented _",
+      "new_value": "The major classes related to this subject, in the order in which they should be presented",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[0].classes[4].attributes[3].one_liner.content",
+      "model_path": "Subject.attributes[3].one_liner.content",
+      "old_value": "Any child subjects nested under this subject, in the order in which they should be presented _",
+      "new_value": "Any child subjects nested under this subject, in the order in which they should be presented",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].one_liner.content",
+      "model_path": "Class.one_liner.content",
+      "old_value": "A key entity or object type in the model, often corresponding to a real-world concept",
+      "new_value": "A key entity or object type in the model often corresponding to a real-world concept",
+      "reason": "The one liner should be a noun phrase and not include unnecessary words like 'often'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[0].one_liner.content",
+      "model_path": "Class.attributes[0].one_liner.content",
+      "old_value": "the normal English plural form of the name of the Class",
+      "new_value": "The normal English plural form of the name of the class",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'Class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[1].one_liner.content",
+      "model_path": "Class.attributes[1].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[2].one_liner.content",
+      "model_path": "Class.attributes[2].one_liner.content",
+      "old_value": "The parent class or classes from which this class inherits attributes",
+      "new_value": "The parent class or classes from which this class inherits attributes",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[3].one_liner.content",
+      "model_path": "Class.attributes[3].one_liner.content",
+      "old_value": "the criteria, or dimensions, by which the class can be divided into subtypes",
+      "new_value": "The criteria or dimensions by which the class can be divided into subtypes",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[4].one_liner.content",
+      "model_path": "Class.attributes[4].one_liner.content",
+      "old_value": "Any subtypes or specializations of this class based on it\u2019s subtypings.",
+      "new_value": "Any subtypes or specializations of this class based on its subtypings",
+      "reason": "The one liner should be a noun phrase and not have the incorrect character 'u2019'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[5].one_liner.content",
+      "model_path": "Class.attributes[5].one_liner.content",
+      "old_value": "The attributes or properties of the class, in the order in which they should be presented _",
+      "new_value": "The attributes or properties of the class in the order in which they should be presented",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[6].one_liner.content",
+      "model_path": "Class.attributes[6].one_liner.content",
+      "old_value": "additional attributes or properties of the class, grouped for clarity and elaboration.  _",
+      "new_value": "Additional attributes or properties of the class, grouped for clarity and elaboration",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[7].one_liner.content",
+      "model_path": "Class.attributes[7].one_liner.content",
+      "old_value": "Any constraints, rules, or validations specific to this class _",
+      "new_value": "Any constraints, rules, or validations specific to this class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[8].one_liner.content",
+      "model_path": "Class.attributes[8].one_liner.content",
+      "old_value": "Any behaviors or operations associated with this class _",
+      "new_value": "Any behaviors or operations associated with this class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[9].one_liner.content",
+      "model_path": "Class.attributes[9].one_liner.content",
+      "old_value": "the Classes which are basedOn this Class",
+      "new_value": "The classes which are based on this class",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[10].one_liner.content",
+      "model_path": "Class.attributes[10].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[11].one_liner.content",
+      "model_path": "Class.attributes[11].one_liner.content",
+      "old_value": "the criteria, or dimensions, by which the class can be divided into subtypes",
+      "new_value": "The criteria or dimensions by which the class can be divided into subtypes",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[0].attributes[12].one_liner.content",
+      "model_path": "Class.attributes[12].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[1].one_liner.content",
+      "model_path": "SubjectArea.one_liner.content",
+      "old_value": "A main topic or area of focus within the model, containing related subjects and classes",
+      "new_value": "A main topic or area of focus within the model containing related subjects and classes",
+      "reason": "The one liner should be a noun phrase and not have unnecessary spaces.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[7].one_liner.content",
+      "model_path": "Key.one_liner.content",
+      "old_value": "a list of attributes of a class",
+      "new_value": "A list of attributes of a class",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[7].attributes[0].one_liner.content",
+      "model_path": "Key.attributes[0].one_liner.content",
+      "old_value": "the attributes of the base Class.",
+      "new_value": "The attributes of the base class.",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[7].attributes[0].one_liner.content",
+      "model_path": "Key.attributes[0].one_liner.content",
+      "old_value": "the attributes of the base Class.",
+      "new_value": "The attributes of the base class.",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[8].one_liner.content",
+      "model_path": "UniqueKey.one_liner.content",
+      "old_value": "a list of attributes on which instances of the base class may be keyed.",
+      "new_value": "A list of attributes on which instances of the base class may be keyed.",
+      "reason": "The one liner should start with an article and be a noun phrase.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[8].attributes[0].one_liner.content",
+      "model_path": "UniqueKey.attributes[0].one_liner.content",
+      "old_value": "the Class or Classes on which this class is dependent",
+      "new_value": "The class or classes on which this class is dependent",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'class'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].one_liner.content",
+      "model_path": "Attribute.one_liner.content",
+      "old_value": "A property or characteristic of a class",
+      "new_value": "A property or characteristic of a class",
+      "reason": "The one liner is correctly formatted but needs to be checked for consistency with other entries.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[1].one_liner.content",
+      "model_path": "Attribute.attributes[1].one_liner.content",
+      "old_value": "The kind of object to which the attribute refers.  _",
+      "new_value": "The type of object to which the attribute refers",
+      "reason": "The one liner should be a noun phrase and not have an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[1].one_liner.content",
+      "model_path": "Attribute.attributes[1].one_liner.content",
+      "old_value": "The kind of object to which the attribute refers.  _",
+      "new_value": "The type of object to which the attribute refers",
+      "reason": "The one liner should be a noun phrase and not have an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[2].one_liner.content",
+      "model_path": "Attribute.attributes[2].one_liner.content",
+      "old_value": "Indicates whether the attribute must have a value for every instance of the class _",
+      "new_value": "Indicates whether the attribute must have a value for every instance of the class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[3].one_liner.content",
+      "model_path": "Attribute.attributes[3].one_liner.content",
+      "old_value": "The cardinality of the relationship represented by the attribute _",
+      "new_value": "The cardinality of the relationship represented by the attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[3].one_liner.content",
+      "model_path": "Attribute.attributes[3].one_liner.content",
+      "old_value": "The cardinality of the relationship represented by the attribute _",
+      "new_value": "The cardinality of the relationship represented by the attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[4].one_liner.content",
+      "model_path": "Attribute.attributes[4].one_liner.content",
+      "old_value": "true if the data type is a class or a simple collection of members of a class.",
+      "new_value": "True if the data type is a class or a simple collection of members of a class",
+      "reason": "The one liner should start with a capital letter.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[4].one_liner.content",
+      "model_path": "Attribute.attributes[4].one_liner.content",
+      "old_value": "true if the data type is a class or a simple collection of members of a class.",
+      "new_value": "True if the data type is a class or a simple collection of members of a class",
+      "reason": "The one liner should start with a capital letter.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[6].one_liner.content",
+      "model_path": "Attribute.attributes[6].one_liner.content",
+      "old_value": "the class which contains, or would contain the inverse attribute",
+      "new_value": "The class that contains or would contain the inverse attribute",
+      "reason": "The one liner should be a noun phrase and use 'that' instead of 'which' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[7].one_liner.content",
+      "model_path": "Attribute.attributes[7].one_liner.content",
+      "old_value": "the attribute which contains the inverse of this attribute",
+      "new_value": "The attribute containing the inverse of this attribute",
+      "reason": "The one liner should be a noun phrase and not start with 'the attribute which'; it should start with 'The attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[8].one_liner.content",
+      "model_path": "Attribute.attributes[8].one_liner.content",
+      "old_value": "the attribute which contains the inverse of this attribute",
+      "new_value": "The attribute containing the inverse of this attribute",
+      "reason": "The one liner should be a noun phrase and not start with 'the attribute which'; it should start with 'The attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[9].one_liner.content",
+      "model_path": "Attribute.attributes[9].one_liner.content",
+      "old_value": "the higher level attribute which this one overrides - for type or ...",
+      "new_value": "The higher level attribute that this one overrides for type or ...",
+      "reason": "The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[10].one_lner.content",
+      "model_path": "Attribute.attributes[10].one_liner.content",
+      "old_value": "the higher level attribute which this one overrides - for type or ...",
+      "new_value": "The higher level attribute that this one overrides for type or ...",
+      "reason": "The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[10].one_liner.content",
+      "model_path": "Attribute.attributes[10].one_liner.content",
+      "old_value": "the higher level attribute which this one overrides - for type or ...",
+      "new_value": "The higher level attribute that this one overrides for type or ...",
+      "reason": "The one liner should be a noun phrase and not start with 'the higher level attribute which'; it should start with 'The higher level attribute that' for clarity.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[11].one_liner.content",
+      "model_path": "Attribute.attributes[11].one_liner.content",
+      "old_value": "The rule or formula for calculating the value, if no value is supplied\nNow running to a second line with the parenthentical on yet a third line",
+      "new_value": "The rule or formula for calculating the value if no value is supplied",
+      "reason": "The one liner should have one line without additional text in the line.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[11].one_liner.content",
+      "model_path": "Attribute.attributes[11].one_liner.content",
+      "old_value": "The rule or formula for calculating the value, if no value is supplied\nNow running to a second line with the parenthentical on yet a third line",
+      "new_value": "The rule or formula for calculating the value if no value is supplied",
+      "reason": "The one liner should have one line without additional text in the line.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[12].one_liner.content",
+      "model_path": "Attribute.attributes[12].one_liner.content",
+      "old_value": "For derived attributes, the rule or formula for calculating the value _",
+      "new_value": "For derived attributes, the rule or formula for calculating the value",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[13].one_liner.content",
+      "model_path": "Attribute.attributes[13].one_liner.content",
+      "old_value": "Any validation rules specific to this attribute _",
+      "new_value": "Any validation rules specific to this attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[0].one_liner.content",
+      "model_path": "Attribute.attributes[0].one_liner.content",
+      "old_value": "the name of the attribute",
+      "new_value": "The name of the attribute",
+      "reason": "The one liner should be a noun phrase and not have lowercase 'attribute'.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[1].one_liner.content",
+      "model_path": "Attribute.attributes[1].one_liner.content",
+      "old_value": "The name of the attribute",
+      "new_value": "The name of the attribute",
+      "reason": "The one liner is correctly formatted.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[2].one_liner.content",
+      "model_path": "Attribute.attributes[2].one_liner.content",
+      "old_value": "Indicates whether the attribute must have a value for every instance of the class _",
+      "new_value": "Indicates whether the attribute must have a value for every instance of the class",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[3].one_liner.content",
+      "model_path": "Attribute.attributes[3].one_liner.content",
+      "old_value": "The cardinality of the relationship represented by the attribute _",
+      "new_value": "The cardinality of the relationship represented by the attribute",
+      "reason": "The one liner should be a noun phrase and not end with an underscore.",
+      "change_type": "improvement"
+    },
+    {
+      "path": "subjects[1].classes[9].attributes[4].one_liner.content",
+      "model_path
+	Run capsule =  {
+  "model": "Literate",
+  "task": "T01",
+  "llm": "qwen/qwen-turbo",
+  "elapsed": 379.3,
+  "results_len": 33331,
+  "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'system_fingerprint', 'usage'])",
+  "usage": {
+    "prompt_tokens": 66662,
+    "completion_tokens": 8192,
+    "total_tokens": 74854,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "costs": 0.005,
+  "error_msg": "",
+  "error_code": "",
+  "changes": 0,
+  "parseing_notes": "UnPruned - Parsing failed - see raw"
+}
+	 5 	 qwen/qwen-turbo  - estimate =  0.007999999999999998
+	 5 	 deepseek/deepseek-chat-v3-0324:free  - estimate =  0
+Useful path =  ldm/ldm_models/Literate/Literate_runs/Literate_T01_deepseek_deepseek-chat-v3-0324_free.json
+Single query: Literate - T01 - deepseek/deepseek-chat-v3-0324:free
+	Total size in bytes is:  366585  = about  91646.25  tokens
+'id'
+rqn return raw results as  <class 'str'>
+Elapsed time: 101.1432 seconds
+Elapsed time: 101.7746 seconds

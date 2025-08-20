@@ -1,0 +1,128 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "deepseek/deepseek-chat-v3-0324:free",
+    "elapsed": 40.6,
+    "results_len": 3939,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 68781,
+      "completion_tokens": 955,
+      "total_tokens": 69736,
+      "prompt_tokens_details": null
+    },
+    "costs": 0.0,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 9,
+    "parseing_notes": "Pruned - "
+  },
+  "costs": 0.0,
+  "parsed": {
+    "response_type": "changes",
+    "changes": [
+      {
+        "path": "subjects[0].classes[0].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "An element or building block of the literate data model",
+        "new_value": "A fundamental building block of a literate data model",
+        "reason": "Improved conciseness and clarity",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[4].one_liner.content",
+        "model_path": "Component.abbreviatedName.one_liner.content",
+        "old_value": "a short form of the component's name, used for cross references and improved readability.",
+        "new_value": "A shortened version of the component's name for easier reference",
+        "reason": "Made more concise while maintaining clarity",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[1].classes[0].one_liner.content",
+        "model_path": "LiterateModel.one_liner.content",
+        "old_value": "A representation of a domain's entities, attributes, and relationships,\nalong with explanatory text and examples",
+        "new_value": "A comprehensive model representing domain entities with their attributes, relationships, and documentation",
+        "reason": "Improved structure and readability",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[1].constraints[0].python",
+        "model_path": "LiterateModel.allSubjects.constraints[0].python",
+        "old_value": null,
+        "new_value": "len(set(s.name for s in self.allSubjects)) == len(self.allSubjects)",
+        "reason": "Added missing Python constraint implementation",
+        "change_type": "constraint_implementation"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[2].constraints[0].python",
+        "model_path": "LiterateModel.allClasses.constraints[0].python",
+        "old_value": null,
+        "new_value": "len(set(c.name for c in self.allClasses)) == len(self.allClasses)",
+        "reason": "Added missing Python constraint implementation",
+        "change_type": "constraint_implementation"
+      },
+      {
+        "path": "subjects[2].classes[0].one_liner.content",
+        "model_path": "Class.one_liner.content",
+        "old_value": "A key entity or object type in the model, often corresponding to a real-world concept",
+        "new_value": "A principal entity type representing a real-world concept in the model",
+        "reason": "More precise and concise definition",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[2].classes[0].constraints[0].python",
+        "model_path": "Class.constraints[0].python",
+        "old_value": null,
+        "new_value": "len(set(a.name for a in self.attributes)) == len(self.attributes)",
+        "reason": "Added missing Python constraint implementation",
+        "change_type": "constraint_implementation"
+      },
+      {
+        "path": "subjects[3].classes[0].one_liner.content",
+        "model_path": "Attribute.one_liner.content",
+        "old_value": "A property or characteristic of a class",
+        "new_value": "A characteristic or relationship describing a class",
+        "reason": "More comprehensive definition including relationships",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[4].classes[0].one_liner.content",
+        "model_path": "Method.one_liner.content",
+        "old_value": "A behavior or operation associated with a class",
+        "new_value": "An operation or behavior that can be performed by class instances",
+        "reason": "More precise definition",
+        "change_type": "one_liner_improvement"
+      }
+    ],
+    "summary": "Improved one-liners for better clarity and conciseness, added missing Python constraint implementations, and enhanced definitions across various model components"
+  },
+  "raw_results": "Here is the JSON response with the changes made to improve the Literate Data Model:\n\n```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"A fundamental building block of a literate data model\",\n      \"reason\": \"Improved conciseness and clarity\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Component.abbreviatedName.one_liner.content\",\n      \"old_value\": \"a short form of the component's name, used for cross references and improved readability.\",\n      \"new_value\": \"A shortened version of the component's name for easier reference\",\n      \"reason\": \"Made more concise while maintaining clarity\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel.one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships,\\nalong with explanatory text and examples\",\n      \"new_value\": \"A comprehensive model representing domain entities with their attributes, relationships, and documentation\",\n      \"reason\": \"Improved structure and readability\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].constraints[0].python\",\n      \"model_path\": \"LiterateModel.allSubjects.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len(set(s.name for s in self.allSubjects)) == len(self.allSubjects)\",\n      \"reason\": \"Added missing Python constraint implementation\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[2].constraints[0].python\",\n      \"model_path\": \"LiterateModel.allClasses.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len(set(c.name for c in self.allClasses)) == len(self.allClasses)\",\n      \"reason\": \"Added missing Python constraint implementation\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].one_liner.content\",\n      \"model_path\": \"Class.one_liner.content\",\n      \"old_value\": \"A key entity or object type in the model, often corresponding to a real-world concept\",\n      \"new_value\": \"A principal entity type representing a real-world concept in the model\",\n      \"reason\": \"More precise and concise definition\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].constraints[0].python\",\n      \"model_path\": \"Class.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len(set(a.name for a in self.attributes)) == len(self.attributes)\",\n      \"reason\": \"Added missing Python constraint implementation\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].one_liner.content\",\n      \"model_path\": \"Attribute.one_liner.content\",\n      \"old_value\": \"A property or characteristic of a class\",\n      \"new_value\": \"A characteristic or relationship describing a class\",\n      \"reason\": \"More comprehensive definition including relationships\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[4].classes[0].one_liner.content\",\n      \"model_path\": \"Method.one_liner.content\",\n      \"old_value\": \"A behavior or operation associated with a class\",\n      \"new_value\": \"An operation or behavior that can be performed by class instances\",\n      \"reason\": \"More precise definition\",\n      \"change_type\": \"one_liner_improvement\"\n    }\n  ],\n  \"summary\": \"Improved one-liners for better clarity and conciseness, added missing Python constraint implementations, and enhanced definitions across various model components\"\n}\n```",
+  "response": {
+    "id": "gen-1755655773-PKNJmZqX8KuJvig1V0rj",
+    "provider": "Chutes",
+    "model": "deepseek/deepseek-chat-v3-0324:free",
+    "object": "chat.completion",
+    "created": 1755655773,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here is the JSON response with the changes made to improve the Literate Data Model:\n\n```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"A fundamental building block of a literate data model\",\n      \"reason\": \"Improved conciseness and clarity\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Component.abbreviatedName.one_liner.content\",\n      \"old_value\": \"a short form of the component's name, used for cross references and improved readability.\",\n      \"new_value\": \"A shortened version of the component's name for easier reference\",\n      \"reason\": \"Made more concise while maintaining clarity\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel.one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships,\\nalong with explanatory text and examples\",\n      \"new_value\": \"A comprehensive model representing domain entities with their attributes, relationships, and documentation\",\n      \"reason\": \"Improved structure and readability\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].constraints[0].python\",\n      \"model_path\": \"LiterateModel.allSubjects.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len(set(s.name for s in self.allSubjects)) == len(self.allSubjects)\",\n      \"reason\": \"Added missing Python constraint implementation\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[2].constraints[0].python\",\n      \"model_path\": \"LiterateModel.allClasses.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len(set(c.name for c in self.allClasses)) == len(self.allClasses)\",\n      \"reason\": \"Added missing Python constraint implementation\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].one_liner.content\",\n      \"model_path\": \"Class.one_liner.content\",\n      \"old_value\": \"A key entity or object type in the model, often corresponding to a real-world concept\",\n      \"new_value\": \"A principal entity type representing a real-world concept in the model\",\n      \"reason\": \"More precise and concise definition\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].constraints[0].python\",\n      \"model_path\": \"Class.constraints[0].python\",\n      \"old_value\": null,\n      \"new_value\": \"len(set(a.name for a in self.attributes)) == len(self.attributes)\",\n      \"reason\": \"Added missing Python constraint implementation\",\n      \"change_type\": \"constraint_implementation\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].one_liner.content\",\n      \"model_path\": \"Attribute.one_liner.content\",\n      \"old_value\": \"A property or characteristic of a class\",\n      \"new_value\": \"A characteristic or relationship describing a class\",\n      \"reason\": \"More comprehensive definition including relationships\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[4].classes[0].one_liner.content\",\n      \"model_path\": \"Method.one_liner.content\",\n      \"old_value\": \"A behavior or operation associated with a class\",\n      \"new_value\": \"An operation or behavior that can be performed by class instances\",\n      \"reason\": \"More precise definition\",\n      \"change_type\": \"one_liner_improvement\"\n    }\n  ],\n  \"summary\": \"Improved one-liners for better clarity and conciseness, added missing Python constraint implementations, and enhanced definitions across various model components\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 68781,
+      "completion_tokens": 955,
+      "total_tokens": 69736,
+      "prompt_tokens_details": null
+    }
+  }
+}

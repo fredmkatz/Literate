@@ -505,7 +505,6 @@ PROJECT_NAME={{ name }}
 
 	</summary>
 ```
-# PYTHONPATH=C:\Users\fmkat\Dropbox\AllFMKFiles\AllVSCode\FMKProjects
 PYTHONPATH=.
 ```
 
@@ -1348,7 +1347,7 @@ This is the documentation for FMK Utilities.
             "request": "launch",
             "program": "${file}",
             "env": {
-                "PYTHONPATH": "${workspaceFolder};C:\\Users\\fmkat\\Dropbox\\AllFMKFIles\\AllVSCode\\FMKProjects;${env:PYTHONPATH}"
+                "PYTHONPATH": "${workspaceFolder};${env:PYTHONPATH}"
             }
         }
     ]

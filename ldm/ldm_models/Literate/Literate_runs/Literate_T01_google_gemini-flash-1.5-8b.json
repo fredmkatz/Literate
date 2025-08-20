@@ -1,0 +1,55 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "google/gemini-flash-1.5-8b",
+    "elapsed": 10.7,
+    "results_len": 2655,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 736,
+      "total_tokens": 78595,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "costs": 0.003,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 0,
+    "parseing_notes": "Pruned - Parsing failed - see raw"
+  },
+  "costs": 0.003,
+  "parsed": null,
+  "raw_results": "```json\n{\n  \"response_type\": \"full_model\",\n  \"model\": {\n    \"_type\": \"LiterateModel\",\n    \"diagnostics\": [\n      {\n        \"_type\": \"Diagnostic\",\n        \"object_name\": \"Appendices\",\n        \"object_type\": \"SubjectB\",\n        \"category\": \"Style\",\n        \"message\": \"oneLiner is too long. (126 chars).\",\n        \"severity\": \"Warning\",\n        \"constraint_name\": \"componentOneLinerLength\"\n      }\n    ],\n    \"is_embellishment\": false,\n    \"prefix\": \"#\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"Literate Data Model\",\n      \"is_embellishment\": false,\n      \"model_path\": \"LiterateModel_Literate Data Model\"\n    },\n    \"model_path\": \"LiterateModel_Literate Data Model\",\n    \"subjects\": [\n      {\n        \"_type\": \"SubjectB\",\n        \"one_liner\": {\n          \"_type\": \"OneLiner\",\n          \"content\": \"the basic structure of the Literate Data Model (LDM).\"\n        },\n        \"elaboration\": [\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"In literate data modeling, the core components are Classes, Attributes, and Subjects.  The LDM model prioritizes clarity and documentation.\"\n          },\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"The Component class is introduced as a supertype to encapsulate common attributes and behaviors shared across various model elements, promoting consistency and re-usability.\"\n          }\n        ],\n        \"diagnostics\": [\n          {\n            \"_type\": \"Diagnostic\",\n            \"object_name\": \"AnnotationType\",\n            \"object_type\": \"Class\",\n            \"category\": \"Style\",\n            \"message\": \"oneLiner is too long. (96 chars).\",\n            \"severity\": \"Warning\",\n            \"constraint_name\": \"componentOneLinerLength\"\n          }\n        ],\n        \"is_embellishment\": false,\n        \"prefix\": \"##\",\n        \"name\": {\n          \"_type\": \"SubjectName\",\n          \"content\": \"Preliminaries\",\n          \"is_embellishment\": false,\n          \"model_path\": \"SubjectB_Preliminaries\"\n        },\n        \"classes\": [\n// ... (rest of the model, unchanged except for the one-liner improvements)\n        ]\n      },\n// ... (rest of the subjects)\n    ],\n    \"is_embellishment\": false\n  },\n  \"changes\": [\n    {\n      \"path\": \"/subjects[0]/one_liner/content\",\n      \"model_path\": \"SubjectB_Preliminaries/one_liner/content\",\n      \"old_value\": \"the basic structure of the model\",\n      \"new_value\": \"the basic structure of the Literate Data Model (LDM).\",\n\t  \"reason\": \"Improved one-liner clarification\",\n      \"change_type\": \"improvement\"\n    }\n  ],\n  \"summary\": \"Improved one-liner for the first subject to be more descriptive and specific.\"\n}\n```\n",
+  "response": {
+    "id": "gen-1755654637-9otzhjkLeRXryYFx7WRO",
+    "provider": "Google AI Studio",
+    "model": "google/gemini-flash-1.5-8b",
+    "object": "chat.completion",
+    "created": 1755654637,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"response_type\": \"full_model\",\n  \"model\": {\n    \"_type\": \"LiterateModel\",\n    \"diagnostics\": [\n      {\n        \"_type\": \"Diagnostic\",\n        \"object_name\": \"Appendices\",\n        \"object_type\": \"SubjectB\",\n        \"category\": \"Style\",\n        \"message\": \"oneLiner is too long. (126 chars).\",\n        \"severity\": \"Warning\",\n        \"constraint_name\": \"componentOneLinerLength\"\n      }\n    ],\n    \"is_embellishment\": false,\n    \"prefix\": \"#\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"Literate Data Model\",\n      \"is_embellishment\": false,\n      \"model_path\": \"LiterateModel_Literate Data Model\"\n    },\n    \"model_path\": \"LiterateModel_Literate Data Model\",\n    \"subjects\": [\n      {\n        \"_type\": \"SubjectB\",\n        \"one_liner\": {\n          \"_type\": \"OneLiner\",\n          \"content\": \"the basic structure of the Literate Data Model (LDM).\"\n        },\n        \"elaboration\": [\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"In literate data modeling, the core components are Classes, Attributes, and Subjects.  The LDM model prioritizes clarity and documentation.\"\n          },\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"The Component class is introduced as a supertype to encapsulate common attributes and behaviors shared across various model elements, promoting consistency and re-usability.\"\n          }\n        ],\n        \"diagnostics\": [\n          {\n            \"_type\": \"Diagnostic\",\n            \"object_name\": \"AnnotationType\",\n            \"object_type\": \"Class\",\n            \"category\": \"Style\",\n            \"message\": \"oneLiner is too long. (96 chars).\",\n            \"severity\": \"Warning\",\n            \"constraint_name\": \"componentOneLinerLength\"\n          }\n        ],\n        \"is_embellishment\": false,\n        \"prefix\": \"##\",\n        \"name\": {\n          \"_type\": \"SubjectName\",\n          \"content\": \"Preliminaries\",\n          \"is_embellishment\": false,\n          \"model_path\": \"SubjectB_Preliminaries\"\n        },\n        \"classes\": [\n// ... (rest of the model, unchanged except for the one-liner improvements)\n        ]\n      },\n// ... (rest of the subjects)\n    ],\n    \"is_embellishment\": false\n  },\n  \"changes\": [\n    {\n      \"path\": \"/subjects[0]/one_liner/content\",\n      \"model_path\": \"SubjectB_Preliminaries/one_liner/content\",\n      \"old_value\": \"the basic structure of the model\",\n      \"new_value\": \"the basic structure of the Literate Data Model (LDM).\",\n\t  \"reason\": \"Improved one-liner clarification\",\n      \"change_type\": \"improvement\"\n    }\n  ],\n  \"summary\": \"Improved one-liner for the first subject to be more descriptive and specific.\"\n}\n```\n",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 736,
+      "total_tokens": 78595,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  }
+}

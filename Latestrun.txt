@@ -1,0 +1,205 @@
+PS C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate> python ai_apis/do_ai.py
+=== DEBUG INFO ===
+Current working directory: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate
+Python executable: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\.venv\Scripts\python.exe
+Script location: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\ai_apis\do_ai.py
+AI_Assistant module: ai_apis.class_ai_assistant
+OpenRouterAssistant module: ai_apis.class_ai_openrouter
+=== END DEBUG INFO ===
+
+run_quick_query: AI Assistant: gateway =  OpenRouter
+run_quick_query: AI Assistant: llm =  qwen/qwen3-235b-a22b-2507
+details for model  qwen/qwen3-235b-a22b-2507
+{
+  "id": "qwen/qwen3-235b-a22b-2507",
+  "canonical_slug": "qwen/qwen3-235b-a22b-07-25",
+  "hugging_face_id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+  "name": "Qwen: Qwen3 235B A22B Instruct 2507",
+  "created": 1753119555,
+  "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass.
+
+
+                                                                                                                                                                                                        . It is optimized for general-purpose text generation, including instruction following, logical reasoning, math, code, and tool usage. The model supports a native 262K context length and does not implement \"thinking mode\" (<think> blocks).\n\nCompared to its base variant, this version delivers significant gains in knowledge coverage, long-context reasoning, coding benchmarks, and alignment with open-ended tasks. It is particularly strong on multilingual understanding, math reasoning (e.g., AIME, HMMT), and alignment evaluations like Arena-Hard and WritingBench.",
+  "context_length": 262144,
+  "architecture": {
+    "modality": "text->text",
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "tokenizer": "Qwen3",
+    "instruct_type": null
+  },
+  "pricing": {
+    "prompt": "0.00000012",
+    "completion": "0.00000059",
+    "request": "0",
+    "image": "0",
+    "web_search": "0",
+    "internal_reasoning": "0"
+  },
+  "top_provider": {
+    "context_length": 262144,
+    "max_completion_tokens": 262144,
+    "is_moderated": false
+  },
+  "per_request_limits": null,
+  "supported_parameters": [
+    "max_tokens",
+    "temperature",
+    "top_p",
+    "seed",
+    "tools",
+    "tool_choice",
+    "stop",
+    "frequency_penalty",
+    "presence_penalty",
+    "repetition_penalty",
+    "response_format",
+    "top_k",
+    "min_p",
+    "structured_outputs",
+    "logit_bias",
+    "logprobs",
+    "top_logprobs"
+  ]
+}
+OR client is  <openai.OpenAI object at 0x0000014C39ED5010>
+run_quick_query: AI Assistant: assistant =  <ai_apis.class_ai_openrouter.OpenRouterAssistant object at 0x0000014C38FAC050>
+loading ...  ai_docs\LiterateMetaModel_01_PD_schema.yaml
+Loading doc:  LiterateMetaModel_01_PD_schema.yaml . Length is  33942
+loading ...  ai_docs\ReviewingLDM_v0_1.md
+Loading doc:  ReviewingLDM_v0_1.md . Length is  16995
+loading ...  ai_docs\Literate_PD_04.v_model.json
+Loading doc:  Literate_PD_04.v_model.json . Length is  315648
+Total size in bytes is:  366585  = about  91646.25  tokens
+ORAssistant: Response from new native....
+type of response is  <class 'requests.models.Response'>
+type of response.json() is  <class 'dict'>
+{
+  "error": {
+    "message": "User not found.",
+    "code": 401
+  }
+}
+OR Response is:
+Traceback (most recent call last):
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\ai_apis\do_ai.py", line 63, in <module>
+    (usage, results) = run_quick_query()
+                       ~~~~~~~~~~~~~~~^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\ai_apis\do_ai.py", line 47, in run_quick_query
+    (costs, results) = assistant.run_query(query)
+                       ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ai_apis\class_ai_assistant.py", line 83, in run_query
+    (raw_results, raw_usage) = self.run_query_native(full_query)
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ai_apis\class_ai_openrouter.py", line 122, in run_query_native
+    display_returned_object(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ai_apis\class_ai_openrouter.py", line 161, in display_returned_object
+    odict = obj.model_dump()
+            ^^^^^^^^^^^^^^
+AttributeError: 'Response' object has no attribute 'model_dump'
+PS C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate> python ai_apis/do_ai.py
+=== DEBUG INFO ===
+Current working directory: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate
+Python executable: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\.venv\Scripts\python.exe
+Script location: C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\ai_apis\do_ai.py
+AI_Assistant module: ai_apis.class_ai_assistant
+OpenRouterAssistant module: ai_apis.class_ai_openrouter
+=== END DEBUG INFO ===
+
+run_quick_query: AI Assistant: gateway =  OpenRouter
+run_quick_query: AI Assistant: llm =  qwen/qwen3-235b-a22b-2507
+details for model  qwen/qwen3-235b-a22b-2507
+{
+  "id": "qwen/qwen3-235b-a22b-2507",
+  "canonical_slug": "qwen/qwen3-235b-a22b-07-25",
+  "hugging_face_id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+  "name": "Qwen: Qwen3 235B A22B Instruct 2507",
+  "created": 1753119555,
+  "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass. It is optimized for general-purpose text generation, including instruction following, logical reasoning, math, code, and tool usage. The model supports a native 262K context length and does not implement \"thinking mode\" (<think> blocks).\n\nCompared to its base variant, this version delivers significant gains in knowledge coverage, long-context reasoning, coding benchmarks, and alignment with open-ended tasks. It is particularly strong on multilingual understanding, math reasoning (e.g., AIME, HMMT), and alignment evaluations like Arena-Hard and WritingBench.",
+  "context_length": 262144,
+  "architecture": {
+    "modality": "text->text",
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "tokenizer": "Qwen3",
+    "instruct_type": null
+  },
+  "pricing": {
+    "prompt": "0.00000012",
+    "completion": "0.00000059",
+    "request": "0",
+    "image": "0",
+    "web_search": "0",
+    "internal_reasoning": "0"
+  },
+  "top_provider": {
+    "context_length": 262144,
+    "max_completion_tokens": 262144,
+    "is_moderated": false
+  },
+  "per_request_limits": null,
+  "supported_parameters": [
+    "max_tokens",
+    "temperature",
+    "top_p",
+    "seed",
+    "tools",
+    "tool_choice",
+    "stop",
+    "frequency_penalty",
+    "presence_penalty",
+    "repetition_penalty",
+    "response_format",
+    "top_k",
+    "min_p",
+    "structured_outputs",
+    "logit_bias",
+    "logprobs",
+    "top_logprobs"
+  ]
+}
+OR client is  <openai.OpenAI object at 0x00000180DB0B5010>
+run_quick_query: AI Assistant: assistant =  <ai_apis.class_ai_openrouter.OpenRouterAssistant object at 0x00000180DA1A0050>
+loading ...  ai_docs\LiterateMetaModel_01_PD_schema.yaml
+Loading doc:  LiterateMetaModel_01_PD_schema.yaml . Length is  33942
+loading ...  ai_docs\ReviewingLDM_v0_1.md
+Loading doc:  ReviewingLDM_v0_1.md . Length is  16995
+loading ...  ai_docs\Literate_PD_04.v_model.json
+Loading doc:  Literate_PD_04.v_model.json . Length is  315648
+Total size in bytes is:  366585  = about  91646.25  tokens
+ORAssistant: Response from new native....
+type of response is  <class 'requests.models.Response'>
+type of response.json() is  <class 'dict'>
+{
+  "error": {
+    "message": "User not found.",
+    "code": 401
+  }
+}
+OR Response is:
+Traceback (most recent call last):
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\ai_apis\do_ai.py", line 63, in <module>
+    (usage, results) = run_quick_query()
+                       ~~~~~~~~~~~~~~~^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Literate\ai_apis\do_ai.py", line 47, in run_quick_query
+    (costs, results) = assistant.run_query(query)
+                       ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ai_apis\class_ai_assistant.py", line 83, in run_query
+    (raw_results, raw_usage) = self.run_query_native(full_query)
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ai_apis\class_ai_openrouter.py", line 122, in run_query_native
+    display_returned_object(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\fmkat\Dropbox\AllFMKFIles\AllVSCode\FMKProjects\Presentable\ai_apis\class_ai_openrouter.py", line 161, in display_returned_object
+    odict = obj.model_dump()
+            ^^^^^^^^^^^^^^
+AttributeError: 'Response' object has no attribute 'model_dump'

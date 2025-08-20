@@ -10,25 +10,8 @@ AI_CONFIGS = "ai_configs"
 
 
 class AI_Assistant:
-    def __new__(cls, gateway, llm_id):
-        print("Gateway being used is ", gateway)
-        if gateway == "Together":
-            print("Using TogetherAssistant")
-
-            instance = super().__new__(TogetherAssistant)
-            return instance
-        elif gateway == "OpenRouter":
-            from ai_apis.class_ai_openrouter import OpenRouterAssistant
-            print("Using OpneRouterAssistant")
-
-            instance = super().__new__(OpenRouterAssistant)
-            return instance
-
-        else:
-            print("Only gateway now is Together")
-            return None
-
     def __init__(self, gateway, llm_id):
+        # print("AI_Assistant: __init__ for ", gateway, " model = ", llm_id)
         self.gateway = gateway
         self.llm_id = llm_id
         self.client = None
@@ -41,7 +24,7 @@ class AI_Assistant:
         self.persistent_context = None
 
     def get_llm_params(self, llm_id) -> dict:
-        pass
+        return {}
 
     def prepare(self, docs_dir, doc_files, initial_message):
         self.docs_dict = self.create_docs_dict(docs_dir=docs_dir, doc_files=doc_files)
@@ -54,13 +37,13 @@ class AI_Assistant:
         for filename in doc_files:
             file_path = Path(docs_dir) / filename
             if file_path.exists():
-                print("loading ... ", file_path)
+                # print("loading ... ", file_path)
                 docs[filename] = file_path.read_text(encoding="utf-8")
                 size = len(docs[filename])
-                print("Loading doc: ", filename, ". Length is ", size)
+                # print("Loaded doc: ", file_path, ". Length is ", size)
                 total_size += size
         print(
-            "Total size in bytes is: ",
+            "\tTotal size in bytes is: ",
             total_size,
             " = about ",
             total_size / 4,
@@ -78,72 +61,68 @@ class AI_Assistant:
         )
         return doc_context
 
+    def get_api_key(self) -> str:
+        import ai_apis.newkeys0808A as PartA
+        import ai_apis.newkeys0808B as PartB
+        
+        
+        parta = PartA.NewFMKClaudeKeyAug8_2025
+        partb = PartB.NewFMKClaudeKeyAug8_2025
+
+        parta = PartA.OpenRouterFMK
+        partb = PartB.OpenRouterFMK
+
+        full_key = parta + partb
+        # print("Full key is: ", full_key)
+        return full_key
     # returns parsed results and calculated usage
-    def run_query(self, query) -> Tuple[dict, dict]:
+    def run_query(self, query) -> dict:
+        import time
         full_query = self.persistent_context + query
         n_bytes_sent = len(full_query)
 
+        # print(f"in run_query calling run_query_native")
+        # print(f"run_query_native method: {self.run_query_native}")
+        # print(f"Self class: {self.__class__}")
+        # print(f"Self module: {self.__class__.__module__}")
         # get raw response, and raw  usage
-        (raw_results, raw_usage) = self.run_query_native(full_query)
 
-        # print(response.choices[0].message.content)
-        # print(response)
-        n_bytes_received = len(str(raw_results))
+        start_time = time.perf_counter()
+        response_dict = self.run_query_native(full_query)
+        end_time = time.perf_counter()
 
-        costs = self.calc_costs(raw_usage, n_bytes_sent, n_bytes_received)
+        elapsed_time = end_time - start_time
+        print(f"Elapsed time: {elapsed_time:.4f} seconds")
 
-        results = self.parse_json_results(raw_results=raw_results)
 
-        return (costs, results)
 
-    def calc_costs(self, raw_usage, n_bytes_sent, n_bytes_received):
-        print("\nUSAGE:")
-        print(raw_usage)
+        return response_dict
 
-        usage = raw_usage
+    def calc_costs(self, raw_usage):
+        # print("calc_costs()...")
+        # print("\tRaw usage = ", raw_usage)
+
         bytes_per_token = 4.0
         prompt_ppm = self.llm_params["prompt_ppm"]
         completion_ppm = self.llm_params["completion_ppm"]
         context_length = self.llm_params["context_length"]
 
         costs = {}
-        prompt_tokens = usage["prompt_tokens"]
-        completion_tokens = usage["completion_tokens"]
-        costs["bytes_per_token_assumed"] = bytes_per_token
-        costs["bytes_sent"] = n_bytes_sent
-        costs["est_tokens_sent"] = n_bytes_sent / bytes_per_token
-        costs["prompt_tokens"] = prompt_tokens
 
-        costs["bytes_received"] = n_bytes_received
-        costs["est_completion_tokens"] = n_bytes_received / bytes_per_token
-        costs["completion_tokens"] = completion_tokens
-        costs["total_cost"] = (
+        if raw_usage.keys():
+            prompt_tokens = raw_usage["prompt_tokens"]
+            completion_tokens = raw_usage["completion_tokens"]
+        else:
+            return 0.0
+        
+        costs = (
             prompt_tokens * prompt_ppm + completion_tokens * completion_ppm
         ) / 1000000.0
-        costs["max_context"] = context_length
-        print(json.dumps(costs, indent=2))
+        return costs
 
     def run_query_native(self, full_query):
         pass
 
-    def parse_json_results(self, raw_results: str):
-        import re
-        pruned = re.sub(".*```json", "", raw_results, flags=re.DOTALL)
-        # pruned = raw_results.replace(".*```json", "")
-        pruned = pruned.replace("```", "")
-        all_results = {"raw": raw_results}
-        if pruned != raw_results:
-            print("PRUNING NEEDED")
-            all_results["pruned"] = pruned
-
-        try:
-            jresults = json.loads(pruned)
-
-            print(json.dumps(jresults, indent=2))
-            all_results["parsed"] = jresults
-        except Exception:
-            print("Parsing failed")
-        return all_results
 
     def standing_prompt(self, docs_dict, iniial_message):
 
@@ -153,47 +132,3 @@ class AI_Assistant:
     {self.docs_dict_as_text(docs_dict=docs_dict)}
     """
 
-
-# class TogetherAssistant(AI_Assistant):
-
-#     def __init__(self, gateway, llm_id):
-#         super().__init__(gateway, llm_id=llm_id)
-#         self.client = Together(
-#             api_key=FMK_Together_API
-#         )  # auth defaults to os.environ.get("TOGETHER_API_KEY")
-
-#     def get_llm_params(self, llm_id) -> dict:
-#         llm_details = self.get_together_llm(llm_id)
-#         return {
-#             "prompt_ppm": llm_details["pricing"]["input"],
-#             "completion_ppm": llm_details["pricing"]["output"],
-#             "context_length": llm_details["context_length"],
-#         }
-
-#     def get_together_llm(self, llm_id) -> dict:
-
-#         together_models = fmk.read_json_file(f"{AI_CONFIGS}/together_models.json")
-#         return together_models[llm_id]
-
-#     def run_query_native(self, full_query):
-#         response = self.client.chat.completions.create(
-#             model=self.llm_id, messages=[{"role": "user", "content": full_query}]
-#         )
-#         raw_results = response.choices[0].message.content
-#         raw_usage = response.usage
-#         return (raw_results, raw_usage)
-
-
-# Not in Class
-def update_together_models():
-    client = Together(
-        api_key=FMK_Together_API
-    )  # auth defaults to os.environ.get("TOGETHER_API_KEY")
-    models = client.models.list()
-    # print(type(models), " is type")
-    # Convert each ModelObject to a dictionary using model_dump()
-    model_dicts = [model.model_dump() for model in models]
-    models_dict = {m["id"]: m for m in model_dicts}
-    # print(json.dumps(models_dict, indent=2))
-    fmk.write_json(models_dict, f"{AI_CONFIGS}/together_models.json")
-    print(f"Together models saved in: {AI_CONFIGS}/together_models.json")

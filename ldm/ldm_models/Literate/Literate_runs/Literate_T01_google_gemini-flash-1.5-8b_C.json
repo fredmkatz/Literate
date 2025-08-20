@@ -1,0 +1,55 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "google/gemini-flash-1.5-8b",
+    "elapsed": 9.3,
+    "results_len": 3223,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 919,
+      "total_tokens": 78778,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "costs": 0.003,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 0,
+    "parseing_notes": "Pruned - Parsing failed - see raw"
+  },
+  "costs": 0.003,
+  "parsed": null,
+  "raw_results": "```json\n{\n  \"response_type\": \"full_model\",\n  \"model\": {\n    \"_type\": \"LiterateModel\",\n    \"diagnostics\": [\n      {\n        \"_type\": \"Diagnostic\",\n        \"object_name\": \"Appendices\",\n        \"object_type\": \"SubjectB\",\n        \"category\": \"Style\",\n        \"message\": \"oneLiner is too long. (126 chars).\",\n        \"severity\": \"Warning\",\n        \"constraint_name\": \"componentOneLinerLength\"\n      }\n    ],\n    \"is_embellishment\": false,\n    \"prefix\": \"#\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"Literate Data Model\",\n      \"model_path\": \"#Literate Data Model\"\n    },\n    \"model_path\": \"LiterateModel_Literate Data Model\",\n    \"subjects\": [\n      {\n        \"_type\": \"SubjectB\",\n        \"one_liner\": {\n          \"_type\": \"OneLiner\",\n          \"content\": \"the basic structure of the model\"\n        },\n\t\t\"elaboration\": [\n      {\n          \"_type\": \"Paragraph\",\n          \"content\": \"This model defines the core components for a Literate Data Model.  Components are organized into subjects for clarity.  This model prioritizes readability and reusability by introducing a supertype, *Component*, which subclasses for improved organization and consistency.  Important classes are presented before supporting classes, while subtypes of components appear after their supertypes.\"\n        }\n      ],\n        \"diagnostics\": [\n          {\n            \"_type\": \"Diagnostic\",\n            \"object_name\": \"AnnotationType\",\n            \"object_type\": \"Class\",\n            \"category\": \"Style\",\n            \"message\": \"oneLiner is too long. (96 chars).\",\n            \"severity\": \"Warning\",\n            \"constraint_name\": \"componentOneLinerLength\"\n          },\n        ],\n        \"is_embellishment\": false,\n        \"prefix\": \"##\",\n        \"name\": {\n          \"_type\": \"SubjectName\",\n          \"content\": \"Preliminaries\",\n          \"model_path\": \"SubjectB_Preliminaries\"\n        },\n        \"model_path\": \"SubjectB_Preliminaries\",\n        \"classes\": [...],\n      },\n{\n   \"_type\": \"SubjectB\",\n   \"elaboration\": [\n    {\n      \"_type\": \"Paragraph\",\n      \"content\": \"This model specifies various data types used, some of which may not be essential for all implementations.  Classes are listed to provide a clear understanding of the structural components.  Each class is described using a concise one-liner and elaborated upon where necessary for greater comprehension.\"\n    }\n ],\n    \"is_embellishment\": false,\n    \"prefix\": \"##\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"DataTypes\",\n      \"model_path\": \"SubjectB_DataTypes\"\n    },\n    \"model_path\": \"SubjectB_DataTypes\",\n    \"classes\": [...],\n  },\n {\n\t\"_type\": \"SubjectB\",\n\t\"is_embellishment\": false,\n\t\"prefix\": \"##\",\n\t\"name\": {\n\t\t\"_type\": \"SubjectName\",\n\t\t\"content\": \"Classes\",\n\t\t\"model_path\": \"SubjectB_Classes\"\n\t},\n\t\"model_path\": \"SubjectB_Classes\",\n\t\"classes\": [...]\n  }\n\t,\n\t\t{\n      \"_type\": \"SubjectB\",\n\t\t\t\"is_embellishment\": false,\n\t\t\t\"prefix\": \"##\",\n\t\t\t\"name\": {\n\t\t\t\t\"_type\": \"SubjectName\",\n\t\t\t\t\"content\": \"Subjects\",\n\t\t\t\t\"model_path\": \"SubjectB_Subjects\"\n\t\t\t},\n\t\t\t\"model_path\": \"SubjectB_Subjects\",\n\t\"classes\": [...]\n  }],\n\t\"changes\": [],\n\t\"summary\": \"Model restructured with improved subject organization for better flow and clarity.\"\n  }\n}\n```",
+  "response": {
+    "id": "gen-1755655734-hb0YsA9ol5BWfpxf2f7t",
+    "provider": "Google AI Studio",
+    "model": "google/gemini-flash-1.5-8b",
+    "object": "chat.completion",
+    "created": 1755655734,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"response_type\": \"full_model\",\n  \"model\": {\n    \"_type\": \"LiterateModel\",\n    \"diagnostics\": [\n      {\n        \"_type\": \"Diagnostic\",\n        \"object_name\": \"Appendices\",\n        \"object_type\": \"SubjectB\",\n        \"category\": \"Style\",\n        \"message\": \"oneLiner is too long. (126 chars).\",\n        \"severity\": \"Warning\",\n        \"constraint_name\": \"componentOneLinerLength\"\n      }\n    ],\n    \"is_embellishment\": false,\n    \"prefix\": \"#\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"Literate Data Model\",\n      \"model_path\": \"#Literate Data Model\"\n    },\n    \"model_path\": \"LiterateModel_Literate Data Model\",\n    \"subjects\": [\n      {\n        \"_type\": \"SubjectB\",\n        \"one_liner\": {\n          \"_type\": \"OneLiner\",\n          \"content\": \"the basic structure of the model\"\n        },\n\t\t\"elaboration\": [\n      {\n          \"_type\": \"Paragraph\",\n          \"content\": \"This model defines the core components for a Literate Data Model.  Components are organized into subjects for clarity.  This model prioritizes readability and reusability by introducing a supertype, *Component*, which subclasses for improved organization and consistency.  Important classes are presented before supporting classes, while subtypes of components appear after their supertypes.\"\n        }\n      ],\n        \"diagnostics\": [\n          {\n            \"_type\": \"Diagnostic\",\n            \"object_name\": \"AnnotationType\",\n            \"object_type\": \"Class\",\n            \"category\": \"Style\",\n            \"message\": \"oneLiner is too long. (96 chars).\",\n            \"severity\": \"Warning\",\n            \"constraint_name\": \"componentOneLinerLength\"\n          },\n        ],\n        \"is_embellishment\": false,\n        \"prefix\": \"##\",\n        \"name\": {\n          \"_type\": \"SubjectName\",\n          \"content\": \"Preliminaries\",\n          \"model_path\": \"SubjectB_Preliminaries\"\n        },\n        \"model_path\": \"SubjectB_Preliminaries\",\n        \"classes\": [...],\n      },\n{\n   \"_type\": \"SubjectB\",\n   \"elaboration\": [\n    {\n      \"_type\": \"Paragraph\",\n      \"content\": \"This model specifies various data types used, some of which may not be essential for all implementations.  Classes are listed to provide a clear understanding of the structural components.  Each class is described using a concise one-liner and elaborated upon where necessary for greater comprehension.\"\n    }\n ],\n    \"is_embellishment\": false,\n    \"prefix\": \"##\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"DataTypes\",\n      \"model_path\": \"SubjectB_DataTypes\"\n    },\n    \"model_path\": \"SubjectB_DataTypes\",\n    \"classes\": [...],\n  },\n {\n\t\"_type\": \"SubjectB\",\n\t\"is_embellishment\": false,\n\t\"prefix\": \"##\",\n\t\"name\": {\n\t\t\"_type\": \"SubjectName\",\n\t\t\"content\": \"Classes\",\n\t\t\"model_path\": \"SubjectB_Classes\"\n\t},\n\t\"model_path\": \"SubjectB_Classes\",\n\t\"classes\": [...]\n  }\n\t,\n\t\t{\n      \"_type\": \"SubjectB\",\n\t\t\t\"is_embellishment\": false,\n\t\t\t\"prefix\": \"##\",\n\t\t\t\"name\": {\n\t\t\t\t\"_type\": \"SubjectName\",\n\t\t\t\t\"content\": \"Subjects\",\n\t\t\t\t\"model_path\": \"SubjectB_Subjects\"\n\t\t\t},\n\t\t\t\"model_path\": \"SubjectB_Subjects\",\n\t\"classes\": [...]\n  }],\n\t\"changes\": [],\n\t\"summary\": \"Model restructured with improved subject organization for better flow and clarity.\"\n  }\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 919,
+      "total_tokens": 78778,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  }
+}

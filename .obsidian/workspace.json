@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2553054823eece87",
+        "id": "9aeaf58c9b60e36d",
         "type": "tabs",
         "children": [
           {
-            "id": "55a133ce4d5d6103",
+            "id": "223663f6d766ee63",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "ldm/ldm_models/Literate/Literate_results/Literate_PD_09prince.pdf"
+                "file": "ldm/ldm_models/Literate/Literate.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Literate_PD_09prince"
+              "icon": "lucide-file",
+              "title": "Literate"
             }
           }
         ]
@@ -76,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 419.5
   },
   "right": {
     "id": "5056c4cc6e59e736",
@@ -92,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ldm/ldm_models/Literate/Literate_results/Literate_PD_09prince.pdf",
+                "file": "ldm/ldm_models/Literate/Literate.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Literate_PD_09prince"
+              "title": "Backlinks for Literate"
             }
           },
           {
@@ -140,21 +142,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ldm/ldm_models/Literate/Literate_results/Literate_PD_09prince.pdf",
+                "file": "ldm/ldm_models/Literate/Literate.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Literate_PD_09prince"
+              "title": "Outline of Literate"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -166,10 +168,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "756eb4bfb9576e9b",
+  "active": "223663f6d766ee63",
   "lastOpenFiles": [
-    "ldm/ldm_models/Literate/Literate_results/Literate_PD_09prince.twoup.pdf",
+    "ldm/ldm_models/Literate/AnnotationTypes.md",
+    "ldm/ldm_models/Literate/Literate.md",
     "ldm/ldm_models/Literate/Literate_results/Literate_PD_10_playwright.twoup.pdf",
+    "ldm/ldm_models/Literate/Literate_results/Literate_PD_09prince.pdf",
+    "ldm/ldm_models/Literate/Literate_results/Literate_PD_09prince.twoup.pdf",
     "ldm/ldm_models/Literate/Literate_results/Literate_PD_10_playwright.pdf",
     "ldm/ldm_models/ldm_assets/LiteratePrint.pdf",
     "diagrams/PlantWebTest.md",

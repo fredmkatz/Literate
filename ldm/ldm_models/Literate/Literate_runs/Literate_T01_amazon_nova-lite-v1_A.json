@@ -1,0 +1,238 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "amazon/nova-lite-v1",
+    "elapsed": 38.6,
+    "results_len": 10113,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 73641,
+      "completion_tokens": 2851,
+      "total_tokens": 76492
+    },
+    "costs": 0.005,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 23,
+    "parseing_notes": "Pruned - "
+  },
+  "costs": 0.005,
+  "parsed": {
+    "response_type": "changes",
+    "changes": [
+      {
+        "path": "LiterateModel.subjects[0].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].one_liner.content",
+        "old_value": "the basic structure of the model",
+        "new_value": "the fundamental framework of the model",
+        "reason": "Improved clarity and conciseness",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].subjects[0].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[0].one_liner.content",
+        "old_value": "An element or building block of the literate data model",
+        "new_value": "a building block of the literate data model",
+        "reason": "Shortened one-liner for conciseness",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].name.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].name.content",
+        "old_value": "Preliminaries",
+        "new_value": "Preliminary Concepts",
+        "reason": "More specific and informative name",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[0].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[0].attributes[0].one_liner.content",
+        "old_value": "the name of the component, not in camel case",
+        "new_value": "the component's name, excluding camel case",
+        "reason": "Improved readability and reduced redundancy",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[1].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[1].one_liner.content",
+        "old_value": "a kind of note, or aside, used to call attention to additional information about some Component.",
+        "new_value": "a comment or note to highlight extra information about a model component.",
+        "reason": "Added clarity and conciseness",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[1].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[1].attributes[0].one_liner.content",
+        "old_value": "an emoji",
+        "new_value": "a symbol or emoji",
+        "reason": "Improved clarity by reducing redundancy",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[2].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[2].one_liner.content",
+        "old_value": "A representation of a domain's entities, attributes, and relationships, along with explanatory text and examples",
+        "new_value": "the domain, including entities, attributes, relationships, text, and examples",
+        "reason": "Created a concise one-liner",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[2].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[0].one_liner.content",
+        "old_value": "list of all classes in the model, as ordered in the definition of the model.",
+        "new_value": "all classes in the model, listed in their defined order.",
+        "reason": "Improved phrasing for conciseness and readability",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[2].attributes[1].python",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[2].python",
+        "old_value": "",
+        "new_value": "self.allSubjects.map(s => s.classes)",
+        "reason": "Added a Python expression for missing derivation.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[2].attributes[3].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[3].one_liner.content",
+        "old_value": "the recommended lanquage for expressing derivation, defaults, and constraints",
+        "new_value": "the recommended coding language for derivations and defaults",
+        "reason": "Corrected spelling from 'lanquage' to 'language' and improved the one-liner.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[2].attributes[4].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[4].one_liner.content",
+        "old_value": "A list of functions that require sophisticated AI-powered implementation *",
+        "new_value": "functions demanding AI implementation",
+        "reason": "Shortened and simplified one-liner.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[2].attributes[4].derivation.python",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[4].derivation.python",
+        "old_value": "",
+        "new_value": " ['aiEnglishPlural()'] \n",
+        "reason": "Added a Python expression for missing derivation.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[3].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[3].one_liner.content",
+        "old_value": "A specific topic or theme within the model",
+        "new_value": "a focused topic or theme within the model",
+        "reason": "Improved phrasing for conciseness",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[4].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[4].one_liner.content",
+        "old_value": "a key entity or object type in the model, often corresponding to a real-world concept",
+        "new_value": "a significant entity or object type within the model",
+        "reason": "Improved phrasing for clarity.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[4].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[4].attributes[0].one_liner.content",
+        "old_value": "the normal English plural form of the name of the Class",
+        "new_value": "standard plural form of the Class name",
+        "reason": "Consolidated and shortened one-liner.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[0].classes[4].constraints[1].content",
+        "model_path": "LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[1].one_liner.content",
+        "old_value": " no repetitions allowed in keyAttributes\n> \ud83d\udc4d **Issue**: introduce PureLists?",
+        "new_value": "no duplicates allowed in keyAttributes",
+        "reason": "Removed extraneous information and simplified.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[1].one_liner.content",
+        "model_path": "LiterateModel_The Model and its Subjects.one_liner.content",
+        "old_value": "the model's organization and subjects",
+        "new_value": "the model structure and corresponding subjects",
+        "reason": "Shortened one-liner for clarity.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[1].classes[0].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_The Model and its Subjects.classes[0].attributes[0].one_liner.content",
+        "old_value": "a main topic or area of focus within the model, containing related subjects and classes",
+        "new_value": "a primary subject area, including related subjects and classes",
+        "reason": "Consolidated and simplified.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[1].classes[1].one_liner.content",
+        "model_path": "LiterateModel_The Model and its Subjects.classes[1].one_liner.content",
+        "old_value": "A property or characteristic of a class",
+        "new_value": "a defining attribute of a class",
+        "reason": "Improved conciseness.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[1].classes[1].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_The Model and its Subjects.classes[1].attributes[0].one_liner.content",
+        "old_value": "The kind of object to which the attribute refers. _",
+        "new_value": "object type referred by the attribute.",
+        "reason": "Simplified the one-liner for readability.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[1].classes[2].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_The Model and its Subjects.classes[2].attributes[0].one_liner.content",
+        "old_value": "a group of attributes for a class that merit a shared explanation.",
+        "new_value": "attributes grouping under a shared explanation.",
+        "reason": "Shortened one-liner for clarity.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[2].classes[0].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_Attributes.classes[0].attributes[0].one_liner.content",
+        "old_value": "a group of attributes for a class that merit a shared explanation.",
+        "new_value": "attributes grouping needing shared documentation.",
+        "reason": "Shortened and simplified the one-liner.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "LiterateModel.subjects[2].classes[0].attributes[0].one_liner.content",
+        "model_path": "LiterateModel_Attributes.classes[0].attributes[0].one_liner.content",
+        "old_value": "whether the attributes in this section, taken together, are optional.",
+        "new_value": "if the attributes section, as a whole, is optional.",
+        "reason": "Improved readability and simplified.",
+        "change_type": "improvement"
+      }
+    ],
+    "summary": "Made several changes to improve clarity, readability, consistency and created missing Python expressions for derivations."
+  },
+  "raw_results": "```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"LiterateModel.subjects[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].one_liner.content\",\n      \"old_value\": \"the basic structure of the model\",\n      \"new_value\": \"the fundamental framework of the model\",\n      \"reason\": \"Improved clarity and conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].subjects[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[0].one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"a building block of the literate data model\",\n      \"reason\": \"Shortened one-liner for conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].name.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].name.content\",\n      \"old_value\": \"Preliminaries\",\n      \"new_value\": \"Preliminary Concepts\",\n      \"reason\": \"More specific and informative name\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"the component's name, excluding camel case\",\n      \"reason\": \"Improved readability and reduced redundancy\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[1].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[1].one_liner.content\",\n      \"old_value\": \"a kind of note, or aside, used to call attention to additional information about some Component.\",\n      \"new_value\": \"a comment or note to highlight extra information about a model component.\",\n      \"reason\": \"Added clarity and conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[1].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[1].attributes[0].one_liner.content\",\n      \"old_value\": \"an emoji\",\n      \"new_value\": \"a symbol or emoji\",\n      \"reason\": \"Improved clarity by reducing redundancy\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships, along with explanatory text and examples\",\n      \"new_value\": \"the domain, including entities, attributes, relationships, text, and examples\",\n      \"reason\": \"Created a concise one-liner\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[0].one_liner.content\",\n      \"old_value\": \"list of all classes in the model, as ordered in the definition of the model.\",\n      \"new_value\": \"all classes in the model, listed in their defined order.\",\n      \"reason\": \"Improved phrasing for conciseness and readability\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[1].python\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[2].python\",\n      \"old_value\": \"\",\n      \"new_value\": \"self.allSubjects.map(s => s.classes)\",\n      \"reason\": \"Added a Python expression for missing derivation.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[3].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[3].one_liner.content\",\n      \"old_value\": \"the recommended lanquage for expressing derivation, defaults, and constraints\",\n      \"new_value\": \"the recommended coding language for derivations and defaults\",\n      \"reason\": \"Corrected spelling from 'lanquage' to 'language' and improved the one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[4].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[4].one_liner.content\",\n      \"old_value\": \"A list of functions that require sophisticated AI-powered implementation *\",\n      \"new_value\": \"functions demanding AI implementation\",\n      \"reason\": \"Shortened and simplified one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[4].derivation.python\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[4].derivation.python\",\n      \"old_value\": \"\",\n      \"new_value\": \" ['aiEnglishPlural()'] \\n\",\n      \"reason\": \"Added a Python expression for missing derivation.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[3].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[3].one_liner.content\",\n      \"old_value\": \"A specific topic or theme within the model\",\n      \"new_value\": \"a focused topic or theme within the model\",\n      \"reason\": \"Improved phrasing for conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[4].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[4].one_liner.content\",\n      \"old_value\": \"a key entity or object type in the model, often corresponding to a real-world concept\",\n      \"new_value\": \"a significant entity or object type within the model\",\n      \"reason\": \"Improved phrasing for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[4].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[4].attributes[0].one_liner.content\",\n      \"old_value\": \"the normal English plural form of the name of the Class\",\n      \"new_value\": \"standard plural form of the Class name\",\n      \"reason\": \"Consolidated and shortened one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[4].constraints[1].content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[1].one_liner.content\",\n      \"old_value\": \" no repetitions allowed in keyAttributes\\n> \\ud83d\\udc4d **Issue**: introduce PureLists?\",\n      \"new_value\": \"no duplicates allowed in keyAttributes\",\n      \"reason\": \"Removed extraneous information and simplified.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.one_liner.content\",\n      \"old_value\": \"the model's organization and subjects\",\n      \"new_value\": \"the model structure and corresponding subjects\",\n      \"reason\": \"Shortened one-liner for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"a main topic or area of focus within the model, containing related subjects and classes\",\n      \"new_value\": \"a primary subject area, including related subjects and classes\",\n      \"reason\": \"Consolidated and simplified.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[1].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[1].one_liner.content\",\n      \"old_value\": \"A property or characteristic of a class\",\n      \"new_value\": \"a defining attribute of a class\",\n      \"reason\": \"Improved conciseness.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[1].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[1].attributes[0].one_liner.content\",\n      \"old_value\": \"The kind of object to which the attribute refers. _\",\n      \"new_value\": \"object type referred by the attribute.\",\n      \"reason\": \"Simplified the one-liner for readability.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[2].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[2].attributes[0].one_liner.content\",\n      \"old_value\": \"a group of attributes for a class that merit a shared explanation.\",\n      \"new_value\": \"attributes grouping under a shared explanation.\",\n      \"reason\": \"Shortened one-liner for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[2].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Attributes.classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"a group of attributes for a class that merit a shared explanation.\",\n      \"new_value\": \"attributes grouping needing shared documentation.\",\n      \"reason\": \"Shortened and simplified the one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[2].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Attributes.classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"whether the attributes in this section, taken together, are optional.\",\n      \"new_value\": \"if the attributes section, as a whole, is optional.\",\n      \"reason\": \"Improved readability and simplified.\",\n      \"change_type\": \"improvement\"\n    }\n  ],\n  \"summary\": \"Made several changes to improve clarity, readability, consistency and created missing Python expressions for derivations.\"\n}\n```",
+  "response": {
+    "id": "gen-1755654959-amokyNpt68ZhFf3utvNg",
+    "provider": "Amazon Bedrock",
+    "model": "amazon/nova-lite-v1",
+    "object": "chat.completion",
+    "created": 1755654959,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"LiterateModel.subjects[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].one_liner.content\",\n      \"old_value\": \"the basic structure of the model\",\n      \"new_value\": \"the fundamental framework of the model\",\n      \"reason\": \"Improved clarity and conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].subjects[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[0].one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"a building block of the literate data model\",\n      \"reason\": \"Shortened one-liner for conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].name.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].name.content\",\n      \"old_value\": \"Preliminaries\",\n      \"new_value\": \"Preliminary Concepts\",\n      \"reason\": \"More specific and informative name\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"the component's name, excluding camel case\",\n      \"reason\": \"Improved readability and reduced redundancy\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[1].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[1].one_liner.content\",\n      \"old_value\": \"a kind of note, or aside, used to call attention to additional information about some Component.\",\n      \"new_value\": \"a comment or note to highlight extra information about a model component.\",\n      \"reason\": \"Added clarity and conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[1].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[1].attributes[0].one_liner.content\",\n      \"old_value\": \"an emoji\",\n      \"new_value\": \"a symbol or emoji\",\n      \"reason\": \"Improved clarity by reducing redundancy\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships, along with explanatory text and examples\",\n      \"new_value\": \"the domain, including entities, attributes, relationships, text, and examples\",\n      \"reason\": \"Created a concise one-liner\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[0].one_liner.content\",\n      \"old_value\": \"list of all classes in the model, as ordered in the definition of the model.\",\n      \"new_value\": \"all classes in the model, listed in their defined order.\",\n      \"reason\": \"Improved phrasing for conciseness and readability\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[1].python\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[2].python\",\n      \"old_value\": \"\",\n      \"new_value\": \"self.allSubjects.map(s => s.classes)\",\n      \"reason\": \"Added a Python expression for missing derivation.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[3].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[3].one_liner.content\",\n      \"old_value\": \"the recommended lanquage for expressing derivation, defaults, and constraints\",\n      \"new_value\": \"the recommended coding language for derivations and defaults\",\n      \"reason\": \"Corrected spelling from 'lanquage' to 'language' and improved the one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[4].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[4].one_liner.content\",\n      \"old_value\": \"A list of functions that require sophisticated AI-powered implementation *\",\n      \"new_value\": \"functions demanding AI implementation\",\n      \"reason\": \"Shortened and simplified one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[2].attributes[4].derivation.python\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[4].derivation.python\",\n      \"old_value\": \"\",\n      \"new_value\": \" ['aiEnglishPlural()'] \\n\",\n      \"reason\": \"Added a Python expression for missing derivation.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[3].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[3].one_liner.content\",\n      \"old_value\": \"A specific topic or theme within the model\",\n      \"new_value\": \"a focused topic or theme within the model\",\n      \"reason\": \"Improved phrasing for conciseness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[4].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[4].one_liner.content\",\n      \"old_value\": \"a key entity or object type in the model, often corresponding to a real-world concept\",\n      \"new_value\": \"a significant entity or object type within the model\",\n      \"reason\": \"Improved phrasing for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[4].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[4].attributes[0].one_liner.content\",\n      \"old_value\": \"the normal English plural form of the name of the Class\",\n      \"new_value\": \"standard plural form of the Class name\",\n      \"reason\": \"Consolidated and shortened one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[0].classes[4].constraints[1].content\",\n      \"model_path\": \"LiterateModel_Literate Data Model.subjects[0].classes[2].attributes[1].one_liner.content\",\n      \"old_value\": \" no repetitions allowed in keyAttributes\\n> \\ud83d\\udc4d **Issue**: introduce PureLists?\",\n      \"new_value\": \"no duplicates allowed in keyAttributes\",\n      \"reason\": \"Removed extraneous information and simplified.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.one_liner.content\",\n      \"old_value\": \"the model's organization and subjects\",\n      \"new_value\": \"the model structure and corresponding subjects\",\n      \"reason\": \"Shortened one-liner for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"a main topic or area of focus within the model, containing related subjects and classes\",\n      \"new_value\": \"a primary subject area, including related subjects and classes\",\n      \"reason\": \"Consolidated and simplified.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[1].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[1].one_liner.content\",\n      \"old_value\": \"A property or characteristic of a class\",\n      \"new_value\": \"a defining attribute of a class\",\n      \"reason\": \"Improved conciseness.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[1].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[1].attributes[0].one_liner.content\",\n      \"old_value\": \"The kind of object to which the attribute refers. _\",\n      \"new_value\": \"object type referred by the attribute.\",\n      \"reason\": \"Simplified the one-liner for readability.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[1].classes[2].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_The Model and its Subjects.classes[2].attributes[0].one_liner.content\",\n      \"old_value\": \"a group of attributes for a class that merit a shared explanation.\",\n      \"new_value\": \"attributes grouping under a shared explanation.\",\n      \"reason\": \"Shortened one-liner for clarity.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[2].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Attributes.classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"a group of attributes for a class that merit a shared explanation.\",\n      \"new_value\": \"attributes grouping needing shared documentation.\",\n      \"reason\": \"Shortened and simplified the one-liner.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"LiterateModel.subjects[2].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"LiterateModel_Attributes.classes[0].attributes[0].one_liner.content\",\n      \"old_value\": \"whether the attributes in this section, taken together, are optional.\",\n      \"new_value\": \"if the attributes section, as a whole, is optional.\",\n      \"reason\": \"Improved readability and simplified.\",\n      \"change_type\": \"improvement\"\n    }\n  ],\n  \"summary\": \"Made several changes to improve clarity, readability, consistency and created missing Python expressions for derivations.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 73641,
+      "completion_tokens": 2851,
+      "total_tokens": 76492
+    }
+  }
+}

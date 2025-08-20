@@ -1,5 +1,5 @@
-{
-  "mistralai/mistral-medium-3.1": {
+[
+  {
     "id": "mistralai/mistral-medium-3.1",
     "canonical_slug": "mistralai/mistral-medium-3.1",
     "hugging_face_id": "",
@@ -48,7 +48,7 @@
       "top_p"
     ]
   },
-  "baidu/ernie-4.5-21b-a3b": {
+  {
     "id": "baidu/ernie-4.5-21b-a3b",
     "canonical_slug": "baidu/ernie-4.5-21b-a3b",
     "hugging_face_id": "baidu/ERNIE-4.5-21B-A3B-PT",
@@ -96,7 +96,7 @@
       "top_p"
     ]
   },
-  "baidu/ernie-4.5-vl-28b-a3b": {
+  {
     "id": "baidu/ernie-4.5-vl-28b-a3b",
     "canonical_slug": "baidu/ernie-4.5-vl-28b-a3b",
     "hugging_face_id": "baidu/ERNIE-4.5-VL-28B-A3B-PT",
@@ -147,7 +147,7 @@
       "top_p"
     ]
   },
-  "z-ai/glm-4.5v": {
+  {
     "id": "z-ai/glm-4.5v",
     "canonical_slug": "z-ai/glm-4.5v",
     "hugging_face_id": "zai-org/GLM-4.5V",
@@ -201,7 +201,7 @@
       "top_p"
     ]
   },
-  "ai21/jamba-mini-1.7": {
+  {
     "id": "ai21/jamba-mini-1.7",
     "canonical_slug": "ai21/jamba-mini-1.7",
     "hugging_face_id": "ai21labs/AI21-Jamba-Mini-1.7",
@@ -245,7 +245,7 @@
       "top_p"
     ]
   },
-  "ai21/jamba-large-1.7": {
+  {
     "id": "ai21/jamba-large-1.7",
     "canonical_slug": "ai21/jamba-large-1.7",
     "hugging_face_id": "ai21labs/AI21-Jamba-Large-1.7",
@@ -289,7 +289,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-5-chat": {
+  {
     "id": "openai/gpt-5-chat",
     "canonical_slug": "openai/gpt-5-chat-2025-08-07",
     "hugging_face_id": "",
@@ -335,7 +335,7 @@
       "structured_outputs"
     ]
   },
-  "openai/gpt-5": {
+  {
     "id": "openai/gpt-5",
     "canonical_slug": "openai/gpt-5-2025-08-07",
     "hugging_face_id": "",
@@ -383,7 +383,7 @@
       "tools"
     ]
   },
-  "openai/gpt-5-mini": {
+  {
     "id": "openai/gpt-5-mini",
     "canonical_slug": "openai/gpt-5-mini-2025-08-07",
     "hugging_face_id": "",
@@ -431,7 +431,7 @@
       "tools"
     ]
   },
-  "openai/gpt-5-nano": {
+  {
     "id": "openai/gpt-5-nano",
     "canonical_slug": "openai/gpt-5-nano-2025-08-07",
     "hugging_face_id": "",
@@ -479,7 +479,7 @@
       "tools"
     ]
   },
-  "openai/gpt-oss-120b": {
+  {
     "id": "openai/gpt-oss-120b",
     "canonical_slug": "openai/gpt-oss-120b",
     "hugging_face_id": "openai/gpt-oss-120b",
@@ -535,7 +535,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-oss-20b:free": {
+  {
     "id": "openai/gpt-oss-20b:free",
     "canonical_slug": "openai/gpt-oss-20b",
     "hugging_face_id": "openai/gpt-oss-20b",
@@ -579,7 +579,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-oss-20b": {
+  {
     "id": "openai/gpt-oss-20b",
     "canonical_slug": "openai/gpt-oss-20b",
     "hugging_face_id": "openai/gpt-oss-20b",
@@ -635,7 +635,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-opus-4.1": {
+  {
     "id": "anthropic/claude-opus-4.1",
     "canonical_slug": "anthropic/claude-4.1-opus-20250805",
     "hugging_face_id": "",
@@ -683,7 +683,7 @@
       "tools"
     ]
   },
-  "mistralai/codestral-2508": {
+  {
     "id": "mistralai/codestral-2508",
     "canonical_slug": "mistralai/codestral-2508",
     "hugging_face_id": "",
@@ -731,7 +731,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-30b-a3b-instruct-2507": {
+  {
     "id": "qwen/qwen3-30b-a3b-instruct-2507",
     "canonical_slug": "qwen/qwen3-30b-a3b-instruct-2507",
     "hugging_face_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
@@ -774,7 +774,7 @@
       "top_p"
     ]
   },
-  "z-ai/glm-4.5": {
+  {
     "id": "z-ai/glm-4.5",
     "canonical_slug": "z-ai/glm-4.5",
     "hugging_face_id": "zai-org/GLM-4.5",
@@ -829,7 +829,7 @@
       "top_p"
     ]
   },
-  "z-ai/glm-4.5-air:free": {
+  {
     "id": "z-ai/glm-4.5-air:free",
     "canonical_slug": "z-ai/glm-4.5-air",
     "hugging_face_id": "zai-org/GLM-4.5-Air",
@@ -883,7 +883,7 @@
       "top_p"
     ]
   },
-  "z-ai/glm-4.5-air": {
+  {
     "id": "z-ai/glm-4.5-air",
     "canonical_slug": "z-ai/glm-4.5-air",
     "hugging_face_id": "zai-org/GLM-4.5-Air",
@@ -937,7 +937,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-235b-a22b-thinking-2507": {
+  {
     "id": "qwen/qwen3-235b-a22b-thinking-2507",
     "canonical_slug": "qwen/qwen3-235b-a22b-thinking-2507",
     "hugging_face_id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
@@ -992,7 +992,7 @@
       "top_p"
     ]
   },
-  "z-ai/glm-4-32b": {
+  {
     "id": "z-ai/glm-4-32b",
     "canonical_slug": "z-ai/glm-4-32b-0414",
     "hugging_face_id": "",
@@ -1034,7 +1034,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-coder:free": {
+  {
     "id": "qwen/qwen3-coder:free",
     "canonical_slug": "qwen/qwen3-coder-480b-a35b-07-25",
     "hugging_face_id": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
@@ -1086,7 +1086,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-coder": {
+  {
     "id": "qwen/qwen3-coder",
     "canonical_slug": "qwen/qwen3-coder-480b-a35b-07-25",
     "hugging_face_id": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
@@ -1140,7 +1140,7 @@
       "top_p"
     ]
   },
-  "bytedance/ui-tars-1.5-7b": {
+  {
     "id": "bytedance/ui-tars-1.5-7b",
     "canonical_slug": "bytedance/ui-tars-1.5-7b",
     "hugging_face_id": "ByteDance-Seed/UI-TARS-1.5-7B",
@@ -1188,7 +1188,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.5-flash-lite": {
+  {
     "id": "google/gemini-2.5-flash-lite",
     "canonical_slug": "google/gemini-2.5-flash-lite",
     "hugging_face_id": "",
@@ -1241,7 +1241,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-235b-a22b-2507": {
+  {
     "id": "qwen/qwen3-235b-a22b-2507",
     "canonical_slug": "qwen/qwen3-235b-a22b-07-25",
     "hugging_face_id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
@@ -1295,7 +1295,7 @@
       "top_p"
     ]
   },
-  "switchpoint/router": {
+  {
     "id": "switchpoint/router",
     "canonical_slug": "switchpoint/router",
     "hugging_face_id": "",
@@ -1340,7 +1340,7 @@
       "top_p"
     ]
   },
-  "moonshotai/kimi-k2:free": {
+  {
     "id": "moonshotai/kimi-k2:free",
     "canonical_slug": "moonshotai/kimi-k2",
     "hugging_face_id": "moonshotai/Kimi-K2-Instruct",
@@ -1392,7 +1392,7 @@
       "top_p"
     ]
   },
-  "moonshotai/kimi-k2": {
+  {
     "id": "moonshotai/kimi-k2",
     "canonical_slug": "moonshotai/kimi-k2",
     "hugging_face_id": "moonshotai/Kimi-K2-Instruct",
@@ -1446,7 +1446,7 @@
       "top_p"
     ]
   },
-  "thudm/glm-4.1v-9b-thinking": {
+  {
     "id": "thudm/glm-4.1v-9b-thinking",
     "canonical_slug": "thudm/glm-4.1v-9b-thinking",
     "hugging_face_id": "THUDM/GLM-4.1V-9B-Thinking",
@@ -1497,7 +1497,7 @@
       "top_p"
     ]
   },
-  "mistralai/devstral-medium": {
+  {
     "id": "mistralai/devstral-medium",
     "canonical_slug": "mistralai/devstral-medium-2507",
     "hugging_face_id": "",
@@ -1545,7 +1545,7 @@
       "top_p"
     ]
   },
-  "mistralai/devstral-small": {
+  {
     "id": "mistralai/devstral-small",
     "canonical_slug": "mistralai/devstral-small-2507",
     "hugging_face_id": "mistralai/Devstral-Small-2507",
@@ -1596,7 +1596,7 @@
       "top_p"
     ]
   },
-  "cognitivecomputations/dolphin-mistral-24b-venice-edition:free": {
+  {
     "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
     "canonical_slug": "venice/uncensored",
     "hugging_face_id": "cognitivecomputations/Dolphin-Mistral-24B-Venice-Edition",
@@ -1642,7 +1642,7 @@
       "top_p"
     ]
   },
-  "x-ai/grok-4": {
+  {
     "id": "x-ai/grok-4",
     "canonical_slug": "x-ai/grok-4-07-09",
     "hugging_face_id": "",
@@ -1693,7 +1693,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3n-e2b-it:free": {
+  {
     "id": "google/gemma-3n-e2b-it:free",
     "canonical_slug": "google/gemma-3n-e2b-it",
     "hugging_face_id": "google/gemma-3n-E2B-it",
@@ -1738,7 +1738,7 @@
       "top_p"
     ]
   },
-  "tencent/hunyuan-a13b-instruct:free": {
+  {
     "id": "tencent/hunyuan-a13b-instruct:free",
     "canonical_slug": "tencent/hunyuan-a13b-instruct",
     "hugging_face_id": "tencent/Hunyuan-A13B-Instruct",
@@ -1790,7 +1790,7 @@
       "top_p"
     ]
   },
-  "tencent/hunyuan-a13b-instruct": {
+  {
     "id": "tencent/hunyuan-a13b-instruct",
     "canonical_slug": "tencent/hunyuan-a13b-instruct",
     "hugging_face_id": "tencent/Hunyuan-A13B-Instruct",
@@ -1842,7 +1842,7 @@
       "top_p"
     ]
   },
-  "tngtech/deepseek-r1t2-chimera:free": {
+  {
     "id": "tngtech/deepseek-r1t2-chimera:free",
     "canonical_slug": "tngtech/deepseek-r1t2-chimera",
     "hugging_face_id": "tngtech/DeepSeek-TNG-R1T2-Chimera",
@@ -1894,7 +1894,7 @@
       "top_p"
     ]
   },
-  "morph/morph-v3-large": {
+  {
     "id": "morph/morph-v3-large",
     "canonical_slug": "morph/morph-v3-large",
     "hugging_face_id": "",
@@ -1934,7 +1934,7 @@
       "temperature"
     ]
   },
-  "morph/morph-v3-fast": {
+  {
     "id": "morph/morph-v3-fast",
     "canonical_slug": "morph/morph-v3-fast",
     "hugging_face_id": "",
@@ -1974,7 +1974,7 @@
       "temperature"
     ]
   },
-  "baidu/ernie-4.5-vl-424b-a47b": {
+  {
     "id": "baidu/ernie-4.5-vl-424b-a47b",
     "canonical_slug": "baidu/ernie-4.5-vl-424b-a47b",
     "hugging_face_id": "baidu/ERNIE-4.5-VL-424B-A47B-PT",
@@ -2025,7 +2025,7 @@
       "top_p"
     ]
   },
-  "baidu/ernie-4.5-300b-a47b": {
+  {
     "id": "baidu/ernie-4.5-300b-a47b",
     "canonical_slug": "baidu/ernie-4.5-300b-a47b",
     "hugging_face_id": "baidu/ERNIE-4.5-300B-A47B-PT",
@@ -2073,7 +2073,7 @@
       "top_p"
     ]
   },
-  "thedrummer/anubis-70b-v1.1": {
+  {
     "id": "thedrummer/anubis-70b-v1.1",
     "canonical_slug": "thedrummer/anubis-70b-v1.1",
     "hugging_face_id": "TheDrummer/Anubis-70B-v1.1",
@@ -2122,7 +2122,7 @@
       "top_p"
     ]
   },
-  "inception/mercury": {
+  {
     "id": "inception/mercury",
     "canonical_slug": "inception/mercury",
     "hugging_face_id": "",
@@ -2170,7 +2170,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-small-3.2-24b-instruct:free": {
+  {
     "id": "mistralai/mistral-small-3.2-24b-instruct:free",
     "canonical_slug": "mistralai/mistral-small-3.2-24b-instruct-2506",
     "hugging_face_id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
@@ -2224,7 +2224,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-small-3.2-24b-instruct": {
+  {
     "id": "mistralai/mistral-small-3.2-24b-instruct",
     "canonical_slug": "mistralai/mistral-small-3.2-24b-instruct-2506",
     "hugging_face_id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
@@ -2279,7 +2279,7 @@
       "top_p"
     ]
   },
-  "minimax/minimax-m1": {
+  {
     "id": "minimax/minimax-m1",
     "canonical_slug": "minimax/minimax-m1",
     "hugging_face_id": "",
@@ -2332,7 +2332,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.5-flash-lite-preview-06-17": {
+  {
     "id": "google/gemini-2.5-flash-lite-preview-06-17",
     "canonical_slug": "google/gemini-2.5-flash-lite-preview-06-17",
     "hugging_face_id": "",
@@ -2385,7 +2385,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.5-flash": {
+  {
     "id": "google/gemini-2.5-flash",
     "canonical_slug": "google/gemini-2.5-flash",
     "hugging_face_id": "",
@@ -2438,7 +2438,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.5-pro": {
+  {
     "id": "google/gemini-2.5-pro",
     "canonical_slug": "google/gemini-2.5-pro",
     "hugging_face_id": "",
@@ -2491,7 +2491,7 @@
       "top_p"
     ]
   },
-  "moonshotai/kimi-dev-72b:free": {
+  {
     "id": "moonshotai/kimi-dev-72b:free",
     "canonical_slug": "moonshotai/kimi-dev-72b",
     "hugging_face_id": "moonshotai/Kimi-Dev-72B",
@@ -2543,7 +2543,7 @@
       "top_p"
     ]
   },
-  "openai/o3-pro": {
+  {
     "id": "openai/o3-pro",
     "canonical_slug": "openai/o3-pro-2025-06-10",
     "hugging_face_id": "",
@@ -2590,7 +2590,7 @@
       "tools"
     ]
   },
-  "x-ai/grok-3-mini": {
+  {
     "id": "x-ai/grok-3-mini",
     "canonical_slug": "x-ai/grok-3-mini",
     "hugging_face_id": "",
@@ -2641,7 +2641,7 @@
       "top_p"
     ]
   },
-  "x-ai/grok-3": {
+  {
     "id": "x-ai/grok-3",
     "canonical_slug": "x-ai/grok-3",
     "hugging_face_id": "",
@@ -2692,7 +2692,7 @@
       "top_p"
     ]
   },
-  "mistralai/magistral-small-2506": {
+  {
     "id": "mistralai/magistral-small-2506",
     "canonical_slug": "mistralai/magistral-small-2506",
     "hugging_face_id": "mistralai/Magistral-Small-2506",
@@ -2742,7 +2742,7 @@
       "top_p"
     ]
   },
-  "mistralai/magistral-medium-2506": {
+  {
     "id": "mistralai/magistral-medium-2506",
     "canonical_slug": "mistralai/magistral-medium-2506",
     "hugging_face_id": "",
@@ -2792,7 +2792,7 @@
       "top_p"
     ]
   },
-  "mistralai/magistral-medium-2506:thinking": {
+  {
     "id": "mistralai/magistral-medium-2506:thinking",
     "canonical_slug": "mistralai/magistral-medium-2506",
     "hugging_face_id": "",
@@ -2842,7 +2842,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.5-pro-preview": {
+  {
     "id": "google/gemini-2.5-pro-preview",
     "canonical_slug": "google/gemini-2.5-pro-preview-06-05",
     "hugging_face_id": "",
@@ -2895,7 +2895,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-0528-qwen3-8b:free": {
+  {
     "id": "deepseek/deepseek-r1-0528-qwen3-8b:free",
     "canonical_slug": "deepseek/deepseek-r1-0528-qwen3-8b",
     "hugging_face_id": "deepseek-ai/deepseek-r1-0528-qwen3-8b",
@@ -2947,7 +2947,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-0528-qwen3-8b": {
+  {
     "id": "deepseek/deepseek-r1-0528-qwen3-8b",
     "canonical_slug": "deepseek/deepseek-r1-0528-qwen3-8b",
     "hugging_face_id": "deepseek-ai/deepseek-r1-0528-qwen3-8b",
@@ -2999,7 +2999,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-0528:free": {
+  {
     "id": "deepseek/deepseek-r1-0528:free",
     "canonical_slug": "deepseek/deepseek-r1-0528",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-0528",
@@ -3051,7 +3051,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-0528": {
+  {
     "id": "deepseek/deepseek-r1-0528",
     "canonical_slug": "deepseek/deepseek-r1-0528",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-0528",
@@ -3107,7 +3107,7 @@
       "top_p"
     ]
   },
-  "sarvamai/sarvam-m:free": {
+  {
     "id": "sarvamai/sarvam-m:free",
     "canonical_slug": "sarvamai/sarvam-m",
     "hugging_face_id": "sarvamai/sarvam-m",
@@ -3157,7 +3157,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-opus-4": {
+  {
     "id": "anthropic/claude-opus-4",
     "canonical_slug": "anthropic/claude-4-opus-20250522",
     "hugging_face_id": "",
@@ -3207,7 +3207,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-sonnet-4": {
+  {
     "id": "anthropic/claude-sonnet-4",
     "canonical_slug": "anthropic/claude-4-sonnet-20250522",
     "hugging_face_id": "",
@@ -3257,7 +3257,7 @@
       "top_p"
     ]
   },
-  "mistralai/devstral-small-2505:free": {
+  {
     "id": "mistralai/devstral-small-2505:free",
     "canonical_slug": "mistralai/devstral-small-2505",
     "hugging_face_id": "mistralai/Devstral-Small-2505",
@@ -3309,7 +3309,7 @@
       "top_p"
     ]
   },
-  "mistralai/devstral-small-2505": {
+  {
     "id": "mistralai/devstral-small-2505",
     "canonical_slug": "mistralai/devstral-small-2505",
     "hugging_face_id": "mistralai/Devstral-Small-2505",
@@ -3363,7 +3363,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3n-e4b-it:free": {
+  {
     "id": "google/gemma-3n-e4b-it:free",
     "canonical_slug": "google/gemma-3n-e4b-it",
     "hugging_face_id": "google/gemma-3n-E4B-it",
@@ -3408,7 +3408,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3n-e4b-it": {
+  {
     "id": "google/gemma-3n-e4b-it",
     "canonical_slug": "google/gemma-3n-e4b-it",
     "hugging_face_id": "google/gemma-3n-E4B-it",
@@ -3455,7 +3455,7 @@
       "top_p"
     ]
   },
-  "openai/codex-mini": {
+  {
     "id": "openai/codex-mini",
     "canonical_slug": "openai/codex-mini",
     "hugging_face_id": "",
@@ -3502,7 +3502,7 @@
       "tools"
     ]
   },
-  "nousresearch/deephermes-3-mistral-24b-preview": {
+  {
     "id": "nousresearch/deephermes-3-mistral-24b-preview",
     "canonical_slug": "nousresearch/deephermes-3-mistral-24b-preview",
     "hugging_face_id": "NousResearch/DeepHermes-3-Mistral-24B-Preview",
@@ -3554,7 +3554,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-medium-3": {
+  {
     "id": "mistralai/mistral-medium-3",
     "canonical_slug": "mistralai/mistral-medium-3",
     "hugging_face_id": "",
@@ -3603,7 +3603,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.5-pro-preview-05-06": {
+  {
     "id": "google/gemini-2.5-pro-preview-05-06",
     "canonical_slug": "google/gemini-2.5-pro-preview-03-25",
     "hugging_face_id": "",
@@ -3656,7 +3656,7 @@
       "top_p"
     ]
   },
-  "arcee-ai/spotlight": {
+  {
     "id": "arcee-ai/spotlight",
     "canonical_slug": "arcee-ai/spotlight",
     "hugging_face_id": "",
@@ -3704,7 +3704,7 @@
       "top_p"
     ]
   },
-  "arcee-ai/maestro-reasoning": {
+  {
     "id": "arcee-ai/maestro-reasoning",
     "canonical_slug": "arcee-ai/maestro-reasoning",
     "hugging_face_id": "",
@@ -3751,7 +3751,7 @@
       "top_p"
     ]
   },
-  "arcee-ai/virtuoso-large": {
+  {
     "id": "arcee-ai/virtuoso-large",
     "canonical_slug": "arcee-ai/virtuoso-large",
     "hugging_face_id": "",
@@ -3800,7 +3800,7 @@
       "top_p"
     ]
   },
-  "arcee-ai/coder-large": {
+  {
     "id": "arcee-ai/coder-large",
     "canonical_slug": "arcee-ai/coder-large",
     "hugging_face_id": "",
@@ -3847,7 +3847,7 @@
       "top_p"
     ]
   },
-  "microsoft/phi-4-reasoning-plus": {
+  {
     "id": "microsoft/phi-4-reasoning-plus",
     "canonical_slug": "microsoft/phi-4-reasoning-plus-04-30",
     "hugging_face_id": "microsoft/Phi-4-reasoning-plus",
@@ -3897,7 +3897,7 @@
       "top_p"
     ]
   },
-  "inception/mercury-coder": {
+  {
     "id": "inception/mercury-coder",
     "canonical_slug": "inception/mercury-coder-small-beta",
     "hugging_face_id": "",
@@ -3945,7 +3945,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-4b:free": {
+  {
     "id": "qwen/qwen3-4b:free",
     "canonical_slug": "qwen/qwen3-4b-04-28",
     "hugging_face_id": "Qwen/Qwen3-4B",
@@ -3995,7 +3995,7 @@
       "top_p"
     ]
   },
-  "opengvlab/internvl3-14b": {
+  {
     "id": "opengvlab/internvl3-14b",
     "canonical_slug": "opengvlab/internvl3-14b",
     "hugging_face_id": "OpenGVLab/InternVL3-14B",
@@ -4036,7 +4036,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-prover-v2": {
+  {
     "id": "deepseek/deepseek-prover-v2",
     "canonical_slug": "deepseek/deepseek-prover-v2",
     "hugging_face_id": "deepseek-ai/DeepSeek-Prover-V2-671B",
@@ -4084,7 +4084,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-guard-4-12b": {
+  {
     "id": "meta-llama/llama-guard-4-12b",
     "canonical_slug": "meta-llama/llama-guard-4-12b",
     "hugging_face_id": "meta-llama/Llama-Guard-4-12B",
@@ -4134,7 +4134,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-30b-a3b:free": {
+  {
     "id": "qwen/qwen3-30b-a3b:free",
     "canonical_slug": "qwen/qwen3-30b-a3b-04-28",
     "hugging_face_id": "Qwen/Qwen3-30B-A3B",
@@ -4186,7 +4186,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-30b-a3b": {
+  {
     "id": "qwen/qwen3-30b-a3b",
     "canonical_slug": "qwen/qwen3-30b-a3b-04-28",
     "hugging_face_id": "Qwen/Qwen3-30B-A3B",
@@ -4242,7 +4242,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-8b:free": {
+  {
     "id": "qwen/qwen3-8b:free",
     "canonical_slug": "qwen/qwen3-8b-04-28",
     "hugging_face_id": "Qwen/Qwen3-8B",
@@ -4294,7 +4294,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-8b": {
+  {
     "id": "qwen/qwen3-8b",
     "canonical_slug": "qwen/qwen3-8b-04-28",
     "hugging_face_id": "Qwen/Qwen3-8B",
@@ -4344,7 +4344,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-14b:free": {
+  {
     "id": "qwen/qwen3-14b:free",
     "canonical_slug": "qwen/qwen3-14b-04-28",
     "hugging_face_id": "Qwen/Qwen3-14B",
@@ -4396,7 +4396,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-14b": {
+  {
     "id": "qwen/qwen3-14b",
     "canonical_slug": "qwen/qwen3-14b-04-28",
     "hugging_face_id": "Qwen/Qwen3-14B",
@@ -4452,7 +4452,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-32b": {
+  {
     "id": "qwen/qwen3-32b",
     "canonical_slug": "qwen/qwen3-32b-04-28",
     "hugging_face_id": "Qwen/Qwen3-32B",
@@ -4508,7 +4508,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-235b-a22b:free": {
+  {
     "id": "qwen/qwen3-235b-a22b:free",
     "canonical_slug": "qwen/qwen3-235b-a22b-04-28",
     "hugging_face_id": "Qwen/Qwen3-235B-A22B",
@@ -4564,7 +4564,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen3-235b-a22b": {
+  {
     "id": "qwen/qwen3-235b-a22b",
     "canonical_slug": "qwen/qwen3-235b-a22b-04-28",
     "hugging_face_id": "Qwen/Qwen3-235B-A22B",
@@ -4620,7 +4620,7 @@
       "top_p"
     ]
   },
-  "tngtech/deepseek-r1t-chimera:free": {
+  {
     "id": "tngtech/deepseek-r1t-chimera:free",
     "canonical_slug": "tngtech/deepseek-r1t-chimera",
     "hugging_face_id": "tngtech/DeepSeek-R1T-Chimera",
@@ -4672,7 +4672,7 @@
       "top_p"
     ]
   },
-  "tngtech/deepseek-r1t-chimera": {
+  {
     "id": "tngtech/deepseek-r1t-chimera",
     "canonical_slug": "tngtech/deepseek-r1t-chimera",
     "hugging_face_id": "tngtech/DeepSeek-R1T-Chimera",
@@ -4724,7 +4724,7 @@
       "top_p"
     ]
   },
-  "microsoft/mai-ds-r1:free": {
+  {
     "id": "microsoft/mai-ds-r1:free",
     "canonical_slug": "microsoft/mai-ds-r1",
     "hugging_face_id": "microsoft/MAI-DS-R1",
@@ -4776,7 +4776,7 @@
       "top_p"
     ]
   },
-  "microsoft/mai-ds-r1": {
+  {
     "id": "microsoft/mai-ds-r1",
     "canonical_slug": "microsoft/mai-ds-r1",
     "hugging_face_id": "microsoft/MAI-DS-R1",
@@ -4828,7 +4828,7 @@
       "top_p"
     ]
   },
-  "thudm/glm-z1-32b": {
+  {
     "id": "thudm/glm-z1-32b",
     "canonical_slug": "thudm/glm-z1-32b-0414",
     "hugging_face_id": "THUDM/GLM-Z1-32B-0414",
@@ -4880,7 +4880,7 @@
       "top_p"
     ]
   },
-  "thudm/glm-4-32b": {
+  {
     "id": "thudm/glm-4-32b",
     "canonical_slug": "thudm/glm-4-32b-0414",
     "hugging_face_id": "THUDM/GLM-4-32B-0414",
@@ -4928,7 +4928,7 @@
       "top_p"
     ]
   },
-  "openai/o4-mini-high": {
+  {
     "id": "openai/o4-mini-high",
     "canonical_slug": "openai/o4-mini-high-2025-04-16",
     "hugging_face_id": "",
@@ -4976,7 +4976,7 @@
       "tools"
     ]
   },
-  "openai/o3": {
+  {
     "id": "openai/o3",
     "canonical_slug": "openai/o3-2025-04-16",
     "hugging_face_id": "",
@@ -5024,7 +5024,7 @@
       "tools"
     ]
   },
-  "openai/o4-mini": {
+  {
     "id": "openai/o4-mini",
     "canonical_slug": "openai/o4-mini-2025-04-16",
     "hugging_face_id": "",
@@ -5071,7 +5071,7 @@
       "tools"
     ]
   },
-  "shisa-ai/shisa-v2-llama3.3-70b:free": {
+  {
     "id": "shisa-ai/shisa-v2-llama3.3-70b:free",
     "canonical_slug": "shisa-ai/shisa-v2-llama3.3-70b",
     "hugging_face_id": "shisa-ai/shisa-v2-llama3.3-70b",
@@ -5121,7 +5121,7 @@
       "top_p"
     ]
   },
-  "shisa-ai/shisa-v2-llama3.3-70b": {
+  {
     "id": "shisa-ai/shisa-v2-llama3.3-70b",
     "canonical_slug": "shisa-ai/shisa-v2-llama3.3-70b",
     "hugging_face_id": "shisa-ai/shisa-v2-llama3.3-70b",
@@ -5171,7 +5171,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4.1": {
+  {
     "id": "openai/gpt-4.1",
     "canonical_slug": "openai/gpt-4.1-2025-04-14",
     "hugging_face_id": "",
@@ -5226,7 +5226,7 @@
       "web_search_options"
     ]
   },
-  "openai/gpt-4.1-mini": {
+  {
     "id": "openai/gpt-4.1-mini",
     "canonical_slug": "openai/gpt-4.1-mini-2025-04-14",
     "hugging_face_id": "",
@@ -5281,7 +5281,7 @@
       "web_search_options"
     ]
   },
-  "openai/gpt-4.1-nano": {
+  {
     "id": "openai/gpt-4.1-nano",
     "canonical_slug": "openai/gpt-4.1-nano-2025-04-14",
     "hugging_face_id": "",
@@ -5335,7 +5335,7 @@
       "top_p"
     ]
   },
-  "eleutherai/llemma_7b": {
+  {
     "id": "eleutherai/llemma_7b",
     "canonical_slug": "eleutherai/llemma_7b",
     "hugging_face_id": "EleutherAI/llemma_7b",
@@ -5382,7 +5382,7 @@
       "top_p"
     ]
   },
-  "alfredpros/codellama-7b-instruct-solidity": {
+  {
     "id": "alfredpros/codellama-7b-instruct-solidity",
     "canonical_slug": "alfredpros/codellama-7b-instruct-solidity",
     "hugging_face_id": "AlfredPros/CodeLlama-7b-Instruct-Solidity",
@@ -5429,7 +5429,7 @@
       "top_p"
     ]
   },
-  "arliai/qwq-32b-arliai-rpr-v1:free": {
+  {
     "id": "arliai/qwq-32b-arliai-rpr-v1:free",
     "canonical_slug": "arliai/qwq-32b-arliai-rpr-v1",
     "hugging_face_id": "ArliAI/QwQ-32B-ArliAI-RpR-v1",
@@ -5481,7 +5481,7 @@
       "top_p"
     ]
   },
-  "arliai/qwq-32b-arliai-rpr-v1": {
+  {
     "id": "arliai/qwq-32b-arliai-rpr-v1",
     "canonical_slug": "arliai/qwq-32b-arliai-rpr-v1",
     "hugging_face_id": "ArliAI/QwQ-32B-ArliAI-RpR-v1",
@@ -5533,7 +5533,7 @@
       "top_p"
     ]
   },
-  "agentica-org/deepcoder-14b-preview:free": {
+  {
     "id": "agentica-org/deepcoder-14b-preview:free",
     "canonical_slug": "agentica-org/deepcoder-14b-preview",
     "hugging_face_id": "agentica-org/DeepCoder-14B-Preview",
@@ -5585,7 +5585,7 @@
       "top_p"
     ]
   },
-  "agentica-org/deepcoder-14b-preview": {
+  {
     "id": "agentica-org/deepcoder-14b-preview",
     "canonical_slug": "agentica-org/deepcoder-14b-preview",
     "hugging_face_id": "agentica-org/DeepCoder-14B-Preview",
@@ -5637,7 +5637,7 @@
       "top_p"
     ]
   },
-  "moonshotai/kimi-vl-a3b-thinking:free": {
+  {
     "id": "moonshotai/kimi-vl-a3b-thinking:free",
     "canonical_slug": "moonshotai/kimi-vl-a3b-thinking",
     "hugging_face_id": "moonshotai/Kimi-VL-A3B-Thinking",
@@ -5690,7 +5690,7 @@
       "top_p"
     ]
   },
-  "moonshotai/kimi-vl-a3b-thinking": {
+  {
     "id": "moonshotai/kimi-vl-a3b-thinking",
     "canonical_slug": "moonshotai/kimi-vl-a3b-thinking",
     "hugging_face_id": "moonshotai/Kimi-VL-A3B-Thinking",
@@ -5743,7 +5743,7 @@
       "top_p"
     ]
   },
-  "x-ai/grok-3-mini-beta": {
+  {
     "id": "x-ai/grok-3-mini-beta",
     "canonical_slug": "x-ai/grok-3-mini-beta",
     "hugging_face_id": "",
@@ -5793,7 +5793,7 @@
       "top_p"
     ]
   },
-  "x-ai/grok-3-beta": {
+  {
     "id": "x-ai/grok-3-beta",
     "canonical_slug": "x-ai/grok-3-beta",
     "hugging_face_id": "",
@@ -5843,7 +5843,7 @@
       "top_p"
     ]
   },
-  "nvidia/llama-3.3-nemotron-super-49b-v1": {
+  {
     "id": "nvidia/llama-3.3-nemotron-super-49b-v1",
     "canonical_slug": "nvidia/llama-3.3-nemotron-super-49b-v1",
     "hugging_face_id": "nvidia/Llama-3_3-Nemotron-Super-49B-v1",
@@ -5891,7 +5891,7 @@
       "top_p"
     ]
   },
-  "nvidia/llama-3.1-nemotron-ultra-253b-v1:free": {
+  {
     "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1:free",
     "canonical_slug": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
     "hugging_face_id": "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1",
@@ -5941,7 +5941,7 @@
       "top_p"
     ]
   },
-  "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+  {
     "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
     "canonical_slug": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
     "hugging_face_id": "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1",
@@ -5991,7 +5991,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-4-maverick": {
+  {
     "id": "meta-llama/llama-4-maverick",
     "canonical_slug": "meta-llama/llama-4-maverick-17b-128e-instruct",
     "hugging_face_id": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
@@ -6046,7 +6046,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-4-scout": {
+  {
     "id": "meta-llama/llama-4-scout",
     "canonical_slug": "meta-llama/llama-4-scout-17b-16e-instruct",
     "hugging_face_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
@@ -6101,7 +6101,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-v3-base": {
+  {
     "id": "deepseek/deepseek-v3-base",
     "canonical_slug": "deepseek/deepseek-v3-base",
     "hugging_face_id": "deepseek-ai/Deepseek-v3-base",
@@ -6151,7 +6151,7 @@
       "top_p"
     ]
   },
-  "scb10x/llama3.1-typhoon2-70b-instruct": {
+  {
     "id": "scb10x/llama3.1-typhoon2-70b-instruct",
     "canonical_slug": "scb10x/llama3.1-typhoon2-70b-instruct",
     "hugging_face_id": "scb10x/llama3.1-typhoon2-70b-instruct",
@@ -6198,7 +6198,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.5-pro-exp-03-25": {
+  {
     "id": "google/gemini-2.5-pro-exp-03-25",
     "canonical_slug": "google/gemini-2.5-pro-exp-03-25",
     "hugging_face_id": "",
@@ -6246,7 +6246,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen2.5-vl-32b-instruct:free": {
+  {
     "id": "qwen/qwen2.5-vl-32b-instruct:free",
     "canonical_slug": "qwen/qwen2.5-vl-32b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-VL-32B-Instruct",
@@ -6298,7 +6298,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen2.5-vl-32b-instruct": {
+  {
     "id": "qwen/qwen2.5-vl-32b-instruct",
     "canonical_slug": "qwen/qwen2.5-vl-32b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-VL-32B-Instruct",
@@ -6351,7 +6351,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-chat-v3-0324:free": {
+  {
     "id": "deepseek/deepseek-chat-v3-0324:free",
     "canonical_slug": "deepseek/deepseek-chat-v3-0324",
     "hugging_face_id": "deepseek-ai/DeepSeek-V3-0324",
@@ -6403,7 +6403,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-chat-v3-0324": {
+  {
     "id": "deepseek/deepseek-chat-v3-0324",
     "canonical_slug": "deepseek/deepseek-chat-v3-0324",
     "hugging_face_id": "deepseek-ai/DeepSeek-V3-0324",
@@ -6457,7 +6457,7 @@
       "top_p"
     ]
   },
-  "featherless/qwerky-72b:free": {
+  {
     "id": "featherless/qwerky-72b:free",
     "canonical_slug": "featherless/qwerky-72b",
     "hugging_face_id": "featherless-ai/QRWKV-72B",
@@ -6504,7 +6504,7 @@
       "top_p"
     ]
   },
-  "openai/o1-pro": {
+  {
     "id": "openai/o1-pro",
     "canonical_slug": "openai/o1-pro",
     "hugging_face_id": "",
@@ -6548,7 +6548,7 @@
       "structured_outputs"
     ]
   },
-  "mistralai/mistral-small-3.1-24b-instruct:free": {
+  {
     "id": "mistralai/mistral-small-3.1-24b-instruct:free",
     "canonical_slug": "mistralai/mistral-small-3.1-24b-instruct-2503",
     "hugging_face_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
@@ -6603,7 +6603,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-small-3.1-24b-instruct": {
+  {
     "id": "mistralai/mistral-small-3.1-24b-instruct",
     "canonical_slug": "mistralai/mistral-small-3.1-24b-instruct-2503",
     "hugging_face_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
@@ -6658,7 +6658,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3-4b-it:free": {
+  {
     "id": "google/gemma-3-4b-it:free",
     "canonical_slug": "google/gemma-3-4b-it",
     "hugging_face_id": "google/gemma-3-4b-it",
@@ -6702,7 +6702,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3-4b-it": {
+  {
     "id": "google/gemma-3-4b-it",
     "canonical_slug": "google/gemma-3-4b-it",
     "hugging_face_id": "google/gemma-3-4b-it",
@@ -6751,7 +6751,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3-12b-it:free": {
+  {
     "id": "google/gemma-3-12b-it:free",
     "canonical_slug": "google/gemma-3-12b-it",
     "hugging_face_id": "google/gemma-3-12b-it",
@@ -6802,7 +6802,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3-12b-it": {
+  {
     "id": "google/gemma-3-12b-it",
     "canonical_slug": "google/gemma-3-12b-it",
     "hugging_face_id": "google/gemma-3-12b-it",
@@ -6854,7 +6854,7 @@
       "top_p"
     ]
   },
-  "cohere/command-a": {
+  {
     "id": "cohere/command-a",
     "canonical_slug": "cohere/command-a-03-2025",
     "hugging_face_id": "CohereForAI/c4ai-command-a-03-2025",
@@ -6901,7 +6901,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4o-mini-search-preview": {
+  {
     "id": "openai/gpt-4o-mini-search-preview",
     "canonical_slug": "openai/gpt-4o-mini-search-preview-2025-03-11",
     "hugging_face_id": "",
@@ -6942,7 +6942,7 @@
       "web_search_options"
     ]
   },
-  "openai/gpt-4o-search-preview": {
+  {
     "id": "openai/gpt-4o-search-preview",
     "canonical_slug": "openai/gpt-4o-search-preview-2025-03-11",
     "hugging_face_id": "",
@@ -6983,7 +6983,7 @@
       "web_search_options"
     ]
   },
-  "rekaai/reka-flash-3:free": {
+  {
     "id": "rekaai/reka-flash-3:free",
     "canonical_slug": "rekaai/reka-flash-3",
     "hugging_face_id": "RekaAI/reka-flash-3",
@@ -7035,7 +7035,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3-27b-it:free": {
+  {
     "id": "google/gemma-3-27b-it:free",
     "canonical_slug": "google/gemma-3-27b-it",
     "hugging_face_id": "",
@@ -7088,7 +7088,7 @@
       "top_p"
     ]
   },
-  "google/gemma-3-27b-it": {
+  {
     "id": "google/gemma-3-27b-it",
     "canonical_slug": "google/gemma-3-27b-it",
     "hugging_face_id": "",
@@ -7140,7 +7140,7 @@
       "top_p"
     ]
   },
-  "thedrummer/anubis-pro-105b-v1": {
+  {
     "id": "thedrummer/anubis-pro-105b-v1",
     "canonical_slug": "thedrummer/anubis-pro-105b-v1",
     "hugging_face_id": "TheDrummer/Anubis-Pro-105B-v1",
@@ -7187,7 +7187,7 @@
       "top_p"
     ]
   },
-  "thedrummer/skyfall-36b-v2": {
+  {
     "id": "thedrummer/skyfall-36b-v2",
     "canonical_slug": "thedrummer/skyfall-36b-v2",
     "hugging_face_id": "TheDrummer/Skyfall-36B-v2",
@@ -7239,7 +7239,7 @@
       "top_p"
     ]
   },
-  "microsoft/phi-4-multimodal-instruct": {
+  {
     "id": "microsoft/phi-4-multimodal-instruct",
     "canonical_slug": "microsoft/phi-4-multimodal-instruct",
     "hugging_face_id": "microsoft/Phi-4-multimodal-instruct",
@@ -7288,7 +7288,7 @@
       "top_p"
     ]
   },
-  "perplexity/sonar-reasoning-pro": {
+  {
     "id": "perplexity/sonar-reasoning-pro",
     "canonical_slug": "perplexity/sonar-reasoning-pro",
     "hugging_face_id": "",
@@ -7335,7 +7335,7 @@
       "web_search_options"
     ]
   },
-  "perplexity/sonar-pro": {
+  {
     "id": "perplexity/sonar-pro",
     "canonical_slug": "perplexity/sonar-pro",
     "hugging_face_id": "",
@@ -7380,7 +7380,7 @@
       "web_search_options"
     ]
   },
-  "perplexity/sonar-deep-research": {
+  {
     "id": "perplexity/sonar-deep-research",
     "canonical_slug": "perplexity/sonar-deep-research",
     "hugging_face_id": "",
@@ -7426,7 +7426,7 @@
       "web_search_options"
     ]
   },
-  "qwen/qwq-32b:free": {
+  {
     "id": "qwen/qwq-32b:free",
     "canonical_slug": "qwen/qwq-32b",
     "hugging_face_id": "Qwen/QwQ-32B",
@@ -7472,7 +7472,7 @@
       "top_p"
     ]
   },
-  "qwen/qwq-32b": {
+  {
     "id": "qwen/qwq-32b",
     "canonical_slug": "qwen/qwq-32b",
     "hugging_face_id": "Qwen/QwQ-32B",
@@ -7526,7 +7526,7 @@
       "top_p"
     ]
   },
-  "nousresearch/deephermes-3-llama-3-8b-preview:free": {
+  {
     "id": "nousresearch/deephermes-3-llama-3-8b-preview:free",
     "canonical_slug": "nousresearch/deephermes-3-llama-3-8b-preview",
     "hugging_face_id": "NousResearch/DeepHermes-3-Llama-3-8B-Preview",
@@ -7576,7 +7576,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.0-flash-lite-001": {
+  {
     "id": "google/gemini-2.0-flash-lite-001",
     "canonical_slug": "google/gemini-2.0-flash-lite-001",
     "hugging_face_id": "",
@@ -7625,7 +7625,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3.7-sonnet": {
+  {
     "id": "anthropic/claude-3.7-sonnet",
     "canonical_slug": "anthropic/claude-3-7-sonnet-20250219",
     "hugging_face_id": "",
@@ -7675,7 +7675,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3.7-sonnet:thinking": {
+  {
     "id": "anthropic/claude-3.7-sonnet:thinking",
     "canonical_slug": "anthropic/claude-3-7-sonnet-20250219",
     "hugging_face_id": "",
@@ -7723,7 +7723,7 @@
       "tools"
     ]
   },
-  "anthropic/claude-3.7-sonnet:beta": {
+  {
     "id": "anthropic/claude-3.7-sonnet:beta",
     "canonical_slug": "anthropic/claude-3-7-sonnet-20250219",
     "hugging_face_id": "",
@@ -7771,7 +7771,7 @@
       "tools"
     ]
   },
-  "perplexity/r1-1776": {
+  {
     "id": "perplexity/r1-1776",
     "canonical_slug": "perplexity/r1-1776",
     "hugging_face_id": "perplexity-ai/r1-1776",
@@ -7820,7 +7820,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-saba": {
+  {
     "id": "mistralai/mistral-saba",
     "canonical_slug": "mistralai/mistral-saba-2502",
     "hugging_face_id": "",
@@ -7868,7 +7868,7 @@
       "top_p"
     ]
   },
-  "cognitivecomputations/dolphin3.0-r1-mistral-24b:free": {
+  {
     "id": "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
     "canonical_slug": "cognitivecomputations/dolphin3.0-r1-mistral-24b",
     "hugging_face_id": "cognitivecomputations/Dolphin3.0-R1-Mistral-24B",
@@ -7920,7 +7920,7 @@
       "top_p"
     ]
   },
-  "cognitivecomputations/dolphin3.0-r1-mistral-24b": {
+  {
     "id": "cognitivecomputations/dolphin3.0-r1-mistral-24b",
     "canonical_slug": "cognitivecomputations/dolphin3.0-r1-mistral-24b",
     "hugging_face_id": "cognitivecomputations/Dolphin3.0-R1-Mistral-24B",
@@ -7972,7 +7972,7 @@
       "top_p"
     ]
   },
-  "cognitivecomputations/dolphin3.0-mistral-24b:free": {
+  {
     "id": "cognitivecomputations/dolphin3.0-mistral-24b:free",
     "canonical_slug": "cognitivecomputations/dolphin3.0-mistral-24b",
     "hugging_face_id": "cognitivecomputations/Dolphin3.0-Mistral-24B",
@@ -8022,7 +8022,7 @@
       "top_p"
     ]
   },
-  "cognitivecomputations/dolphin3.0-mistral-24b": {
+  {
     "id": "cognitivecomputations/dolphin3.0-mistral-24b",
     "canonical_slug": "cognitivecomputations/dolphin3.0-mistral-24b",
     "hugging_face_id": "cognitivecomputations/Dolphin3.0-Mistral-24B",
@@ -8072,7 +8072,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-guard-3-8b": {
+  {
     "id": "meta-llama/llama-guard-3-8b",
     "canonical_slug": "meta-llama/llama-guard-3-8b",
     "hugging_face_id": "meta-llama/Llama-Guard-3-8B",
@@ -8123,7 +8123,7 @@
       "top_p"
     ]
   },
-  "openai/o3-mini-high": {
+  {
     "id": "openai/o3-mini-high",
     "canonical_slug": "openai/o3-mini-high-2025-01-31",
     "hugging_face_id": "",
@@ -8167,7 +8167,7 @@
       "tools"
     ]
   },
-  "deepseek/deepseek-r1-distill-llama-8b": {
+  {
     "id": "deepseek/deepseek-r1-distill-llama-8b",
     "canonical_slug": "deepseek/deepseek-r1-distill-llama-8b",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
@@ -8217,7 +8217,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.0-flash-001": {
+  {
     "id": "google/gemini-2.0-flash-001",
     "canonical_slug": "google/gemini-2.0-flash-001",
     "hugging_face_id": "",
@@ -8268,7 +8268,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-vl-plus": {
+  {
     "id": "qwen/qwen-vl-plus",
     "canonical_slug": "qwen/qwen-vl-plus",
     "hugging_face_id": "",
@@ -8312,7 +8312,7 @@
       "top_p"
     ]
   },
-  "aion-labs/aion-1.0": {
+  {
     "id": "aion-labs/aion-1.0",
     "canonical_slug": "aion-labs/aion-1.0",
     "hugging_face_id": "",
@@ -8354,7 +8354,7 @@
       "top_p"
     ]
   },
-  "aion-labs/aion-1.0-mini": {
+  {
     "id": "aion-labs/aion-1.0-mini",
     "canonical_slug": "aion-labs/aion-1.0-mini",
     "hugging_face_id": "FuseAI/FuseO1-DeepSeekR1-QwQ-SkyT1-32B-Preview",
@@ -8396,7 +8396,7 @@
       "top_p"
     ]
   },
-  "aion-labs/aion-rp-llama-3.1-8b": {
+  {
     "id": "aion-labs/aion-rp-llama-3.1-8b",
     "canonical_slug": "aion-labs/aion-rp-llama-3.1-8b",
     "hugging_face_id": "",
@@ -8436,7 +8436,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-vl-max": {
+  {
     "id": "qwen/qwen-vl-max",
     "canonical_slug": "qwen/qwen-vl-max-2025-01-25",
     "hugging_face_id": "",
@@ -8480,7 +8480,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-turbo": {
+  {
     "id": "qwen/qwen-turbo",
     "canonical_slug": "qwen/qwen-turbo-2024-11-01",
     "hugging_face_id": "",
@@ -8526,7 +8526,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen2.5-vl-72b-instruct:free": {
+  {
     "id": "qwen/qwen2.5-vl-72b-instruct:free",
     "canonical_slug": "qwen/qwen2.5-vl-72b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-VL-72B-Instruct",
@@ -8574,7 +8574,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen2.5-vl-72b-instruct": {
+  {
     "id": "qwen/qwen2.5-vl-72b-instruct",
     "canonical_slug": "qwen/qwen2.5-vl-72b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-VL-72B-Instruct",
@@ -8625,7 +8625,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-plus": {
+  {
     "id": "qwen/qwen-plus",
     "canonical_slug": "qwen/qwen-plus-2025-01-25",
     "hugging_face_id": "",
@@ -8671,7 +8671,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-max": {
+  {
     "id": "qwen/qwen-max",
     "canonical_slug": "qwen/qwen-max-2025-01-25",
     "hugging_face_id": "",
@@ -8717,7 +8717,7 @@
       "top_p"
     ]
   },
-  "openai/o3-mini": {
+  {
     "id": "openai/o3-mini",
     "canonical_slug": "openai/o3-mini-2025-01-31",
     "hugging_face_id": "",
@@ -8761,7 +8761,7 @@
       "tools"
     ]
   },
-  "deepseek/deepseek-r1-distill-qwen-1.5b": {
+  {
     "id": "deepseek/deepseek-r1-distill-qwen-1.5b",
     "canonical_slug": "deepseek/deepseek-r1-distill-qwen-1.5b",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
@@ -8810,7 +8810,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-small-24b-instruct-2501:free": {
+  {
     "id": "mistralai/mistral-small-24b-instruct-2501:free",
     "canonical_slug": "mistralai/mistral-small-24b-instruct-2501",
     "hugging_face_id": "mistralai/Mistral-Small-24B-Instruct-2501",
@@ -8860,7 +8860,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-small-24b-instruct-2501": {
+  {
     "id": "mistralai/mistral-small-24b-instruct-2501",
     "canonical_slug": "mistralai/mistral-small-24b-instruct-2501",
     "hugging_face_id": "mistralai/Mistral-Small-24B-Instruct-2501",
@@ -8914,7 +8914,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-distill-qwen-32b": {
+  {
     "id": "deepseek/deepseek-r1-distill-qwen-32b",
     "canonical_slug": "deepseek/deepseek-r1-distill-qwen-32b",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
@@ -8965,7 +8965,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-distill-qwen-14b:free": {
+  {
     "id": "deepseek/deepseek-r1-distill-qwen-14b:free",
     "canonical_slug": "deepseek/deepseek-r1-distill-qwen-14b",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
@@ -9017,7 +9017,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-distill-qwen-14b": {
+  {
     "id": "deepseek/deepseek-r1-distill-qwen-14b",
     "canonical_slug": "deepseek/deepseek-r1-distill-qwen-14b",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
@@ -9067,7 +9067,7 @@
       "top_p"
     ]
   },
-  "perplexity/sonar-reasoning": {
+  {
     "id": "perplexity/sonar-reasoning",
     "canonical_slug": "perplexity/sonar-reasoning",
     "hugging_face_id": "",
@@ -9113,7 +9113,7 @@
       "web_search_options"
     ]
   },
-  "perplexity/sonar": {
+  {
     "id": "perplexity/sonar",
     "canonical_slug": "perplexity/sonar",
     "hugging_face_id": "",
@@ -9158,7 +9158,7 @@
       "web_search_options"
     ]
   },
-  "liquid/lfm-7b": {
+  {
     "id": "liquid/lfm-7b",
     "canonical_slug": "liquid/lfm-7b",
     "hugging_face_id": "",
@@ -9209,7 +9209,7 @@
       "top_p"
     ]
   },
-  "liquid/lfm-3b": {
+  {
     "id": "liquid/lfm-3b",
     "canonical_slug": "liquid/lfm-3b",
     "hugging_face_id": "",
@@ -9256,7 +9256,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-distill-llama-70b:free": {
+  {
     "id": "deepseek/deepseek-r1-distill-llama-70b:free",
     "canonical_slug": "deepseek/deepseek-r1-distill-llama-70b",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
@@ -9308,7 +9308,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1-distill-llama-70b": {
+  {
     "id": "deepseek/deepseek-r1-distill-llama-70b",
     "canonical_slug": "deepseek/deepseek-r1-distill-llama-70b",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
@@ -9364,7 +9364,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-r1:free": {
+  {
     "id": "deepseek/deepseek-r1:free",
     "canonical_slug": "deepseek/deepseek-r1",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1",
@@ -9405,7 +9405,7 @@
       "temperature"
     ]
   },
-  "deepseek/deepseek-r1": {
+  {
     "id": "deepseek/deepseek-r1",
     "canonical_slug": "deepseek/deepseek-r1",
     "hugging_face_id": "deepseek-ai/DeepSeek-R1",
@@ -9461,7 +9461,7 @@
       "top_p"
     ]
   },
-  "minimax/minimax-01": {
+  {
     "id": "minimax/minimax-01",
     "canonical_slug": "minimax/minimax-01",
     "hugging_face_id": "MiniMaxAI/MiniMax-Text-01",
@@ -9502,7 +9502,7 @@
       "top_p"
     ]
   },
-  "mistralai/codestral-2501": {
+  {
     "id": "mistralai/codestral-2501",
     "canonical_slug": "mistralai/codestral-2501",
     "hugging_face_id": "",
@@ -9550,7 +9550,7 @@
       "top_p"
     ]
   },
-  "microsoft/phi-4": {
+  {
     "id": "microsoft/phi-4",
     "canonical_slug": "microsoft/phi-4",
     "hugging_face_id": "microsoft/phi-4",
@@ -9602,7 +9602,7 @@
       "top_p"
     ]
   },
-  "deepseek/deepseek-chat": {
+  {
     "id": "deepseek/deepseek-chat",
     "canonical_slug": "deepseek/deepseek-chat-v3",
     "hugging_face_id": "deepseek-ai/DeepSeek-V3",
@@ -9656,7 +9656,7 @@
       "top_p"
     ]
   },
-  "sao10k/l3.3-euryale-70b": {
+  {
     "id": "sao10k/l3.3-euryale-70b",
     "canonical_slug": "sao10k/l3.3-euryale-70b-v2.3",
     "hugging_face_id": "Sao10K/L3.3-70B-Euryale-v2.3",
@@ -9706,7 +9706,7 @@
       "top_p"
     ]
   },
-  "openai/o1": {
+  {
     "id": "openai/o1",
     "canonical_slug": "openai/o1-2024-12-17",
     "hugging_face_id": "",
@@ -9751,7 +9751,7 @@
       "tools"
     ]
   },
-  "x-ai/grok-2-vision-1212": {
+  {
     "id": "x-ai/grok-2-vision-1212",
     "canonical_slug": "x-ai/grok-2-vision-1212",
     "hugging_face_id": "",
@@ -9799,7 +9799,7 @@
       "top_p"
     ]
   },
-  "x-ai/grok-2-1212": {
+  {
     "id": "x-ai/grok-2-1212",
     "canonical_slug": "x-ai/grok-2-1212",
     "hugging_face_id": "",
@@ -9848,7 +9848,7 @@
       "top_p"
     ]
   },
-  "cohere/command-r7b-12-2024": {
+  {
     "id": "cohere/command-r7b-12-2024",
     "canonical_slug": "cohere/command-r7b-12-2024",
     "hugging_face_id": "",
@@ -9895,7 +9895,7 @@
       "top_p"
     ]
   },
-  "google/gemini-2.0-flash-exp:free": {
+  {
     "id": "google/gemini-2.0-flash-exp:free",
     "canonical_slug": "google/gemini-2.0-flash-exp",
     "hugging_face_id": "",
@@ -9941,7 +9941,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.3-70b-instruct:free": {
+  {
     "id": "meta-llama/llama-3.3-70b-instruct:free",
     "canonical_slug": "meta-llama/llama-3.3-70b-instruct",
     "hugging_face_id": "meta-llama/Llama-3.3-70B-Instruct",
@@ -9990,7 +9990,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.3-70b-instruct": {
+  {
     "id": "meta-llama/llama-3.3-70b-instruct",
     "canonical_slug": "meta-llama/llama-3.3-70b-instruct",
     "hugging_face_id": "meta-llama/Llama-3.3-70B-Instruct",
@@ -10044,7 +10044,7 @@
       "top_p"
     ]
   },
-  "amazon/nova-lite-v1": {
+  {
     "id": "amazon/nova-lite-v1",
     "canonical_slug": "amazon/nova-lite-v1",
     "hugging_face_id": "",
@@ -10088,7 +10088,7 @@
       "top_p"
     ]
   },
-  "amazon/nova-micro-v1": {
+  {
     "id": "amazon/nova-micro-v1",
     "canonical_slug": "amazon/nova-micro-v1",
     "hugging_face_id": "",
@@ -10131,7 +10131,7 @@
       "top_p"
     ]
   },
-  "amazon/nova-pro-v1": {
+  {
     "id": "amazon/nova-pro-v1",
     "canonical_slug": "amazon/nova-pro-v1",
     "hugging_face_id": "",
@@ -10175,7 +10175,7 @@
       "top_p"
     ]
   },
-  "qwen/qwq-32b-preview": {
+  {
     "id": "qwen/qwq-32b-preview",
     "canonical_slug": "qwen/qwq-32b-preview",
     "hugging_face_id": "Qwen/QwQ-32B-Preview",
@@ -10225,7 +10225,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4o-2024-11-20": {
+  {
     "id": "openai/gpt-4o-2024-11-20",
     "canonical_slug": "openai/gpt-4o-2024-11-20",
     "hugging_face_id": "",
@@ -10280,7 +10280,7 @@
       "web_search_options"
     ]
   },
-  "mistralai/mistral-large-2411": {
+  {
     "id": "mistralai/mistral-large-2411",
     "canonical_slug": "mistralai/mistral-large-2411",
     "hugging_face_id": "",
@@ -10328,7 +10328,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-large-2407": {
+  {
     "id": "mistralai/mistral-large-2407",
     "canonical_slug": "mistralai/mistral-large-2407",
     "hugging_face_id": "",
@@ -10376,7 +10376,7 @@
       "top_p"
     ]
   },
-  "mistralai/pixtral-large-2411": {
+  {
     "id": "mistralai/pixtral-large-2411",
     "canonical_slug": "mistralai/pixtral-large-2411",
     "hugging_face_id": "",
@@ -10425,7 +10425,7 @@
       "top_p"
     ]
   },
-  "x-ai/grok-vision-beta": {
+  {
     "id": "x-ai/grok-vision-beta",
     "canonical_slug": "x-ai/grok-vision-beta",
     "hugging_face_id": "",
@@ -10473,7 +10473,7 @@
       "top_p"
     ]
   },
-  "infermatic/mn-inferor-12b": {
+  {
     "id": "infermatic/mn-inferor-12b",
     "canonical_slug": "infermatic/mn-inferor-12b",
     "hugging_face_id": "Infermatic/MN-12B-Inferor-v0.0",
@@ -10520,7 +10520,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-2.5-coder-32b-instruct:free": {
+  {
     "id": "qwen/qwen-2.5-coder-32b-instruct:free",
     "canonical_slug": "qwen/qwen-2.5-coder-32b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
@@ -10570,7 +10570,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-2.5-coder-32b-instruct": {
+  {
     "id": "qwen/qwen-2.5-coder-32b-instruct",
     "canonical_slug": "qwen/qwen-2.5-coder-32b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
@@ -10621,7 +10621,7 @@
       "top_p"
     ]
   },
-  "raifle/sorcererlm-8x22b": {
+  {
     "id": "raifle/sorcererlm-8x22b",
     "canonical_slug": "raifle/sorcererlm-8x22b",
     "hugging_face_id": "rAIfle/SorcererLM-8x22b-bf16",
@@ -10669,7 +10669,7 @@
       "top_p"
     ]
   },
-  "thedrummer/unslopnemo-12b": {
+  {
     "id": "thedrummer/unslopnemo-12b",
     "canonical_slug": "thedrummer/unslopnemo-12b",
     "hugging_face_id": "TheDrummer/UnslopNemo-12B-v4.1",
@@ -10722,7 +10722,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3.5-haiku": {
+  {
     "id": "anthropic/claude-3.5-haiku",
     "canonical_slug": "anthropic/claude-3-5-haiku",
     "hugging_face_id": null,
@@ -10769,7 +10769,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3.5-haiku-20241022": {
+  {
     "id": "anthropic/claude-3.5-haiku-20241022",
     "canonical_slug": "anthropic/claude-3-5-haiku-20241022",
     "hugging_face_id": null,
@@ -10817,7 +10817,7 @@
       "top_p"
     ]
   },
-  "anthracite-org/magnum-v4-72b": {
+  {
     "id": "anthracite-org/magnum-v4-72b",
     "canonical_slug": "anthracite-org/magnum-v4-72b",
     "hugging_face_id": "anthracite-org/magnum-v4-72b",
@@ -10866,7 +10866,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3.5-sonnet": {
+  {
     "id": "anthropic/claude-3.5-sonnet",
     "canonical_slug": "anthropic/claude-3.5-sonnet",
     "hugging_face_id": null,
@@ -10914,7 +10914,7 @@
       "top_p"
     ]
   },
-  "mistralai/ministral-8b": {
+  {
     "id": "mistralai/ministral-8b",
     "canonical_slug": "mistralai/ministral-8b",
     "hugging_face_id": null,
@@ -10962,7 +10962,7 @@
       "top_p"
     ]
   },
-  "mistralai/ministral-3b": {
+  {
     "id": "mistralai/ministral-3b",
     "canonical_slug": "mistralai/ministral-3b",
     "hugging_face_id": null,
@@ -11008,7 +11008,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-2.5-7b-instruct": {
+  {
     "id": "qwen/qwen-2.5-7b-instruct",
     "canonical_slug": "qwen/qwen-2.5-7b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-7B-Instruct",
@@ -11058,7 +11058,7 @@
       "top_p"
     ]
   },
-  "nvidia/llama-3.1-nemotron-70b-instruct": {
+  {
     "id": "nvidia/llama-3.1-nemotron-70b-instruct",
     "canonical_slug": "nvidia/llama-3.1-nemotron-70b-instruct",
     "hugging_face_id": "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
@@ -11111,7 +11111,7 @@
       "top_p"
     ]
   },
-  "inflection/inflection-3-productivity": {
+  {
     "id": "inflection/inflection-3-productivity",
     "canonical_slug": "inflection/inflection-3-productivity",
     "hugging_face_id": null,
@@ -11152,7 +11152,7 @@
       "top_p"
     ]
   },
-  "inflection/inflection-3-pi": {
+  {
     "id": "inflection/inflection-3-pi",
     "canonical_slug": "inflection/inflection-3-pi",
     "hugging_face_id": null,
@@ -11193,7 +11193,7 @@
       "top_p"
     ]
   },
-  "google/gemini-flash-1.5-8b": {
+  {
     "id": "google/gemini-flash-1.5-8b",
     "canonical_slug": "google/gemini-flash-1.5-8b",
     "hugging_face_id": null,
@@ -11244,7 +11244,7 @@
       "top_p"
     ]
   },
-  "thedrummer/rocinante-12b": {
+  {
     "id": "thedrummer/rocinante-12b",
     "canonical_slug": "thedrummer/rocinante-12b",
     "hugging_face_id": "TheDrummer/Rocinante-12B-v1.1",
@@ -11297,7 +11297,7 @@
       "top_p"
     ]
   },
-  "anthracite-org/magnum-v2-72b": {
+  {
     "id": "anthracite-org/magnum-v2-72b",
     "canonical_slug": "anthracite-org/magnum-v2-72b",
     "hugging_face_id": "anthracite-org/magnum-v2-72b",
@@ -11345,7 +11345,7 @@
       "top_p"
     ]
   },
-  "liquid/lfm-40b": {
+  {
     "id": "liquid/lfm-40b",
     "canonical_slug": "liquid/lfm-40b",
     "hugging_face_id": null,
@@ -11396,7 +11396,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.2-3b-instruct:free": {
+  {
     "id": "meta-llama/llama-3.2-3b-instruct:free",
     "canonical_slug": "meta-llama/llama-3.2-3b-instruct",
     "hugging_face_id": "meta-llama/Llama-3.2-3B-Instruct",
@@ -11440,7 +11440,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.2-3b-instruct": {
+  {
     "id": "meta-llama/llama-3.2-3b-instruct",
     "canonical_slug": "meta-llama/llama-3.2-3b-instruct",
     "hugging_face_id": "meta-llama/Llama-3.2-3B-Instruct",
@@ -11494,7 +11494,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.2-1b-instruct": {
+  {
     "id": "meta-llama/llama-3.2-1b-instruct",
     "canonical_slug": "meta-llama/llama-3.2-1b-instruct",
     "hugging_face_id": "meta-llama/Llama-3.2-1B-Instruct",
@@ -11545,7 +11545,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.2-90b-vision-instruct": {
+  {
     "id": "meta-llama/llama-3.2-90b-vision-instruct",
     "canonical_slug": "meta-llama/llama-3.2-90b-vision-instruct",
     "hugging_face_id": "meta-llama/Llama-3.2-90B-Vision-Instruct",
@@ -11595,7 +11595,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.2-11b-vision-instruct:free": {
+  {
     "id": "meta-llama/llama-3.2-11b-vision-instruct:free",
     "canonical_slug": "meta-llama/llama-3.2-11b-vision-instruct",
     "hugging_face_id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
@@ -11643,7 +11643,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.2-11b-vision-instruct": {
+  {
     "id": "meta-llama/llama-3.2-11b-vision-instruct",
     "canonical_slug": "meta-llama/llama-3.2-11b-vision-instruct",
     "hugging_face_id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
@@ -11695,7 +11695,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-2.5-72b-instruct:free": {
+  {
     "id": "qwen/qwen-2.5-72b-instruct:free",
     "canonical_slug": "qwen/qwen-2.5-72b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-72B-Instruct",
@@ -11745,7 +11745,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-2.5-72b-instruct": {
+  {
     "id": "qwen/qwen-2.5-72b-instruct",
     "canonical_slug": "qwen/qwen-2.5-72b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-72B-Instruct",
@@ -11798,7 +11798,7 @@
       "top_p"
     ]
   },
-  "neversleep/llama-3.1-lumimaid-8b": {
+  {
     "id": "neversleep/llama-3.1-lumimaid-8b",
     "canonical_slug": "neversleep/llama-3.1-lumimaid-8b",
     "hugging_face_id": "NeverSleep/Lumimaid-v0.2-8B",
@@ -11849,7 +11849,7 @@
       "top_p"
     ]
   },
-  "openai/o1-mini": {
+  {
     "id": "openai/o1-mini",
     "canonical_slug": "openai/o1-mini",
     "hugging_face_id": null,
@@ -11889,7 +11889,7 @@
       "seed"
     ]
   },
-  "openai/o1-mini-2024-09-12": {
+  {
     "id": "openai/o1-mini-2024-09-12",
     "canonical_slug": "openai/o1-mini-2024-09-12",
     "hugging_face_id": null,
@@ -11929,7 +11929,7 @@
       "seed"
     ]
   },
-  "mistralai/pixtral-12b": {
+  {
     "id": "mistralai/pixtral-12b",
     "canonical_slug": "mistralai/pixtral-12b",
     "hugging_face_id": "mistralai/Pixtral-12B-2409",
@@ -11984,7 +11984,7 @@
       "top_p"
     ]
   },
-  "cohere/command-r-plus-08-2024": {
+  {
     "id": "cohere/command-r-plus-08-2024",
     "canonical_slug": "cohere/command-r-plus-08-2024",
     "hugging_face_id": null,
@@ -12032,7 +12032,7 @@
       "top_p"
     ]
   },
-  "cohere/command-r-08-2024": {
+  {
     "id": "cohere/command-r-08-2024",
     "canonical_slug": "cohere/command-r-08-2024",
     "hugging_face_id": null,
@@ -12080,7 +12080,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-2.5-vl-7b-instruct": {
+  {
     "id": "qwen/qwen-2.5-vl-7b-instruct",
     "canonical_slug": "qwen/qwen-2-vl-7b-instruct",
     "hugging_face_id": "Qwen/Qwen2.5-VL-7B-Instruct",
@@ -12133,7 +12133,7 @@
       "top_p"
     ]
   },
-  "sao10k/l3.1-euryale-70b": {
+  {
     "id": "sao10k/l3.1-euryale-70b",
     "canonical_slug": "sao10k/l3.1-euryale-70b",
     "hugging_face_id": "Sao10K/L3.1-70B-Euryale-v2.2",
@@ -12183,7 +12183,7 @@
       "top_p"
     ]
   },
-  "microsoft/phi-3.5-mini-128k-instruct": {
+  {
     "id": "microsoft/phi-3.5-mini-128k-instruct",
     "canonical_slug": "microsoft/phi-3.5-mini-128k-instruct",
     "hugging_face_id": "microsoft/Phi-3.5-mini-instruct",
@@ -12225,7 +12225,7 @@
       "top_p"
     ]
   },
-  "nousresearch/hermes-3-llama-3.1-70b": {
+  {
     "id": "nousresearch/hermes-3-llama-3.1-70b",
     "canonical_slug": "nousresearch/hermes-3-llama-3.1-70b",
     "hugging_face_id": "NousResearch/Hermes-3-Llama-3.1-70B",
@@ -12279,7 +12279,7 @@
       "top_p"
     ]
   },
-  "nousresearch/hermes-3-llama-3.1-405b": {
+  {
     "id": "nousresearch/hermes-3-llama-3.1-405b",
     "canonical_slug": "nousresearch/hermes-3-llama-3.1-405b",
     "hugging_face_id": "NousResearch/Hermes-3-Llama-3.1-405B",
@@ -12330,7 +12330,7 @@
       "top_p"
     ]
   },
-  "openai/chatgpt-4o-latest": {
+  {
     "id": "openai/chatgpt-4o-latest",
     "canonical_slug": "openai/chatgpt-4o-latest",
     "hugging_face_id": null,
@@ -12380,7 +12380,7 @@
       "top_p"
     ]
   },
-  "sao10k/l3-lunaris-8b": {
+  {
     "id": "sao10k/l3-lunaris-8b",
     "canonical_slug": "sao10k/l3-lunaris-8b",
     "hugging_face_id": "Sao10K/L3-8B-Lunaris-v1",
@@ -12429,7 +12429,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4o-2024-08-06": {
+  {
     "id": "openai/gpt-4o-2024-08-06",
     "canonical_slug": "openai/gpt-4o-2024-08-06",
     "hugging_face_id": null,
@@ -12484,7 +12484,7 @@
       "web_search_options"
     ]
   },
-  "meta-llama/llama-3.1-405b": {
+  {
     "id": "meta-llama/llama-3.1-405b",
     "canonical_slug": "meta-llama/llama-3.1-405b",
     "hugging_face_id": "meta-llama/llama-3.1-405B",
@@ -12534,7 +12534,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.1-8b-instruct": {
+  {
     "id": "meta-llama/llama-3.1-8b-instruct",
     "canonical_slug": "meta-llama/llama-3.1-8b-instruct",
     "hugging_face_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
@@ -12588,7 +12588,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.1-405b-instruct:free": {
+  {
     "id": "meta-llama/llama-3.1-405b-instruct:free",
     "canonical_slug": "meta-llama/llama-3.1-405b-instruct",
     "hugging_face_id": "meta-llama/Meta-Llama-3.1-405B-Instruct",
@@ -12634,7 +12634,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.1-405b-instruct": {
+  {
     "id": "meta-llama/llama-3.1-405b-instruct",
     "canonical_slug": "meta-llama/llama-3.1-405b-instruct",
     "hugging_face_id": "meta-llama/Meta-Llama-3.1-405B-Instruct",
@@ -12688,7 +12688,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3.1-70b-instruct": {
+  {
     "id": "meta-llama/llama-3.1-70b-instruct",
     "canonical_slug": "meta-llama/llama-3.1-70b-instruct",
     "hugging_face_id": "meta-llama/Meta-Llama-3.1-70B-Instruct",
@@ -12742,7 +12742,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-nemo:free": {
+  {
     "id": "mistralai/mistral-nemo:free",
     "canonical_slug": "mistralai/mistral-nemo",
     "hugging_face_id": "mistralai/Mistral-Nemo-Instruct-2407",
@@ -12792,7 +12792,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-nemo": {
+  {
     "id": "mistralai/mistral-nemo",
     "canonical_slug": "mistralai/mistral-nemo",
     "hugging_face_id": "mistralai/Mistral-Nemo-Instruct-2407",
@@ -12846,7 +12846,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4o-mini": {
+  {
     "id": "openai/gpt-4o-mini",
     "canonical_slug": "openai/gpt-4o-mini",
     "hugging_face_id": null,
@@ -12901,7 +12901,7 @@
       "web_search_options"
     ]
   },
-  "openai/gpt-4o-mini-2024-07-18": {
+  {
     "id": "openai/gpt-4o-mini-2024-07-18",
     "canonical_slug": "openai/gpt-4o-mini-2024-07-18",
     "hugging_face_id": null,
@@ -12956,7 +12956,7 @@
       "web_search_options"
     ]
   },
-  "google/gemma-2-27b-it": {
+  {
     "id": "google/gemma-2-27b-it",
     "canonical_slug": "google/gemma-2-27b-it",
     "hugging_face_id": "google/gemma-2-27b-it",
@@ -13005,7 +13005,7 @@
       "top_p"
     ]
   },
-  "google/gemma-2-9b-it:free": {
+  {
     "id": "google/gemma-2-9b-it:free",
     "canonical_slug": "google/gemma-2-9b-it",
     "hugging_face_id": "google/gemma-2-9b-it",
@@ -13055,7 +13055,7 @@
       "top_p"
     ]
   },
-  "google/gemma-2-9b-it": {
+  {
     "id": "google/gemma-2-9b-it",
     "canonical_slug": "google/gemma-2-9b-it",
     "hugging_face_id": "google/gemma-2-9b-it",
@@ -13106,7 +13106,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3.5-sonnet-20240620": {
+  {
     "id": "anthropic/claude-3.5-sonnet-20240620",
     "canonical_slug": "anthropic/claude-3.5-sonnet-20240620",
     "hugging_face_id": null,
@@ -13154,7 +13154,7 @@
       "top_p"
     ]
   },
-  "sao10k/l3-euryale-70b": {
+  {
     "id": "sao10k/l3-euryale-70b",
     "canonical_slug": "sao10k/l3-euryale-70b",
     "hugging_face_id": "Sao10K/L3-70B-Euryale-v2.1",
@@ -13202,7 +13202,7 @@
       "top_p"
     ]
   },
-  "cognitivecomputations/dolphin-mixtral-8x22b": {
+  {
     "id": "cognitivecomputations/dolphin-mixtral-8x22b",
     "canonical_slug": "cognitivecomputations/dolphin-mixtral-8x22b",
     "hugging_face_id": "cognitivecomputations/dolphin-2.9.2-mixtral-8x22b",
@@ -13250,7 +13250,7 @@
       "top_p"
     ]
   },
-  "qwen/qwen-2-72b-instruct": {
+  {
     "id": "qwen/qwen-2-72b-instruct",
     "canonical_slug": "qwen/qwen-2-72b-instruct",
     "hugging_face_id": "Qwen/Qwen2-72B-Instruct",
@@ -13297,7 +13297,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-7b-instruct:free": {
+  {
     "id": "mistralai/mistral-7b-instruct:free",
     "canonical_slug": "mistralai/mistral-7b-instruct",
     "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.3",
@@ -13347,7 +13347,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-7b-instruct": {
+  {
     "id": "mistralai/mistral-7b-instruct",
     "canonical_slug": "mistralai/mistral-7b-instruct",
     "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.3",
@@ -13399,7 +13399,7 @@
       "top_p"
     ]
   },
-  "nousresearch/hermes-2-pro-llama-3-8b": {
+  {
     "id": "nousresearch/hermes-2-pro-llama-3-8b",
     "canonical_slug": "nousresearch/hermes-2-pro-llama-3-8b",
     "hugging_face_id": "NousResearch/Hermes-2-Pro-Llama-3-8B",
@@ -13451,7 +13451,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-7b-instruct-v0.3": {
+  {
     "id": "mistralai/mistral-7b-instruct-v0.3",
     "canonical_slug": "mistralai/mistral-7b-instruct-v0.3",
     "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.3",
@@ -13503,7 +13503,7 @@
       "top_p"
     ]
   },
-  "microsoft/phi-3-mini-128k-instruct": {
+  {
     "id": "microsoft/phi-3-mini-128k-instruct",
     "canonical_slug": "microsoft/phi-3-mini-128k-instruct",
     "hugging_face_id": "microsoft/Phi-3-mini-128k-instruct",
@@ -13545,7 +13545,7 @@
       "top_p"
     ]
   },
-  "microsoft/phi-3-medium-128k-instruct": {
+  {
     "id": "microsoft/phi-3-medium-128k-instruct",
     "canonical_slug": "microsoft/phi-3-medium-128k-instruct",
     "hugging_face_id": "microsoft/Phi-3-medium-128k-instruct",
@@ -13587,7 +13587,7 @@
       "top_p"
     ]
   },
-  "neversleep/llama-3-lumimaid-70b": {
+  {
     "id": "neversleep/llama-3-lumimaid-70b",
     "canonical_slug": "neversleep/llama-3-lumimaid-70b",
     "hugging_face_id": "NeverSleep/Llama-3-Lumimaid-70B-v0.1",
@@ -13634,7 +13634,7 @@
       "top_p"
     ]
   },
-  "google/gemini-flash-1.5": {
+  {
     "id": "google/gemini-flash-1.5",
     "canonical_slug": "google/gemini-flash-1.5",
     "hugging_face_id": null,
@@ -13685,7 +13685,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4o": {
+  {
     "id": "openai/gpt-4o",
     "canonical_slug": "openai/gpt-4o",
     "hugging_face_id": null,
@@ -13740,7 +13740,7 @@
       "web_search_options"
     ]
   },
-  "openai/gpt-4o:extended": {
+  {
     "id": "openai/gpt-4o:extended",
     "canonical_slug": "openai/gpt-4o",
     "hugging_face_id": null,
@@ -13794,7 +13794,7 @@
       "web_search_options"
     ]
   },
-  "meta-llama/llama-guard-2-8b": {
+  {
     "id": "meta-llama/llama-guard-2-8b",
     "canonical_slug": "meta-llama/llama-guard-2-8b",
     "hugging_face_id": "meta-llama/Meta-Llama-Guard-2-8B",
@@ -13841,7 +13841,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4o-2024-05-13": {
+  {
     "id": "openai/gpt-4o-2024-05-13",
     "canonical_slug": "openai/gpt-4o-2024-05-13",
     "hugging_face_id": null,
@@ -13895,7 +13895,7 @@
       "web_search_options"
     ]
   },
-  "meta-llama/llama-3-8b-instruct": {
+  {
     "id": "meta-llama/llama-3-8b-instruct",
     "canonical_slug": "meta-llama/llama-3-8b-instruct",
     "hugging_face_id": "meta-llama/Meta-Llama-3-8B-Instruct",
@@ -13946,7 +13946,7 @@
       "top_p"
     ]
   },
-  "meta-llama/llama-3-70b-instruct": {
+  {
     "id": "meta-llama/llama-3-70b-instruct",
     "canonical_slug": "meta-llama/llama-3-70b-instruct",
     "hugging_face_id": "meta-llama/Meta-Llama-3-70B-Instruct",
@@ -13999,7 +13999,7 @@
       "top_p"
     ]
   },
-  "mistralai/mixtral-8x22b-instruct": {
+  {
     "id": "mistralai/mixtral-8x22b-instruct",
     "canonical_slug": "mistralai/mixtral-8x22b-instruct",
     "hugging_face_id": "mistralai/Mixtral-8x22B-Instruct-v0.1",
@@ -14052,7 +14052,7 @@
       "top_p"
     ]
   },
-  "microsoft/wizardlm-2-8x22b": {
+  {
     "id": "microsoft/wizardlm-2-8x22b",
     "canonical_slug": "microsoft/wizardlm-2-8x22b",
     "hugging_face_id": "microsoft/WizardLM-2-8x22B",
@@ -14101,7 +14101,7 @@
       "top_p"
     ]
   },
-  "google/gemini-pro-1.5": {
+  {
     "id": "google/gemini-pro-1.5",
     "canonical_slug": "google/gemini-pro-1.5",
     "hugging_face_id": null,
@@ -14150,7 +14150,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4-turbo": {
+  {
     "id": "openai/gpt-4-turbo",
     "canonical_slug": "openai/gpt-4-turbo",
     "hugging_face_id": null,
@@ -14202,7 +14202,7 @@
       "top_p"
     ]
   },
-  "cohere/command-r-plus": {
+  {
     "id": "cohere/command-r-plus",
     "canonical_slug": "cohere/command-r-plus",
     "hugging_face_id": null,
@@ -14250,7 +14250,7 @@
       "top_p"
     ]
   },
-  "cohere/command-r-plus-04-2024": {
+  {
     "id": "cohere/command-r-plus-04-2024",
     "canonical_slug": "cohere/command-r-plus-04-2024",
     "hugging_face_id": null,
@@ -14298,7 +14298,7 @@
       "top_p"
     ]
   },
-  "sophosympatheia/midnight-rose-70b": {
+  {
     "id": "sophosympatheia/midnight-rose-70b",
     "canonical_slug": "sophosympatheia/midnight-rose-70b",
     "hugging_face_id": "sophosympatheia/Midnight-Rose-70B-v2.0.3",
@@ -14346,7 +14346,7 @@
       "top_p"
     ]
   },
-  "cohere/command": {
+  {
     "id": "cohere/command",
     "canonical_slug": "cohere/command",
     "hugging_face_id": null,
@@ -14393,7 +14393,7 @@
       "top_p"
     ]
   },
-  "cohere/command-r": {
+  {
     "id": "cohere/command-r",
     "canonical_slug": "cohere/command-r",
     "hugging_face_id": null,
@@ -14441,7 +14441,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3-haiku": {
+  {
     "id": "anthropic/claude-3-haiku",
     "canonical_slug": "anthropic/claude-3-haiku",
     "hugging_face_id": null,
@@ -14488,7 +14488,7 @@
       "top_p"
     ]
   },
-  "anthropic/claude-3-opus": {
+  {
     "id": "anthropic/claude-3-opus",
     "canonical_slug": "anthropic/claude-3-opus",
     "hugging_face_id": null,
@@ -14535,7 +14535,7 @@
       "top_p"
     ]
   },
-  "cohere/command-r-03-2024": {
+  {
     "id": "cohere/command-r-03-2024",
     "canonical_slug": "cohere/command-r-03-2024",
     "hugging_face_id": null,
@@ -14583,7 +14583,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-large": {
+  {
     "id": "mistralai/mistral-large",
     "canonical_slug": "mistralai/mistral-large",
     "hugging_face_id": null,
@@ -14631,7 +14631,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-3.5-turbo-0613": {
+  {
     "id": "openai/gpt-3.5-turbo-0613",
     "canonical_slug": "openai/gpt-3.5-turbo-0613",
     "hugging_face_id": null,
@@ -14682,7 +14682,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4-turbo-preview": {
+  {
     "id": "openai/gpt-4-turbo-preview",
     "canonical_slug": "openai/gpt-4-turbo-preview",
     "hugging_face_id": null,
@@ -14733,7 +14733,7 @@
       "top_p"
     ]
   },
-  "nousresearch/nous-hermes-2-mixtral-8x7b-dpo": {
+  {
     "id": "nousresearch/nous-hermes-2-mixtral-8x7b-dpo",
     "canonical_slug": "nousresearch/nous-hermes-2-mixtral-8x7b-dpo",
     "hugging_face_id": "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO",
@@ -14780,7 +14780,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-small": {
+  {
     "id": "mistralai/mistral-small",
     "canonical_slug": "mistralai/mistral-small",
     "hugging_face_id": null,
@@ -14828,7 +14828,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-tiny": {
+  {
     "id": "mistralai/mistral-tiny",
     "canonical_slug": "mistralai/mistral-tiny",
     "hugging_face_id": null,
@@ -14876,7 +14876,7 @@
       "top_p"
     ]
   },
-  "mistralai/mixtral-8x7b-instruct": {
+  {
     "id": "mistralai/mixtral-8x7b-instruct",
     "canonical_slug": "mistralai/mixtral-8x7b-instruct",
     "hugging_face_id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
@@ -14927,7 +14927,7 @@
       "top_p"
     ]
   },
-  "neversleep/noromaid-20b": {
+  {
     "id": "neversleep/noromaid-20b",
     "canonical_slug": "neversleep/noromaid-20b",
     "hugging_face_id": "NeverSleep/Noromaid-20b-v0.1.1",
@@ -14978,7 +14978,7 @@
       "top_p"
     ]
   },
-  "alpindale/goliath-120b": {
+  {
     "id": "alpindale/goliath-120b",
     "canonical_slug": "alpindale/goliath-120b",
     "hugging_face_id": "alpindale/goliath-120b",
@@ -15029,7 +15029,7 @@
       "top_p"
     ]
   },
-  "openrouter/auto": {
+  {
     "id": "openrouter/auto",
     "canonical_slug": "openrouter/auto",
     "hugging_face_id": null,
@@ -15060,7 +15060,7 @@
     "per_request_limits": null,
     "supported_parameters": []
   },
-  "openai/gpt-4-1106-preview": {
+  {
     "id": "openai/gpt-4-1106-preview",
     "canonical_slug": "openai/gpt-4-1106-preview",
     "hugging_face_id": null,
@@ -15111,7 +15111,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-3.5-turbo-instruct": {
+  {
     "id": "openai/gpt-3.5-turbo-instruct",
     "canonical_slug": "openai/gpt-3.5-turbo-instruct",
     "hugging_face_id": null,
@@ -15160,7 +15160,7 @@
       "top_p"
     ]
   },
-  "mistralai/mistral-7b-instruct-v0.1": {
+  {
     "id": "mistralai/mistral-7b-instruct-v0.1",
     "canonical_slug": "mistralai/mistral-7b-instruct-v0.1",
     "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.1",
@@ -15210,7 +15210,7 @@
       "top_p"
     ]
   },
-  "pygmalionai/mythalion-13b": {
+  {
     "id": "pygmalionai/mythalion-13b",
     "canonical_slug": "pygmalionai/mythalion-13b",
     "hugging_face_id": "PygmalionAI/mythalion-13b",
@@ -15257,7 +15257,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-3.5-turbo-16k": {
+  {
     "id": "openai/gpt-3.5-turbo-16k",
     "canonical_slug": "openai/gpt-3.5-turbo-16k",
     "hugging_face_id": null,
@@ -15308,7 +15308,7 @@
       "top_p"
     ]
   },
-  "mancer/weaver": {
+  {
     "id": "mancer/weaver",
     "canonical_slug": "mancer/weaver",
     "hugging_face_id": null,
@@ -15357,7 +15357,7 @@
       "top_p"
     ]
   },
-  "undi95/remm-slerp-l2-13b": {
+  {
     "id": "undi95/remm-slerp-l2-13b",
     "canonical_slug": "undi95/remm-slerp-l2-13b",
     "hugging_face_id": "Undi95/ReMM-SLERP-L2-13B",
@@ -15408,7 +15408,7 @@
       "top_p"
     ]
   },
-  "gryphe/mythomax-l2-13b": {
+  {
     "id": "gryphe/mythomax-l2-13b",
     "canonical_slug": "gryphe/mythomax-l2-13b",
     "hugging_face_id": "Gryphe/MythoMax-L2-13b",
@@ -15459,7 +15459,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-3.5-turbo": {
+  {
     "id": "openai/gpt-3.5-turbo",
     "canonical_slug": "openai/gpt-3.5-turbo",
     "hugging_face_id": null,
@@ -15510,7 +15510,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4": {
+  {
     "id": "openai/gpt-4",
     "canonical_slug": "openai/gpt-4",
     "hugging_face_id": null,
@@ -15561,7 +15561,7 @@
       "top_p"
     ]
   },
-  "openai/gpt-4-0314": {
+  {
     "id": "openai/gpt-4-0314",
     "canonical_slug": "openai/gpt-4-0314",
     "hugging_face_id": null,
@@ -15612,4 +15612,4 @@
       "top_p"
     ]
   }
-}
+]

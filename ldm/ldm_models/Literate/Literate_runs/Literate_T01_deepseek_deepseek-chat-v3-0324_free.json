@@ -1,0 +1,30 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "deepseek/deepseek-chat-v3-0324:free",
+    "elapsed": 101.5,
+    "results_len": 0,
+    "rkeys": "dict_keys(['error', 'user_id'])",
+    "usage": null,
+    "costs": 0.0,
+    "error_msg": "Provider returned error",
+    "error_code": 524,
+    "changes": -1,
+    "parseing_notes": ""
+  },
+  "costs": 0.0,
+  "parsed": null,
+  "raw_results": "",
+  "response": {
+    "error": {
+      "message": "Provider returned error",
+      "code": 524,
+      "metadata": {
+        "raw": "error code: 524",
+        "provider_name": "Targon"
+      }
+    },
+    "user_id": "user_30Lupzi8TB8FlubNsgvCn5FOGcH"
+  }
+}

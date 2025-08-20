@@ -1,0 +1,26 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "google/gemini-2.5-pro-exp-03-25",
+    "elapsed": 0.8,
+    "results_len": 0,
+    "rkeys": "dict_keys(['error', 'user_id'])",
+    "usage": null,
+    "costs": 0.0,
+    "error_msg": "No endpoints found for google/gemini-2.5-pro-exp-03-25.",
+    "error_code": 404,
+    "changes": -1,
+    "parseing_notes": ""
+  },
+  "costs": 0.0,
+  "parsed": null,
+  "raw_results": "",
+  "response": {
+    "error": {
+      "message": "No endpoints found for google/gemini-2.5-pro-exp-03-25.",
+      "code": 404
+    },
+    "user_id": "user_30Lupzi8TB8FlubNsgvCn5FOGcH"
+  }
+}

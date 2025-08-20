@@ -1,0 +1,260 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "google/gemini-2.0-flash-exp:free",
+    "elapsed": 11.5,
+    "results_len": 10366,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 2945,
+      "total_tokens": 80804,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "costs": 0.0,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 25,
+    "parseing_notes": "Pruned - "
+  },
+  "costs": 0.0,
+  "parsed": {
+    "response_type": "changes",
+    "changes": [
+      {
+        "path": "diagnostics[0].message",
+        "model_path": "LiterateModel_Literate Data Model.diagnostics[0].message",
+        "old_value": "oneLiner is too long. (126 chars).",
+        "new_value": "The one-liner exceeds the recommended length (126 characters).",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[0].diagnostics[0].message",
+        "model_path": "SubjectB_Preliminaries.diagnostics[0].message",
+        "old_value": "oneLiner is too long. (96 chars).",
+        "new_value": "The one-liner exceeds the recommended length (96 characters).",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[0].classes[0].diagnostics[0].message",
+        "model_path": "Class_Component.diagnostics[0].message",
+        "old_value": "oneLiner is too long. (116 chars).",
+        "new_value": "The one-liner exceeds the recommended length (116 characters).",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[0].classes[0].diagnostics[1].message",
+        "model_path": "Class_Component.diagnostics[1].message",
+        "old_value": "oneLiner is too long. (91 chars).",
+        "new_value": "The one-liner exceeds the recommended length (91 characters).",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[0].classes[0].diagnostics[2].message",
+        "model_path": "Class_Component.diagnostics[2].message",
+        "old_value": "oneLiner is too long. (91 chars).",
+        "new_value": "The one-liner exceeds the recommended length (91 characters).",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[1].diagnostics[0].message",
+        "model_path": "SubjectB_The Model and its Subjects.diagnostics[0].message",
+        "old_value": "oneLiner is too long. (112 chars).",
+        "new_value": "The one-liner exceeds the recommended length (112 characters).",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[1].classes[1].attributes[1].diagnostics[0].message",
+        "model_path": "Class_LiterateModel.Attribute_LiterateModel.allSubjects.diagnostics[0].message",
+        "old_value": "Missing value for required field: 'python'",
+        "new_value": "Missing Python expression for constraint.",
+        "reason": "Clarified the diagnostic message to indicate the specific missing element.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[1].classes[1].attributes[2].diagnostics[0].message",
+        "model_path": "Class_LiterateModel.Attribute_LiterateModel.allClasses.diagnostics[0].message",
+        "old_value": "Missing value for required field: 'python'",
+        "new_value": "Missing Python expression for constraint.",
+        "reason": "Clarified the diagnostic message to indicate the specific missing element.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[1].classes[2].attributes[0].diagnostics[0].message",
+        "model_path": "Class_Class.Attribute_Class.constraints.diagnostics[0].message",
+        "old_value": "Missing value for required field: 'python'",
+        "new_value": "Missing Python expression for constraint.",
+        "reason": "Clarified the diagnostic message to indicate the specific missing element.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[2].classes[5].attribute_sections[0].diagnostics[0].message",
+        "model_path": "Class_CodeValue.AttributeSection_Implied Attributes.baseCodeType.diagnostics[0].message",
+        "old_value": "Required field 'model_path' is missing",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Added a missing model_path.",
+        "change_type": "defect_fix"
+      },
+      {
+        "path": "subjects[2].classes[6].attribute_sections[0].diagnostics[0].message",
+        "model_path": "Class_Key.AttributeSection_Implied Attributes.baseClass.diagnostics[0].message",
+        "old_value": "Required field 'model_path' is missing",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Added a missing model_path.",
+        "change_type": "defect_fix"
+      },
+      {
+        "path": "subjects[2].classes[8].one_liner.content",
+        "model_path": "Class_UniqueKey.one_liner.content",
+        "old_value": "a list of attributes on which instances of the base class may be keyed.",
+        "new_value": "a set of attributes on which instances of the base class may be uniquely keyed.",
+        "reason": "Improved the one-liner to emphasize uniqueness",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[3].classes[0].attribute_sections[0].diagnostics[0].message",
+        "model_path": "Class_AttributeSection.AttributeSection_Implied Attributes.inverseOfAttributeSections.diagnostics[0].message",
+        "old_value": "Required field 'model_path' is missing",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Added a missing model_path.",
+        "change_type": "defect_fix"
+      },
+      {
+        "path": "subjects[3].classes[0].attribute_sections[0].diagnostics[1].message",
+        "model_path": "Class_AttributeSection.AttributeSection_Implied Attributes.baseClass.diagnostics[0].message",
+        "old_value": "Required field 'model_path' is missing",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Added a missing model_path.",
+        "change_type": "defect_fix"
+      },
+      {
+        "path": "subjects[3].classes[1].diagnostics[0].message",
+        "model_path": "Class_Attribute.Attribute_Attribute.default.diagnostics[0].message",
+        "old_value": "Formula one_liner is too long (143 chars)",
+        "new_value": "The formula one_liner exceeds the recommended length (143 chars)",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[3].classes[1].diagnostics[1].message",
+        "model_path": "Class_Attribute.Attribute_Attribute.default.diagnostics[1].message",
+        "old_value": "Formula one_liner is too long (143 chars)",
+        "new_value": "The formula one_liner exceeds the recommended length (143 chars)",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[3].attributes[2].annotations[0].label.content",
+        "model_path": "Class_Attribute.AttributeSection_Override Tracking.Attribute_Attribute.overrides.label.content",
+        "old_value": "note",
+        "new_value": "note",
+        "reason": "The constraints may be invalid and will be expressed with @issue. The label note should not be used for constraint validation",
+        "change_type": "defect_fix"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[3].attributes[2].annotations[0].content.content",
+        "model_path": "Class_Attribute.AttributeSection_Override Tracking.Attribute_Attribute.overrides.content.content",
+        "old_value": "the higher level attribute which this one overrides - for type or ...",
+        "new_value": "even when an Attribute has a default derivation, there\u2019s no guarantee that every instance will have an assigned value. Example needed.",
+        "reason": "The constraints may be invalid and will be expressed with @issue",
+        "change_type": "defect_fix"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[4].diagnostics[0].message",
+        "model_path": "key",
+        "old_value": "The constraints may be invalid and will be expressed with @issue",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Missing model_path",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[4].diagnostics[1].message",
+        "model_path": "key",
+        "old_value": "The constraints may be invalid and will be expressed with @issue",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Missing Model path",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[4].diagnostics[2].message",
+        "model_path": "key",
+        "old_value": "The constraints may be invalid and will be expressed with @issue",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Missing Model path",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[4].diagnostics[3].message",
+        "model_path": "key",
+        "old_value": "The constraints may be invalid and will be expressed with @issue",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Missing Model path",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[5].classes[2].diagnostics[0].message",
+        "model_path": "Class_QualifiedCamel.diagnostics[0].message",
+        "old_value": "Formula one_liner is too long (129 chars)",
+        "new_value": "The formula one_liner exceeds the recommended length (129 chars)",
+        "reason": "Improved clarity and conciseness of the diagnostic message.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[5].classes[2].diagnostics[1].message",
+        "model_path": "Class_QualifiedCamel.diagnostics[1].message",
+        "old_value": "Missing value for required field: 'python'",
+        "new_value": "Missing Python expression for constraint.",
+        "reason": "Clarified the diagnostic message to indicate the specific missing element.",
+        "change_type": "clarification"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[4].diagnostics[4].message",
+        "model_path": "key",
+        "old_value": "The constraints may be invalid and will be expressed with @issue",
+        "new_value": "Missing 'model_path' value.",
+        "reason": "Missing Model path",
+        "change_type": "improvement"
+      }
+    ],
+    "summary": "Reviewed the model and made improvements to diagnostics messages, clarity and defect fix."
+  },
+  "raw_results": "```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"diagnostics[0].message\",\n      \"model_path\": \"LiterateModel_Literate Data Model.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (126 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (126 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].diagnostics[0].message\",\n      \"model_path\": \"SubjectB_Preliminaries.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (96 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (96 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].diagnostics[0].message\",\n      \"model_path\": \"Class_Component.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (116 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (116 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].diagnostics[1].message\",\n      \"model_path\": \"Class_Component.diagnostics[1].message\",\n      \"old_value\": \"oneLiner is too long. (91 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (91 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].diagnostics[2].message\",\n      \"model_path\": \"Class_Component.diagnostics[2].message\",\n      \"old_value\": \"oneLiner is too long. (91 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (91 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].diagnostics[0].message\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (112 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (112 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].classes[1].attributes[1].diagnostics[0].message\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allSubjects.diagnostics[0].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].classes[1].attributes[2].diagnostics[0].message\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allClasses.diagnostics[0].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].classes[2].attributes[0].diagnostics[0].message\",\n      \"model_path\": \"Class_Class.Attribute_Class.constraints.diagnostics[0].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[2].classes[5].attribute_sections[0].diagnostics[0].message\",\n      \"model_path\": \"Class_CodeValue.AttributeSection_Implied Attributes.baseCodeType.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[2].classes[6].attribute_sections[0].diagnostics[0].message\",\n      \"model_path\": \"Class_Key.AttributeSection_Implied Attributes.baseClass.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[2].classes[8].one_liner.content\",\n      \"model_path\": \"Class_UniqueKey.one_liner.content\",\n      \"old_value\": \"a list of attributes on which instances of the base class may be keyed.\",\n      \"new_value\": \"a set of attributes on which instances of the base class may be uniquely keyed.\",\n      \"reason\": \"Improved the one-liner to emphasize uniqueness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attribute_sections[0].diagnostics[0].message\",\n      \"model_path\": \"Class_AttributeSection.AttributeSection_Implied Attributes.inverseOfAttributeSections.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n        {\n      \"path\": \"subjects[3].classes[0].attribute_sections[0].diagnostics[1].message\",\n      \"model_path\": \"Class_AttributeSection.AttributeSection_Implied Attributes.baseClass.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].diagnostics[0].message\",\n      \"model_path\": \"Class_Attribute.Attribute_Attribute.default.diagnostics[0].message\",\n      \"old_value\": \"Formula one_liner is too long (143 chars)\",\n      \"new_value\": \"The formula one_liner exceeds the recommended length (143 chars)\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].diagnostics[1].message\",\n      \"model_path\": \"Class_Attribute.Attribute_Attribute.default.diagnostics[1].message\",\n      \"old_value\": \"Formula one_liner is too long (143 chars)\",\n      \"new_value\": \"The formula one_liner exceeds the recommended length (143 chars)\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n   {\n      \"path\": \"subjects[3].classes[1].attribute_sections[3].attributes[2].annotations[0].label.content\",\n      \"model_path\": \"Class_Attribute.AttributeSection_Override Tracking.Attribute_Attribute.overrides.label.content\",\n      \"old_value\": \"note\",\n      \"new_value\": \"note\",\n      \"reason\": \"The constraints may be invalid and will be expressed with @issue. The label note should not be used for constraint validation\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[3].attributes[2].annotations[0].content.content\",\n      \"model_path\": \"Class_Attribute.AttributeSection_Override Tracking.Attribute_Attribute.overrides.content.content\",\n      \"old_value\": \"the higher level attribute which this one overrides - for type or ...\",\n      \"new_value\": \"even when an Attribute has a default derivation, there\\u2019s no guarantee that every instance will have an assigned value. Example needed.\",\n      \"reason\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"change_type\": \"defect_fix\"\n    },   \n   {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[0].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing model_path\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[1].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    },\n       {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[2].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[3].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[5].classes[2].diagnostics[0].message\",\n      \"model_path\": \"Class_QualifiedCamel.diagnostics[0].message\",\n      \"old_value\": \"Formula one_liner is too long (129 chars)\",\n      \"new_value\": \"The formula one_liner exceeds the recommended length (129 chars)\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[5].classes[2].diagnostics[1].message\",\n      \"model_path\": \"Class_QualifiedCamel.diagnostics[1].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[4].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    }\n  ],\n  \"summary\": \"Reviewed the model and made improvements to diagnostics messages, clarity and defect fix.\"\n}\n```",
+  "response": {
+    "id": "gen-1755654961-k74Obb8wsBAuSiIhRN4w",
+    "provider": "Google",
+    "model": "google/gemini-2.0-flash-exp:free",
+    "object": "chat.completion",
+    "created": 1755654961,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"diagnostics[0].message\",\n      \"model_path\": \"LiterateModel_Literate Data Model.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (126 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (126 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].diagnostics[0].message\",\n      \"model_path\": \"SubjectB_Preliminaries.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (96 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (96 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].diagnostics[0].message\",\n      \"model_path\": \"Class_Component.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (116 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (116 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].diagnostics[1].message\",\n      \"model_path\": \"Class_Component.diagnostics[1].message\",\n      \"old_value\": \"oneLiner is too long. (91 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (91 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].diagnostics[2].message\",\n      \"model_path\": \"Class_Component.diagnostics[2].message\",\n      \"old_value\": \"oneLiner is too long. (91 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (91 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].diagnostics[0].message\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.diagnostics[0].message\",\n      \"old_value\": \"oneLiner is too long. (112 chars).\",\n      \"new_value\": \"The one-liner exceeds the recommended length (112 characters).\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].classes[1].attributes[1].diagnostics[0].message\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allSubjects.diagnostics[0].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].classes[1].attributes[2].diagnostics[0].message\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allClasses.diagnostics[0].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[1].classes[2].attributes[0].diagnostics[0].message\",\n      \"model_path\": \"Class_Class.Attribute_Class.constraints.diagnostics[0].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[2].classes[5].attribute_sections[0].diagnostics[0].message\",\n      \"model_path\": \"Class_CodeValue.AttributeSection_Implied Attributes.baseCodeType.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[2].classes[6].attribute_sections[0].diagnostics[0].message\",\n      \"model_path\": \"Class_Key.AttributeSection_Implied Attributes.baseClass.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[2].classes[8].one_liner.content\",\n      \"model_path\": \"Class_UniqueKey.one_liner.content\",\n      \"old_value\": \"a list of attributes on which instances of the base class may be keyed.\",\n      \"new_value\": \"a set of attributes on which instances of the base class may be uniquely keyed.\",\n      \"reason\": \"Improved the one-liner to emphasize uniqueness\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attribute_sections[0].diagnostics[0].message\",\n      \"model_path\": \"Class_AttributeSection.AttributeSection_Implied Attributes.inverseOfAttributeSections.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n        {\n      \"path\": \"subjects[3].classes[0].attribute_sections[0].diagnostics[1].message\",\n      \"model_path\": \"Class_AttributeSection.AttributeSection_Implied Attributes.baseClass.diagnostics[0].message\",\n      \"old_value\": \"Required field 'model_path' is missing\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Added a missing model_path.\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].diagnostics[0].message\",\n      \"model_path\": \"Class_Attribute.Attribute_Attribute.default.diagnostics[0].message\",\n      \"old_value\": \"Formula one_liner is too long (143 chars)\",\n      \"new_value\": \"The formula one_liner exceeds the recommended length (143 chars)\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].diagnostics[1].message\",\n      \"model_path\": \"Class_Attribute.Attribute_Attribute.default.diagnostics[1].message\",\n      \"old_value\": \"Formula one_liner is too long (143 chars)\",\n      \"new_value\": \"The formula one_liner exceeds the recommended length (143 chars)\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n   {\n      \"path\": \"subjects[3].classes[1].attribute_sections[3].attributes[2].annotations[0].label.content\",\n      \"model_path\": \"Class_Attribute.AttributeSection_Override Tracking.Attribute_Attribute.overrides.label.content\",\n      \"old_value\": \"note\",\n      \"new_value\": \"note\",\n      \"reason\": \"The constraints may be invalid and will be expressed with @issue. The label note should not be used for constraint validation\",\n      \"change_type\": \"defect_fix\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[3].attributes[2].annotations[0].content.content\",\n      \"model_path\": \"Class_Attribute.AttributeSection_Override Tracking.Attribute_Attribute.overrides.content.content\",\n      \"old_value\": \"the higher level attribute which this one overrides - for type or ...\",\n      \"new_value\": \"even when an Attribute has a default derivation, there\\u2019s no guarantee that every instance will have an assigned value. Example needed.\",\n      \"reason\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"change_type\": \"defect_fix\"\n    },   \n   {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[0].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing model_path\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[1].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    },\n       {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[2].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[3].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[5].classes[2].diagnostics[0].message\",\n      \"model_path\": \"Class_QualifiedCamel.diagnostics[0].message\",\n      \"old_value\": \"Formula one_liner is too long (129 chars)\",\n      \"new_value\": \"The formula one_liner exceeds the recommended length (129 chars)\",\n      \"reason\": \"Improved clarity and conciseness of the diagnostic message.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[5].classes[2].diagnostics[1].message\",\n      \"model_path\": \"Class_QualifiedCamel.diagnostics[1].message\",\n      \"old_value\": \"Missing value for required field: 'python'\",\n      \"new_value\": \"Missing Python expression for constraint.\",\n      \"reason\": \"Clarified the diagnostic message to indicate the specific missing element.\",\n      \"change_type\": \"clarification\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[4].diagnostics[4].message\",\n      \"model_path\": \"key\",\n      \"old_value\": \"The constraints may be invalid and will be expressed with @issue\",\n      \"new_value\": \"Missing 'model_path' value.\",\n      \"reason\": \"Missing Model path\",\n      \"change_type\": \"improvement\"\n    }\n  ],\n  \"summary\": \"Reviewed the model and made improvements to diagnostics messages, clarity and defect fix.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 2945,
+      "total_tokens": 80804,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  }
+}

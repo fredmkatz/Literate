@@ -1,0 +1,247 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "amazon/nova-lite-v1",
+    "elapsed": 36.7,
+    "results_len": 9608,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 73641,
+      "completion_tokens": 2793,
+      "total_tokens": 76434
+    },
+    "costs": 0.005,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 23,
+    "parseing_notes": "Pruned - "
+  },
+  "costs": 0.005,
+  "parsed": {
+    "response_type": "changes",
+    "changes": [
+      {
+        "path": "subjects[0].one_liner.content",
+        "model_path": "SubjectB_Preliminaries.one_liner.content",
+        "old_value": "the basic structure of the model",
+        "new_value": "the fundamental structure of the literate data model",
+        "reason": "Shorten using a noun phrase and concise language.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[1].classes[0].one_liner.content",
+        "model_path": "SubjectB_The Model and its Subjects.classes[0].one_liner.content",
+        "old_value": "A representation of a domain's entities, attributes, and relationships,\nalong with explanatory text and examples",
+        "new_value": "An overview of the model's entities, attributes, and relationships.",
+        "reason": "Shorten using concise language.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[3].classes[0].attributes[4].one_liner.content",
+        "model_path": "SubjectB_Classes.classes[0].attributes[4].one_liner.content",
+        "old_value": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _",
+        "new_value": "A concise description of the component.",
+        "reason": "Shorten and use concise language.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[3].classes[0].attributes[0].default.python",
+        "model_path": "SubjectB_Classes.classes[0].attributes[0].model_path",
+        "old_value": " x.name == y\n",
+        "new_value": " x.abbreviatedName == x.name",
+        "reason": "Provide appropriate Python for the given one-liner if the one-liner appears like Python code.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[1].classes[0].inverse",
+        "model_path": "SubjectB_The Model and its Subjects.classes[0].class_path",
+        "old_value": "null",
+        "new_value": {
+          "class_name": {
+            "type": "ClassReference",
+            "content": "LiterateModel"
+          },
+          "attribute_name": {
+            "type": "AttributeName",
+            "content": "annotations"
+          }
+        },
+        "reason": "Add a missing inverse relationship.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[1].one_liner.content",
+        "model_path": "SubjectB_The Model and its Subjects.classes[0].attributes[1].model_path",
+        "old_value": "The name of the component",
+        "new_value": "A recognized subject name in title case.",
+        "reason": "The one-liner should provide additional info beyond what the name implies.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[3].derivation.python",
+        "model_path": "SubjectB_The Model and its Subjects.classes[0].attributes[3].model_path",
+        "old_value": "null",
+        "new_value": " ['gather all instances of self']\n",
+        "reason": "Add missing Python for the derivation.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[4].derivation.python",
+        "model_path": "SubjectB_The Model and its Subjects.classes[0].attributes[4].model_path",
+        "old_value": "null",
+        "new_value": " ['gather all subjects of self']\n",
+        "reason": "Add missing Python for the derivation.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[3].classes[0].attributes[4].constraints[0].python",
+        "model_path": "SubjectB_Classes.classes[0].attributes[4].constraints[0].model_path",
+        "old_value": "null",
+        "new_value": " 'len(set(attr.name for attr in self.attributes)) == len(self.attributes))\n'",
+        "reason": "Add missing Python for the given constraint.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[3].classes[0].attributes[5].constraints[0].python",
+        "model_path": "SubjectB_Classes.classes[0].attributes[5].constraints[0].model_path",
+        "old_value": "null",
+        "new_value": " ['len(set(attr.name for attr in self.attributes)) == len(self.attributes))\n",
+        "reason": "Add missing Python for the given constraint.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[3].classes[1].attribute_sections[0].attributes[0].python",
+        "model_path": "SubjectB_Classes.classes[1].attribute_sections[0].attributes[0].model_path",
+        "old_value": "null",
+        "new_value": " ['self.subjects is not None and len(self.subjects) < 1\n'",
+        "reason": "Add missing Python for the given constraint.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[3].classes[0].attributes[0].data_type_clause.is_optional_lit",
+        "model_path": "SubjectB_Classes.classes[0].attributes[0].model_path",
+        "old_value": "false",
+        "new_value": "null",
+        "reason": "Ensure is_optional has a value if it is a recognized Constraint.",
+        "change_type": "correction"
+      },
+      {
+        "path": "subjects[3].classes[0].attributes[1].data_type_clause.is_optional_lit",
+        "model_path": "SubjectB_Classes.classes[0].attributes[1].model_path",
+        "old_value": "false",
+        "new_value": "null",
+        "reason": "Ensure is_optional has a value if it is a recognized Constraint.",
+        "change_type": "correction"
+      },
+      {
+        "path": "subjects[3].classes[0].attributes[0].data_type_clause.is_optional_lit",
+        "model_path": "SubjectB_Classes.classes[0].attributes[0].model_path",
+        "old_value": "true",
+        "new_value": "null",
+        "reason": "Ensure is_optional has a value if it is a recognized Constraint.",
+        "change_type": "correction"
+      },
+      {
+        "path": "subjects[6].classes[0].attributes[0].default.python",
+        "model_path": "SubjectB_Attributes.classes[0].attributes[0].model_path",
+        "old_value": "null",
+        "new_value": " 'False\n'",
+        "reason": "Provide Python for the default attribute.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[6].classes[0].attributes[2].one_liner.content",
+        "model_path": "SubjectB_Attributes.classes[0].attributes[2].model_path",
+        "old_value": "For derived attributes, the rule or formula for calculating the value, if no value is supplied\nNow running to a second line with the parenthetical on yet a third line",
+        "new_value": "The rule or formula for calculating attribute values when none are supplied.",
+        "reason": "Shorten using a noun phrase and concise language.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[6].classes[0].attributes[4].one_liner.content",
+        "model_path": "SubjectB_Attributes.classes[0].attributes[4].model_path",
+        "old_value": "the higher level attribute which this one overrides - for type or ...",
+        "new_value": "the attribute that provides type or other specific information.",
+        "reason": "Clarify the purpose of the attribute in simple language.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[6].classes[1].attributes[0].python",
+        "model_path": "SubjectB_Attributes.classes[1].attributes[0].model_path",
+        "old_value": "null",
+        "new_value": " 'self.valueTheString.startswith(upper_case)\n'",
+        "reason": "Provide missing Python for the given constraint.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[6].classes[2].attributes[0].python",
+        "model_path": "SubjectB_Attributes.classes[2].attributes[0].model_path",
+        "old_value": "null",
+        "new_value": " 'len(self.valueTheString.split('.')) == len(self.subtypes)\n'",
+        "reason": "Provide missing Python for the given constraint.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[7].classes[0].attributes[1].python",
+        "model_path": "SubjectB_Trivial Data Types.classes[0].attributes[1].model_path",
+        "old_value": "null",
+        "new_value": " 'self.language.startswith('L') or self.language.startswith('J') \n'",
+        "reason": "Provide missing Python for the given constraint.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[2].classes[0].attributes[0].one_liner.content",
+        "model_path": "SubjectB_The Model and its Subjects.classes[2].attributes[0].model_path",
+        "old_value": "list of all classes in the model, as ordered in the\ndefinition of the model.",
+        "new_value": "An ordered list of all classes in the model.",
+        "reason": "Shorten and provide concise language.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[2].classes[2].attributes[1].python",
+        "model_path": "SubjectB_The Model and its Subjects.classes[2].attributes[1].model_path",
+        "old_value": "null",
+        "new_value": " 'len(self.dependents) > 0\n'",
+        "reason": "Provide missing Python for the constraint.",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[2].classes[4].attributes[2].python",
+        "model_path": "SubjectB_The Model and its Subjects.classes[4].attributes[2].model_path",
+        "old_value": "null",
+        "new_value": " 'self.attributes == [self.attribute]\n'",
+        "reason": "Provide missing Python for the constraint.",
+        "change_type": "addition"
+      }
+    ],
+    "summary": "The changes include shortening one-liners, making them noun phrases, adding missing inverse relationships, supplying missing Python code for derivations, defaults, and constraints, setting is_optional to null if it\u2019s a recognized Constraint, and improving clarity in some attribute descriptions."
+  },
+  "raw_results": "Based on the provided Literate Data Model, here are several improvements and corrections. \n\n### Format 1: Changes Only\n\n```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].one_liner.content\",\n      \"model_path\": \"SubjectB_Preliminaries.one_liner.content\",\n      \"old_value\": \"the basic structure of the model\",\n      \"new_value\": \"the fundamental structure of the literate data model\",\n      \"reason\": \"Shorten using a noun phrase and concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].one_liner.content\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships,\\nalong with explanatory text and examples\",\n      \"new_value\": \"An overview of the model's entities, attributes, and relationships.\",\n      \"reason\": \"Shorten using concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[4].one_liner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"A concise description of the component.\",\n      \"reason\": \"Shorten and use concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[0].default.python\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[0].model_path\",\n      \"old_value\": \" x.name == y\\n\",\n      \"new_value\": \" x.abbreviatedName == x.name\",\n      \"reason\": \"Provide appropriate Python for the given one-liner if the one-liner appears like Python code.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].inverse\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].class_path\",\n      \"old_value\": \"null\",\n      \"new_value\": {\n        \"class_name\": {\n          \"type\": \"ClassReference\",\n          \"content\": \"LiterateModel\"\n        },\n        \"attribute_name\": {\n          \"type\": \"AttributeName\",\n          \"content\": \"annotations\"\n        }\n      },\n      \"reason\": \"Add a missing inverse relationship.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].one_liner.content\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].attributes[1].model_path\",\n      \"old_value\": \"The name of the component\",\n      \"new_value\": \"A recognized subject name in title case.\",\n      \"reason\": \"The one-liner should provide additional info beyond what the name implies.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[3].derivation.python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].attributes[3].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['gather all instances of self']\\n\",\n      \"reason\": \"Add missing Python for the derivation.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[4].derivation.python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].attributes[4].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['gather all subjects of self']\\n\",\n      \"reason\": \"Add missing Python for the derivation.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[4].constraints[0].python\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[4].constraints[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'len(set(attr.name for attr in self.attributes)) == len(self.attributes))\\n'\",\n      \"reason\": \"Add missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[5].constraints[0].python\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[5].constraints[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['len(set(attr.name for attr in self.attributes)) == len(self.attributes))\\n\",\n      \"reason\": \"Add missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[0].attributes[0].python\",\n      \"model_path\": \"SubjectB_Classes.classes[1].attribute_sections[0].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['self.subjects is not None and len(self.subjects) < 1\\n'\",\n      \"reason\": \"Add missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[0].data_type_clause.is_optional_lit\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[0].model_path\",\n      \"old_value\": \"false\",\n      \"new_value\": \"null\",\n      \"reason\": \"Ensure is_optional has a value if it is a recognized Constraint.\",\n      \"change_type\": \"correction\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[1].data_type_clause.is_optional_lit\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[1].model_path\",\n      \"old_value\": \"false\",\n      \"new_value\": \"null\",\n      \"reason\": \"Ensure is_optional has a value if it is a recognized Constraint.\",\n      \"change_type\": \"correction\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[0].data_type_clause.is_optional_lit\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[0].model_path\",\n      \"old_value\": \"true\",\n      \"new_value\": \"null\",\n      \"reason\": \"Ensure is_optional has a value if it is a recognized Constraint.\",\n      \"change_type\": \"correction\"\n    },\n    {\n      \"path\": \"subjects[6].classes[0].attributes[0].default.python\",\n      \"model_path\": \"SubjectB_Attributes.classes[0].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'False\\n'\",\n      \"reason\": \"Provide Python for the default attribute.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[6].classes[0].attributes[2].one_liner.content\",\n      \"model_path\": \"SubjectB_Attributes.classes[0].attributes[2].model_path\",\n      \"old_value\": \"For derived attributes, the rule or formula for calculating the value, if no value is supplied\\nNow running to a second line with the parenthetical on yet a third line\",\n      \"new_value\": \"The rule or formula for calculating attribute values when none are supplied.\",\n      \"reason\": \"Shorten using a noun phrase and concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[6].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"SubjectB_Attributes.classes[0].attributes[4].model_path\",\n      \"old_value\": \"the higher level attribute which this one overrides - for type or ...\",\n      \"new_value\": \"the attribute that provides type or other specific information.\",\n      \"reason\": \"Clarify the purpose of the attribute in simple language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[6].classes[1].attributes[0].python\",\n      \"model_path\": \"SubjectB_Attributes.classes[1].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'self.valueTheString.startswith(upper_case)\\n'\",\n      \"reason\": \"Provide missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[6].classes[2].attributes[0].python\",\n      \"model_path\": \"SubjectB_Attributes.classes[2].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'len(self.valueTheString.split('.')) == len(self.subtypes)\\n'\",\n      \"reason\": \"Provide missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[7].classes[0].attributes[1].python\",\n      \"model_path\": \"SubjectB_Trivial Data Types.classes[0].attributes[1].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'self.language.startswith('L') or self.language.startswith('J') \\n'\",\n      \"reason\": \"Provide missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[2].attributes[0].model_path\",\n      \"old_value\": \"list of all classes in the model, as ordered in the\\ndefinition of the model.\",\n      \"new_value\": \"An ordered list of all classes in the model.\",\n      \"reason\": \"Shorten and provide concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[2].classes[2].attributes[1].python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[2].attributes[1].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'len(self.dependents) > 0\\n'\",\n      \"reason\": \"Provide missing Python for the constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[2].classes[4].attributes[2].python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[4].attributes[2].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'self.attributes == [self.attribute]\\n'\",\n      \"reason\": \"Provide missing Python for the constraint.\",\n      \"change_type\": \"addition\"\n    }\n  ],\n  \"summary\": \"The changes include shortening one-liners, making them noun phrases, adding missing inverse relationships, supplying missing Python code for derivations, defaults, and constraints, setting is_optional to null if it\u2019s a recognized Constraint, and improving clarity in some attribute descriptions.\"\n}\n```",
+  "response": {
+    "id": "gen-1755655736-RI8kXA3zxeHv6qdyckB1",
+    "provider": "Amazon Bedrock",
+    "model": "amazon/nova-lite-v1",
+    "object": "chat.completion",
+    "created": 1755655736,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Based on the provided Literate Data Model, here are several improvements and corrections. \n\n### Format 1: Changes Only\n\n```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].one_liner.content\",\n      \"model_path\": \"SubjectB_Preliminaries.one_liner.content\",\n      \"old_value\": \"the basic structure of the model\",\n      \"new_value\": \"the fundamental structure of the literate data model\",\n      \"reason\": \"Shorten using a noun phrase and concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].one_liner.content\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships,\\nalong with explanatory text and examples\",\n      \"new_value\": \"An overview of the model's entities, attributes, and relationships.\",\n      \"reason\": \"Shorten using concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[4].one_liner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"A concise description of the component.\",\n      \"reason\": \"Shorten and use concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[0].default.python\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[0].model_path\",\n      \"old_value\": \" x.name == y\\n\",\n      \"new_value\": \" x.abbreviatedName == x.name\",\n      \"reason\": \"Provide appropriate Python for the given one-liner if the one-liner appears like Python code.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].inverse\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].class_path\",\n      \"old_value\": \"null\",\n      \"new_value\": {\n        \"class_name\": {\n          \"type\": \"ClassReference\",\n          \"content\": \"LiterateModel\"\n        },\n        \"attribute_name\": {\n          \"type\": \"AttributeName\",\n          \"content\": \"annotations\"\n        }\n      },\n      \"reason\": \"Add a missing inverse relationship.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].one_liner.content\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].attributes[1].model_path\",\n      \"old_value\": \"The name of the component\",\n      \"new_value\": \"A recognized subject name in title case.\",\n      \"reason\": \"The one-liner should provide additional info beyond what the name implies.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[3].derivation.python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].attributes[3].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['gather all instances of self']\\n\",\n      \"reason\": \"Add missing Python for the derivation.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[4].derivation.python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[0].attributes[4].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['gather all subjects of self']\\n\",\n      \"reason\": \"Add missing Python for the derivation.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[4].constraints[0].python\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[4].constraints[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'len(set(attr.name for attr in self.attributes)) == len(self.attributes))\\n'\",\n      \"reason\": \"Add missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[5].constraints[0].python\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[5].constraints[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['len(set(attr.name for attr in self.attributes)) == len(self.attributes))\\n\",\n      \"reason\": \"Add missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[1].attribute_sections[0].attributes[0].python\",\n      \"model_path\": \"SubjectB_Classes.classes[1].attribute_sections[0].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" ['self.subjects is not None and len(self.subjects) < 1\\n'\",\n      \"reason\": \"Add missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[0].data_type_clause.is_optional_lit\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[0].model_path\",\n      \"old_value\": \"false\",\n      \"new_value\": \"null\",\n      \"reason\": \"Ensure is_optional has a value if it is a recognized Constraint.\",\n      \"change_type\": \"correction\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[1].data_type_clause.is_optional_lit\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[1].model_path\",\n      \"old_value\": \"false\",\n      \"new_value\": \"null\",\n      \"reason\": \"Ensure is_optional has a value if it is a recognized Constraint.\",\n      \"change_type\": \"correction\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attributes[0].data_type_clause.is_optional_lit\",\n      \"model_path\": \"SubjectB_Classes.classes[0].attributes[0].model_path\",\n      \"old_value\": \"true\",\n      \"new_value\": \"null\",\n      \"reason\": \"Ensure is_optional has a value if it is a recognized Constraint.\",\n      \"change_type\": \"correction\"\n    },\n    {\n      \"path\": \"subjects[6].classes[0].attributes[0].default.python\",\n      \"model_path\": \"SubjectB_Attributes.classes[0].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'False\\n'\",\n      \"reason\": \"Provide Python for the default attribute.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[6].classes[0].attributes[2].one_liner.content\",\n      \"model_path\": \"SubjectB_Attributes.classes[0].attributes[2].model_path\",\n      \"old_value\": \"For derived attributes, the rule or formula for calculating the value, if no value is supplied\\nNow running to a second line with the parenthetical on yet a third line\",\n      \"new_value\": \"The rule or formula for calculating attribute values when none are supplied.\",\n      \"reason\": \"Shorten using a noun phrase and concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[6].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"SubjectB_Attributes.classes[0].attributes[4].model_path\",\n      \"old_value\": \"the higher level attribute which this one overrides - for type or ...\",\n      \"new_value\": \"the attribute that provides type or other specific information.\",\n      \"reason\": \"Clarify the purpose of the attribute in simple language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[6].classes[1].attributes[0].python\",\n      \"model_path\": \"SubjectB_Attributes.classes[1].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'self.valueTheString.startswith(upper_case)\\n'\",\n      \"reason\": \"Provide missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[6].classes[2].attributes[0].python\",\n      \"model_path\": \"SubjectB_Attributes.classes[2].attributes[0].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'len(self.valueTheString.split('.')) == len(self.subtypes)\\n'\",\n      \"reason\": \"Provide missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[7].classes[0].attributes[1].python\",\n      \"model_path\": \"SubjectB_Trivial Data Types.classes[0].attributes[1].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'self.language.startswith('L') or self.language.startswith('J') \\n'\",\n      \"reason\": \"Provide missing Python for the given constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[2].attributes[0].model_path\",\n      \"old_value\": \"list of all classes in the model, as ordered in the\\ndefinition of the model.\",\n      \"new_value\": \"An ordered list of all classes in the model.\",\n      \"reason\": \"Shorten and provide concise language.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[2].classes[2].attributes[1].python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[2].attributes[1].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'len(self.dependents) > 0\\n'\",\n      \"reason\": \"Provide missing Python for the constraint.\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[2].classes[4].attributes[2].python\",\n      \"model_path\": \"SubjectB_The Model and its Subjects.classes[4].attributes[2].model_path\",\n      \"old_value\": \"null\",\n      \"new_value\": \" 'self.attributes == [self.attribute]\\n'\",\n      \"reason\": \"Provide missing Python for the constraint.\",\n      \"change_type\": \"addition\"\n    }\n  ],\n  \"summary\": \"The changes include shortening one-liners, making them noun phrases, adding missing inverse relationships, supplying missing Python code for derivations, defaults, and constraints, setting is_optional to null if it\u2019s a recognized Constraint, and improving clarity in some attribute descriptions.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 73641,
+      "completion_tokens": 2793,
+      "total_tokens": 76434
+    }
+  }
+}

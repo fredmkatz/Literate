@@ -1,0 +1,2 @@
+NewFMKClaudeKeyAug8_2025 = "_uo0g1T5etH3xtLqHk5XMR1sQtV98QZ48odi4rD1KvqVokTJtVT6FKw-w1fnxAAA"
+OpenRouterFMK = "aace3a5ba6970b9faa986edfba4914fa4282"

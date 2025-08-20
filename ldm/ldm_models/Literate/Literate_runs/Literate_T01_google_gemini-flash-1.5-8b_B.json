@@ -1,0 +1,55 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "google/gemini-flash-1.5-8b",
+    "elapsed": 12.4,
+    "results_len": 4372,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 1067,
+      "total_tokens": 78926,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "costs": 0.003,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 0,
+    "parseing_notes": "Pruned - Parsing failed - see raw"
+  },
+  "costs": 0.003,
+  "parsed": null,
+  "raw_results": "```json\n{\n  \"response_type\": \"full_model\",\n  \"model\": {\n    \"_type\": \"LiterateModel\",\n    \"diagnostics\": [\n      {\n        \"_type\": \"Diagnostic\",\n        \"object_name\": \"Appendices\",\n        \"object_type\": \"SubjectB\",\n        \"category\": \"Style\",\n        \"message\": \"oneLiner is too long. (126 chars).\",\n        \"severity\": \"Warning\",\n        \"constraint_name\": \"componentOneLinerLength\"\n      }\n    ],\n    \"is_embellishment\": false,\n    \"prefix\": \"#\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"Literate Data Model\"\n    },\n    \"model_path\": \"LiterateModel_Literate Data Model\",\n    \"subjects\": [\n      {\n        \"_type\": \"SubjectB\",\n        \"one_liner\": {\n          \"_type\": \"OneLiner\",\n          \"content\": \"the basic structure of the literate data model\"\n        },\n        \"elaboration\": [\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects.  To improve clarity and maintain consistency across the model, we define a supertype called Component. This Component class hosts universal properties, allowing subclasses to inherit these traits.\"\n          },\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"The Component class is modeled first as a best practice, providing a foundational understanding of general concepts and shared characteristics before delving into specialized components.\"\n          }\n        ],\n        \"diagnostics\": [\n          {\n            \"_type\": \"Diagnostic\",\n            \"object_name\": \"AnnotationType\",\n            \"object_type\": \"Class\",\n            \"category\": \"Style\",\n            \"message\": \"oneLiner is too long. (96 chars).\",\n            \"severity\": \"Warning\",\n            \"constraint_name\": \"componentOneLinerLength\"\n          }\n        ],\n        \"is_embellishment\": false,\n        \"prefix\": \"##\",\n        \"name\": {\n          \"_type\": \"SubjectName\",\n          \"content\": \"Preliminaries\"\n        },\n\t\t\"model_path\": \"SubjectB_Preliminaries\",\n        \"classes\": [...]  // ... (rest of the original model)\n      },\n      //... (other subjects)\n\t]\n  },\n  \"changes\": [\n\t{\n\t\t\"path\": \"/subjects[0]/one_liner/content\",\n\t\t\"model_path\": \"SubjectB_Preliminaries.one_liner.content\",\n\t\t\"old_value\": \"the basic structure of the model\",\n\t\t\"new_value\": \"the basic structure of the literate data model\",\n\t\t\"reason\": \"Improved one-liner to be more descriptive and grammatically correct\",\n\t\t\"change_type\": \"improvement\"\n\t},\n {\n      \"path\": \"/subjects[0]/elaboration[0]/content\",\n      \"model_path\": \"SubjectB_Preliminaries.elaboration[0].content\",\n      \"old_value\": \"In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.\",\n      \"new_value\": \"In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects.  To improve clarity and maintain consistency across the model, we define a supertype called Component. This Component class hosts universal properties, allowing subclasses to inherit these traits.\",\n      \"reason\": \"Improved wording for clarity and conciseness\",\n      \"change_type\": \"improvement\"\n    },\n {\n      \"path\": \"/subjects[0]/elaboration[1]/content\",\n      \"model_path\": \"SubjectB_Preliminaries.elaboration[1].content\",\n      \"old_value\": \"We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.\",\n      \"new_value\": \"The Component class is modeled first as a best practice, providing a foundational understanding of general concepts and shared characteristics before delving into specialized components.\",\n      \"reason\": \"Improved wording for conciseness and flow\",\n      \"change_type\": \"improvement\"\n    }\n ],\n  \"summary\": \"Improved the model's one-liners and elaboration content for clarity and conciseness. Added some structural clarity.\"\n}\n```",
+  "response": {
+    "id": "gen-1755655541-AMsdYbbuzGrvyEoFlYOw",
+    "provider": "Google AI Studio",
+    "model": "google/gemini-flash-1.5-8b",
+    "object": "chat.completion",
+    "created": 1755655541,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"response_type\": \"full_model\",\n  \"model\": {\n    \"_type\": \"LiterateModel\",\n    \"diagnostics\": [\n      {\n        \"_type\": \"Diagnostic\",\n        \"object_name\": \"Appendices\",\n        \"object_type\": \"SubjectB\",\n        \"category\": \"Style\",\n        \"message\": \"oneLiner is too long. (126 chars).\",\n        \"severity\": \"Warning\",\n        \"constraint_name\": \"componentOneLinerLength\"\n      }\n    ],\n    \"is_embellishment\": false,\n    \"prefix\": \"#\",\n    \"name\": {\n      \"_type\": \"SubjectName\",\n      \"content\": \"Literate Data Model\"\n    },\n    \"model_path\": \"LiterateModel_Literate Data Model\",\n    \"subjects\": [\n      {\n        \"_type\": \"SubjectB\",\n        \"one_liner\": {\n          \"_type\": \"OneLiner\",\n          \"content\": \"the basic structure of the literate data model\"\n        },\n        \"elaboration\": [\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects.  To improve clarity and maintain consistency across the model, we define a supertype called Component. This Component class hosts universal properties, allowing subclasses to inherit these traits.\"\n          },\n          {\n            \"_type\": \"Paragraph\",\n            \"content\": \"The Component class is modeled first as a best practice, providing a foundational understanding of general concepts and shared characteristics before delving into specialized components.\"\n          }\n        ],\n        \"diagnostics\": [\n          {\n            \"_type\": \"Diagnostic\",\n            \"object_name\": \"AnnotationType\",\n            \"object_type\": \"Class\",\n            \"category\": \"Style\",\n            \"message\": \"oneLiner is too long. (96 chars).\",\n            \"severity\": \"Warning\",\n            \"constraint_name\": \"componentOneLinerLength\"\n          }\n        ],\n        \"is_embellishment\": false,\n        \"prefix\": \"##\",\n        \"name\": {\n          \"_type\": \"SubjectName\",\n          \"content\": \"Preliminaries\"\n        },\n\t\t\"model_path\": \"SubjectB_Preliminaries\",\n        \"classes\": [...]  // ... (rest of the original model)\n      },\n      //... (other subjects)\n\t]\n  },\n  \"changes\": [\n\t{\n\t\t\"path\": \"/subjects[0]/one_liner/content\",\n\t\t\"model_path\": \"SubjectB_Preliminaries.one_liner.content\",\n\t\t\"old_value\": \"the basic structure of the model\",\n\t\t\"new_value\": \"the basic structure of the literate data model\",\n\t\t\"reason\": \"Improved one-liner to be more descriptive and grammatically correct\",\n\t\t\"change_type\": \"improvement\"\n\t},\n {\n      \"path\": \"/subjects[0]/elaboration[0]/content\",\n      \"model_path\": \"SubjectB_Preliminaries.elaboration[0].content\",\n      \"old_value\": \"In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects. However, to streamline the model and promote reusability, we introduce a supertype called Component. By defining common attributes and behaviors in the Component class, we can inherit them in the subclasses, ensuring consistency and reducing duplication throughout the model.\",\n      \"new_value\": \"In Literate Data Modeling, the main components of interest are typically Classes, Attributes, Models, and Subjects.  To improve clarity and maintain consistency across the model, we define a supertype called Component. This Component class hosts universal properties, allowing subclasses to inherit these traits.\",\n      \"reason\": \"Improved wording for clarity and conciseness\",\n      \"change_type\": \"improvement\"\n    },\n {\n      \"path\": \"/subjects[0]/elaboration[1]/content\",\n      \"model_path\": \"SubjectB_Preliminaries.elaboration[1].content\",\n      \"old_value\": \"We present the Component class first because it is a best practice in modeling to introduce supertypes before their subtypes. This approach allows readers to understand the general concepts and shared properties before delving into the specifics of each specialized component.\",\n      \"new_value\": \"The Component class is modeled first as a best practice, providing a foundational understanding of general concepts and shared characteristics before delving into specialized components.\",\n      \"reason\": \"Improved wording for conciseness and flow\",\n      \"change_type\": \"improvement\"\n    }\n ],\n  \"summary\": \"Improved the model's one-liners and elaboration content for clarity and conciseness. Added some structural clarity.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 1067,
+      "total_tokens": 78926,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  }
+}

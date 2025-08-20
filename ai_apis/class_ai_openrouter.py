@@ -2,78 +2,41 @@ from openai import OpenAI  # OpenRouter is compatible with the OpenAI SDK
 import os  # For environment variables
 
 from ai_apis.class_ai_assistant import AI_Assistant, AI_CONFIGS
-from ai_apis.class_ai_keys import FMK_OpenRouter_API
 import utils.util_all_fmk as fmk
 
 
-class OpenRouterAssistant(AI_Assistant):  # Changed class name for clarity
+class OpenRouterAssistant(AI_Assistant): 
 
     def __init__(self, gateway, llm_id):
+        # print("Initing OPENAI")
+
         super().__init__(gateway, llm_id=llm_id)
-        
+        # print("Initing OPENAI - called  super()init")
+
         self.or_model = None
         self.or_generation_id = None
         self.or_usage = None
         self.or_object = None
         self.llm_used = None
-        self.api_key = FMK_OpenRouter_API
-        print("FMK_OpenRouter_Key = ", FMK_OpenRouter_API)
+        self.api_key = self.get_api_key()
+        # print("FMK_OpenRouter_Key = ", self.api_key)
 
         # OpenRouter uses the OpenAI SDK, but needs a different base_url and API key
         self.client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
-            api_key=FMK_OpenRouter_API,
+            api_key=self.api_key,
             # Optional: Add default_headers for attribution on OpenRouter leaderboards
             # default_headers={
             #     "HTTP-Referer": "https://your-app-domain.com/",  # Replace with your app's domain
             #     "X-Title": "Your App Name",  # Replace with your app's name
             # },
         )
-        print("Now OR client is ", self.client)
-        print("FMK_OpenRouter_Key = ", FMK_OpenRouter_API)
+        # print("Now OR client is ", self.client)
 
     def get_openrouter_llm(self, llm_id) -> dict:
 
         or_models = fmk.read_json_file(f"{AI_CONFIGS}/openrouter_models.json")
         return or_models.get(llm_id)
-
-
-    def run_query_native_original(self, full_query):
-        response = self.client.chat.completions.create(
-            model=self.llm_id,
-
-            messages=[{"role": "user", "content": full_query}],
-            # usage =  {"include": True},
-            extra_headers={
-                "HTTP-Referer": "https://localhost:3000",
-                "X-Title": "Literate Modeling",       # Optional but recommended
-            }
-
-        )
-        
-      
-        print("OR Response is: ")
-        display_returned_object(response)
-        print("End of OR Response")
-        
-        self.or_generation_id = response.id
-        self.or_model = response.model
-        self.or_object = response.object
-        self.or_usage = response.usage
-        
-        
-        print("Query id = ", self.or_generation_id)
-        print("Model = ", self.or_model)
-        print("OR object = ", self.or_object)
-        print("OR usage = ", self.or_usage)
-        
-        self.llm_used = self.or_model
-        llm_details = self.get_llm_params(self.llm_used)
-        print("params for ", self.or_model)
-        print(json.dumps(llm_details, indent=2))
-        raw_results = response.choices[0].message.content
-        raw_usage = response.usage
-        return (raw_results, raw_usage)
     
     def run_query_native(self, full_query):
         
@@ -113,43 +76,49 @@ class OpenRouterAssistant(AI_Assistant):  # Changed class name for clarity
         }
 
         response = requests.post(url, headers=headers, json=payload, timeout=60)
-        print("Response from new native....")
-        print("type of response is ", type(response))
+        # print("ORAssistant.run_query_native: Response from new native....")
+        # print("ORAssistant.run_query_native: type of response is ", type(response))
         response_dict = response.json()
-        print("type of response.json() is ", type(response.json()))
-        print(json.dumps(response_dict, indent=2))     
+        # print("ORAssistant.run_query_native: type of response.json() is ", type(response.json()))
+        
+        # print("Full response ",  type(response), "as dict: ")
+        # print(json.dumps(response_dict, indent=2))     
         
       
         # print("OR Response is: ")
         # display_returned_object(response)
         # print("End of OR Response")
-        
-        self.or_generation_id = response_dict["id"]
-        self.or_model = response_dict["model"]
-        self.or_object = response_dict["object"]
-        self.or_usage = response_dict["usage"]
-        
-        
-        print("Query id = ", self.or_generation_id)
-        print("Model = ", self.or_model)
-        print("OR object = ", self.or_object)
-        print("OR usage = ", self.or_usage)
-        
-        self.llm_used = self.or_model
-        llm_details = self.get_llm_params(self.llm_used)
-        print("params for ", self.or_model)
-        print(json.dumps(llm_details, indent=2))
-        raw_results = response_dict["choices"][0]["message"]["content"]
-        raw_usage = response_dict["usage"]
-        print("Raw usagge is ", raw_usage)
-        return (raw_results, raw_usage)
+        notes = ""
+        raw_usage = {}
+        raw_results = ""
+        try:
+            self.or_generation_id = response_dict["id"]
+            self.or_model = response_dict["model"]
+            self.or_object = response_dict["object"]
+            self.or_usage = response_dict.get("usage", {})
+            
+            
+            # print("Query id = ", self.or_generation_id)
+            # print("Model = ", self.or_model)
+            # print("OR object = ", self.or_object)
+            # print("OR usage = ", self.or_usage)
+            
+            self.llm_used = self.or_model
+            llm_details = self.get_llm_params(self.llm_used)
+            # print("params for ", self.or_model)
+            # print(json.dumps(llm_details, indent=2))
+        except Exception as e:
+            print(e)
+            notes += "Exception: " + str(e)
+        print("rqn return raw results as ", type(raw_results))
+        return response_dict
 
                 
         
     def get_llm_params(self, llm_id) -> dict:
         or_details = self.get_openrouter_llm(llm_id)
-        print("details for model ", llm_id)
-        print(json.dumps(or_details, indent=2))
+        # print("details for model ", llm_id)
+        # print(json.dumps(or_details, indent=2))
 
         return {
             "prompt_ppm": float(or_details["pricing"]["prompt"]) * 1000000.,
@@ -196,7 +165,7 @@ def update_openrouter_models():
     # print(json.dumps(models_dict, indent=2))
     fmk.write_json(models_dict, f"{AI_CONFIGS}/openrouter_models.json")
     print(f"OpenRouter models saved in: {AI_CONFIGS}/openrouter_models.json")
-
+    return models
 
 # Tier 1
 #  Claude recommendations

@@ -1,0 +1,233 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "google/gemini-2.0-flash-exp:free",
+    "elapsed": 10.9,
+    "results_len": 8857,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 2525,
+      "total_tokens": 80384,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "costs": 0.0,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 19,
+    "parseing_notes": "Pruned - "
+  },
+  "costs": 0.0,
+  "parsed": {
+    "response_type": "changes",
+    "changes": [
+      {
+        "path": "subjects[0].classes[0].attributes[0].one_liner.content",
+        "model_path": "Class_Component.Attribute_Component.normalName.one_liner.content",
+        "old_value": "the name of the component, not in camel case",
+        "new_value": "the name of the component, not in camel case, for databases or other machinery",
+        "reason": "To add additional usage context",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[3].default.one_liner.content",
+        "model_path": "Class_Component.Attribute_Component.abbreviatedName.default.one_liner.content",
+        "old_value": " name -  how do you say name in english?\n",
+        "new_value": "the abbreviated name is the same as the name",
+        "reason": "Improved clarity of the one-liner for the default value.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[3].constraints[0].one_liner.content",
+        "model_path": "Class_Component.Attribute_Component.abbreviatedName.constraints[0].one_liner.content",
+        "old_value": " the abbreviated name should be shorter than the actual name\n",
+        "new_value": "the abbreviated name must be no longer than the actual name",
+        "reason": "Improved the wording to use 'must be'.",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[4].one_liner.content",
+        "model_path": "Class_Component.Attribute_Component.oneLiner.one_liner.content",
+        "old_value": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _",
+        "new_value": "a brief, one-line definition or description of the component, suitable for use in a descriptive table of contents",
+        "reason": "Removed trailing underscore.",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[5].one_liner.content",
+        "model_path": "Class_Component.Attribute_Component.elaboration.one_liner.content",
+        "old_value": "A more detailed explanation or discussion of the component _",
+        "new_value": "a more detailed explanation or discussion of the component",
+        "reason": "Removed trailing underscore.",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[6].one_liner.content",
+        "model_path": "Class_Component.Attribute_Component.isEmbellishment.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Removed trailing underscore.",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[7].one_liner.content",
+        "model_path": "Class_Component.Attribute_Component.isEmbellishment.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Removed trailing underscore.",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[0].classes[0].attribute_sections[0].attributes[0].one_liner.content",
+        "model_path": "Class_Component.AttributeSection_Component.For Machinery.Attribute_AttributeSection.isEmbellishment.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Removed trailing underscore.",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[1].constraints[0].one_liner",
+        "model_path": "Class_LiterateModel.Attribute_LiterateModel.allSubjects.constraints[0].one_liner",
+        "old_value": {
+          "_type": "OneLiner",
+          "content": " Subject names must be unique across the model.\n"
+        },
+        "new_value": {
+          "_type": "OneLiner",
+          "content": "Subject names must be unique across the model"
+        },
+        "reason": "Removed stray newline",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[1].constraints[0].python",
+        "model_path": "Class_LiterateModel.Attribute_LiterateModel.allSubjects.constraints[0].python",
+        "new_value": "len(set(s.name.content for s in self.subjects)) == len(self.subjects)",
+        "reason": "Added missing python constraint expression",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[2].constraints[0].one_liner",
+        "model_path": "Class_LiterateModel.Attribute_LiterateModel.allClasses.constraints[0].one_liner",
+        "old_value": {
+          "_type": "OneLiner",
+          "content": " Class names must be unique across the model.\n"
+        },
+        "new_value": {
+          "_type": "OneLiner",
+          "content": "Class names must be unique across the model"
+        },
+        "reason": "Removed stray newline",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[1].classes[0].attributes[2].constraints[0].python",
+        "model_path": "Class_LiterateModel.Attribute_LiterateModel.allClasses.constraints[0].python",
+        "new_value": "len(set(c.name.content for c in self.classes)) == len(self.classes)",
+        "reason": "Added missing python constraint expression",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[2].classes[0].constraints[0].one_liner",
+        "model_path": "Class_Class.constraints[0].one_liner",
+        "old_value": {
+          "_type": "OneLiner",
+          "content": " Within each Class, attribute names must be unique.\n"
+        },
+        "new_value": {
+          "_type": "OneLiner",
+          "content": "Within each Class, attribute names must be unique"
+        },
+        "reason": "Removed stray newline",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[2].classes[0].constraints[0].python",
+        "model_path": "Class_Class.constraints[0].python",
+        "new_value": "len(set(a.name.content for a in self.attributes)) == len(self.attributes)",
+        "reason": "Added missing python constraint expression",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[3].classes[0].attribute_sections[0].one_liner",
+        "model_path": "Class_AttributeSection.AttributeSection_AttributeSection.Implied Attributes.one_liner",
+        "new_value": {
+          "_type": "OneLiner",
+          "content": "created for AttributeSection class"
+        },
+        "reason": "Improved One Liner",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[4].classes[4].attributes[0].constraints[0].one_liner",
+        "model_path": "SubjectB_Trivial Low level Data Types.Class_QualifiedCamel.constraints[0].one_liner.content",
+        "old_value": " content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.\n",
+        "new_value": "content must consist of CamelNames separated by periods, where each but possibly the first CamelName is in Upper Camel case",
+        "reason": "Improved the wording and sentence structure",
+        "change_type": "improvement"
+      },
+      {
+        "path": "subjects[4].classes[4].attributes[0].constraints[0].python",
+        "model_path": "SubjectB_Trivial Low level Data Types.Class_QualifiedCamel.constraints[0].python",
+        "new_value": "import re\npattern = r'^([a-z]+|[A-Z][a-z]*)(.[A-Z][a-z]*)*$'\nreturn bool(re.match(pattern, self.content))",
+        "reason": "Added missing python constraint expression",
+        "change_type": "addition"
+      },
+      {
+        "path": "subjects[4].classes[6].attributes[0].constraints[0].one_liner",
+        "model_path": "SubjectB_Trivial Low level Data Types.Class_OneLiner.attributes[0].constraints[0].one_liner",
+        "old_value": {
+          "_type": "OneLiner",
+          "content": " must not containa line break or new line character\n"
+        },
+        "new_value": {
+          "_type": "OneLiner",
+          "content": "must not contain a line break or new line character"
+        },
+        "reason": "Removed stray newline",
+        "change_type": "cleanup"
+      },
+      {
+        "path": "subjects[4].classes[6].attributes[0].constraints[0].python",
+        "model_path": "SubjectB_Trivial Low level Data Types.Class_OneLiner.attributes[0].constraints[0].python",
+        "new_value": "return '\\n' not in self.value",
+        "reason": "Added missing python constraint expression",
+        "change_type": "addition"
+      }
+    ],
+    "summary": "Improved one-liners, added missing python expressions, and cleaned up extra characters and newlines."
+  },
+  "raw_results": "```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.normalName.one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"the name of the component, not in camel case, for databases or other machinery\",\n      \"reason\": \"To add additional usage context\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].default.one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.abbreviatedName.default.one_liner.content\",\n      \"old_value\": \" name -  how do you say name in english?\\n\",\n      \"new_value\": \"the abbreviated name is the same as the name\",\n      \"reason\": \"Improved clarity of the one-liner for the default value.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].constraints[0].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.abbreviatedName.constraints[0].one_liner.content\",\n      \"old_value\": \" the abbreviated name should be shorter than the actual name\\n\",\n      \"new_value\": \"the abbreviated name must be no longer than the actual name\",\n      \"reason\": \"Improved the wording to use 'must be'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.oneLiner.one_liner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"a brief, one-line definition or description of the component, suitable for use in a descriptive table of contents\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[5].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.elaboration.one_liner.content\",\n      \"old_value\": \"A more detailed explanation or discussion of the component _\",\n      \"new_value\": \"a more detailed explanation or discussion of the component\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[6].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[7].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attribute_sections[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Class_Component.AttributeSection_Component.For Machinery.Attribute_AttributeSection.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].constraints[0].one_liner\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allSubjects.constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" Subject names must be unique across the model.\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"Subject names must be unique across the model\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].constraints[0].python\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allSubjects.constraints[0].python\",\n      \"new_value\": \"len(set(s.name.content for s in self.subjects)) == len(self.subjects)\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[2].constraints[0].one_liner\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allClasses.constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" Class names must be unique across the model.\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"Class names must be unique across the model\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[2].constraints[0].python\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allClasses.constraints[0].python\",\n      \"new_value\": \"len(set(c.name.content for c in self.classes)) == len(self.classes)\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].constraints[0].one_liner\",\n      \"model_path\": \"Class_Class.constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" Within each Class, attribute names must be unique.\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"Within each Class, attribute names must be unique\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].constraints[0].python\",\n      \"model_path\": \"Class_Class.constraints[0].python\",\n      \"new_value\": \"len(set(a.name.content for a in self.attributes)) == len(self.attributes)\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attribute_sections[0].one_liner\",\n      \"model_path\": \"Class_AttributeSection.AttributeSection_AttributeSection.Implied Attributes.one_liner\",\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"created for AttributeSection class\"\n      },\n      \"reason\": \"Improved One Liner\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[4].classes[4].attributes[0].constraints[0].one_liner\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_QualifiedCamel.constraints[0].one_liner.content\",\n      \"old_value\": \" content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.\\n\",\n      \"new_value\": \"content must consist of CamelNames separated by periods, where each but possibly the first CamelName is in Upper Camel case\",\n      \"reason\": \"Improved the wording and sentence structure\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[4].classes[4].attributes[0].constraints[0].python\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_QualifiedCamel.constraints[0].python\",\n      \"new_value\": \"import re\\npattern = r'^([a-z]+|[A-Z][a-z]*)(.[A-Z][a-z]*)*$'\\nreturn bool(re.match(pattern, self.content))\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[4].classes[6].attributes[0].constraints[0].one_liner\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_OneLiner.attributes[0].constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" must not containa line break or new line character\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"must not contain a line break or new line character\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[4].classes[6].attributes[0].constraints[0].python\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_OneLiner.attributes[0].constraints[0].python\",\n      \"new_value\": \"return '\\\\n' not in self.value\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    }\n  ],\n  \"summary\": \"Improved one-liners, added missing python expressions, and cleaned up extra characters and newlines.\"\n}\n```",
+  "response": {
+    "id": "gen-1755655738-umNpl1OXwYMwMd3EoppW",
+    "provider": "Google",
+    "model": "google/gemini-2.0-flash-exp:free",
+    "object": "chat.completion",
+    "created": 1755655738,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.normalName.one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"the name of the component, not in camel case, for databases or other machinery\",\n      \"reason\": \"To add additional usage context\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].default.one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.abbreviatedName.default.one_liner.content\",\n      \"old_value\": \" name -  how do you say name in english?\\n\",\n      \"new_value\": \"the abbreviated name is the same as the name\",\n      \"reason\": \"Improved clarity of the one-liner for the default value.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].constraints[0].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.abbreviatedName.constraints[0].one_liner.content\",\n      \"old_value\": \" the abbreviated name should be shorter than the actual name\\n\",\n      \"new_value\": \"the abbreviated name must be no longer than the actual name\",\n      \"reason\": \"Improved the wording to use 'must be'.\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.oneLiner.one_liner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"a brief, one-line definition or description of the component, suitable for use in a descriptive table of contents\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[5].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.elaboration.one_liner.content\",\n      \"old_value\": \"A more detailed explanation or discussion of the component _\",\n      \"new_value\": \"a more detailed explanation or discussion of the component\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[6].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[7].one_liner.content\",\n      \"model_path\": \"Class_Component.Attribute_Component.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attribute_sections[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Class_Component.AttributeSection_Component.For Machinery.Attribute_AttributeSection.isEmbellishment.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Removed trailing underscore.\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].constraints[0].one_liner\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allSubjects.constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" Subject names must be unique across the model.\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"Subject names must be unique across the model\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[1].constraints[0].python\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allSubjects.constraints[0].python\",\n      \"new_value\": \"len(set(s.name.content for s in self.subjects)) == len(self.subjects)\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[2].constraints[0].one_liner\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allClasses.constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" Class names must be unique across the model.\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"Class names must be unique across the model\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].attributes[2].constraints[0].python\",\n      \"model_path\": \"Class_LiterateModel.Attribute_LiterateModel.allClasses.constraints[0].python\",\n      \"new_value\": \"len(set(c.name.content for c in self.classes)) == len(self.classes)\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].constraints[0].one_liner\",\n      \"model_path\": \"Class_Class.constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" Within each Class, attribute names must be unique.\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"Within each Class, attribute names must be unique\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[2].classes[0].constraints[0].python\",\n      \"model_path\": \"Class_Class.constraints[0].python\",\n      \"new_value\": \"len(set(a.name.content for a in self.attributes)) == len(self.attributes)\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[3].classes[0].attribute_sections[0].one_liner\",\n      \"model_path\": \"Class_AttributeSection.AttributeSection_AttributeSection.Implied Attributes.one_liner\",\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"created for AttributeSection class\"\n      },\n      \"reason\": \"Improved One Liner\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[4].classes[4].attributes[0].constraints[0].one_liner\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_QualifiedCamel.constraints[0].one_liner.content\",\n      \"old_value\": \" content consists of CamelNames, separated by periods.  Each of the camel names must be Upper Camel except, possibly, the first.\\n\",\n      \"new_value\": \"content must consist of CamelNames separated by periods, where each but possibly the first CamelName is in Upper Camel case\",\n      \"reason\": \"Improved the wording and sentence structure\",\n      \"change_type\": \"improvement\"\n    },\n    {\n      \"path\": \"subjects[4].classes[4].attributes[0].constraints[0].python\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_QualifiedCamel.constraints[0].python\",\n      \"new_value\": \"import re\\npattern = r'^([a-z]+|[A-Z][a-z]*)(.[A-Z][a-z]*)*$'\\nreturn bool(re.match(pattern, self.content))\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    },\n    {\n      \"path\": \"subjects[4].classes[6].attributes[0].constraints[0].one_liner\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_OneLiner.attributes[0].constraints[0].one_liner\",\n      \"old_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \" must not containa line break or new line character\\n\"\n      },\n      \"new_value\": {\n        \"_type\": \"OneLiner\",\n        \"content\": \"must not contain a line break or new line character\"\n      },\n      \"reason\": \"Removed stray newline\",\n      \"change_type\": \"cleanup\"\n    },\n    {\n      \"path\": \"subjects[4].classes[6].attributes[0].constraints[0].python\",\n      \"model_path\": \"SubjectB_Trivial Low level Data Types.Class_OneLiner.attributes[0].constraints[0].python\",\n      \"new_value\": \"return '\\\\n' not in self.value\",\n      \"reason\": \"Added missing python constraint expression\",\n      \"change_type\": \"addition\"\n    }\n  ],\n  \"summary\": \"Improved one-liners, added missing python expressions, and cleaned up extra characters and newlines.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 77859,
+      "completion_tokens": 2525,
+      "total_tokens": 80384,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  }
+}

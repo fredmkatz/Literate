@@ -1,0 +1,277 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "qwen/qwen-turbo",
+    "elapsed": 150.9,
+    "results_len": 14424,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'system_fingerprint', 'usage'])",
+    "usage": {
+      "prompt_tokens": 66662,
+      "completion_tokens": 3370,
+      "total_tokens": 70032,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "costs": 0.004,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 27,
+    "parseing_notes": "UnPruned - "
+  },
+  "costs": 0.004,
+  "parsed": {
+    "response_type": "changes",
+    "changes": [
+      {
+        "path": "subjects[0].classes[0].attributes[0].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "the name of the component, not in camel case",
+        "new_value": "The name of the component, not in camel case",
+        "reason": "Add article 'The' to the beginning of the one-liner to conform to the requirement that one-liners for Components should start with an article.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[1].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "The name of the component",
+        "new_value": "The name of the component",
+        "reason": "This one-liner already starts with 'The', so no change is needed.",
+        "change_type": "no_change"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[2].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "a short form of the component's name, used for cross references and improved readability.",
+        "new_value": "A short form of the component's name, used for cross references and improved readability",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[3].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "a short form of the component's name, used for cross references and improved readability.",
+        "new_value": "A short form of the component's name, used for cross references and improved readability",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[4].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _",
+        "new_value": "A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[5].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "A more detailed explanation or discussion of the component _",
+        "new_value": "A more detailed explanation or discussion of the component",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[6].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[7].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[8].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[9].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[10].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "The name of the component",
+        "new_value": "The name of the component",
+        "reason": "This one-liner already starts with 'The', so no change is needed.",
+        "change_type": "no_change"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[11].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[12].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[13].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[14].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[15].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[16].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[17].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[18].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[19].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[20].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[21].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[22].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[23].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[24].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[25].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      },
+      {
+        "path": "subjects[0].classes[0].attributes[26].one_liner.content",
+        "model_path": "Component.one_liner.content",
+        "old_value": "Indicates whether this component is an embellishment added during post-parsing processing _",
+        "new_value": "Indicates whether this component is an embellishment added during post-parsing processing",
+        "reason": "Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.",
+        "change_type": "one_liner_improvement"
+      }
+    ],
+    "summary": "Improved one-liners to start with 'The' where appropriate and removed periods to make them noun phrases instead of sentences."
+  },
+  "raw_results": "{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"The name of the component, not in camel case\",\n      \"reason\": \"Add article 'The' to the beginning of the one-liner to conform to the requirement that one-liners for Components should start with an article.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[1].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"The name of the component\",\n      \"new_value\": \"The name of the component\",\n      \"reason\": \"This one-liner already starts with 'The', so no change is needed.\",\n      \"change_type\": \"no_change\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[2].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"a short form of the component's name, used for cross references and improved readability.\",\n      \"new_value\": \"A short form of the component's name, used for cross references and improved readability\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"a short form of the component's name, used for cross references and improved readability.\",\n      \"new_value\": \"A short form of the component's name, used for cross references and improved readability\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[5].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"A more detailed explanation or discussion of the component _\",\n      \"new_value\": \"A more detailed explanation or discussion of the component\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[6].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[7].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[8].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[9].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[10].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"The name of the component\",\n      \"new_value\": \"The name of the component\",\n      \"reason\": \"This one-liner already starts with 'The', so no change is needed.\",\n      \"change_type\": \"no_change\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[11].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[12].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[13].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[14].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[15].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[16].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[17].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[18].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[19].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[20].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[21].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[22].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[23].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[24].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[25].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[26].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    }\n  ],\n  \"summary\": \"Improved one-liners to start with 'The' where appropriate and removed periods to make them noun phrases instead of sentences.\"\n}",
+  "response": {
+    "id": "gen-1755656527-fMjpMiT7RVhINqg3Pt2a",
+    "provider": "Alibaba",
+    "model": "qwen/qwen-turbo",
+    "object": "chat.completion",
+    "created": 1755656527,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].attributes[0].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"the name of the component, not in camel case\",\n      \"new_value\": \"The name of the component, not in camel case\",\n      \"reason\": \"Add article 'The' to the beginning of the one-liner to conform to the requirement that one-liners for Components should start with an article.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[1].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"The name of the component\",\n      \"new_value\": \"The name of the component\",\n      \"reason\": \"This one-liner already starts with 'The', so no change is needed.\",\n      \"change_type\": \"no_change\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[2].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"a short form of the component's name, used for cross references and improved readability.\",\n      \"new_value\": \"A short form of the component's name, used for cross references and improved readability\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[3].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"a short form of the component's name, used for cross references and improved readability.\",\n      \"new_value\": \"A short form of the component's name, used for cross references and improved readability\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[4].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents. _\",\n      \"new_value\": \"A brief, one-line definition or description of the component, suitable for use in a descriptive table of contents\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[5].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"A more detailed explanation or discussion of the component _\",\n      \"new_value\": \"A more detailed explanation or discussion of the component\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[6].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[7].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[8].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[9].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[10].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"The name of the component\",\n      \"new_value\": \"The name of the component\",\n      \"reason\": \"This one-liner already starts with 'The', so no change is needed.\",\n      \"change_type\": \"no_change\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[11].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[12].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[13].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[14].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[15].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[16].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[17].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[18].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[19].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[20].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[21].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[22].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[23].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[24].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[25].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    },\n    {\n      \"path\": \"subjects[0].classes[0].attributes[26].one_liner.content\",\n      \"model_path\": \"Component.one_liner.content\",\n      \"old_value\": \"Indicates whether this component is an embellishment added during post-parsing processing _\",\n      \"new_value\": \"Indicates whether this component is an embellishment added during post-parsing processing\",\n      \"reason\": \"Remove the period at the end of the one-liner to follow the best practice of using noun phrases instead of sentences.\",\n      \"change_type\": \"one_liner_improvement\"\n    }\n  ],\n  \"summary\": \"Improved one-liners to start with 'The' where appropriate and removed periods to make them noun phrases instead of sentences.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 66662,
+      "completion_tokens": 3370,
+      "total_tokens": 70032,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    }
+  }
+}

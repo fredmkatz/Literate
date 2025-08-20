@@ -1,0 +1,30 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "google/gemini-2.0-flash-exp:free",
+    "elapsed": 1.5,
+    "results_len": 0,
+    "rkeys": "dict_keys(['error', 'user_id'])",
+    "usage": null,
+    "costs": 0.0,
+    "error_msg": "Provider returned error",
+    "error_code": 429,
+    "changes": -1,
+    "parseing_notes": ""
+  },
+  "costs": 0.0,
+  "parsed": null,
+  "raw_results": "",
+  "response": {
+    "error": {
+      "message": "Provider returned error",
+      "code": 429,
+      "metadata": {
+        "raw": "google/gemini-2.0-flash-exp:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+        "provider_name": "Google"
+      }
+    },
+    "user_id": "user_30Lupzi8TB8FlubNsgvCn5FOGcH"
+  }
+}

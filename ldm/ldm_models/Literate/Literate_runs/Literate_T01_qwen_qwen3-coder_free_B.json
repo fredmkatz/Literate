@@ -1,0 +1,104 @@
+{
+  "run": {
+    "model": "Literate",
+    "task": "T01",
+    "llm": "qwen/qwen3-coder:free",
+    "elapsed": 14.0,
+    "results_len": 2695,
+    "rkeys": "dict_keys(['id', 'provider', 'model', 'object', 'created', 'choices', 'usage'])",
+    "usage": {
+      "prompt_tokens": 66658,
+      "completion_tokens": 631,
+      "total_tokens": 67289,
+      "prompt_tokens_details": null
+    },
+    "costs": 0.0,
+    "error_msg": "",
+    "error_code": "",
+    "changes": 6,
+    "parseing_notes": "UnPruned - "
+  },
+  "costs": 0.0,
+  "parsed": {
+    "response_type": "changes",
+    "changes": [
+      {
+        "path": "subjects[0].classes[0].one_liner.content",
+        "model_path": "Class_Component.one_liner.content",
+        "old_value": "An element or building block of the literate data model",
+        "new_value": "An element or building block of a literate data model",
+        "reason": "Improved article usage for better readability",
+        "change_type": "grammar"
+      },
+      {
+        "path": "subjects[0].classes[1].one_liner.content",
+        "model_path": "Class_AnnotationType.one_liner.content",
+        "old_value": "a kind of note, or aside, used to call attention to additional information about some Component.",
+        "new_value": "A kind of note or aside used to call attention to additional information about a Component",
+        "reason": "Improved article usage and removed trailing punctuation for consistency",
+        "change_type": "grammar"
+      },
+      {
+        "path": "subjects[0].classes[2].one_liner.content",
+        "model_path": "Class_Annotation.one_liner.content",
+        "old_value": "A note or comment associated with a model element",
+        "new_value": "A note or comment associated with a model element",
+        "reason": "No change needed - this one-liner is already well-formed",
+        "change_type": "no_change"
+      },
+      {
+        "path": "subjects[1].classes[0].one_liner.content",
+        "model_path": "Class_LiterateModel.one_liner.content",
+        "old_value": "A representation of a domain's entities, attributes, and relationships,\nalong with explanatory text and examples",
+        "new_value": "A representation of a domain's entities, attributes, and relationships, along with explanatory text and examples",
+        "reason": "Removed unnecessary line break for better formatting",
+        "change_type": "formatting"
+      },
+      {
+        "path": "subjects[1].classes[1].one_liner.content",
+        "model_path": "Class_Subject.one_liner.content",
+        "old_value": "A specific topic or theme within the model",
+        "new_value": "A specific topic or theme within a model",
+        "reason": "Improved article usage for better consistency",
+        "change_type": "grammar"
+      },
+      {
+        "path": "subjects[1].classes[2].one_liner.content",
+        "model_path": "Class_SubjectArea.one_liner.content",
+        "old_value": "A main topic or area of focus within the model, containing related subjects and classes",
+        "new_value": "A main topic or area of focus within a model, containing related subjects and classes",
+        "reason": "Improved article usage for better consistency",
+        "change_type": "grammar"
+      }
+    ],
+    "summary": "Improved article usage and formatting consistency in several class one-liners"
+  },
+  "raw_results": "{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].one_liner.content\",\n      \"model_path\": \"Class_Component.one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"An element or building block of a literate data model\",\n      \"reason\": \"Improved article usage for better readability\",\n      \"change_type\": \"grammar\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].one_liner.content\",\n      \"model_path\": \"Class_AnnotationType.one_liner.content\",\n      \"old_value\": \"a kind of note, or aside, used to call attention to additional information about some Component.\",\n      \"new_value\": \"A kind of note or aside used to call attention to additional information about a Component\",\n      \"reason\": \"Improved article usage and removed trailing punctuation for consistency\",\n      \"change_type\": \"grammar\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].one_liner.content\",\n      \"model_path\": \"Class_Annotation.one_liner.content\",\n      \"old_value\": \"A note or comment associated with a model element\",\n      \"new_value\": \"A note or comment associated with a model element\",\n      \"reason\": \"No change needed - this one-liner is already well-formed\",\n      \"change_type\": \"no_change\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].one_liner.content\",\n      \"model_path\": \"Class_LiterateModel.one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships,\\nalong with explanatory text and examples\",\n      \"new_value\": \"A representation of a domain's entities, attributes, and relationships, along with explanatory text and examples\",\n      \"reason\": \"Removed unnecessary line break for better formatting\",\n      \"change_type\": \"formatting\"\n    },\n    {\n      \"path\": \"subjects[1].classes[1].one_liner.content\",\n      \"model_path\": \"Class_Subject.one_liner.content\",\n      \"old_value\": \"A specific topic or theme within the model\",\n      \"new_value\": \"A specific topic or theme within a model\",\n      \"reason\": \"Improved article usage for better consistency\",\n      \"change_type\": \"grammar\"\n    },\n    {\n      \"path\": \"subjects[1].classes[2].one_liner.content\",\n      \"model_path\": \"Class_SubjectArea.one_liner.content\",\n      \"old_value\": \"A main topic or area of focus within the model, containing related subjects and classes\",\n      \"new_value\": \"A main topic or area of focus within a model, containing related subjects and classes\",\n      \"reason\": \"Improved article usage for better consistency\",\n      \"change_type\": \"grammar\"\n    }\n  ],\n  \"summary\": \"Improved article usage and formatting consistency in several class one-liners\"\n}",
+  "response": {
+    "id": "gen-1755656260-11ScKPfv68jACqEpovuh",
+    "provider": "Chutes",
+    "model": "qwen/qwen3-coder:free",
+    "object": "chat.completion",
+    "created": 1755656260,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"response_type\": \"changes\",\n  \"changes\": [\n    {\n      \"path\": \"subjects[0].classes[0].one_liner.content\",\n      \"model_path\": \"Class_Component.one_liner.content\",\n      \"old_value\": \"An element or building block of the literate data model\",\n      \"new_value\": \"An element or building block of a literate data model\",\n      \"reason\": \"Improved article usage for better readability\",\n      \"change_type\": \"grammar\"\n    },\n    {\n      \"path\": \"subjects[0].classes[1].one_liner.content\",\n      \"model_path\": \"Class_AnnotationType.one_liner.content\",\n      \"old_value\": \"a kind of note, or aside, used to call attention to additional information about some Component.\",\n      \"new_value\": \"A kind of note or aside used to call attention to additional information about a Component\",\n      \"reason\": \"Improved article usage and removed trailing punctuation for consistency\",\n      \"change_type\": \"grammar\"\n    },\n    {\n      \"path\": \"subjects[0].classes[2].one_liner.content\",\n      \"model_path\": \"Class_Annotation.one_liner.content\",\n      \"old_value\": \"A note or comment associated with a model element\",\n      \"new_value\": \"A note or comment associated with a model element\",\n      \"reason\": \"No change needed - this one-liner is already well-formed\",\n      \"change_type\": \"no_change\"\n    },\n    {\n      \"path\": \"subjects[1].classes[0].one_liner.content\",\n      \"model_path\": \"Class_LiterateModel.one_liner.content\",\n      \"old_value\": \"A representation of a domain's entities, attributes, and relationships,\\nalong with explanatory text and examples\",\n      \"new_value\": \"A representation of a domain's entities, attributes, and relationships, along with explanatory text and examples\",\n      \"reason\": \"Removed unnecessary line break for better formatting\",\n      \"change_type\": \"formatting\"\n    },\n    {\n      \"path\": \"subjects[1].classes[1].one_liner.content\",\n      \"model_path\": \"Class_Subject.one_liner.content\",\n      \"old_value\": \"A specific topic or theme within the model\",\n      \"new_value\": \"A specific topic or theme within a model\",\n      \"reason\": \"Improved article usage for better consistency\",\n      \"change_type\": \"grammar\"\n    },\n    {\n      \"path\": \"subjects[1].classes[2].one_liner.content\",\n      \"model_path\": \"Class_SubjectArea.one_liner.content\",\n      \"old_value\": \"A main topic or area of focus within the model, containing related subjects and classes\",\n      \"new_value\": \"A main topic or area of focus within a model, containing related subjects and classes\",\n      \"reason\": \"Improved article usage for better consistency\",\n      \"change_type\": \"grammar\"\n    }\n  ],\n  \"summary\": \"Improved article usage and formatting consistency in several class one-liners\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 66658,
+      "completion_tokens": 631,
+      "total_tokens": 67289,
+      "prompt_tokens_details": null
+    }
+  }
+}
